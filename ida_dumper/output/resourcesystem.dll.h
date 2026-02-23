@@ -1,9 +1,26 @@
-enum FuseVariableAccess_t : uint8_t {
+#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+#include "global_types.h"
+#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
+
+
+/// FuseVariableAccess_t
+_enum FuseVariableAccess_t0 : uint8_t {
     WRITABLE = 0,
     READ_ONLY = 1,
 };
 
-enum FuseVariableType_t : uint8_t {
+/// FuseVariableType_t
+_enum FuseVariableType_t0 : uint8_t {
     INVALID = 0,
     BOOL = 1,
     INT8 = 2,
@@ -15,321 +32,379 @@ enum FuseVariableType_t : uint8_t {
     FLOAT32 = 8,
 };
 
-class InfoForResourceTypeCTestResourceData {
+/// InfoForResourceTypeCTestResourceData
+class __declspec(align(1)) InfoForResourceTypeCTestResourceData0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeProceduralTestResource_t {
+/// InfoForResourceTypeProceduralTestResource_t
+class __declspec(align(1)) InfoForResourceTypeProceduralTestResource_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeManifestTestResource_t {
+/// InfoForResourceTypeManifestTestResource_t
+class __declspec(align(1)) InfoForResourceTypeManifestTestResource_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class ManifestTestResource_t {
+/// ManifestTestResource_t
+class __declspec(align(8)) ManifestTestResource_t0 {
 public:
     // CUtlString m_name;
     // CStrongHandle< InfoForResourceTypeManifestTestResource_t > m_child;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class InfoForResourceTypeCVDataResource {
+/// InfoForResourceTypeCVDataResource
+class __declspec(align(1)) InfoForResourceTypeCVDataResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIPulseGraphDef {
+/// InfoForResourceTypeIPulseGraphDef
+class __declspec(align(1)) InfoForResourceTypeIPulseGraphDef0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCTypeScriptResource {
+/// InfoForResourceTypeCTypeScriptResource
+class __declspec(align(1)) InfoForResourceTypeCTypeScriptResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCJavaScriptResource {
+/// InfoForResourceTypeCJavaScriptResource
+class __declspec(align(1)) InfoForResourceTypeCJavaScriptResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIParticleSystemDefinition {
+/// InfoForResourceTypeIParticleSystemDefinition
+class __declspec(align(1)) InfoForResourceTypeIParticleSystemDefinition0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIParticleSnapshot {
+/// InfoForResourceTypeIParticleSnapshot
+class __declspec(align(1)) InfoForResourceTypeIParticleSnapshot0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCAnimData {
+/// InfoForResourceTypeCAnimData
+class __declspec(align(1)) InfoForResourceTypeCAnimData0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCAnimationGroup {
+/// InfoForResourceTypeCAnimationGroup
+class __declspec(align(1)) InfoForResourceTypeCAnimationGroup0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCSequenceGroupData {
+/// InfoForResourceTypeCSequenceGroupData
+class __declspec(align(1)) InfoForResourceTypeCSequenceGroupData0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIMaterial2 {
+/// InfoForResourceTypeIMaterial2
+class __declspec(align(1)) InfoForResourceTypeIMaterial20 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCMorphSetData {
+/// InfoForResourceTypeCMorphSetData
+class __declspec(align(1)) InfoForResourceTypeCMorphSetData0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCRenderMesh {
+/// InfoForResourceTypeCRenderMesh
+class __declspec(align(1)) InfoForResourceTypeCRenderMesh0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCModel {
+/// InfoForResourceTypeCModel
+class __declspec(align(1)) InfoForResourceTypeCModel0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCTextureBase {
+/// InfoForResourceTypeCTextureBase
+class __declspec(align(1)) InfoForResourceTypeCTextureBase0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIVectorGraphic {
+/// InfoForResourceTypeIVectorGraphic
+class __declspec(align(1)) InfoForResourceTypeIVectorGraphic0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVSoundEventScriptList {
+/// InfoForResourceTypeCVSoundEventScriptList
+class __declspec(align(1)) InfoForResourceTypeCVSoundEventScriptList0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVSoundStackScriptList {
+/// InfoForResourceTypeCVSoundStackScriptList
+class __declspec(align(1)) InfoForResourceTypeCVSoundStackScriptList0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVoiceContainerBase {
+/// InfoForResourceTypeCVoiceContainerBase
+class __declspec(align(1)) InfoForResourceTypeCVoiceContainerBase0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVMixListResource {
+/// InfoForResourceTypeCVMixListResource
+class __declspec(align(1)) InfoForResourceTypeCVMixListResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPhysAggregateData {
+/// InfoForResourceTypeCPhysAggregateData
+class __declspec(align(1)) InfoForResourceTypeCPhysAggregateData0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVPhysXSurfacePropertiesList {
+/// InfoForResourceTypeCVPhysXSurfacePropertiesList
+class __declspec(align(1)) InfoForResourceTypeCVPhysXSurfacePropertiesList0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCEntityLump {
+/// InfoForResourceTypeCEntityLump
+class __declspec(align(1)) InfoForResourceTypeCEntityLump0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCWorldNode {
+/// InfoForResourceTypeCWorldNode
+class __declspec(align(1)) InfoForResourceTypeCWorldNode0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeWorld_t {
+/// InfoForResourceTypeWorld_t
+class __declspec(align(1)) InfoForResourceTypeWorld_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVoxelVisibility {
+/// InfoForResourceTypeCVoxelVisibility
+class __declspec(align(1)) InfoForResourceTypeCVoxelVisibility0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPostProcessingResource {
+/// InfoForResourceTypeCPostProcessingResource
+class __declspec(align(1)) InfoForResourceTypeCPostProcessingResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPanoramaStyle {
+/// InfoForResourceTypeCPanoramaStyle
+class __declspec(align(1)) InfoForResourceTypeCPanoramaStyle0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPanoramaLayout {
+/// InfoForResourceTypeCPanoramaLayout
+class __declspec(align(1)) InfoForResourceTypeCPanoramaLayout0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPanoramaDynamicImages {
+/// InfoForResourceTypeCPanoramaDynamicImages
+class __declspec(align(1)) InfoForResourceTypeCPanoramaDynamicImages0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCDotaItemDefinitionResource {
+/// InfoForResourceTypeCDotaItemDefinitionResource
+class __declspec(align(1)) InfoForResourceTypeCDotaItemDefinitionResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCDOTAPatchNotesList {
+/// InfoForResourceTypeCDOTAPatchNotesList
+class __declspec(align(1)) InfoForResourceTypeCDOTAPatchNotesList0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCDOTANovelsList {
+/// InfoForResourceTypeCDOTANovelsList
+class __declspec(align(1)) InfoForResourceTypeCDOTANovelsList0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIAnimGraphModelBinding {
+/// InfoForResourceTypeIAnimGraphModelBinding
+class __declspec(align(1)) InfoForResourceTypeIAnimGraphModelBinding0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCChoreoSceneResource {
+/// InfoForResourceTypeCChoreoSceneResource
+class __declspec(align(1)) InfoForResourceTypeCChoreoSceneResource0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCCompositeMaterialKit {
+/// InfoForResourceTypeCCompositeMaterialKit
+class __declspec(align(1)) InfoForResourceTypeCCompositeMaterialKit0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCGcExportableExternalData {
+/// InfoForResourceTypeCGcExportableExternalData
+class __declspec(align(1)) InfoForResourceTypeCGcExportableExternalData0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCSmartProp {
+/// InfoForResourceTypeCSmartProp
+class __declspec(align(1)) InfoForResourceTypeCSmartProp0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCCSGOEconItem {
+/// InfoForResourceTypeCCSGOEconItem
+class __declspec(align(1)) InfoForResourceTypeCCSGOEconItem0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCResponseRulesList {
+/// InfoForResourceTypeCResponseRulesList
+class __declspec(align(1)) InfoForResourceTypeCResponseRulesList0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmSkeleton {
+/// InfoForResourceTypeCNmSkeleton
+class __declspec(align(1)) InfoForResourceTypeCNmSkeleton0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmClip {
+/// InfoForResourceTypeCNmClip
+class __declspec(align(1)) InfoForResourceTypeCNmClip0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmGraphDefinition {
+/// InfoForResourceTypeCNmGraphDefinition
+class __declspec(align(1)) InfoForResourceTypeCNmGraphDefinition0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmIKRig {
+/// InfoForResourceTypeCNmIKRig
+class __declspec(align(1)) InfoForResourceTypeCNmIKRig0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCSurfaceGraph {
+/// InfoForResourceTypeCSurfaceGraph
+class __declspec(align(1)) InfoForResourceTypeCSurfaceGraph0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class AABB_t {
+/// AABB_t
+class __declspec(align(4)) AABB_t0 {
 public:
-    Vector m_vMinBounds;
-    Vector m_vMaxBounds;
-};
+    Vector m_vMinBounds; // 0x0
+    Vector m_vMaxBounds; // 0xc
+}; // size: 0x18
 
-class PackedAABB_t {
+/// PackedAABB_t
+class __declspec(align(4)) PackedAABB_t0 {
 public:
-    uint32_t m_nPackedMin;
-    uint32_t m_nPackedMax;
-};
+    uint32_t m_nPackedMin; // 0x0
+    uint32_t m_nPackedMax; // 0x4
+}; // size: 0x8
 
-class FourQuaternions {
+/// FourQuaternions
+class __declspec(align(1)) FourQuaternions0 {
 public:
     // fltx4 x;
     // fltx4 y;
     // fltx4 z;
     // fltx4 w;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class FuseVariableIndex_t {
+/// FuseVariableIndex_t
+class __declspec(align(2)) FuseVariableIndex_t0 {
 public:
-    uint16_t m_Value;
-};
+    uint16_t m_Value; // 0x0
+}; // size: 0x2
 
-class FuseFunctionIndex_t {
+/// FuseFunctionIndex_t
+class __declspec(align(2)) FuseFunctionIndex_t0 {
 public:
-    uint16_t m_Value;
-};
+    uint16_t m_Value; // 0x0
+}; // size: 0x2
 
-class ConstantInfo_t {
-public:
-    // CUtlString m_name;
-    // CUtlStringToken m_nameToken;
-    char pad_00[12];
-    float m_flValue;
-};
-
-class VariableInfo_t {
+/// ConstantInfo_t
+class __declspec(align(8)) ConstantInfo_t0 {
 public:
     // CUtlString m_name;
     // CUtlStringToken m_nameToken;
     char pad_00[12];
-    FuseVariableIndex_t m_nIndex;
-    uint8_t m_nNumComponents;
-    FuseVariableType_t m_eVarType;
-    FuseVariableAccess_t m_eAccess;
+    float m_flValue; // 0xc
+}; // size: 0x10
+
+/// VariableInfo_t
+class __declspec(align(8)) VariableInfo_t0 {
+public:
+    // CUtlString m_name;
+    // CUtlStringToken m_nameToken;
+    char pad_00[12];
+    FuseVariableIndex_t m_nIndex; // 0xc
+    uint8_t m_nNumComponents; // 0xe
+    FuseVariableType_t m_eVarType; // 0xf
+    FuseVariableAccess_t m_eAccess; // 0x10
     char pad_01[7];
-};
+}; // size: 0x18
 
-class FunctionInfo_t {
+/// FunctionInfo_t
+class __declspec(align(8)) FunctionInfo_t0 {
 public:
     // CUtlString m_name;
     // CUtlStringToken m_nameToken;
     char pad_00[20];
-    int32_t m_nParamCount;
-    FuseFunctionIndex_t m_nIndex;
-    bool m_bIsPure;
+    int32_t m_nParamCount; // 0x14
+    FuseFunctionIndex_t m_nIndex; // 0x18
+    bool m_bIsPure; // 0x1a
     char pad_01[5];
-};
+}; // size: 0x20
 
-class CFuseProgram {
+/// CFuseProgram
+class __declspec(align(8)) CFuseProgram0 {
 public:
     // CUtlVector< uint8 > m_programBuffer;
     // CUtlVector< FuseVariableIndex_t > m_variablesRead;
     // CUtlVector< FuseVariableIndex_t > m_variablesWritten;
     char pad_00[72];
-    int32_t m_nMaxTempVarsUsed;
+    int32_t m_nMaxTempVarsUsed; // 0x48
     char pad_01[4];
-};
+}; // size: 0x50
 
-class CFuseSymbolTable {
+/// CFuseSymbolTable
+class __declspec(align(8)) CFuseSymbolTable0 {
 public:
     // CUtlVector< ConstantInfo_t > m_constants;
     // CUtlVector< VariableInfo_t > m_variables;
@@ -338,5 +413,8 @@ public:
     // CUtlHashtable< CUtlStringToken, int32 > m_variableMap;
     // CUtlHashtable< CUtlStringToken, int32 > m_functionMap;
     char pad_00[176];
-};
+}; // size: 0xb0
 
+#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus

@@ -1,147 +1,181 @@
-class SteamAudioReverbSettings_t {
-public:
-    int32_t m_nNumRays;
-    int32_t m_nNumBounces;
-    float m_flIRDuration;
-    int32_t m_nAmbisonicsOrder;
-};
+#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+#include "global_types.h"
+#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
 
-class SteamAudioReverbClusteringSettings_t {
-public:
-    bool m_bEnableClustering;
-    int32_t m_nCubeMapResolution;
-    float m_flDepthThreshold;
-};
 
-class SteamAudioReverbCompressionSettings_t {
+/// SteamAudioReverbSettings_t
+class __declspec(align(4)) SteamAudioReverbSettings_t0 {
 public:
-    bool m_bEnableCompression;
-    float m_flQuality;
-};
+    int32_t m_nNumRays; // 0x0
+    int32_t m_nNumBounces; // 0x4
+    float m_flIRDuration; // 0x8
+    int32_t m_nAmbisonicsOrder; // 0xc
+}; // size: 0x10
 
-class SteamAudioPathSettings_t {
+/// SteamAudioReverbClusteringSettings_t
+class __declspec(align(4)) SteamAudioReverbClusteringSettings_t0 {
 public:
-    int32_t m_nNumVisSamples;
-    float m_flProbeVisRadius;
-    float m_flProbeVisThreshold;
-    float m_flProbePathRange;
-};
+    bool m_bEnableClustering; // 0x0
+    int32_t m_nCubeMapResolution; // 0x4
+    float m_flDepthThreshold; // 0x8
+}; // size: 0xc
 
-class SteamAudioCustomDataOcclusionSettings_t {
+/// SteamAudioReverbCompressionSettings_t
+class __declspec(align(4)) SteamAudioReverbCompressionSettings_t0 {
 public:
-    bool m_bEnablePathing;
-    bool m_bEnableReflections;
-    int32_t m_nReflectionRays;
-    int32_t m_nReflectionBounces;
-};
+    bool m_bEnableCompression; // 0x0
+    float m_flQuality; // 0x4
+}; // size: 0x8
 
-class SteamAudioCustomDataDimensionsSettings_t {
+/// SteamAudioPathSettings_t
+class __declspec(align(4)) SteamAudioPathSettings_t0 {
 public:
-    int32_t m_nAmbisonicsOrderOutsideField;
-    int32_t m_nAmbisonicsOrderInsideSizeField;
-    float m_flOutsideThreshold;
-    float m_flSizeThreshold;
-    float m_flInsideThreshold;
-};
+    int32_t m_nNumVisSamples; // 0x0
+    float m_flProbeVisRadius; // 0x4
+    float m_flProbeVisThreshold; // 0x8
+    float m_flProbePathRange; // 0xc
+}; // size: 0x10
 
-class CSteamAudioProbeData {
+/// SteamAudioCustomDataOcclusionSettings_t
+class __declspec(align(4)) SteamAudioCustomDataOcclusionSettings_t0 {
+public:
+    bool m_bEnablePathing; // 0x0
+    bool m_bEnableReflections; // 0x1
+    int32_t m_nReflectionRays; // 0x4
+    int32_t m_nReflectionBounces; // 0x8
+}; // size: 0xc
+
+/// SteamAudioCustomDataDimensionsSettings_t
+class __declspec(align(4)) SteamAudioCustomDataDimensionsSettings_t0 {
+public:
+    int32_t m_nAmbisonicsOrderOutsideField; // 0x0
+    int32_t m_nAmbisonicsOrderInsideSizeField; // 0x4
+    float m_flOutsideThreshold; // 0x8
+    float m_flSizeThreshold; // 0xc
+    float m_flInsideThreshold; // 0x10
+}; // size: 0x14
+
+/// CSteamAudioProbeData
+class __declspec(align(8)) CSteamAudioProbeData0 {
 public:
     // IPLProbeBatch m_pProbeBatch;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CSteamAudioProbeLineSegment {
+/// CSteamAudioProbeLineSegment
+class __declspec(align(8)) CSteamAudioProbeLineSegment0 {
 public:
-    Vector m_vStart;
-    Vector m_vEnd;
+    Vector m_vStart; // 0x0
+    Vector m_vEnd; // 0xc
     // CUtlVector< float32 > m_vecIntervals;
     // CUtlVector< int32 > m_vecProbeIndices;
     char pad_00[48];
-};
+}; // size: 0x48
 
-class CSteamAudioProbeGrid {
+/// CSteamAudioProbeGrid
+class __declspec(align(8)) CSteamAudioProbeGrid0 {
 public:
-    AABB_t m_aabb;
-    float m_flSpacing;
-    int32_t m_nx;
-    int32_t m_ny;
-    int32_t m_nz;
+    AABB_t m_aabb; // 0x0
+    float m_flSpacing; // 0x18
+    int32_t m_nx; // 0x1c
+    int32_t m_ny; // 0x20
+    int32_t m_nz; // 0x24
     // CUtlVector< CSteamAudioProbeLineSegment > m_vecLineSegments;
     // CUtlVector< Vector > m_vecProbes;
     char pad_00[48];
-};
+}; // size: 0x58
 
-class CSteamAudioCompressedReverb {
+/// CSteamAudioCompressedReverb
+class __declspec(align(8)) CSteamAudioCompressedReverb0 {
 public:
-    int32_t m_nChannels;
-    int32_t m_nBands;
-    int32_t m_nBins;
-    int32_t m_nProbes;
+    int32_t m_nChannels; // 0x0
+    int32_t m_nBands; // 0x4
+    int32_t m_nBins; // 0x8
+    int32_t m_nProbes; // 0xc
     // CUtlVector< int32 > m_vecNumSingularValues;
     // CUtlVector< float32 > m_vecDictionary;
     // CUtlVector< float32 > m_vecCompressedData;
     // IPLCompressedEnergyFields m_pCompressedData;
     char pad_00[80];
-};
+}; // size: 0x60
 
-class CSteamAudioBakedReverbData {
+/// CSteamAudioBakedReverbData
+class __declspec(align(8)) CSteamAudioBakedReverbData0 {
 public:
-    int32_t m_nBands;
-    CSteamAudioProbeData m_probes;
-    CSteamAudioProbeGrid m_grid;
-    SteamAudioReverbSettings_t m_reverbSettings;
-    SteamAudioReverbClusteringSettings_t m_reverbClusteringSettings;
-    SteamAudioReverbCompressionSettings_t m_reverbCompressionSettings;
-    CSteamAudioProbeData m_clusteredProbes;
+    int32_t m_nBands; // 0x0
+    CSteamAudioProbeData m_probes; // 0x8
+    CSteamAudioProbeGrid m_grid; // 0x10
+    SteamAudioReverbSettings_t m_reverbSettings; // 0x68
+    SteamAudioReverbClusteringSettings_t m_reverbClusteringSettings; // 0x78
+    SteamAudioReverbCompressionSettings_t m_reverbCompressionSettings; // 0x84
+    CSteamAudioProbeData m_clusteredProbes; // 0x90
     // CUtlVector< int16 > m_vecClusterForProbe;
     char pad_00[24];
-    CSteamAudioCompressedReverb m_compressedData;
-    CSteamAudioCompressedReverb m_compressedClusteredData;
+    CSteamAudioCompressedReverb m_compressedData; // 0xb0
+    CSteamAudioCompressedReverb m_compressedClusteredData; // 0x110
     // CSteamAudioMovableBakedData< CSteamAudioBakedReverbData > m_movables;
     char pad_01[168];
-};
+}; // size: 0x218
 
-class CSteamAudioBakedPathingData {
+/// CSteamAudioBakedPathingData
+class __declspec(align(8)) CSteamAudioBakedPathingData0 {
 public:
-    int32_t m_nBands;
-    CSteamAudioProbeData m_probes;
+    int32_t m_nBands; // 0x0
+    CSteamAudioProbeData m_probes; // 0x8
     // CSteamAudioMovableBakedData< CSteamAudioBakedPathingData > m_movables;
     char pad_00[168];
-};
+}; // size: 0xb8
 
-class CSteamAudioAmbisonicsField {
+/// CSteamAudioAmbisonicsField
+class __declspec(align(8)) CSteamAudioAmbisonicsField0 {
 public:
     // CUtlVector< float32 > m_field;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CSteamAudioBakedDimensionsData {
+/// CSteamAudioBakedDimensionsData
+class __declspec(align(8)) CSteamAudioBakedDimensionsData0 {
 public:
-    SteamAudioCustomDataDimensionsSettings_t m_settings;
-    CSteamAudioProbeData m_probes;
+    SteamAudioCustomDataDimensionsSettings_t m_settings; // 0x0
+    CSteamAudioProbeData m_probes; // 0x18
     // CUtlVector< float32 > m_vecInOut;
     // CUtlVector< float32 > m_vecSize;
     // CUtlVector< CSteamAudioAmbisonicsField > m_vecOutsideField;
     // CUtlVector< CSteamAudioAmbisonicsField > m_vecInsideSmallSizeField;
     // CSteamAudioMovableBakedData< CSteamAudioBakedDimensionsData > m_movables;
     char pad_00[264];
-};
+}; // size: 0x128
 
-class CSteamAudioBakedMaterialsData {
+/// CSteamAudioBakedMaterialsData
+class __declspec(align(8)) CSteamAudioBakedMaterialsData0 {
 public:
-    CSteamAudioProbeData m_probes;
+    CSteamAudioProbeData m_probes; // 0x0
     // CUtlVector< uint32 > m_vecMaterialTokens;
     // CUtlVector< float32 > m_vecMaterialWeights;
     char pad_00[48];
-};
+}; // size: 0x38
 
-class CSteamAudioBakedOcclusionData {
+/// CSteamAudioBakedOcclusionData
+class __declspec(align(8)) CSteamAudioBakedOcclusionData0 {
 public:
-    SteamAudioCustomDataOcclusionSettings_t m_settings;
-    CSteamAudioProbeData m_probes;
+    SteamAudioCustomDataOcclusionSettings_t m_settings; // 0x0
+    CSteamAudioProbeData m_probes; // 0x10
     // CUtlVector< float32 > m_vecPathingRatio;
     // CUtlVector< float32 > m_vecPathingDeviation;
     // CUtlVector< float32 > m_vecReflectionRatio;
     char pad_00[72];
-};
+}; // size: 0x60
 
+#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus

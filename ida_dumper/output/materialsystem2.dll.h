@@ -1,80 +1,108 @@
-enum HorizJustification_e : uint32_t {
+#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+#include "global_types.h"
+#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
+
+
+/// HorizJustification_e
+_enum HorizJustification_e0 : uint32_t {
     HORIZ_JUSTIFICATION_LEFT = 0,
     HORIZ_JUSTIFICATION_CENTER = 1,
     HORIZ_JUSTIFICATION_RIGHT = 2,
     HORIZ_JUSTIFICATION_NONE = 3,
 };
 
-enum VertJustification_e : uint32_t {
+/// VertJustification_e
+_enum VertJustification_e0 : uint32_t {
     VERT_JUSTIFICATION_TOP = 0,
     VERT_JUSTIFICATION_CENTER = 1,
     VERT_JUSTIFICATION_BOTTOM = 2,
     VERT_JUSTIFICATION_NONE = 3,
 };
 
-enum LayoutPositionType_e : uint32_t {
+/// LayoutPositionType_e
+_enum LayoutPositionType_e0 : uint32_t {
     LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE = 0,
     LAYOUTPOSITIONTYPE_FRACTIONAL = 1,
     LAYOUTPOSITIONTYPE_NONE = 2,
 };
 
-enum BloomBlendMode_t : uint32_t {
+/// BloomBlendMode_t
+_enum BloomBlendMode_t0 : uint32_t {
     BLOOM_BLEND_ADD = 0,
     BLOOM_BLEND_SCREEN = 1,
     BLOOM_BLEND_BLUR = 2,
 };
 
-enum ViewFadeMode_t : uint32_t {
+/// ViewFadeMode_t
+_enum ViewFadeMode_t0 : uint32_t {
     VIEW_FADE_CONSTANT_COLOR = 0,
     VIEW_FADE_MODULATE = 1,
     VIEW_FADE_MOD2X = 2,
 };
 
-class MaterialParam_t {
+/// MaterialParam_t
+class __declspec(align(8)) MaterialParam_t0 {
 public:
     // CUtlString m_name;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class MaterialParamInt_t {
+/// MaterialParamInt_t
+class __declspec(align(8)) MaterialParamInt_t0 {
 public:
     char pad_00[8];
-    int32_t m_nValue;
+    int32_t m_nValue; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class MaterialParamFloat_t {
+/// MaterialParamFloat_t
+class __declspec(align(8)) MaterialParamFloat_t0 {
 public:
     char pad_00[8];
-    float m_flValue;
+    float m_flValue; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class MaterialParamVector_t {
+/// MaterialParamVector_t
+class __declspec(align(8)) MaterialParamVector_t0 {
 public:
     char pad_00[8];
-    Vector4D m_value;
-};
+    Vector4D m_value; // 0x8
+}; // size: 0x18
 
-class MaterialParamTexture_t {
+/// MaterialParamTexture_t
+class __declspec(align(8)) MaterialParamTexture_t0 {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pValue;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class MaterialParamString_t {
+/// MaterialParamString_t
+class __declspec(align(8)) MaterialParamString_t0 {
 public:
     // CUtlString m_value;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class MaterialParamBuffer_t {
+/// MaterialParamBuffer_t
+class __declspec(align(8)) MaterialParamBuffer_t0 {
 public:
     // CUtlBinaryBlock m_value;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class MaterialResourceData_t {
+/// MaterialResourceData_t
+class __declspec(align(8)) MaterialResourceData_t0 {
 public:
     // CUtlString m_materialName;
     // CUtlString m_shaderName;
@@ -91,91 +119,100 @@ public:
     // CUtlVector< MaterialParamString_t > m_stringAttributes;
     // CUtlVector< CUtlString > m_renderAttributesUsed;
     char pad_00[304];
-};
+}; // size: 0x130
 
-class PostProcessingTonemapParameters_t {
+/// PostProcessingTonemapParameters_t
+class __declspec(align(4)) PostProcessingTonemapParameters_t0 {
 public:
-    float m_flExposureBias;
-    float m_flShoulderStrength;
-    float m_flLinearStrength;
-    float m_flLinearAngle;
-    float m_flToeStrength;
-    float m_flToeNum;
-    float m_flToeDenom;
-    float m_flWhitePoint;
-    float m_flLuminanceSource;
-    float m_flExposureBiasShadows;
-    float m_flExposureBiasHighlights;
-    float m_flMinShadowLum;
-    float m_flMaxShadowLum;
-    float m_flMinHighlightLum;
-    float m_flMaxHighlightLum;
-};
+    float m_flExposureBias; // 0x0
+    float m_flShoulderStrength; // 0x4
+    float m_flLinearStrength; // 0x8
+    float m_flLinearAngle; // 0xc
+    float m_flToeStrength; // 0x10
+    float m_flToeNum; // 0x14
+    float m_flToeDenom; // 0x18
+    float m_flWhitePoint; // 0x1c
+    float m_flLuminanceSource; // 0x20
+    float m_flExposureBiasShadows; // 0x24
+    float m_flExposureBiasHighlights; // 0x28
+    float m_flMinShadowLum; // 0x2c
+    float m_flMaxShadowLum; // 0x30
+    float m_flMinHighlightLum; // 0x34
+    float m_flMaxHighlightLum; // 0x38
+}; // size: 0x3c
 
-class PostProcessingBloomParameters_t {
+/// PostProcessingBloomParameters_t
+class __declspec(align(4)) PostProcessingBloomParameters_t0 {
 public:
-    BloomBlendMode_t m_blendMode;
-    float m_flBloomStrength;
-    float m_flScreenBloomStrength;
-    float m_flBlurBloomStrength;
-    float m_flBloomThreshold;
-    float m_flBloomThresholdWidth;
-    float m_flSkyboxBloomStrength;
-    float m_flBloomStartValue;
-    float m_flComputeBloomStrength;
-    float m_flComputeBloomThreshold;
-    float m_flComputeBloomRadius;
-    float m_flComputeBloomEffectsScale;
-    float m_flComputeBloomLensDirtStrength;
-    float m_flComputeBloomLensDirtBlackLevel;
-    float m_flBlurWeight[5];
-    Vector m_vBlurTint;
+    BloomBlendMode_t m_blendMode; // 0x0
+    float m_flBloomStrength; // 0x4
+    float m_flScreenBloomStrength; // 0x8
+    float m_flBlurBloomStrength; // 0xc
+    float m_flBloomThreshold; // 0x10
+    float m_flBloomThresholdWidth; // 0x14
+    float m_flSkyboxBloomStrength; // 0x18
+    float m_flBloomStartValue; // 0x1c
+    float m_flComputeBloomStrength; // 0x20
+    float m_flComputeBloomThreshold; // 0x24
+    float m_flComputeBloomRadius; // 0x28
+    float m_flComputeBloomEffectsScale; // 0x2c
+    float m_flComputeBloomLensDirtStrength; // 0x30
+    float m_flComputeBloomLensDirtBlackLevel; // 0x34
+    float m_flBlurWeight[5]; // 0x38
+    Vector m_vBlurTint; // 0x4c
     char pad_00[48];
-};
+}; // size: 0x88
 
-class PostProcessingVignetteParameters_t {
+/// PostProcessingVignetteParameters_t
+class __declspec(align(4)) PostProcessingVignetteParameters_t0 {
 public:
-    float m_flVignetteStrength;
-    Vector2D m_vCenter;
-    float m_flRadius;
-    float m_flRoundness;
-    float m_flFeather;
-    Vector m_vColorTint;
-};
+    float m_flVignetteStrength; // 0x0
+    Vector2D m_vCenter; // 0x4
+    float m_flRadius; // 0xc
+    float m_flRoundness; // 0x10
+    float m_flFeather; // 0x14
+    Vector m_vColorTint; // 0x18
+}; // size: 0x24
 
-class PostProcessingLocalContrastParameters_t {
+/// PostProcessingLocalContrastParameters_t
+class __declspec(align(4)) PostProcessingLocalContrastParameters_t0 {
 public:
-    float m_flLocalContrastStrength;
-    float m_flLocalContrastEdgeStrength;
-    float m_flLocalContrastVignetteStart;
-    float m_flLocalContrastVignetteEnd;
-    float m_flLocalContrastVignetteBlur;
-};
+    float m_flLocalContrastStrength; // 0x0
+    float m_flLocalContrastEdgeStrength; // 0x4
+    float m_flLocalContrastVignetteStart; // 0x8
+    float m_flLocalContrastVignetteEnd; // 0xc
+    float m_flLocalContrastVignetteBlur; // 0x10
+}; // size: 0x14
 
-class PostProcessingFogScatteringParameters_t {
+/// PostProcessingFogScatteringParameters_t
+class __declspec(align(4)) PostProcessingFogScatteringParameters_t0 {
 public:
-    float m_fRadius;
-    float m_fScale;
-    float m_fCubemapScale;
-    float m_fVolumetricScale;
-    float m_fGradientScale;
-};
+    float m_fRadius; // 0x0
+    float m_fScale; // 0x4
+    float m_fCubemapScale; // 0x8
+    float m_fVolumetricScale; // 0xc
+    float m_fGradientScale; // 0x10
+}; // size: 0x14
 
-class PostProcessingResource_t {
+/// PostProcessingResource_t
+class __declspec(align(8)) PostProcessingResource_t0 {
 public:
-    bool m_bHasTonemapParams;
-    PostProcessingTonemapParameters_t m_toneMapParams;
-    bool m_bHasBloomParams;
-    PostProcessingBloomParameters_t m_bloomParams;
-    bool m_bHasVignetteParams;
-    PostProcessingVignetteParameters_t m_vignetteParams;
-    bool m_bHasLocalContrastParams;
-    PostProcessingLocalContrastParameters_t m_localConstrastParams;
-    int32_t m_nColorCorrectionVolumeDim;
+    bool m_bHasTonemapParams; // 0x0
+    PostProcessingTonemapParameters_t m_toneMapParams; // 0x4
+    bool m_bHasBloomParams; // 0x40
+    PostProcessingBloomParameters_t m_bloomParams; // 0x44
+    bool m_bHasVignetteParams; // 0xcc
+    PostProcessingVignetteParameters_t m_vignetteParams; // 0xd0
+    bool m_bHasLocalContrastParams; // 0xf4
+    PostProcessingLocalContrastParameters_t m_localConstrastParams; // 0xf8
+    int32_t m_nColorCorrectionVolumeDim; // 0x10c
     // CUtlBinaryBlock m_colorCorrectionVolumeData;
     char pad_00[16];
-    bool m_bHasColorCorrection;
-    bool m_bHasFogScatteringParams;
-    PostProcessingFogScatteringParameters_t m_fogScatteringParams;
-};
+    bool m_bHasColorCorrection; // 0x120
+    bool m_bHasFogScatteringParams; // 0x121
+    PostProcessingFogScatteringParameters_t m_fogScatteringParams; // 0x124
+}; // size: 0x138
 
+#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus

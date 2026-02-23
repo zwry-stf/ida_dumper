@@ -34,7 +34,7 @@ struct CSchemaClassData {
     std::uint32_t class_size; // 0x18
     std::uint16_t field_size; // 0x1c
     char pad02[0x2]; // 0x1e
-    std::uint8_t alignment; // 0x20
+    std::int8_t alignment; // 0x20
     char pad03[3]; // 0x21
     std::uint8_t base_class_count; // 0x24
     CSchemaFieldData* fields; // 0x28

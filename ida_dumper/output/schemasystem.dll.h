@@ -1,10 +1,27 @@
-enum ThreeState_t : uint32_t {
+#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+#include "global_types.h"
+#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
+
+
+/// ThreeState_t
+_enum ThreeState_t0 : uint32_t {
     TRS_FALSE = 0,
     TRS_TRUE = 1,
     TRS_NONE = 2,
 };
 
-enum fieldtype_t : uint8_t {
+/// fieldtype_t
+_enum fieldtype_t0 : uint8_t {
     FIELD_VOID = 0,
     FIELD_FLOAT32 = 1,
     FIELD_STRING = 2,
@@ -89,15 +106,16 @@ enum fieldtype_t : uint8_t {
     FIELD_TYPECOUNT = 81,
 };
 
-class CSchemaSystemInternalRegistration {
+/// CSchemaSystemInternalRegistration
+class __declspec(align(4)) CSchemaSystemInternalRegistration0 {
 public:
-    Vector2D m_Vector2D;
-    Vector m_Vector;
+    Vector2D m_Vector2D; // 0x0
+    Vector m_Vector; // 0x8
     // VectorWS m_VectorWS;
     // VectorAligned m_VectorAligned;
     // Quaternion m_Quaternion;
     char pad_00[44];
-    QAngle m_QAngle;
+    QAngle m_QAngle; // 0x40
     // RotationVector m_RotationVector;
     // RadianEuler m_RadianEuler;
     // DegreeEuler m_DegreeEuler;
@@ -106,7 +124,7 @@ public:
     // matrix3x4a_t m_matrix3x4a_t;
     // Color m_Color;
     char pad_01[152];
-    Vector4D m_Vector4D;
+    Vector4D m_Vector4D; // 0xe4
     // CTransform m_CTransform;
     // KeyValues* m_pKeyValues;
     // CUtlBinaryBlock m_CUtlBinaryBlock;
@@ -117,42 +135,51 @@ public:
     // CResourceArray< CResourcePointer< CResourceString > > m_ResourceTypes;
     // KeyValues3 m_KV3;
     char pad_02[140];
-};
+}; // size: 0x180
 
-class InfoForResourceTypeCResourceManifestInternal {
+/// InfoForResourceTypeCResourceManifestInternal
+class __declspec(align(1)) InfoForResourceTypeCResourceManifestInternal0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class ResourceId_t {
+/// ResourceId_t
+class __declspec(align(8)) ResourceId_t0 {
 public:
-    uint64_t m_Value;
-};
+    uint64_t m_Value; // 0x0
+}; // size: 0x8
 
-class CExampleSchemaVData_Monomorphic {
+/// CExampleSchemaVData_Monomorphic
+class __declspec(align(4)) CExampleSchemaVData_Monomorphic0 {
 public:
-    int32_t m_nExample1;
-    int32_t m_nExample2;
-};
+    int32_t m_nExample1; // 0x0
+    int32_t m_nExample2; // 0x4
+}; // size: 0x8
 
-class CExampleSchemaVData_PolymorphicBase {
+/// CExampleSchemaVData_PolymorphicBase
+class __declspec(align(8)) CExampleSchemaVData_PolymorphicBase0 {
 public:
     char pad_00[8];
-    int32_t m_nBase;
+    int32_t m_nBase; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CExampleSchemaVData_PolymorphicDerivedA {
+/// CExampleSchemaVData_PolymorphicDerivedA
+class __declspec(align(8)) CExampleSchemaVData_PolymorphicDerivedA0 {
 public:
     char pad_00[16];
-    int32_t m_nDerivedA;
+    int32_t m_nDerivedA; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CExampleSchemaVData_PolymorphicDerivedB {
+/// CExampleSchemaVData_PolymorphicDerivedB
+class __declspec(align(8)) CExampleSchemaVData_PolymorphicDerivedB0 {
 public:
     char pad_00[16];
-    int32_t m_nDerivedB;
+    int32_t m_nDerivedB; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
+#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus

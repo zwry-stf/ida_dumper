@@ -1,10 +1,24 @@
-enum ThreeState_t : uint32_t {
+#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
+
+
+_enum ThreeState_t : uint32_t {
     TRS_FALSE = 0,
     TRS_TRUE = 1,
     TRS_NONE = 2,
 };
 
-enum fieldtype_t : uint8_t {
+_enum fieldtype_t : uint8_t {
     FIELD_VOID = 0,
     FIELD_FLOAT32 = 1,
     FIELD_STRING = 2,
@@ -89,12 +103,12 @@ enum fieldtype_t : uint8_t {
     FIELD_TYPECOUNT = 81,
 };
 
-enum FuseVariableAccess_t : uint8_t {
+_enum FuseVariableAccess_t : uint8_t {
     WRITABLE = 0,
     READ_ONLY = 1,
 };
 
-enum FuseVariableType_t : uint8_t {
+_enum FuseVariableType_t : uint8_t {
     INVALID = 0,
     BOOL = 1,
     INT8 = 2,
@@ -106,20 +120,20 @@ enum FuseVariableType_t : uint8_t {
     FLOAT32 = 8,
 };
 
-enum RenderSlotType_t : uint8_t {
+_enum RenderSlotType_t : uint8_t {
     RENDER_SLOT_INVALID = 255,
     RENDER_SLOT_PER_VERTEX = 0,
     RENDER_SLOT_PER_INSTANCE = 1,
 };
 
-enum InputLayoutVariation_t : uint8_t {
+_enum InputLayoutVariation_t : uint8_t {
     INPUT_LAYOUT_VARIATION_DEFAULT = 0,
     INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID = 1,
     INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID_MORPH_VERT_ID = 2,
     INPUT_LAYOUT_VARIATION_MAX = 3,
 };
 
-enum RenderMultisampleType_t : uint8_t {
+_enum RenderMultisampleType_t : uint8_t {
     RENDER_MULTISAMPLE_INVALID = 255,
     RENDER_MULTISAMPLE_NONE = 0,
     RENDER_MULTISAMPLE_2X = 1,
@@ -130,12 +144,12 @@ enum RenderMultisampleType_t : uint8_t {
     RENDER_MULTISAMPLE_TYPE_COUNT = 6,
 };
 
-enum RsFillMode_t : uint8_t {
+_enum RsFillMode_t : uint8_t {
     RS_FILL_SOLID = 0,
     RS_FILL_WIREFRAME = 1,
 };
 
-enum RsComparison_t : uint8_t {
+_enum RsComparison_t : uint8_t {
     RS_CMP_NEVER = 0,
     RS_CMP_LESS = 1,
     RS_CMP_EQUAL = 2,
@@ -146,13 +160,13 @@ enum RsComparison_t : uint8_t {
     RS_CMP_ALWAYS = 7,
 };
 
-enum RsCullMode_t : uint8_t {
+_enum RsCullMode_t : uint8_t {
     RS_CULL_NONE = 0,
     RS_CULL_BACK = 1,
     RS_CULL_FRONT = 2,
 };
 
-enum RenderBufferFlags_t : uint32_t {
+_enum RenderBufferFlags_t : uint32_t {
     RENDER_BUFFER_USAGE_NONE = 0,
     RENDER_BUFFER_USAGE_VERTEX_BUFFER = 1,
     RENDER_BUFFER_USAGE_INDEX_BUFFER = 2,
@@ -168,7 +182,7 @@ enum RenderBufferFlags_t : uint32_t {
     RENDER_BUFFER_IMMOVABLE_ALLOCATION = 8192,
 };
 
-enum RenderPrimitiveType_t : uint32_t {
+_enum RenderPrimitiveType_t : uint32_t {
     RENDER_PRIM_POINTS = 0,
     RENDER_PRIM_LINES = 1,
     RENDER_PRIM_LINES_WITH_ADJACENCY = 2,
@@ -185,76 +199,76 @@ enum RenderPrimitiveType_t : uint32_t {
     RENDER_PRIM_TYPE_COUNT = 13,
 };
 
-enum EntityIOTargetType_t : uint32_t {
+_enum EntityIOTargetType_t : uint32_t {
     ENTITY_IO_TARGET_INVALID = 4294967295,
     ENTITY_IO_TARGET_ENTITYNAME = 2,
     ENTITY_IO_TARGET_EHANDLE = 6,
     ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME = 7,
 };
 
-enum EntityDormancyType_t : uint32_t {
+_enum EntityDormancyType_t : uint32_t {
     ENTITY_NOT_DORMANT = 0,
     ENTITY_DORMANT = 1,
     ENTITY_SUSPENDED = 2,
 };
 
-enum HorizJustification_e : uint32_t {
+_enum HorizJustification_e : uint32_t {
     HORIZ_JUSTIFICATION_LEFT = 0,
     HORIZ_JUSTIFICATION_CENTER = 1,
     HORIZ_JUSTIFICATION_RIGHT = 2,
     HORIZ_JUSTIFICATION_NONE = 3,
 };
 
-enum BloomBlendMode_t : uint32_t {
+_enum BloomBlendMode_t : uint32_t {
     BLOOM_BLEND_ADD = 0,
     BLOOM_BLEND_SCREEN = 1,
     BLOOM_BLEND_BLUR = 2,
 };
 
-enum ViewFadeMode_t : uint32_t {
+_enum ViewFadeMode_t : uint32_t {
     VIEW_FADE_CONSTANT_COLOR = 0,
     VIEW_FADE_MODULATE = 1,
     VIEW_FADE_MOD2X = 2,
 };
 
-enum LayoutPositionType_e : uint32_t {
+_enum LayoutPositionType_e : uint32_t {
     LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE = 0,
     LAYOUTPOSITIONTYPE_FRACTIONAL = 1,
     LAYOUTPOSITIONTYPE_NONE = 2,
 };
 
-enum VertJustification_e : uint32_t {
+_enum VertJustification_e : uint32_t {
     VERT_JUSTIFICATION_TOP = 0,
     VERT_JUSTIFICATION_CENTER = 1,
     VERT_JUSTIFICATION_BOTTOM = 2,
     VERT_JUSTIFICATION_NONE = 3,
 };
 
-enum OutOfPVSUpdates_t : uint32_t {
+_enum OutOfPVSUpdates_t : uint32_t {
     OOPVSUpdates_OptOut = 0,
     OOPVSUpdates_OptIn = 1,
     OOPVSUpdates_Default = 2,
     OOPVSUpdates_Count = 3,
 };
 
-enum MoodType_t : uint32_t {
+_enum MoodType_t : uint32_t {
     eMoodType_Head = 0,
     eMoodType_Body = 1,
 };
 
-enum JumpCorrectionMethod : uint32_t {
+_enum JumpCorrectionMethod : uint32_t {
     ScaleMotion = 0,
     AddCorrectionDelta = 1,
 };
 
-enum PulseDomainValueType_t : uint32_t {
+_enum PulseDomainValueType_t : uint32_t {
     INVALID = 4294967295,
     ENTITY_NAME = 0,
     PANEL_ID = 1,
     COUNT = 2,
 };
 
-enum NPCPhysicsHullType_t : uint32_t {
+_enum NPCPhysicsHullType_t : uint32_t {
     eInvalid = 0,
     eGroundCapsule = 1,
     eCenteredCapsule = 2,
@@ -262,12 +276,12 @@ enum NPCPhysicsHullType_t : uint32_t {
     eGroundBox = 4,
 };
 
-enum BinaryNodeChildOption : uint32_t {
+_enum BinaryNodeChildOption : uint32_t {
     Child1 = 0,
     Child2 = 1,
 };
 
-enum ModelConfigAttachmentType_t : uint32_t {
+_enum ModelConfigAttachmentType_t : uint32_t {
     MODEL_CONFIG_ATTACHMENT_INVALID = 4294967295,
     MODEL_CONFIG_ATTACHMENT_BONE_OR_ATTACHMENT = 0,
     MODEL_CONFIG_ATTACHMENT_ROOT_RELATIVE = 1,
@@ -275,7 +289,7 @@ enum ModelConfigAttachmentType_t : uint32_t {
     MODEL_CONFIG_ATTACHMENT_COUNT = 3,
 };
 
-enum MovementCapability_t : uint32_t {
+_enum MovementCapability_t : uint32_t {
     eStrafe = 0,
     eIdleTurn = 1,
     eStart = 2,
@@ -286,27 +300,27 @@ enum MovementCapability_t : uint32_t {
     eCount = 7,
 };
 
-enum BoneMaskBlendSpace : uint32_t {
+_enum BoneMaskBlendSpace : uint32_t {
     BlendSpace_Parent = 0,
     BlendSpace_Model = 1,
     BlendSpace_Model_RotationOnly = 2,
     BlendSpace_Model_TranslationOnly = 3,
 };
 
-enum RenderMeshSlotType_t : uint8_t {
+_enum RenderMeshSlotType_t : uint8_t {
     RENDERMESH_SLOT_INVALID = 255,
     RENDERMESH_SLOT_PER_VERTEX = 0,
     RENDERMESH_SLOT_PER_INSTANCE = 1,
 };
 
-enum IkTargetType : uint32_t {
+_enum IkTargetType : uint32_t {
     IkTarget_Attachment = 0,
     IkTarget_Bone = 1,
     IkTarget_Parameter_ModelSpace = 2,
     IkTarget_Parameter_WorldSpace = 3,
 };
 
-enum AnimVectorSource : uint32_t {
+_enum AnimVectorSource : uint32_t {
     MoveDirection = 0,
     FacingPosition = 1,
     LookDirection = 2,
@@ -323,14 +337,14 @@ enum AnimVectorSource : uint32_t {
     ManualTarget_WorldSpace = 13,
 };
 
-enum ChoiceMethod : uint32_t {
+_enum ChoiceMethod : uint32_t {
     WeightedRandom = 0,
     WeightedRandomNoRepeat = 1,
     Iterate = 2,
     IterateRandom = 3,
 };
 
-enum FootFallTagFoot_t : uint32_t {
+_enum FootFallTagFoot_t : uint32_t {
     FOOT1 = 0,
     FOOT2 = 1,
     FOOT3 = 2,
@@ -341,7 +355,7 @@ enum FootFallTagFoot_t : uint32_t {
     FOOT8 = 7,
 };
 
-enum NmTargetWarpRule_t : uint8_t {
+_enum NmTargetWarpRule_t : uint8_t {
     WarpXY = 0,
     WarpZ = 1,
     WarpXYZ = 2,
@@ -349,7 +363,7 @@ enum NmTargetWarpRule_t : uint8_t {
     FixedSection = 4,
 };
 
-enum AnimationSnapshotType_t : uint32_t {
+_enum AnimationSnapshotType_t : uint32_t {
     ANIMATION_SNAPSHOT_SERVER_SIMULATION = 0,
     ANIMATION_SNAPSHOT_CLIENT_SIMULATION = 1,
     ANIMATION_SNAPSHOT_CLIENT_PREDICTION = 2,
@@ -359,20 +373,20 @@ enum AnimationSnapshotType_t : uint32_t {
     ANIMATION_SNAPSHOT_MAX = 6,
 };
 
-enum AimMatrixBlendMode : uint32_t {
+_enum AimMatrixBlendMode : uint32_t {
     AimMatrixBlendMode_None = 0,
     AimMatrixBlendMode_Additive = 1,
     AimMatrixBlendMode_ModelSpaceAdditive = 2,
     AimMatrixBlendMode_BoneMask = 3,
 };
 
-enum VertexAlbedoFormat_t : uint8_t {
+_enum VertexAlbedoFormat_t : uint8_t {
     VERTEX_ALBEDO_NONE = 0,
     VERTEX_ALBEDO_8888 = 1,
     VERTEX_ALBEDO_565 = 2,
 };
 
-enum FacingMode : uint8_t {
+_enum FacingMode : uint8_t {
     FacingMode_Invalid = 0,
     FacingMode_Manual = 1,
     FacingMode_Path = 2,
@@ -380,26 +394,28 @@ enum FacingMode : uint8_t {
     FacingMode_ManualPosition = 4,
 };
 
-enum VelocityMetricMode : uint8_t {
+_enum VelocityMetricMode : uint8_t {
     DirectionOnly = 0,
     MagnitudeOnly = 1,
     DirectionAndMagnitude = 2,
 };
 
-enum ScriptedHeldWeaponBehavior_t : uint32_t {
+_enum ScriptedHeldWeaponBehavior_t : uint32_t {
     eInvalid = 4294967295,
     eHolster = 0,
     eDeploy = 1,
     eDrop = 2,
 };
 
-enum VPhysXJoint_t::Flags_t : uint32_t {
+/// VPhysXJoint_t::Flags_t
+_enum VPhysXJoint_t__Flags_t : uint32_t {
     JOINT_FLAGS_NONE = 0,
     JOINT_FLAGS_BODY1_FIXED = 1,
     JOINT_FLAGS_USE_BLOCK_SOLVER = 2,
 };
 
-enum CNmFloatComparisonNode::Comparison_t : uint8_t {
+/// CNmFloatComparisonNode::Comparison_t
+_enum CNmFloatComparisonNode__Comparison_t : uint8_t {
     GreaterThanEqual = 0,
     LessThanEqual = 1,
     NearEqual = 2,
@@ -407,7 +423,8 @@ enum CNmFloatComparisonNode::Comparison_t : uint8_t {
     LessThan = 4,
 };
 
-enum CNmTransitionNode::TransitionOptions_t : uint8_t {
+/// CNmTransitionNode::TransitionOptions_t
+_enum CNmTransitionNode__TransitionOptions_t : uint8_t {
     None = 0,
     ClampDuration = 1,
     Synchronized = 2,
@@ -420,7 +437,7 @@ enum CNmTransitionNode::TransitionOptions_t : uint8_t {
     OffsetTimeInSeconds = 9,
 };
 
-enum NmGraphEventTypeCondition_t : uint8_t {
+_enum NmGraphEventTypeCondition_t : uint8_t {
     Entry = 0,
     FullyInState = 1,
     Exit = 2,
@@ -429,13 +446,13 @@ enum NmGraphEventTypeCondition_t : uint8_t {
     Any = 5,
 };
 
-enum FieldNetworkOption : uint32_t {
+_enum FieldNetworkOption : uint32_t {
     Auto = 0,
     ForceEnable = 1,
     ForceDisable = 2,
 };
 
-enum ParticleAttachment_t : uint32_t {
+_enum ParticleAttachment_t : uint32_t {
     PATTACH_INVALID = 4294967295,
     PATTACH_ABSORIGIN = 0,
     PATTACH_ABSORIGIN_FOLLOW = 1,
@@ -456,7 +473,7 @@ enum ParticleAttachment_t : uint32_t {
     MAX_PATTACH_TYPES = 16,
 };
 
-enum ParticleTransformType_t : uint32_t {
+_enum ParticleTransformType_t : uint32_t {
     PT_TYPE_INVALID = 0,
     PT_TYPE_NAMED_VALUE = 1,
     PT_TYPE_CONTROL_POINT = 2,
@@ -464,7 +481,7 @@ enum ParticleTransformType_t : uint32_t {
     PT_TYPE_COUNT = 4,
 };
 
-enum PulseInstructionCode_t : uint16_t {
+_enum PulseInstructionCode_t : uint16_t {
     INVALID = 0,
     IMMEDIATE_HALT = 1,
     RETURN_VOID = 2,
@@ -592,33 +609,33 @@ enum PulseInstructionCode_t : uint16_t {
     GET_CONST_INLINE_STORAGE = 124,
 };
 
-enum OrientationWarpMode_t : uint32_t {
+_enum OrientationWarpMode_t : uint32_t {
     eInvalid = 0,
     eAngle = 1,
     eWorldPosition = 2,
 };
 
-enum OrientationWarpTargetOffsetMode_t : uint32_t {
+_enum OrientationWarpTargetOffsetMode_t : uint32_t {
     eLiteralValue = 0,
     eParameter = 1,
     eAnimationMovementHeading = 2,
     eAnimationMovementHeadingAtEnd = 3,
 };
 
-enum HandshakeTagType_t : uint32_t {
+_enum HandshakeTagType_t : uint32_t {
     eInvalid = 4294967295,
     eTask = 0,
     eMovement = 1,
     eCount = 2,
 };
 
-enum SelectorTagBehavior_t : uint32_t {
+_enum SelectorTagBehavior_t : uint32_t {
     SelectorTagBehavior_OnWhileCurrent = 0,
     SelectorTagBehavior_OffWhenFinished = 1,
     SelectorTagBehavior_OffBeforeFinished = 2,
 };
 
-enum AnimParamButton_t : uint32_t {
+_enum AnimParamButton_t : uint32_t {
     ANIMPARAM_BUTTON_NONE = 0,
     ANIMPARAM_BUTTON_DPAD_UP = 1,
     ANIMPARAM_BUTTON_DPAD_RIGHT = 2,
@@ -634,42 +651,43 @@ enum AnimParamButton_t : uint32_t {
     ANIMPARAM_BUTTON_RTRIGGER = 12,
 };
 
-enum SeqPoseSetting_t : uint32_t {
+_enum SeqPoseSetting_t : uint32_t {
     SEQ_POSE_SETTING_CONSTANT = 0,
     SEQ_POSE_SETTING_ROTATION = 1,
     SEQ_POSE_SETTING_POSITION = 2,
     SEQ_POSE_SETTING_VELOCITY = 3,
 };
 
-enum CNmTimeConditionNode::ComparisonType_t : uint8_t {
+/// CNmTimeConditionNode::ComparisonType_t
+_enum CNmTimeConditionNode__ComparisonType_t : uint8_t {
     PercentageThroughState = 0,
     PercentageThroughSyncEvent = 1,
     ElapsedTime = 2,
 };
 
-enum AnimScriptType : uint16_t {
+_enum AnimScriptType : uint16_t {
     ANIMSCRIPT_TYPE_INVALID = 65535,
     ANIMSCRIPT_FUSE_GENERAL = 0,
     ANIMSCRIPT_FUSE_STATEMACHINE = 1,
 };
 
-enum IkEndEffectorType : uint32_t {
+_enum IkEndEffectorType : uint32_t {
     IkEndEffector_Attachment = 0,
     IkEndEffector_Bone = 1,
 };
 
-enum StanceOverrideMode : uint32_t {
+_enum StanceOverrideMode : uint32_t {
     Sequence = 0,
     Node = 1,
 };
 
-enum JiggleBoneSimSpace : uint32_t {
+_enum JiggleBoneSimSpace : uint32_t {
     SimSpace_Local = 0,
     SimSpace_Model = 1,
     SimSpace_World = 2,
 };
 
-enum AnimationProcessingType_t : uint32_t {
+_enum AnimationProcessingType_t : uint32_t {
     ANIMATION_PROCESSING_SERVER_SIMULATION = 0,
     ANIMATION_PROCESSING_CLIENT_SIMULATION = 1,
     ANIMATION_PROCESSING_CLIENT_PREDICTION = 2,
@@ -678,7 +696,7 @@ enum AnimationProcessingType_t : uint32_t {
     ANIMATION_PROCESSING_MAX = 5,
 };
 
-enum PulseApiFeature_t : uint32_t {
+_enum PulseApiFeature_t : uint32_t {
     AF_NONE = 0,
     AF_ENTITIES = 1,
     AF_PANORAMA = 2,
@@ -687,32 +705,33 @@ enum PulseApiFeature_t : uint32_t {
     AF_SELECTORS_WITHOUT_REQUIREMENTS = 32,
 };
 
-enum DampingSpeedFunction : uint32_t {
+_enum DampingSpeedFunction : uint32_t {
     NoDamping = 0,
     Constant = 1,
     Spring = 2,
     AsymmetricSpring = 3,
 };
 
-enum FootPinningTimingSource : uint32_t {
+_enum FootPinningTimingSource : uint32_t {
     FootMotion = 0,
     Tag = 1,
     Parameter = 2,
 };
 
-enum NmFrameSnapEventMode_t : uint32_t {
+_enum NmFrameSnapEventMode_t : uint32_t {
     Floor = 0,
     Round = 1,
 };
 
-enum FootstepJumpPhase_t : uint8_t {
+_enum FootstepJumpPhase_t : uint8_t {
     Unknown = 0,
     NotJumping = 1,
     Jumping = 2,
     Landing = 4,
 };
 
-enum CNmSoundEvent::Position_t : uint32_t {
+/// CNmSoundEvent::Position_t
+_enum CNmSoundEvent__Position_t : uint32_t {
     None = 0,
     World = 1,
     EntityPos = 2,
@@ -720,18 +739,19 @@ enum CNmSoundEvent::Position_t : uint32_t {
     EntityAttachment = 4,
 };
 
-enum FootLockSubVisualization : uint32_t {
+_enum FootLockSubVisualization : uint32_t {
     FOOTLOCKSUBVISUALIZATION_ReachabilityAnalysis = 0,
     FOOTLOCKSUBVISUALIZATION_IKSolve = 1,
 };
 
-enum FootstepLandedFootSoundType_t : uint32_t {
+_enum FootstepLandedFootSoundType_t : uint32_t {
     FOOTSOUND_Left = 0,
     FOOTSOUND_Right = 1,
     FOOTSOUND_UseOverrideSound = 2,
 };
 
-enum CNmTargetInfoNode::Info_t : uint32_t {
+/// CNmTargetInfoNode::Info_t
+_enum CNmTargetInfoNode__Info_t : uint32_t {
     AngleHorizontal = 0,
     AngleVertical = 1,
     Distance = 2,
@@ -742,7 +762,7 @@ enum CNmTargetInfoNode::Info_t : uint32_t {
     DeltaOrientationZ = 7,
 };
 
-enum NmFootPhase_t : uint8_t {
+_enum NmFootPhase_t : uint8_t {
     LeftFootDown = 0,
     RightFootPassing = 1,
     RightFootDown = 2,
@@ -750,7 +770,7 @@ enum NmFootPhase_t : uint8_t {
     None = 4,
 };
 
-enum ParticleVecType_t : uint32_t {
+_enum ParticleVecType_t : uint32_t {
     PVEC_TYPE_INVALID = 4294967295,
     PVEC_TYPE_LITERAL = 0,
     PVEC_TYPE_LITERAL_COLOR = 1,
@@ -773,14 +793,14 @@ enum ParticleVecType_t : uint32_t {
     PVEC_TYPE_COUNT = 18,
 };
 
-enum PFNoiseModifier_t : uint32_t {
+_enum PFNoiseModifier_t : uint32_t {
     PF_NOISE_MODIFIER_NONE = 0,
     PF_NOISE_MODIFIER_LINES = 1,
     PF_NOISE_MODIFIER_CLUMPS = 2,
     PF_NOISE_MODIFIER_RINGS = 3,
 };
 
-enum PulseValueType_t : uint32_t {
+_enum PulseValueType_t : uint32_t {
     PVAL_VOID = 4294967295,
     PVAL_BOOL = 0,
     PVAL_INT = 1,
@@ -816,14 +836,14 @@ enum PulseValueType_t : uint32_t {
     PVAL_COUNT = 31,
 };
 
-enum ParticleFloatRandomMode_t : uint32_t {
+_enum ParticleFloatRandomMode_t : uint32_t {
     PF_RANDOM_MODE_INVALID = 4294967295,
     PF_RANDOM_MODE_CONSTANT = 0,
     PF_RANDOM_MODE_VARYING = 1,
     PF_RANDOM_MODE_COUNT = 2,
 };
 
-enum NmGraphValueType_t : uint8_t {
+_enum NmGraphValueType_t : uint8_t {
     Unknown = 0,
     Bool = 1,
     ID = 2,
@@ -835,14 +855,15 @@ enum NmGraphValueType_t : uint8_t {
     Special = 8,
 };
 
-enum IKChannelMode : uint32_t {
+_enum IKChannelMode : uint32_t {
     TwoBone = 0,
     TwoBone_Translate = 1,
     OneBone = 2,
     OneBone_Translate = 3,
 };
 
-enum CNmVectorInfoNode::Info_t : uint8_t {
+/// CNmVectorInfoNode::Info_t
+_enum CNmVectorInfoNode__Info_t : uint8_t {
     X = 0,
     Y = 1,
     Z = 2,
@@ -851,7 +872,7 @@ enum CNmVectorInfoNode::Info_t : uint8_t {
     AngleVertical = 5,
 };
 
-enum ResetCycleOption : uint32_t {
+_enum ResetCycleOption : uint32_t {
     Beginning = 0,
     SameCycleAsSource = 1,
     InverseSourceCycle = 2,
@@ -859,32 +880,34 @@ enum ResetCycleOption : uint32_t {
     SameTimeAsSource = 4,
 };
 
-enum ParticleFloatInputMode_t : uint32_t {
+_enum ParticleFloatInputMode_t : uint32_t {
     PF_INPUT_MODE_INVALID = 4294967295,
     PF_INPUT_MODE_CLAMPED = 0,
     PF_INPUT_MODE_LOOPED = 1,
     PF_INPUT_MODE_COUNT = 2,
 };
 
-enum NmPoseBlendMode_t : uint8_t {
+_enum NmPoseBlendMode_t : uint8_t {
     Overlay = 0,
     Additive = 1,
     ModelSpace = 2,
 };
 
-enum CNmIDComparisonNode::Comparison_t : uint8_t {
+/// CNmIDComparisonNode::Comparison_t
+_enum CNmIDComparisonNode__Comparison_t : uint8_t {
     Matches = 0,
     DoesntMatch = 1,
 };
 
-enum MorphBundleType_t : uint32_t {
+_enum MorphBundleType_t : uint32_t {
     MORPH_BUNDLE_TYPE_NONE = 0,
     MORPH_BUNDLE_TYPE_POSITION_SPEED = 1,
     MORPH_BUNDLE_TYPE_NORMAL_WRINKLE = 2,
     MORPH_BUNDLE_TYPE_COUNT = 3,
 };
 
-enum ModelSkeletonData_t::BoneFlags_t : uint32_t {
+/// ModelSkeletonData_t::BoneFlags_t
+_enum ModelSkeletonData_t__BoneFlags_t : uint32_t {
     FLAG_NO_BONE_FLAGS = 0,
     FLAG_BONEFLEXDRIVER = 4,
     FLAG_CLOTH = 8,
@@ -909,7 +932,7 @@ enum ModelSkeletonData_t::BoneFlags_t : uint32_t {
     FLAG_PROCEDURAL = 4194304,
 };
 
-enum NmFootPhaseCondition_t : uint8_t {
+_enum NmFootPhaseCondition_t : uint8_t {
     LeftFootDown = 0,
     LeftFootPassing = 1,
     LeftPhase = 4,
@@ -919,14 +942,14 @@ enum NmFootPhaseCondition_t : uint8_t {
     None = 6,
 };
 
-enum NmRootMotionBlendMode_t : uint8_t {
+_enum NmRootMotionBlendMode_t : uint8_t {
     Blend = 0,
     Additive = 1,
     IgnoreSource = 2,
     IgnoreTarget = 3,
 };
 
-enum StateActionBehavior : uint32_t {
+_enum StateActionBehavior : uint32_t {
     STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT = 0,
     STATETAGBEHAVIOR_FIRE_ON_ENTER = 1,
     STATETAGBEHAVIOR_FIRE_ON_EXIT = 2,
@@ -934,20 +957,21 @@ enum StateActionBehavior : uint32_t {
     STATETAGBEHAVIOR_ACTIVE_WHILE_FULLY_BLENDED = 4,
 };
 
-enum BlendKeyType : uint32_t {
+_enum BlendKeyType : uint32_t {
     BlendKey_UserValue = 0,
     BlendKey_Velocity = 1,
     BlendKey_Distance = 2,
     BlendKey_RemainingDistance = 3,
 };
 
-enum CNmCurrentSyncEventNode::InfoType_t : uint8_t {
+/// CNmCurrentSyncEventNode::InfoType_t
+_enum CNmCurrentSyncEventNode__InfoType_t : uint8_t {
     IndexAndPercentage = 0,
     IndexOnly = 1,
     PercentageOnly = 2,
 };
 
-enum AnimParamVectorType_t : uint32_t {
+_enum AnimParamVectorType_t : uint32_t {
     ANIMPARAM_VECTOR_TYPE_NONE = 0,
     ANIMPARAM_VECTOR_TYPE_POSITION_WS = 1,
     ANIMPARAM_VECTOR_TYPE_POSITION_LS = 2,
@@ -955,7 +979,7 @@ enum AnimParamVectorType_t : uint32_t {
     ANIMPARAM_VECTOR_TYPE_DIRECTION_LS = 4,
 };
 
-enum ParticleFloatMapType_t : uint32_t {
+_enum ParticleFloatMapType_t : uint32_t {
     PF_MAP_TYPE_INVALID = 4294967295,
     PF_MAP_TYPE_DIRECT = 0,
     PF_MAP_TYPE_MULT = 1,
@@ -967,53 +991,54 @@ enum ParticleFloatMapType_t : uint32_t {
     PF_MAP_TYPE_COUNT = 7,
 };
 
-enum VPhysXConstraintParams_t::EnumFlags0_t : uint32_t {
+/// VPhysXConstraintParams_t::EnumFlags0_t
+_enum VPhysXConstraintParams_t__EnumFlags0_t : uint32_t {
     FLAG0_SHIFT_INTERPENETRATE = 0,
     FLAG0_SHIFT_CONSTRAIN = 1,
     FLAG0_SHIFT_BREAKABLE_FORCE = 2,
     FLAG0_SHIFT_BREAKABLE_TORQUE = 3,
 };
 
-enum ChoiceBlendMethod : uint32_t {
+_enum ChoiceBlendMethod : uint32_t {
     SingleBlendTime = 0,
     PerChoiceBlendTimes = 1,
 };
 
-enum ChoiceChangeMethod : uint32_t {
+_enum ChoiceChangeMethod : uint32_t {
     OnReset = 0,
     OnCycleEnd = 1,
     OnResetOrCycleEnd = 2,
 };
 
-enum HandshakeTagState_t : uint8_t {
+_enum HandshakeTagState_t : uint8_t {
     eInactive = 0,
     eActive = 1,
     eMomentarilyInactive = 2,
 };
 
-enum PulseCursorExecResult_t : uint32_t {
+_enum PulseCursorExecResult_t : uint32_t {
     Succeeded = 0,
     Canceled = 1,
     Failed = 2,
     OngoingNotify = 3,
 };
 
-enum Blend2DMode : uint32_t {
+_enum Blend2DMode : uint32_t {
     Blend2DMode_General = 0,
     Blend2DMode_Directional = 1,
 };
 
-enum TargetSelectorAngleMode_t : uint32_t {
+_enum TargetSelectorAngleMode_t : uint32_t {
     eFacingHeading = 0,
     eMoveHeading = 1,
 };
 
-enum TargetWarpCorrectionMethod : uint32_t {
+_enum TargetWarpCorrectionMethod : uint32_t {
     ScaleMotion = 0,
     AddCorrectionDelta = 1,
 };
 
-enum IKSolverType : uint32_t {
+_enum IKSolverType : uint32_t {
     IKSOLVER_Perlin = 0,
     IKSOLVER_TwoBone = 1,
     IKSOLVER_Fabrik = 2,
@@ -1022,24 +1047,25 @@ enum IKSolverType : uint32_t {
     IKSOLVER_COUNT = 5,
 };
 
-enum RagdollPoseControl : uint32_t {
+_enum RagdollPoseControl : uint32_t {
     Absolute = 0,
 };
 
-enum LinearRootMotionBlendMode_t : uint32_t {
+_enum LinearRootMotionBlendMode_t : uint32_t {
     LERP = 0,
     NLERP = 1,
     SLERP = 2,
 };
 
-enum CNmTimeConditionNode::Operator_t : uint8_t {
+/// CNmTimeConditionNode::Operator_t
+_enum CNmTimeConditionNode__Operator_t : uint8_t {
     LessThan = 0,
     LessThanEqual = 1,
     GreaterThan = 2,
     GreaterThanEqual = 3,
 };
 
-enum AnimValueSource : uint32_t {
+_enum AnimValueSource : uint32_t {
     MoveHeading = 0,
     MoveSpeed = 1,
     ForwardSpeed = 2,
@@ -1079,7 +1105,7 @@ enum AnimValueSource : uint32_t {
     FingerSplay_Ring_Pinky = 36,
 };
 
-enum NmEventConditionRules_t : uint8_t {
+_enum NmEventConditionRules_t : uint8_t {
     LimitSearchToSourceState = 0,
     IgnoreInactiveEvents = 1,
     PreferHighestWeight = 2,
@@ -1091,40 +1117,42 @@ enum NmEventConditionRules_t : uint8_t {
     SearchBothGraphAndAnimEvents = 8,
 };
 
-enum CNmRootMotionData::SamplingMode_t : uint8_t {
+/// CNmRootMotionData::SamplingMode_t
+_enum CNmRootMotionData__SamplingMode_t : uint8_t {
     Delta = 0,
     WorldSpace = 1,
 };
 
-enum PoseType_t : uint8_t {
+_enum PoseType_t : uint8_t {
     POSETYPE_STATIC = 0,
     POSETYPE_DYNAMIC = 1,
     POSETYPE_INVALID = 255,
 };
 
-enum CNmStateNode::TimedEvent_t::Comparison_t : uint8_t {
+/// CNmStateNode::TimedEvent_t::Comparison_t
+_enum CNmStateNode__TimedEvent_t__Comparison_t : uint8_t {
     LessThanEqual = 0,
     GreaterThanEqual = 1,
 };
 
-enum ModelBoneFlexComponent_t : uint32_t {
+_enum ModelBoneFlexComponent_t : uint32_t {
     MODEL_BONE_FLEX_INVALID = 4294967295,
     MODEL_BONE_FLEX_TX = 0,
     MODEL_BONE_FLEX_TY = 1,
     MODEL_BONE_FLEX_TZ = 2,
 };
 
-enum NmIKBlendMode_t : uint8_t {
+_enum NmIKBlendMode_t : uint8_t {
     Effector = 0,
     Pose = 1,
 };
 
-enum TargetWarpAngleMode_t : uint32_t {
+_enum TargetWarpAngleMode_t : uint32_t {
     eFacingHeading = 0,
     eMoveHeading = 1,
 };
 
-enum MeshDrawPrimitiveFlags_t : uint32_t {
+_enum MeshDrawPrimitiveFlags_t : uint32_t {
     MESH_DRAW_FLAGS_NONE = 0,
     MESH_DRAW_FLAGS_USE_SHADOW_FAST_PATH = 1,
     MESH_DRAW_FLAGS_USE_COMPRESSED_NORMAL_TANGENT = 2,
@@ -1135,27 +1163,27 @@ enum MeshDrawPrimitiveFlags_t : uint32_t {
     MESH_DRAW_FLAGS_DRAW_LAST = 128,
 };
 
-enum MorphFlexControllerRemapType_t : uint32_t {
+_enum MorphFlexControllerRemapType_t : uint32_t {
     MORPH_FLEXCONTROLLER_REMAP_PASSTHRU = 0,
     MORPH_FLEXCONTROLLER_REMAP_2WAY = 1,
     MORPH_FLEXCONTROLLER_REMAP_NWAY = 2,
     MORPH_FLEXCONTROLLER_REMAP_EYELID = 3,
 };
 
-enum AnimParamNetworkSetting : uint32_t {
+_enum AnimParamNetworkSetting : uint32_t {
     Auto = 0,
     AlwaysNetwork = 1,
     NeverNetwork = 2,
 };
 
-enum PFNoiseType_t : uint32_t {
+_enum PFNoiseType_t : uint32_t {
     PF_NOISE_TYPE_PERLIN = 0,
     PF_NOISE_TYPE_SIMPLEX = 1,
     PF_NOISE_TYPE_WORLEY = 2,
     PF_NOISE_TYPE_CURL = 3,
 };
 
-enum ParticleFloatRoundType_t : uint32_t {
+_enum ParticleFloatRoundType_t : uint32_t {
     PF_ROUND_TYPE_INVALID = 4294967295,
     PF_ROUND_TYPE_NEAREST = 0,
     PF_ROUND_TYPE_FLOOR = 1,
@@ -1163,12 +1191,14 @@ enum ParticleFloatRoundType_t : uint32_t {
     PF_ROUND_TYPE_COUNT = 3,
 };
 
-enum CNmSyncEventIndexConditionNode::TriggerMode_t : uint8_t {
+/// CNmSyncEventIndexConditionNode::TriggerMode_t
+_enum CNmSyncEventIndexConditionNode__TriggerMode_t : uint8_t {
     ExactlyAtEventIndex = 0,
     GreaterThanEqualToEventIndex = 1,
 };
 
-enum CNmFloatMathNode::Operator_t : uint8_t {
+/// CNmFloatMathNode::Operator_t
+_enum CNmFloatMathNode__Operator_t : uint8_t {
     Add = 0,
     Sub = 1,
     Mul = 2,
@@ -1183,7 +1213,8 @@ enum CNmFloatMathNode::Operator_t : uint8_t {
     InverseFractionalPart = 11,
 };
 
-enum PermModelInfo_t::FlagEnum : uint32_t {
+/// PermModelInfo_t::FlagEnum
+_enum PermModelInfo_t__FlagEnum : uint32_t {
     FLAG_TRANSLUCENT = 1,
     FLAG_TRANSLUCENT_TWO_PASS = 2,
     FLAG_MODEL_IS_RUNTIME_COMBINED = 4,
@@ -1201,13 +1232,13 @@ enum PermModelInfo_t::FlagEnum : uint32_t {
     FLAG_MODEL_DOC = 8388608,
 };
 
-enum IKTargetSource : uint32_t {
+_enum IKTargetSource : uint32_t {
     IKTARGETSOURCE_Bone = 0,
     IKTARGETSOURCE_AnimgraphParameter = 1,
     IKTARGETSOURCE_COUNT = 2,
 };
 
-enum ParticleModelType_t : uint32_t {
+_enum ParticleModelType_t : uint32_t {
     PM_TYPE_INVALID = 0,
     PM_TYPE_NAMED_VALUE_MODEL = 1,
     PM_TYPE_NAMED_VALUE_EHANDLE = 2,
@@ -1215,7 +1246,7 @@ enum ParticleModelType_t : uint32_t {
     PM_TYPE_COUNT = 4,
 };
 
-enum NmEasingFunction_t : uint8_t {
+_enum NmEasingFunction_t : uint8_t {
     Linear = 0,
     Quad = 1,
     Cubic = 2,
@@ -1227,7 +1258,7 @@ enum NmEasingFunction_t : uint8_t {
     Back = 8,
 };
 
-enum AnimParamType_t : uint8_t {
+_enum AnimParamType_t : uint8_t {
     ANIMPARAM_UNKNOWN = 0,
     ANIMPARAM_BOOL = 1,
     ANIMPARAM_ENUM = 2,
@@ -1239,7 +1270,8 @@ enum AnimParamType_t : uint8_t {
     ANIMPARAM_COUNT = 8,
 };
 
-enum VPhysXBodyPart_t::VPhysXFlagEnum_t : uint32_t {
+/// VPhysXBodyPart_t::VPhysXFlagEnum_t
+_enum VPhysXBodyPart_t__VPhysXFlagEnum_t : uint32_t {
     FLAG_STATIC = 1,
     FLAG_KINEMATIC = 2,
     FLAG_JOINT = 4,
@@ -1248,17 +1280,17 @@ enum VPhysXBodyPart_t::VPhysXFlagEnum_t : uint32_t {
     FLAG_DISABLE_CCD = 32,
 };
 
-enum AnimNodeNetworkMode : uint32_t {
+_enum AnimNodeNetworkMode : uint32_t {
     ServerAuthoritative = 0,
     ClientSimulate = 1,
 };
 
-enum NmCachedValueMode_t : uint32_t {
+_enum NmCachedValueMode_t : uint32_t {
     OnEntry = 0,
     OnExit = 1,
 };
 
-enum FlexOpCode_t : uint32_t {
+_enum FlexOpCode_t : uint32_t {
     FLEX_OP_CONST = 1,
     FLEX_OP_FETCH1 = 2,
     FLEX_OP_FETCH2 = 3,
@@ -1287,12 +1319,12 @@ enum FlexOpCode_t : uint32_t {
     FLEX_OP_ABS = 26,
 };
 
-enum StepPhase : uint32_t {
+_enum StepPhase : uint32_t {
     StepPhase_OnGround = 0,
     StepPhase_InAir = 1,
 };
 
-enum EPulseGraphExecutionHistoryFlag : uint32_t {
+_enum EPulseGraphExecutionHistoryFlag : uint32_t {
     NO_FLAGS = 0,
     CURSOR_ADD_TAG = 1,
     CURSOR_REMOVE_TAG = 2,
@@ -1301,12 +1333,12 @@ enum EPulseGraphExecutionHistoryFlag : uint32_t {
     REQUIREMENT_FAIL = 16,
 };
 
-enum EDemoBoneSelectionMode : uint32_t {
+_enum EDemoBoneSelectionMode : uint32_t {
     CaptureAllBones = 0,
     CaptureSelectedBones = 1,
 };
 
-enum ScriptedMoveTo_t : uint32_t {
+_enum ScriptedMoveTo_t : uint32_t {
     eWait = 0,
     eMoveWithGait = 3,
     eTeleport = 4,
@@ -1315,12 +1347,12 @@ enum ScriptedMoveTo_t : uint32_t {
     eObsoleteBackCompat2 = 2,
 };
 
-enum TargetWarpTimingMethod : uint32_t {
+_enum TargetWarpTimingMethod : uint32_t {
     ReachDestinationOnRootMotionEnd = 0,
     ReachDestinationOnWarpTagEnd = 1,
 };
 
-enum ModelMeshBufferUsage_t : uint8_t {
+_enum ModelMeshBufferUsage_t : uint8_t {
     MESH_BUFFER_USAGE_NONE = 0,
     MESH_BUFFER_USAGE_VB = 1,
     MESH_BUFFER_USAGE_IB = 2,
@@ -1330,21 +1362,21 @@ enum ModelMeshBufferUsage_t : uint8_t {
     MESH_BUFFER_USAGE_VERTEX_ALBEDO = 32,
 };
 
-enum NmTransitionRuleCondition_t : uint8_t {
+_enum NmTransitionRuleCondition_t : uint8_t {
     AnyAllowed = 0,
     FullyAllowed = 1,
     ConditionallyAllowed = 2,
     Blocked = 3,
 };
 
-enum NmTargetWarpAlgorithm_t : uint8_t {
+_enum NmTargetWarpAlgorithm_t : uint8_t {
     Lerp = 0,
     Hermite = 1,
     HermiteFeaturePreserving = 2,
     Bezier = 3,
 };
 
-enum PFNoiseTurbulence_t : uint32_t {
+_enum PFNoiseTurbulence_t : uint32_t {
     PF_NOISE_TURB_NONE = 0,
     PF_NOISE_TURB_HIGHLIGHT = 1,
     PF_NOISE_TURB_FEEDBACK = 2,
@@ -1353,12 +1385,12 @@ enum PFNoiseTurbulence_t : uint32_t {
     PF_NOISE_TURB_ALTERNATE = 5,
 };
 
-enum MatterialAttributeTagType_t : uint32_t {
+_enum MatterialAttributeTagType_t : uint32_t {
     MATERIAL_ATTRIBUTE_TAG_VALUE = 0,
     MATERIAL_ATTRIBUTE_TAG_COLOR = 1,
 };
 
-enum EIKEndEffectorRotationFixUpMode : uint32_t {
+_enum EIKEndEffectorRotationFixUpMode : uint32_t {
     None = 0,
     MatchTargetOrientation = 1,
     LookAtTargetForward = 2,
@@ -1366,7 +1398,7 @@ enum EIKEndEffectorRotationFixUpMode : uint32_t {
     Count = 4,
 };
 
-enum NmEasingOperation_t : uint8_t {
+_enum NmEasingOperation_t : uint8_t {
     Linear = 0,
     InQuad = 1,
     OutQuad = 2,
@@ -1392,7 +1424,8 @@ enum NmEasingOperation_t : uint8_t {
     None = 22,
 };
 
-enum CNmRootMotionOverrideNode::OverrideFlags_t : uint8_t {
+/// CNmRootMotionOverrideNode::OverrideFlags_t
+_enum CNmRootMotionOverrideNode__OverrideFlags_t : uint8_t {
     AllowMoveX = 0,
     AllowMoveY = 1,
     AllowMoveZ = 2,
@@ -1400,20 +1433,22 @@ enum CNmRootMotionOverrideNode::OverrideFlags_t : uint8_t {
     ListenForEvents = 4,
 };
 
-enum VPhysXAggregateData_t::VPhysXFlagEnum_t : uint32_t {
+/// VPhysXAggregateData_t::VPhysXFlagEnum_t
+_enum VPhysXAggregateData_t__VPhysXFlagEnum_t : uint32_t {
     FLAG_IS_POLYSOUP_GEOMETRY = 1,
     FLAG_LEVEL_COLLISION = 16,
     FLAG_IGNORE_SCALE_OBSOLETE_DO_NOT_USE = 32,
 };
 
-enum CNmFloatAngleMathNode::Operation_t : uint8_t {
+/// CNmFloatAngleMathNode::Operation_t
+_enum CNmFloatAngleMathNode__Operation_t : uint8_t {
     ClampTo180 = 0,
     ClampTo360 = 1,
     FlipHemisphere = 2,
     FlipHemisphereNegate = 3,
 };
 
-enum ParticleFloatType_t : uint32_t {
+_enum ParticleFloatType_t : uint32_t {
     PF_TYPE_INVALID = 4294967295,
     PF_TYPE_LITERAL = 0,
     PF_TYPE_NAMED_VALUE = 1,
@@ -1447,13 +1482,13 @@ enum ParticleFloatType_t : uint32_t {
     PF_TYPE_COUNT = 29,
 };
 
-enum IKTargetCoordinateSystem : uint32_t {
+_enum IKTargetCoordinateSystem : uint32_t {
     IKTARGETCOORDINATESYSTEM_WorldSpace = 0,
     IKTARGETCOORDINATESYSTEM_ModelSpace = 1,
     IKTARGETCOORDINATESYSTEM_COUNT = 2,
 };
 
-enum PulseVariableKeysSource_t : uint32_t {
+_enum PulseVariableKeysSource_t : uint32_t {
     PRIVATE = 0,
     CPP = 1,
     VMAP = 2,
@@ -1462,13 +1497,13 @@ enum PulseVariableKeysSource_t : uint32_t {
     COUNT = 5,
 };
 
-enum OrientationWarpRootMotionSource_t : uint32_t {
+_enum OrientationWarpRootMotionSource_t : uint32_t {
     eAnimationOrProcedural = 0,
     eAnimationOnly = 1,
     eProceduralOnly = 2,
 };
 
-enum SharedMovementGait_t : uint8_t {
+_enum SharedMovementGait_t : uint8_t {
     eInvalid = 255,
     eSlow = 0,
     eMedium = 1,
@@ -1477,7 +1512,7 @@ enum SharedMovementGait_t : uint8_t {
     eCount = 4,
 };
 
-enum ParticleFloatBiasType_t : uint32_t {
+_enum ParticleFloatBiasType_t : uint32_t {
     PF_BIAS_TYPE_INVALID = 4294967295,
     PF_BIAS_TYPE_STANDARD = 0,
     PF_BIAS_TYPE_GAIN = 1,
@@ -1485,12 +1520,13 @@ enum ParticleFloatBiasType_t : uint32_t {
     PF_BIAS_TYPE_COUNT = 3,
 };
 
-enum CNmParticleEvent::Type_t : uint32_t {
+/// CNmParticleEvent::Type_t
+_enum CNmParticleEvent__Type_t : uint32_t {
     Create = 0,
     Create_CFG = 1,
 };
 
-enum SolveIKChainAnimNodeDebugSetting : uint32_t {
+_enum SolveIKChainAnimNodeDebugSetting : uint32_t {
     SOLVEIKCHAINANIMNODEDEBUGSETTING_None = 0,
     SOLVEIKCHAINANIMNODEDEBUGSETTING_X_Axis_Circle = 1,
     SOLVEIKCHAINANIMNODEDEBUGSETTING_Y_Axis_Circle = 2,
@@ -1500,25 +1536,25 @@ enum SolveIKChainAnimNodeDebugSetting : uint32_t {
     SOLVEIKCHAINANIMNODEDEBUGSETTING_Left = 6,
 };
 
-enum NmFollowBoneMode_t : uint8_t {
+_enum NmFollowBoneMode_t : uint8_t {
     RotationAndTranslation = 0,
     RotationOnly = 1,
     TranslationOnly = 2,
 };
 
-enum BinaryNodeTiming : uint32_t {
+_enum BinaryNodeTiming : uint32_t {
     UseChild1 = 0,
     UseChild2 = 1,
     SyncChildren = 2,
 };
 
-enum NmTransitionRule_t : uint8_t {
+_enum NmTransitionRule_t : uint8_t {
     AllowTransition = 0,
     ConditionallyAllowTransition = 1,
     BlockTransition = 2,
 };
 
-enum CAnimationGraphVisualizerPrimitiveType : uint32_t {
+_enum CAnimationGraphVisualizerPrimitiveType : uint32_t {
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Text = 0,
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Sphere = 1,
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Line = 2,
@@ -1526,20 +1562,20 @@ enum CAnimationGraphVisualizerPrimitiveType : uint32_t {
     ANIMATIONGRAPHVISUALIZERPRIMITIVETYPE_Axis = 4,
 };
 
-enum BoneTransformSpace_t : uint32_t {
+_enum BoneTransformSpace_t : uint32_t {
     BoneTransformSpace_Invalid = 4294967295,
     BoneTransformSpace_Parent = 0,
     BoneTransformSpace_Model = 1,
     BoneTransformSpace_World = 2,
 };
 
-enum CNmEventRelevance_t : uint32_t {
+_enum CNmEventRelevance_t : uint32_t {
     ClientOnly = 0,
     ServerOnly = 1,
     ClientAndServer = 2,
 };
 
-enum SeqCmd_t : uint32_t {
+_enum SeqCmd_t : uint32_t {
     SeqCmd_Nop = 0,
     SeqCmd_LinearDelta = 1,
     SeqCmd_FetchFrameRange = 2,
@@ -1559,47 +1595,47 @@ enum SeqCmd_t : uint32_t {
     SeqCmd_Transform = 16,
 };
 
-enum DynamicContinuousContactBehavior_t : uint8_t {
+_enum DynamicContinuousContactBehavior_t : uint8_t {
     DYNAMIC_CONTINUOUS_ALLOW_IF_REQUESTED_BY_OTHER_BODY = 0,
     DYNAMIC_CONTINUOUS_ALWAYS = 1,
     DYNAMIC_CONTINUOUS_NEVER = 2,
 };
 
-enum JointAxis_t : uint32_t {
+_enum JointAxis_t : uint32_t {
     JOINT_AXIS_X = 0,
     JOINT_AXIS_Y = 1,
     JOINT_AXIS_Z = 2,
     JOINT_AXIS_COUNT = 3,
 };
 
-enum JointMotion_t : uint32_t {
+_enum JointMotion_t : uint32_t {
     JOINT_MOTION_FREE = 0,
     JOINT_MOTION_LOCKED = 1,
     JOINT_MOTION_COUNT = 2,
 };
 
-enum SosActionSetParamSortType_t : uint32_t {
+_enum SosActionSetParamSortType_t : uint32_t {
     SOS_SETPARAM_SORTTYPE_HIGHEST = 0,
     SOS_SETPARAM_SORTTYPE_LOWEST = 1,
 };
 
-enum SosGroupType_t : uint32_t {
+_enum SosGroupType_t : uint32_t {
     SOS_GROUPTYPE_DYNAMIC = 0,
     SOS_GROUPTYPE_STATIC = 1,
 };
 
-enum VMixSubgraphSwitchInterpolationType_t : uint32_t {
+_enum VMixSubgraphSwitchInterpolationType_t : uint32_t {
     SUBGRAPH_INTERPOLATION_TEMPORAL_CROSSFADE = 0,
     SUBGRAPH_INTERPOLATION_TEMPORAL_FADE_OUT = 1,
     SUBGRAPH_INTERPOLATION_KEEP_LAST_SUBGRAPH_RUNNING = 2,
 };
 
-enum SosActionLimitSortType_t : uint32_t {
+_enum SosActionLimitSortType_t : uint32_t {
     SOS_LIMIT_SORTTYPE_HIGHEST = 0,
     SOS_LIMIT_SORTTYPE_LOWEST = 1,
 };
 
-enum VMixFilterSlope_t : uint8_t {
+_enum VMixFilterSlope_t : uint8_t {
     FILTER_SLOPE_1POLE_6dB = 0,
     FILTER_SLOPE_1POLE_12dB = 1,
     FILTER_SLOPE_1POLE_18dB = 2,
@@ -1611,14 +1647,14 @@ enum VMixFilterSlope_t : uint8_t {
     FILTER_SLOPE_MAX = 7,
 };
 
-enum CVSoundFormat_t : uint8_t {
+_enum CVSoundFormat_t : uint8_t {
     PCM16 = 0,
     PCM8 = 1,
     MP3 = 2,
     ADPCM = 3,
 };
 
-enum EMidiNote : uint8_t {
+_enum EMidiNote : uint8_t {
     C = 0,
     C_Sharp = 1,
     D = 2,
@@ -1634,7 +1670,7 @@ enum EMidiNote : uint8_t {
     Count = 12,
 };
 
-enum VMixChannelOperation_t : uint32_t {
+_enum VMixChannelOperation_t : uint32_t {
     VMIX_CHAN_STEREO = 0,
     VMIX_CHAN_LEFT = 1,
     VMIX_CHAN_RIGHT = 2,
@@ -1643,12 +1679,12 @@ enum VMixChannelOperation_t : uint32_t {
     VMIX_CHAN_MID_SIDE = 5,
 };
 
-enum VMixPannerType_t : uint32_t {
+_enum VMixPannerType_t : uint32_t {
     PANNER_TYPE_LINEAR = 0,
     PANNER_TYPE_EQUAL_POWER = 1,
 };
 
-enum soundlevel_t : uint32_t {
+_enum soundlevel_t : uint32_t {
     SNDLVL_NONE = 0,
     SNDLVL_20dB = 20,
     SNDLVL_25dB = 25,
@@ -1681,13 +1717,13 @@ enum soundlevel_t : uint32_t {
     SNDLVL_180dB = 180,
 };
 
-enum SosGroupFieldBehavior_t : uint32_t {
+_enum SosGroupFieldBehavior_t : uint32_t {
     kIgnore = 0,
     kBranch = 1,
     kMatch = 2,
 };
 
-enum PlayBackMode_t : uint32_t {
+_enum PlayBackMode_t : uint32_t {
     Random = 0,
     RandomNoRepeats = 1,
     RandomAvoidLast = 2,
@@ -1695,7 +1731,7 @@ enum PlayBackMode_t : uint32_t {
     RandomWeights = 4,
 };
 
-enum SosEditItemType_t : uint32_t {
+_enum SosEditItemType_t : uint32_t {
     SOS_EDIT_ITEM_TYPE_SOUNDEVENTS = 0,
     SOS_EDIT_ITEM_TYPE_SOUNDEVENT = 1,
     SOS_EDIT_ITEM_TYPE_LIBRARYSTACKS = 2,
@@ -1704,13 +1740,13 @@ enum SosEditItemType_t : uint32_t {
     SOS_EDIT_ITEM_TYPE_FIELD = 5,
 };
 
-enum SosActionStopType_t : uint32_t {
+_enum SosActionStopType_t : uint32_t {
     SOS_STOPTYPE_NONE = 0,
     SOS_STOPTYPE_TIME = 1,
     SOS_STOPTYPE_OPVAR = 2,
 };
 
-enum VMixFilterType_t : uint16_t {
+_enum VMixFilterType_t : uint16_t {
     FILTER_UNKNOWN = 65535,
     FILTER_LOWPASS = 0,
     FILTER_HIGHPASS = 1,
@@ -1723,7 +1759,7 @@ enum VMixFilterType_t : uint16_t {
     FILTER_PASSTHROUGH = 8,
 };
 
-enum VMixLFOShape_t : uint32_t {
+_enum VMixLFOShape_t : uint32_t {
     LFO_SHAPE_SINE = 0,
     LFO_SHAPE_SQUARE = 1,
     LFO_SHAPE_TRI = 2,
@@ -1731,7 +1767,7 @@ enum VMixLFOShape_t : uint32_t {
     LFO_SHAPE_NOISE = 4,
 };
 
-enum EWaveform : uint8_t {
+_enum EWaveform : uint8_t {
     Sine = 0,
     Square = 1,
     Saw = 2,
@@ -1739,7 +1775,7 @@ enum EWaveform : uint8_t {
     Noise = 4,
 };
 
-enum VMixGraphCommandID_t : uint32_t {
+_enum VMixGraphCommandID_t : uint32_t {
     CMD_INVALID = 4294967295,
     CMD_CONTROL_INPUT_STORE = 1,
     CMD_CONTROL_INPUT_STORE_DB = 2,
@@ -1781,12 +1817,12 @@ enum VMixGraphCommandID_t : uint32_t {
     CMD_IMPULSERESPONSE_DELAY = 38,
 };
 
-enum EMode_t : uint32_t {
+_enum EMode_t : uint32_t {
     Peak = 0,
     RMS = 1,
 };
 
-enum ESceneObjectVisualization : uint32_t {
+_enum ESceneObjectVisualization : uint32_t {
     SCENEOBJECT_VIS_NONE = 0,
     SCENEOBJECT_VIS_OBJECT = 1,
     SCENEOBJECT_VIS_MATERIAL = 2,
@@ -1795,7 +1831,7 @@ enum ESceneObjectVisualization : uint32_t {
     SCENEOBJECT_VIS_INSTANCING = 5,
 };
 
-enum DecalRtEncoding_t : uint8_t {
+_enum DecalRtEncoding_t : uint8_t {
     kDecalInvalid = 255,
     kDecalMin = 0,
     kDecalBlood = 0,
@@ -1804,28 +1840,28 @@ enum DecalRtEncoding_t : uint8_t {
     kDecalDefault = 0,
 };
 
-enum DisableShadows_t : uint8_t {
+_enum DisableShadows_t : uint8_t {
     kDisableShadows_None = 0,
     kDisableShadows_All = 1,
     kDisableShadows_Baked = 2,
     kDisableShadows_Realtime = 3,
 };
 
-enum ESilhouetteType_t : uint32_t {
+_enum ESilhouetteType_t : uint32_t {
     SILHOUETTE_NONE = 0,
     SILHOUETTE_LIGHT = 1,
     SILHOUETTE_ENVMAP = 2,
     SILHOUETTE_LPV = 4,
 };
 
-enum AggregateInstanceStream_t : uint8_t {
+_enum AggregateInstanceStream_t : uint8_t {
     AGGREGATE_INSTANCE_STREAM_NONE = 0,
     AGGREGATE_INSTANCE_STREAM_LIGHTMAPUV_UNORM16 = 1,
     AGGREGATE_INSTANCE_STREAM_VERTEXTINT_UNORM8 = 2,
     AGGREGATE_INSTANCE_STREAM_VERTEXBLEND_UNORM8 = 4,
 };
 
-enum ObjectTypeFlags_t : uint32_t {
+_enum ObjectTypeFlags_t : uint32_t {
     OBJECT_TYPE_NONE = 0,
     OBJECT_TYPE_MODEL = 8,
     OBJECT_TYPE_BLOCK_LIGHT = 16,
@@ -1843,17 +1879,17 @@ enum ObjectTypeFlags_t : uint32_t {
     OBJECT_TYPE_BAKED_GEOMETRY = 131072,
 };
 
-enum RTProxyInstanceFlags_t : uint8_t {
+_enum RTProxyInstanceFlags_t : uint8_t {
     RTPROXY_INSTANCE_FLAG_NONE = 0,
     RTPROXY_INSTANCE_UNIQUE_MESH = 1,
 };
 
-enum TextureRepetitionMode_t : uint32_t {
+_enum TextureRepetitionMode_t : uint32_t {
     TEXTURE_REPETITION_PARTICLE = 0,
     TEXTURE_REPETITION_PATH = 1,
 };
 
-enum ParticleCollisionMask_t : uint64_t {
+_enum ParticleCollisionMask_t : uint64_t {
     PARTICLE_MASK_ALL = 18446744073709551615,
     PARTICLE_MASK_SOLID = 798721,
     PARTICLE_MASK_WATER = 98304,
@@ -1866,43 +1902,43 @@ enum ParticleCollisionMask_t : uint64_t {
     PARTICLE_MASK_NPCSOLID = 798753,
 };
 
-enum ParticleOrientationSetMode_t : uint32_t {
+_enum ParticleOrientationSetMode_t : uint32_t {
     PARTICLE_ORIENTATION_SET_NONE = 4294967295,
     PARTICLE_ORIENTATION_SET_FROM_VELOCITY = 0,
     PARTICLE_ORIENTATION_SET_FROM_NORMAL = 1,
     PARTICLE_ORIENTATION_SET_FROM_ROTATIONS = 2,
 };
 
-enum ParticleLightTypeChoiceList_t : uint32_t {
+_enum ParticleLightTypeChoiceList_t : uint32_t {
     PARTICLE_LIGHT_TYPE_POINT = 0,
     PARTICLE_LIGHT_TYPE_SPOT = 1,
     PARTICLE_LIGHT_TYPE_FX = 2,
     PARTICLE_LIGHT_TYPE_CAPSULE = 3,
 };
 
-enum ParticleLightFogLightingMode_t : uint32_t {
+_enum ParticleLightFogLightingMode_t : uint32_t {
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_NONE = 0,
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC = 2,
     PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC_NOSHADOWS = 4,
 };
 
-enum ParticleOmni2LightTypeChoiceList_t : uint32_t {
+_enum ParticleOmni2LightTypeChoiceList_t : uint32_t {
     PARTICLE_OMNI2_LIGHT_TYPE_POINT = 0,
     PARTICLE_OMNI2_LIGHT_TYPE_SPHERE = 1,
 };
 
-enum SpriteCardShaderType_t : uint32_t {
+_enum SpriteCardShaderType_t : uint32_t {
     SPRITECARD_SHADER_BASE = 0,
     SPRITECARD_SHADER_CUSTOM = 1,
 };
 
-enum ParticleLiquidContents_t : uint32_t {
+_enum ParticleLiquidContents_t : uint32_t {
     PARTICLE_LIQUID_NONE = 0,
     PARTICLE_LIQUID_OIL = 1,
     PARTICLE_LIQUID_WATER = 2,
 };
 
-enum ParticleImpulseType_t : uint32_t {
+_enum ParticleImpulseType_t : uint32_t {
     IMPULSE_TYPE_NONE = 0,
     IMPULSE_TYPE_GENERIC = 1,
     IMPULSE_TYPE_ROPE = 2,
@@ -1911,24 +1947,24 @@ enum ParticleImpulseType_t : uint32_t {
     IMPULSE_TYPE_PARTICLE_SYSTEM = 16,
 };
 
-enum ClosestPointTestType_t : uint32_t {
+_enum ClosestPointTestType_t : uint32_t {
     PARTICLE_CLOSEST_TYPE_BOX = 0,
     PARTICLE_CLOSEST_TYPE_CAPSULE = 1,
     PARTICLE_CLOSEST_TYPE_HYBRID = 2,
 };
 
-enum ParticleEndcapMode_t : uint32_t {
+_enum ParticleEndcapMode_t : uint32_t {
     PARTICLE_ENDCAP_ALWAYS_ON = 4294967295,
     PARTICLE_ENDCAP_ENDCAP_OFF = 0,
     PARTICLE_ENDCAP_ENDCAP_ON = 1,
 };
 
-enum ParticleSortingChoiceList_t : uint32_t {
+_enum ParticleSortingChoiceList_t : uint32_t {
     PARTICLE_SORTING_NEAREST = 0,
     PARTICLE_SORTING_CREATION_TIME = 1,
 };
 
-enum ParticleCollisionMode_t : uint32_t {
+_enum ParticleCollisionMode_t : uint32_t {
     COLLISION_MODE_PER_PARTICLE_TRACE = 3,
     COLLISION_MODE_USE_NEAREST_TRACE = 2,
     COLLISION_MODE_PER_FRAME_PLANESET = 1,
@@ -1936,7 +1972,7 @@ enum ParticleCollisionMode_t : uint32_t {
     COLLISION_MODE_DISABLED = 4294967295,
 };
 
-enum ParticleOrientationChoiceList_t : uint32_t {
+_enum ParticleOrientationChoiceList_t : uint32_t {
     PARTICLE_ORIENTATION_SCREEN_ALIGNED = 0,
     PARTICLE_ORIENTATION_SCREEN_Z_ALIGNED = 1,
     PARTICLE_ORIENTATION_WORLD_Z_ALIGNED = 2,
@@ -1945,19 +1981,19 @@ enum ParticleOrientationChoiceList_t : uint32_t {
     PARTICLE_ORIENTATION_FULL_3AXIS_ROTATION = 5,
 };
 
-enum ParticleHitboxDataSelection_t : uint32_t {
+_enum ParticleHitboxDataSelection_t : uint32_t {
     PARTICLE_HITBOX_AVERAGE_SPEED = 0,
     PARTICLE_HITBOX_COUNT = 1,
 };
 
-enum RenderModelSubModelFieldType_t : uint32_t {
+_enum RenderModelSubModelFieldType_t : uint32_t {
     SUBMODEL_AS_BODYGROUP_SUBMODEL = 0,
     SUBMODEL_AS_MESHGROUP_INDEX = 1,
     SUBMODEL_AS_MESHGROUP_MASK = 2,
     SUBMODEL_IGNORED_USE_MODEL_DEFAULT_MESHGROUP_MASK = 3,
 };
 
-enum SpriteCardTextureChannel_t : uint32_t {
+_enum SpriteCardTextureChannel_t : uint32_t {
     SPRITECARD_TEXTURE_CHANNEL_MIX_RGB = 0,
     SPRITECARD_TEXTURE_CHANNEL_MIX_RGBA = 1,
     SPRITECARD_TEXTURE_CHANNEL_MIX_A = 2,
@@ -1975,14 +2011,14 @@ enum SpriteCardTextureChannel_t : uint32_t {
     SPRITECARD_TEXTURE_CHANNEL_MIX_BALPHA = 14,
 };
 
-enum ParticleAlphaReferenceType_t : uint32_t {
+_enum ParticleAlphaReferenceType_t : uint32_t {
     PARTICLE_ALPHA_REFERENCE_ALPHA_ALPHA = 0,
     PARTICLE_ALPHA_REFERENCE_OPAQUE_ALPHA = 1,
     PARTICLE_ALPHA_REFERENCE_ALPHA_OPAQUE = 2,
     PARTICLE_ALPHA_REFERENCE_OPAQUE_OPAQUE = 3,
 };
 
-enum SpriteCardTextureType_t : uint32_t {
+_enum SpriteCardTextureType_t : uint32_t {
     SPRITECARD_TEXTURE_DIFFUSE = 0,
     SPRITECARD_TEXTURE_ZOOM = 1,
     SPRITECARD_TEXTURE_1D_COLOR_LOOKUP = 2,
@@ -1997,54 +2033,54 @@ enum SpriteCardTextureType_t : uint32_t {
     SPRITECARD_TEXTURE_ILLUMINATION_GRADIENT = 11,
 };
 
-enum BBoxVolumeType_t : uint32_t {
+_enum BBoxVolumeType_t : uint32_t {
     BBOX_VOLUME = 0,
     BBOX_DIMENSIONS = 1,
     BBOX_MINS_MAXS = 2,
     BBOX_RADIUS = 3,
 };
 
-enum ParticleDetailLevel_t : uint32_t {
+_enum ParticleDetailLevel_t : uint32_t {
     PARTICLEDETAIL_LOW = 0,
     PARTICLEDETAIL_MEDIUM = 1,
     PARTICLEDETAIL_HIGH = 2,
     PARTICLEDETAIL_ULTRA = 3,
 };
 
-enum ParticleSequenceCropOverride_t : uint32_t {
+_enum ParticleSequenceCropOverride_t : uint32_t {
     PARTICLE_SEQUENCE_CROP_OVERRIDE_DEFAULT = 4294967295,
     PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_OFF = 0,
     PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_ON = 1,
 };
 
-enum ParticleFalloffFunction_t : uint32_t {
+_enum ParticleFalloffFunction_t : uint32_t {
     PARTICLE_FALLOFF_CONSTANT = 0,
     PARTICLE_FALLOFF_LINEAR = 1,
     PARTICLE_FALLOFF_EXPONENTIAL = 2,
 };
 
-enum ParticleLightUnitChoiceList_t : uint32_t {
+_enum ParticleLightUnitChoiceList_t : uint32_t {
     PARTICLE_LIGHT_UNIT_CANDELAS = 0,
     PARTICLE_LIGHT_UNIT_LUMENS = 1,
 };
 
-enum ParticleDepthFeatheringMode_t : uint32_t {
+_enum ParticleDepthFeatheringMode_t : uint32_t {
     PARTICLE_DEPTH_FEATHERING_OFF = 0,
     PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL = 1,
     PARTICLE_DEPTH_FEATHERING_ON_REQUIRED = 2,
 };
 
-enum MaterialProxyType_t : uint32_t {
+_enum MaterialProxyType_t : uint32_t {
     MATERIAL_PROXY_STATUS_EFFECT = 0,
     MATERIAL_PROXY_TINT = 1,
 };
 
-enum ParticleLightnintBranchBehavior_t : uint32_t {
+_enum ParticleLightnintBranchBehavior_t : uint32_t {
     PARTICLE_LIGHTNING_BRANCH_CURRENT_DIR = 0,
     PARTICLE_LIGHTNING_BRANCH_ENDPOINT_DIR = 1,
 };
 
-enum ParticleOutputBlendMode_t : uint32_t {
+_enum ParticleOutputBlendMode_t : uint32_t {
     PARTICLE_OUTPUT_BLEND_MODE_ALPHA = 0,
     PARTICLE_OUTPUT_BLEND_MODE_ADD = 1,
     PARTICLE_OUTPUT_BLEND_MODE_BLEND_ADD = 2,
@@ -2054,18 +2090,18 @@ enum ParticleOutputBlendMode_t : uint32_t {
     PARTICLE_OUTPUT_BLEND_MODE_LIGHTEN = 6,
 };
 
-enum SnapshotIndexType_t : uint32_t {
+_enum SnapshotIndexType_t : uint32_t {
     SNAPSHOT_INDEX_INCREMENT = 0,
     SNAPSHOT_INDEX_DIRECT = 1,
 };
 
-enum ParticleSelection_t : uint32_t {
+_enum ParticleSelection_t : uint32_t {
     PARTICLE_SELECTION_FIRST = 0,
     PARTICLE_SELECTION_LAST = 1,
     PARTICLE_SELECTION_NUMBER = 2,
 };
 
-enum ParticleTextureLayerBlendType_t : uint32_t {
+_enum ParticleTextureLayerBlendType_t : uint32_t {
     SPRITECARD_TEXTURE_BLEND_MULTIPLY = 0,
     SPRITECARD_TEXTURE_BLEND_MOD2X = 1,
     SPRITECARD_TEXTURE_BLEND_REPLACE = 2,
@@ -2075,34 +2111,34 @@ enum ParticleTextureLayerBlendType_t : uint32_t {
     SPRITECARD_TEXTURE_BLEND_LUMINANCE = 6,
 };
 
-enum ParticleTraceSet_t : uint32_t {
+_enum ParticleTraceSet_t : uint32_t {
     PARTICLE_TRACE_SET_ALL = 0,
     PARTICLE_TRACE_SET_STATIC = 1,
     PARTICLE_TRACE_SET_STATIC_AND_KEYFRAMED = 2,
     PARTICLE_TRACE_SET_DYNAMIC = 3,
 };
 
-enum ParticleOrientationType_t : uint32_t {
+_enum ParticleOrientationType_t : uint32_t {
     PARTICLE_ORIENTATION_NONE = 0,
     PARTICLE_ORIENTATION_VELOCITY = 1,
     PARTICLE_ORIENTATION_NORMAL = 2,
     PARTICLE_ORIENTATION_ROTATION = 4,
 };
 
-enum ModelHitboxType_t : uint32_t {
+_enum ModelHitboxType_t : uint32_t {
     MODEL_HITBOX_TYPE_STANDARD = 0,
     MODEL_HITBOX_TYPE_RAW_BONES = 1,
     MODEL_HITBOX_TYPE_RENDERBOUNDS = 2,
     MODEL_HITBOX_TYPE_SNAPSHOT = 3,
 };
 
-enum ParticleLightBehaviorChoiceList_t : uint32_t {
+_enum ParticleLightBehaviorChoiceList_t : uint32_t {
     PARTICLE_LIGHT_BEHAVIOR_FOLLOW_DIRECTION = 0,
     PARTICLE_LIGHT_BEHAVIOR_ROPE = 1,
     PARTICLE_LIGHT_BEHAVIOR_TRAILS = 2,
 };
 
-enum ParticleTopology_t : uint32_t {
+_enum ParticleTopology_t : uint32_t {
     PARTICLE_TOPOLOGY_POINTS = 0,
     PARTICLE_TOPOLOGY_LINES = 1,
     PARTICLE_TOPOLOGY_TRIS = 2,
@@ -2110,7 +2146,7 @@ enum ParticleTopology_t : uint32_t {
     PARTICLE_TOPOLOGY_CUBES = 4,
 };
 
-enum ParticleAttrBoxFlags_t : uint32_t {
+_enum ParticleAttrBoxFlags_t : uint32_t {
     PARTICLE_ATTR_BOX_FLAGS_NONE = 0,
     PARTICLE_ATTR_BOX_FLAGS_WATER = 1,
     PARTICLE_ATTR_BOX_FLAGS_ON_FIRE = 2,
@@ -2120,24 +2156,24 @@ enum ParticleAttrBoxFlags_t : uint32_t {
     PARTICLE_ATTR_BOX_FLAGS_TIMED_DECAY = 32,
 };
 
-enum AnimationType_t : uint32_t {
+_enum AnimationType_t : uint32_t {
     ANIMATION_TYPE_FIXED_RATE = 0,
     ANIMATION_TYPE_FIT_LIFETIME = 1,
     ANIMATION_TYPE_MANUAL_FRAMES = 2,
 };
 
-enum HitboxLerpType_t : uint32_t {
+_enum HitboxLerpType_t : uint32_t {
     HITBOX_LERP_LIFETIME = 0,
     HITBOX_LERP_CONSTANT = 1,
 };
 
-enum ParticleRotationLockType_t : uint32_t {
+_enum ParticleRotationLockType_t : uint32_t {
     PARTICLE_ROTATION_LOCK_NONE = 0,
     PARTICLE_ROTATION_LOCK_ROTATIONS = 1,
     PARTICLE_ROTATION_LOCK_NORMAL = 2,
 };
 
-enum VectorExpressionType_t : uint32_t {
+_enum VectorExpressionType_t : uint32_t {
     VECTOR_EXPRESSION_UNINITIALIZED = 4294967295,
     VECTOR_EXPRESSION_ADD = 0,
     VECTOR_EXPRESSION_SUBTRACT = 1,
@@ -2150,13 +2186,13 @@ enum VectorExpressionType_t : uint32_t {
     VECTOR_EXPRESSION_LERP = 8,
 };
 
-enum ParticleFogType_t : uint32_t {
+_enum ParticleFogType_t : uint32_t {
     PARTICLE_FOG_GAME_DEFAULT = 0,
     PARTICLE_FOG_ENABLED = 1,
     PARTICLE_FOG_DISABLED = 2,
 };
 
-enum VectorFloatExpressionType_t : uint32_t {
+_enum VectorFloatExpressionType_t : uint32_t {
     VECTOR_FLOAT_EXPRESSION_UNINITIALIZED = 4294967295,
     VECTOR_FLOAT_EXPRESSION_DOTPRODUCT = 0,
     VECTOR_FLOAT_EXPRESSION_DISTANCE = 1,
@@ -2166,7 +2202,7 @@ enum VectorFloatExpressionType_t : uint32_t {
     VECTOR_FLOAT_EXPRESSION_INPUT1_NOISE = 5,
 };
 
-enum ParticlePinDistance_t : uint32_t {
+_enum ParticlePinDistance_t : uint32_t {
     PARTICLE_PIN_DISTANCE_NONE = 4294967295,
     PARTICLE_PIN_DISTANCE_NEIGHBOR = 0,
     PARTICLE_PIN_DISTANCE_FARTHEST = 1,
@@ -2181,7 +2217,7 @@ enum ParticlePinDistance_t : uint32_t {
     PARTICLE_PIN_FLOAT_VALUE = 11,
 };
 
-enum ParticleControlPointAxis_t : uint32_t {
+_enum ParticleControlPointAxis_t : uint32_t {
     PARTICLE_CP_AXIS_X = 0,
     PARTICLE_CP_AXIS_Y = 1,
     PARTICLE_CP_AXIS_Z = 2,
@@ -2190,23 +2226,23 @@ enum ParticleControlPointAxis_t : uint32_t {
     PARTICLE_CP_AXIS_NEGATIVE_Z = 5,
 };
 
-enum ParticleHitboxBiasType_t : uint32_t {
+_enum ParticleHitboxBiasType_t : uint32_t {
     PARTICLE_HITBOX_BIAS_ENTITY = 0,
     PARTICLE_HITBOX_BIAS_HITBOX = 1,
 };
 
-enum ParticleDirectionNoiseType_t : uint32_t {
+_enum ParticleDirectionNoiseType_t : uint32_t {
     PARTICLE_DIR_NOISE_PERLIN = 0,
     PARTICLE_DIR_NOISE_CURL = 1,
     PARTICLE_DIR_NOISE_WORLEY_BASIC = 2,
 };
 
-enum ParticleMassMode_t : uint32_t {
+_enum ParticleMassMode_t : uint32_t {
     PARTICLE_MASSMODE_RADIUS_CUBED = 0,
     PARTICLE_MASSMODE_RADIUS_SQUARED = 2,
 };
 
-enum EventTypeSelection_t : uint32_t {
+_enum EventTypeSelection_t : uint32_t {
     PARTICLE_EVENT_TYPE_MASK_NONE = 0,
     PARTICLE_EVENT_TYPE_MASK_SPAWNED = 1,
     PARTICLE_EVENT_TYPE_MASK_KILLED = 2,
@@ -2220,7 +2256,7 @@ enum EventTypeSelection_t : uint32_t {
     PARTICLE_EVENT_TYPE_MASK_USER_4 = 512,
 };
 
-enum SetStatisticExpressionType_t : uint32_t {
+_enum SetStatisticExpressionType_t : uint32_t {
     SET_EXPRESSION_UNINITIALIZED = 4294967295,
     SET_EXPRESSION_SUM = 0,
     SET_EXPRESSION_MEAN = 1,
@@ -2231,7 +2267,7 @@ enum SetStatisticExpressionType_t : uint32_t {
     SET_EXPRESSION_MAX = 6,
 };
 
-enum ParticleLightingQuality_t : uint32_t {
+_enum ParticleLightingQuality_t : uint32_t {
     PARTICLE_LIGHTING_PER_PARTICLE = 0,
     PARTICLE_LIGHTING_PER_VERTEX = 1,
     PARTICLE_LIGHTING_PER_PIXEL = 4294967295,
@@ -2240,23 +2276,23 @@ enum ParticleLightingQuality_t : uint32_t {
     PARTICLE_LIGHTING_ADD_EXTRA_LIGHT = 4,
 };
 
-enum ParticleParentSetMode_t : uint32_t {
+_enum ParticleParentSetMode_t : uint32_t {
     PARTICLE_SET_PARENT_NO = 0,
     PARTICLE_SET_PARENT_IMMEDIATE = 1,
     PARTICLE_SET_PARENT_ROOT = 2,
 };
 
-enum StandardLightingAttenuationStyle_t : uint32_t {
+_enum StandardLightingAttenuationStyle_t : uint32_t {
     LIGHT_STYLE_OLD = 0,
     LIGHT_STYLE_NEW = 1,
 };
 
-enum BlurFilterType_t : uint32_t {
+_enum BlurFilterType_t : uint32_t {
     BLURFILTER_GAUSSIAN = 0,
     BLURFILTER_BOX = 1,
 };
 
-enum SpriteCardPerParticleScale_t : uint32_t {
+_enum SpriteCardPerParticleScale_t : uint32_t {
     SPRITECARD_TEXTURE_PP_SCALE_NONE = 0,
     SPRITECARD_TEXTURE_PP_SCALE_PARTICLE_AGE = 1,
     SPRITECARD_TEXTURE_PP_SCALE_ANIMATION_FRAME = 2,
@@ -2273,7 +2309,7 @@ enum SpriteCardPerParticleScale_t : uint32_t {
     SPRITECARD_TEXTURE_PP_SCALE_NEG_RANDOM_TIME = 13,
 };
 
-enum ScalarExpressionType_t : uint32_t {
+_enum ScalarExpressionType_t : uint32_t {
     SCALAR_EXPRESSION_UNINITIALIZED = 4294967295,
     SCALAR_EXPRESSION_ADD = 0,
     SCALAR_EXPRESSION_SUBTRACT = 1,
@@ -2288,14 +2324,14 @@ enum ScalarExpressionType_t : uint32_t {
     SCALAR_EXPRESSION_LT = 10,
 };
 
-enum DetailCombo_t : uint32_t {
+_enum DetailCombo_t : uint32_t {
     DETAIL_COMBO_OFF = 0,
     DETAIL_COMBO_ADD = 1,
     DETAIL_COMBO_ADD_SELF_ILLUM = 2,
     DETAIL_COMBO_MOD2X = 3,
 };
 
-enum ParticleColorBlendType_t : uint32_t {
+_enum ParticleColorBlendType_t : uint32_t {
     PARTICLE_COLOR_BLEND_MULTIPLY = 0,
     PARTICLE_COLOR_BLEND_MULTIPLY2X = 1,
     PARTICLE_COLOR_BLEND_DIVIDE = 2,
@@ -2311,7 +2347,7 @@ enum ParticleColorBlendType_t : uint32_t {
     PARTICLE_COLOR_BLEND_LUMINANCE = 12,
 };
 
-enum ParticleColorBlendMode_t : uint32_t {
+_enum ParticleColorBlendMode_t : uint32_t {
     PARTICLEBLEND_DEFAULT = 0,
     PARTICLEBLEND_OVERLAY = 1,
     PARTICLEBLEND_DARKEN = 2,
@@ -2319,7 +2355,7 @@ enum ParticleColorBlendMode_t : uint32_t {
     PARTICLEBLEND_MULTIPLY = 4,
 };
 
-enum ParticleCollisionGroup_t : uint32_t {
+_enum ParticleCollisionGroup_t : uint32_t {
     PARTICLE_COLLISION_GROUP_DEFAULT = 4,
     PARTICLE_COLLISION_GROUP_DEBRIS = 5,
     PARTICLE_COLLISION_GROUP_INTERACTIVE = 7,
@@ -2329,7 +2365,7 @@ enum ParticleCollisionGroup_t : uint32_t {
     PARTICLE_COLLISION_GROUP_PROPS = 24,
 };
 
-enum ParticlePostProcessPriorityGroup_t : uint32_t {
+_enum ParticlePostProcessPriorityGroup_t : uint32_t {
     PARTICLE_POST_PROCESS_PRIORITY_LEVEL_VOLUME = 0,
     PARTICLE_POST_PROCESS_PRIORITY_LEVEL_OVERRIDE = 1,
     PARTICLE_POST_PROCESS_PRIORITY_GAMEPLAY_EFFECT = 2,
@@ -2338,43 +2374,43 @@ enum ParticlePostProcessPriorityGroup_t : uint32_t {
     PARTICLE_POST_PROCESS_PRIORITY_GLOBAL_UI = 5,
 };
 
-enum InheritableBoolType_t : uint32_t {
+_enum InheritableBoolType_t : uint32_t {
     INHERITABLE_BOOL_INHERIT = 0,
     INHERITABLE_BOOL_FALSE = 1,
     INHERITABLE_BOOL_TRUE = 2,
 };
 
-enum PetGroundType_t : uint32_t {
+_enum PetGroundType_t : uint32_t {
     PET_GROUND_NONE = 0,
     PET_GROUND_GRID = 1,
     PET_GROUND_PLANE = 2,
 };
 
-enum ParticleFanType_t : uint32_t {
+_enum ParticleFanType_t : uint32_t {
     PARTICLE_FAN_TYPE_FAN = 0,
     PARTICLE_FAN_TYPE_ROTOR_WASH = 1,
     PARTICLE_FAN_TYPE_RADIAL = 2,
 };
 
-enum ParticleEntityPos_t : uint32_t {
+_enum ParticleEntityPos_t : uint32_t {
     PARTICLE_ABS_ORIGIN = 0,
     PARTICLE_WORLDSPACE_CENTER = 1,
     PARTICLE_EYES = 2,
 };
 
-enum ParticleReplicationMode_t : uint32_t {
+_enum ParticleReplicationMode_t : uint32_t {
     PARTICLE_REPLICATIONMODE_NONE = 0,
     PARTICLE_REPLICATIONMODE_REPLICATE_FOR_EACH_PARENT_PARTICLE = 1,
 };
 
-enum ParticleVRHandChoiceList_t : uint32_t {
+_enum ParticleVRHandChoiceList_t : uint32_t {
     PARTICLE_VRHAND_LEFT = 0,
     PARTICLE_VRHAND_RIGHT = 1,
     PARTICLE_VRHAND_CP = 2,
     PARTICLE_VRHAND_CP_OBJECT = 3,
 };
 
-enum PFuncVisualizationType_t : uint32_t {
+_enum PFuncVisualizationType_t : uint32_t {
     PFUNC_VISUALIZATION_SPHERE_WIREFRAME = 0,
     PFUNC_VISUALIZATION_SPHERE_SOLID = 1,
     PFUNC_VISUALIZATION_BOX = 2,
@@ -2384,20 +2420,20 @@ enum PFuncVisualizationType_t : uint32_t {
     PFUNC_VISUALIZATION_CYLINDER = 6,
 };
 
-enum ParticleTraceMissBehavior_t : uint32_t {
+_enum ParticleTraceMissBehavior_t : uint32_t {
     PARTICLE_TRACE_MISS_BEHAVIOR_NONE = 0,
     PARTICLE_TRACE_MISS_BEHAVIOR_KILL = 1,
     PARTICLE_TRACE_MISS_BEHAVIOR_TRACE_END = 2,
 };
 
-enum MissingParentInheritBehavior_t : uint32_t {
+_enum MissingParentInheritBehavior_t : uint32_t {
     MISSING_PARENT_DO_NOTHING = 4294967295,
     MISSING_PARENT_KILL = 0,
     MISSING_PARENT_FIND_NEW = 1,
     MISSING_PARENT_SAME_INDEX = 2,
 };
 
-enum Detail2Combo_t : uint32_t {
+_enum Detail2Combo_t : uint32_t {
     DETAIL_2_COMBO_UNINITIALIZED = 4294967295,
     DETAIL_2_COMBO_OFF = 0,
     DETAIL_2_COMBO_ADD = 1,
@@ -2407,7 +2443,7 @@ enum Detail2Combo_t : uint32_t {
     DETAIL_2_COMBO_CROSSFADE = 5,
 };
 
-enum ParticleSetMethod_t : uint32_t {
+_enum ParticleSetMethod_t : uint32_t {
     PARTICLE_SET_REPLACE_VALUE = 0,
     PARTICLE_SET_SCALE_INITIAL_VALUE = 1,
     PARTICLE_SET_ADD_TO_INITIAL_VALUE = 2,
@@ -2416,7 +2452,7 @@ enum ParticleSetMethod_t : uint32_t {
     PARTICLE_SET_ADD_TO_CURRENT_VALUE = 5,
 };
 
-enum EStyleNodeType : uint32_t {
+_enum EStyleNodeType : uint32_t {
     ROOT = 0,
     EXPRESSION = 1,
     PROPERTY = 2,
@@ -2436,7 +2472,7 @@ enum EStyleNodeType : uint32_t {
     COMPILER_CONDITIONAL = 16,
 };
 
-enum ELayoutNodeType : uint32_t {
+_enum ELayoutNodeType : uint32_t {
     ROOT = 0,
     STYLES = 1,
     SCRIPT_BODY = 2,
@@ -2452,7 +2488,7 @@ enum ELayoutNodeType : uint32_t {
     REFERENCE_PASSTHROUGH = 12,
 };
 
-enum MoveType_t : uint8_t {
+_enum MoveType_t : uint8_t {
     MOVETYPE_NONE = 0,
     MOVETYPE_OBSOLETE = 1,
     MOVETYPE_WALK = 2,
@@ -2469,25 +2505,25 @@ enum MoveType_t : uint8_t {
     MOVETYPE_MAX_BITS = 5,
 };
 
-enum EntityAttachmentType_t : uint32_t {
+_enum EntityAttachmentType_t : uint32_t {
     eAbsOrigin = 0,
     eCenter = 1,
     eEyes = 2,
     eAttachment = 3,
 };
 
-enum EOverrideBlockLOS_t : uint32_t {
+_enum EOverrideBlockLOS_t : uint32_t {
     BLOCK_LOS_DEFAULT = 0,
     BLOCK_LOS_FORCE_FALSE = 1,
     BLOCK_LOS_FORCE_TRUE = 2,
 };
 
-enum FuncDoorSpawnPos_t : uint32_t {
+_enum FuncDoorSpawnPos_t : uint32_t {
     FUNC_DOOR_SPAWN_CLOSED = 0,
     FUNC_DOOR_SPAWN_OPEN = 1,
 };
 
-enum ObserverMode_t : uint32_t {
+_enum ObserverMode_t : uint32_t {
     OBS_MODE_NONE = 0,
     OBS_MODE_FIXED = 1,
     OBS_MODE_IN_EYE = 2,
@@ -2496,7 +2532,7 @@ enum ObserverMode_t : uint32_t {
     NUM_OBSERVER_MODES = 5,
 };
 
-enum MedalRank_t : uint32_t {
+_enum MedalRank_t : uint32_t {
     MEDAL_RANK_NONE = 0,
     MEDAL_RANK_BRONZE = 1,
     MEDAL_RANK_SILVER = 2,
@@ -2504,18 +2540,18 @@ enum MedalRank_t : uint32_t {
     MEDAL_RANK_COUNT = 4,
 };
 
-enum CanPlaySequence_t : uint32_t {
+_enum CanPlaySequence_t : uint32_t {
     CANNOT_PLAY = 0,
     CAN_PLAY_NOW = 1,
     CAN_PLAY_ENQUEUED = 2,
 };
 
-enum RotatorTargetSpace_t : uint32_t {
+_enum RotatorTargetSpace_t : uint32_t {
     ROTATOR_TARGET_WORLDSPACE = 0,
     ROTATOR_TARGET_LOCALSPACE = 1,
 };
 
-enum Disposition_t : uint32_t {
+_enum Disposition_t : uint32_t {
     D_ER = 0,
     D_HT = 1,
     D_FR = 2,
@@ -2528,12 +2564,12 @@ enum Disposition_t : uint32_t {
     D_NEUTRAL = 4,
 };
 
-enum ValueRemapperHapticsType_t : uint32_t {
+_enum ValueRemapperHapticsType_t : uint32_t {
     HaticsType_Default = 0,
     HaticsType_None = 1,
 };
 
-enum TakeDamageFlags_t : uint64_t {
+_enum TakeDamageFlags_t : uint64_t {
     DFLAG_NONE = 0,
     DFLAG_SUPPRESS_HEALTH_CHANGES = 1,
     DFLAG_SUPPRESS_PHYSICS_FORCE = 2,
@@ -2558,7 +2594,7 @@ enum TakeDamageFlags_t : uint64_t {
     DFLAG_SUPPRESS_UTILREMOVE = 524288,
 };
 
-enum WeaponSound_t : uint32_t {
+_enum WeaponSound_t : uint32_t {
     WEAPON_SOUND_EMPTY = 0,
     WEAPON_SOUND_SECONDARY_EMPTY = 1,
     WEAPON_SOUND_SINGLE = 2,
@@ -2586,7 +2622,7 @@ enum WeaponSound_t : uint32_t {
     WEAPON_SOUND_NUM_TYPES = 24,
 };
 
-enum EKillTypes_t : uint8_t {
+_enum EKillTypes_t : uint8_t {
     KILL_NONE = 0,
     KILL_DEFAULT = 1,
     KILL_HEADSHOT = 2,
@@ -2597,12 +2633,12 @@ enum EKillTypes_t : uint8_t {
     KILLTYPE_COUNT = 7,
 };
 
-enum ValueRemapperInputType_t : uint32_t {
+_enum ValueRemapperInputType_t : uint32_t {
     InputType_PlayerShootPosition = 0,
     InputType_PlayerShootPositionAroundAxis = 1,
 };
 
-enum GrenadeType_t : uint32_t {
+_enum GrenadeType_t : uint32_t {
     GRENADE_TYPE_EXPLOSIVE = 0,
     GRENADE_TYPE_FLASH = 1,
     GRENADE_TYPE_FIRE = 2,
@@ -2611,17 +2647,18 @@ enum GrenadeType_t : uint32_t {
     GRENADE_TYPE_TOTAL = 5,
 };
 
-enum ShadowType_t : uint32_t {
+_enum ShadowType_t : uint32_t {
     SHADOWS_NONE = 0,
     SHADOWS_SIMPLE = 1,
 };
 
-enum ModifyDamageReturn_t : uint32_t {
+_enum ModifyDamageReturn_t : uint32_t {
     CONTINUE_TO_APPLY_DAMAGE = 0,
     ABORT_DO_NOT_APPLY_DAMAGE = 1,
 };
 
-enum QuestProgress::Reason : uint32_t {
+/// QuestProgress::Reason
+_enum QuestProgress__Reason : uint32_t {
     QUEST_NONINITIALIZED = 0,
     QUEST_OK = 1,
     QUEST_NOT_ENOUGH_PLAYERS = 2,
@@ -2637,26 +2674,26 @@ enum QuestProgress::Reason : uint32_t {
     QUEST_REASON_MAX = 12,
 };
 
-enum BrushSolidities_e : uint32_t {
+_enum BrushSolidities_e : uint32_t {
     BRUSHSOLID_TOGGLE = 0,
     BRUSHSOLID_NEVER = 1,
     BRUSHSOLID_ALWAYS = 2,
 };
 
-enum DestructiblePartDestructionDeathBehavior_t : uint32_t {
+_enum DestructiblePartDestructionDeathBehavior_t : uint32_t {
     eDoNotKill = 0,
     eKill = 1,
     eGib = 2,
     eRemove = 3,
 };
 
-enum TRAIN_CODE : uint32_t {
+_enum TRAIN_CODE : uint32_t {
     TRAIN_SAFE = 0,
     TRAIN_BLOCKING = 1,
     TRAIN_FOLLOWING = 2,
 };
 
-enum Flags_t : uint32_t {
+_enum Flags_t : uint32_t {
     FL_ONGROUND = 1,
     FL_DUCKING = 2,
     FL_WATERJUMP = 4,
@@ -2682,7 +2719,7 @@ enum Flags_t : uint32_t {
     FL_UNBLOCKABLE_BY_PLAYER = 1073741824,
 };
 
-enum ShakeCommand_t : uint32_t {
+_enum ShakeCommand_t : uint32_t {
     SHAKE_START = 0,
     SHAKE_STOP = 1,
     SHAKE_AMPLITUDE = 2,
@@ -2691,29 +2728,29 @@ enum ShakeCommand_t : uint32_t {
     SHAKE_START_NORUMBLE = 5,
 };
 
-enum PointWorldTextJustifyHorizontal_t : uint32_t {
+_enum PointWorldTextJustifyHorizontal_t : uint32_t {
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT = 0,
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER = 1,
     POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT = 2,
 };
 
-enum PulseTraceContents_t : uint32_t {
+_enum PulseTraceContents_t : uint32_t {
     STATIC_LEVEL = 0,
     SOLID = 1,
 };
 
-enum EntityDistanceMode_t : uint32_t {
+_enum EntityDistanceMode_t : uint32_t {
     eOriginToOrigin = 0,
     eCenterToCenter = 1,
     eAxisToAxis = 2,
 };
 
-enum EDestructiblePartRadiusDamageApplyType : uint32_t {
+_enum EDestructiblePartRadiusDamageApplyType : uint32_t {
     ScaleByExplosionRadius = 0,
     PrioritizeClosestPart = 1,
 };
 
-enum WeaponGameplayAnimState : uint16_t {
+_enum WeaponGameplayAnimState : uint16_t {
     WPN_ANIMSTATE_UNINITIALIZED = 0,
     WPN_ANIMSTATE_DROPPED = 1,
     WPN_ANIMSTATE_HOLSTERED = 10,
@@ -2746,32 +2783,33 @@ enum WeaponGameplayAnimState : uint16_t {
     WEAPON_LEGACY_STATE_CLEAR_FIRING = 2001,
 };
 
-enum eSplinePushType : uint32_t {
+_enum eSplinePushType : uint32_t {
     k_eSplinePushAlong = 0,
     k_eSplinePushAway = 1,
     k_eSplinePushTowards = 2,
 };
 
-enum EContributionScoreFlag_t : uint8_t {
+_enum EContributionScoreFlag_t : uint8_t {
     k_EContributionScoreFlag_Default = 0,
     k_EContributionScoreFlag_Objective = 1,
     k_EContributionScoreFlag_Bullets = 2,
 };
 
-enum PointTemplateOwnerSpawnGroupType_t : uint32_t {
+_enum PointTemplateOwnerSpawnGroupType_t : uint32_t {
     INSERT_INTO_POINT_TEMPLATE_SPAWN_GROUP = 0,
     INSERT_INTO_CURRENTLY_ACTIVE_SPAWN_GROUP = 1,
     INSERT_INTO_NEWLY_CREATED_SPAWN_GROUP = 2,
 };
 
-enum ValueRemapperOutputType_t : uint32_t {
+_enum ValueRemapperOutputType_t : uint32_t {
     OutputType_AnimationCycle = 0,
     OutputType_RotationX = 1,
     OutputType_RotationY = 2,
     OutputType_RotationZ = 3,
 };
 
-enum IChoreoServices::ChoreoState_t : uint32_t {
+/// IChoreoServices::ChoreoState_t
+_enum IChoreoServices__ChoreoState_t : uint32_t {
     STATE_PRE_SCRIPT = 0,
     STATE_WAIT_FOR_SCRIPT = 1,
     STATE_WALK_TO_MARK = 2,
@@ -2781,7 +2819,7 @@ enum IChoreoServices::ChoreoState_t : uint32_t {
     STATE_PLAY_SCRIPT_POST_IDLE_DONE = 6,
 };
 
-enum MoveCollide_t : uint8_t {
+_enum MoveCollide_t : uint8_t {
     MOVECOLLIDE_DEFAULT = 0,
     MOVECOLLIDE_FLY_BOUNCE = 1,
     MOVECOLLIDE_FLY_CUSTOM = 2,
@@ -2790,18 +2828,18 @@ enum MoveCollide_t : uint8_t {
     MOVECOLLIDE_MAX_BITS = 3,
 };
 
-enum attributeprovidertypes_t : uint32_t {
+_enum attributeprovidertypes_t : uint32_t {
     PROVIDER_GENERIC = 0,
     PROVIDER_WEAPON = 1,
 };
 
-enum PointWorldTextJustifyVertical_t : uint32_t {
+_enum PointWorldTextJustifyVertical_t : uint32_t {
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_BOTTOM = 0,
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_CENTER = 1,
     POINT_WORLD_TEXT_JUSTIFY_VERTICAL_TOP = 2,
 };
 
-enum DamageTypes_t : uint32_t {
+_enum DamageTypes_t : uint32_t {
     DMG_GENERIC = 0,
     DMG_CRUSH = 1,
     DMG_BULLET = 2,
@@ -2826,7 +2864,7 @@ enum DamageTypes_t : uint32_t {
     DMG_HEADSHOT = 524288,
 };
 
-enum SolidType_t : uint8_t {
+_enum SolidType_t : uint8_t {
     SOLID_NONE = 0,
     SOLID_BSP = 1,
     SOLID_BBOX = 2,
@@ -2838,7 +2876,7 @@ enum SolidType_t : uint8_t {
     SOLID_LAST = 8,
 };
 
-enum EntityEffects_t : uint16_t {
+_enum EntityEffects_t : uint16_t {
     DEPRICATED_EF_NOINTERP = 8,
     EF_NOSHADOW = 16,
     EF_NODRAW = 32,
@@ -2848,11 +2886,11 @@ enum EntityEffects_t : uint16_t {
     EF_MAX_BITS = 10,
 };
 
-enum navproperties_t : uint32_t {
+_enum navproperties_t : uint32_t {
     NAV_IGNORE = 1,
 };
 
-enum PlayerConnectedState : uint32_t {
+_enum PlayerConnectedState : uint32_t {
     PlayerNeverConnected = 4294967295,
     PlayerConnected = 0,
     PlayerConnecting = 1,
@@ -2862,20 +2900,20 @@ enum PlayerConnectedState : uint32_t {
     PlayerReserved = 5,
 };
 
-enum ChatIgnoreType_t : uint32_t {
+_enum ChatIgnoreType_t : uint32_t {
     CHAT_IGNORE_NONE = 0,
     CHAT_IGNORE_ALL = 1,
     CHAT_IGNORE_TEAM = 2,
 };
 
-enum ChoreoLookAtMode_t : uint32_t {
+_enum ChoreoLookAtMode_t : uint32_t {
     eInvalid = 4294967295,
     eChest = 0,
     eHead = 1,
     eEyesOnly = 2,
 };
 
-enum DoorState_t : uint32_t {
+_enum DoorState_t : uint32_t {
     DOOR_STATE_CLOSED = 0,
     DOOR_STATE_OPENING = 1,
     DOOR_STATE_OPEN = 2,
@@ -2883,7 +2921,7 @@ enum DoorState_t : uint32_t {
     DOOR_STATE_AJAR = 4,
 };
 
-enum LatchDirtyPermission_t : uint32_t {
+_enum LatchDirtyPermission_t : uint32_t {
     LATCH_DIRTY_DISALLOW = 0,
     LATCH_DIRTY_SERVER_CONTROLLED = 1,
     LATCH_DIRTY_CLIENT_SIMULATED = 2,
@@ -2892,7 +2930,7 @@ enum LatchDirtyPermission_t : uint32_t {
     LATCH_DIRTY_PARTICLE_SIMULATE = 5,
 };
 
-enum RumbleEffect_t : uint32_t {
+_enum RumbleEffect_t : uint32_t {
     RUMBLE_INVALID = 4294967295,
     RUMBLE_STOP_ALL = 0,
     RUMBLE_PISTOL = 1,
@@ -2922,7 +2960,7 @@ enum RumbleEffect_t : uint32_t {
     NUM_RUMBLE_EFFECTS = 25,
 };
 
-enum vote_create_failed_t : uint32_t {
+_enum vote_create_failed_t : uint32_t {
     VOTE_FAILED_GENERIC = 0,
     VOTE_FAILED_TRANSITIONING_PLAYERS = 1,
     VOTE_FAILED_RATE_EXCEEDED = 2,
@@ -2960,7 +2998,7 @@ enum vote_create_failed_t : uint32_t {
     VOTE_FAILED_MAX = 34,
 };
 
-enum RenderFx_t : uint8_t {
+_enum RenderFx_t : uint8_t {
     kRenderFxNone = 0,
     kRenderFxPulseSlow = 1,
     kRenderFxPulseFast = 2,
@@ -2981,25 +3019,26 @@ enum RenderFx_t : uint8_t {
     kRenderFxMax = 17,
 };
 
-enum HoverPoseFlags_t : uint8_t {
+_enum HoverPoseFlags_t : uint8_t {
     eNone = 0,
     ePosition = 1,
     eAngles = 2,
 };
 
-enum MoveMountingAmount_t : uint32_t {
+_enum MoveMountingAmount_t : uint32_t {
     MOVE_MOUNT_NONE = 0,
     MOVE_MOUNT_LOW = 1,
     MOVE_MOUNT_HIGH = 2,
     MOVE_MOUNT_MAXCOUNT = 3,
 };
 
-enum CRR_Response::ResponseEnum_t : uint32_t {
+/// CRR_Response::ResponseEnum_t
+_enum CRR_Response__ResponseEnum_t : uint32_t {
     MAX_RESPONSE_NAME = 192,
     MAX_RULE_NAME = 128,
 };
 
-enum NavDirType : uint32_t {
+_enum NavDirType : uint32_t {
     NORTH = 0,
     EAST = 1,
     SOUTH = 2,
@@ -3007,12 +3046,12 @@ enum NavDirType : uint32_t {
     NUM_NAV_DIR_TYPE_DIRECTIONS = 4,
 };
 
-enum ValueRemapperRatchetType_t : uint32_t {
+_enum ValueRemapperRatchetType_t : uint32_t {
     RatchetType_Absolute = 0,
     RatchetType_EachEngage = 1,
 };
 
-enum WeaponSwitchReason_t : uint32_t {
+_enum WeaponSwitchReason_t : uint32_t {
     eDrawn = 0,
     eEquipped = 1,
     eUserInitiatedSwitchToLast = 2,
@@ -3020,38 +3059,38 @@ enum WeaponSwitchReason_t : uint32_t {
     eUserInitiatedSwitchHands = 4,
 };
 
-enum TrackOrientationType_t : uint32_t {
+_enum TrackOrientationType_t : uint32_t {
     TrackOrientation_Fixed = 0,
     TrackOrientation_FacePath = 1,
     TrackOrientation_FacePathAngles = 2,
 };
 
-enum ShatterGlassStressType : uint8_t {
+_enum ShatterGlassStressType : uint8_t {
     SHATTERGLASS_BLUNT = 0,
     SHATTERGLASS_BALLISTIC = 1,
     SHATTERGLASS_PULSE = 2,
     SHATTERGLASS_EXPLOSIVE = 3,
 };
 
-enum CDebugOverlayCombinedTypes_t : uint32_t {
+_enum CDebugOverlayCombinedTypes_t : uint32_t {
     ALL = 0,
     ANY = 1,
     COUNT = 2,
 };
 
-enum PointTemplateClientOnlyEntityBehavior_t : uint32_t {
+_enum PointTemplateClientOnlyEntityBehavior_t : uint32_t {
     CREATE_FOR_CURRENTLY_CONNECTED_CLIENTS_ONLY = 0,
     CREATE_FOR_CLIENTS_WHO_CONNECT_LATER = 1,
 };
 
-enum EntitySubclassScope_t : uint32_t {
+_enum EntitySubclassScope_t : uint32_t {
     SUBCLASS_SCOPE_NONE = 4294967295,
     SUBCLASS_SCOPE_PRECIPITATION = 0,
     SUBCLASS_SCOPE_PLAYER_WEAPONS = 1,
     SUBCLASS_SCOPE_COUNT = 2,
 };
 
-enum BeamType_t : uint32_t {
+_enum BeamType_t : uint32_t {
     BEAM_INVALID = 0,
     BEAM_POINTS = 1,
     BEAM_ENTPOINT = 2,
@@ -3061,13 +3100,13 @@ enum BeamType_t : uint32_t {
     BEAM_LASER = 6,
 };
 
-enum doorCheck_e : uint32_t {
+_enum doorCheck_e : uint32_t {
     DOOR_CHECK_FORWARD = 0,
     DOOR_CHECK_BACKWARD = 1,
     DOOR_CHECK_FULL = 2,
 };
 
-enum HierarchyType_t : uint32_t {
+_enum HierarchyType_t : uint32_t {
     HIERARCHY_NONE = 0,
     HIERARCHY_BONE_MERGE = 1,
     HIERARCHY_ATTACHMENT = 2,
@@ -3076,7 +3115,7 @@ enum HierarchyType_t : uint32_t {
     HIERARCHY_TYPE_COUNT = 5,
 };
 
-enum DecalFlags_t : uint32_t {
+_enum DecalFlags_t : uint32_t {
     eNone = 0,
     eCannotClear = 1,
     eDecalProjectToBackfaces = 2,
@@ -3084,13 +3123,13 @@ enum DecalFlags_t : uint32_t {
     eAllButCannotClear = 4294967294,
 };
 
-enum AmmoFlags_t : uint32_t {
+_enum AmmoFlags_t : uint32_t {
     AMMO_FORCE_DROP_IF_CARRIED = 1,
     AMMO_RESERVE_STAYS_WITH_WEAPON = 2,
     AMMO_FLAG_MAX = 2,
 };
 
-enum DebugOverlayBits_t : uint64_t {
+_enum DebugOverlayBits_t : uint64_t {
     OVERLAY_TEXT_BIT = 1,
     OVERLAY_NAME_BIT = 2,
     OVERLAY_BBOX_BIT = 4,
@@ -3133,12 +3172,12 @@ enum DebugOverlayBits_t : uint64_t {
     OVERLAY_MINIMAL_TEXT = 2199023255552,
 };
 
-enum PointWorldTextReorientMode_t : uint32_t {
+_enum PointWorldTextReorientMode_t : uint32_t {
     POINT_WORLD_TEXT_REORIENT_NONE = 0,
     POINT_WORLD_TEXT_REORIENT_AROUND_UP = 1,
 };
 
-enum ChickenActivity : uint32_t {
+_enum ChickenActivity : uint32_t {
     IDLE = 0,
     SQUAT = 1,
     WALK = 2,
@@ -3152,7 +3191,7 @@ enum ChickenActivity : uint32_t {
     SLEEP = 10,
 };
 
-enum HitGroup_t : uint32_t {
+_enum HitGroup_t : uint32_t {
     HITGROUP_INVALID = 4294967295,
     HITGROUP_GENERIC = 0,
     HITGROUP_HEAD = 1,
@@ -3169,7 +3208,7 @@ enum HitGroup_t : uint32_t {
     HITGROUP_COUNT = 12,
 };
 
-enum InputBitMask_t : uint64_t {
+_enum InputBitMask_t : uint64_t {
     IN_NONE = 0,
     IN_ALL = 18446744073709551615,
     IN_ATTACK = 1,
@@ -3193,7 +3232,7 @@ enum InputBitMask_t : uint64_t {
     IN_LOOK_AT_WEAPON = 34359738368,
 };
 
-enum EntityDisolveType_t : uint32_t {
+_enum EntityDisolveType_t : uint32_t {
     ENTITY_DISSOLVE_INVALID = 4294967295,
     ENTITY_DISSOLVE_NORMAL = 0,
     ENTITY_DISSOLVE_ELECTRICAL = 1,
@@ -3201,7 +3240,7 @@ enum EntityDisolveType_t : uint32_t {
     ENTITY_DISSOLVE_CORE = 3,
 };
 
-enum PreviewEOMCelebration : uint32_t {
+_enum PreviewEOMCelebration : uint32_t {
     INVALID = 4294967295,
     WALKUP = 0,
     PUNCHING = 1,
@@ -3228,7 +3267,7 @@ enum PreviewEOMCelebration : uint32_t {
     VYPA_DEFEAT = 22,
 };
 
-enum CDebugOverlayFilterType_t : uint32_t {
+_enum CDebugOverlayFilterType_t : uint32_t {
     NONE = 0,
     TEXT = 1,
     ENTITY = 2,
@@ -3242,27 +3281,27 @@ enum CDebugOverlayFilterType_t : uint32_t {
     COMBINED = 4294967295,
 };
 
-enum AmmoPosition_t : uint32_t {
+_enum AmmoPosition_t : uint32_t {
     AMMO_POSITION_INVALID = 4294967295,
     AMMO_POSITION_PRIMARY = 0,
     AMMO_POSITION_SECONDARY = 1,
     AMMO_POSITION_COUNT = 2,
 };
 
-enum RelativeLocationType_t : uint8_t {
+_enum RelativeLocationType_t : uint8_t {
     WORLD_SPACE_POSITION = 0,
     RELATIVE_TO_ENTITY_IN_LOCAL_SPACE = 1,
     RELATIVE_TO_ENTITY_YAW_ONLY = 2,
     RELATIVE_TO_ENTITY_IN_WORLD_SPACE = 3,
 };
 
-enum WorldTextPanelVerticalAlign_t : uint32_t {
+_enum WorldTextPanelVerticalAlign_t : uint32_t {
     WORLDTEXT_VERTICAL_ALIGN_TOP = 0,
     WORLDTEXT_VERTICAL_ALIGN_CENTER = 1,
     WORLDTEXT_VERTICAL_ALIGN_BOTTOM = 2,
 };
 
-enum WaterLevel_t : uint8_t {
+_enum WaterLevel_t : uint8_t {
     WL_NotInWater = 0,
     WL_Feet = 1,
     WL_Knees = 2,
@@ -3272,12 +3311,12 @@ enum WaterLevel_t : uint8_t {
     WL_Count = 6,
 };
 
-enum ScriptedConflictResponse_t : uint32_t {
+_enum ScriptedConflictResponse_t : uint32_t {
     SS_CONFLICT_ENQUEUE = 0,
     SS_CONFLICT_INTERRUPT = 1,
 };
 
-enum CSPlayerState : uint32_t {
+_enum CSPlayerState : uint32_t {
     STATE_ACTIVE = 0,
     STATE_WELCOME = 1,
     STATE_PICKINGTEAM = 2,
@@ -3290,7 +3329,7 @@ enum CSPlayerState : uint32_t {
     NUM_PLAYER_STATES = 9,
 };
 
-enum gear_slot_t : uint32_t {
+_enum gear_slot_t : uint32_t {
     GEAR_SLOT_INVALID = 4294967295,
     GEAR_SLOT_RIFLE = 0,
     GEAR_SLOT_PISTOL = 1,
@@ -3310,14 +3349,14 @@ enum gear_slot_t : uint32_t {
     GEAR_SLOT_LAST = 12,
 };
 
-enum ChoreoLookAtSpeed_t : uint32_t {
+_enum ChoreoLookAtSpeed_t : uint32_t {
     eInvalid = 4294967295,
     eSlow = 0,
     eMedium = 1,
     eFast = 2,
 };
 
-enum CSWeaponNameID : uint32_t {
+_enum CSWeaponNameID : uint32_t {
     WEAPONID_GLOCK = 0,
     WEAPONID_HKP2000 = 1,
     WEAPONID_CZ75A = 2,
@@ -3386,14 +3425,14 @@ enum CSWeaponNameID : uint32_t {
     WEAPONID_UNKNOWN = 65,
 };
 
-enum ScriptedOnDeath_t : uint32_t {
+_enum ScriptedOnDeath_t : uint32_t {
     SS_ONDEATH_NOT_APPLICABLE = 4294967295,
     SS_ONDEATH_UNDEFINED = 0,
     SS_ONDEATH_RAGDOLL = 1,
     SS_ONDEATH_ANIMATED_DEATH = 2,
 };
 
-enum ShatterDamageCause : uint8_t {
+_enum ShatterDamageCause : uint8_t {
     SHATTERDAMAGE_BULLET = 0,
     SHATTERDAMAGE_MELEE = 1,
     SHATTERDAMAGE_THROWN = 2,
@@ -3401,7 +3440,7 @@ enum ShatterDamageCause : uint8_t {
     SHATTERDAMAGE_EXPLOSIVE = 4,
 };
 
-enum CSPlayerBlockingUseAction_t : uint32_t {
+_enum CSPlayerBlockingUseAction_t : uint32_t {
     k_CSPlayerBlockingUseAction_None = 0,
     k_CSPlayerBlockingUseAction_DefusingDefault = 1,
     k_CSPlayerBlockingUseAction_DefusingWithKit = 2,
@@ -3412,28 +3451,28 @@ enum CSPlayerBlockingUseAction_t : uint32_t {
     k_CSPlayerBlockingUseAction_MaxCount = 7,
 };
 
-enum CDebugOverlayFilterTextType_t : uint32_t {
+_enum CDebugOverlayFilterTextType_t : uint32_t {
     FILTER_TEXT_NONE = 0,
     MATCH = 1,
     HIERARCHY = 2,
     COUNT = 3,
 };
 
-enum WeaponAttackType_t : uint32_t {
+_enum WeaponAttackType_t : uint32_t {
     eInvalid = 4294967295,
     ePrimary = 0,
     eSecondary = 1,
     eCount = 2,
 };
 
-enum BeamClipStyle_t : uint32_t {
+_enum BeamClipStyle_t : uint32_t {
     kNOCLIP = 0,
     kGEOCLIP = 1,
     kMODELCLIP = 2,
     kBEAMCLIPSTYLE_NUMBITS = 2,
 };
 
-enum EInButtonState : uint32_t {
+_enum EInButtonState : uint32_t {
     IN_BUTTON_UP = 0,
     IN_BUTTON_DOWN = 1,
     IN_BUTTON_DOWN_UP = 2,
@@ -3445,7 +3484,7 @@ enum EInButtonState : uint32_t {
     IN_BUTTON_STATE_COUNT = 8,
 };
 
-enum PreviewWeaponState : uint32_t {
+_enum PreviewWeaponState : uint32_t {
     DROPPED = 0,
     HOLSTERED = 1,
     DEPLOYED = 2,
@@ -3454,25 +3493,25 @@ enum PreviewWeaponState : uint32_t {
     ICON = 5,
 };
 
-enum ESceneRequestState_t : uint32_t {
+_enum ESceneRequestState_t : uint32_t {
     INACTIVE = 0,
     ACTIVE = 1,
 };
 
-enum BodySectionAuthority_t : uint32_t {
+_enum BodySectionAuthority_t : uint32_t {
     eNone = 0,
     eLowerBody = 1,
     eUpperBody = 2,
     eFullBody = 3,
 };
 
-enum ExternalAnimGraphInactiveBehavior_t : uint8_t {
+_enum ExternalAnimGraphInactiveBehavior_t : uint8_t {
     eNone = 0,
     eUnbind = 1,
     eUnbindAndDelete = 2,
 };
 
-enum Hull_t : uint32_t {
+_enum Hull_t : uint32_t {
     HULL_HUMAN = 0,
     HULL_SMALL_CENTERED = 1,
     HULL_WIDE_HUMAN = 2,
@@ -3487,20 +3526,20 @@ enum Hull_t : uint32_t {
     HULL_NONE = 11,
 };
 
-enum ValueRemapperMomentumType_t : uint32_t {
+_enum ValueRemapperMomentumType_t : uint32_t {
     MomentumType_None = 0,
     MomentumType_Friction = 1,
     MomentumType_SpringTowardSnapValue = 2,
     MomentumType_SpringAwayFromSnapValue = 3,
 };
 
-enum MoveLinearAuthoredPos_t : uint32_t {
+_enum MoveLinearAuthoredPos_t : uint32_t {
     MOVELINEAR_AUTHORED_AT_START_POSITION = 0,
     MOVELINEAR_AUTHORED_AT_OPEN_POSITION = 1,
     MOVELINEAR_AUTHORED_AT_CLOSED_POSITION = 2,
 };
 
-enum NavAttributeEnum : uint64_t {
+_enum NavAttributeEnum : uint64_t {
     NAV_MESH_AVOID = 128,
     NAV_MESH_STAIRS = 4096,
     NAV_MESH_NON_ZUP = 32768,
@@ -3523,14 +3562,14 @@ enum NavAttributeEnum : uint64_t {
     NAV_ATTR_LAST_INDEX = 63,
 };
 
-enum EDestructiblePartDamagePassThroughType : uint32_t {
+_enum EDestructiblePartDamagePassThroughType : uint32_t {
     Normal = 0,
     Absorb = 1,
     InvincibleAbsorb = 2,
     InvinciblePassthrough = 3,
 };
 
-enum loadout_slot_t : uint32_t {
+_enum loadout_slot_t : uint32_t {
     LOADOUT_SLOT_PROMOTED = 4294967294,
     LOADOUT_SLOT_INVALID = 4294967295,
     LOADOUT_SLOT_MELEE = 0,
@@ -3607,7 +3646,7 @@ enum loadout_slot_t : uint32_t {
     LOADOUT_SLOT_COUNT = 57,
 };
 
-enum TOGGLE_STATE : uint32_t {
+_enum TOGGLE_STATE : uint32_t {
     TS_AT_TOP = 0,
     TS_AT_BOTTOM = 1,
     TS_GOING_UP = 2,
@@ -3618,25 +3657,25 @@ enum TOGGLE_STATE : uint32_t {
     DOOR_CLOSING = 3,
 };
 
-enum PerformanceMode_t : uint32_t {
+_enum PerformanceMode_t : uint32_t {
     PM_NORMAL = 0,
     PM_NO_GIBS = 1,
 };
 
-enum ForcedCrouchState_t : uint32_t {
+_enum ForcedCrouchState_t : uint32_t {
     FORCEDCROUCH_NONE = 0,
     FORCEDCROUCH_CROUCHED = 1,
     FORCEDCROUCH_UNCROUCHED = 2,
 };
 
-enum RenderMode_t : uint8_t {
+_enum RenderMode_t : uint8_t {
     kRenderNormal = 0,
     kRenderTransAlpha = 1,
     kRenderNone = 2,
     kRenderModeCount = 3,
 };
 
-enum PulseNPCCondition_t : uint32_t {
+_enum PulseNPCCondition_t : uint32_t {
     COND_SEE_PLAYER = 1,
     COND_LOST_PLAYER = 2,
     COND_HEAR_PLAYER = 3,
@@ -3644,44 +3683,44 @@ enum PulseNPCCondition_t : uint32_t {
     COND_NO_PRIMARY_AMMO = 5,
 };
 
-enum EntityPlatformTypes_t : uint8_t {
+_enum EntityPlatformTypes_t : uint8_t {
     ENTITY_NOT_PLATFORM = 0,
     ENTITY_PLATFORM_PLAYER_FOLLOWS_YAW = 1,
     ENTITY_PLATFORM_PLAYER_IGNORES_YAW = 2,
 };
 
-enum ShardSolid_t : uint8_t {
+_enum ShardSolid_t : uint8_t {
     SHARD_SOLID = 0,
     SHARD_DEBRIS = 1,
 };
 
-enum PropDoorRotatingSpawnPos_t : uint32_t {
+_enum PropDoorRotatingSpawnPos_t : uint32_t {
     DOOR_SPAWN_CLOSED = 0,
     DOOR_SPAWN_OPEN_FORWARD = 1,
     DOOR_SPAWN_OPEN_BACK = 2,
     DOOR_SPAWN_AJAR = 3,
 };
 
-enum TestInputOutputCombinationsEnum_t : uint32_t {
+_enum TestInputOutputCombinationsEnum_t : uint32_t {
     ZERO = 0,
     ONE = 1,
     TWO = 2,
 };
 
-enum EntFinderMethod_t : uint32_t {
+_enum EntFinderMethod_t : uint32_t {
     ENT_FIND_METHOD_NEAREST = 0,
     ENT_FIND_METHOD_FARTHEST = 1,
     ENT_FIND_METHOD_RANDOM = 2,
 };
 
-enum NavScopeFlags_t : uint8_t {
+_enum NavScopeFlags_t : uint8_t {
     eGround = 1,
     eAir = 2,
     eAll = 3,
     eNone = 0,
 };
 
-enum CSWeaponType : uint32_t {
+_enum CSWeaponType : uint32_t {
     WEAPONTYPE_KNIFE = 0,
     WEAPONTYPE_PISTOL = 1,
     WEAPONTYPE_SUBMACHINEGUN = 2,
@@ -3697,13 +3736,13 @@ enum CSWeaponType : uint32_t {
     WEAPONTYPE_UNKNOWN = 12,
 };
 
-enum TrainVelocityType_t : uint32_t {
+_enum TrainVelocityType_t : uint32_t {
     TrainVelocity_Instantaneous = 0,
     TrainVelocity_LinearBlend = 1,
     TrainVelocity_EaseInEaseOut = 2,
 };
 
-enum Touch_t : uint32_t {
+_enum Touch_t : uint32_t {
     touch_none = 0,
     touch_player_only = 1,
     touch_npc_only = 2,
@@ -3711,7 +3750,8 @@ enum Touch_t : uint32_t {
     touch_player_or_npc_or_physicsprop = 4,
 };
 
-enum IChoreoServices::ScriptState_t : uint32_t {
+/// IChoreoServices::ScriptState_t
+_enum IChoreoServices__ScriptState_t : uint32_t {
     SCRIPT_PLAYING = 0,
     SCRIPT_WAIT = 1,
     SCRIPT_POST_IDLE = 2,
@@ -3719,13 +3759,13 @@ enum IChoreoServices::ScriptState_t : uint32_t {
     SCRIPT_MOVE_TO_MARK = 4,
 };
 
-enum FixAngleSet_t : uint8_t {
+_enum FixAngleSet_t : uint8_t {
     None = 0,
     Absolute = 1,
     Relative = 2,
 };
 
-enum GameAnimEventIndex_t : uint32_t {
+_enum GameAnimEventIndex_t : uint32_t {
     AE_EMPTY = 0,
     AE_CL_PLAYSOUND = 1,
     AE_CL_PLAYSOUND_ATTACHMENT = 2,
@@ -3765,7 +3805,7 @@ enum GameAnimEventIndex_t : uint32_t {
     AE_GRENADE_THROW_COMPLETE = 36,
 };
 
-enum BaseExplosionTypes_t : uint32_t {
+_enum BaseExplosionTypes_t : uint32_t {
     EXPLOSION_TYPE_DEFAULT = 0,
     EXPLOSION_TYPE_GRENADE = 1,
     EXPLOSION_TYPE_MOLOTOV = 2,
@@ -3785,23 +3825,23 @@ enum BaseExplosionTypes_t : uint32_t {
     EXPLOSION_TYPE_COUNT = 16,
 };
 
-enum EProceduralRagdollWeightIndexPropagationMethod : uint32_t {
+_enum EProceduralRagdollWeightIndexPropagationMethod : uint32_t {
     Bone = 0,
     BoneAndChildren = 1,
 };
 
-enum CSWeaponSilencerType : uint32_t {
+_enum CSWeaponSilencerType : uint32_t {
     WEAPONSILENCER_NONE = 0,
     WEAPONSILENCER_DETACHABLE = 1,
     WEAPONSILENCER_INTEGRATED = 2,
 };
 
-enum filter_t : uint32_t {
+_enum filter_t : uint32_t {
     FILTER_AND = 0,
     FILTER_OR = 1,
 };
 
-enum Class_T : uint32_t {
+_enum Class_T : uint32_t {
     CLASS_NONE = 0,
     CLASS_PLAYER = 1,
     CLASS_PLAYER_ALLY = 2,
@@ -3818,7 +3858,7 @@ enum Class_T : uint32_t {
     NUM_CLASSIFY_CLASSES = 13,
 };
 
-enum AnimLoopMode_t : uint32_t {
+_enum AnimLoopMode_t : uint32_t {
     ANIM_LOOP_MODE_INVALID = 4294967295,
     ANIM_LOOP_MODE_NOT_LOOPING = 0,
     ANIM_LOOP_MODE_LOOPING = 1,
@@ -3826,14 +3866,14 @@ enum AnimLoopMode_t : uint32_t {
     ANIM_LOOP_MODE_COUNT = 3,
 };
 
-enum BreakableContentsType_t : uint32_t {
+_enum BreakableContentsType_t : uint32_t {
     BC_DEFAULT = 0,
     BC_EMPTY = 1,
     BC_PROP_GROUP_OVERRIDE = 2,
     BC_PARTICLE_SYSTEM_OVERRIDE = 3,
 };
 
-enum NavScope_t : uint8_t {
+_enum NavScope_t : uint8_t {
     eGround = 0,
     eAir = 1,
     eCount = 2,
@@ -3841,7 +3881,7 @@ enum NavScope_t : uint8_t {
     eInvalid = 255,
 };
 
-enum BloodType : uint32_t {
+_enum BloodType : uint32_t {
     None = 4294967295,
     ColorRed = 0,
     ColorYellow = 1,
@@ -3853,7 +3893,7 @@ enum BloodType : uint32_t {
     ColorRedLVL6 = 7,
 };
 
-enum Materials : uint32_t {
+_enum Materials : uint32_t {
     matGlass = 0,
     matWood = 1,
     matMetal = 2,
@@ -3868,19 +3908,19 @@ enum Materials : uint32_t {
     matLastMaterial = 11,
 };
 
-enum OnFrame : uint8_t {
+_enum OnFrame : uint8_t {
     ONFRAME_UNKNOWN = 0,
     ONFRAME_TRUE = 1,
     ONFRAME_FALSE = 2,
 };
 
-enum CSWeaponMode : uint32_t {
+_enum CSWeaponMode : uint32_t {
     Primary_Mode = 0,
     Secondary_Mode = 1,
     WeaponMode_MAX = 2,
 };
 
-enum AnimationAlgorithm_t : uint8_t {
+_enum AnimationAlgorithm_t : uint8_t {
     eInvalid = 255,
     eNone = 0,
     eSequence = 1,
@@ -3890,7 +3930,7 @@ enum AnimationAlgorithm_t : uint8_t {
     eCount = 5,
 };
 
-enum NPCFollowFormation_t : uint32_t {
+_enum NPCFollowFormation_t : uint32_t {
     Default = 4294967295,
     CloseCircle = 0,
     WideCircle = 1,
@@ -3898,12 +3938,12 @@ enum NPCFollowFormation_t : uint32_t {
     Sidekick = 6,
 };
 
-enum PointOrientConstraint_t : uint32_t {
+_enum PointOrientConstraint_t : uint32_t {
     eNone = 0,
     ePreserveUpAxis = 1,
 };
 
-enum LifeState_t : uint32_t {
+_enum LifeState_t : uint32_t {
     LIFE_ALIVE = 0,
     LIFE_DYING = 1,
     LIFE_DEAD = 2,
@@ -3912,7 +3952,7 @@ enum LifeState_t : uint32_t {
     NUM_LIFESTATES = 5,
 };
 
-enum SurroundingBoundsType_t : uint8_t {
+_enum SurroundingBoundsType_t : uint8_t {
     USE_OBB_COLLISION_BOUNDS = 0,
     USE_BEST_COLLISION_BOUNDS = 1,
     USE_HITBOXES = 2,
@@ -3925,7 +3965,7 @@ enum SurroundingBoundsType_t : uint8_t {
     SURROUNDING_TYPE_BIT_COUNT = 3,
 };
 
-enum ItemFlagTypes_t : uint8_t {
+_enum ItemFlagTypes_t : uint8_t {
     ITEM_FLAG_NONE = 0,
     ITEM_FLAG_CAN_SELECT_WITHOUT_AMMO = 1,
     ITEM_FLAG_NOAUTORELOAD = 2,
@@ -3937,7 +3977,7 @@ enum ItemFlagTypes_t : uint8_t {
     ITEM_FLAG_NOITEMPICKUP = 128,
 };
 
-enum PointOrientGoalDirectionType_t : uint32_t {
+_enum PointOrientGoalDirectionType_t : uint32_t {
     eAbsOrigin = 0,
     eCenter = 1,
     eHead = 2,
@@ -3945,12 +3985,12 @@ enum PointOrientGoalDirectionType_t : uint32_t {
     eEyesForward = 4,
 };
 
-enum BeginDeathLifeStateTransition_t : uint8_t {
+_enum BeginDeathLifeStateTransition_t : uint8_t {
     TRANSITION_TO_LIFESTATE_DYING = 0,
     TRANSITION_TO_LIFESTATE_DEAD = 1,
 };
 
-enum CSWeaponCategory : uint32_t {
+_enum CSWeaponCategory : uint32_t {
     WEAPONCATEGORY_OTHER = 0,
     WEAPONCATEGORY_MELEE = 1,
     WEAPONCATEGORY_SECONDARY = 2,
@@ -3960,14 +4000,14 @@ enum CSWeaponCategory : uint32_t {
     WEAPONCATEGORY_COUNT = 6,
 };
 
-enum TrainOrientationType_t : uint32_t {
+_enum TrainOrientationType_t : uint32_t {
     TrainOrientation_Fixed = 0,
     TrainOrientation_AtPathTracks = 1,
     TrainOrientation_LinearBlend = 2,
     TrainOrientation_EaseInEaseOut = 3,
 };
 
-enum AnimGraphDebugDrawType_t : uint32_t {
+_enum AnimGraphDebugDrawType_t : uint32_t {
     None = 0,
     WsPosition = 1,
     MsPosition = 2,
@@ -3975,25 +4015,25 @@ enum AnimGraphDebugDrawType_t : uint32_t {
     MsDirection = 4,
 };
 
-enum SoundEventStartType_t : uint32_t {
+_enum SoundEventStartType_t : uint32_t {
     SOUNDEVENT_START_PLAYER = 0,
     SOUNDEVENT_START_WORLD = 1,
     SOUNDEVENT_START_ENTITY = 2,
 };
 
-enum SequenceFinishNotifyState_t : uint8_t {
+_enum SequenceFinishNotifyState_t : uint8_t {
     eDoNotNotify = 0,
     eNotifyWhenFinished = 1,
     eNotifyTriggered = 2,
 };
 
-enum WorldTextPanelHorizontalAlign_t : uint32_t {
+_enum WorldTextPanelHorizontalAlign_t : uint32_t {
     WORLDTEXT_HORIZONTAL_ALIGN_LEFT = 0,
     WORLDTEXT_HORIZONTAL_ALIGN_CENTER = 1,
     WORLDTEXT_HORIZONTAL_ALIGN_RIGHT = 2,
 };
 
-enum EDestructibleParts_DestroyParameterFlags : uint32_t {
+_enum EDestructibleParts_DestroyParameterFlags : uint32_t {
     None = 0,
     GenerateBreakpieces = 1,
     SetBodyGroupAndCollisionState = 2,
@@ -4004,20 +4044,20 @@ enum EDestructibleParts_DestroyParameterFlags : uint32_t {
     Default = 7,
 };
 
-enum WorldTextPanelOrientation_t : uint32_t {
+_enum WorldTextPanelOrientation_t : uint32_t {
     WORLDTEXT_ORIENTATION_DEFAULT = 0,
     WORLDTEXT_ORIENTATION_FACEUSER = 1,
     WORLDTEXT_ORIENTATION_FACEUSER_UPRIGHT = 2,
 };
 
-enum ObserverInterpState_t : uint32_t {
+_enum ObserverInterpState_t : uint32_t {
     OBSERVER_INTERP_NONE = 0,
     OBSERVER_INTERP_STARTING = 1,
     OBSERVER_INTERP_TRAVELING = 2,
     OBSERVER_INTERP_SETTLING = 3,
 };
 
-enum PreviewCharacterMode : uint32_t {
+_enum PreviewCharacterMode : uint32_t {
     INVALID = 4294967295,
     DIORAMA = 0,
     MAIN_MENU = 1,
@@ -4031,13 +4071,13 @@ enum PreviewCharacterMode : uint32_t {
     BANNER = 9,
 };
 
-enum Explosions : uint32_t {
+_enum Explosions : uint32_t {
     expRandom = 0,
     expDirected = 1,
     expUsePrecise = 2,
 };
 
-enum StanceType_t : uint32_t {
+_enum StanceType_t : uint32_t {
     STANCE_CURRENT = 4294967295,
     STANCE_DEFAULT = 0,
     STANCE_CROUCHING = 1,
@@ -4045,19 +4085,19 @@ enum StanceType_t : uint32_t {
     NUM_STANCES = 3,
 };
 
-enum C4LightEffect_t : uint32_t {
+_enum C4LightEffect_t : uint32_t {
     eLightEffectNone = 0,
     eLightEffectDropped = 1,
     eLightEffectThirdPersonHeld = 2,
 };
 
-enum SubclassVDataChangeType_t : uint32_t {
+_enum SubclassVDataChangeType_t : uint32_t {
     SUBCLASS_VDATA_CREATED = 0,
     SUBCLASS_VDATA_SUBCLASS_CHANGED = 1,
     SUBCLASS_VDATA_RELOADED = 2,
 };
 
-enum TimelineCompression_t : uint32_t {
+_enum TimelineCompression_t : uint32_t {
     TIMELINE_COMPRESSION_SUM = 0,
     TIMELINE_COMPRESSION_COUNT_PER_INTERVAL = 1,
     TIMELINE_COMPRESSION_AVERAGE = 2,
@@ -4065,34 +4105,34 @@ enum TimelineCompression_t : uint32_t {
     TIMELINE_COMPRESSION_TOTAL = 4,
 };
 
-enum LessonPanelLayoutFileTypes_t : uint32_t {
+_enum LessonPanelLayoutFileTypes_t : uint32_t {
     LAYOUT_HAND_DEFAULT = 0,
     LAYOUT_WORLD_DEFAULT = 1,
     LAYOUT_CUSTOM = 2,
 };
 
-enum SceneOnPlayerDeath_t : uint32_t {
+_enum SceneOnPlayerDeath_t : uint32_t {
     SCENE_ONPLAYERDEATH_DO_NOTHING = 0,
     SCENE_ONPLAYERDEATH_CANCEL = 1,
 };
 
-enum PulseCollisionGroup_t : uint32_t {
+_enum PulseCollisionGroup_t : uint32_t {
     DEFAULT = 0,
 };
 
-enum PropDoorRotatingOpenDirection_e : uint32_t {
+_enum PropDoorRotatingOpenDirection_e : uint32_t {
     DOOR_ROTATING_OPEN_BOTH_WAYS = 0,
     DOOR_ROTATING_OPEN_FORWARD = 1,
     DOOR_ROTATING_OPEN_BACKWARD = 2,
 };
 
-enum CompMatPropertyMutatorConditionType_t : uint32_t {
+_enum CompMatPropertyMutatorConditionType_t : uint32_t {
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS = 0,
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS = 1,
     COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS = 2,
 };
 
-enum CompositeMaterialMatchFilterType_t : uint32_t {
+_enum CompositeMaterialMatchFilterType_t : uint32_t {
     MATCH_FILTER_MATERIAL_ATTRIBUTE_EXISTS = 0,
     MATCH_FILTER_MATERIAL_SHADER = 1,
     MATCH_FILTER_MATERIAL_NAME_SUBSTR = 2,
@@ -4101,12 +4141,12 @@ enum CompositeMaterialMatchFilterType_t : uint32_t {
     MATCH_FILTER_MATERIAL_PROPERTY_EQUALS = 5,
 };
 
-enum CompositeMaterialVarSystemVar_t : uint32_t {
+_enum CompositeMaterialVarSystemVar_t : uint32_t {
     COMPMATSYSVAR_COMPOSITETIME = 0,
     COMPMATSYSVAR_EMPTY_RESOURCE_SPACER = 1,
 };
 
-enum CompMatPropertyMutatorType_t : uint32_t {
+_enum CompMatPropertyMutatorType_t : uint32_t {
     COMP_MAT_PROPERTY_MUTATOR_INIT = 0,
     COMP_MAT_PROPERTY_MUTATOR_COPY_MATCHING_KEYS = 1,
     COMP_MAT_PROPERTY_MUTATOR_COPY_KEYS_WITH_SUFFIX = 2,
@@ -4119,7 +4159,7 @@ enum CompMatPropertyMutatorType_t : uint32_t {
     COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES = 9,
 };
 
-enum CompositeMaterialInputContainerSourceType_t : uint32_t {
+_enum CompositeMaterialInputContainerSourceType_t : uint32_t {
     CONTAINER_SOURCE_TYPE_TARGET_MATERIAL = 0,
     CONTAINER_SOURCE_TYPE_MATERIAL_FROM_TARGET_ATTR = 1,
     CONTAINER_SOURCE_TYPE_SPECIFIC_MATERIAL = 2,
@@ -4128,7 +4168,7 @@ enum CompositeMaterialInputContainerSourceType_t : uint32_t {
     CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL = 5,
 };
 
-enum InventoryNodeType_t : uint32_t {
+_enum InventoryNodeType_t : uint32_t {
     NODE_TYPE_INVALID = 0,
     VIRTUAL_NODE_SCHEMA_PREFAB = 1,
     VIRTUAL_NODE_SCHEMA_ITEMDEF = 2,
@@ -4140,7 +4180,7 @@ enum InventoryNodeType_t : uint32_t {
     CONCRETE_NODE_SCHEMA_KEYCHAIN = 8,
 };
 
-enum CompositeMaterialInputTextureType_t : uint32_t {
+_enum CompositeMaterialInputTextureType_t : uint32_t {
     INPUT_TEXTURE_TYPE_DEFAULT = 0,
     INPUT_TEXTURE_TYPE_NORMALMAP = 1,
     INPUT_TEXTURE_TYPE_COLOR = 2,
@@ -4151,7 +4191,7 @@ enum CompositeMaterialInputTextureType_t : uint32_t {
     INPUT_TEXTURE_TYPE_POSITION = 7,
 };
 
-enum CompositeMaterialInputLooseVariableType_t : uint32_t {
+_enum CompositeMaterialInputLooseVariableType_t : uint32_t {
     LOOSE_VARIABLE_TYPE_BOOLEAN = 0,
     LOOSE_VARIABLE_TYPE_INTEGER1 = 1,
     LOOSE_VARIABLE_TYPE_INTEGER2 = 2,
@@ -4176,39 +4216,39 @@ class CRegionSVM;
 class CVoiceContainerAnalysisBase;
 
 
-class CExampleSchemaVData_Monomorphic {
+class __declspec(align(4)) CExampleSchemaVData_Monomorphic {
 public:
-    int32_t m_nExample1;
-    int32_t m_nExample2;
-};
+    int32_t m_nExample1; // 0x0
+    int32_t m_nExample2; // 0x4
+}; // size: 0x8
 
-class ResourceId_t {
+class __declspec(align(8)) ResourceId_t {
 public:
-    uint64_t m_Value;
-};
+    uint64_t m_Value; // 0x0
+}; // size: 0x8
 
-class CExampleSchemaVData_PolymorphicDerivedB {
+class __declspec(align(8)) CExampleSchemaVData_PolymorphicDerivedB {
 public:
     char pad_00[16];
-    int32_t m_nDerivedB;
+    int32_t m_nDerivedB; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CExampleSchemaVData_PolymorphicBase {
+class __declspec(align(8)) CExampleSchemaVData_PolymorphicBase {
 public:
     char pad_00[8];
-    int32_t m_nBase;
+    int32_t m_nBase; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CExampleSchemaVData_PolymorphicDerivedA {
+class __declspec(align(8)) CExampleSchemaVData_PolymorphicDerivedA {
 public:
     char pad_00[16];
-    int32_t m_nDerivedA;
+    int32_t m_nDerivedA; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CSchemaSystemInternalRegistration {
+class __declspec(align(1)) CSchemaSystemInternalRegistration {
 public:
     // Vector2D m_Vector2D;
     // Vector m_Vector;
@@ -4234,261 +4274,261 @@ public:
     // CResourceArray< CResourcePointer< CResourceString > > m_ResourceTypes;
     // KeyValues3 m_KV3;
     char pad_00[384];
-};
+}; // size: 0x180
 
-class InfoForResourceTypeCResourceManifestInternal {
+class __declspec(align(1)) InfoForResourceTypeCResourceManifestInternal {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCDOTAPatchNotesList {
+class __declspec(align(1)) InfoForResourceTypeCDOTAPatchNotesList {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCEntityLump {
+class __declspec(align(1)) InfoForResourceTypeCEntityLump {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class ManifestTestResource_t {
+class __declspec(align(8)) ManifestTestResource_t {
 public:
     // CUtlString m_name;
     // CStrongHandle< InfoForResourceTypeManifestTestResource_t > m_child;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class InfoForResourceTypeCSequenceGroupData {
+class __declspec(align(1)) InfoForResourceTypeCSequenceGroupData {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIParticleSystemDefinition {
+class __declspec(align(1)) InfoForResourceTypeIParticleSystemDefinition {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class FuseVariableIndex_t {
+class __declspec(align(2)) FuseVariableIndex_t {
 public:
-    uint16_t m_Value;
-};
+    uint16_t m_Value; // 0x0
+}; // size: 0x2
 
-class InfoForResourceTypeCTextureBase {
-public:
-    char pad_00[1];
-};
-
-class InfoForResourceTypeCDOTANovelsList {
+class __declspec(align(1)) InfoForResourceTypeCTextureBase {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCModel {
+class __declspec(align(1)) InfoForResourceTypeCDOTANovelsList {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVDataResource {
+class __declspec(align(1)) InfoForResourceTypeCModel {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class FunctionInfo_t {
+class __declspec(align(1)) InfoForResourceTypeCVDataResource {
+public:
+    char pad_00[1];
+}; // size: 0x1
+
+class __declspec(align(8)) FunctionInfo_t {
 public:
     // CUtlString m_name;
     // CUtlStringToken m_nameToken;
     char pad_00[20];
-    int32_t m_nParamCount;
+    int32_t m_nParamCount; // 0x14
     // FuseFunctionIndex_t m_nIndex;
     char pad_01[2];
-    bool m_bIsPure;
+    bool m_bIsPure; // 0x1a
     char pad_02[5];
-};
+}; // size: 0x20
 
-class InfoForResourceTypeIPulseGraphDef {
+class __declspec(align(1)) InfoForResourceTypeIPulseGraphDef {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPanoramaDynamicImages {
+class __declspec(align(1)) InfoForResourceTypeCPanoramaDynamicImages {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIVectorGraphic {
+class __declspec(align(1)) InfoForResourceTypeIVectorGraphic {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIMaterial2 {
+class __declspec(align(1)) InfoForResourceTypeIMaterial2 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCAnimData {
+class __declspec(align(1)) InfoForResourceTypeCAnimData {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVMixListResource {
+class __declspec(align(1)) InfoForResourceTypeCVMixListResource {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCCompositeMaterialKit {
+class __declspec(align(1)) InfoForResourceTypeCCompositeMaterialKit {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class CFuseProgram {
+class __declspec(align(8)) CFuseProgram {
 public:
     // CUtlVector< uint8 > m_programBuffer;
     // CUtlVector< FuseVariableIndex_t > m_variablesRead;
     // CUtlVector< FuseVariableIndex_t > m_variablesWritten;
     char pad_00[72];
-    int32_t m_nMaxTempVarsUsed;
+    int32_t m_nMaxTempVarsUsed; // 0x48
     char pad_01[4];
-};
+}; // size: 0x50
 
-class InfoForResourceTypeCSmartProp {
+class __declspec(align(1)) InfoForResourceTypeCSmartProp {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmGraphDefinition {
+class __declspec(align(1)) InfoForResourceTypeCNmGraphDefinition {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCCSGOEconItem {
+class __declspec(align(1)) InfoForResourceTypeCCSGOEconItem {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCSurfaceGraph {
+class __declspec(align(1)) InfoForResourceTypeCSurfaceGraph {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCWorldNode {
+class __declspec(align(1)) InfoForResourceTypeCWorldNode {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPanoramaStyle {
+class __declspec(align(1)) InfoForResourceTypeCPanoramaStyle {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVoiceContainerBase {
+class __declspec(align(1)) InfoForResourceTypeCVoiceContainerBase {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVSoundEventScriptList {
+class __declspec(align(1)) InfoForResourceTypeCVSoundEventScriptList {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCAnimationGroup {
+class __declspec(align(1)) InfoForResourceTypeCAnimationGroup {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCTestResourceData {
+class __declspec(align(1)) InfoForResourceTypeCTestResourceData {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmSkeleton {
+class __declspec(align(1)) InfoForResourceTypeCNmSkeleton {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCChoreoSceneResource {
+class __declspec(align(1)) InfoForResourceTypeCChoreoSceneResource {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCTypeScriptResource {
+class __declspec(align(1)) InfoForResourceTypeCTypeScriptResource {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPanoramaLayout {
+class __declspec(align(1)) InfoForResourceTypeCPanoramaLayout {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class FourQuaternions {
+class __declspec(align(1)) FourQuaternions {
 public:
     // fltx4 x;
     // fltx4 y;
     // fltx4 z;
     // fltx4 w;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class InfoForResourceTypeIParticleSnapshot {
+class __declspec(align(1)) InfoForResourceTypeIParticleSnapshot {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class VariableInfo_t {
+class __declspec(align(8)) VariableInfo_t {
 public:
     // CUtlString m_name;
     // CUtlStringToken m_nameToken;
     char pad_00[12];
-    FuseVariableIndex_t m_nIndex;
-    uint8_t m_nNumComponents;
-    FuseVariableType_t m_eVarType;
-    FuseVariableAccess_t m_eAccess;
+    FuseVariableIndex_t m_nIndex; // 0xc
+    uint8_t m_nNumComponents; // 0xe
+    FuseVariableType_t m_eVarType; // 0xf
+    FuseVariableAccess_t m_eAccess; // 0x10
     char pad_01[7];
-};
+}; // size: 0x18
 
-class InfoForResourceTypeCPostProcessingResource {
+class __declspec(align(1)) InfoForResourceTypeCPostProcessingResource {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class AABB_t {
+class __declspec(align(1)) AABB_t {
 public:
     // Vector m_vMinBounds;
     // Vector m_vMaxBounds;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class InfoForResourceTypeProceduralTestResource_t {
+class __declspec(align(1)) InfoForResourceTypeProceduralTestResource_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeWorld_t {
+class __declspec(align(1)) InfoForResourceTypeWorld_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmClip {
+class __declspec(align(1)) InfoForResourceTypeCNmClip {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCPhysAggregateData {
+class __declspec(align(1)) InfoForResourceTypeCPhysAggregateData {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVoxelVisibility {
+class __declspec(align(1)) InfoForResourceTypeCVoxelVisibility {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCRenderMesh {
+class __declspec(align(1)) InfoForResourceTypeCRenderMesh {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class CFuseSymbolTable {
+class __declspec(align(8)) CFuseSymbolTable {
 public:
     // CUtlVector< ConstantInfo_t > m_constants;
     // CUtlVector< VariableInfo_t > m_variables;
@@ -4497,96 +4537,96 @@ public:
     // CUtlHashtable< CUtlStringToken, int32 > m_variableMap;
     // CUtlHashtable< CUtlStringToken, int32 > m_functionMap;
     char pad_00[176];
-};
+}; // size: 0xb0
 
-class InfoForResourceTypeCJavaScriptResource {
+class __declspec(align(1)) InfoForResourceTypeCJavaScriptResource {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeIAnimGraphModelBinding {
+class __declspec(align(1)) InfoForResourceTypeIAnimGraphModelBinding {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCGcExportableExternalData {
+class __declspec(align(1)) InfoForResourceTypeCGcExportableExternalData {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class FuseFunctionIndex_t {
+class __declspec(align(2)) FuseFunctionIndex_t {
 public:
-    uint16_t m_Value;
-};
+    uint16_t m_Value; // 0x0
+}; // size: 0x2
 
-class ConstantInfo_t {
+class __declspec(align(8)) ConstantInfo_t {
 public:
     // CUtlString m_name;
     // CUtlStringToken m_nameToken;
     char pad_00[12];
-    float m_flValue;
-};
+    float m_flValue; // 0xc
+}; // size: 0x10
 
-class InfoForResourceTypeManifestTestResource_t {
+class __declspec(align(1)) InfoForResourceTypeManifestTestResource_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCVPhysXSurfacePropertiesList {
+class __declspec(align(1)) InfoForResourceTypeCVPhysXSurfacePropertiesList {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class PackedAABB_t {
+class __declspec(align(4)) PackedAABB_t {
 public:
-    uint32_t m_nPackedMin;
-    uint32_t m_nPackedMax;
-};
+    uint32_t m_nPackedMin; // 0x0
+    uint32_t m_nPackedMax; // 0x4
+}; // size: 0x8
 
-class InfoForResourceTypeCVSoundStackScriptList {
-public:
-    char pad_00[1];
-};
-
-class InfoForResourceTypeCMorphSetData {
+class __declspec(align(1)) InfoForResourceTypeCVSoundStackScriptList {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCDotaItemDefinitionResource {
+class __declspec(align(1)) InfoForResourceTypeCMorphSetData {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCResponseRulesList {
+class __declspec(align(1)) InfoForResourceTypeCDotaItemDefinitionResource {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class InfoForResourceTypeCNmIKRig {
+class __declspec(align(1)) InfoForResourceTypeCResponseRulesList {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class RenderInputLayoutField_t {
+class __declspec(align(1)) InfoForResourceTypeCNmIKRig {
 public:
-    char m_pSemanticName[32];
-    int8_t m_nSemanticIndex;
+    char pad_00[1];
+}; // size: 0x1
+
+class __declspec(align(2)) RenderInputLayoutField_t {
+public:
+    char m_pSemanticName[32]; // 0x0
+    int8_t m_nSemanticIndex; // 0x20
     char pad_00[6];
-    int16_t m_nOffset;
-    int8_t m_nSlot;
-    RenderSlotType_t m_nSlotType;
-    char m_szShaderSemantic[32];
-};
+    int16_t m_nOffset; // 0x28
+    int8_t m_nSlot; // 0x2a
+    RenderSlotType_t m_nSlotType; // 0x2b
+    char m_szShaderSemantic[32]; // 0x2c
+}; // size: 0x4c
 
-class VsInputSignature_t {
+class __declspec(align(1)) VsInputSignature_t {
 public:
     // CUtlVector< VsInputSignatureElement_t > m_elems;
     // CUtlVector< VsInputSignatureElement_t > m_depth_elems;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class RsStencilStateDesc_t {
+class __declspec(align(1)) RsStencilStateDesc_t {
 public:
     // bitfield:1 m_bStencilEnable;
     // bitfield:3 m_frontStencilFailOp;
@@ -4598,143 +4638,143 @@ public:
     // bitfield:3 m_backStencilPassOp;
     // bitfield:3 m_backStencilFunc;
     char pad_00[4];
-    uint8_t m_nStencilReadMask;
-    uint8_t m_nStencilWriteMask;
-};
+    uint8_t m_nStencilReadMask; // 0x4
+    uint8_t m_nStencilWriteMask; // 0x5
+}; // size: 0x6
 
-class RsRasterizerStateDesc_t {
+class __declspec(align(4)) RsRasterizerStateDesc_t {
 public:
-    RsFillMode_t m_nFillMode;
-    RsCullMode_t m_nCullMode;
-    bool m_bDepthClipEnable;
-    bool m_bMultisampleEnable;
-    int32_t m_nDepthBias;
-    float m_flDepthBiasClamp;
-    float m_flSlopeScaledDepthBias;
-};
+    RsFillMode_t m_nFillMode; // 0x0
+    RsCullMode_t m_nCullMode; // 0x1
+    bool m_bDepthClipEnable; // 0x2
+    bool m_bMultisampleEnable; // 0x3
+    int32_t m_nDepthBias; // 0x4
+    float m_flDepthBiasClamp; // 0x8
+    float m_flSlopeScaledDepthBias; // 0xc
+}; // size: 0x10
 
-class VsInputSignatureElement_t {
+class __declspec(align(4)) VsInputSignatureElement_t {
 public:
-    char m_pName[64];
-    char m_pSemantic[64];
-    char m_pD3DSemanticName[64];
-    int32_t m_nD3DSemanticIndex;
-};
+    char m_pName[64]; // 0x0
+    char m_pSemantic[64]; // 0x40
+    char m_pD3DSemanticName[64]; // 0x80
+    int32_t m_nD3DSemanticIndex; // 0xc0
+}; // size: 0xc4
 
-class RsBlendStateDesc_t {
+class __declspec(align(4)) RsBlendStateDesc_t {
 public:
-    uint32_t m_srcBlendBits;
-    uint32_t m_destBlendBits;
-    uint32_t m_srcBlendAlphaBits;
-    uint32_t m_destBlendAlphaBits;
-    uint32_t m_renderTargetWriteMaskBits;
+    uint32_t m_srcBlendBits; // 0x0
+    uint32_t m_destBlendBits; // 0x4
+    uint32_t m_srcBlendAlphaBits; // 0x8
+    uint32_t m_destBlendAlphaBits; // 0xc
+    uint32_t m_renderTargetWriteMaskBits; // 0x10
     // bitfield:30 m_blendOpBits;
     // bitfield:1 m_bAlphaToCoverageEnable;
     // bitfield:1 m_bIndependentBlendEnable;
     char pad_00[4];
-    uint32_t m_blendOpAlphaBits;
-    uint8_t m_blendEnableBits;
-    uint8_t m_srgbWriteEnableBits;
+    uint32_t m_blendOpAlphaBits; // 0x18
+    uint8_t m_blendEnableBits; // 0x1c
+    uint8_t m_srgbWriteEnableBits; // 0x1d
     char pad_01[2];
-};
+}; // size: 0x20
 
-class SheetSequenceIntegerId_t {
+class __declspec(align(4)) SheetSequenceIntegerId_t {
 public:
-    uint32_t m_Value;
-};
+    uint32_t m_Value; // 0x0
+}; // size: 0x4
 
-class RsDepthStencilStateDesc_t {
+class __declspec(align(1)) RsDepthStencilStateDesc_t {
 public:
     // bitfield:1 m_bDepthTestEnable;
     // bitfield:1 m_bDepthWriteEnable;
     char pad_00[1];
-    RsComparison_t m_depthFunc;
-    RsStencilStateDesc_t m_stencilState;
-};
+    RsComparison_t m_depthFunc; // 0x1
+    RsStencilStateDesc_t m_stencilState; // 0x2
+}; // size: 0x8
 
-class EventServerPollNetworking_t {
+class __declspec(align(1)) EventServerPollNetworking_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventServerEndSimulate_t {
+class __declspec(align(1)) EventServerEndSimulate_t {
 public:
-    bool m_bLastTick;
-};
+    bool m_bLastTick; // 0x0
+}; // size: 0x1
 
-class EventClientProcessInput_t {
+class __declspec(align(4)) EventClientProcessInput_t {
 public:
     // EngineLoopState_t m_LoopState;
     char pad_00[40];
-    float m_flRealTime;
-    float m_flTickInterval;
+    float m_flRealTime; // 0x28
+    float m_flTickInterval; // 0x2c
     // float64 m_flTickStartTime;
     char pad_01[8];
-};
+}; // size: 0x38
 
-class EventServerBeginAsyncPostTickWork_t {
+class __declspec(align(1)) EventServerBeginAsyncPostTickWork_t {
 public:
-    bool m_bIsOncePerFrameAsyncWorkPhase;
-};
+    bool m_bIsOncePerFrameAsyncWorkPhase; // 0x0
+}; // size: 0x1
 
-class EventClientPollNetworking_t {
+class __declspec(align(4)) EventClientPollNetworking_t {
 public:
-    int32_t m_nTickCount;
-};
+    int32_t m_nTickCount; // 0x0
+}; // size: 0x4
 
-class EngineLoopState_t {
+class __declspec(align(4)) EngineLoopState_t {
 public:
     char pad_00[24];
-    int32_t m_nPlatWindowWidth;
-    int32_t m_nPlatWindowHeight;
-    int32_t m_nRenderWidth;
-    int32_t m_nRenderHeight;
-};
+    int32_t m_nPlatWindowWidth; // 0x18
+    int32_t m_nPlatWindowHeight; // 0x1c
+    int32_t m_nRenderWidth; // 0x20
+    int32_t m_nRenderHeight; // 0x24
+}; // size: 0x28
 
-class EntComponentInfo_t {
+class __declspec(align(8)) EntComponentInfo_t {
 public:
-    char* m_pName;
-    char* m_pCPPClassname;
-    char* m_pNetworkDataReferencedDescription;
-    char* m_pNetworkDataReferencedPtrPropDescription;
-    int32_t m_nRuntimeIndex;
-    uint32_t m_nFlags;
+    char* m_pName; // 0x0
+    char* m_pCPPClassname; // 0x8
+    char* m_pNetworkDataReferencedDescription; // 0x10
+    char* m_pNetworkDataReferencedPtrPropDescription; // 0x18
+    int32_t m_nRuntimeIndex; // 0x20
+    uint32_t m_nFlags; // 0x24
     char pad_00[56];
-    CEntityComponentHelper* m_pBaseClassComponentHelper;
-};
+    CEntityComponentHelper* m_pBaseClassComponentHelper; // 0x60
+}; // size: 0x68
 
-class CEmptyEntityInstance {
+class __declspec(align(1)) CEmptyEntityInstance {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventServerProcessNetworking_t {
+class __declspec(align(1)) EventServerProcessNetworking_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventClientAdvanceNonRenderedFrame_t {
+class __declspec(align(1)) EventClientAdvanceNonRenderedFrame_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventSimulate_t {
+class __declspec(align(4)) EventSimulate_t {
 public:
-    EngineLoopState_t m_LoopState;
-    bool m_bFirstTick;
-    bool m_bLastTick;
+    EngineLoopState_t m_LoopState; // 0x0
+    bool m_bFirstTick; // 0x28
+    bool m_bLastTick; // 0x29
     char pad_00[6];
-};
+}; // size: 0x30
 
-class EntOutput_t {
+class __declspec(align(1)) EntOutput_t {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class EventSetTime_t {
+class __declspec(align(4)) EventSetTime_t {
 public:
-    EngineLoopState_t m_LoopState;
-    int32_t m_nClientOutputFrames;
+    EngineLoopState_t m_LoopState; // 0x0
+    int32_t m_nClientOutputFrames; // 0x28
     // float64 m_flRealTime;
     // float64 m_flRenderTime;
     // float64 m_flRenderFrameTime;
@@ -4742,289 +4782,289 @@ public:
     // float64 m_flRenderFrameTimeUnscaled;
     // float64 m_flTickRemainder;
     char pad_00[52];
-};
+}; // size: 0x60
 
-class EventServerAdvanceTick_t {
+class __declspec(align(1)) EventServerAdvanceTick_t {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class EventClientFrameSimulate_t {
+class __declspec(align(4)) EventClientFrameSimulate_t {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flFrameTime;
-    bool m_bScheduleSendTickPacket;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flFrameTime; // 0x2c
+    bool m_bScheduleSendTickPacket; // 0x30
     char pad_00[7];
-};
+}; // size: 0x38
 
-class EventClientPreOutput_t {
+class __declspec(align(4)) EventClientPreOutput_t {
 public:
-    EngineLoopState_t m_LoopState;
+    EngineLoopState_t m_LoopState; // 0x0
     // float64 m_flRenderTime;
     // float64 m_flRenderFrameTime;
     // float64 m_flRenderFrameTimeUnbounded;
     char pad_00[24];
-    float m_flRealTime;
-    bool m_bRenderOnly;
+    float m_flRealTime; // 0x40
+    bool m_bRenderOnly; // 0x44
     char pad_01[3];
-};
+}; // size: 0x48
 
-class EventModInitialized_t {
+class __declspec(align(1)) EventModInitialized_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class CVariantDefaultAllocator {
+class __declspec(align(1)) CVariantDefaultAllocator {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventClientPostAdvanceTick_t {
+class __declspec(align(1)) EventClientPostAdvanceTick_t {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class EventSplitScreenStateChanged_t {
+class __declspec(align(1)) EventSplitScreenStateChanged_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventAdvanceTick_t {
+class __declspec(align(4)) EventAdvanceTick_t {
 public:
     char pad_00[48];
-    int32_t m_nCurrentTick;
-    int32_t m_nCurrentTickThisFrame;
-    int32_t m_nTotalTicksThisFrame;
-    int32_t m_nTotalTicks;
-};
+    int32_t m_nCurrentTick; // 0x30
+    int32_t m_nCurrentTickThisFrame; // 0x34
+    int32_t m_nTotalTicksThisFrame; // 0x38
+    int32_t m_nTotalTicks; // 0x3c
+}; // size: 0x40
 
-class EventClientPreOutputParallelWithServer_t {
+class __declspec(align(1)) EventClientPreOutputParallelWithServer_t {
 public:
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CEntityAttributeTable {
+class __declspec(align(1)) CEntityAttributeTable {
 public:
     // CUtlOrderedMap< CUtlStringToken, Attribute_t > m_Attributes;
     // CUtlOrderedMap< CUtlStringToken, CUtlString > m_Names;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class EventClientProcessNetworking_t {
+class __declspec(align(4)) EventClientProcessNetworking_t {
 public:
-    int32_t m_nTickCount;
-};
+    int32_t m_nTickCount; // 0x0
+}; // size: 0x4
 
-class ChangeAccessorFieldPathIndex_t {
+class __declspec(align(4)) ChangeAccessorFieldPathIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class EventClientPauseSimulate_t {
-public:
-    char pad_00[48];
-};
-
-class EventClientPreSimulate_t {
+class __declspec(align(1)) EventClientPauseSimulate_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventPostDataUpdate_t {
+class __declspec(align(1)) EventClientPreSimulate_t {
 public:
-    int32_t m_nCount;
+    char pad_00[48];
+}; // size: 0x30
+
+class __declspec(align(4)) EventPostDataUpdate_t {
+public:
+    int32_t m_nCount; // 0x0
     char pad_00[12];
-};
+}; // size: 0x10
 
-class EventProfileStorageAvailable_t {
+class __declspec(align(1)) EventProfileStorageAvailable_t {
 public:
     // CSplitScreenSlot m_nSplitScreenSlot;
     char pad_00[4];
-};
+}; // size: 0x4
 
-class EventServerPostAdvanceTick_t {
+class __declspec(align(1)) EventServerPostAdvanceTick_t {
 public:
     char pad_00[64];
-    bool m_bLastTickBeforeClientUpdate;
+    bool m_bLastTickBeforeClientUpdate; // 0x40
     char pad_01[7];
-};
+}; // size: 0x48
 
-class EventAppShutdown_t {
+class __declspec(align(4)) EventAppShutdown_t {
 public:
-    int32_t m_nDummy0;
-};
+    int32_t m_nDummy0; // 0x0
+}; // size: 0x4
 
-class EventFrameBoundary_t {
+class __declspec(align(4)) EventFrameBoundary_t {
 public:
-    float m_flFrameTime;
-};
+    float m_flFrameTime; // 0x0
+}; // size: 0x4
 
-class EventClientProcessGameInput_t {
+class __declspec(align(4)) EventClientProcessGameInput_t {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flFrameTime;
-};
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flFrameTime; // 0x2c
+}; // size: 0x30
 
-class EventPreDataUpdate_t {
+class __declspec(align(4)) EventPreDataUpdate_t {
 public:
-    int32_t m_nCount;
+    int32_t m_nCount; // 0x0
     char pad_00[12];
-};
+}; // size: 0x10
 
-class EventClientPollInput_t {
+class __declspec(align(4)) EventClientPollInput_t {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
     char pad_00[4];
-};
+}; // size: 0x30
 
-class GameTick_t {
+class __declspec(align(4)) GameTick_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class EventClientPostOutput_t {
+class __declspec(align(4)) EventClientPostOutput_t {
 public:
-    EngineLoopState_t m_LoopState;
+    EngineLoopState_t m_LoopState; // 0x0
     // float64 m_flRenderTime;
     char pad_00[8];
-    float m_flRenderFrameTime;
-    float m_flRenderFrameTimeUnbounded;
-    bool m_bRenderOnly;
+    float m_flRenderFrameTime; // 0x30
+    float m_flRenderFrameTimeUnbounded; // 0x34
+    bool m_bRenderOnly; // 0x38
     char pad_01[7];
-};
+}; // size: 0x40
 
-class EventClientSimulate_t {
+class __declspec(align(1)) EventClientSimulate_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CNetworkVarChainer {
+class __declspec(align(4)) CNetworkVarChainer {
 public:
     char pad_00[32];
-    ChangeAccessorFieldPathIndex_t m_PathIndex;
+    ChangeAccessorFieldPathIndex_t m_PathIndex; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class EntInput_t {
+class __declspec(align(1)) EntInput_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventClientAdvanceTick_t {
+class __declspec(align(1)) EventClientAdvanceTick_t {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class EventServerEndAsyncPostTickWork_t {
+class __declspec(align(1)) EventServerEndAsyncPostTickWork_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventServerBeginSimulate_t {
+class __declspec(align(1)) EventServerBeginSimulate_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class GameTime_t {
+class __declspec(align(4)) GameTime_t {
 public:
-    float m_Value;
-};
+    float m_Value; // 0x0
+}; // size: 0x4
 
-class CEntityComponentHelper {
+class __declspec(align(8)) CEntityComponentHelper {
 public:
     char pad_00[8];
-    uint32_t m_flags;
-    EntComponentInfo_t* m_pInfo;
-    int32_t m_nPriority;
-    CEntityComponentHelper* m_pNext;
-};
+    uint32_t m_flags; // 0x8
+    EntComponentInfo_t* m_pInfo; // 0x10
+    int32_t m_nPriority; // 0x18
+    CEntityComponentHelper* m_pNext; // 0x20
+}; // size: 0x28
 
-class EventServerPostSimulate_t {
+class __declspec(align(1)) EventServerPostSimulate_t {
 public:
     char pad_00[48];
-    bool m_bLastTickBeforeClientUpdate;
+    bool m_bLastTickBeforeClientUpdate; // 0x30
     char pad_01[7];
-};
+}; // size: 0x38
 
-class EventClientOutput_t {
+class __declspec(align(4)) EventClientOutput_t {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRenderTime;
-    float m_flRealTime;
-    float m_flRenderFrameTimeUnbounded;
-    bool m_bRenderOnly;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRenderTime; // 0x28
+    float m_flRealTime; // 0x2c
+    float m_flRenderFrameTimeUnbounded; // 0x30
+    bool m_bRenderOnly; // 0x34
     char pad_00[3];
-};
+}; // size: 0x38
 
-class EventClientSceneSystemThreadStateChange_t {
+class __declspec(align(1)) EventClientSceneSystemThreadStateChange_t {
 public:
-    bool m_bThreadsActive;
-};
+    bool m_bThreadsActive; // 0x0
+}; // size: 0x1
 
-class CEntityIOOutput {
+class __declspec(align(1)) CEntityIOOutput {
 public:
     char pad_00[24];
-};
+}; // size: 0x18
 
-class EventPostAdvanceTick_t {
+class __declspec(align(4)) EventPostAdvanceTick_t {
 public:
     char pad_00[48];
-    int32_t m_nCurrentTick;
-    int32_t m_nCurrentTickThisFrame;
-    int32_t m_nTotalTicksThisFrame;
-    int32_t m_nTotalTicks;
-};
+    int32_t m_nCurrentTick; // 0x30
+    int32_t m_nCurrentTickThisFrame; // 0x34
+    int32_t m_nTotalTicksThisFrame; // 0x38
+    int32_t m_nTotalTicks; // 0x3c
+}; // size: 0x40
 
-class EventSimpleLoopFrameUpdate_t {
+class __declspec(align(4)) EventSimpleLoopFrameUpdate_t {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flFrameTime;
-};
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flFrameTime; // 0x2c
+}; // size: 0x30
 
-class EventClientPostSimulate_t {
+class __declspec(align(1)) EventClientPostSimulate_t {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class MaterialParamTexture_t {
+class __declspec(align(8)) MaterialParamTexture_t {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pValue;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class MaterialParamFloat_t {
+class __declspec(align(8)) MaterialParamFloat_t {
 public:
     char pad_00[8];
-    float m_flValue;
+    float m_flValue; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class PostProcessingBloomParameters_t {
+class __declspec(align(4)) PostProcessingBloomParameters_t {
 public:
-    BloomBlendMode_t m_blendMode;
-    float m_flBloomStrength;
-    float m_flScreenBloomStrength;
-    float m_flBlurBloomStrength;
-    float m_flBloomThreshold;
-    float m_flBloomThresholdWidth;
-    float m_flSkyboxBloomStrength;
-    float m_flBloomStartValue;
-    float m_flComputeBloomStrength;
-    float m_flComputeBloomThreshold;
-    float m_flComputeBloomRadius;
-    float m_flComputeBloomEffectsScale;
-    float m_flComputeBloomLensDirtStrength;
-    float m_flComputeBloomLensDirtBlackLevel;
-    float m_flBlurWeight[5];
+    BloomBlendMode_t m_blendMode; // 0x0
+    float m_flBloomStrength; // 0x4
+    float m_flScreenBloomStrength; // 0x8
+    float m_flBlurBloomStrength; // 0xc
+    float m_flBloomThreshold; // 0x10
+    float m_flBloomThresholdWidth; // 0x14
+    float m_flSkyboxBloomStrength; // 0x18
+    float m_flBloomStartValue; // 0x1c
+    float m_flComputeBloomStrength; // 0x20
+    float m_flComputeBloomThreshold; // 0x24
+    float m_flComputeBloomRadius; // 0x28
+    float m_flComputeBloomEffectsScale; // 0x2c
+    float m_flComputeBloomLensDirtStrength; // 0x30
+    float m_flComputeBloomLensDirtBlackLevel; // 0x34
+    float m_flBlurWeight[5]; // 0x38
     // Vector[5] m_vBlurTint;
     char pad_00[60];
-};
+}; // size: 0x88
 
-class MaterialResourceData_t {
+class __declspec(align(8)) MaterialResourceData_t {
 public:
     // CUtlString m_materialName;
     // CUtlString m_shaderName;
@@ -5041,118 +5081,118 @@ public:
     // CUtlVector< MaterialParamString_t > m_stringAttributes;
     // CUtlVector< CUtlString > m_renderAttributesUsed;
     char pad_00[304];
-};
+}; // size: 0x130
 
-class MaterialParamBuffer_t {
+class __declspec(align(8)) MaterialParamBuffer_t {
 public:
     // CUtlBinaryBlock m_value;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class PostProcessingFogScatteringParameters_t {
+class __declspec(align(4)) PostProcessingFogScatteringParameters_t {
 public:
-    float m_fRadius;
-    float m_fScale;
-    float m_fCubemapScale;
-    float m_fVolumetricScale;
-    float m_fGradientScale;
-};
+    float m_fRadius; // 0x0
+    float m_fScale; // 0x4
+    float m_fCubemapScale; // 0x8
+    float m_fVolumetricScale; // 0xc
+    float m_fGradientScale; // 0x10
+}; // size: 0x14
 
-class PostProcessingTonemapParameters_t {
+class __declspec(align(4)) PostProcessingTonemapParameters_t {
 public:
-    float m_flExposureBias;
-    float m_flShoulderStrength;
-    float m_flLinearStrength;
-    float m_flLinearAngle;
-    float m_flToeStrength;
-    float m_flToeNum;
-    float m_flToeDenom;
-    float m_flWhitePoint;
-    float m_flLuminanceSource;
-    float m_flExposureBiasShadows;
-    float m_flExposureBiasHighlights;
-    float m_flMinShadowLum;
-    float m_flMaxShadowLum;
-    float m_flMinHighlightLum;
-    float m_flMaxHighlightLum;
-};
+    float m_flExposureBias; // 0x0
+    float m_flShoulderStrength; // 0x4
+    float m_flLinearStrength; // 0x8
+    float m_flLinearAngle; // 0xc
+    float m_flToeStrength; // 0x10
+    float m_flToeNum; // 0x14
+    float m_flToeDenom; // 0x18
+    float m_flWhitePoint; // 0x1c
+    float m_flLuminanceSource; // 0x20
+    float m_flExposureBiasShadows; // 0x24
+    float m_flExposureBiasHighlights; // 0x28
+    float m_flMinShadowLum; // 0x2c
+    float m_flMaxShadowLum; // 0x30
+    float m_flMinHighlightLum; // 0x34
+    float m_flMaxHighlightLum; // 0x38
+}; // size: 0x3c
 
-class PostProcessingLocalContrastParameters_t {
+class __declspec(align(4)) PostProcessingLocalContrastParameters_t {
 public:
-    float m_flLocalContrastStrength;
-    float m_flLocalContrastEdgeStrength;
-    float m_flLocalContrastVignetteStart;
-    float m_flLocalContrastVignetteEnd;
-    float m_flLocalContrastVignetteBlur;
-};
+    float m_flLocalContrastStrength; // 0x0
+    float m_flLocalContrastEdgeStrength; // 0x4
+    float m_flLocalContrastVignetteStart; // 0x8
+    float m_flLocalContrastVignetteEnd; // 0xc
+    float m_flLocalContrastVignetteBlur; // 0x10
+}; // size: 0x14
 
-class PostProcessingVignetteParameters_t {
+class __declspec(align(4)) PostProcessingVignetteParameters_t {
 public:
-    float m_flVignetteStrength;
+    float m_flVignetteStrength; // 0x0
     // Vector2D m_vCenter;
     char pad_00[8];
-    float m_flRadius;
-    float m_flRoundness;
-    float m_flFeather;
+    float m_flRadius; // 0xc
+    float m_flRoundness; // 0x10
+    float m_flFeather; // 0x14
     // Vector m_vColorTint;
     char pad_01[12];
-};
+}; // size: 0x24
 
-class MaterialParamInt_t {
+class __declspec(align(8)) MaterialParamInt_t {
 public:
     char pad_00[8];
-    int32_t m_nValue;
+    int32_t m_nValue; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class PostProcessingResource_t {
+class __declspec(align(8)) PostProcessingResource_t {
 public:
-    bool m_bHasTonemapParams;
-    PostProcessingTonemapParameters_t m_toneMapParams;
-    bool m_bHasBloomParams;
-    PostProcessingBloomParameters_t m_bloomParams;
-    bool m_bHasVignetteParams;
-    PostProcessingVignetteParameters_t m_vignetteParams;
-    bool m_bHasLocalContrastParams;
-    PostProcessingLocalContrastParameters_t m_localConstrastParams;
-    int32_t m_nColorCorrectionVolumeDim;
+    bool m_bHasTonemapParams; // 0x0
+    PostProcessingTonemapParameters_t m_toneMapParams; // 0x4
+    bool m_bHasBloomParams; // 0x40
+    PostProcessingBloomParameters_t m_bloomParams; // 0x44
+    bool m_bHasVignetteParams; // 0xcc
+    PostProcessingVignetteParameters_t m_vignetteParams; // 0xd0
+    bool m_bHasLocalContrastParams; // 0xf4
+    PostProcessingLocalContrastParameters_t m_localConstrastParams; // 0xf8
+    int32_t m_nColorCorrectionVolumeDim; // 0x10c
     // CUtlBinaryBlock m_colorCorrectionVolumeData;
     char pad_00[16];
-    bool m_bHasColorCorrection;
-    bool m_bHasFogScatteringParams;
-    PostProcessingFogScatteringParameters_t m_fogScatteringParams;
-};
+    bool m_bHasColorCorrection; // 0x120
+    bool m_bHasFogScatteringParams; // 0x121
+    PostProcessingFogScatteringParameters_t m_fogScatteringParams; // 0x124
+}; // size: 0x138
 
-class MaterialParamString_t {
+class __declspec(align(8)) MaterialParamString_t {
 public:
     // CUtlString m_value;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class MaterialParamVector_t {
+class __declspec(align(8)) MaterialParamVector_t {
 public:
     // Vector4D m_value;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class MaterialParam_t {
+class __declspec(align(8)) MaterialParam_t {
 public:
     // CUtlString m_name;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CParticleProperty {
+class __declspec(align(1)) CParticleProperty {
 public:
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CAnimTagManagerUpdater {
+class __declspec(align(8)) CAnimTagManagerUpdater {
 public:
     // CUtlVector< CSmartPtr< CAnimTagBase > > m_tags;
     char pad_00[120];
-};
+}; // size: 0x78
 
-class CModelConfigElement_AttachedModel {
+class __declspec(align(8)) CModelConfigElement_AttachedModel {
 public:
     // CUtlString m_InstanceName;
     // CUtlString m_EntityClass;
@@ -5162,89 +5202,92 @@ public:
     // CUtlString m_AttachmentName;
     // CUtlString m_LocalAttachmentOffsetName;
     char pad_00[136];
-    ModelConfigAttachmentType_t m_AttachmentType;
-    bool m_bBoneMergeFlex;
-    bool m_bUserSpecifiedColor;
-    bool m_bUserSpecifiedMaterialGroup;
+    ModelConfigAttachmentType_t m_AttachmentType; // 0x88
+    bool m_bBoneMergeFlex; // 0x8c
+    bool m_bUserSpecifiedColor; // 0x8d
+    bool m_bUserSpecifiedMaterialGroup; // 0x8e
     // CUtlString m_BodygroupOnOtherModels;
     // CUtlString m_MaterialGroupOnOtherModels;
     char pad_01[89];
-};
+}; // size: 0xe8
 
-class CMoodVData {
+class __declspec(align(8)) CMoodVData {
 public:
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > > m_sModelName;
     char pad_00[224];
-    MoodType_t m_nMoodType;
+    MoodType_t m_nMoodType; // 0xe0
     // CUtlVector< MoodAnimationLayer_t > m_animationLayers;
     char pad_01[28];
-};
+}; // size: 0x100
 
-class CWayPointHelperUpdateNode {
+class __declspec(align(8)) CWayPointHelperUpdateNode {
 public:
     char pad_00[116];
-    float m_flStartCycle;
-    float m_flEndCycle;
-    bool m_bOnlyGoals;
-    bool m_bPreventOvershoot;
-    bool m_bPreventUndershoot;
+    float m_flStartCycle; // 0x74
+    float m_flEndCycle; // 0x78
+    bool m_bOnlyGoals; // 0x7c
+    bool m_bPreventOvershoot; // 0x7d
+    bool m_bPreventUndershoot; // 0x7e
     char pad_01[1];
-};
+}; // size: 0x80
 
-class CNmBodyGroupEvent {
+class __declspec(align(8)) CNmBodyGroupEvent {
 public:
     // CUtlString m_groupName;
     char pad_00[40];
-    int32_t m_nGroupValue;
+    int32_t m_nGroupValue; // 0x28
     char pad_01[4];
-};
+}; // size: 0x30
 
-class CNmControlParameterIDNode::CDefinition {
+/// CNmControlParameterIDNode::CDefinition
+class __declspec(align(8)) CNmControlParameterIDNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmTarget {
+class __declspec(align(16)) CNmTarget {
 public:
     // CTransform m_transform;
     // CGlobalSymbol m_boneID;
     char pad_00[40];
-    bool m_bIsBoneTarget;
-    bool m_bIsUsingBoneSpaceOffsets;
-    bool m_bHasOffsets;
-    bool m_bIsSet;
+    bool m_bIsBoneTarget; // 0x28
+    bool m_bIsUsingBoneSpaceOffsets; // 0x29
+    bool m_bHasOffsets; // 0x2a
+    bool m_bIsSet; // 0x2b
     char pad_01[4];
-};
+}; // size: 0x30
 
-class CParticleCollectionRendererVecInput {
+class __declspec(align(8)) CParticleCollectionRendererVecInput {
 public:
     char pad_00[1720];
-};
+}; // size: 0x6b8
 
-class CNmSyncTrack::Event_t {
+/// CNmSyncTrack::Event_t
+class __declspec(align(8)) CNmSyncTrack__Event_t {
 public:
     // CGlobalSymbol m_ID;
     // NmPercent_t m_startTime;
     // NmPercent_t m_duration;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmVectorNegateNode::CDefinition {
+/// CNmVectorNegateNode::CDefinition
+class __declspec(align(8)) CNmVectorNegateNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
+    int16_t m_nInputValueNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CPulse_InstructionDebug {
+class __declspec(align(8)) CPulse_InstructionDebug {
 public:
     // PulseDocNodeID_t m_nFlowNodeID;
     // PulseDocNodeID_t m_nValueNodeID;
     // CGlobalSymbol m_SequencePointName;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CMotionGraphGroup {
+class __declspec(align(8)) CMotionGraphGroup {
 public:
     // CMotionSearchDB m_searchDB;
     // CUtlVector< CSmartPtr< CMotionGraph > > m_motionGraphs;
@@ -5252,147 +5295,149 @@ public:
     // CUtlVector< int32 > m_sampleToConfig;
     // AnimScriptHandle m_hIsActiveScript;
     char pad_00[264];
-};
+}; // size: 0x108
 
-class FootFixedData_t {
+class __declspec(align(16)) FootFixedData_t {
 public:
     // VectorAligned m_vToeOffset;
     // VectorAligned m_vHeelOffset;
     char pad_00[32];
-    int32_t m_nTargetBoneIndex;
-    int32_t m_nAnkleBoneIndex;
-    int32_t m_nIKAnchorBoneIndex;
-    int32_t m_ikChainIndex;
-    float m_flMaxIKLength;
-    int32_t m_nFootIndex;
-    int32_t m_nTagIndex;
-    float m_flMaxRotationLeft;
-    float m_flMaxRotationRight;
+    int32_t m_nTargetBoneIndex; // 0x20
+    int32_t m_nAnkleBoneIndex; // 0x24
+    int32_t m_nIKAnchorBoneIndex; // 0x28
+    int32_t m_ikChainIndex; // 0x2c
+    float m_flMaxIKLength; // 0x30
+    int32_t m_nFootIndex; // 0x34
+    int32_t m_nTagIndex; // 0x38
+    float m_flMaxRotationLeft; // 0x3c
+    float m_flMaxRotationRight; // 0x40
     char pad_01[12];
-};
+}; // size: 0x50
 
-class CAnimMorphDifference {
+class __declspec(align(8)) CAnimMorphDifference {
 public:
     // CBufferString m_name;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class AttachmentHandle_t {
+class __declspec(align(1)) AttachmentHandle_t {
 public:
-    uint8_t m_Value;
-};
+    uint8_t m_Value; // 0x0
+}; // size: 0x1
 
-class CAnimKeyData {
+class __declspec(align(8)) CAnimKeyData {
 public:
     // CBufferString m_name;
     // CUtlVector< CAnimBone > m_boneArray;
     // CUtlVector< CAnimUser > m_userArray;
     // CUtlVector< CBufferString > m_morphArray;
     char pad_00[88];
-    int32_t m_nChannelElements;
+    int32_t m_nChannelElements; // 0x58
     // CUtlVector< CAnimDataChannelDesc > m_dataChannelArray;
     char pad_01[28];
-};
+}; // size: 0x78
 
-class CNmParameterizedBlendNode::BlendRange_t {
+/// CNmParameterizedBlendNode::BlendRange_t
+class __declspec(align(4)) CNmParameterizedBlendNode__BlendRange_t {
 public:
-    int16_t m_nInputIdx0;
-    int16_t m_nInputIdx1;
+    int16_t m_nInputIdx0; // 0x0
+    int16_t m_nInputIdx1; // 0x2
     // Range_t m_parameterValueRange;
     char pad_00[8];
-};
+}; // size: 0xc
 
-class CBinaryUpdateNode {
+class __declspec(align(4)) CBinaryUpdateNode {
 public:
     // CAnimUpdateNodeRef m_pChild1;
     // CAnimUpdateNodeRef m_pChild2;
     char pad_00[128];
-    BinaryNodeTiming m_timingBehavior;
-    float m_flTimingBlend;
-    bool m_bResetChild1;
-    bool m_bResetChild2;
+    BinaryNodeTiming m_timingBehavior; // 0x80
+    float m_flTimingBlend; // 0x84
+    bool m_bResetChild1; // 0x88
+    bool m_bResetChild2; // 0x89
     char pad_01[6];
-};
+}; // size: 0x90
 
-class IKSolverSettings_t {
+class __declspec(align(4)) IKSolverSettings_t {
 public:
-    IKSolverType m_SolverType;
-    int32_t m_nNumIterations;
-    EIKEndEffectorRotationFixUpMode m_EndEffectorRotationFixUpMode;
-};
+    IKSolverType m_SolverType; // 0x0
+    int32_t m_nNumIterations; // 0x4
+    EIKEndEffectorRotationFixUpMode m_EndEffectorRotationFixUpMode; // 0x8
+}; // size: 0xc
 
-class CAnimData {
+class __declspec(align(8)) CAnimData {
 public:
     // CBufferString m_name;
     // CUtlVector< CAnimDesc > m_animArray;
     // CUtlVector< CAnimDecoder > m_decoderArray;
     char pad_00[80];
-    int32_t m_nMaxUniqueFrameIndex;
+    int32_t m_nMaxUniqueFrameIndex; // 0x50
     // CUtlVector< CAnimFrameSegment > m_segmentArray;
     char pad_01[28];
-};
+}; // size: 0x70
 
-class CCPPScriptComponentUpdater {
+class __declspec(align(8)) CCPPScriptComponentUpdater {
 public:
     // CUtlVector< CGlobalSymbol > m_scriptsToRun;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class PulseRuntimeStateOffset_t {
+class __declspec(align(2)) PulseRuntimeStateOffset_t {
 public:
-    uint16_t m_Value;
-};
+    uint16_t m_Value; // 0x0
+}; // size: 0x2
 
-class CFollowTargetUpdateNode {
+class __declspec(align(8)) CFollowTargetUpdateNode {
 public:
     // FollowTargetOpFixedSettings_t m_opFixedData;
     // CAnimParamHandle m_hParameterPosition;
     // CAnimParamHandle m_hParameterOrientation;
     char pad_00[144];
-};
+}; // size: 0x90
 
-class CNmVirtualParameterBoolNode::CDefinition {
+/// CNmVirtualParameterBoolNode::CDefinition
+class __declspec(align(8)) CNmVirtualParameterBoolNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CTargetWarpUpdateNode {
+class __declspec(align(8)) CTargetWarpUpdateNode {
 public:
     char pad_00[116];
-    TargetWarpAngleMode_t m_eAngleMode;
+    TargetWarpAngleMode_t m_eAngleMode; // 0x74
     // CAnimParamHandle m_hTargetPositionParameter;
     // CAnimParamHandle m_hTargetUpVectorParameter;
     // CAnimParamHandle m_hTargetFacePositionParameter;
     // CAnimParamHandle m_hMoveHeadingParameter;
     // CAnimParamHandle m_hDesiredMoveHeadingParameter;
     char pad_01[12];
-    TargetWarpCorrectionMethod m_eCorrectionMethod;
-    TargetWarpTimingMethod m_eTargetWarpTimingMethod;
-    bool m_bTargetFacePositionIsWorldSpace;
-    bool m_bTargetPositionIsWorldSpace;
-    bool m_bOnlyWarpWhenTagIsFound;
-    bool m_bWarpOrientationDuringTranslation;
-    bool m_bWarpAroundCenter;
-    float m_flMaxAngle;
-};
+    TargetWarpCorrectionMethod m_eCorrectionMethod; // 0x84
+    TargetWarpTimingMethod m_eTargetWarpTimingMethod; // 0x88
+    bool m_bTargetFacePositionIsWorldSpace; // 0x8c
+    bool m_bTargetPositionIsWorldSpace; // 0x8d
+    bool m_bOnlyWarpWhenTagIsFound; // 0x8e
+    bool m_bWarpOrientationDuringTranslation; // 0x8f
+    bool m_bWarpAroundCenter; // 0x90
+    float m_flMaxAngle; // 0x94
+}; // size: 0x98
 
-class CAnimSequenceParams {
+class __declspec(align(4)) CAnimSequenceParams {
 public:
-    float m_flFadeInTime;
-    float m_flFadeOutTime;
-};
+    float m_flFadeInTime; // 0x0
+    float m_flFadeOutTime; // 0x4
+}; // size: 0x8
 
-class CPulseRuntimeMethodArg {
+class __declspec(align(16)) CPulseRuntimeMethodArg {
 public:
     // CKV3MemberNameWithStorage m_Name;
     // CUtlString m_Description;
     // CPulseValueFullType m_Type;
     char pad_00[128];
-};
+}; // size: 0x80
 
-class PhysSoftbodyDesc_t {
+class __declspec(align(8)) PhysSoftbodyDesc_t {
 public:
     // CUtlVector< uint32 > m_ParticleBoneHash;
     // CUtlVector< RnSoftbodyParticle_t > m_Particles;
@@ -5401,444 +5446,457 @@ public:
     // CUtlVector< CTransform > m_InitPose;
     // CUtlVector< CUtlString > m_ParticleBoneName;
     char pad_00[144];
-};
+}; // size: 0x90
 
-class ModelEmbeddedMesh_t {
+class __declspec(align(8)) ModelEmbeddedMesh_t {
 public:
     // CUtlString m_Name;
     char pad_00[16];
-    int32_t m_nMeshIndex;
-    int32_t m_nDataBlock;
-    int32_t m_nMorphBlock;
+    int32_t m_nMeshIndex; // 0x10
+    int32_t m_nDataBlock; // 0x14
+    int32_t m_nMorphBlock; // 0x18
     // CUtlVector< ModelMeshBufferData_t > m_vertexBuffers;
     // CUtlVector< ModelMeshBufferData_t > m_indexBuffers;
     // CUtlVector< ModelMeshBufferData_t > m_toolsBuffers;
     char pad_01[76];
-    int32_t m_nVBIBBlock;
-    int32_t m_nToolsVBBlock;
-};
+    int32_t m_nVBIBBlock; // 0x68
+    int32_t m_nToolsVBBlock; // 0x6c
+}; // size: 0x70
 
-class CSeqAutoLayer {
+class __declspec(align(4)) CSeqAutoLayer {
 public:
-    int16_t m_nLocalReference;
-    int16_t m_nLocalPose;
+    int16_t m_nLocalReference; // 0x0
+    int16_t m_nLocalPose; // 0x2
     // CSeqAutoLayerFlag m_flags;
     char pad_00[8];
-    float m_start;
-    float m_peak;
-    float m_tail;
-    float m_end;
-};
+    float m_start; // 0xc
+    float m_peak; // 0x10
+    float m_tail; // 0x14
+    float m_end; // 0x18
+}; // size: 0x1c
 
-class CPhysSurfacePropertiesAudio {
+class __declspec(align(4)) CPhysSurfacePropertiesAudio {
 public:
-    float m_reflectivity;
-    float m_hardnessFactor;
-    float m_roughnessFactor;
-    float m_roughThreshold;
-    float m_hardThreshold;
-    float m_hardVelocityThreshold;
-    float m_flStaticImpactVolume;
-    float m_flOcclusionFactor;
-};
+    float m_reflectivity; // 0x0
+    float m_hardnessFactor; // 0x4
+    float m_roughnessFactor; // 0x8
+    float m_roughThreshold; // 0xc
+    float m_hardThreshold; // 0x10
+    float m_hardVelocityThreshold; // 0x14
+    float m_flStaticImpactVolume; // 0x18
+    float m_flOcclusionFactor; // 0x1c
+}; // size: 0x20
 
-class CNmFootEvent {
+class __declspec(align(8)) CNmFootEvent {
 public:
     char pad_00[32];
-    NmFootPhase_t m_phase;
+    NmFootPhase_t m_phase; // 0x20
     char pad_01[7];
-};
+}; // size: 0x28
 
-class CNmFootEventConditionNode::CDefinition {
+/// CNmFootEventConditionNode::CDefinition
+class __declspec(align(8)) CNmFootEventConditionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    NmFootPhaseCondition_t m_phaseCondition;
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    NmFootPhaseCondition_t m_phaseCondition; // 0x12
     // CNmBitFlags m_eventConditionRules;
     char pad_01[5];
-};
+}; // size: 0x18
 
-class CMaterialAttributeAnimTag {
+class __declspec(align(8)) CMaterialAttributeAnimTag {
 public:
     // CUtlString m_AttributeName;
     char pad_00[96];
-    MatterialAttributeTagType_t m_AttributeType;
-    float m_flValue;
+    MatterialAttributeTagType_t m_AttributeType; // 0x60
+    float m_flValue; // 0x64
     // Color m_Color;
     char pad_01[8];
-};
+}; // size: 0x70
 
-class CPathAnimMotorUpdater {
+class __declspec(align(8)) CPathAnimMotorUpdater {
 public:
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CBoneConstraintBase {
+class __declspec(align(1)) CBoneConstraintBase {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CRagdollUpdateNode {
+class __declspec(align(8)) CRagdollUpdateNode {
 public:
     char pad_00[112];
-    int32_t m_nWeightListIndex;
-    RagdollPoseControl m_poseControlMethod;
-};
+    int32_t m_nWeightListIndex; // 0x70
+    RagdollPoseControl m_poseControlMethod; // 0x74
+}; // size: 0x78
 
-class CAnimScriptComponentUpdater {
+class __declspec(align(8)) CAnimScriptComponentUpdater {
 public:
     // AnimScriptHandle m_hScript;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class AimMatrixOpFixedSettings_t {
+class __declspec(align(16)) AimMatrixOpFixedSettings_t {
 public:
     // CAnimAttachment m_attachment;
     // CAnimInputDamping m_damping;
     // CPoseHandle[10] m_poseCacheHandles;
     char pad_00[192];
-    AimMatrixBlendMode m_eBlendMode;
-    float m_flMaxYawAngle;
-    float m_flMaxPitchAngle;
-    int32_t m_nSequenceMaxFrame;
-    int32_t m_nBoneMaskIndex;
-    bool m_bTargetIsPosition;
-    bool m_bUseBiasAndClamp;
-    float m_flBiasAndClampYawOffset;
-    float m_flBiasAndClampPitchOffset;
+    AimMatrixBlendMode m_eBlendMode; // 0xc0
+    float m_flMaxYawAngle; // 0xc4
+    float m_flMaxPitchAngle; // 0xc8
+    int32_t m_nSequenceMaxFrame; // 0xcc
+    int32_t m_nBoneMaskIndex; // 0xd0
+    bool m_bTargetIsPosition; // 0xd4
+    bool m_bUseBiasAndClamp; // 0xd5
+    float m_flBiasAndClampYawOffset; // 0xd8
+    float m_flBiasAndClampPitchOffset; // 0xdc
     // CBlendCurve m_biasAndClampBlendCurve;
     char pad_01[16];
-};
+}; // size: 0xf0
 
-class CFollowPathUpdateNode {
+class __declspec(align(8)) CFollowPathUpdateNode {
 public:
     char pad_00[116];
-    float m_flBlendOutTime;
-    bool m_bBlockNonPathMovement;
-    bool m_bStopFeetAtGoal;
-    bool m_bScaleSpeed;
-    float m_flScale;
-    float m_flMinAngle;
-    float m_flMaxAngle;
-    float m_flSpeedScaleBlending;
+    float m_flBlendOutTime; // 0x74
+    bool m_bBlockNonPathMovement; // 0x78
+    bool m_bStopFeetAtGoal; // 0x79
+    bool m_bScaleSpeed; // 0x7a
+    float m_flScale; // 0x7c
+    float m_flMinAngle; // 0x80
+    float m_flMaxAngle; // 0x84
+    float m_flSpeedScaleBlending; // 0x88
     // CAnimInputDamping m_turnDamping;
     char pad_01[28];
-    AnimValueSource m_facingTarget;
+    AnimValueSource m_facingTarget; // 0xa8
     // CAnimParamHandle m_hParam;
     char pad_02[4];
-    float m_flTurnToFaceOffset;
-    bool m_bTurnToFace;
+    float m_flTurnToFaceOffset; // 0xb0
+    bool m_bTurnToFace; // 0xb4
     char pad_03[3];
-};
+}; // size: 0xb8
 
-class CTaskHandshakeAnimTag {
+class __declspec(align(8)) CTaskHandshakeAnimTag {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class PulseRuntimeChunkIndex_t {
+class __declspec(align(4)) PulseRuntimeChunkIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class VPhysXBodyPart_t {
+class __declspec(align(8)) VPhysXBodyPart_t {
 public:
-    uint32_t m_nFlags;
-    float m_flMass;
+    uint32_t m_nFlags; // 0x0
+    float m_flMass; // 0x4
     // VPhysics2ShapeDef_t m_rnShape;
     char pad_00[120];
-    uint16_t m_nCollisionAttributeIndex;
-    uint16_t m_nReserved;
-    float m_flInertiaScale;
-    float m_flLinearDamping;
-    float m_flAngularDamping;
-    float m_flLinearDrag;
-    float m_flAngularDrag;
-    bool m_bOverrideMassCenter;
+    uint16_t m_nCollisionAttributeIndex; // 0x80
+    uint16_t m_nReserved; // 0x82
+    float m_flInertiaScale; // 0x84
+    float m_flLinearDamping; // 0x88
+    float m_flAngularDamping; // 0x8c
+    float m_flLinearDrag; // 0x90
+    float m_flAngularDrag; // 0x94
+    bool m_bOverrideMassCenter; // 0x98
     // Vector m_vMassCenterOverride;
     char pad_01[15];
-};
+}; // size: 0xa8
 
-class IParticleCollection {
+class __declspec(align(1)) IParticleCollection {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CTwoBoneIKUpdateNode {
+class __declspec(align(16)) CTwoBoneIKUpdateNode {
 public:
     // TwoBoneIKSettings_t m_opFixedData;
     char pad_00[480];
-};
+}; // size: 0x1e0
 
-class SkeletonBoneBounds_t {
+class __declspec(align(4)) SkeletonBoneBounds_t {
 public:
     // Vector m_vecCenter;
     // Vector m_vecSize;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CNmControlParameterTargetNode::CDefinition {
+/// CNmControlParameterTargetNode::CDefinition
+class __declspec(align(8)) CNmControlParameterTargetNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmCurrentSyncEventNode::CDefinition {
+/// CNmCurrentSyncEventNode::CDefinition
+class __declspec(align(8)) CNmCurrentSyncEventNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    CNmCurrentSyncEventNode::InfoType_t m_infoType;
-    char pad_01[5];
-};
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    // CNmCurrentSyncEventNode::InfoType_t m_infoType;
+    char pad_01[6];
+}; // size: 0x18
 
-class CMotionNodeBlend1D {
+class __declspec(align(8)) CMotionNodeBlend1D {
 public:
     // CUtlVector< MotionBlendItem > m_blendItems;
     char pad_00[64];
-    int32_t m_nParamIndex;
+    int32_t m_nParamIndex; // 0x40
     char pad_01[4];
-};
+}; // size: 0x48
 
-class CMotionSearchDB {
+class __declspec(align(8)) CMotionSearchDB {
 public:
     // CMotionSearchNode m_rootNode;
     // CProductQuantizer m_residualQuantizer;
     // CUtlVector< MotionDBIndex > m_codeIndices;
     char pad_00[184];
-};
+}; // size: 0xb8
 
-class CNmAnimationPoseNode::CDefinition {
+/// CNmAnimationPoseNode::CDefinition
+class __declspec(align(8)) CNmAnimationPoseNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nPoseTimeValueNodeIdx;
-    int16_t m_nDataSlotIdx;
+    int16_t m_nPoseTimeValueNodeIdx; // 0x10
+    int16_t m_nDataSlotIdx; // 0x12
     // Range_t m_inputTimeRemapRange;
     char pad_01[8];
-    float m_flUserSpecifiedTime;
-    bool m_bUseFramesAsInput;
+    float m_flUserSpecifiedTime; // 0x1c
+    bool m_bUseFramesAsInput; // 0x20
     char pad_02[7];
-};
+}; // size: 0x28
 
-class CNmAdditiveBlendTask {
+class __declspec(align(8)) CNmAdditiveBlendTask {
 public:
     char pad_00[224];
-};
+}; // size: 0xe0
 
-class CModelConfigElement_SetRenderColor {
+class __declspec(align(8)) CModelConfigElement_SetRenderColor {
 public:
     // Color m_Color;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class IKTargetSettings_t {
+class __declspec(align(4)) IKTargetSettings_t {
 public:
-    IKTargetSource m_TargetSource;
+    IKTargetSource m_TargetSource; // 0x0
     // IKBoneNameAndIndex_t m_Bone;
     // AnimParamID m_AnimgraphParameterNamePosition;
     // AnimParamID m_AnimgraphParameterNameOrientation;
     char pad_00[28];
-    IKTargetCoordinateSystem m_TargetCoordSystem;
+    IKTargetCoordinateSystem m_TargetCoordSystem; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CRangeFloat {
+class __declspec(align(4)) CRangeFloat {
 public:
-    float m_pValue[2];
-};
+    float m_pValue[2]; // 0x0
+}; // size: 0x8
 
-class CFootStepTriggerUpdateNode {
+class __declspec(align(8)) CFootStepTriggerUpdateNode {
 public:
     // CUtlVector< FootStepTrigger > m_triggers;
     char pad_00[140];
-    float m_flTolerance;
-};
+    float m_flTolerance; // 0x8c
+}; // size: 0x90
 
-class ParamSpan_t {
+class __declspec(align(8)) ParamSpan_t {
 public:
     // CUtlVector< ParamSpanSample_t > m_samples;
     // CAnimParamHandle m_hParam;
     char pad_00[26];
-    AnimParamType_t m_eParamType;
-    float m_flStartCycle;
-    float m_flEndCycle;
+    AnimParamType_t m_eParamType; // 0x1a
+    float m_flStartCycle; // 0x1c
+    float m_flEndCycle; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CNmGraphDefinition::ReferencedGraphSlot_t {
+/// CNmGraphDefinition::ReferencedGraphSlot_t
+class __declspec(align(2)) CNmGraphDefinition__ReferencedGraphSlot_t {
 public:
-    int16_t m_nNodeIdx;
-    int16_t m_dataSlotIdx;
-};
+    int16_t m_nNodeIdx; // 0x0
+    int16_t m_dataSlotIdx; // 0x2
+}; // size: 0x4
 
-class CDirectionalBlendUpdateNode {
+class __declspec(align(8)) CDirectionalBlendUpdateNode {
 public:
     // HSequence[8] m_hSequences;
     // CAnimInputDamping m_damping;
     char pad_00[152];
-    AnimValueSource m_blendValueSource;
+    AnimValueSource m_blendValueSource; // 0x98
     // CAnimParamHandle m_paramIndex;
     char pad_01[4];
-    float m_playbackSpeed;
-    float m_duration;
-    bool m_bLoop;
-    bool m_bLockBlendOnReset;
+    float m_playbackSpeed; // 0xa0
+    float m_duration; // 0xa4
+    bool m_bLoop; // 0xa8
+    bool m_bLockBlendOnReset; // 0xa9
     char pad_02[6];
-};
+}; // size: 0xb0
 
-class PulseRuntimeCallInfoIndex_t {
+class __declspec(align(4)) PulseRuntimeCallInfoIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CSeqScaleSet {
+class __declspec(align(8)) CSeqScaleSet {
 public:
     // CBufferString m_sName;
     char pad_00[16];
-    bool m_bRootOffset;
+    bool m_bRootOffset; // 0x10
     // Vector m_vRootOffset;
     // CUtlVector< int16 > m_nLocalBoneArray;
     // CUtlVector< float32 > m_flBoneScaleArray;
     char pad_01[63];
-};
+}; // size: 0x50
 
-class CNmVirtualParameterIDNode::CDefinition {
+/// CNmVirtualParameterIDNode::CDefinition
+class __declspec(align(8)) CNmVirtualParameterIDNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class AnimationDecodeDebugDump_t {
+class __declspec(align(8)) AnimationDecodeDebugDump_t {
 public:
-    AnimationProcessingType_t m_processingType;
+    AnimationProcessingType_t m_processingType; // 0x0
     // CUtlVector< AnimationDecodeDebugDumpElement_t > m_elems;
     char pad_00[28];
-};
+}; // size: 0x20
 
-class ModelAnimGraph2Ref_t {
+class __declspec(align(8)) ModelAnimGraph2Ref_t {
 public:
     // CUtlString m_sIdentifier;
     // CStrongHandle< InfoForResourceTypeCNmGraphDefinition > m_hGraph;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmBoneMaskNode::CDefinition {
+/// CNmBoneMaskNode::CDefinition
+class __declspec(align(8)) CNmBoneMaskNode__CDefinition {
 public:
     // CGlobalSymbol m_boneMaskID;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class AnimParamID {
+class __declspec(align(4)) AnimParamID {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class RnCapsuleDesc_t {
+class __declspec(align(8)) RnCapsuleDesc_t {
 public:
     // RnCapsule_t m_Capsule;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class CNmOrientationWarpNode::CDefinition {
+/// CNmOrientationWarpNode::CDefinition
+class __declspec(align(8)) CNmOrientationWarpNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nClipReferenceNodeIdx;
-    int16_t m_nTargetValueNodeIdx;
-    bool m_bIsOffsetNode;
-    bool m_bIsOffsetRelativeToCharacter;
-    bool m_bWarpTranslation;
-    CNmRootMotionData::SamplingMode_t m_samplingMode;
-};
+    int16_t m_nClipReferenceNodeIdx; // 0x10
+    int16_t m_nTargetValueNodeIdx; // 0x12
+    bool m_bIsOffsetNode; // 0x14
+    bool m_bIsOffsetRelativeToCharacter; // 0x15
+    bool m_bWarpTranslation; // 0x16
+    // CNmRootMotionData::SamplingMode_t m_samplingMode;
+    char pad_01[1];
+}; // size: 0x18
 
-class CNmZeroPoseNode::CDefinition {
+/// CNmZeroPoseNode::CDefinition
+class __declspec(align(8)) CNmZeroPoseNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmModelSpaceBlendTask {
+class __declspec(align(8)) CNmModelSpaceBlendTask {
 public:
     char pad_00[224];
-};
+}; // size: 0xe0
 
-class CBodyGroupAnimTag {
+class __declspec(align(8)) CBodyGroupAnimTag {
 public:
     char pad_00[88];
-    int32_t m_nPriority;
+    int32_t m_nPriority; // 0x58
     // CUtlVector< CBodyGroupSetting > m_bodyGroupSettings;
     char pad_01[28];
-};
+}; // size: 0x78
 
-class CNmStateMachineNode::CDefinition {
+/// CNmStateMachineNode::CDefinition
+class __declspec(align(8)) CNmStateMachineNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< CNmStateMachineNode::StateDefinition_t, 5 > m_stateDefinitions;
     char pad_00[304];
-    int16_t m_nDefaultStateIndex;
+    int16_t m_nDefaultStateIndex; // 0x130
     char pad_01[6];
-};
+}; // size: 0x138
 
-class CMotionNode {
+class __declspec(align(1)) CMotionNode {
 public:
     // CUtlString m_name;
     // AnimNodeID m_id;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CRagdollAnimTag {
+class __declspec(align(8)) CRagdollAnimTag {
 public:
     // CGlobalSymbol m_profileName;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CBoolAnimParameter {
+class __declspec(align(8)) CBoolAnimParameter {
 public:
     char pad_00[128];
-    bool m_bDefaultValue;
+    bool m_bDefaultValue; // 0x80
     char pad_01[7];
-};
+}; // size: 0x88
 
-class CStringAnimTag {
+class __declspec(align(8)) CStringAnimTag {
 public:
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CNmConstFloatNode::CDefinition {
+/// CNmConstFloatNode::CDefinition
+class __declspec(align(8)) CNmConstFloatNode__CDefinition {
 public:
     char pad_00[16];
-    float m_flValue;
+    float m_flValue; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CEditableMotionGraph {
+class __declspec(align(8)) CEditableMotionGraph {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CNmIDComparisonNode::CDefinition {
+/// CNmIDComparisonNode::CDefinition
+class __declspec(align(8)) CNmIDComparisonNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    CNmIDComparisonNode::Comparison_t m_comparison;
+    int16_t m_nInputValueNodeIdx; // 0x10
+    // CNmIDComparisonNode::Comparison_t m_comparison;
     // CUtlLeanVectorFixedGrowable< CGlobalSymbol, 4 > m_comparisionIDs;
-    char pad_01[45];
-};
+    char pad_01[46];
+}; // size: 0x40
 
-class CFootTrajectories {
+class __declspec(align(8)) CFootTrajectories {
 public:
     // CUtlVector< CFootTrajectory > m_trajectories;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CAnimAttachment {
+class __declspec(align(16)) CAnimAttachment {
 public:
     // Quaternion[3] m_influenceRotations;
     // VectorAligned[3] m_influenceOffsets;
     char pad_00[96];
-    int32_t m_influenceIndices[3];
-    float m_influenceWeights[3];
-    uint8_t m_numInfluences;
+    int32_t m_influenceIndices[3]; // 0x60
+    float m_influenceWeights[3]; // 0x6c
+    uint8_t m_numInfluences; // 0x78
     char pad_01[7];
-};
+}; // size: 0x80
 
-class CAnimUpdateSharedData {
+class __declspec(align(8)) CAnimUpdateSharedData {
 public:
     // CUtlVector< CSmartPtr< CAnimUpdateNodeBase > > m_nodes;
     // CUtlHashtable< CAnimNodePath, int32 > m_nodeIndexMap;
@@ -5851,265 +5909,271 @@ public:
     // CSmartPtr< CAnimSkeleton > m_pSkeleton;
     // CAnimNodePath m_rootNodePath;
     char pad_00[256];
-};
+}; // size: 0x100
 
-class CNmCachedPoseWriteTask {
+class __declspec(align(8)) CNmCachedPoseWriteTask {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class TwoBoneIKSettings_t {
+class __declspec(align(16)) TwoBoneIKSettings_t {
 public:
-    IkEndEffectorType m_endEffectorType;
-    CAnimAttachment m_endEffectorAttachment;
-    IkTargetType m_targetType;
-    CAnimAttachment m_targetAttachment;
-    int32_t m_targetBoneIndex;
+    IkEndEffectorType m_endEffectorType; // 0x0
+    CAnimAttachment m_endEffectorAttachment; // 0x10
+    IkTargetType m_targetType; // 0x90
+    CAnimAttachment m_targetAttachment; // 0xa0
+    int32_t m_targetBoneIndex; // 0x120
     // CAnimParamHandle m_hPositionParam;
     // CAnimParamHandle m_hRotationParam;
     char pad_00[4];
-    bool m_bAlwaysUseFallbackHinge;
+    bool m_bAlwaysUseFallbackHinge; // 0x128
     // VectorAligned m_vLsFallbackHingeAxis;
     char pad_01[20];
-    int32_t m_nFixedBoneIndex;
-    int32_t m_nMiddleBoneIndex;
-    int32_t m_nEndBoneIndex;
-    bool m_bMatchTargetOrientation;
-    bool m_bConstrainTwist;
-    float m_flMaxTwist;
+    int32_t m_nFixedBoneIndex; // 0x140
+    int32_t m_nMiddleBoneIndex; // 0x144
+    int32_t m_nEndBoneIndex; // 0x148
+    bool m_bMatchTargetOrientation; // 0x14c
+    bool m_bConstrainTwist; // 0x14d
+    float m_flMaxTwist; // 0x150
     char pad_02[12];
-};
+}; // size: 0x160
 
-class CNmIDSelectorNode::CDefinition {
+/// CNmIDSelectorNode::CDefinition
+class __declspec(align(8)) CNmIDSelectorNode__CDefinition {
 public:
     // CUtlVectorFixedGrowable< int16, 5 > m_conditionNodeIndices;
     // CUtlVectorFixedGrowable< CGlobalSymbol, 5 > m_values;
     // CGlobalSymbol m_defaultValue;
     char pad_00[128];
-};
+}; // size: 0x80
 
-class CNmEntityAttributeFloatEvent {
+class __declspec(align(8)) CNmEntityAttributeFloatEvent {
 public:
     // CPiecewiseCurve m_FloatValue;
     char pad_00[120];
-};
+}; // size: 0x78
 
-class SolveIKChainPoseOpFixedSettings_t {
+class __declspec(align(8)) SolveIKChainPoseOpFixedSettings_t {
 public:
     // CUtlVector< ChainToSolveData_t > m_ChainsToSolveData;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CParticleFloatInput {
+class __declspec(align(8)) CParticleFloatInput {
 public:
     char pad_00[16];
-    ParticleFloatType_t m_nType;
-    ParticleFloatMapType_t m_nMapType;
-    float m_flLiteralValue;
+    ParticleFloatType_t m_nType; // 0x10
+    ParticleFloatMapType_t m_nMapType; // 0x14
+    float m_flLiteralValue; // 0x18
     // CParticleNamedValueRef m_NamedValue;
     char pad_01[68];
-    int32_t m_nControlPoint;
+    int32_t m_nControlPoint; // 0x60
     // ParticleAttributeIndex_t m_nScalarAttribute;
     // ParticleAttributeIndex_t m_nVectorAttribute;
     char pad_02[8];
-    int32_t m_nVectorComponent;
-    bool m_bReverseOrder;
-    float m_flRandomMin;
-    float m_flRandomMax;
-    bool m_bHasRandomSignFlip;
-    int32_t m_nRandomSeed;
-    ParticleFloatRandomMode_t m_nRandomMode;
+    int32_t m_nVectorComponent; // 0x6c
+    bool m_bReverseOrder; // 0x70
+    float m_flRandomMin; // 0x74
+    float m_flRandomMax; // 0x78
+    bool m_bHasRandomSignFlip; // 0x7c
+    int32_t m_nRandomSeed; // 0x80
+    ParticleFloatRandomMode_t m_nRandomMode; // 0x84
     // CUtlString m_strSnapshotSubset;
     char pad_03[16];
-    float m_flLOD0;
-    float m_flLOD1;
-    float m_flLOD2;
-    float m_flLOD3;
+    float m_flLOD0; // 0x98
+    float m_flLOD1; // 0x9c
+    float m_flLOD2; // 0xa0
+    float m_flLOD3; // 0xa4
     // ParticleAttributeIndex_t m_nNoiseInputVectorAttribute;
     char pad_04[4];
-    float m_flNoiseOutputMin;
-    float m_flNoiseOutputMax;
-    float m_flNoiseScale;
+    float m_flNoiseOutputMin; // 0xac
+    float m_flNoiseOutputMax; // 0xb0
+    float m_flNoiseScale; // 0xb4
     // Vector m_vecNoiseOffsetRate;
     char pad_05[12];
-    float m_flNoiseOffset;
-    int32_t m_nNoiseOctaves;
-    PFNoiseTurbulence_t m_nNoiseTurbulence;
-    PFNoiseType_t m_nNoiseType;
-    PFNoiseModifier_t m_nNoiseModifier;
-    float m_flNoiseTurbulenceScale;
-    float m_flNoiseTurbulenceMix;
-    float m_flNoiseImgPreviewScale;
-    bool m_bNoiseImgPreviewLive;
+    float m_flNoiseOffset; // 0xc4
+    int32_t m_nNoiseOctaves; // 0xc8
+    PFNoiseTurbulence_t m_nNoiseTurbulence; // 0xcc
+    PFNoiseType_t m_nNoiseType; // 0xd0
+    PFNoiseModifier_t m_nNoiseModifier; // 0xd4
+    float m_flNoiseTurbulenceScale; // 0xd8
+    float m_flNoiseTurbulenceMix; // 0xdc
+    float m_flNoiseImgPreviewScale; // 0xe0
+    bool m_bNoiseImgPreviewLive; // 0xe4
     char pad_06[8];
-    float m_flNoCameraFallback;
-    bool m_bUseBoundsCenter;
-    ParticleFloatInputMode_t m_nInputMode;
-    float m_flMultFactor;
-    float m_flInput0;
-    float m_flInput1;
-    float m_flOutput0;
-    float m_flOutput1;
-    float m_flNotchedRangeMin;
-    float m_flNotchedRangeMax;
-    float m_flNotchedOutputOutside;
-    float m_flNotchedOutputInside;
-    ParticleFloatRoundType_t m_nRoundType;
-    ParticleFloatBiasType_t m_nBiasType;
-    float m_flBiasParameter;
+    float m_flNoCameraFallback; // 0xf0
+    bool m_bUseBoundsCenter; // 0xf4
+    ParticleFloatInputMode_t m_nInputMode; // 0xf8
+    float m_flMultFactor; // 0xfc
+    float m_flInput0; // 0x100
+    float m_flInput1; // 0x104
+    float m_flOutput0; // 0x108
+    float m_flOutput1; // 0x10c
+    float m_flNotchedRangeMin; // 0x110
+    float m_flNotchedRangeMax; // 0x114
+    float m_flNotchedOutputOutside; // 0x118
+    float m_flNotchedOutputInside; // 0x11c
+    ParticleFloatRoundType_t m_nRoundType; // 0x120
+    ParticleFloatBiasType_t m_nBiasType; // 0x124
+    float m_flBiasParameter; // 0x128
     // CPiecewiseCurve m_Curve;
     char pad_07[68];
-};
+}; // size: 0x170
 
-class CPulse_Constant {
+class __declspec(align(8)) CPulse_Constant {
 public:
     // CPulseValueFullType m_Type;
     // KeyValues3 m_Value;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CLeafUpdateNode {
+class __declspec(align(1)) CLeafUpdateNode {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CBoneMaskUpdateNode {
+class __declspec(align(8)) CBoneMaskUpdateNode {
 public:
     char pad_00[148];
-    int32_t m_nWeightListIndex;
-    float m_flRootMotionBlend;
-    BoneMaskBlendSpace m_blendSpace;
-    BinaryNodeChildOption m_footMotionTiming;
-    bool m_bUseBlendScale;
-    AnimValueSource m_blendValueSource;
+    int32_t m_nWeightListIndex; // 0x94
+    float m_flRootMotionBlend; // 0x98
+    BoneMaskBlendSpace m_blendSpace; // 0x9c
+    BinaryNodeChildOption m_footMotionTiming; // 0xa0
+    bool m_bUseBlendScale; // 0xa4
+    AnimValueSource m_blendValueSource; // 0xa8
     // CAnimParamHandle m_hBlendParameter;
     char pad_01[4];
-};
+}; // size: 0xb0
 
-class CSeqCmdSeqDesc {
+class __declspec(align(8)) CSeqCmdSeqDesc {
 public:
     // CBufferString m_sName;
     // CSeqSeqDescFlag m_flags;
     // CSeqTransition m_transition;
     char pad_00[36];
-    int16_t m_nFrameRangeSequence;
-    int16_t m_nFrameCount;
-    float m_flFPS;
-    int16_t m_nSubCycles;
-    int16_t m_numLocalResults;
+    int16_t m_nFrameRangeSequence; // 0x24
+    int16_t m_nFrameCount; // 0x26
+    float m_flFPS; // 0x28
+    int16_t m_nSubCycles; // 0x2c
+    int16_t m_numLocalResults; // 0x2e
     // CUtlVector< CSeqCmdLayer > m_cmdLayerArray;
     // CUtlVector< CAnimEventDefinition > m_eventArray;
     // CUtlVector< CAnimActivity > m_activityArray;
     // CUtlVector< CSeqPoseSetting > m_poseSettingArray;
     char pad_01[96];
-};
+}; // size: 0x90
 
-class CNmOrNode::CDefinition {
+/// CNmOrNode::CDefinition
+class __declspec(align(8)) CNmOrNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 4 > m_conditionNodeIndices;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CSolveIKChainUpdateNode {
+class __declspec(align(8)) CSolveIKChainUpdateNode {
 public:
     // CUtlVector< CSolveIKTargetHandle_t > m_targetHandles;
     char pad_00[136];
-    SolveIKChainPoseOpFixedSettings_t m_opFixedData;
+    SolveIKChainPoseOpFixedSettings_t m_opFixedData; // 0x88
     char pad_01[8];
-};
+}; // size: 0xa8
 
-class CNmFootstepEventIDNode::CDefinition {
+/// CNmFootstepEventIDNode::CDefinition
+class __declspec(align(8)) CNmFootstepEventIDNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
+    int16_t m_nSourceStateNodeIdx; // 0x10
     // CNmBitFlags m_eventConditionRules;
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CPoseHandle {
+class __declspec(align(2)) CPoseHandle {
 public:
-    uint16_t m_nIndex;
-    PoseType_t m_eType;
+    uint16_t m_nIndex; // 0x0
+    PoseType_t m_eType; // 0x2
     char pad_00[1];
-};
+}; // size: 0x4
 
-class CNmFloatRemapNode::CDefinition {
+/// CNmFloatRemapNode::CDefinition
+class __declspec(align(8)) CNmFloatRemapNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
+    int16_t m_nInputValueNodeIdx; // 0x10
     // CNmFloatRemapNode::RemapRange_t m_inputRange;
     // CNmFloatRemapNode::RemapRange_t m_outputRange;
     char pad_01[22];
-};
+}; // size: 0x28
 
-class PulseGraphInstanceID_t {
+class __declspec(align(4)) PulseGraphInstanceID_t {
 public:
-    uint32_t m_Value;
-};
+    uint32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CSubtractUpdateNode {
+class __declspec(align(8)) CSubtractUpdateNode {
 public:
     char pad_00[148];
-    BinaryNodeChildOption m_footMotionTiming;
-    bool m_bApplyToFootMotion;
-    bool m_bApplyChannelsSeparately;
-    bool m_bUseModelSpace;
+    BinaryNodeChildOption m_footMotionTiming; // 0x94
+    bool m_bApplyToFootMotion; // 0x98
+    bool m_bApplyChannelsSeparately; // 0x99
+    bool m_bUseModelSpace; // 0x9a
     char pad_01[5];
-};
+}; // size: 0xa0
 
-class JiggleBoneSettingsList_t {
+class __declspec(align(8)) JiggleBoneSettingsList_t {
 public:
     // CUtlVector< JiggleBoneSettings_t > m_boneSettings;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CAnimMotorUpdaterBase {
+class __declspec(align(1)) CAnimMotorUpdaterBase {
 public:
     // CUtlString m_name;
     char pad_00[24];
-    bool m_bDefault;
+    bool m_bDefault; // 0x18
     char pad_01[7];
-};
+}; // size: 0x20
 
-class CNmLayerBlendNode::CDefinition {
+/// CNmLayerBlendNode::CDefinition
+class __declspec(align(8)) CNmLayerBlendNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nBaseNodeIdx;
-    bool m_bOnlySampleBaseRootMotion;
+    int16_t m_nBaseNodeIdx; // 0x10
+    bool m_bOnlySampleBaseRootMotion; // 0x12
     // CUtlLeanVectorFixedGrowable< CNmLayerBlendNode::LayerDefinition_t, 3 > m_layerDefinition;
     char pad_01[53];
-};
+}; // size: 0x48
 
-class CMoverUpdateNode {
+class __declspec(align(8)) CMoverUpdateNode {
 public:
     // CAnimInputDamping m_damping;
     char pad_00[144];
-    AnimValueSource m_facingTarget;
+    AnimValueSource m_facingTarget; // 0x90
     // CAnimParamHandle m_hMoveVecParam;
     // CAnimParamHandle m_hMoveHeadingParam;
     // CAnimParamHandle m_hTurnToFaceParam;
     char pad_01[8];
-    float m_flTurnToFaceOffset;
-    float m_flTurnToFaceLimit;
-    bool m_bAdditive;
-    bool m_bApplyMovement;
-    bool m_bOrientMovement;
-    bool m_bApplyRotation;
-    bool m_bLimitOnly;
+    float m_flTurnToFaceOffset; // 0x9c
+    float m_flTurnToFaceLimit; // 0xa0
+    bool m_bAdditive; // 0xa4
+    bool m_bApplyMovement; // 0xa5
+    bool m_bOrientMovement; // 0xa6
+    bool m_bApplyRotation; // 0xa7
+    bool m_bLimitOnly; // 0xa8
     char pad_02[7];
-};
+}; // size: 0xb0
 
-class COrientConstraint {
+class __declspec(align(8)) COrientConstraint {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CNmTargetValueNode::CDefinition {
+/// CNmTargetValueNode::CDefinition
+class __declspec(align(1)) CNmTargetValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CStateUpdateData {
+class __declspec(align(8)) CStateUpdateData {
 public:
     // CUtlString m_name;
     // AnimScriptHandle m_hScript;
@@ -6122,191 +6186,196 @@ public:
     // bitfield:1 m_bIsPassthroughRootMotion;
     // bitfield:1 m_bPreEvaluatePassthroughTransitionPath;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CNmChainSolverTask {
+class __declspec(align(16)) CNmChainSolverTask {
 public:
     char pad_00[88];
-    int32_t m_nEffectorBoneIdx;
-    int32_t m_nEffectorTargetBoneIdx;
+    int32_t m_nEffectorBoneIdx; // 0x58
+    int32_t m_nEffectorTargetBoneIdx; // 0x5c
     // CTransform m_targetTransform;
     char pad_01[32];
-    int32_t m_nNumBonesInChain;
-    CNmTarget m_effectorTarget;
-    NmIKBlendMode_t m_blendMode;
-    float m_flBlendWeight;
-    bool m_bIsTargetInWorldSpace;
-    bool m_bIsRunningFromDeserializedData;
+    int32_t m_nNumBonesInChain; // 0x80
+    CNmTarget m_effectorTarget; // 0x90
+    NmIKBlendMode_t m_blendMode; // 0xc0
+    float m_flBlendWeight; // 0xc4
+    bool m_bIsTargetInWorldSpace; // 0xc8
+    bool m_bIsRunningFromDeserializedData; // 0xc9
     // CGlobalSymbol m_debugEffectorBoneID;
     // CTransform m_chainStartTransformMS;
     // CTransform m_debugRequestedTargetTransformMS;
     char pad_02[84];
-    float m_debugTotalChainLength;
+    float m_debugTotalChainLength; // 0x120
     char pad_03[12];
-};
+}; // size: 0x130
 
-class CNmFloatComparisonNode::CDefinition {
+/// CNmFloatComparisonNode::CDefinition
+class __declspec(align(8)) CNmFloatComparisonNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    int16_t m_nComparandValueNodeIdx;
-    CNmFloatComparisonNode::Comparison_t m_comparison;
-    float m_flEpsilon;
-    float m_flComparisonValue;
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    int16_t m_nComparandValueNodeIdx; // 0x12
+    // CNmFloatComparisonNode::Comparison_t m_comparison;
+    char pad_01[4];
+    float m_flEpsilon; // 0x18
+    float m_flComparisonValue; // 0x1c
+}; // size: 0x20
 
-class VPhysXConstraintParams_t {
+class __declspec(align(4)) VPhysXConstraintParams_t {
 public:
-    int8_t m_nType;
-    int8_t m_nTranslateMotion;
-    int8_t m_nRotateMotion;
-    int8_t m_nFlags;
+    int8_t m_nType; // 0x0
+    int8_t m_nTranslateMotion; // 0x1
+    int8_t m_nRotateMotion; // 0x2
+    int8_t m_nFlags; // 0x3
     // Vector[2] m_anchor;
     // QuaternionStorage[2] m_axes;
     char pad_00[56];
-    float m_maxForce;
-    float m_maxTorque;
-    float m_linearLimitValue;
-    float m_linearLimitRestitution;
-    float m_linearLimitSpring;
-    float m_linearLimitDamping;
-    float m_twistLowLimitValue;
-    float m_twistLowLimitRestitution;
-    float m_twistLowLimitSpring;
-    float m_twistLowLimitDamping;
-    float m_twistHighLimitValue;
-    float m_twistHighLimitRestitution;
-    float m_twistHighLimitSpring;
-    float m_twistHighLimitDamping;
-    float m_swing1LimitValue;
-    float m_swing1LimitRestitution;
-    float m_swing1LimitSpring;
-    float m_swing1LimitDamping;
-    float m_swing2LimitValue;
-    float m_swing2LimitRestitution;
-    float m_swing2LimitSpring;
-    float m_swing2LimitDamping;
+    float m_maxForce; // 0x3c
+    float m_maxTorque; // 0x40
+    float m_linearLimitValue; // 0x44
+    float m_linearLimitRestitution; // 0x48
+    float m_linearLimitSpring; // 0x4c
+    float m_linearLimitDamping; // 0x50
+    float m_twistLowLimitValue; // 0x54
+    float m_twistLowLimitRestitution; // 0x58
+    float m_twistLowLimitSpring; // 0x5c
+    float m_twistLowLimitDamping; // 0x60
+    float m_twistHighLimitValue; // 0x64
+    float m_twistHighLimitRestitution; // 0x68
+    float m_twistHighLimitSpring; // 0x6c
+    float m_twistHighLimitDamping; // 0x70
+    float m_swing1LimitValue; // 0x74
+    float m_swing1LimitRestitution; // 0x78
+    float m_swing1LimitSpring; // 0x7c
+    float m_swing1LimitDamping; // 0x80
+    float m_swing2LimitValue; // 0x84
+    float m_swing2LimitRestitution; // 0x88
+    float m_swing2LimitSpring; // 0x8c
+    float m_swing2LimitDamping; // 0x90
     // Vector m_goalPosition;
     // QuaternionStorage m_goalOrientation;
     // Vector m_goalAngularVelocity;
     char pad_01[40];
-    float m_driveSpringX;
-    float m_driveSpringY;
-    float m_driveSpringZ;
-    float m_driveDampingX;
-    float m_driveDampingY;
-    float m_driveDampingZ;
-    float m_driveSpringTwist;
-    float m_driveSpringSwing;
-    float m_driveSpringSlerp;
-    float m_driveDampingTwist;
-    float m_driveDampingSwing;
-    float m_driveDampingSlerp;
-    int32_t m_solverIterationCount;
-    float m_projectionLinearTolerance;
-    float m_projectionAngularTolerance;
-};
+    float m_driveSpringX; // 0xbc
+    float m_driveSpringY; // 0xc0
+    float m_driveSpringZ; // 0xc4
+    float m_driveDampingX; // 0xc8
+    float m_driveDampingY; // 0xcc
+    float m_driveDampingZ; // 0xd0
+    float m_driveSpringTwist; // 0xd4
+    float m_driveSpringSwing; // 0xd8
+    float m_driveSpringSlerp; // 0xdc
+    float m_driveDampingTwist; // 0xe0
+    float m_driveDampingSwing; // 0xe4
+    float m_driveDampingSlerp; // 0xe8
+    int32_t m_solverIterationCount; // 0xec
+    float m_projectionLinearTolerance; // 0xf0
+    float m_projectionAngularTolerance; // 0xf4
+}; // size: 0xf8
 
-class CNmFollowBoneTask {
+class __declspec(align(8)) CNmFollowBoneTask {
 public:
     char pad_00[120];
-};
+}; // size: 0x78
 
-class ParamSpanSample_t {
+class __declspec(align(4)) ParamSpanSample_t {
 public:
     // CAnimVariant m_value;
     char pad_00[20];
-    float m_flCycle;
-};
+    float m_flCycle; // 0x14
+}; // size: 0x18
 
-class TraceSettings_t {
+class __declspec(align(4)) TraceSettings_t {
 public:
-    float m_flTraceHeight;
-    float m_flTraceRadius;
-};
+    float m_flTraceHeight; // 0x0
+    float m_flTraceRadius; // 0x4
+}; // size: 0x8
 
-class CCurrentRotationVelocityMetricEvaluator {
+class __declspec(align(8)) CCurrentRotationVelocityMetricEvaluator {
 public:
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CPointConstraint {
+class __declspec(align(8)) CPointConstraint {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CBoneConstraintDotToMorph {
+class __declspec(align(8)) CBoneConstraintDotToMorph {
 public:
     // CUtlString m_sBoneName;
     // CUtlString m_sTargetBoneName;
     // CUtlString m_sMorphChannelName;
     char pad_00[56];
-    float m_flRemap[4];
+    float m_flRemap[4]; // 0x38
     char pad_01[16];
-};
+}; // size: 0x58
 
-class NmFloatCurveCompressionSettings_t {
+class __declspec(align(4)) NmFloatCurveCompressionSettings_t {
 public:
     // NmCompressionSettings_t::QuantizationRange_t m_range;
     char pad_00[8];
-    bool m_bIsStatic;
+    bool m_bIsStatic; // 0x8
     char pad_01[3];
-};
+}; // size: 0xc
 
-class CAnimationGraphVisualizerPie {
+class __declspec(align(16)) CAnimationGraphVisualizerPie {
 public:
     // VectorAligned m_vWsCenter;
     // VectorAligned m_vWsStart;
     // VectorAligned m_vWsEnd;
     // Color m_Color;
     char pad_00[128];
-};
+}; // size: 0x80
 
-class CPhysSurfacePropertiesPhysics {
+class __declspec(align(4)) CPhysSurfacePropertiesPhysics {
 public:
-    float m_friction;
-    float m_elasticity;
-    float m_density;
-    float m_thickness;
-    float m_softContactFrequency;
-    float m_softContactDampingRatio;
-};
+    float m_friction; // 0x0
+    float m_elasticity; // 0x4
+    float m_density; // 0x8
+    float m_thickness; // 0xc
+    float m_softContactFrequency; // 0x10
+    float m_softContactDampingRatio; // 0x14
+}; // size: 0x18
 
-class CNmTargetWarpNode::CDefinition {
+/// CNmTargetWarpNode::CDefinition
+class __declspec(align(8)) CNmTargetWarpNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nClipReferenceNodeIdx;
-    int16_t m_nTargetValueNodeIdx;
-    CNmRootMotionData::SamplingMode_t m_samplingMode;
-    bool m_bAllowTargetUpdate;
-    bool m_bAlignWithTargetAtLastWarpEvent;
-    float m_flSamplingPositionErrorThresholdSq;
-    float m_flMaxTangentLength;
-    float m_flLerpFallbackDistanceThreshold;
-    float m_flTargetUpdateDistanceThreshold;
-    float m_flTargetUpdateAngleThresholdRadians;
-    char pad_01[4];
-};
+    int16_t m_nClipReferenceNodeIdx; // 0x10
+    int16_t m_nTargetValueNodeIdx; // 0x12
+    // CNmRootMotionData::SamplingMode_t m_samplingMode;
+    char pad_01[1];
+    bool m_bAllowTargetUpdate; // 0x15
+    bool m_bAlignWithTargetAtLastWarpEvent; // 0x16
+    float m_flSamplingPositionErrorThresholdSq; // 0x18
+    float m_flMaxTangentLength; // 0x1c
+    float m_flLerpFallbackDistanceThreshold; // 0x20
+    float m_flTargetUpdateDistanceThreshold; // 0x24
+    float m_flTargetUpdateAngleThresholdRadians; // 0x28
+    char pad_02[4];
+}; // size: 0x30
 
-class CNmRootMotionOverrideNode::CDefinition {
+/// CNmRootMotionOverrideNode::CDefinition
+class __declspec(align(8)) CNmRootMotionOverrideNode__CDefinition {
 public:
     char pad_00[24];
-    int16_t m_desiredMovingVelocityNodeIdx;
-    int16_t m_desiredFacingDirectionNodeIdx;
-    int16_t m_linearVelocityLimitNodeIdx;
-    int16_t m_angularVelocityLimitNodeIdx;
-    float m_maxLinearVelocity;
-    float m_maxAngularVelocityRadians;
+    int16_t m_desiredMovingVelocityNodeIdx; // 0x18
+    int16_t m_desiredFacingDirectionNodeIdx; // 0x1a
+    int16_t m_linearVelocityLimitNodeIdx; // 0x1c
+    int16_t m_angularVelocityLimitNodeIdx; // 0x1e
+    float m_maxLinearVelocity; // 0x20
+    float m_maxAngularVelocityRadians; // 0x24
     // CNmBitFlags m_overrideFlags;
     char pad_01[8];
-};
+}; // size: 0x30
 
-class CAnimDesc {
+class __declspec(align(16)) CAnimDesc {
 public:
     // CBufferString m_name;
     // CAnimDesc_Flag m_flags;
     char pad_00[24];
-    float fps;
+    float fps; // 0x18
     // CAnimEncodedFrames m_Data;
     // CUtlVector< CAnimMovement > m_movementArray;
     // CTransform m_xInitialOffset;
@@ -6314,448 +6383,455 @@ public:
     // CUtlVector< CAnimActivity > m_activityArray;
     // CUtlVector< CAnimLocalHierarchy > m_hierarchyArray;
     char pad_01[348];
-    float framestalltime;
+    float framestalltime; // 0x178
     // Vector m_vecRootMin;
     // Vector m_vecRootMax;
     // CUtlVector< Vector > m_vecBoneWorldMin;
     // CUtlVector< Vector > m_vecBoneWorldMax;
     char pad_02[76];
-    CAnimSequenceParams m_sequenceParams;
-};
+    CAnimSequenceParams m_sequenceParams; // 0x1c8
+}; // size: 0x1d0
 
-class CNmExternalPoseNode::CDefinition {
+/// CNmExternalPoseNode::CDefinition
+class __declspec(align(8)) CNmExternalPoseNode__CDefinition {
 public:
     char pad_00[16];
-    bool m_bShouldSampleRootMotion;
+    bool m_bShouldSampleRootMotion; // 0x10
     char pad_01[7];
-};
+}; // size: 0x18
 
-class PulseRuntimeCellIndex_t {
+class __declspec(align(4)) PulseRuntimeCellIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CNmFloatClampNode::CDefinition {
+/// CNmFloatClampNode::CDefinition
+class __declspec(align(8)) CNmFloatClampNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
+    int16_t m_nInputValueNodeIdx; // 0x10
     // Range_t m_clampRange;
     char pad_01[14];
-};
+}; // size: 0x20
 
-class CAnimParamHandleMap {
+class __declspec(align(8)) CAnimParamHandleMap {
 public:
     // CUtlHashtable< uint16, int16 > m_list;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CSeqIKLock {
+class __declspec(align(4)) CSeqIKLock {
 public:
-    float m_flPosWeight;
-    float m_flAngleWeight;
-    int16_t m_nLocalBone;
-    bool m_bBonesOrientedAlongPositiveX;
+    float m_flPosWeight; // 0x0
+    float m_flAngleWeight; // 0x4
+    int16_t m_nLocalBone; // 0x8
+    bool m_bBonesOrientedAlongPositiveX; // 0xa
     char pad_00[1];
-};
+}; // size: 0xc
 
-class CRenderSkeleton {
+class __declspec(align(8)) CRenderSkeleton {
 public:
     // CUtlVector< RenderSkeletonBone_t > m_bones;
     // CUtlVector< int32 > m_boneParents;
     char pad_00[72];
-    int32_t m_nBoneWeightCount;
+    int32_t m_nBoneWeightCount; // 0x48
     char pad_01[4];
-};
+}; // size: 0x50
 
-class CPlayerInputAnimMotorUpdater {
+class __declspec(align(8)) CPlayerInputAnimMotorUpdater {
 public:
     // CUtlVector< float32 > m_sampleTimes;
     char pad_00[60];
-    float m_flSpringConstant;
-    float m_flAnticipationDistance;
+    float m_flSpringConstant; // 0x3c
+    float m_flAnticipationDistance; // 0x40
     // CAnimParamHandle m_hAnticipationPosParam;
     // CAnimParamHandle m_hAnticipationHeadingParam;
     char pad_01[4];
-    bool m_bUseAcceleration;
+    bool m_bUseAcceleration; // 0x48
     char pad_02[7];
-};
+}; // size: 0x50
 
-class CStateActionUpdater {
+class __declspec(align(8)) CStateActionUpdater {
 public:
     // CSmartPtr< CAnimActionUpdater > m_pAction;
     char pad_00[8];
-    StateActionBehavior m_eBehavior;
+    StateActionBehavior m_eBehavior; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CFloatAnimParameter {
+class __declspec(align(8)) CFloatAnimParameter {
 public:
     char pad_00[128];
-    float m_fDefaultValue;
-    float m_fMinValue;
-    float m_fMaxValue;
-    bool m_bInterpolate;
+    float m_fDefaultValue; // 0x80
+    float m_fMinValue; // 0x84
+    float m_fMaxValue; // 0x88
+    bool m_bInterpolate; // 0x8c
     char pad_01[3];
-};
+}; // size: 0x90
 
-class CBoneConstraintPoseSpaceMorph {
+class __declspec(align(8)) CBoneConstraintPoseSpaceMorph {
 public:
     // CUtlString m_sBoneName;
     // CUtlString m_sAttachmentName;
     // CUtlVector< CUtlString > m_outputMorph;
     // CUtlVector< CBoneConstraintPoseSpaceMorph::Input_t > m_inputList;
     char pad_00[96];
-    bool m_bClamp;
+    bool m_bClamp; // 0x60
     char pad_01[63];
-};
+}; // size: 0xa0
 
-class MotionBlendItem {
+class __declspec(align(8)) MotionBlendItem {
 public:
     // CSmartPtr< CMotionNode > m_pChild;
     char pad_00[8];
-    float m_flKeyValue;
+    float m_flKeyValue; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CNmTwoBoneIKTask {
+class __declspec(align(16)) CNmTwoBoneIKTask {
 public:
     char pad_00[88];
-    int32_t m_nEffectorBoneIdx;
-    int32_t m_nEffectorTargetBoneIdx;
+    int32_t m_nEffectorBoneIdx; // 0x58
+    int32_t m_nEffectorTargetBoneIdx; // 0x5c
     // CTransform m_targetTransform;
     char pad_01[32];
-    CNmTarget m_effectorTarget;
-    NmIKBlendMode_t m_blendMode;
-    float m_flBlendWeight;
-    bool m_bIsTargetInWorldSpace;
-    bool m_bIsRunningFromDeserializedData;
-    float m_flReferencePoseTwistWeight;
+    CNmTarget m_effectorTarget; // 0x80
+    NmIKBlendMode_t m_blendMode; // 0xb0
+    float m_flBlendWeight; // 0xb4
+    bool m_bIsTargetInWorldSpace; // 0xb8
+    bool m_bIsRunningFromDeserializedData; // 0xb9
+    float m_flReferencePoseTwistWeight; // 0xbc
     // CGlobalSymbol m_debugEffectorBoneID;
     char pad_02[16];
-};
+}; // size: 0xd0
 
-class CBoneConstraintPoseSpaceBone {
+class __declspec(align(8)) CBoneConstraintPoseSpaceBone {
 public:
     // CUtlVector< CBoneConstraintPoseSpaceBone::Input_t > m_inputList;
     char pad_00[136];
-};
+}; // size: 0x88
 
-class CAnimGraphModelBinding {
+class __declspec(align(8)) CAnimGraphModelBinding {
 public:
     // CUtlString m_modelName;
     // CSmartPtr< CAnimUpdateSharedData > m_pSharedData;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CAnimGraphSettingsManager {
+class __declspec(align(8)) CAnimGraphSettingsManager {
 public:
     // CUtlVector< CSmartPtr< CAnimGraphSettingsGroup > > m_settingsGroups;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class LookAtOpFixedSettings_t {
+class __declspec(align(16)) LookAtOpFixedSettings_t {
 public:
-    CAnimAttachment m_attachment;
+    CAnimAttachment m_attachment; // 0x0
     // CAnimInputDamping m_damping;
     // CUtlVector< LookAtBone_t > m_bones;
     char pad_00[48];
-    float m_flYawLimit;
-    float m_flPitchLimit;
-    float m_flHysteresisInnerAngle;
-    float m_flHysteresisOuterAngle;
-    bool m_bRotateYawForward;
-    bool m_bMaintainUpDirection;
-    bool m_bTargetIsPosition;
-    bool m_bUseHysteresis;
+    float m_flYawLimit; // 0xb0
+    float m_flPitchLimit; // 0xb4
+    float m_flHysteresisInnerAngle; // 0xb8
+    float m_flHysteresisOuterAngle; // 0xbc
+    bool m_bRotateYawForward; // 0xc0
+    bool m_bMaintainUpDirection; // 0xc1
+    bool m_bTargetIsPosition; // 0xc2
+    bool m_bUseHysteresis; // 0xc3
     char pad_01[12];
-};
+}; // size: 0xd0
 
-class CStaticPoseCache {
+class __declspec(align(8)) CStaticPoseCache {
 public:
     // CUtlVector< CCachedPose > m_poses;
     char pad_00[40];
-    int32_t m_nBoneCount;
-    int32_t m_nMorphCount;
-};
+    int32_t m_nBoneCount; // 0x28
+    int32_t m_nMorphCount; // 0x2c
+}; // size: 0x30
 
-class CNmGraphVariationUserData {
+class __declspec(align(8)) CNmGraphVariationUserData {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CWarpSectionAnimTagBase {
+class __declspec(align(8)) CWarpSectionAnimTagBase {
 public:
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CNmFloatValueNode::CDefinition {
+/// CNmFloatValueNode::CDefinition
+class __declspec(align(1)) CNmFloatValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CPulse_RegisterInfo {
+class __declspec(align(8)) CPulse_RegisterInfo {
 public:
     // PulseRuntimeRegisterIndex_t m_nReg;
     // CPulseValueFullType m_Type;
     // CKV3MemberNameWithStorage m_OriginName;
     char pad_00[88];
-    int32_t m_nWrittenByInstruction;
-    int32_t m_nLastReadByInstruction;
-};
+    int32_t m_nWrittenByInstruction; // 0x58
+    int32_t m_nLastReadByInstruction; // 0x5c
+}; // size: 0x60
 
-class CNmTargetSelectorNode::CDefinition {
+/// CNmTargetSelectorNode::CDefinition
+class __declspec(align(8)) CNmTargetSelectorNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_optionNodeIndices;
     char pad_00[40];
-    float m_flOrientationScoreWeight;
-    float m_flPositionScoreWeight;
-    int16_t m_parameterNodeIdx;
-    bool m_bIgnoreInvalidOptions;
-    bool m_bIsWorldSpaceTarget;
+    float m_flOrientationScoreWeight; // 0x28
+    float m_flPositionScoreWeight; // 0x2c
+    int16_t m_parameterNodeIdx; // 0x30
+    bool m_bIgnoreInvalidOptions; // 0x32
+    bool m_bIsWorldSpaceTarget; // 0x33
     char pad_01[4];
-};
+}; // size: 0x38
 
-class CNmTargetPointNode::CDefinition {
+/// CNmTargetPointNode::CDefinition
+class __declspec(align(8)) CNmTargetPointNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    bool m_bIsWorldSpaceTarget;
+    int16_t m_nInputValueNodeIdx; // 0x10
+    bool m_bIsWorldSpaceTarget; // 0x12
     char pad_01[5];
-};
+}; // size: 0x18
 
-class CCycleControlClipUpdateNode {
+class __declspec(align(8)) CCycleControlClipUpdateNode {
 public:
     // CUtlVector< TagSpan_t > m_tags;
     // HSequence m_hSequence;
     char pad_00[128];
-    float m_duration;
-    AnimValueSource m_valueSource;
+    float m_duration; // 0x80
+    AnimValueSource m_valueSource; // 0x84
     // CAnimParamHandle m_paramIndex;
     char pad_01[2];
-    bool m_bLockWhenWaning;
+    bool m_bLockWhenWaning; // 0x8a
     char pad_02[5];
-};
+}; // size: 0x90
 
-class RenderHairStrandInfo_t {
+class __declspec(align(4)) RenderHairStrandInfo_t {
 public:
-    uint32_t m_nGuideHairIndices_nSurfaceTriIndex[2];
-    uint16_t m_vGuideBary_vBaseBary[4];
-    uint16_t m_vRootOffset_flLengthScale[4];
-    uint16_t m_nPackedBaseUv[2];
-    uint32_t m_nPackedSurfaceNormalOs;
-    uint32_t m_nPackedSurfaceTangentOs;
-    uint32_t m_nDataOffset_Segments;
-};
+    uint32_t m_nGuideHairIndices_nSurfaceTriIndex[2]; // 0x0
+    uint16_t m_vGuideBary_vBaseBary[4]; // 0x8
+    uint16_t m_vRootOffset_flLengthScale[4]; // 0x10
+    uint16_t m_nPackedBaseUv[2]; // 0x18
+    uint32_t m_nPackedSurfaceNormalOs; // 0x1c
+    uint32_t m_nPackedSurfaceTangentOs; // 0x20
+    uint32_t m_nDataOffset_Segments; // 0x24
+}; // size: 0x28
 
-class CVPhysXSurfacePropertiesList {
+class __declspec(align(8)) CVPhysXSurfacePropertiesList {
 public:
     // CUtlVector< CPhysSurfaceProperties* > m_surfacePropertiesList;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CNmSpeedScaleNode::CDefinition {
+/// CNmSpeedScaleNode::CDefinition
+class __declspec(align(8)) CNmSpeedScaleNode__CDefinition {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CTiltTwistConstraint {
+class __declspec(align(16)) CTiltTwistConstraint {
 public:
     char pad_00[96];
-    int32_t m_nTargetAxis;
-    int32_t m_nSlaveAxis;
+    int32_t m_nTargetAxis; // 0x60
+    int32_t m_nSlaveAxis; // 0x64
     char pad_01[40];
-};
+}; // size: 0x90
 
-class CNmParameterizedClipSelectorNode::CDefinition {
+/// CNmParameterizedClipSelectorNode::CDefinition
+class __declspec(align(8)) CNmParameterizedClipSelectorNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_optionNodeIndices;
     // CUtlLeanVectorFixedGrowable< uint8, 5 > m_optionWeights;
     char pad_00[56];
-    int16_t m_parameterNodeIdx;
-    bool m_bIgnoreInvalidOptions;
-    bool m_bHasWeightsSet;
+    int16_t m_parameterNodeIdx; // 0x38
+    bool m_bIgnoreInvalidOptions; // 0x3a
+    bool m_bHasWeightsSet; // 0x3b
     char pad_01[4];
-};
+}; // size: 0x40
 
-class CRenderGroom {
+class __declspec(align(8)) CRenderGroom {
 public:
     // CUtlVector< RenderHairStrandInfo_t > m_hairs;
     // CUtlVector< uint32 > m_hairPositionOffsets;
     // CStrongHandleCopyable< InfoForResourceTypeIMaterial2 > m_hSimParamsMat;
     // CUtlVector< int32 > m_strandSegmentCountHist;
     char pad_00[120];
-    int32_t m_nMaxSegmentsPerHairStrand;
-    int32_t m_nGuideHairCount;
-    int32_t m_nHairCount;
-    int32_t m_nTotalVertexCount;
-    int32_t m_nTotalSegmentCount;
-    int32_t m_nGroomGroupID;
-    int32_t m_nAttachBoneIdx;
-    int32_t m_nAttachMeshIdx;
-    int32_t m_nAttachMeshDrawCallIdx;
-    bool m_bEnableSimulation;
+    int32_t m_nMaxSegmentsPerHairStrand; // 0x78
+    int32_t m_nGuideHairCount; // 0x7c
+    int32_t m_nHairCount; // 0x80
+    int32_t m_nTotalVertexCount; // 0x84
+    int32_t m_nTotalSegmentCount; // 0x88
+    int32_t m_nGroomGroupID; // 0x8c
+    int32_t m_nAttachBoneIdx; // 0x90
+    int32_t m_nAttachMeshIdx; // 0x94
+    int32_t m_nAttachMeshDrawCallIdx; // 0x98
+    bool m_bEnableSimulation; // 0x9c
     char pad_01[3];
-};
+}; // size: 0xa0
 
-class CNmSoundEvent {
+class __declspec(align(8)) CNmSoundEvent {
 public:
     char pad_00[32];
-    CNmEventRelevance_t m_relevance;
+    CNmEventRelevance_t m_relevance; // 0x20
     // CUtlString m_name;
-    char pad_01[12];
-    CNmSoundEvent::Position_t m_position;
+    // CNmSoundEvent::Position_t m_position;
     // CUtlString m_attachmentName;
     // CUtlString m_tags;
-    char pad_02[20];
-    bool m_bContinuePlayingSoundAtDurationEnd;
-    float m_flDurationInterruptionThreshold;
-};
+    char pad_01[36];
+    bool m_bContinuePlayingSoundAtDurationEnd; // 0x48
+    float m_flDurationInterruptionThreshold; // 0x4c
+}; // size: 0x50
 
-class RnHullDesc_t {
+class __declspec(align(8)) RnHullDesc_t {
 public:
     // RnHull_t m_Hull;
     char pad_00[272];
-};
+}; // size: 0x110
 
-class CBoneConstraintRbf {
+class __declspec(align(8)) CBoneConstraintRbf {
 public:
     // CUtlVector< std::pair< CUtlString, uint32 > > m_inputBones;
     // CUtlVector< std::pair< CUtlString, uint32 > > m_outputBones;
     char pad_00[200];
-};
+}; // size: 0xc8
 
-class ScriptInfo_t {
+class __declspec(align(8)) ScriptInfo_t {
 public:
     // CUtlString m_code;
     // CUtlVector< CAnimParamHandle > m_paramsModified;
     // CUtlVector< int32 > m_proxyReadParams;
     // CUtlVector< int32 > m_proxyWriteParams;
     char pad_00[80];
-    AnimScriptType m_eScriptType;
+    AnimScriptType m_eScriptType; // 0x50
     char pad_01[6];
-};
+}; // size: 0x58
 
-class CFlexRule {
+class __declspec(align(8)) CFlexRule {
 public:
-    int32_t m_nFlex;
+    int32_t m_nFlex; // 0x0
     // CUtlVector< CFlexOp > m_FlexOps;
     char pad_00[28];
-};
+}; // size: 0x20
 
-class CNmIDEvent {
+class __declspec(align(8)) CNmIDEvent {
 public:
     // CGlobalSymbol m_ID;
     // CGlobalSymbol m_secondaryID;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CDirectPlaybackUpdateNode {
+class __declspec(align(8)) CDirectPlaybackUpdateNode {
 public:
     char pad_00[116];
-    bool m_bFinishEarly;
-    bool m_bResetOnFinish;
+    bool m_bFinishEarly; // 0x74
+    bool m_bResetOnFinish; // 0x75
     // CUtlVector< CDirectPlaybackTagData > m_allTags;
     char pad_01[26];
-};
+}; // size: 0x90
 
-class CDistanceRemainingMetricEvaluator {
+class __declspec(align(8)) CDistanceRemainingMetricEvaluator {
 public:
     char pad_00[80];
-    float m_flMaxDistance;
-    float m_flMinDistance;
-    float m_flStartGoalFilterDistance;
-    float m_flMaxGoalOvershootScale;
-    bool m_bFilterFixedMinDistance;
-    bool m_bFilterGoalDistance;
-    bool m_bFilterGoalOvershoot;
+    float m_flMaxDistance; // 0x50
+    float m_flMinDistance; // 0x54
+    float m_flStartGoalFilterDistance; // 0x58
+    float m_flMaxGoalOvershootScale; // 0x5c
+    bool m_bFilterFixedMinDistance; // 0x60
+    bool m_bFilterGoalDistance; // 0x61
+    bool m_bFilterGoalOvershoot; // 0x62
     char pad_01[5];
-};
+}; // size: 0x68
 
-class RenderSkeletonBone_t {
+class __declspec(align(8)) RenderSkeletonBone_t {
 public:
     // CUtlString m_boneName;
     // CUtlString m_parentName;
     // matrix3x4_t m_invBindPose;
     char pad_00[64];
-    SkeletonBoneBounds_t m_bbox;
-    float m_flSphereRadius;
+    SkeletonBoneBounds_t m_bbox; // 0x40
+    float m_flSphereRadius; // 0x58
     char pad_01[4];
-};
+}; // size: 0x60
 
-class FootPinningPoseOpFixedData_t {
+class __declspec(align(8)) FootPinningPoseOpFixedData_t {
 public:
     // CUtlVector< FootFixedData_t > m_footInfo;
     char pad_00[24];
-    float m_flBlendTime;
-    float m_flLockBreakDistance;
-    float m_flMaxLegTwist;
-    int32_t m_nHipBoneIndex;
-    bool m_bApplyLegTwistLimits;
-    bool m_bApplyFootRotationLimits;
+    float m_flBlendTime; // 0x18
+    float m_flLockBreakDistance; // 0x1c
+    float m_flMaxLegTwist; // 0x20
+    int32_t m_nHipBoneIndex; // 0x24
+    bool m_bApplyLegTwistLimits; // 0x28
+    bool m_bApplyFootRotationLimits; // 0x29
     char pad_01[6];
-};
+}; // size: 0x30
 
-class CSeqCmdLayer {
+class __declspec(align(4)) CSeqCmdLayer {
 public:
-    int16_t m_cmd;
-    int16_t m_nLocalReference;
-    int16_t m_nLocalBonemask;
-    int16_t m_nDstResult;
-    int16_t m_nSrcResult;
-    bool m_bSpline;
-    float m_flVar1;
-    float m_flVar2;
-    int16_t m_nLineNumber;
+    int16_t m_cmd; // 0x0
+    int16_t m_nLocalReference; // 0x2
+    int16_t m_nLocalBonemask; // 0x4
+    int16_t m_nDstResult; // 0x6
+    int16_t m_nSrcResult; // 0x8
+    bool m_bSpline; // 0xa
+    float m_flVar1; // 0xc
+    float m_flVar2; // 0x10
+    int16_t m_nLineNumber; // 0x14
     char pad_00[2];
-};
+}; // size: 0x18
 
-class CParticleCollectionFloatInput {
+class __declspec(align(8)) CParticleCollectionFloatInput {
 public:
     char pad_00[368];
-};
+}; // size: 0x170
 
-class ModelBoneFlexDriverControl_t {
+class __declspec(align(8)) ModelBoneFlexDriverControl_t {
 public:
-    ModelBoneFlexComponent_t m_nBoneComponent;
+    ModelBoneFlexComponent_t m_nBoneComponent; // 0x0
     // CUtlString m_flexController;
     char pad_00[12];
-    uint32_t m_flexControllerToken;
-    float m_flMin;
-    float m_flMax;
+    uint32_t m_flexControllerToken; // 0x10
+    float m_flMin; // 0x14
+    float m_flMax; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class PulseDocNodeID_t {
+class __declspec(align(4)) PulseDocNodeID_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CTwistConstraint {
+class __declspec(align(16)) CTwistConstraint {
 public:
     char pad_00[96];
-    bool m_bInverse;
+    bool m_bInverse; // 0x60
     // Quaternion m_qParentBindRotation;
     // Quaternion m_qChildBindRotation;
     char pad_01[47];
-};
+}; // size: 0x90
 
-class CAnimationGraphVisualizerAxis {
+class __declspec(align(16)) CAnimationGraphVisualizerAxis {
 public:
     // CTransform m_xWsTransform;
     char pad_00[96];
-    float m_flAxisSize;
+    float m_flAxisSize; // 0x60
     char pad_01[12];
-};
+}; // size: 0x70
 
-class CNmFloatCurveNode::CDefinition {
+/// CNmFloatCurveNode::CDefinition
+class __declspec(align(8)) CNmFloatCurveNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
+    int16_t m_nInputValueNodeIdx; // 0x10
     // CPiecewiseCurve m_curve;
     char pad_01[70];
-};
+}; // size: 0x58
 
-class VPhysics2ShapeDef_t {
+class __declspec(align(8)) VPhysics2ShapeDef_t {
 public:
     // CUtlVector< RnSphereDesc_t > m_spheres;
     // CUtlVector< RnCapsuleDesc_t > m_capsules;
@@ -6763,14 +6839,14 @@ public:
     // CUtlVector< RnMeshDesc_t > m_meshes;
     // CUtlVector< uint16 > m_CollisionAttributeIndices;
     char pad_00[120];
-};
+}; // size: 0x78
 
-class PulseRuntimeConstantIndex_t {
+class __declspec(align(2)) PulseRuntimeConstantIndex_t {
 public:
-    int16_t m_Value;
-};
+    int16_t m_Value; // 0x0
+}; // size: 0x2
 
-class CAnimSkeleton {
+class __declspec(align(8)) CAnimSkeleton {
 public:
     // CUtlVector< CTransform > m_localSpaceTransforms;
     // CUtlVector< CTransform > m_modelSpaceTransforms;
@@ -6781,82 +6857,84 @@ public:
     // CUtlVector< CUtlString > m_morphNames;
     // CUtlVector< int32 > m_lodBoneCounts;
     char pad_00[208];
-};
+}; // size: 0xd0
 
-class CRenderMesh {
+class __declspec(align(8)) CRenderMesh {
 public:
     // CUtlLeanVectorFixedGrowable< CSceneObjectData, 1 > m_sceneObjects;
     // CUtlLeanVector< CBaseConstraint* > m_constraints;
     char pad_00[200];
-    CRenderSkeleton m_skeleton;
+    CRenderSkeleton m_skeleton; // 0xc8
     char pad_01[188];
-    bool m_bUseUV2ForCharting;
-    bool m_bEmbeddedMapMesh;
+    bool m_bUseUV2ForCharting; // 0x1d4
+    bool m_bEmbeddedMapMesh; // 0x1d5
     // DynamicMeshDeformParams_t m_meshDeformParams;
     char pad_02[48];
-    CRenderGroom* m_pGroomData;
-};
+    CRenderGroom* m_pGroomData; // 0x208
+}; // size: 0x210
 
-class CFlexDesc {
+class __declspec(align(8)) CFlexDesc {
 public:
     // CUtlString m_szFacs;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CNmTwoBoneIKNode::CDefinition {
+/// CNmTwoBoneIKNode::CDefinition
+class __declspec(align(8)) CNmTwoBoneIKNode__CDefinition {
 public:
     // CGlobalSymbol m_effectorBoneID;
     char pad_00[32];
-    int16_t m_nEffectorTargetNodeIdx;
-    int16_t m_nEnabledNodeIdx;
-    float m_flBlendTimeSeconds;
-    NmIKBlendMode_t m_blendMode;
-    bool m_bIsTargetInWorldSpace;
-    float m_flReferencePoseTwistWeight;
-};
+    int16_t m_nEffectorTargetNodeIdx; // 0x20
+    int16_t m_nEnabledNodeIdx; // 0x22
+    float m_flBlendTimeSeconds; // 0x24
+    NmIKBlendMode_t m_blendMode; // 0x28
+    bool m_bIsTargetInWorldSpace; // 0x29
+    float m_flReferencePoseTwistWeight; // 0x2c
+}; // size: 0x30
 
-class CMotionNodeSequence {
+class __declspec(align(8)) CMotionNodeSequence {
 public:
     // CUtlVector< TagSpan_t > m_tags;
     // HSequence m_hSequence;
     char pad_00[68];
-    float m_flPlaybackSpeed;
-};
+    float m_flPlaybackSpeed; // 0x44
+}; // size: 0x48
 
-class CNmFloatRangeComparisonNode::CDefinition {
+/// CNmFloatRangeComparisonNode::CDefinition
+class __declspec(align(8)) CNmFloatRangeComparisonNode__CDefinition {
 public:
     // Range_t m_range;
     char pad_00[24];
-    int16_t m_nInputValueNodeIdx;
-    bool m_bIsInclusiveCheck;
+    int16_t m_nInputValueNodeIdx; // 0x18
+    bool m_bIsInclusiveCheck; // 0x1a
     char pad_01[5];
-};
+}; // size: 0x20
 
-class SkeletonDemoDb_t {
+class __declspec(align(8)) SkeletonDemoDb_t {
 public:
     // CUtlVector< SkeletonAnimCapture_t* > m_AnimCaptures;
     // CUtlVector< SkeletonAnimCapture_t::Camera_t > m_CameraTrack;
     char pad_00[48];
-    float m_flRecordingTime;
+    float m_flRecordingTime; // 0x30
     char pad_01[4];
-};
+}; // size: 0x38
 
-class CFlexController {
+class __declspec(align(8)) CFlexController {
 public:
     // CUtlString m_szName;
     // CUtlString m_szType;
     char pad_00[16];
-    float min;
-    float max;
-};
+    float min; // 0x10
+    float max; // 0x14
+}; // size: 0x18
 
-class CSeqS1SeqDesc {
+class __declspec(align(8)) CSeqS1SeqDesc {
 public:
     // CBufferString m_sName;
     // CSeqSeqDescFlag m_flags;
     // CSeqMultiFetch m_fetch;
     char pad_00[144];
-    int32_t m_nLocalWeightlist;
+    int32_t m_nLocalWeightlist; // 0x90
     // CUtlVector< CSeqAutoLayer > m_autoLayerArray;
     // CUtlVector< CSeqIKLock > m_IKLockArray;
     // CSeqTransition m_transition;
@@ -6865,114 +6943,117 @@ public:
     // CUtlVector< CAnimActivity > m_activityArray;
     // CUtlVector< CFootMotion > m_footMotion;
     char pad_01[140];
-};
+}; // size: 0x120
 
-class CNmReferencePoseNode::CDefinition {
+/// CNmReferencePoseNode::CDefinition
+class __declspec(align(8)) CNmReferencePoseNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CMotionMatchingUpdateNode {
+class __declspec(align(8)) CMotionMatchingUpdateNode {
 public:
     // CMotionDataSet m_dataSet;
     // CUtlVector< CSmartPtr< CMotionMetricEvaluator > > m_metrics;
     // CUtlVector< float32 > m_weights;
     char pad_00[224];
-    bool m_bSearchEveryTick;
-    float m_flSearchInterval;
-    bool m_bSearchWhenClipEnds;
-    bool m_bSearchWhenGoalChanges;
+    bool m_bSearchEveryTick; // 0xe0
+    float m_flSearchInterval; // 0xe4
+    bool m_bSearchWhenClipEnds; // 0xe8
+    bool m_bSearchWhenGoalChanges; // 0xe9
     // CBlendCurve m_blendCurve;
     char pad_01[8];
-    float m_flSampleRate;
-    float m_flBlendTime;
-    bool m_bLockClipWhenWaning;
-    float m_flSelectionThreshold;
-    float m_flReselectionTimeWindow;
-    bool m_bEnableRotationCorrection;
-    bool m_bGoalAssist;
-    float m_flGoalAssistDistance;
-    float m_flGoalAssistTolerance;
+    float m_flSampleRate; // 0xf4
+    float m_flBlendTime; // 0xf8
+    bool m_bLockClipWhenWaning; // 0xfc
+    float m_flSelectionThreshold; // 0x100
+    float m_flReselectionTimeWindow; // 0x104
+    bool m_bEnableRotationCorrection; // 0x108
+    bool m_bGoalAssist; // 0x109
+    float m_flGoalAssistDistance; // 0x10c
+    float m_flGoalAssistTolerance; // 0x110
     // CAnimInputDamping m_distanceScale_Damping;
     char pad_02[28];
-    float m_flDistanceScale_OuterRadius;
-    float m_flDistanceScale_InnerRadius;
-    float m_flDistanceScale_MaxScale;
-    float m_flDistanceScale_MinScale;
-    bool m_bEnableDistanceScaling;
+    float m_flDistanceScale_OuterRadius; // 0x130
+    float m_flDistanceScale_InnerRadius; // 0x134
+    float m_flDistanceScale_MaxScale; // 0x138
+    float m_flDistanceScale_MinScale; // 0x13c
+    bool m_bEnableDistanceScaling; // 0x140
     char pad_03[7];
-};
+}; // size: 0x148
 
-class CFootTrajectory {
+class __declspec(align(8)) CFootTrajectory {
 public:
     // Vector m_vOffset;
     char pad_00[20];
-    float m_flRotationOffset;
-    float m_flProgression;
+    float m_flRotationOffset; // 0x14
+    float m_flProgression; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CAnimationGraphVisualizerText {
+class __declspec(align(16)) CAnimationGraphVisualizerText {
 public:
     // VectorAligned m_vWsPosition;
     // Color m_Color;
     // CUtlString m_Text;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class NmSyncTrackTimeRange_t {
+class __declspec(align(4)) NmSyncTrackTimeRange_t {
 public:
     // NmSyncTrackTime_t m_startTime;
     // NmSyncTrackTime_t m_endTime;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CBindPoseUpdateNode {
+class __declspec(align(8)) CBindPoseUpdateNode {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CAnimationGraphVisualizerPrimitiveBase {
+class __declspec(align(8)) CAnimationGraphVisualizerPrimitiveBase {
 public:
     char pad_00[8];
-    CAnimationGraphVisualizerPrimitiveType m_Type;
+    CAnimationGraphVisualizerPrimitiveType m_Type; // 0x8
     // AnimNodeID[11] m_OwningAnimNodePaths;
     char pad_01[44];
-    int32_t m_nOwningAnimNodePathCount;
+    int32_t m_nOwningAnimNodePathCount; // 0x38
     char pad_02[4];
-};
+}; // size: 0x40
 
-class CNmValueNode::CDefinition {
+/// CNmValueNode::CDefinition
+class __declspec(align(1)) CNmValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmSpeedScaleBaseNode::CDefinition {
+/// CNmSpeedScaleBaseNode::CDefinition
+class __declspec(align(8)) CNmSpeedScaleBaseNode__CDefinition {
 public:
     char pad_00[24];
-    int16_t m_nInputValueNodeIdx;
-    float m_flDefaultInputValue;
-};
+    int16_t m_nInputValueNodeIdx; // 0x18
+    float m_flDefaultInputValue; // 0x1c
+}; // size: 0x20
 
-class CNmOverlayBlendTask {
+class __declspec(align(8)) CNmOverlayBlendTask {
 public:
     char pad_00[224];
-};
+}; // size: 0xe0
 
-class CToggleComponentActionUpdater {
+class __declspec(align(8)) CToggleComponentActionUpdater {
 public:
     // AnimComponentID m_componentID;
     char pad_00[28];
-    bool m_bSetEnabled;
+    bool m_bSetEnabled; // 0x1c
     char pad_01[3];
-};
+}; // size: 0x20
 
-class CNmClip {
+class __declspec(align(16)) CNmClip {
 public:
     // CStrongHandle< InfoForResourceTypeCNmSkeleton > m_skeleton;
     char pad_00[8];
-    uint32_t m_nNumFrames;
-    float m_flDuration;
+    uint32_t m_nNumFrames; // 0x8
+    float m_flDuration; // 0xc
     // CUtlBinaryBlock m_compressedPoseData;
     // CUtlVector< NmCompressionSettings_t > m_trackCompressionSettings;
     // CUtlVector< uint32 > m_compressedPoseOffsets;
@@ -6984,67 +7065,67 @@ public:
     // CNmSyncTrack m_syncTrack;
     // CNmRootMotionData m_rootMotion;
     char pad_01[496];
-    bool m_bIsAdditive;
+    bool m_bIsAdditive; // 0x200
     // CUtlVector< CNmClip::ModelSpaceSamplingChainLink_t > m_modelSpaceSamplingChain;
     // CUtlVector< int32 > m_modelSpaceBoneSamplingIndices;
     char pad_02[63];
-};
+}; // size: 0x240
 
-class NmSyncTrackTime_t {
+class __declspec(align(4)) NmSyncTrackTime_t {
 public:
-    int32_t m_nEventIdx;
+    int32_t m_nEventIdx; // 0x0
     // NmPercent_t m_percentageThrough;
     char pad_00[4];
-};
+}; // size: 0x8
 
-class CAnimationGroup {
+class __declspec(align(8)) CAnimationGroup {
 public:
     char pad_00[16];
-    uint32_t m_nFlags;
+    uint32_t m_nFlags; // 0x10
     // CBufferString m_name;
     // CUtlVector< CStrongHandle< InfoForResourceTypeCAnimData > > m_localHAnimArray_Handle;
     // CUtlVector< CStrongHandle< InfoForResourceTypeCAnimationGroup > > m_includedGroupArray_Handle;
     // CStrongHandle< InfoForResourceTypeCSequenceGroupData > m_directHSeqGroup_Handle;
     char pad_01[128];
-    CAnimKeyData m_decodeKey;
+    CAnimKeyData m_decodeKey; // 0x98
     // CUtlVector< CBufferString > m_szScripts;
     // CUtlVector< CStrongHandleVoid > m_AdditionalExtRefs;
     char pad_02[56];
-};
+}; // size: 0x148
 
-class CTurnHelperUpdateNode {
+class __declspec(align(8)) CTurnHelperUpdateNode {
 public:
     char pad_00[116];
-    AnimValueSource m_facingTarget;
-    float m_turnStartTimeOffset;
-    float m_turnDuration;
-    bool m_bMatchChildDuration;
-    float m_manualTurnOffset;
-    bool m_bUseManualTurnOffset;
+    AnimValueSource m_facingTarget; // 0x74
+    float m_turnStartTimeOffset; // 0x78
+    float m_turnDuration; // 0x7c
+    bool m_bMatchChildDuration; // 0x80
+    float m_manualTurnOffset; // 0x84
+    bool m_bUseManualTurnOffset; // 0x88
     char pad_01[7];
-};
+}; // size: 0x90
 
-class CAudioAnimTag {
+class __declspec(align(8)) CAudioAnimTag {
 public:
     // CUtlString m_clipName;
     // CUtlString m_attachmentName;
     char pad_00[104];
-    float m_flVolume;
-    bool m_bStopWhenTagEnds;
-    bool m_bStopWhenGraphEnds;
-    bool m_bPlayOnServer;
-    bool m_bPlayOnClient;
-};
+    float m_flVolume; // 0x68
+    bool m_bStopWhenTagEnds; // 0x6c
+    bool m_bStopWhenGraphEnds; // 0x6d
+    bool m_bPlayOnServer; // 0x6e
+    bool m_bPlayOnClient; // 0x6f
+}; // size: 0x70
 
-class NmBoneMaskSetDefinition_t {
+class __declspec(align(8)) NmBoneMaskSetDefinition_t {
 public:
     // CGlobalSymbol m_ID;
     // CNmBoneWeightList m_primaryWeightList;
     // CUtlLeanVector< CNmBoneWeightList > m_secondaryWeightLists;
     char pad_00[296];
-};
+}; // size: 0x128
 
-class CPhysSurfacePropertiesSoundNames {
+class __declspec(align(8)) CPhysSurfacePropertiesSoundNames {
 public:
     // CUtlString m_impactSoft;
     // CUtlString m_impactHard;
@@ -7059,157 +7140,163 @@ public:
     // CUtlString m_skidStop;
     // CUtlString m_resonant;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CSeqMultiFetch {
+class __declspec(align(8)) CSeqMultiFetch {
 public:
     // CSeqMultiFetchFlag m_flags;
     // CUtlVector< int16 > m_localReferenceArray;
     char pad_00[32];
-    int32_t m_nGroupSize[2];
-    int32_t m_nLocalPose[2];
+    int32_t m_nGroupSize[2]; // 0x20
+    int32_t m_nLocalPose[2]; // 0x28
     // CUtlVector< float32 > m_poseKeyArray0;
     // CUtlVector< float32 > m_poseKeyArray1;
     char pad_01[48];
-    int32_t m_nLocalCyclePoseParameter;
-    bool m_bCalculatePoseParameters;
-    bool m_bFixedBlendWeight;
-    float m_flFixedBlendWeightVals[2];
-};
+    int32_t m_nLocalCyclePoseParameter; // 0x60
+    bool m_bCalculatePoseParameters; // 0x64
+    bool m_bFixedBlendWeight; // 0x65
+    float m_flFixedBlendWeightVals[2]; // 0x68
+}; // size: 0x70
 
-class CBoneConstraintPoseSpaceBone::Input_t {
+/// CBoneConstraintPoseSpaceBone::Input_t
+class __declspec(align(1)) CBoneConstraintPoseSpaceBone__Input_t {
 public:
     // Vector m_inputValue;
     // CUtlVector< CTransform > m_outputTransformList;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CMovementHandshakeAnimTag {
+class __declspec(align(8)) CMovementHandshakeAnimTag {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class PulseRuntimeBlackboardReferenceIndex_t {
+class __declspec(align(2)) PulseRuntimeBlackboardReferenceIndex_t {
 public:
-    int16_t m_Value;
-};
+    int16_t m_Value; // 0x0
+}; // size: 0x2
 
-class CTransitionUpdateData {
+class __declspec(align(1)) CTransitionUpdateData {
 public:
-    uint8_t m_srcStateIndex;
-    uint8_t m_destStateIndex;
+    uint8_t m_srcStateIndex; // 0x0
+    uint8_t m_destStateIndex; // 0x1
     // bitfield:7 m_nHandshakeMaskToDisableFirst;
     // bitfield:1 m_bDisabled;
     char pad_00[1];
-};
+}; // size: 0x3
 
-class CNmDurationScaleNode::CDefinition {
+/// CNmDurationScaleNode::CDefinition
+class __declspec(align(8)) CNmDurationScaleNode__CDefinition {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CAnimUserDifference {
+class __declspec(align(8)) CAnimUserDifference {
 public:
     // CBufferString m_name;
     char pad_00[16];
-    int32_t m_nType;
+    int32_t m_nType; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CNmClip::ModelSpaceSamplingChainLink_t {
+/// CNmClip::ModelSpaceSamplingChainLink_t
+class __declspec(align(4)) CNmClip__ModelSpaceSamplingChainLink_t {
 public:
-    int32_t m_nBoneIdx;
-    int32_t m_nParentBoneIdx;
-    int32_t m_nParentChainLinkIdx;
-};
+    int32_t m_nBoneIdx; // 0x0
+    int32_t m_nParentBoneIdx; // 0x4
+    int32_t m_nParentChainLinkIdx; // 0x8
+}; // size: 0xc
 
-class CAnimationGraphVisualizerSphere {
+class __declspec(align(16)) CAnimationGraphVisualizerSphere {
 public:
     // VectorAligned m_vWsPosition;
     char pad_00[80];
-    float m_flRadius;
+    float m_flRadius; // 0x50
     // Color m_Color;
     char pad_01[12];
-};
+}; // size: 0x60
 
-class CNmGraphNode::CDefinition {
+/// CNmGraphNode::CDefinition
+class __declspec(align(2)) CNmGraphNode__CDefinition {
 public:
     char pad_00[8];
-    int16_t m_nNodeIdx;
+    int16_t m_nNodeIdx; // 0x8
     char pad_01[6];
-};
+}; // size: 0x10
 
-class RnSoftbodyCapsule_t {
+class __declspec(align(4)) RnSoftbodyCapsule_t {
 public:
     // Vector[2] m_vCenter;
     char pad_00[24];
-    float m_flRadius;
-    uint16_t m_nParticle[2];
-};
+    float m_flRadius; // 0x18
+    uint16_t m_nParticle[2]; // 0x1c
+}; // size: 0x20
 
-class CBlendCurve {
+class __declspec(align(4)) CBlendCurve {
 public:
-    float m_flControlPoint1;
-    float m_flControlPoint2;
-};
+    float m_flControlPoint1; // 0x0
+    float m_flControlPoint2; // 0x4
+}; // size: 0x8
 
-class CNmBlend2DNode::CDefinition {
+/// CNmBlend2DNode::CDefinition
+class __declspec(align(8)) CNmBlend2DNode__CDefinition {
 public:
     // CUtlVectorFixedGrowable< int16, 5 > m_sourceNodeIndices;
     char pad_00[56];
-    int16_t m_nInputParameterNodeIdx0;
-    int16_t m_nInputParameterNodeIdx1;
+    int16_t m_nInputParameterNodeIdx0; // 0x38
+    int16_t m_nInputParameterNodeIdx1; // 0x3a
     // CUtlVectorFixedGrowable< Vector2D, 10 > m_values;
     // CUtlVectorFixedGrowable< uint8, 30 > m_indices;
     // CUtlVectorFixedGrowable< uint8, 10 > m_hullIndices;
     char pad_01[204];
-    bool m_bAllowLooping;
+    bool m_bAllowLooping; // 0x108
     char pad_02[7];
-};
+}; // size: 0x110
 
-class CAnimDesc_Flag {
+class __declspec(align(1)) CAnimDesc_Flag {
 public:
-    bool m_bLooping;
-    bool m_bAllZeros;
-    bool m_bHidden;
-    bool m_bDelta;
-    bool m_bLegacyWorldspace;
-    bool m_bModelDoc;
-    bool m_bImplicitSeqIgnoreDelta;
-    bool m_bAnimGraphAdditive;
-};
+    bool m_bLooping; // 0x0
+    bool m_bAllZeros; // 0x1
+    bool m_bHidden; // 0x2
+    bool m_bDelta; // 0x3
+    bool m_bLegacyWorldspace; // 0x4
+    bool m_bModelDoc; // 0x5
+    bool m_bImplicitSeqIgnoreDelta; // 0x6
+    bool m_bAnimGraphAdditive; // 0x7
+}; // size: 0x8
 
-class CClothSettingsAnimTag {
+class __declspec(align(8)) CClothSettingsAnimTag {
 public:
     char pad_00[88];
-    float m_flStiffness;
-    float m_flEaseIn;
-    float m_flEaseOut;
+    float m_flStiffness; // 0x58
+    float m_flEaseIn; // 0x5c
+    float m_flEaseOut; // 0x60
     // CUtlString m_nVertexSet;
     char pad_01[12];
-};
+}; // size: 0x70
 
-class CMorphConstraint {
+class __declspec(align(8)) CMorphConstraint {
 public:
     // CUtlString m_sTargetMorph;
     char pad_00[104];
-    int32_t m_nSlaveChannel;
-    float m_flMin;
-    float m_flMax;
+    int32_t m_nSlaveChannel; // 0x68
+    float m_flMin; // 0x6c
+    float m_flMax; // 0x70
     char pad_01[12];
-};
+}; // size: 0x80
 
-class CNmAndNode::CDefinition {
+/// CNmAndNode::CDefinition
+class __declspec(align(8)) CNmAndNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 4 > m_conditionNodeIndices;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CMorphSetData {
+class __declspec(align(8)) CMorphSetData {
 public:
     char pad_00[16];
-    int32_t m_nWidth;
-    int32_t m_nHeight;
+    int32_t m_nWidth; // 0x10
+    int32_t m_nHeight; // 0x14
     // CUtlVector< MorphBundleType_t > m_bundleTypes;
     // CUtlVector< CMorphData > m_morphDatas;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureAtlas;
@@ -7217,144 +7304,149 @@ public:
     // CUtlVector< CFlexController > m_FlexControllers;
     // CUtlVector< CFlexRule > m_FlexRules;
     char pad_01[128];
-};
+}; // size: 0x98
 
-class CMeshletDescriptor {
+class __declspec(align(4)) CMeshletDescriptor {
 public:
-    PackedAABB_t m_PackedAABB;
+    PackedAABB_t m_PackedAABB; // 0x0
     // CDrawCullingData m_CullingData;
     char pad_00[4];
-    uint32_t m_nVertexOffset;
-    uint32_t m_nTriangleOffset;
-    uint8_t m_nVertexCount;
-    uint8_t m_nTriangleCount;
+    uint32_t m_nVertexOffset; // 0xc
+    uint32_t m_nTriangleOffset; // 0x10
+    uint8_t m_nVertexCount; // 0x14
+    uint8_t m_nTriangleCount; // 0x15
     char pad_01[2];
-};
+}; // size: 0x18
 
-class CNmNotNode::CDefinition {
+/// CNmNotNode::CDefinition
+class __declspec(align(8)) CNmNotNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
+    int16_t m_nInputValueNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CNmEntityAttributeIntEvent {
+class __declspec(align(8)) CNmEntityAttributeIntEvent {
 public:
     char pad_00[56];
-    int32_t m_nIntValue;
+    int32_t m_nIntValue; // 0x38
     char pad_01[4];
-};
+}; // size: 0x40
 
-class CNmParameterizedBlendNode::Parameterization_t {
+/// CNmParameterizedBlendNode::Parameterization_t
+class __declspec(align(8)) CNmParameterizedBlendNode__Parameterization_t {
 public:
     // CUtlLeanVectorFixedGrowable< CNmParameterizedBlendNode::BlendRange_t, 5 > m_blendRanges;
     // Range_t m_parameterRange;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CParticleCollectionRendererFloatInput {
+class __declspec(align(8)) CParticleCollectionRendererFloatInput {
 public:
     char pad_00[368];
-};
+}; // size: 0x170
 
-class CRenderBufferBinding {
+class __declspec(align(8)) CRenderBufferBinding {
 public:
-    uint64_t m_hBuffer;
+    uint64_t m_hBuffer; // 0x0
     char pad_00[8];
-    uint32_t m_nBindOffsetBytes;
+    uint32_t m_nBindOffsetBytes; // 0x10
     char pad_01[12];
-};
+}; // size: 0x20
 
-class CBonePositionMetricEvaluator {
+class __declspec(align(8)) CBonePositionMetricEvaluator {
 public:
     char pad_00[80];
-    int32_t m_nBoneIndex;
+    int32_t m_nBoneIndex; // 0x50
     char pad_01[4];
-};
+}; // size: 0x58
 
-class CPulse_DomainValue {
+class __declspec(align(8)) CPulse_DomainValue {
 public:
-    PulseDomainValueType_t m_nType;
+    PulseDomainValueType_t m_nType; // 0x0
     // CGlobalSymbolCaseSensitive m_Value;
     // CPulseValueFullType m_RequiredRuntimeType;
     char pad_00[44];
-};
+}; // size: 0x30
 
-class SkeletonAnimCapture_t::FrameStamp_t {
+/// SkeletonAnimCapture_t::FrameStamp_t
+class __declspec(align(4)) SkeletonAnimCapture_t__FrameStamp_t {
 public:
-    float m_flTime;
-    float m_flEntitySimTime;
-    bool m_bTeleportTick;
-    bool m_bPredicted;
-    float m_flCurTime;
-    float m_flRealTime;
-    int32_t m_nFrameCount;
-    int32_t m_nTickCount;
-};
+    float m_flTime; // 0x0
+    float m_flEntitySimTime; // 0x4
+    bool m_bTeleportTick; // 0x8
+    bool m_bPredicted; // 0x9
+    float m_flCurTime; // 0xc
+    float m_flRealTime; // 0x10
+    int32_t m_nFrameCount; // 0x14
+    int32_t m_nTickCount; // 0x18
+}; // size: 0x1c
 
-class CNmFixedWeightBoneMaskNode::CDefinition {
+/// CNmFixedWeightBoneMaskNode::CDefinition
+class __declspec(align(8)) CNmFixedWeightBoneMaskNode__CDefinition {
 public:
     char pad_00[16];
-    float m_flBoneWeight;
+    float m_flBoneWeight; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CSetParameterActionUpdater {
+class __declspec(align(8)) CSetParameterActionUpdater {
 public:
     // CAnimParamHandle m_hParam;
     // CAnimVariant m_value;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CAnimUpdateNodeBase {
+class __declspec(align(4)) CAnimUpdateNodeBase {
 public:
     // CAnimNodePath m_nodePath;
     char pad_00[72];
-    AnimNodeNetworkMode m_networkMode;
+    AnimNodeNetworkMode m_networkMode; // 0x48
     // CUtlString m_name;
     char pad_01[12];
-};
+}; // size: 0x58
 
-class CNmSkeleton::SecondarySkeleton_t {
+/// CNmSkeleton::SecondarySkeleton_t
+class __declspec(align(8)) CNmSkeleton__SecondarySkeleton_t {
 public:
     // CGlobalSymbol m_attachToBoneID;
     // CStrongHandle< InfoForResourceTypeCNmSkeleton > m_skeleton;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CFutureVelocityMetricEvaluator {
+class __declspec(align(8)) CFutureVelocityMetricEvaluator {
 public:
     char pad_00[80];
-    float m_flDistance;
-    float m_flStoppingDistance;
-    float m_flTargetSpeed;
-    VelocityMetricMode m_eMode;
+    float m_flDistance; // 0x50
+    float m_flStoppingDistance; // 0x54
+    float m_flTargetSpeed; // 0x58
+    VelocityMetricMode m_eMode; // 0x5c
     char pad_01[3];
-};
+}; // size: 0x60
 
-class CMotionMetricEvaluator {
+class __declspec(align(4)) CMotionMetricEvaluator {
 public:
     // CUtlVector< float32 > m_means;
     // CUtlVector< float32 > m_standardDeviations;
     char pad_00[72];
-    float m_flWeight;
-    int32_t m_nDimensionStartIndex;
-};
+    float m_flWeight; // 0x48
+    int32_t m_nDimensionStartIndex; // 0x4c
+}; // size: 0x50
 
-class CVirtualAnimParameter {
+class __declspec(align(8)) CVirtualAnimParameter {
 public:
     // CUtlString m_expressionString;
     char pad_00[120];
-    AnimParamType_t m_eParamType;
+    AnimParamType_t m_eParamType; // 0x78
     char pad_01[7];
-};
+}; // size: 0x80
 
-class CFootCycleDefinition {
+class __declspec(align(4)) CFootCycleDefinition {
 public:
     // Vector m_vStancePositionMS;
     // Vector m_vMidpointPositionMS;
     char pad_00[24];
-    float m_flStanceDirectionMS;
+    float m_flStanceDirectionMS; // 0x18
     // Vector m_vToStrideStartPos;
     // CAnimCycle m_stanceCycle;
     // CFootCycle m_footLiftCycle;
@@ -7362,72 +7454,72 @@ public:
     // CFootCycle m_footStrikeCycle;
     // CFootCycle m_footLandCycle;
     char pad_01[32];
-};
+}; // size: 0x3c
 
-class PulseRuntimeOutputIndex_t {
+class __declspec(align(4)) PulseRuntimeOutputIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CConstraintSlave {
+class __declspec(align(16)) CConstraintSlave {
 public:
     // Quaternion m_qBaseOrientation;
     // Vector m_vBasePosition;
     char pad_00[28];
-    uint32_t m_nBoneHash;
-    float m_flWeight;
+    uint32_t m_nBoneHash; // 0x1c
+    float m_flWeight; // 0x20
     // CUtlString m_sName;
     char pad_01[44];
-};
+}; // size: 0x50
 
-class RnSoftbodyParticle_t {
+class __declspec(align(4)) RnSoftbodyParticle_t {
 public:
-    float m_flMassInv;
-};
+    float m_flMassInv; // 0x0
+}; // size: 0x4
 
-class ChainToSolveData_t {
+class __declspec(align(16)) ChainToSolveData_t {
 public:
-    int32_t m_nChainIndex;
-    IKSolverSettings_t m_SolverSettings;
-    IKTargetSettings_t m_TargetSettings;
-    SolveIKChainAnimNodeDebugSetting m_DebugSetting;
-    float m_flDebugNormalizedValue;
+    int32_t m_nChainIndex; // 0x0
+    IKSolverSettings_t m_SolverSettings; // 0x4
+    IKTargetSettings_t m_TargetSettings; // 0x10
+    SolveIKChainAnimNodeDebugSetting m_DebugSetting; // 0x38
+    float m_flDebugNormalizedValue; // 0x3c
     // VectorAligned m_vDebugOffset;
     char pad_00[16];
-};
+}; // size: 0x50
 
-class CHitBoxSet {
+class __declspec(align(8)) CHitBoxSet {
 public:
     // CUtlString m_name;
     char pad_00[8];
-    uint32_t m_nNameHash;
+    uint32_t m_nNameHash; // 0x8
     // CUtlVector< CHitBox > m_HitBoxes;
     // CUtlString m_SourceFilename;
     char pad_01[36];
-};
+}; // size: 0x30
 
-class CNmIKBody {
+class __declspec(align(4)) CNmIKBody {
 public:
-    float m_flMass;
+    float m_flMass; // 0x0
     // Vector m_vLocalMassCenter;
     // Vector m_vRadius;
     char pad_00[24];
-    float m_flResistance;
-};
+    float m_flResistance; // 0x1c
+}; // size: 0x20
 
-class CAnimInputDamping {
+class __declspec(align(8)) CAnimInputDamping {
 public:
     char pad_00[8];
-    DampingSpeedFunction m_speedFunction;
-    float m_fSpeedScale;
-    float m_fFallingSpeedScale;
+    DampingSpeedFunction m_speedFunction; // 0x8
+    float m_fSpeedScale; // 0xc
+    float m_fFallingSpeedScale; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CSlopeComponentUpdater {
+class __declspec(align(8)) CSlopeComponentUpdater {
 public:
     char pad_00[52];
-    float m_flTraceDistance;
+    float m_flTraceDistance; // 0x34
     // CAnimParamHandle m_hSlopeAngle;
     // CAnimParamHandle m_hSlopeAngleFront;
     // CAnimParamHandle m_hSlopeAngleSide;
@@ -7435,137 +7527,140 @@ public:
     // CAnimParamHandle m_hSlopeNormal;
     // CAnimParamHandle m_hSlopeNormal_WorldSpace;
     char pad_01[16];
-};
+}; // size: 0x48
 
-class CAnimFrameSegment {
+class __declspec(align(8)) CAnimFrameSegment {
 public:
-    int32_t m_nUniqueFrameIndex;
-    uint32_t m_nLocalElementMasks;
-    int32_t m_nLocalChannel;
+    int32_t m_nUniqueFrameIndex; // 0x0
+    uint32_t m_nLocalElementMasks; // 0x4
+    int32_t m_nLocalChannel; // 0x8
     // CUtlBinaryBlock m_container;
     char pad_00[20];
-};
+}; // size: 0x20
 
-class AnimTagID {
+class __declspec(align(4)) AnimTagID {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class CHandshakeAnimTagBase {
+class __declspec(align(8)) CHandshakeAnimTagBase {
 public:
     char pad_00[80];
-    bool m_bIsDisableTag;
+    bool m_bIsDisableTag; // 0x50
     char pad_01[7];
-};
+}; // size: 0x58
 
-class CEnumAnimParameter {
+class __declspec(align(8)) CEnumAnimParameter {
 public:
     char pad_00[136];
-    uint8_t m_defaultValue;
+    uint8_t m_defaultValue; // 0x88
     // CUtlVector< CUtlString > m_enumOptions;
     // CUtlVector< uint64 > m_vecEnumReferenced;
     char pad_01[79];
-};
+}; // size: 0xd8
 
-class CFootstepLandedAnimTag {
+class __declspec(align(8)) CFootstepLandedAnimTag {
 public:
     char pad_00[88];
-    FootstepLandedFootSoundType_t m_FootstepType;
+    FootstepLandedFootSoundType_t m_FootstepType; // 0x58
     // CUtlString m_OverrideSoundName;
     // CUtlString m_DebugAnimSourceString;
     // CUtlString m_BoneName;
     char pad_01[28];
-    FootstepJumpPhase_t m_footstepJumpPhase;
+    FootstepJumpPhase_t m_footstepJumpPhase; // 0x78
     char pad_02[7];
-};
+}; // size: 0x80
 
-class CStateNodeStateData {
+class __declspec(align(8)) CStateNodeStateData {
 public:
     // CAnimUpdateNodeRef m_pChild;
     // bitfield:1 m_bExclusiveRootMotion;
     // bitfield:1 m_bExclusiveRootMotionFirstFrame;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CNmLegacyEvent {
+class __declspec(align(8)) CNmLegacyEvent {
 public:
     // CUtlString m_animEventClassName;
     // KeyValues3 m_KV;
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CSceneObjectData::RTProxyDrawDescriptor_t {
+/// CSceneObjectData::RTProxyDrawDescriptor_t
+class __declspec(align(8)) CSceneObjectData__RTProxyDrawDescriptor_t {
 public:
     // CMaterialDrawDescriptor m_drawDesc;
     // matrix3x4_t m_mWorldFromLocal;
     char pad_00[312];
-    VertexAlbedoFormat_t m_nVertexAlbedoFormat;
-    int8_t m_nVertexAlbedoVB;
-    uint16_t m_nVertexAlbedoOffset;
-    uint16_t m_nVertexAlbedoStride;
+    VertexAlbedoFormat_t m_nVertexAlbedoFormat; // 0x138
+    int8_t m_nVertexAlbedoVB; // 0x139
+    uint16_t m_nVertexAlbedoOffset; // 0x13a
+    uint16_t m_nVertexAlbedoStride; // 0x13c
     char pad_01[2];
-};
+}; // size: 0x140
 
-class CFootStride {
+class __declspec(align(8)) CFootStride {
 public:
-    CFootCycleDefinition m_definition;
-    CFootTrajectories m_trajectories;
-};
+    CFootCycleDefinition m_definition; // 0x0
+    CFootTrajectories m_trajectories; // 0x40
+}; // size: 0x58
 
-class CNmBitFlags {
+class __declspec(align(4)) CNmBitFlags {
 public:
-    uint32_t m_flags;
-};
+    uint32_t m_flags; // 0x0
+}; // size: 0x4
 
-class CNmConstBoolNode::CDefinition {
+/// CNmConstBoolNode::CDefinition
+class __declspec(align(8)) CNmConstBoolNode__CDefinition {
 public:
     char pad_00[16];
-    bool m_bValue;
+    bool m_bValue; // 0x10
     char pad_01[7];
-};
+}; // size: 0x18
 
-class CPerParticleFloatInput {
+class __declspec(align(8)) CPerParticleFloatInput {
 public:
     char pad_00[368];
-};
+}; // size: 0x170
 
-class CNmCachedTargetNode::CDefinition {
+/// CNmCachedTargetNode::CDefinition
+class __declspec(align(8)) CNmCachedTargetNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    NmCachedValueMode_t m_mode;
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    NmCachedValueMode_t m_mode; // 0x14
+}; // size: 0x18
 
-class CAnimDecoder {
+class __declspec(align(8)) CAnimDecoder {
 public:
     // CBufferString m_szName;
     char pad_00[16];
-    int32_t m_nVersion;
-    int32_t m_nType;
-};
+    int32_t m_nVersion; // 0x10
+    int32_t m_nType; // 0x14
+}; // size: 0x18
 
-class PhysFeModelDesc_t {
+class __declspec(align(8)) PhysFeModelDesc_t {
 public:
     // CUtlVector< uint32 > m_CtrlHash;
     // CUtlVector< CUtlString > m_CtrlName;
     char pad_00[48];
-    uint32_t m_nStaticNodeFlags;
-    uint32_t m_nDynamicNodeFlags;
-    float m_flLocalForce;
-    float m_flLocalRotation;
-    uint16_t m_nNodeCount;
-    uint16_t m_nStaticNodes;
-    uint16_t m_nRotLockStaticNodes;
-    uint16_t m_nFirstPositionDrivenNode;
-    uint16_t m_nSimdTriCount1;
-    uint16_t m_nSimdTriCount2;
-    uint16_t m_nSimdQuadCount1;
-    uint16_t m_nSimdQuadCount2;
-    uint16_t m_nQuadCount1;
-    uint16_t m_nQuadCount2;
-    uint16_t m_nTreeDepth;
-    uint16_t m_nNodeBaseJiggleboneDependsCount;
-    uint16_t m_nRopeCount;
+    uint32_t m_nStaticNodeFlags; // 0x30
+    uint32_t m_nDynamicNodeFlags; // 0x34
+    float m_flLocalForce; // 0x38
+    float m_flLocalRotation; // 0x3c
+    uint16_t m_nNodeCount; // 0x40
+    uint16_t m_nStaticNodes; // 0x42
+    uint16_t m_nRotLockStaticNodes; // 0x44
+    uint16_t m_nFirstPositionDrivenNode; // 0x46
+    uint16_t m_nSimdTriCount1; // 0x48
+    uint16_t m_nSimdTriCount2; // 0x4a
+    uint16_t m_nSimdQuadCount1; // 0x4c
+    uint16_t m_nSimdQuadCount2; // 0x4e
+    uint16_t m_nQuadCount1; // 0x50
+    uint16_t m_nQuadCount2; // 0x52
+    uint16_t m_nTreeDepth; // 0x54
+    uint16_t m_nNodeBaseJiggleboneDependsCount; // 0x56
+    uint16_t m_nRopeCount; // 0x58
     // CUtlVector< uint16 > m_Ropes;
     // CUtlVector< FeNodeBase_t > m_NodeBases;
     // CUtlVector< FeSimdNodeBase_t > m_SimdNodeBases;
@@ -7618,12 +7713,12 @@ public:
     // CUtlVector< uint32 > m_GoalDampedSpringIntegrators;
     // CUtlVector< FeTri_t > m_Tris;
     char pad_01[1230];
-    uint16_t m_nTriCount1;
-    uint16_t m_nTriCount2;
-    uint8_t m_nReservedUint8;
-    uint8_t m_nExtraPressureIterations;
-    uint8_t m_nExtraGoalIterations;
-    uint8_t m_nExtraIterations;
+    uint16_t m_nTriCount1; // 0x528
+    uint16_t m_nTriCount2; // 0x52a
+    uint8_t m_nReservedUint8; // 0x52c
+    uint8_t m_nExtraPressureIterations; // 0x52d
+    uint8_t m_nExtraGoalIterations; // 0x52e
+    uint8_t m_nExtraIterations; // 0x52f
     // CUtlVector< FeSDFRigid_t > m_SDFRigids;
     // CUtlVector< FeBoxRigid_t > m_BoxRigids;
     // CUtlVector< uint8 > m_DynNodeVertexSet;
@@ -7640,68 +7735,68 @@ public:
     // CUtlVector< FeNodeWindBase_t > m_DynNodeWindBases;
     // CUtlVector< FeModelSelfCollisionLayer_t > m_SelfCollisionLayers;
     char pad_02[360];
-    float m_flInternalPressure;
-    float m_flDefaultTimeDilation;
-    float m_flWindage;
-    float m_flWindDrag;
-    float m_flDefaultSurfaceStretch;
-    float m_flDefaultThreadStretch;
-    float m_flDefaultGravityScale;
-    float m_flDefaultVelAirDrag;
-    float m_flDefaultExpAirDrag;
-    float m_flDefaultVelQuadAirDrag;
-    float m_flDefaultExpQuadAirDrag;
-    float m_flRodVelocitySmoothRate;
-    float m_flQuadVelocitySmoothRate;
-    float m_flAddWorldCollisionRadius;
-    float m_flDefaultVolumetricSolveAmount;
-    float m_flMotionSmoothCDT;
-    float m_flLocalDrag1;
-    uint16_t m_nRodVelocitySmoothIterations;
-    uint16_t m_nQuadVelocitySmoothIterations;
-};
+    float m_flInternalPressure; // 0x698
+    float m_flDefaultTimeDilation; // 0x69c
+    float m_flWindage; // 0x6a0
+    float m_flWindDrag; // 0x6a4
+    float m_flDefaultSurfaceStretch; // 0x6a8
+    float m_flDefaultThreadStretch; // 0x6ac
+    float m_flDefaultGravityScale; // 0x6b0
+    float m_flDefaultVelAirDrag; // 0x6b4
+    float m_flDefaultExpAirDrag; // 0x6b8
+    float m_flDefaultVelQuadAirDrag; // 0x6bc
+    float m_flDefaultExpQuadAirDrag; // 0x6c0
+    float m_flRodVelocitySmoothRate; // 0x6c4
+    float m_flQuadVelocitySmoothRate; // 0x6c8
+    float m_flAddWorldCollisionRadius; // 0x6cc
+    float m_flDefaultVolumetricSolveAmount; // 0x6d0
+    float m_flMotionSmoothCDT; // 0x6d4
+    float m_flLocalDrag1; // 0x6d8
+    uint16_t m_nRodVelocitySmoothIterations; // 0x6dc
+    uint16_t m_nQuadVelocitySmoothIterations; // 0x6de
+}; // size: 0x6e0
 
-class CDemoSettingsComponentUpdater {
+class __declspec(align(8)) CDemoSettingsComponentUpdater {
 public:
     // CAnimDemoCaptureSettings m_settings;
     char pad_00[176];
-};
+}; // size: 0xb0
 
-class CAnimEnum {
+class __declspec(align(1)) CAnimEnum {
 public:
-    uint8_t m_value;
-};
+    uint8_t m_value; // 0x0
+}; // size: 0x1
 
-class CAddUpdateNode {
+class __declspec(align(8)) CAddUpdateNode {
 public:
     char pad_00[148];
-    BinaryNodeChildOption m_footMotionTiming;
-    bool m_bApplyToFootMotion;
-    bool m_bApplyChannelsSeparately;
-    bool m_bUseModelSpace;
-    bool m_bApplyScale;
+    BinaryNodeChildOption m_footMotionTiming; // 0x94
+    bool m_bApplyToFootMotion; // 0x98
+    bool m_bApplyChannelsSeparately; // 0x99
+    bool m_bUseModelSpace; // 0x9a
+    bool m_bApplyScale; // 0x9b
     char pad_01[4];
-};
+}; // size: 0xa0
 
-class PARTICLE_EHANDLE__ {
+class __declspec(align(4)) PARTICLE_EHANDLE__ {
 public:
-    int32_t unused;
-};
+    int32_t unused; // 0x0
+}; // size: 0x4
 
-class CPulse_Variable {
+class __declspec(align(8)) CPulse_Variable {
 public:
     // PulseSymbol_t m_Name;
     // CUtlString m_Description;
     // CPulseValueFullType m_Type;
     // KeyValues3 m_DefaultValue;
     char pad_00[68];
-    PulseVariableKeysSource_t m_nKeysSource;
-    bool m_bIsPublicBlackboardVariable;
-    bool m_bIsObservable;
-    PulseDocNodeID_t m_nEditorNodeID;
-};
+    PulseVariableKeysSource_t m_nKeysSource; // 0x44
+    bool m_bIsPublicBlackboardVariable; // 0x48
+    bool m_bIsObservable; // 0x49
+    PulseDocNodeID_t m_nEditorNodeID; // 0x4c
+}; // size: 0x50
 
-class NmCompressionSettings_t {
+class __declspec(align(16)) NmCompressionSettings_t {
 public:
     // NmCompressionSettings_t::QuantizationRange_t m_translationRangeX;
     // NmCompressionSettings_t::QuantizationRange_t m_translationRangeY;
@@ -7709,247 +7804,255 @@ public:
     // NmCompressionSettings_t::QuantizationRange_t m_scaleRange;
     // Quaternion m_constantRotation;
     char pad_00[48];
-    bool m_bIsRotationStatic;
-    bool m_bIsTranslationStatic;
-    bool m_bIsScaleStatic;
+    bool m_bIsRotationStatic; // 0x30
+    bool m_bIsTranslationStatic; // 0x31
+    bool m_bIsScaleStatic; // 0x32
     char pad_01[13];
-};
+}; // size: 0x40
 
-class CFutureFacingMetricEvaluator {
+class __declspec(align(8)) CFutureFacingMetricEvaluator {
 public:
     char pad_00[80];
-    float m_flDistance;
-    float m_flTime;
-};
+    float m_flDistance; // 0x50
+    float m_flTime; // 0x54
+}; // size: 0x58
 
-class CNmIKJoint {
+class __declspec(align(16)) CNmIKJoint {
 public:
-    int32_t m_nParentIndex;
-    int32_t m_nBodyIndex;
+    int32_t m_nParentIndex; // 0x0
+    int32_t m_nBodyIndex; // 0x4
     // CTransform m_xLocalFrame;
     char pad_00[40];
-    float m_flSwingLimit;
-    float m_flMinTwistLimit;
-    float m_flMaxTwistLimit;
-    float m_flWeight;
-};
+    float m_flSwingLimit; // 0x30
+    float m_flMinTwistLimit; // 0x34
+    float m_flMaxTwistLimit; // 0x38
+    float m_flWeight; // 0x3c
+}; // size: 0x40
 
-class IParticleEffect {
+class __declspec(align(1)) IParticleEffect {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CModelConfigElement_SetMaterialGroup {
+class __declspec(align(8)) CModelConfigElement_SetMaterialGroup {
 public:
     // CUtlString m_MaterialGroupName;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CMovementComponentUpdater {
+class __declspec(align(8)) CMovementComponentUpdater {
 public:
     // CUtlVector< CSmartPtr< CAnimMotorUpdaterBase > > m_motors;
     char pad_00[72];
-    CAnimInputDamping m_facingDamping;
+    CAnimInputDamping m_facingDamping; // 0x48
     char pad_01[8];
-    int32_t m_nDefaultMotorIndex;
-    float m_flDefaultRunSpeed;
-    bool m_bMoveVarsDisabled;
-    bool m_bNetworkPath;
-    bool m_bNetworkFacing;
+    int32_t m_nDefaultMotorIndex; // 0x68
+    float m_flDefaultRunSpeed; // 0x6c
+    bool m_bMoveVarsDisabled; // 0x70
+    bool m_bNetworkPath; // 0x71
+    bool m_bNetworkFacing; // 0x72
     // CAnimParamHandle[34] m_paramHandles;
     char pad_02[69];
-};
+}; // size: 0xb8
 
-class CFollowAttachmentUpdateNode {
+class __declspec(align(16)) CFollowAttachmentUpdateNode {
 public:
     // FollowAttachmentSettings_t m_opFixedData;
     char pad_00[272];
-};
+}; // size: 0x110
 
-class CNmGraphEventConditionNode::CDefinition {
+/// CNmGraphEventConditionNode::CDefinition
+class __declspec(align(8)) CNmGraphEventConditionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    CNmBitFlags m_eventConditionRules;
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    CNmBitFlags m_eventConditionRules; // 0x14
     // CUtlVectorFixedGrowable< CNmGraphEventConditionNode::Condition_t, 5 > m_conditions;
     char pad_01[104];
-};
+}; // size: 0x80
 
-class SkeletonAnimCapture_t::Camera_t {
+/// SkeletonAnimCapture_t::Camera_t
+class __declspec(align(16)) SkeletonAnimCapture_t__Camera_t {
 public:
     // CTransform m_tmCamera;
     char pad_00[32];
-    float m_flTime;
+    float m_flTime; // 0x20
     char pad_01[12];
-};
+}; // size: 0x30
 
-class AimCameraOpFixedSettings_t {
+class __declspec(align(8)) AimCameraOpFixedSettings_t {
 public:
-    int32_t m_nChainIndex;
-    int32_t m_nCameraJointIndex;
-    int32_t m_nPelvisJointIndex;
-    int32_t m_nClavicleLeftJointIndex;
-    int32_t m_nClavicleRightJointIndex;
-    int32_t m_nDepenetrationJointIndex;
+    int32_t m_nChainIndex; // 0x0
+    int32_t m_nCameraJointIndex; // 0x4
+    int32_t m_nPelvisJointIndex; // 0x8
+    int32_t m_nClavicleLeftJointIndex; // 0xc
+    int32_t m_nClavicleRightJointIndex; // 0x10
+    int32_t m_nDepenetrationJointIndex; // 0x14
     // CUtlVector< int32 > m_propJoints;
     char pad_00[24];
-};
+}; // size: 0x30
 
-class CNmFootstepEventPercentageThroughNode::CDefinition {
+/// CNmFootstepEventPercentageThroughNode::CDefinition
+class __declspec(align(8)) CNmFootstepEventPercentageThroughNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    NmFootPhaseCondition_t m_phaseCondition;
-    CNmBitFlags m_eventConditionRules;
-};
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    NmFootPhaseCondition_t m_phaseCondition; // 0x12
+    CNmBitFlags m_eventConditionRules; // 0x14
+}; // size: 0x18
 
-class PGDInstruction_t {
+class __declspec(align(8)) PGDInstruction_t {
 public:
-    PulseInstructionCode_t m_nCode;
+    PulseInstructionCode_t m_nCode; // 0x0
     // PulseRuntimeVarIndex_t m_nVar;
     // PulseRuntimeRegisterIndex_t m_nReg0;
     // PulseRuntimeRegisterIndex_t m_nReg1;
     // PulseRuntimeRegisterIndex_t m_nReg2;
     // PulseRuntimeInvokeIndex_t m_nInvokeBindingIndex;
-    PulseRuntimeChunkIndex_t m_nChunk;
-    int32_t m_nDestInstruction;
-    PulseRuntimeCallInfoIndex_t m_nCallInfoIndex;
-    PulseRuntimeConstantIndex_t m_nConstIdx;
+    char pad_00[16];
+    PulseRuntimeChunkIndex_t m_nChunk; // 0x14
+    int32_t m_nDestInstruction; // 0x18
+    PulseRuntimeCallInfoIndex_t m_nCallInfoIndex; // 0x1c
+    PulseRuntimeConstantIndex_t m_nConstIdx; // 0x20
     // PulseRuntimeDomainValueIndex_t m_nDomainValueIdx;
-    PulseRuntimeBlackboardReferenceIndex_t m_nBlackboardReferenceIdx;
-    char pad_00[18];
-};
+    char pad_01[2];
+    PulseRuntimeBlackboardReferenceIndex_t m_nBlackboardReferenceIdx; // 0x24
+    char pad_02[18];
+}; // size: 0x38
 
-class CPathAnimMotorUpdaterBase {
+class __declspec(align(1)) CPathAnimMotorUpdaterBase {
 public:
     char pad_00[32];
-    bool m_bLockToPath;
+    bool m_bLockToPath; // 0x20
     char pad_01[7];
-};
+}; // size: 0x28
 
-class CParticleTransformInput {
+class __declspec(align(8)) CParticleTransformInput {
 public:
     char pad_00[16];
-    ParticleTransformType_t m_nType;
+    ParticleTransformType_t m_nType; // 0x10
     // CParticleNamedValueRef m_NamedValue;
     char pad_01[68];
-    bool m_bFollowNamedValue;
-    bool m_bSupportsDisabled;
-    bool m_bUseOrientation;
-    int32_t m_nControlPoint;
-    int32_t m_nControlPointRangeMax;
-    float m_flEndCPGrowthTime;
-};
+    bool m_bFollowNamedValue; // 0x58
+    bool m_bSupportsDisabled; // 0x59
+    bool m_bUseOrientation; // 0x5a
+    int32_t m_nControlPoint; // 0x5c
+    int32_t m_nControlPointRangeMax; // 0x60
+    float m_flEndCPGrowthTime; // 0x64
+}; // size: 0x68
 
-class RnSphereDesc_t {
+class __declspec(align(8)) RnSphereDesc_t {
 public:
     // SphereBase_t< float32 > m_Sphere;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CNmFloatCurveEvent {
+class __declspec(align(8)) CNmFloatCurveEvent {
 public:
     // CGlobalSymbol m_ID;
     // CPiecewiseCurve m_curve;
     char pad_00[104];
-};
+}; // size: 0x68
 
-class CNmIKRig {
+class __declspec(align(8)) CNmIKRig {
 public:
     // CStrongHandle< InfoForResourceTypeCNmSkeleton > m_skeleton;
     // CUtlVector< CNmIKBody > m_vecBodies;
     // CUtlVector< CNmIKJoint > m_vecJoints;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class CNmTransitionEvent {
+class __declspec(align(8)) CNmTransitionEvent {
 public:
     char pad_00[32];
-    NmTransitionRule_t m_rule;
+    NmTransitionRule_t m_rule; // 0x20
     // CGlobalSymbol m_ID;
     char pad_01[15];
-};
+}; // size: 0x30
 
-class CAnimReplayFrame {
+class __declspec(align(16)) CAnimReplayFrame {
 public:
     // CUtlVector< CUtlBinaryBlock > m_inputDataBlocks;
     // CUtlBinaryBlock m_instanceData;
     // CTransform m_startingLocalToWorldTransform;
     // CTransform m_localToWorldTransform;
     char pad_00[128];
-    float m_timeStamp;
+    float m_timeStamp; // 0x80
     char pad_01[12];
-};
+}; // size: 0x90
 
-class CNmBoolValueNode::CDefinition {
+/// CNmBoolValueNode::CDefinition
+class __declspec(align(1)) CNmBoolValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CCurrentVelocityMetricEvaluator {
+class __declspec(align(8)) CCurrentVelocityMetricEvaluator {
 public:
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CModelConfigElement_SetBodygroupOnAttachedModels {
+class __declspec(align(8)) CModelConfigElement_SetBodygroupOnAttachedModels {
 public:
     // CUtlString m_GroupName;
     char pad_00[80];
-    int32_t m_nChoice;
+    int32_t m_nChoice; // 0x50
     char pad_01[4];
-};
+}; // size: 0x58
 
-class CSequenceTagSpans {
+class __declspec(align(8)) CSequenceTagSpans {
 public:
     // CGlobalSymbol m_sSequenceName;
     // CUtlVector< TagSpan_t > m_tags;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CSpeedScaleUpdateNode {
+class __declspec(align(8)) CSpeedScaleUpdateNode {
 public:
     // CAnimParamHandle m_paramIndex;
     char pad_00[120];
-};
+}; // size: 0x78
 
-class MoodAnimationLayer_t {
+class __declspec(align(8)) MoodAnimationLayer_t {
 public:
     // CUtlString m_sName;
     char pad_00[8];
-    bool m_bActiveListening;
-    bool m_bActiveTalking;
+    bool m_bActiveListening; // 0x8
+    bool m_bActiveTalking; // 0x9
     // CUtlVector< MoodAnimation_t > m_layerAnimations;
-    CRangeFloat m_flIntensity;
-    CRangeFloat m_flDurationScale;
-    bool m_bScaleWithInts;
-    CRangeFloat m_flNextStart;
-    CRangeFloat m_flStartOffset;
-    CRangeFloat m_flEndOffset;
-    float m_flFadeIn;
-    float m_flFadeOut;
-    char pad_01[4];
-};
+    char pad_01[28];
+    CRangeFloat m_flIntensity; // 0x28
+    CRangeFloat m_flDurationScale; // 0x30
+    bool m_bScaleWithInts; // 0x38
+    CRangeFloat m_flNextStart; // 0x3c
+    CRangeFloat m_flStartOffset; // 0x44
+    CRangeFloat m_flEndOffset; // 0x4c
+    float m_flFadeIn; // 0x54
+    float m_flFadeOut; // 0x58
+    char pad_02[4];
+}; // size: 0x60
 
-class CBoneConstraintPoseSpaceMorph::Input_t {
+/// CBoneConstraintPoseSpaceMorph::Input_t
+class __declspec(align(1)) CBoneConstraintPoseSpaceMorph__Input_t {
 public:
     // Vector m_inputValue;
     // CUtlVector< float32 > m_outputWeightList;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class BoneDemoCaptureSettings_t {
+class __declspec(align(8)) BoneDemoCaptureSettings_t {
 public:
     // CUtlString m_boneName;
     char pad_00[8];
-    float m_flErrorSplineRotationMax;
-    float m_flErrorSplineTranslationMax;
-    float m_flErrorSplineScaleMax;
-    float m_flErrorQuantizationRotationMax;
-    float m_flErrorQuantizationTranslationMax;
-    float m_flErrorQuantizationScaleMax;
-};
+    float m_flErrorSplineRotationMax; // 0x8
+    float m_flErrorSplineTranslationMax; // 0xc
+    float m_flErrorSplineScaleMax; // 0x10
+    float m_flErrorQuantizationRotationMax; // 0x14
+    float m_flErrorQuantizationTranslationMax; // 0x18
+    float m_flErrorQuantizationScaleMax; // 0x1c
+}; // size: 0x20
 
-class CAnimParameterManagerUpdater {
+class __declspec(align(8)) CAnimParameterManagerUpdater {
 public:
     // CUtlVector< CSmartPtr< CAnimParameterBase > > m_parameters;
     // CUtlHashtable< AnimParamID, int32 > m_idToIndexMap;
@@ -7958,37 +8061,37 @@ public:
     // CUtlVector< std::pair< CAnimParamHandle, CAnimVariant > > m_autoResetParams;
     // CUtlHashtable< CAnimParamHandle, int16 > m_autoResetMap;
     char pad_00[256];
-};
+}; // size: 0x100
 
-class CAnimBone {
+class __declspec(align(8)) CAnimBone {
 public:
     // CBufferString m_name;
     char pad_00[16];
-    int32_t m_parent;
+    int32_t m_parent; // 0x10
     // Vector m_pos;
     // QuaternionStorage m_quat;
     char pad_01[28];
-    float m_scale;
+    float m_scale; // 0x30
     // QuaternionStorage m_qAlignment;
     char pad_02[16];
-    int32_t m_flags;
-};
+    int32_t m_flags; // 0x44
+}; // size: 0x48
 
-class CLookAtUpdateNode {
+class __declspec(align(16)) CLookAtUpdateNode {
 public:
     char pad_00[112];
-    LookAtOpFixedSettings_t m_opFixedSettings;
+    LookAtOpFixedSettings_t m_opFixedSettings; // 0x70
     char pad_01[8];
-    AnimVectorSource m_target;
+    AnimVectorSource m_target; // 0x148
     // CAnimParamHandle m_paramIndex;
     // CAnimParamHandle m_weightParamIndex;
     char pad_02[4];
-    bool m_bResetChild;
-    bool m_bLockWhenWaning;
+    bool m_bResetChild; // 0x150
+    bool m_bLockWhenWaning; // 0x151
     char pad_03[14];
-};
+}; // size: 0x160
 
-class CHitReactUpdateNode {
+class __declspec(align(8)) CHitReactUpdateNode {
 public:
     // HitReactFixedSettings_t m_opFixedSettings;
     // CAnimParamHandle m_triggerParam;
@@ -7997,109 +8100,110 @@ public:
     // CAnimParamHandle m_hitDirectionParam;
     // CAnimParamHandle m_hitStrengthParam;
     char pad_00[200];
-    float m_flMinDelayBetweenHits;
-    bool m_bResetChild;
+    float m_flMinDelayBetweenHits; // 0xc8
+    bool m_bResetChild; // 0xcc
     char pad_01[3];
-};
+}; // size: 0xd0
 
-class CFlexOp {
+class __declspec(align(4)) CFlexOp {
 public:
-    FlexOpCode_t m_OpCode;
-    int32_t m_Data;
-};
+    FlexOpCode_t m_OpCode; // 0x0
+    int32_t m_Data; // 0x4
+}; // size: 0x8
 
-class AnimScriptHandle {
+class __declspec(align(4)) AnimScriptHandle {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class CPulseGraphExecutionHistory {
+class __declspec(align(8)) CPulseGraphExecutionHistory {
 public:
-    PulseGraphInstanceID_t m_nInstanceID;
+    PulseGraphInstanceID_t m_nInstanceID; // 0x0
     // CUtlString m_strFileName;
     // CUtlVector< PulseGraphExecutionHistoryEntry_t* > m_vecHistory;
     // CUtlOrderedMap< PulseDocNodeID_t, PulseGraphExecutionHistoryNodeDesc_t* > m_mapCellDesc;
     // CUtlOrderedMap< PulseCursorID_t, PulseGraphExecutionHistoryCursorDesc_t* > m_mapCursorDesc;
     char pad_00[116];
-};
+}; // size: 0x78
 
-class CNmRootMotionData {
+class __declspec(align(16)) CNmRootMotionData {
 public:
     // CUtlVector< CTransform > m_transforms;
     char pad_00[24];
-    int32_t m_nNumFrames;
-    float m_flAverageLinearVelocity;
-    float m_flAverageAngularVelocityRadians;
+    int32_t m_nNumFrames; // 0x18
+    float m_flAverageLinearVelocity; // 0x1c
+    float m_flAverageAngularVelocityRadians; // 0x20
     // CTransform m_totalDelta;
     char pad_01[44];
-};
+}; // size: 0x50
 
-class CAnimEventDefinition {
+class __declspec(align(8)) CAnimEventDefinition {
 public:
     char pad_00[8];
-    int32_t m_nFrame;
-    int32_t m_nEndFrame;
-    float m_flCycle;
-    float m_flDuration;
+    int32_t m_nFrame; // 0x8
+    int32_t m_nEndFrame; // 0xc
+    float m_flCycle; // 0x10
+    float m_flDuration; // 0x14
     // KeyValues3 m_EventData;
     // CBufferString m_sLegacyOptions;
     // CGlobalSymbol m_sEventName;
     char pad_01[40];
-};
+}; // size: 0x40
 
-class CModelConfigElement_Command {
+class __declspec(align(8)) CModelConfigElement_Command {
 public:
     // CUtlString m_Command;
     // KeyValues3 m_Args;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class SkeletonAnimCapture_t::Frame_t {
+/// SkeletonAnimCapture_t::Frame_t
+class __declspec(align(16)) SkeletonAnimCapture_t__Frame_t {
 public:
-    float m_flTime;
-    SkeletonAnimCapture_t::FrameStamp_t m_Stamp;
+    float m_flTime; // 0x0
+    // SkeletonAnimCapture_t::FrameStamp_t m_Stamp;
     // CTransform m_Transform;
-    char pad_00[32];
-    bool m_bTeleport;
+    char pad_00[60];
+    bool m_bTeleport; // 0x40
     // CUtlVector< CTransform > m_CompositeBones;
     // CUtlVector< CTransform > m_SimStateBones;
     // CUtlVector< CTransform > m_FeModelAnims;
     // CUtlVector< VectorAligned > m_FeModelPos;
     // CUtlVector< float32 > m_FlexControllerWeights;
     char pad_01[127];
-};
+}; // size: 0xc0
 
-class CAimMatrixUpdateNode {
+class __declspec(align(16)) CAimMatrixUpdateNode {
 public:
     char pad_00[112];
-    AimMatrixOpFixedSettings_t m_opFixedSettings;
+    AimMatrixOpFixedSettings_t m_opFixedSettings; // 0x70
     char pad_01[8];
-    AnimVectorSource m_target;
+    AnimVectorSource m_target; // 0x168
     // CAnimParamHandle m_paramIndex;
     // HSequence m_hSequence;
     char pad_02[8];
-    bool m_bResetChild;
-    bool m_bLockWhenWaning;
+    bool m_bResetChild; // 0x174
+    bool m_bLockWhenWaning; // 0x175
     char pad_03[10];
-};
+}; // size: 0x180
 
-class CStateMachineUpdateNode {
+class __declspec(align(8)) CStateMachineUpdateNode {
 public:
     // CAnimStateMachineUpdater m_stateMachine;
     // CUtlVector< CStateNodeStateData > m_stateData;
     // CUtlVector< CStateNodeTransitionData > m_transitionData;
     char pad_00[252];
-    bool m_bBlockWaningTags;
-    bool m_bLockStateWhenWaning;
-    bool m_bResetWhenActivated;
+    bool m_bBlockWaningTags; // 0xfc
+    bool m_bLockStateWhenWaning; // 0xfd
+    bool m_bResetWhenActivated; // 0xfe
     char pad_01[1];
-};
+}; // size: 0x100
 
-class CSequenceGroupData {
+class __declspec(align(8)) CSequenceGroupData {
 public:
     // CBufferString m_sName;
     char pad_00[32];
-    uint32_t m_nFlags;
+    uint32_t m_nFlags; // 0x20
     // CUtlVector< CBufferString > m_localSequenceNameArray;
     // CUtlVector< CSeqS1SeqDesc > m_localS1SeqDescArray;
     // CUtlVector< CSeqS1SeqDesc > m_localMultiSeqDescArray;
@@ -8113,41 +8217,41 @@ public:
     // KeyValues3 m_keyValues;
     // CUtlVector< CSeqIKLock > m_localIKAutoplayLockArray;
     char pad_01[276];
-};
+}; // size: 0x138
 
-class ModelMeshBufferData_t {
+class __declspec(align(8)) ModelMeshBufferData_t {
 public:
-    int32_t m_nBlockIndex;
-    uint32_t m_nElementCount;
-    uint32_t m_nElementSizeInBytes;
-    bool m_bMeshoptCompressed;
-    bool m_bMeshoptIndexSequence;
-    bool m_bCompressedZSTD;
-    bool m_bCreateBufferSRV;
-    bool m_bCreateBufferUAV;
-    bool m_bCreateRawBuffer;
-    bool m_bCreatePooledBuffer;
-    uint8_t m_nBufferUsage;
+    int32_t m_nBlockIndex; // 0x0
+    uint32_t m_nElementCount; // 0x4
+    uint32_t m_nElementSizeInBytes; // 0x8
+    bool m_bMeshoptCompressed; // 0xc
+    bool m_bMeshoptIndexSequence; // 0xd
+    bool m_bCompressedZSTD; // 0xe
+    bool m_bCreateBufferSRV; // 0xf
+    bool m_bCreateBufferUAV; // 0x10
+    bool m_bCreateRawBuffer; // 0x11
+    bool m_bCreatePooledBuffer; // 0x12
+    uint8_t m_nBufferUsage; // 0x13
     // CUtlVector< RenderInputLayoutField_t > m_inputLayoutFields;
     char pad_00[28];
-};
+}; // size: 0x30
 
-class CStaticPoseCacheBuilder {
+class __declspec(align(8)) CStaticPoseCacheBuilder {
 public:
     char pad_00[56];
-};
+}; // size: 0x38
 
-class CNmSampleTask {
+class __declspec(align(8)) CNmSampleTask {
 public:
     char pad_00[104];
-};
+}; // size: 0x68
 
-class PulseCursorYieldToken_t {
+class __declspec(align(4)) PulseCursorYieldToken_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class PermModelData_t {
+class __declspec(align(8)) PermModelData_t {
 public:
     // CUtlString m_name;
     // PermModelInfo_t m_modelInfo;
@@ -8164,505 +8268,513 @@ public:
     // CUtlVector< CUtlString > m_meshGroups;
     // CUtlVector< MaterialGroup_t > m_materialGroups;
     char pad_00[384];
-    uint64_t m_nDefaultMeshGroupMask;
+    uint64_t m_nDefaultMeshGroupMask; // 0x180
     // ModelSkeletonData_t m_modelSkeleton;
     // CUtlVector< int16 > m_remappingTable;
     // CUtlVector< uint16 > m_remappingTableStarts;
     // CUtlVector< ModelBoneFlexDriver_t > m_boneFlexDrivers;
     char pad_01[240];
-    CModelConfigList* m_pModelConfigList;
+    CModelConfigList* m_pModelConfigList; // 0x278
     // CUtlVector< CUtlString > m_BodyGroupsHiddenInTools;
     // CUtlVector< CStrongHandle< InfoForResourceTypeCModel > > m_refAnimIncludeModels;
     // CUtlVector< PermModelDataAnimatedMaterialAttribute_t > m_AnimatedMaterialAttributes;
     // CUtlVector< ModelAnimGraph2Ref_t > m_animGraph2Refs;
     // CUtlVector< CStrongHandle< InfoForResourceTypeCNmSkeleton > > m_vecNmSkeletonRefs;
     char pad_02[120];
-};
+}; // size: 0x2f8
 
-class CQuaternionAnimParameter {
+class __declspec(align(16)) CQuaternionAnimParameter {
 public:
     // Quaternion m_defaultValue;
     char pad_00[144];
-    bool m_bInterpolate;
+    bool m_bInterpolate; // 0x90
     char pad_01[15];
-};
+}; // size: 0xa0
 
-class PulseGraphExecutionHistoryEntry_t {
+class __declspec(align(8)) PulseGraphExecutionHistoryEntry_t {
 public:
     // PulseCursorID_t nCursorID;
     char pad_00[4];
-    PulseDocNodeID_t nEditorID;
-    float flExecTime;
-    uint32_t unFlags;
+    PulseDocNodeID_t nEditorID; // 0x4
+    float flExecTime; // 0x8
+    uint32_t unFlags; // 0xc
     // PulseSymbol_t tagName;
     char pad_01[16];
-};
+}; // size: 0x20
 
-class CBlendUpdateNode {
+class __declspec(align(8)) CBlendUpdateNode {
 public:
     // CUtlVector< CAnimUpdateNodeRef > m_children;
     // CUtlVector< uint8 > m_sortedOrder;
     // CUtlVector< float32 > m_targetValues;
     char pad_00[172];
-    AnimValueSource m_blendValueSource;
-    LinearRootMotionBlendMode_t m_eLinearRootMotionBlendMode;
+    AnimValueSource m_blendValueSource; // 0xac
+    LinearRootMotionBlendMode_t m_eLinearRootMotionBlendMode; // 0xb0
     // CAnimParamHandle m_paramIndex;
-    CAnimInputDamping m_damping;
-    BlendKeyType m_blendKeyType;
-    bool m_bLockBlendOnReset;
-    bool m_bSyncCycles;
-    bool m_bLoop;
-    bool m_bLockWhenWaning;
-    bool m_bIsAngle;
+    CAnimInputDamping m_damping; // 0xb8
+    BlendKeyType m_blendKeyType; // 0xd0
+    bool m_bLockBlendOnReset; // 0xd4
+    bool m_bSyncCycles; // 0xd5
+    bool m_bLoop; // 0xd6
+    bool m_bLockWhenWaning; // 0xd7
+    bool m_bIsAngle; // 0xd8
     char pad_01[7];
-};
+}; // size: 0xe0
 
-class CAnimLocalHierarchy {
+class __declspec(align(8)) CAnimLocalHierarchy {
 public:
     // CBufferString m_sBone;
     // CBufferString m_sNewParent;
     char pad_00[32];
-    int32_t m_nStartFrame;
-    int32_t m_nPeakFrame;
-    int32_t m_nTailFrame;
-    int32_t m_nEndFrame;
-};
+    int32_t m_nStartFrame; // 0x20
+    int32_t m_nPeakFrame; // 0x24
+    int32_t m_nTailFrame; // 0x28
+    int32_t m_nEndFrame; // 0x2c
+}; // size: 0x30
 
-class CDampedValueUpdateItem {
+class __declspec(align(8)) CDampedValueUpdateItem {
 public:
-    CAnimInputDamping m_damping;
+    CAnimInputDamping m_damping; // 0x0
     // CAnimParamHandle m_hParamIn;
     // CAnimParamHandle m_hParamOut;
     char pad_00[16];
-};
+}; // size: 0x28
 
-class HSequence {
+class __declspec(align(4)) HSequence {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CParticleVariableRef {
+class __declspec(align(8)) CParticleVariableRef {
 public:
     // CKV3MemberNameWithStorage m_variableName;
     // CPulseValueFullType m_variableType;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CFootPositionMetricEvaluator {
+class __declspec(align(8)) CFootPositionMetricEvaluator {
 public:
     // CUtlVector< int32 > m_footIndices;
     char pad_00[104];
-    bool m_bIgnoreSlope;
+    bool m_bIgnoreSlope; // 0x68
     char pad_01[7];
-};
+}; // size: 0x70
 
-class CNmStateNode::TimedEvent_t {
+/// CNmStateNode::TimedEvent_t
+class __declspec(align(8)) CNmStateNode__TimedEvent_t {
 public:
     // CGlobalSymbol m_ID;
     char pad_00[8];
-    float m_flTimeValueSeconds;
-    CNmStateNode::TimedEvent_t::Comparison_t m_comparisionOperator;
-    char pad_01[3];
-};
+    float m_flTimeValueSeconds; // 0x8
+    // CNmStateNode::TimedEvent_t::Comparison_t m_comparisionOperator;
+    char pad_01[4];
+}; // size: 0x10
 
-class CNmCachedVectorNode::CDefinition {
+/// CNmCachedVectorNode::CDefinition
+class __declspec(align(8)) CNmCachedVectorNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    NmCachedValueMode_t m_mode;
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    NmCachedValueMode_t m_mode; // 0x14
+}; // size: 0x18
 
-class CParentConstraint {
+class __declspec(align(8)) CParentConstraint {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CAnimFoot {
+class __declspec(align(8)) CAnimFoot {
 public:
     // CUtlString m_name;
     // Vector m_vBallOffset;
     // Vector m_vHeelOffset;
     char pad_00[32];
-    int32_t m_ankleBoneIndex;
-    int32_t m_toeBoneIndex;
-};
+    int32_t m_ankleBoneIndex; // 0x20
+    int32_t m_toeBoneIndex; // 0x24
+}; // size: 0x28
 
-class CMorphRectData {
+class __declspec(align(8)) CMorphRectData {
 public:
-    int16_t m_nXLeftDst;
-    int16_t m_nYTopDst;
-    float m_flUWidthSrc;
-    float m_flVHeightSrc;
+    int16_t m_nXLeftDst; // 0x0
+    int16_t m_nYTopDst; // 0x2
+    float m_flUWidthSrc; // 0x4
+    float m_flVHeightSrc; // 0x8
     // CUtlVector< CMorphBundleData > m_bundleDatas;
     char pad_00[28];
-};
+}; // size: 0x28
 
-class CNmParticleEvent {
+class __declspec(align(8)) CNmParticleEvent {
 public:
     char pad_00[32];
-    CNmEventRelevance_t m_relevance;
-    CNmParticleEvent::Type_t m_type;
+    CNmEventRelevance_t m_relevance; // 0x20
+    // CNmParticleEvent::Type_t m_type;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hParticleSystem;
     // CUtlString m_tags;
-    char pad_01[16];
-    bool m_bStopImmediately;
-    bool m_bDetachFromOwner;
-    bool m_bPlayEndCap;
+    char pad_01[20];
+    bool m_bStopImmediately; // 0x38
+    bool m_bDetachFromOwner; // 0x39
+    bool m_bPlayEndCap; // 0x3a
     // CUtlString m_attachmentPoint0;
     char pad_02[12];
-    ParticleAttachment_t m_attachmentType0;
+    ParticleAttachment_t m_attachmentType0; // 0x48
     // CUtlString m_attachmentPoint1;
     char pad_03[12];
-    ParticleAttachment_t m_attachmentType1;
+    ParticleAttachment_t m_attachmentType1; // 0x58
     // CUtlString m_config;
     // CUtlString m_effectForConfig;
     char pad_04[20];
-};
+}; // size: 0x70
 
-class CPairedSequenceComponentUpdater {
+class __declspec(align(8)) CPairedSequenceComponentUpdater {
 public:
     char pad_00[56];
-};
+}; // size: 0x38
 
-class CAnimDataChannelDesc {
+class __declspec(align(8)) CAnimDataChannelDesc {
 public:
     // CBufferString m_szChannelClass;
     // CBufferString m_szVariableName;
     char pad_00[32];
-    int32_t m_nFlags;
-    int32_t m_nType;
+    int32_t m_nFlags; // 0x20
+    int32_t m_nType; // 0x24
     // CBufferString m_szGrouping;
     // CBufferString m_szDescription;
     // CUtlVector< CBufferString > m_szElementNameArray;
     // CUtlVector< int32 > m_nElementIndexArray;
     // CUtlVector< uint32 > m_nElementMaskArray;
     char pad_01[104];
-};
+}; // size: 0x90
 
-class CPhysSurfacePropertiesVehicle {
+class __declspec(align(4)) CPhysSurfacePropertiesVehicle {
 public:
-    float m_wheelDrag;
-    float m_wheelFrictionScale;
-};
+    float m_wheelDrag; // 0x0
+    float m_wheelFrictionScale; // 0x4
+}; // size: 0x8
 
-class CNmIsTargetSetNode::CDefinition {
+/// CNmIsTargetSetNode::CDefinition
+class __declspec(align(8)) CNmIsTargetSetNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
+    int16_t m_nInputValueNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CLODComponentUpdater {
+class __declspec(align(8)) CLODComponentUpdater {
 public:
     char pad_00[48];
-    int32_t m_nServerLOD;
+    int32_t m_nServerLOD; // 0x30
     char pad_01[4];
-};
+}; // size: 0x38
 
-class MoodAnimation_t {
+class __declspec(align(8)) MoodAnimation_t {
 public:
     // CModelAnimNameWithDeltas m_sName;
     char pad_00[8];
-    float m_flWeight;
+    float m_flWeight; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CNmConstVectorNode::CDefinition {
+/// CNmConstVectorNode::CDefinition
+class __declspec(align(8)) CNmConstVectorNode__CDefinition {
 public:
     // Vector m_value;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CJiggleBoneUpdateNode {
+class __declspec(align(8)) CJiggleBoneUpdateNode {
 public:
     char pad_00[112];
-    JiggleBoneSettingsList_t m_opFixedData;
+    JiggleBoneSettingsList_t m_opFixedData; // 0x70
     char pad_01[8];
-};
+}; // size: 0x90
 
-class CFootMotion {
+class __declspec(align(8)) CFootMotion {
 public:
     // CUtlVector< CFootStride > m_strides;
     // CUtlString m_name;
     char pad_00[32];
-    bool m_bAdditive;
+    bool m_bAdditive; // 0x20
     char pad_01[7];
-};
+}; // size: 0x28
 
-class CModelConfigElement_RandomColor {
+class __declspec(align(8)) CModelConfigElement_RandomColor {
 public:
     // CColorGradient m_Gradient;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CWarpSectionAnimTag {
+class __declspec(align(8)) CWarpSectionAnimTag {
 public:
     char pad_00[80];
-    bool m_bWarpPosition;
-    bool m_bWarpOrientation;
+    bool m_bWarpPosition; // 0x50
+    bool m_bWarpOrientation; // 0x51
     char pad_01[6];
-};
+}; // size: 0x58
 
-class CBoneVelocityMetricEvaluator {
+class __declspec(align(8)) CBoneVelocityMetricEvaluator {
 public:
     char pad_00[80];
-    int32_t m_nBoneIndex;
+    int32_t m_nBoneIndex; // 0x50
     char pad_01[4];
-};
+}; // size: 0x58
 
-class FootLockPoseOpFixedSettings {
+class __declspec(align(8)) FootLockPoseOpFixedSettings {
 public:
     // CUtlVector< FootFixedData_t > m_footInfo;
     char pad_00[24];
-    CAnimInputDamping m_hipDampingSettings;
-    int32_t m_nHipBoneIndex;
-    IKSolverType m_ikSolverType;
-    bool m_bApplyTilt;
-    bool m_bApplyHipDrop;
-    bool m_bAlwaysUseFallbackHinge;
-    bool m_bApplyFootRotationLimits;
-    bool m_bApplyLegTwistLimits;
-    float m_flMaxFootHeight;
-    float m_flExtensionScale;
-    float m_flMaxLegTwist;
-    bool m_bEnableLockBreaking;
-    float m_flLockBreakTolerance;
-    float m_flLockBlendTime;
-    bool m_bEnableStretching;
-    float m_flMaxStretchAmount;
-    float m_flStretchExtensionScale;
+    CAnimInputDamping m_hipDampingSettings; // 0x18
+    int32_t m_nHipBoneIndex; // 0x30
+    IKSolverType m_ikSolverType; // 0x34
+    bool m_bApplyTilt; // 0x38
+    bool m_bApplyHipDrop; // 0x39
+    bool m_bAlwaysUseFallbackHinge; // 0x3a
+    bool m_bApplyFootRotationLimits; // 0x3b
+    bool m_bApplyLegTwistLimits; // 0x3c
+    float m_flMaxFootHeight; // 0x40
+    float m_flExtensionScale; // 0x44
+    float m_flMaxLegTwist; // 0x48
+    bool m_bEnableLockBreaking; // 0x4c
+    float m_flLockBreakTolerance; // 0x50
+    float m_flLockBlendTime; // 0x54
+    bool m_bEnableStretching; // 0x58
+    float m_flMaxStretchAmount; // 0x5c
+    float m_flStretchExtensionScale; // 0x60
     char pad_01[4];
-};
+}; // size: 0x68
 
-class CNmChainLookatTask {
+class __declspec(align(8)) CNmChainLookatTask {
 public:
     char pad_00[88];
-    int32_t m_nChainEndBoneIdx;
-    int32_t m_nNumBonesInChain;
+    int32_t m_nChainEndBoneIdx; // 0x58
+    int32_t m_nNumBonesInChain; // 0x5c
     // Vector m_chainForwardDir;
     char pad_01[12];
-    float m_flBlendWeight;
-    float m_flHorizontalAngleLimitDegrees;
-    float m_flVerticalAngleLimitDegrees;
+    float m_flBlendWeight; // 0x6c
+    float m_flHorizontalAngleLimitDegrees; // 0x70
+    float m_flVerticalAngleLimitDegrees; // 0x74
     // Vector m_lookatTarget;
     char pad_02[12];
-    bool m_bIsTargetInWorldSpace;
-    bool m_bIsRunningFromDeserializedData;
-    float m_flHorizontalAngleDegrees;
-    float m_flVerticalAngleDegrees;
-};
+    bool m_bIsTargetInWorldSpace; // 0x84
+    bool m_bIsRunningFromDeserializedData; // 0x85
+    float m_flHorizontalAngleDegrees; // 0x88
+    float m_flVerticalAngleDegrees; // 0x8c
+}; // size: 0x90
 
-class CNmControlParameterBoolNode::CDefinition {
+/// CNmControlParameterBoolNode::CDefinition
+class __declspec(align(8)) CNmControlParameterBoolNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CJumpHelperUpdateNode {
+class __declspec(align(8)) CJumpHelperUpdateNode {
 public:
     // CAnimParamHandle m_hTargetParam;
     // Vector m_flOriginalJumpMovement;
     char pad_00[192];
-    float m_flOriginalJumpDuration;
-    float m_flJumpStartCycle;
-    float m_flJumpEndCycle;
-    JumpCorrectionMethod m_eCorrectionMethod;
-    bool m_bTranslationAxis[3];
-    bool m_bScaleSpeed;
+    float m_flOriginalJumpDuration; // 0xc0
+    float m_flJumpStartCycle; // 0xc4
+    float m_flJumpEndCycle; // 0xc8
+    JumpCorrectionMethod m_eCorrectionMethod; // 0xcc
+    bool m_bTranslationAxis[3]; // 0xd0
+    bool m_bScaleSpeed; // 0xd3
     char pad_01[4];
-};
+}; // size: 0xd8
 
-class JiggleBoneSettings_t {
+class __declspec(align(4)) JiggleBoneSettings_t {
 public:
-    int32_t m_nBoneIndex;
-    float m_flSpringStrength;
-    float m_flMaxTimeStep;
-    float m_flDamping;
+    int32_t m_nBoneIndex; // 0x0
+    float m_flSpringStrength; // 0x4
+    float m_flMaxTimeStep; // 0x8
+    float m_flDamping; // 0xc
     // Vector m_vBoundsMaxLS;
     // Vector m_vBoundsMinLS;
     char pad_00[24];
-    JiggleBoneSimSpace m_eSimSpace;
-};
+    JiggleBoneSimSpace m_eSimSpace; // 0x28
+}; // size: 0x2c
 
-class PulseGraphExecutionHistoryNodeDesc_t {
+class __declspec(align(8)) PulseGraphExecutionHistoryNodeDesc_t {
 public:
     // CBufferString strCellDesc;
     // PulseSymbol_t strBindingName;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CNmIDValueNode::CDefinition {
+/// CNmIDValueNode::CDefinition
+class __declspec(align(1)) CNmIDValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmOrientationWarpEvent {
+class __declspec(align(8)) CNmOrientationWarpEvent {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CFootLockUpdateNode {
+class __declspec(align(8)) CFootLockUpdateNode {
 public:
     char pad_00[112];
-    FootLockPoseOpFixedSettings m_opFixedSettings;
+    FootLockPoseOpFixedSettings m_opFixedSettings; // 0x70
     // CUtlVector< FootFixedSettings > m_footSettings;
     char pad_01[32];
-    CAnimInputDamping m_hipShiftDamping;
-    CAnimInputDamping m_rootHeightDamping;
-    float m_flStrideCurveScale;
-    float m_flStrideCurveLimitScale;
-    float m_flStepHeightIncreaseScale;
-    float m_flStepHeightDecreaseScale;
-    float m_flHipShiftScale;
-    float m_flBlendTime;
-    float m_flMaxRootHeightOffset;
-    float m_flMinRootHeightOffset;
-    float m_flTiltPlanePitchSpringStrength;
-    float m_flTiltPlaneRollSpringStrength;
-    bool m_bApplyFootRotationLimits;
-    bool m_bApplyHipShift;
-    bool m_bModulateStepHeight;
-    bool m_bResetChild;
-    bool m_bEnableVerticalCurvedPaths;
-    bool m_bEnableRootHeightDamping;
+    CAnimInputDamping m_hipShiftDamping; // 0xf8
+    CAnimInputDamping m_rootHeightDamping; // 0x110
+    float m_flStrideCurveScale; // 0x128
+    float m_flStrideCurveLimitScale; // 0x12c
+    float m_flStepHeightIncreaseScale; // 0x130
+    float m_flStepHeightDecreaseScale; // 0x134
+    float m_flHipShiftScale; // 0x138
+    float m_flBlendTime; // 0x13c
+    float m_flMaxRootHeightOffset; // 0x140
+    float m_flMinRootHeightOffset; // 0x144
+    float m_flTiltPlanePitchSpringStrength; // 0x148
+    float m_flTiltPlaneRollSpringStrength; // 0x14c
+    bool m_bApplyFootRotationLimits; // 0x150
+    bool m_bApplyHipShift; // 0x151
+    bool m_bModulateStepHeight; // 0x152
+    bool m_bResetChild; // 0x153
+    bool m_bEnableVerticalCurvedPaths; // 0x154
+    bool m_bEnableRootHeightDamping; // 0x155
     char pad_02[2];
-};
+}; // size: 0x158
 
-class CPathMetricEvaluator {
+class __declspec(align(8)) CPathMetricEvaluator {
 public:
     // CUtlVector< float32 > m_pathTimeSamples;
     char pad_00[104];
-    float m_flDistance;
-    bool m_bExtrapolateMovement;
-    float m_flMinExtrapolationSpeed;
+    float m_flDistance; // 0x68
+    bool m_bExtrapolateMovement; // 0x6c
+    float m_flMinExtrapolationSpeed; // 0x70
     char pad_01[4];
-};
+}; // size: 0x78
 
-class CNmSyncTrack::EventMarker_t {
+/// CNmSyncTrack::EventMarker_t
+class __declspec(align(8)) CNmSyncTrack__EventMarker_t {
 public:
     // NmPercent_t m_startTime;
     // CGlobalSymbol m_ID;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class FootStepTrigger {
+class __declspec(align(8)) FootStepTrigger {
 public:
     // CUtlVector< int32 > m_tags;
     char pad_00[24];
-    int32_t m_nFootIndex;
-    StepPhase m_triggerPhase;
-};
+    int32_t m_nFootIndex; // 0x18
+    StepPhase m_triggerPhase; // 0x1c
+}; // size: 0x20
 
-class FollowAttachmentData {
+class __declspec(align(4)) FollowAttachmentData {
 public:
-    int32_t m_boneIndex;
-    AttachmentHandle_t m_attachmentHandle;
+    int32_t m_boneIndex; // 0x0
+    AttachmentHandle_t m_attachmentHandle; // 0x4
     char pad_00[3];
-};
+}; // size: 0x8
 
-class CParticleRemapFloatInput {
+class __declspec(align(8)) CParticleRemapFloatInput {
 public:
     char pad_00[368];
-};
+}; // size: 0x170
 
-class CAnimMovement {
+class __declspec(align(4)) CAnimMovement {
 public:
-    int32_t endframe;
-    int32_t motionflags;
-    float v0;
-    float v1;
-    float angle;
+    int32_t endframe; // 0x0
+    int32_t motionflags; // 0x4
+    float v0; // 0x8
+    float v1; // 0xc
+    float angle; // 0x10
     // Vector vector;
     // Vector position;
     char pad_00[24];
-};
+}; // size: 0x2c
 
-class CModelConfigElement_SetBodygroup {
+class __declspec(align(8)) CModelConfigElement_SetBodygroup {
 public:
     // CGlobalSymbol m_GroupName;
     char pad_00[80];
-    int32_t m_nChoice;
+    int32_t m_nChoice; // 0x50
     char pad_01[4];
-};
+}; // size: 0x58
 
-class CSeqPoseParamDesc {
+class __declspec(align(8)) CSeqPoseParamDesc {
 public:
     // CBufferString m_sName;
     char pad_00[16];
-    float m_flStart;
-    float m_flEnd;
-    float m_flLoop;
-    bool m_bLooping;
+    float m_flStart; // 0x10
+    float m_flEnd; // 0x14
+    float m_flLoop; // 0x18
+    bool m_bLooping; // 0x1c
     char pad_01[3];
-};
+}; // size: 0x20
 
-class CNmBoneMaskValueNode::CDefinition {
+/// CNmBoneMaskValueNode::CDefinition
+class __declspec(align(1)) CNmBoneMaskValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CPhysSurfaceProperties {
+class __declspec(align(8)) CPhysSurfaceProperties {
 public:
     // CUtlString m_name;
     char pad_00[8];
-    uint32_t m_nameHash;
-    uint32_t m_baseNameHash;
+    uint32_t m_nameHash; // 0x8
+    uint32_t m_baseNameHash; // 0xc
     char pad_01[8];
-    bool m_bHidden;
+    bool m_bHidden; // 0x18
     // CUtlString m_description;
     char pad_02[12];
-    CPhysSurfacePropertiesPhysics m_physics;
-    CPhysSurfacePropertiesVehicle m_vehicleParams;
-    CPhysSurfacePropertiesSoundNames m_audioSounds;
-    CPhysSurfacePropertiesAudio m_audioParams;
-};
+    CPhysSurfacePropertiesPhysics m_physics; // 0x28
+    CPhysSurfacePropertiesVehicle m_vehicleParams; // 0x40
+    CPhysSurfacePropertiesSoundNames m_audioSounds; // 0x48
+    CPhysSurfacePropertiesAudio m_audioParams; // 0xa8
+}; // size: 0xc8
 
-class CPulse_OutputConnection {
+class __declspec(align(8)) CPulse_OutputConnection {
 public:
     // PulseSymbol_t m_SourceOutput;
     // PulseSymbol_t m_TargetEntity;
     // PulseSymbol_t m_TargetInput;
     // PulseSymbol_t m_Param;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class CAnimUpdateNodeRef {
+class __declspec(align(8)) CAnimUpdateNodeRef {
 public:
     char pad_00[8];
-    int32_t m_nodeIndex;
+    int32_t m_nodeIndex; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CStateMachineComponentUpdater {
+class __declspec(align(8)) CStateMachineComponentUpdater {
 public:
     // CAnimStateMachineUpdater m_stateMachine;
     char pad_00[136];
-};
+}; // size: 0x88
 
-class NmPercent_t {
+class __declspec(align(4)) NmPercent_t {
 public:
-    float m_flValue;
-};
+    float m_flValue; // 0x0
+}; // size: 0x4
 
-class CSelectorUpdateNode {
+class __declspec(align(8)) CSelectorUpdateNode {
 public:
     // CUtlVector< CAnimUpdateNodeRef > m_children;
     // CUtlVector< int8 > m_tags;
     char pad_00[148];
-    CBlendCurve m_blendCurve;
+    CBlendCurve m_blendCurve; // 0x94
     // CAnimValue< float32 > m_flBlendTime;
     // CAnimParamHandle m_hParameter;
     char pad_01[12];
-    int32_t m_nTagIndex;
-    SelectorTagBehavior_t m_eTagBehavior;
-    bool m_bResetOnChange;
-    bool m_bLockWhenWaning;
-    bool m_bSyncCyclesOnChange;
+    int32_t m_nTagIndex; // 0xa8
+    SelectorTagBehavior_t m_eTagBehavior; // 0xac
+    bool m_bResetOnChange; // 0xb0
+    bool m_bLockWhenWaning; // 0xb1
+    bool m_bSyncCyclesOnChange; // 0xb2
     char pad_02[5];
-};
+}; // size: 0xb8
 
-class CCompressorGroup {
+class __declspec(align(4)) CCompressorGroup {
 public:
-    int32_t m_nTotalElementCount;
+    int32_t m_nTotalElementCount; // 0x0
     // CUtlVector< char* > m_szChannelClass;
     // CUtlVector< char* > m_szVariableName;
     // CUtlVector< fieldtype_t > m_nType;
@@ -8680,411 +8792,427 @@ public:
     // CUtlVector< CCompressor< Vector2D >* > m_vector2DCompressor;
     // CUtlVector< CCompressor< Vector4D >* > m_vector4DCompressor;
     char pad_00[412];
-};
+}; // size: 0x1a0
 
-class CNmIDToFloatNode::CDefinition {
+/// CNmIDToFloatNode::CDefinition
+class __declspec(align(8)) CNmIDToFloatNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    float m_defaultValue;
+    int16_t m_nInputValueNodeIdx; // 0x10
+    float m_defaultValue; // 0x14
     // CUtlLeanVectorFixedGrowable< CGlobalSymbol, 5 > m_IDs;
     // CUtlLeanVectorFixedGrowable< float32, 5 > m_values;
     char pad_01[80];
-};
+}; // size: 0x68
 
-class CUnaryUpdateNode {
+class __declspec(align(8)) CUnaryUpdateNode {
 public:
     char pad_00[96];
-    CAnimUpdateNodeRef m_pChildNode;
-};
+    CAnimUpdateNodeRef m_pChildNode; // 0x60
+}; // size: 0x70
 
-class CAnimStateMachineUpdater {
+class __declspec(align(8)) CAnimStateMachineUpdater {
 public:
     // CUtlVector< CStateUpdateData > m_states;
     // CUtlVector< CTransitionUpdateData > m_transitions;
     char pad_00[80];
-    int32_t m_startStateIndex;
+    int32_t m_startStateIndex; // 0x50
     char pad_01[4];
-};
+}; // size: 0x58
 
-class CNmSyncEventIndexConditionNode::CDefinition {
+/// CNmSyncEventIndexConditionNode::CDefinition
+class __declspec(align(8)) CNmSyncEventIndexConditionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    CNmSyncEventIndexConditionNode::TriggerMode_t m_triggerMode;
-    int32_t m_syncEventIdx;
-};
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    // CNmSyncEventIndexConditionNode::TriggerMode_t m_triggerMode;
+    int32_t m_syncEventIdx; // 0x14
+}; // size: 0x18
 
-class CNmTimeConditionNode::CDefinition {
+/// CNmTimeConditionNode::CDefinition
+class __declspec(align(8)) CNmTimeConditionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_sourceStateNodeIdx;
-    int16_t m_nInputValueNodeIdx;
-    float m_flComparand;
-    CNmTimeConditionNode::ComparisonType_t m_type;
-    CNmTimeConditionNode::Operator_t m_operator;
-    char pad_01[6];
-};
+    int16_t m_sourceStateNodeIdx; // 0x10
+    int16_t m_nInputValueNodeIdx; // 0x12
+    float m_flComparand; // 0x14
+    // CNmTimeConditionNode::ComparisonType_t m_type;
+    // CNmTimeConditionNode::Operator_t m_operator;
+    char pad_01[8];
+}; // size: 0x20
 
-class DynamicMeshDeformParams_t {
+class __declspec(align(4)) DynamicMeshDeformParams_t {
 public:
-    float m_flTensionCompressScale;
-    float m_flTensionStretchScale;
-    bool m_bRecomputeSmoothNormalsAfterAnimation;
-    bool m_bComputeDynamicMeshTensionAfterAnimation;
-    bool m_bSmoothNormalsAcrossUvSeams;
-    bool m_bEnableEyeBulgeDeformation;
-};
+    float m_flTensionCompressScale; // 0x0
+    float m_flTensionStretchScale; // 0x4
+    bool m_bRecomputeSmoothNormalsAfterAnimation; // 0x8
+    bool m_bComputeDynamicMeshTensionAfterAnimation; // 0x9
+    bool m_bSmoothNormalsAcrossUvSeams; // 0xa
+    bool m_bEnableEyeBulgeDeformation; // 0xb
+}; // size: 0xc
 
-class CEmitTagActionUpdater {
+class __declspec(align(8)) CEmitTagActionUpdater {
 public:
     char pad_00[24];
-    int32_t m_nTagIndex;
-    bool m_bIsZeroDuration;
+    int32_t m_nTagIndex; // 0x18
+    bool m_bIsZeroDuration; // 0x1c
     char pad_01[3];
-};
+}; // size: 0x20
 
-class RnMeshDesc_t {
+class __declspec(align(8)) RnMeshDesc_t {
 public:
     // RnMesh_t m_Mesh;
     char pad_00[216];
-};
+}; // size: 0xd8
 
-class CNmIKEffector {
+class __declspec(align(16)) CNmIKEffector {
 public:
-    int32_t m_nBodyIndex;
-    bool m_bEnabled;
+    int32_t m_nBodyIndex; // 0x0
+    bool m_bEnabled; // 0x4
     // Vector m_vTargetPosition;
     // Quaternion m_qTargetOrientation;
     char pad_00[40];
-    float m_flWeight;
+    float m_flWeight; // 0x30
     char pad_01[12];
-};
+}; // size: 0x40
 
-class AnimationSnapshotBase_t {
+class __declspec(align(16)) AnimationSnapshotBase_t {
 public:
-    float m_flRealTime;
+    float m_flRealTime; // 0x0
     // matrix3x4a_t m_rootToWorld;
     char pad_00[60];
-    bool m_bBonesInWorldSpace;
+    bool m_bBonesInWorldSpace; // 0x40
     // CUtlVector< uint32 > m_boneSetupMask;
     // CUtlVector< matrix3x4a_t > m_boneTransforms;
     // CUtlVector< float32 > m_flexControllers;
     char pad_01[76];
-    AnimationSnapshotType_t m_SnapshotType;
-    bool m_bHasDecodeDump;
+    AnimationSnapshotType_t m_SnapshotType; // 0x90
+    bool m_bHasDecodeDump; // 0x94
     // AnimationDecodeDebugDumpElement_t m_DecodeDump;
     char pad_02[123];
-};
+}; // size: 0x110
 
-class CPulse_PublicOutput {
+class __declspec(align(8)) CPulse_PublicOutput {
 public:
     // PulseSymbol_t m_Name;
     // CUtlString m_Description;
     // CUtlLeanVector< CPulseRuntimeMethodArg > m_Args;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CNmRootMotionEvent {
+class __declspec(align(8)) CNmRootMotionEvent {
 public:
     char pad_00[32];
-    float m_flBlendTimeSeconds;
+    float m_flBlendTimeSeconds; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CNmIDSwitchNode::CDefinition {
+/// CNmIDSwitchNode::CDefinition
+class __declspec(align(8)) CNmIDSwitchNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSwitchValueNodeIdx;
-    int16_t m_nTrueValueNodeIdx;
-    int16_t m_nFalseValueNodeIdx;
+    int16_t m_nSwitchValueNodeIdx; // 0x10
+    int16_t m_nTrueValueNodeIdx; // 0x12
+    int16_t m_nFalseValueNodeIdx; // 0x14
     // CGlobalSymbol m_falseValue;
     // CGlobalSymbol m_trueValue;
     char pad_01[18];
-};
+}; // size: 0x28
 
-class FollowTargetOpFixedSettings_t {
+class __declspec(align(4)) FollowTargetOpFixedSettings_t {
 public:
-    int32_t m_boneIndex;
-    bool m_bBoneTarget;
-    int32_t m_boneTargetIndex;
-    bool m_bWorldCoodinateTarget;
-    bool m_bMatchTargetOrientation;
+    int32_t m_boneIndex; // 0x0
+    bool m_bBoneTarget; // 0x4
+    int32_t m_boneTargetIndex; // 0x8
+    bool m_bWorldCoodinateTarget; // 0xc
+    bool m_bMatchTargetOrientation; // 0xd
     char pad_00[2];
-};
+}; // size: 0x10
 
-class CCycleBase {
+class __declspec(align(4)) CCycleBase {
 public:
-    float m_flCycle;
-};
+    float m_flCycle; // 0x0
+}; // size: 0x4
 
-class CParticleAnimTag {
+class __declspec(align(8)) CParticleAnimTag {
 public:
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hParticleSystem;
     // CUtlString m_particleSystemName;
     // CUtlString m_configName;
     char pad_00[112];
-    bool m_bDetachFromOwner;
-    bool m_bAggregate;
-    bool m_bStopWhenTagEnds;
-    bool m_bTagEndStopIsInstant;
+    bool m_bDetachFromOwner; // 0x70
+    bool m_bAggregate; // 0x71
+    bool m_bStopWhenTagEnds; // 0x72
+    bool m_bTagEndStopIsInstant; // 0x73
     // CUtlString m_attachmentName;
     char pad_01[12];
-    ParticleAttachment_t m_attachmentType;
+    ParticleAttachment_t m_attachmentType; // 0x80
     // CUtlString m_attachmentCP1Name;
     char pad_02[12];
-    ParticleAttachment_t m_attachmentCP1Type;
+    ParticleAttachment_t m_attachmentCP1Type; // 0x90
     char pad_03[4];
-};
+}; // size: 0x98
 
-class CAnimActionUpdater {
+class __declspec(align(1)) CAnimActionUpdater {
 public:
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CParamSpanUpdater {
+class __declspec(align(8)) CParamSpanUpdater {
 public:
     // CUtlVector< ParamSpan_t > m_spans;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CNmTargetWarpEvent {
+class __declspec(align(8)) CNmTargetWarpEvent {
 public:
     char pad_00[32];
-    NmTargetWarpRule_t m_rule;
-    NmTargetWarpAlgorithm_t m_algorithm;
+    NmTargetWarpRule_t m_rule; // 0x20
+    NmTargetWarpAlgorithm_t m_algorithm; // 0x21
     char pad_01[6];
-};
+}; // size: 0x28
 
-class CNmStateCompletedConditionNode::CDefinition {
+/// CNmStateCompletedConditionNode::CDefinition
+class __declspec(align(8)) CNmStateCompletedConditionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    int16_t m_nTransitionDurationOverrideNodeIdx;
-    float m_flTransitionDurationSeconds;
-};
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    int16_t m_nTransitionDurationOverrideNodeIdx; // 0x12
+    float m_flTransitionDurationSeconds; // 0x14
+}; // size: 0x18
 
-class CNmCurrentSyncEventIDNode::CDefinition {
+/// CNmCurrentSyncEventIDNode::CDefinition
+class __declspec(align(8)) CNmCurrentSyncEventIDNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
+    int16_t m_nSourceStateNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CNmFloatRemapNode::RemapRange_t {
+/// CNmFloatRemapNode::RemapRange_t
+class __declspec(align(4)) CNmFloatRemapNode__RemapRange_t {
 public:
-    float m_flBegin;
-    float m_flEnd;
-};
+    float m_flBegin; // 0x0
+    float m_flEnd; // 0x4
+}; // size: 0x8
 
-class CNmGraphEventConditionNode::Condition_t {
+/// CNmGraphEventConditionNode::Condition_t
+class __declspec(align(8)) CNmGraphEventConditionNode__Condition_t {
 public:
     // CGlobalSymbol m_eventID;
     char pad_00[8];
-    NmGraphEventTypeCondition_t m_eventTypeCondition;
+    NmGraphEventTypeCondition_t m_eventTypeCondition; // 0x8
     char pad_01[7];
-};
+}; // size: 0x10
 
-class CParticleCollectionVecInput {
+class __declspec(align(8)) CParticleCollectionVecInput {
 public:
     char pad_00[1720];
-};
+}; // size: 0x6b8
 
-class CDirectPlaybackTagData {
+class __declspec(align(8)) CDirectPlaybackTagData {
 public:
     // CUtlString m_sequenceName;
     // CUtlVector< TagSpan_t > m_tags;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class MotionDBIndex {
+class __declspec(align(4)) MotionDBIndex {
 public:
-    uint32_t m_nIndex;
-};
+    uint32_t m_nIndex; // 0x0
+}; // size: 0x4
 
-class CNmIsInactiveBranchConditionNode::CDefinition {
+/// CNmIsInactiveBranchConditionNode::CDefinition
+class __declspec(align(8)) CNmIsInactiveBranchConditionNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CHitBoxSetList {
+class __declspec(align(8)) CHitBoxSetList {
 public:
     // CUtlVector< CHitBoxSet > m_HitBoxSets;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CTargetSelectorUpdateNode {
+class __declspec(align(8)) CTargetSelectorUpdateNode {
 public:
     char pad_00[96];
-    TargetSelectorAngleMode_t m_eAngleMode;
+    TargetSelectorAngleMode_t m_eAngleMode; // 0x60
     // CUtlVector< CAnimUpdateNodeRef > m_children;
     // CAnimParamHandle m_hTargetPosition;
     // CAnimParamHandle m_hTargetFacePositionParameter;
     // CAnimParamHandle m_hMoveHeadingParameter;
     // CAnimParamHandle m_hDesiredMoveHeadingParameter;
     char pad_01[40];
-    bool m_bTargetPositionIsWorldSpace;
-    bool m_bTargetFacePositionIsWorldSpace;
-    bool m_bEnablePhaseMatching;
-    float m_flPhaseMatchingMaxRootMotionSkip;
+    bool m_bTargetPositionIsWorldSpace; // 0x8c
+    bool m_bTargetFacePositionIsWorldSpace; // 0x8d
+    bool m_bEnablePhaseMatching; // 0x8e
+    float m_flPhaseMatchingMaxRootMotionSkip; // 0x90
     char pad_02[12];
-};
+}; // size: 0xa0
 
-class CNmFloatSelectorNode::CDefinition {
+/// CNmFloatSelectorNode::CDefinition
+class __declspec(align(8)) CNmFloatSelectorNode__CDefinition {
 public:
     // CUtlVectorFixedGrowable< int16, 5 > m_conditionNodeIndices;
     // CUtlVectorFixedGrowable< float32, 5 > m_values;
     char pad_00[104];
-    float m_flDefaultValue;
-    float m_flEaseTime;
-    NmEasingOperation_t m_easingOp;
+    float m_flDefaultValue; // 0x68
+    float m_flEaseTime; // 0x6c
+    NmEasingOperation_t m_easingOp; // 0x70
     char pad_01[7];
-};
+}; // size: 0x78
 
-class CNmStateMachineNode::TransitionDefinition_t {
+/// CNmStateMachineNode::TransitionDefinition_t
+class __declspec(align(2)) CNmStateMachineNode__TransitionDefinition_t {
 public:
-    int16_t m_nTargetStateIdx;
-    int16_t m_nConditionNodeIdx;
-    int16_t m_nTransitionNodeIdx;
-    bool m_bCanBeForced;
+    int16_t m_nTargetStateIdx; // 0x0
+    int16_t m_nConditionNodeIdx; // 0x2
+    int16_t m_nTransitionNodeIdx; // 0x4
+    bool m_bCanBeForced; // 0x6
     char pad_00[1];
-};
+}; // size: 0x8
 
-class IAnimationGraphInstance {
+class __declspec(align(1)) IAnimationGraphInstance {
 public:
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CNmFloatCurveEventNode::CDefinition {
+/// CNmFloatCurveEventNode::CDefinition
+class __declspec(align(8)) CNmFloatCurveEventNode__CDefinition {
 public:
     // CGlobalSymbol m_eventID;
     char pad_00[24];
-    int16_t m_nDefaultNodeIdx;
-    float m_flDefaultValue;
-    CNmBitFlags m_eventConditionRules;
+    int16_t m_nDefaultNodeIdx; // 0x18
+    float m_flDefaultValue; // 0x1c
+    CNmBitFlags m_eventConditionRules; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CSymbolAnimParameter {
+class __declspec(align(8)) CSymbolAnimParameter {
 public:
     // CGlobalSymbol m_defaultValue;
     char pad_00[136];
-};
+}; // size: 0x88
 
-class CLeanMatrixUpdateNode {
+class __declspec(align(8)) CLeanMatrixUpdateNode {
 public:
     char pad_00[92];
-    int32_t m_frameCorners[3];
+    int32_t m_frameCorners[3]; // 0x5c
     char pad_01[24];
-    CPoseHandle m_poses;
+    CPoseHandle m_poses; // 0x80
     char pad_02[32];
-    CAnimInputDamping m_damping;
-    AnimVectorSource m_blendSource;
+    CAnimInputDamping m_damping; // 0xa8
+    AnimVectorSource m_blendSource; // 0xc0
     // CAnimParamHandle m_paramIndex;
     // Vector m_verticalAxis;
     // Vector m_horizontalAxis;
-    HSequence m_hSequence;
-    float m_flMaxValue;
-    int32_t m_nSequenceMaxFrame;
-    char pad_03[4];
-};
+    char pad_03[28];
+    HSequence m_hSequence; // 0xe0
+    float m_flMaxValue; // 0xe4
+    int32_t m_nSequenceMaxFrame; // 0xe8
+    char pad_04[4];
+}; // size: 0xf0
 
-class CNmCachedIDNode::CDefinition {
+/// CNmCachedIDNode::CDefinition
+class __declspec(align(8)) CNmCachedIDNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    NmCachedValueMode_t m_mode;
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    NmCachedValueMode_t m_mode; // 0x14
+}; // size: 0x18
 
-class PermModelExtPart_t {
+class __declspec(align(16)) PermModelExtPart_t {
 public:
     // CTransform m_Transform;
     // CUtlString m_Name;
     char pad_00[40];
-    int32_t m_nParent;
+    int32_t m_nParent; // 0x28
     // CStrongHandle< InfoForResourceTypeCModel > m_refModel;
     char pad_01[20];
-};
+}; // size: 0x40
 
-class CNPCPhysicsHull {
+class __declspec(align(8)) CNPCPhysicsHull {
 public:
     // CGlobalSymbol m_sName;
     char pad_00[8];
-    NPCPhysicsHullType_t m_eType;
-    float m_flCapsuleHeight;
-    float m_flCapsuleRadius;
+    NPCPhysicsHullType_t m_eType; // 0x8
+    float m_flCapsuleHeight; // 0xc
+    float m_flCapsuleRadius; // 0x10
     // Vector m_vCapsuleCenter1;
     // Vector m_vCapsuleCenter2;
     char pad_01[24];
-    float m_flGroundBoxHeight;
-    float m_flGroundBoxWidth;
+    float m_flGroundBoxHeight; // 0x2c
+    float m_flGroundBoxWidth; // 0x30
     char pad_02[4];
-};
+}; // size: 0x38
 
-class CNmVelocityBasedSpeedScaleNode::CDefinition {
+/// CNmVelocityBasedSpeedScaleNode::CDefinition
+class __declspec(align(8)) CNmVelocityBasedSpeedScaleNode__CDefinition {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CBlend2DUpdateNode {
+class __declspec(align(8)) CBlend2DUpdateNode {
 public:
     // CUtlVector< BlendItem_t > m_items;
     // CUtlVector< TagSpan_t > m_tags;
     char pad_00[144];
-    CParamSpanUpdater m_paramSpans;
+    CParamSpanUpdater m_paramSpans; // 0x90
     // CUtlVector< int32 > m_nodeItemIndices;
     char pad_01[24];
-    CAnimInputDamping m_damping;
-    AnimValueSource m_blendSourceX;
+    CAnimInputDamping m_damping; // 0xc0
+    AnimValueSource m_blendSourceX; // 0xd8
     // CAnimParamHandle m_paramX;
     char pad_02[4];
-    AnimValueSource m_blendSourceY;
+    AnimValueSource m_blendSourceY; // 0xe0
     // CAnimParamHandle m_paramY;
     char pad_03[4];
-    Blend2DMode m_eBlendMode;
-    float m_playbackSpeed;
-    bool m_bLoop;
-    bool m_bLockBlendOnReset;
-    bool m_bLockWhenWaning;
-    bool m_bAnimEventsAndTagsOnMostWeightedOnly;
+    Blend2DMode m_eBlendMode; // 0xe8
+    float m_playbackSpeed; // 0xec
+    bool m_bLoop; // 0xf0
+    bool m_bLockBlendOnReset; // 0xf1
+    bool m_bLockWhenWaning; // 0xf2
+    bool m_bAnimEventsAndTagsOnMostWeightedOnly; // 0xf3
     char pad_04[4];
-};
+}; // size: 0xf8
 
-class CAnimComponentUpdater {
+class __declspec(align(4)) CAnimComponentUpdater {
 public:
     // CUtlString m_name;
     // AnimComponentID m_id;
     char pad_00[36];
-    AnimNodeNetworkMode m_networkMode;
-    bool m_bStartEnabled;
+    AnimNodeNetworkMode m_networkMode; // 0x24
+    bool m_bStartEnabled; // 0x28
     char pad_01[7];
-};
+}; // size: 0x30
 
-class CNmLayerBlendNode::LayerDefinition_t {
+/// CNmLayerBlendNode::LayerDefinition_t
+class __declspec(align(2)) CNmLayerBlendNode__LayerDefinition_t {
 public:
-    int16_t m_nInputNodeIdx;
-    int16_t m_nWeightValueNodeIdx;
-    int16_t m_nBoneMaskValueNodeIdx;
-    int16_t m_nRootMotionWeightValueNodeIdx;
-    bool m_bIsSynchronized;
-    bool m_bIgnoreEvents;
-    bool m_bIsStateMachineLayer;
-    NmPoseBlendMode_t m_blendMode;
-};
+    int16_t m_nInputNodeIdx; // 0x0
+    int16_t m_nWeightValueNodeIdx; // 0x2
+    int16_t m_nBoneMaskValueNodeIdx; // 0x4
+    int16_t m_nRootMotionWeightValueNodeIdx; // 0x6
+    bool m_bIsSynchronized; // 0x8
+    bool m_bIgnoreEvents; // 0x9
+    bool m_bIsStateMachineLayer; // 0xa
+    NmPoseBlendMode_t m_blendMode; // 0xb
+}; // size: 0xc
 
-class CSeqSynthAnimDesc {
+class __declspec(align(8)) CSeqSynthAnimDesc {
 public:
     // CBufferString m_sName;
     // CSeqSeqDescFlag m_flags;
     // CSeqTransition m_transition;
     char pad_00[36];
-    int16_t m_nLocalBaseReference;
-    int16_t m_nLocalBoneMask;
+    int16_t m_nLocalBaseReference; // 0x24
+    int16_t m_nLocalBoneMask; // 0x26
     // CUtlVector< CAnimActivity > m_activityArray;
     char pad_01[24];
-};
+}; // size: 0x40
 
-class CFootDefinition {
+class __declspec(align(8)) CFootDefinition {
 public:
     // CUtlString m_name;
     // CUtlString m_ankleBoneName;
@@ -9092,23 +9220,23 @@ public:
     // Vector m_vBallOffset;
     // Vector m_vHeelOffset;
     char pad_00[48];
-    float m_flFootLength;
-    float m_flBindPoseDirectionMS;
-    float m_flTraceHeight;
-    float m_flTraceRadius;
-};
+    float m_flFootLength; // 0x30
+    float m_flBindPoseDirectionMS; // 0x34
+    float m_flTraceHeight; // 0x38
+    float m_flTraceRadius; // 0x3c
+}; // size: 0x40
 
-class ParticleNamedValueSource_t {
+class __declspec(align(8)) ParticleNamedValueSource_t {
 public:
     // CUtlString m_Name;
     char pad_00[8];
-    bool m_IsPublic;
+    bool m_IsPublic; // 0x8
     // CPulseValueFullType m_ValueType;
     // ParticleNamedValueConfiguration_t m_DefaultConfig;
     char pad_01[87];
-};
+}; // size: 0x60
 
-class CRagdollComponentUpdater {
+class __declspec(align(8)) CRagdollComponentUpdater {
 public:
     // CUtlVector< CAnimNodePath > m_ragdollNodePaths;
     // CUtlVector< CAnimNodePath > m_followAttachmentNodePaths;
@@ -9117,22 +9245,22 @@ public:
     // CUtlVector< WeightList > m_weightLists;
     // CUtlVector< int32 > m_boneToWeightIndices;
     char pad_00[192];
-    float m_flSpringFrequencyMin;
-    float m_flSpringFrequencyMax;
-    float m_flMaxStretch;
-    bool m_bSolidCollisionAtZeroWeight;
+    float m_flSpringFrequencyMin; // 0xc0
+    float m_flSpringFrequencyMax; // 0xc4
+    float m_flMaxStretch; // 0xc8
+    bool m_bSolidCollisionAtZeroWeight; // 0xcc
     char pad_01[11];
-};
+}; // size: 0xd8
 
-class CAnimUser {
+class __declspec(align(8)) CAnimUser {
 public:
     // CBufferString m_name;
     char pad_00[16];
-    int32_t m_nType;
+    int32_t m_nType; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class SkeletonAnimCapture_t {
+class __declspec(align(8)) SkeletonAnimCapture_t {
 public:
     // CEntityIndex m_nEntIndex;
     // CEntityIndex m_nEntParent;
@@ -9142,87 +9270,89 @@ public:
     // CUtlVector< SkeletonAnimCapture_t::Bone_t > m_ModelBindPose;
     // CUtlVector< SkeletonAnimCapture_t::Bone_t > m_FeModelInitPose;
     char pad_00[96];
-    int32_t m_nFlexControllers;
-    bool m_bPredicted;
+    int32_t m_nFlexControllers; // 0x60
+    bool m_bPredicted; // 0x64
     // CUtlVector< SkeletonAnimCapture_t::Frame_t > m_Frames;
     char pad_01[91];
-};
+}; // size: 0xc0
 
-class CConstraintTarget {
+class __declspec(align(16)) CConstraintTarget {
 public:
     // Quaternion m_qOffset;
     // Vector m_vOffset;
     char pad_00[60];
-    uint32_t m_nBoneHash;
+    uint32_t m_nBoneHash; // 0x3c
     // CUtlString m_sName;
     char pad_01[8];
-    float m_flWeight;
+    float m_flWeight; // 0x48
     char pad_02[13];
-    bool m_bIsAttachment;
+    bool m_bIsAttachment; // 0x59
     char pad_03[6];
-};
+}; // size: 0x60
 
-class VPhysXConstraint2_t {
+class __declspec(align(4)) VPhysXConstraint2_t {
 public:
-    uint32_t m_nFlags;
-    uint16_t m_nParent;
-    uint16_t m_nChild;
-    VPhysXConstraintParams_t m_params;
-};
+    uint32_t m_nFlags; // 0x0
+    uint16_t m_nParent; // 0x4
+    uint16_t m_nChild; // 0x6
+    VPhysXConstraintParams_t m_params; // 0x8
+}; // size: 0x100
 
-class CNmScaleNode::CDefinition {
+/// CNmScaleNode::CDefinition
+class __declspec(align(8)) CNmScaleNode__CDefinition {
 public:
     char pad_00[24];
-    int16_t m_nMaskNodeIdx;
-    int16_t m_nEnableNodeIdx;
+    int16_t m_nMaskNodeIdx; // 0x18
+    int16_t m_nEnableNodeIdx; // 0x1a
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CNmReferencePoseTask {
+class __declspec(align(8)) CNmReferencePoseTask {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CModelConfigElement_RandomPick {
+class __declspec(align(8)) CModelConfigElement_RandomPick {
 public:
     // CUtlVector< CUtlString > m_Choices;
     // CUtlVector< float32 > m_ChoiceWeights;
     char pad_00[128];
-};
+}; // size: 0x80
 
-class CPairedSequenceUpdateNode {
+class __declspec(align(8)) CPairedSequenceUpdateNode {
 public:
     // CGlobalSymbol m_sPairedSequenceRole;
     char pad_00[136];
-};
+}; // size: 0x88
 
-class CNmBoneWeightList {
+class __declspec(align(8)) CNmBoneWeightList {
 public:
     // CResourceName m_skeletonName;
     // CUtlVector< CGlobalSymbol > m_boneIDs;
     // CUtlVector< float32 > m_weights;
     char pad_00[272];
-};
+}; // size: 0x110
 
-class CConcreteAnimParameter {
+class __declspec(align(4)) CConcreteAnimParameter {
 public:
     char pad_00[112];
-    AnimParamButton_t m_previewButton;
-    AnimParamNetworkSetting m_eNetworkSetting;
-    bool m_bUseMostRecentValue;
-    bool m_bAutoReset;
-    bool m_bGameWritable;
-    bool m_bGraphWritable;
+    AnimParamButton_t m_previewButton; // 0x70
+    AnimParamNetworkSetting m_eNetworkSetting; // 0x74
+    bool m_bUseMostRecentValue; // 0x78
+    bool m_bAutoReset; // 0x79
+    bool m_bGameWritable; // 0x7a
+    bool m_bGraphWritable; // 0x7b
     char pad_01[4];
-};
+}; // size: 0x80
 
-class CNmBlend1DNode::CDefinition {
+/// CNmBlend1DNode::CDefinition
+class __declspec(align(8)) CNmBlend1DNode__CDefinition {
 public:
-    char pad_00[64];
-    CNmParameterizedBlendNode::Parameterization_t m_parameterization;
-};
+    // CNmParameterizedBlendNode::Parameterization_t m_parameterization;
+    char pad_00[144];
+}; // size: 0x90
 
-class CNmMaterialAttributeEvent {
+class __declspec(align(8)) CNmMaterialAttributeEvent {
 public:
     // CUtlString m_attributeName;
     // CUtlStringToken m_attributeNameToken;
@@ -9231,29 +9361,30 @@ public:
     // CPiecewiseCurve m_z;
     // CPiecewiseCurve m_w;
     char pad_00[304];
-};
+}; // size: 0x130
 
-class CNmClipNode::CDefinition {
+/// CNmClipNode::CDefinition
+class __declspec(align(8)) CNmClipNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nPlayInReverseValueNodeIdx;
-    int16_t m_nResetTimeValueNodeIdx;
-    bool m_bSampleRootMotion;
-    bool m_bAllowLooping;
-    int16_t m_nDataSlotIdx;
+    int16_t m_nPlayInReverseValueNodeIdx; // 0x10
+    int16_t m_nResetTimeValueNodeIdx; // 0x12
+    bool m_bSampleRootMotion; // 0x14
+    bool m_bAllowLooping; // 0x15
+    int16_t m_nDataSlotIdx; // 0x16
     // CUtlVectorFixedGrowable< CGlobalSymbol, 2 > m_graphEvents;
     char pad_01[40];
-    float m_flSpeedMultiplier;
-    int32_t m_nStartSyncEventOffset;
-};
+    float m_flSpeedMultiplier; // 0x40
+    int32_t m_nStartSyncEventOffset; // 0x44
+}; // size: 0x48
 
-class CNewParticleEffect {
+class __declspec(align(8)) CNewParticleEffect {
 public:
     char pad_00[16];
-    CNewParticleEffect* m_pNext;
-    CNewParticleEffect* m_pPrev;
-    IParticleCollection* m_pParticles;
-    char* m_pDebugName;
+    CNewParticleEffect* m_pNext; // 0x10
+    CNewParticleEffect* m_pPrev; // 0x18
+    IParticleCollection* m_pParticles; // 0x20
+    char* m_pDebugName; // 0x28
     // bitfield:1 m_bDontRemove;
     // bitfield:1 m_bRemove;
     // bitfield:1 m_bNeedsBBoxUpdate;
@@ -9273,210 +9404,218 @@ public:
     // bitfield:1 m_bCanFreeze;
     // Vector m_vSortOrigin;
     char pad_01[28];
-    float m_flScale;
-    PARTICLE_EHANDLE__* m_hOwner;
-    CParticleProperty* m_pOwningParticleProperty;
+    float m_flScale; // 0x4c
+    PARTICLE_EHANDLE__* m_hOwner; // 0x50
+    CParticleProperty* m_pOwningParticleProperty; // 0x58
     char pad_02[16];
-    float m_flFreezeTransitionStart;
-    float m_flFreezeTransitionDuration;
-    float m_flFreezeTransitionOverride;
+    float m_flFreezeTransitionStart; // 0x70
+    float m_flFreezeTransitionDuration; // 0x74
+    float m_flFreezeTransitionOverride; // 0x78
     // Vector m_LastMin;
     // Vector m_LastMax;
     // CSplitScreenSlot m_nSplitScreenUser;
     // Vector m_vecAggregationCenter;
     char pad_03[84];
-    int32_t m_RefCount;
+    int32_t m_RefCount; // 0xd0
     char pad_04[4];
-};
+}; // size: 0xd8
 
-class CNmIsExternalGraphSlotFilledNode::CDefinition {
+/// CNmIsExternalGraphSlotFilledNode::CDefinition
+class __declspec(align(8)) CNmIsExternalGraphSlotFilledNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nExternalGraphNodeIdx;
+    int16_t m_nExternalGraphNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class BlendItem_t {
+class __declspec(align(8)) BlendItem_t {
 public:
     // CUtlVector< TagSpan_t > m_tags;
     char pad_00[24];
-    CAnimUpdateNodeRef m_pChild;
-    HSequence m_hSequence;
+    CAnimUpdateNodeRef m_pChild; // 0x18
+    HSequence m_hSequence; // 0x28
     // Vector2D m_vPos;
     char pad_01[8];
-    float m_flDuration;
-    bool m_bUseCustomDuration;
+    float m_flDuration; // 0x34
+    bool m_bUseCustomDuration; // 0x38
     char pad_02[7];
-};
+}; // size: 0x40
 
-class CNmControlParameterFloatNode::CDefinition {
+/// CNmControlParameterFloatNode::CDefinition
+class __declspec(align(8)) CNmControlParameterFloatNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CBaseConstraint {
+class __declspec(align(1)) CBaseConstraint {
 public:
     // CUtlString m_name;
     // Vector m_vUpVector;
     // CUtlLeanVector< CConstraintSlave > m_slaves;
     // CUtlVector< CConstraintTarget > m_targets;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CDampedValueComponentUpdater {
+class __declspec(align(8)) CDampedValueComponentUpdater {
 public:
     // CUtlVector< CDampedValueUpdateItem > m_items;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CNmTargetInfoNode::CDefinition {
+/// CNmTargetInfoNode::CDefinition
+class __declspec(align(8)) CNmTargetInfoNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    CNmTargetInfoNode::Info_t m_infoType;
-    bool m_bIsWorldSpaceTarget;
-    char pad_01[7];
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    // CNmTargetInfoNode::Info_t m_infoType;
+    char pad_01[6];
+    bool m_bIsWorldSpaceTarget; // 0x18
+    char pad_02[7];
+}; // size: 0x20
 
-class CCycleControlUpdateNode {
+class __declspec(align(8)) CCycleControlUpdateNode {
 public:
     char pad_00[112];
-    AnimValueSource m_valueSource;
+    AnimValueSource m_valueSource; // 0x70
     // CAnimParamHandle m_paramIndex;
     char pad_01[2];
-    bool m_bLockWhenWaning;
+    bool m_bLockWhenWaning; // 0x76
     char pad_02[1];
-};
+}; // size: 0x78
 
-class CAnimationGraphVisualizerLine {
+class __declspec(align(16)) CAnimationGraphVisualizerLine {
 public:
     // VectorAligned m_vWsPositionStart;
     // VectorAligned m_vWsPositionEnd;
     // Color m_Color;
     char pad_00[112];
-};
+}; // size: 0x70
 
-class CNmFloatMathNode::CDefinition {
+/// CNmFloatMathNode::CDefinition
+class __declspec(align(8)) CNmFloatMathNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdxA;
-    int16_t m_nInputValueNodeIdxB;
-    bool m_bReturnAbsoluteResult;
-    bool m_bReturnNegatedResult;
-    CNmFloatMathNode::Operator_t m_operator;
-    float m_flValueB;
+    int16_t m_nInputValueNodeIdxA; // 0x10
+    int16_t m_nInputValueNodeIdxB; // 0x12
+    bool m_bReturnAbsoluteResult; // 0x14
+    bool m_bReturnNegatedResult; // 0x15
+    // CNmFloatMathNode::Operator_t m_operator;
+    float m_flValueB; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CExpressionActionUpdater {
+class __declspec(align(8)) CExpressionActionUpdater {
 public:
     // CAnimParamHandle m_hParam;
     char pad_00[26];
-    AnimParamType_t m_eParamType;
-    AnimScriptHandle m_hScript;
-};
+    AnimParamType_t m_eParamType; // 0x1a
+    AnimScriptHandle m_hScript; // 0x1c
+}; // size: 0x20
 
-class SkeletonAnimCapture_t::Bone_t {
+/// SkeletonAnimCapture_t::Bone_t
+class __declspec(align(16)) SkeletonAnimCapture_t__Bone_t {
 public:
     // CUtlString m_Name;
     // CTransform m_BindPose;
     char pad_00[48];
-    int32_t m_nParent;
+    int32_t m_nParent; // 0x30
     char pad_01[12];
-};
+}; // size: 0x40
 
-class CChoiceUpdateNode {
+class __declspec(align(8)) CChoiceUpdateNode {
 public:
     // CUtlVector< CAnimUpdateNodeRef > m_children;
     // CUtlVector< float32 > m_weights;
     // CUtlVector< float32 > m_blendTimes;
     char pad_00[168];
-    ChoiceMethod m_choiceMethod;
-    ChoiceChangeMethod m_choiceChangeMethod;
-    ChoiceBlendMethod m_blendMethod;
-    float m_blendTime;
-    bool m_bCrossFade;
-    bool m_bResetChosen;
-    bool m_bDontResetSameSelection;
+    ChoiceMethod m_choiceMethod; // 0xa8
+    ChoiceChangeMethod m_choiceChangeMethod; // 0xac
+    ChoiceBlendMethod m_blendMethod; // 0xb0
+    float m_blendTime; // 0xb4
+    bool m_bCrossFade; // 0xb8
+    bool m_bResetChosen; // 0xb9
+    bool m_bDontResetSameSelection; // 0xba
     char pad_01[5];
-};
+}; // size: 0xc0
 
-class CProductQuantizer {
+class __declspec(align(8)) CProductQuantizer {
 public:
     // CUtlVector< CVectorQuantizer > m_subQuantizers;
     char pad_00[24];
-    int32_t m_nDimensions;
+    int32_t m_nDimensions; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class ParticleAttributeIndex_t {
+class __declspec(align(4)) ParticleAttributeIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CMotionDataSet {
+class __declspec(align(8)) CMotionDataSet {
 public:
     // CUtlVector< CMotionGraphGroup > m_groups;
     char pad_00[24];
-    int32_t m_nDimensionCount;
+    int32_t m_nDimensionCount; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class PermModelDataAnimatedMaterialAttribute_t {
+class __declspec(align(8)) PermModelDataAnimatedMaterialAttribute_t {
 public:
     // CUtlString m_AttributeName;
     char pad_00[8];
-    int32_t m_nNumChannels;
+    int32_t m_nNumChannels; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CRemapValueUpdateItem {
+class __declspec(align(4)) CRemapValueUpdateItem {
 public:
     // CAnimParamHandle m_hParamIn;
     // CAnimParamHandle m_hParamOut;
     char pad_00[4];
-    float m_flMinInputValue;
-    float m_flMaxInputValue;
-    float m_flMinOutputValue;
-    float m_flMaxOutputValue;
-};
+    float m_flMinInputValue; // 0x4
+    float m_flMaxInputValue; // 0x8
+    float m_flMinOutputValue; // 0xc
+    float m_flMaxOutputValue; // 0x10
+}; // size: 0x14
 
-class CNmConstTargetNode::CDefinition {
+/// CNmConstTargetNode::CDefinition
+class __declspec(align(16)) CNmConstTargetNode__CDefinition {
 public:
     char pad_00[16];
-    CNmTarget m_value;
-};
+    CNmTarget m_value; // 0x10
+}; // size: 0x40
 
-class TagSpan_t {
+class __declspec(align(4)) TagSpan_t {
 public:
-    int32_t m_tagIndex;
-    float m_startCycle;
-    float m_endCycle;
-};
+    int32_t m_tagIndex; // 0x0
+    float m_startCycle; // 0x4
+    float m_endCycle; // 0x8
+}; // size: 0xc
 
-class CNmBlendTaskBase {
+class __declspec(align(1)) CNmBlendTaskBase {
 public:
     char pad_00[224];
-};
+}; // size: 0xe0
 
-class NmCompressionSettings_t::QuantizationRange_t {
+/// NmCompressionSettings_t::QuantizationRange_t
+class __declspec(align(4)) NmCompressionSettings_t__QuantizationRange_t {
 public:
-    float m_flRangeStart;
-    float m_flRangeLength;
-};
+    float m_flRangeStart; // 0x0
+    float m_flRangeLength; // 0x4
+}; // size: 0x8
 
-class CNmEvent {
+class __declspec(align(4)) CNmEvent {
 public:
     char pad_00[8];
-    NmPercent_t m_flStartTime;
-    NmPercent_t m_flDuration;
+    NmPercent_t m_flStartTime; // 0x8
+    NmPercent_t m_flDuration; // 0xc
     // CGlobalSymbol m_syncID;
     char pad_01[8];
-    bool m_bClientOnly;
+    bool m_bClientOnly; // 0x18
     char pad_02[7];
-};
+}; // size: 0x20
 
-class ModelSkeletonData_t {
+class __declspec(align(8)) ModelSkeletonData_t {
 public:
     // CUtlVector< CUtlString > m_boneName;
     // CUtlVector< int16 > m_nParent;
@@ -9486,26 +9625,27 @@ public:
     // CUtlVector< QuaternionStorage > m_boneRotParent;
     // CUtlVector< float32 > m_boneScaleParent;
     char pad_00[168];
-};
+}; // size: 0xa8
 
-class RnSoftbodySpring_t {
+class __declspec(align(4)) RnSoftbodySpring_t {
 public:
-    uint16_t m_nParticle[2];
-    float m_flLength;
-};
+    uint16_t m_nParticle[2]; // 0x0
+    float m_flLength; // 0x4
+}; // size: 0x8
 
-class CNmParameterizedSelectorNode::CDefinition {
+/// CNmParameterizedSelectorNode::CDefinition
+class __declspec(align(8)) CNmParameterizedSelectorNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_optionNodeIndices;
     // CUtlLeanVectorFixedGrowable< uint8, 5 > m_optionWeights;
     char pad_00[56];
-    int16_t m_parameterNodeIdx;
-    bool m_bIgnoreInvalidOptions;
-    bool m_bHasWeightsSet;
+    int16_t m_parameterNodeIdx; // 0x38
+    bool m_bIgnoreInvalidOptions; // 0x3a
+    bool m_bHasWeightsSet; // 0x3b
     char pad_01[4];
-};
+}; // size: 0x40
 
-class CHitBox {
+class __declspec(align(16)) CHitBox {
 public:
     // CUtlString m_name;
     // CUtlString m_sSurfaceProperty;
@@ -9513,155 +9653,161 @@ public:
     // Vector m_vMinBounds;
     // Vector m_vMaxBounds;
     char pad_00[48];
-    float m_flShapeRadius;
-    uint32_t m_nBoneNameHash;
-    int32_t m_nGroupId;
-    uint8_t m_nShapeType;
-    bool m_bTranslationOnly;
-    uint32_t m_CRC;
+    float m_flShapeRadius; // 0x30
+    uint32_t m_nBoneNameHash; // 0x34
+    int32_t m_nGroupId; // 0x38
+    uint8_t m_nShapeType; // 0x3c
+    bool m_bTranslationOnly; // 0x3d
+    uint32_t m_CRC; // 0x40
     // Color m_cRenderColor;
     char pad_01[4];
-    uint16_t m_nHitBoxIndex;
+    uint16_t m_nHitBoxIndex; // 0x48
     char pad_02[38];
-};
+}; // size: 0x70
 
-class CNmConstIDNode::CDefinition {
+/// CNmConstIDNode::CDefinition
+class __declspec(align(8)) CNmConstIDNode__CDefinition {
 public:
     // CGlobalSymbol m_value;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CFootCycleMetricEvaluator {
+class __declspec(align(8)) CFootCycleMetricEvaluator {
 public:
     // CUtlVector< int32 > m_footIndices;
     char pad_00[104];
-};
+}; // size: 0x68
 
-class CNmVirtualParameterVectorNode::CDefinition {
+/// CNmVirtualParameterVectorNode::CDefinition
+class __declspec(align(8)) CNmVirtualParameterVectorNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CNmBoneMaskSelectorNode::CDefinition {
+/// CNmBoneMaskSelectorNode::CDefinition
+class __declspec(align(8)) CNmBoneMaskSelectorNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_defaultMaskNodeIdx;
-    int16_t m_parameterValueNodeIdx;
-    bool m_bSwitchDynamically;
+    int16_t m_defaultMaskNodeIdx; // 0x10
+    int16_t m_parameterValueNodeIdx; // 0x12
+    bool m_bSwitchDynamically; // 0x14
     // CUtlVectorFixedGrowable< int16, 7 > m_maskNodeIndices;
     // CUtlVectorFixedGrowable< CGlobalSymbol, 7 > m_parameterValues;
     char pad_01[120];
-    float m_flBlendTimeSeconds;
+    float m_flBlendTimeSeconds; // 0x90
     char pad_02[4];
-};
+}; // size: 0x98
 
-class CNmStateNode::CDefinition {
+/// CNmStateNode::CDefinition
+class __declspec(align(8)) CNmStateNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     // CUtlLeanVectorFixedGrowable< CGlobalSymbol, 3 > m_entryEvents;
     // CUtlLeanVectorFixedGrowable< CGlobalSymbol, 3 > m_executeEvents;
     // CUtlLeanVectorFixedGrowable< CGlobalSymbol, 3 > m_exitEvents;
     // CUtlLeanVectorFixedGrowable< CNmStateNode::TimedEvent_t, 1 > m_timedRemainingEvents;
     // CUtlLeanVectorFixedGrowable< CNmStateNode::TimedEvent_t, 1 > m_timedElapsedEvents;
     char pad_01[150];
-    int16_t m_nLayerWeightNodeIdx;
-    int16_t m_nLayerRootMotionWeightNodeIdx;
-    int16_t m_nLayerBoneMaskNodeIdx;
-    bool m_bIsOffState;
-    bool m_bUseActualElapsedTimeInStateForTimedEvents;
-};
+    int16_t m_nLayerWeightNodeIdx; // 0xa8
+    int16_t m_nLayerRootMotionWeightNodeIdx; // 0xaa
+    int16_t m_nLayerBoneMaskNodeIdx; // 0xac
+    bool m_bIsOffState; // 0xae
+    bool m_bUseActualElapsedTimeInStateForTimedEvents; // 0xaf
+}; // size: 0xb0
 
-class CParticleVecInput {
+class __declspec(align(8)) CParticleVecInput {
 public:
     char pad_00[16];
-    ParticleVecType_t m_nType;
+    ParticleVecType_t m_nType; // 0x10
     // Vector m_vLiteralValue;
     // Color m_LiteralColor;
     // CParticleNamedValueRef m_NamedValue;
     char pad_01[84];
-    bool m_bFollowNamedValue;
-    ParticleAttributeIndex_t m_nVectorAttribute;
+    bool m_bFollowNamedValue; // 0x68
+    ParticleAttributeIndex_t m_nVectorAttribute; // 0x6c
     // Vector m_vVectorAttributeScale;
     char pad_02[12];
-    int32_t m_nControlPoint;
-    int32_t m_nDeltaControlPoint;
+    int32_t m_nControlPoint; // 0x7c
+    int32_t m_nDeltaControlPoint; // 0x80
     // Vector m_vCPValueScale;
     // Vector m_vCPRelativePosition;
     // Vector m_vCPRelativeDir;
     char pad_03[32];
-    CParticleFloatInput m_FloatComponentX;
-    CParticleFloatInput m_FloatComponentY;
-    CParticleFloatInput m_FloatComponentZ;
-    CParticleFloatInput m_FloatInterp;
-    float m_flInterpInput0;
-    float m_flInterpInput1;
+    CParticleFloatInput m_FloatComponentX; // 0xa8
+    CParticleFloatInput m_FloatComponentY; // 0x218
+    CParticleFloatInput m_FloatComponentZ; // 0x388
+    CParticleFloatInput m_FloatInterp; // 0x4f8
+    float m_flInterpInput0; // 0x668
+    float m_flInterpInput1; // 0x66c
     // Vector m_vInterpOutput0;
     // Vector m_vInterpOutput1;
     // CColorGradient m_Gradient;
     // Vector m_vRandomMin;
     // Vector m_vRandomMax;
     char pad_04[72];
-};
+}; // size: 0x6b8
 
-class CNmVectorCreateNode::CDefinition {
+/// CNmVectorCreateNode::CDefinition
+class __declspec(align(8)) CNmVectorCreateNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_inputVectorValueNodeIdx;
-    int16_t m_inputValueXNodeIdx;
-    int16_t m_inputValueYNodeIdx;
-    int16_t m_inputValueZNodeIdx;
-};
+    int16_t m_inputVectorValueNodeIdx; // 0x10
+    int16_t m_inputValueXNodeIdx; // 0x12
+    int16_t m_inputValueYNodeIdx; // 0x14
+    int16_t m_inputValueZNodeIdx; // 0x16
+}; // size: 0x18
 
-class ParticleNamedValueConfiguration_t {
+class __declspec(align(8)) ParticleNamedValueConfiguration_t {
 public:
     // CUtlString m_ConfigName;
     // KeyValues3 m_ConfigValue;
     // CUtlString m_BoundValuePath;
     char pad_00[32];
-    ParticleAttachment_t m_iAttachType;
+    ParticleAttachment_t m_iAttachType; // 0x20
     // CUtlString m_strEntityScope;
     // CUtlString m_strAttachmentName;
     char pad_01[20];
-};
+}; // size: 0x38
 
-class CVectorQuantizer {
+class __declspec(align(8)) CVectorQuantizer {
 public:
     // CUtlVector< float32 > m_centroidVectors;
     char pad_00[24];
-    int32_t m_nCentroids;
-    int32_t m_nDimensions;
-};
+    int32_t m_nCentroids; // 0x18
+    int32_t m_nDimensions; // 0x1c
+}; // size: 0x20
 
-class CBodyGroupSetting {
+class __declspec(align(8)) CBodyGroupSetting {
 public:
     // CUtlString m_BodyGroupName;
     char pad_00[8];
-    int32_t m_nBodyGroupOption;
+    int32_t m_nBodyGroupOption; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CNmZeroPoseTask {
+class __declspec(align(8)) CNmZeroPoseTask {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CNmVelocityBlendNode::CDefinition {
+/// CNmVelocityBlendNode::CDefinition
+class __declspec(align(8)) CNmVelocityBlendNode__CDefinition {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class CStepsRemainingMetricEvaluator {
+class __declspec(align(8)) CStepsRemainingMetricEvaluator {
 public:
     // CUtlVector< int32 > m_footIndices;
     char pad_00[104];
-    float m_flMinStepsRemaining;
+    float m_flMinStepsRemaining; // 0x68
     char pad_01[4];
-};
+}; // size: 0x70
 
-class CNmSkeleton {
+class __declspec(align(8)) CNmSkeleton {
 public:
     // CGlobalSymbol m_ID;
     // CUtlLeanVector< CGlobalSymbol > m_boneIDs;
@@ -9669,293 +9815,300 @@ public:
     // CUtlVector< CTransform > m_parentSpaceReferencePose;
     // CUtlVector< CTransform > m_modelSpaceReferencePose;
     char pad_00[96];
-    int32_t m_numBonesToSampleAtLowLOD;
+    int32_t m_numBonesToSampleAtLowLOD; // 0x60
     // CUtlLeanVector< NmBoneMaskSetDefinition_t > m_maskDefinitions;
     // CUtlLeanVector< CNmSkeleton::SecondarySkeleton_t > m_secondarySkeletons;
     char pad_01[84];
-    bool m_bIsPropSkeleton;
+    bool m_bIsPropSkeleton; // 0xb8
     char pad_02[7];
-};
+}; // size: 0xc0
 
-class CMaterialDrawDescriptor {
+class __declspec(align(8)) CMaterialDrawDescriptor {
 public:
-    float m_flUvDensity;
+    float m_flUvDensity; // 0x0
     // Vector m_vTintColor;
     char pad_00[12];
-    float m_flAlpha;
+    float m_flAlpha; // 0x10
     char pad_01[2];
-    uint16_t m_nNumMeshlets;
+    uint16_t m_nNumMeshlets; // 0x16
     char pad_02[4];
-    uint32_t m_nFirstMeshlet;
-    uint32_t m_nAppliedIndexOffset;
-    uint8_t m_nDepthVertexBufferIndex;
-    uint8_t m_nMeshletPackedIVBIndex;
+    uint32_t m_nFirstMeshlet; // 0x1c
+    uint32_t m_nAppliedIndexOffset; // 0x20
+    uint8_t m_nDepthVertexBufferIndex; // 0x24
+    uint8_t m_nMeshletPackedIVBIndex; // 0x25
     // CUtlLeanVector< CMaterialDrawDescriptor::RigidMeshPart_t > m_rigidMeshParts;
     char pad_03[16];
-    RenderPrimitiveType_t m_nPrimitiveType;
-    int32_t m_nBaseVertex;
-    int32_t m_nVertexCount;
-    int32_t m_nStartIndex;
-    int32_t m_nIndexCount;
+    RenderPrimitiveType_t m_nPrimitiveType; // 0x38
+    int32_t m_nBaseVertex; // 0x3c
+    int32_t m_nVertexCount; // 0x40
+    int32_t m_nStartIndex; // 0x44
+    int32_t m_nIndexCount; // 0x48
     char pad_04[96];
-    CRenderBufferBinding m_indexBuffer;
-    CRenderBufferBinding m_meshletPackedIVB;
+    CRenderBufferBinding m_indexBuffer; // 0xb0
+    CRenderBufferBinding m_meshletPackedIVB; // 0xd0
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_material;
     char pad_05[24];
-};
+}; // size: 0x108
 
-class CFootFallAnimTag {
+class __declspec(align(8)) CFootFallAnimTag {
 public:
     char pad_00[88];
-    FootFallTagFoot_t m_foot;
+    FootFallTagFoot_t m_foot; // 0x58
     char pad_01[4];
-};
+}; // size: 0x60
 
-class CMaterialDrawDescriptor::RigidMeshPart_t {
+/// CMaterialDrawDescriptor::RigidMeshPart_t
+class __declspec(align(4)) CMaterialDrawDescriptor__RigidMeshPart_t {
 public:
-    uint16_t m_nRigidBLASIndex;
-    int16_t m_nBoneIndex;
-    uint32_t m_nStartIndexOffset;
-    uint32_t m_nPrimitiveCount;
-};
+    uint16_t m_nRigidBLASIndex; // 0x0
+    int16_t m_nBoneIndex; // 0x2
+    uint32_t m_nStartIndexOffset; // 0x4
+    uint32_t m_nPrimitiveCount; // 0x8
+}; // size: 0xc
 
-class CAimConstraint {
+class __declspec(align(16)) CAimConstraint {
 public:
     // Quaternion m_qAimOffset;
     char pad_00[112];
-    uint32_t m_nUpType;
+    uint32_t m_nUpType; // 0x70
     char pad_01[12];
-};
+}; // size: 0x80
 
-class CChoreoUpdateNode {
+class __declspec(align(8)) CChoreoUpdateNode {
 public:
     char pad_00[120];
-};
+}; // size: 0x78
 
-class CFootAdjustmentUpdateNode {
+class __declspec(align(8)) CFootAdjustmentUpdateNode {
 public:
     // CUtlVector< HSequence > m_clips;
     char pad_00[144];
-    CPoseHandle m_hBasePoseCacheHandle;
+    CPoseHandle m_hBasePoseCacheHandle; // 0x90
     // CAnimParamHandle m_facingTarget;
     char pad_01[4];
-    float m_flTurnTimeMin;
-    float m_flTurnTimeMax;
-    float m_flStepHeightMax;
-    float m_flStepHeightMaxAngle;
-    bool m_bResetChild;
-    bool m_bAnimationDriven;
+    float m_flTurnTimeMin; // 0x98
+    float m_flTurnTimeMax; // 0x9c
+    float m_flStepHeightMax; // 0xa0
+    float m_flStepHeightMaxAngle; // 0xa4
+    bool m_bResetChild; // 0xa8
+    bool m_bAnimationDriven; // 0xa9
     char pad_02[6];
-};
+}; // size: 0xb0
 
-class CSolveIKTargetHandle_t {
+class __declspec(align(1)) CSolveIKTargetHandle_t {
 public:
     // CAnimParamHandle m_positionHandle;
     // CAnimParamHandle m_orientationHandle;
     char pad_00[4];
-};
+}; // size: 0x4
 
-class CModelConfigElement_UserPick {
+class __declspec(align(8)) CModelConfigElement_UserPick {
 public:
     // CUtlVector< CUtlString > m_Choices;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CMorphBundleData {
+class __declspec(align(8)) CMorphBundleData {
 public:
-    float m_flULeftSrc;
-    float m_flVTopSrc;
+    float m_flULeftSrc; // 0x0
+    float m_flVTopSrc; // 0x4
     // CUtlVector< float32 > m_offsets;
     // CUtlVector< float32 > m_ranges;
     char pad_00[48];
-};
+}; // size: 0x38
 
-class MaterialGroup_t {
+class __declspec(align(8)) MaterialGroup_t {
 public:
     // CUtlString m_name;
     // CUtlVector< CStrongHandle< InfoForResourceTypeIMaterial2 > > m_materials;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CPathHelperUpdateNode {
+class __declspec(align(8)) CPathHelperUpdateNode {
 public:
     char pad_00[112];
-    float m_flStoppingRadius;
-    float m_flStoppingSpeedScale;
-};
+    float m_flStoppingRadius; // 0x70
+    float m_flStoppingSpeedScale; // 0x74
+}; // size: 0x78
 
-class CNmVirtualParameterBoneMaskNode::CDefinition {
+/// CNmVirtualParameterBoneMaskNode::CDefinition
+class __declspec(align(8)) CNmVirtualParameterBoneMaskNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CNmEntityAttributeEventBase {
+class __declspec(align(8)) CNmEntityAttributeEventBase {
 public:
     // CUtlString m_attributeName;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class CModelConfigElement_SetMaterialGroupOnAttachedModels {
+class __declspec(align(8)) CModelConfigElement_SetMaterialGroupOnAttachedModels {
 public:
     // CUtlString m_MaterialGroupName;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CNmFloatSwitchNode::CDefinition {
+/// CNmFloatSwitchNode::CDefinition
+class __declspec(align(8)) CNmFloatSwitchNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSwitchValueNodeIdx;
-    int16_t m_nTrueValueNodeIdx;
-    int16_t m_nFalseValueNodeIdx;
-    float m_flFalseValue;
-    float m_flTrueValue;
-};
+    int16_t m_nSwitchValueNodeIdx; // 0x10
+    int16_t m_nTrueValueNodeIdx; // 0x12
+    int16_t m_nFalseValueNodeIdx; // 0x14
+    float m_flFalseValue; // 0x18
+    float m_flTrueValue; // 0x1c
+}; // size: 0x20
 
-class CNmCachedFloatNode::CDefinition {
+/// CNmCachedFloatNode::CDefinition
+class __declspec(align(8)) CNmCachedFloatNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    NmCachedValueMode_t m_mode;
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    NmCachedValueMode_t m_mode; // 0x14
+}; // size: 0x18
 
-class CDampedPathAnimMotorUpdater {
+class __declspec(align(8)) CDampedPathAnimMotorUpdater {
 public:
     char pad_00[44];
-    float m_flAnticipationTime;
-    float m_flMinSpeedScale;
+    float m_flAnticipationTime; // 0x2c
+    float m_flMinSpeedScale; // 0x30
     // CAnimParamHandle m_hAnticipationPosParam;
     // CAnimParamHandle m_hAnticipationHeadingParam;
     char pad_01[4];
-    float m_flSpringConstant;
-    float m_flMinSpringTension;
-    float m_flMaxSpringTension;
+    float m_flSpringConstant; // 0x38
+    float m_flMinSpringTension; // 0x3c
+    float m_flMaxSpringTension; // 0x40
     char pad_02[4];
-};
+}; // size: 0x48
 
-class CActionComponentUpdater {
+class __declspec(align(8)) CActionComponentUpdater {
 public:
     // CUtlVector< CSmartPtr< CAnimActionUpdater > > m_actions;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CAnimCycle {
+class __declspec(align(4)) CAnimCycle {
 public:
     char pad_00[4];
-};
+}; // size: 0x4
 
-class CNmCachedBoolNode::CDefinition {
+/// CNmCachedBoolNode::CDefinition
+class __declspec(align(8)) CNmCachedBoolNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    NmCachedValueMode_t m_mode;
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    NmCachedValueMode_t m_mode; // 0x14
+}; // size: 0x18
 
-class CAnimBoneDifference {
+class __declspec(align(8)) CAnimBoneDifference {
 public:
     // CBufferString m_name;
     // CBufferString m_parent;
     // Vector m_posError;
     char pad_00[44];
-    bool m_bHasRotation;
-    bool m_bHasMovement;
+    bool m_bHasRotation; // 0x2c
+    bool m_bHasMovement; // 0x2d
     char pad_01[2];
-};
+}; // size: 0x30
 
-class CNmIDEventPercentageThroughNode::CDefinition {
+/// CNmIDEventPercentageThroughNode::CDefinition
+class __declspec(align(8)) CNmIDEventPercentageThroughNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    CNmBitFlags m_eventConditionRules;
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    CNmBitFlags m_eventConditionRules; // 0x14
     // CGlobalSymbol m_eventID;
     char pad_01[8];
-};
+}; // size: 0x20
 
-class CStopAtGoalUpdateNode {
+class __declspec(align(8)) CStopAtGoalUpdateNode {
 public:
     char pad_00[116];
-    float m_flOuterRadius;
-    float m_flInnerRadius;
-    float m_flMaxScale;
-    float m_flMinScale;
-    CAnimInputDamping m_damping;
-};
+    float m_flOuterRadius; // 0x74
+    float m_flInnerRadius; // 0x78
+    float m_flMaxScale; // 0x7c
+    float m_flMinScale; // 0x80
+    CAnimInputDamping m_damping; // 0x88
+}; // size: 0xa0
 
-class VPhysXRange_t {
+class __declspec(align(4)) VPhysXRange_t {
 public:
-    float m_flMin;
-    float m_flMax;
-};
+    float m_flMin; // 0x0
+    float m_flMax; // 0x4
+}; // size: 0x8
 
-class PulseRegisterMap_t {
+class __declspec(align(1)) PulseRegisterMap_t {
 public:
     // KeyValues3 m_Inparams;
     // CKV3MemberNameSet m_InparamsWhichCanBeMoved;
     // KeyValues3 m_Outparams;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CSeqMultiFetchFlag {
+class __declspec(align(1)) CSeqMultiFetchFlag {
 public:
-    bool m_bRealtime;
-    bool m_bCylepose;
-    bool m_b0D;
-    bool m_b1D;
-    bool m_b2D;
-    bool m_b2D_TRI;
-};
+    bool m_bRealtime; // 0x0
+    bool m_bCylepose; // 0x1
+    bool m_b0D; // 0x2
+    bool m_b1D; // 0x3
+    bool m_b2D; // 0x4
+    bool m_b2D_TRI; // 0x5
+}; // size: 0x6
 
-class IKDemoCaptureSettings_t {
+class __declspec(align(8)) IKDemoCaptureSettings_t {
 public:
     // CUtlString m_parentBoneName;
     char pad_00[8];
-    IKChannelMode m_eMode;
+    IKChannelMode m_eMode; // 0x8
     // CUtlString m_ikChainName;
     // CUtlString m_oneBoneStart;
     // CUtlString m_oneBoneEnd;
     char pad_01[28];
-};
+}; // size: 0x28
 
-class CAnimDemoCaptureSettings {
+class __declspec(align(8)) CAnimDemoCaptureSettings {
 public:
     // Vector2D m_vecErrorRangeSplineRotation;
     // Vector2D m_vecErrorRangeSplineTranslation;
     // Vector2D m_vecErrorRangeSplineScale;
     char pad_00[24];
-    float m_flIkRotation_MaxSplineError;
-    float m_flIkTranslation_MaxSplineError;
+    float m_flIkRotation_MaxSplineError; // 0x18
+    float m_flIkTranslation_MaxSplineError; // 0x1c
     // Vector2D m_vecErrorRangeQuantizationRotation;
     // Vector2D m_vecErrorRangeQuantizationTranslation;
     // Vector2D m_vecErrorRangeQuantizationScale;
     char pad_01[24];
-    float m_flIkRotation_MaxQuantizationError;
-    float m_flIkTranslation_MaxQuantizationError;
+    float m_flIkRotation_MaxQuantizationError; // 0x38
+    float m_flIkTranslation_MaxQuantizationError; // 0x3c
     // CUtlString m_baseSequence;
     char pad_02[8];
-    int32_t m_nBaseSequenceFrame;
-    EDemoBoneSelectionMode m_boneSelectionMode;
+    int32_t m_nBaseSequenceFrame; // 0x48
+    EDemoBoneSelectionMode m_boneSelectionMode; // 0x4c
     // CUtlVector< BoneDemoCaptureSettings_t > m_bones;
     // CUtlVector< IKDemoCaptureSettings_t > m_ikChains;
     char pad_03[48];
-};
+}; // size: 0x80
 
-class CNmSelectorNode::CDefinition {
+/// CNmSelectorNode::CDefinition
+class __declspec(align(8)) CNmSelectorNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_optionNodeIndices;
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_conditionNodeIndices;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class CNmGraphDefinition {
+class __declspec(align(8)) CNmGraphDefinition {
 public:
     // CGlobalSymbol m_variationID;
     // CStrongHandle< InfoForResourceTypeCNmSkeleton > m_skeleton;
     char pad_00[16];
-    CNmGraphVariationUserData* m_pUserData;
+    CNmGraphVariationUserData* m_pUserData; // 0x10
     // CUtlVector< int16 > m_persistentNodeIndices;
     char pad_01[24];
-    int16_t m_nRootNodeIdx;
+    int16_t m_nRootNodeIdx; // 0x30
     // CUtlVector< CGlobalSymbol > m_controlParameterIDs;
     // CUtlVector< CGlobalSymbol > m_virtualParameterIDs;
     // CUtlVector< int16 > m_virtualParameterNodeIndices;
@@ -9965,12 +10118,12 @@ public:
     // CUtlVector< CUtlString > m_nodePaths;
     // CUtlVector< CStrongHandleVoid > m_resources;
     char pad_02[366];
-};
+}; // size: 0x1a0
 
-class VPhysXAggregateData_t {
+class __declspec(align(8)) VPhysXAggregateData_t {
 public:
-    uint16_t m_nFlags;
-    uint16_t m_nRefCounter;
+    uint16_t m_nFlags; // 0x0
+    uint16_t m_nRefCounter; // 0x2
     // CUtlVector< uint32 > m_bonesHash;
     // CUtlVector< CUtlString > m_boneNames;
     // CUtlVector< uint16 > m_indexNames;
@@ -9981,309 +10134,316 @@ public:
     // CUtlVector< VPhysXConstraint2_t > m_constraints2;
     // CUtlVector< VPhysXJoint_t > m_joints;
     char pad_00[216];
-    PhysFeModelDesc_t* m_pFeModel;
+    PhysFeModelDesc_t* m_pFeModel; // 0xe0
     // CUtlVector< uint16 > m_boneParents;
     // CUtlVector< uint32 > m_surfacePropertyHashes;
     // CUtlVector< VPhysXCollisionAttributes_t > m_collisionAttributes;
     // CUtlVector< CUtlString > m_debugPartNames;
     // CUtlString m_embeddedKeyvalues;
     char pad_01[104];
-};
+}; // size: 0x150
 
-class AnimComponentID {
+class __declspec(align(4)) AnimComponentID {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class CModelConfig {
+class __declspec(align(8)) CModelConfig {
 public:
     // CUtlString m_ConfigName;
     // CUtlVector< CModelConfigElement* > m_Elements;
     char pad_00[32];
-    bool m_bTopLevel;
-    bool m_bActiveInEditorByDefault;
+    bool m_bTopLevel; // 0x20
+    bool m_bActiveInEditorByDefault; // 0x21
     char pad_01[6];
-};
+}; // size: 0x28
 
-class CNmBoneMaskSwitchNode::CDefinition {
+/// CNmBoneMaskSwitchNode::CDefinition
+class __declspec(align(8)) CNmBoneMaskSwitchNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSwitchValueNodeIdx;
-    int16_t m_nTrueValueNodeIdx;
-    int16_t m_nFalseValueNodeIdx;
-    float m_flBlendTimeSeconds;
-    bool m_bSwitchDynamically;
+    int16_t m_nSwitchValueNodeIdx; // 0x10
+    int16_t m_nTrueValueNodeIdx; // 0x12
+    int16_t m_nFalseValueNodeIdx; // 0x14
+    float m_flBlendTimeSeconds; // 0x18
+    bool m_bSwitchDynamically; // 0x1c
     char pad_01[3];
-};
+}; // size: 0x20
 
-class FootFixedSettings {
+class __declspec(align(16)) FootFixedSettings {
 public:
-    TraceSettings_t m_traceSettings;
+    TraceSettings_t m_traceSettings; // 0x0
     // VectorAligned m_vFootBaseBindPosePositionMS;
     char pad_00[24];
-    float m_flFootBaseLength;
-    float m_flMaxRotationLeft;
-    float m_flMaxRotationRight;
-    int32_t m_footstepLandedTagIndex;
-    bool m_bEnableTracing;
-    float m_flTraceAngleBlend;
-    int32_t m_nDisableTagIndex;
-    int32_t m_nFootIndex;
-};
+    float m_flFootBaseLength; // 0x20
+    float m_flMaxRotationLeft; // 0x24
+    float m_flMaxRotationRight; // 0x28
+    int32_t m_footstepLandedTagIndex; // 0x2c
+    bool m_bEnableTracing; // 0x30
+    float m_flTraceAngleBlend; // 0x34
+    int32_t m_nDisableTagIndex; // 0x38
+    int32_t m_nFootIndex; // 0x3c
+}; // size: 0x40
 
-class CNmControlParameterVectorNode::CDefinition {
+/// CNmControlParameterVectorNode::CDefinition
+class __declspec(align(8)) CNmControlParameterVectorNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CModelConfigElement {
+class __declspec(align(1)) CModelConfigElement {
 public:
     // CUtlString m_ElementName;
     // CUtlVector< CModelConfigElement* > m_NestedElements;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CParticleInput {
+class __declspec(align(8)) CParticleInput {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CTimeRemainingMetricEvaluator {
+class __declspec(align(8)) CTimeRemainingMetricEvaluator {
 public:
     char pad_00[80];
-    bool m_bMatchByTimeRemaining;
-    float m_flMaxTimeRemaining;
-    bool m_bFilterByTimeRemaining;
-    float m_flMinTimeRemaining;
-};
+    bool m_bMatchByTimeRemaining; // 0x50
+    float m_flMaxTimeRemaining; // 0x54
+    bool m_bFilterByTimeRemaining; // 0x58
+    float m_flMinTimeRemaining; // 0x5c
+}; // size: 0x60
 
-class CStateNodeTransitionData {
+class __declspec(align(4)) CStateNodeTransitionData {
 public:
-    CBlendCurve m_curve;
+    CBlendCurve m_curve; // 0x0
     // CAnimValue< float32 > m_blendDuration;
     // CAnimValue< float32 > m_resetCycleValue;
     // bitfield:1 m_bReset;
     // bitfield:3 m_resetCycleOption;
     char pad_00[20];
-};
+}; // size: 0x1c
 
-class VPhysXJoint_t {
+class __declspec(align(16)) VPhysXJoint_t {
 public:
-    uint16_t m_nType;
-    uint16_t m_nBody1;
-    uint16_t m_nBody2;
-    uint16_t m_nFlags;
+    uint16_t m_nType; // 0x0
+    uint16_t m_nBody1; // 0x2
+    uint16_t m_nBody2; // 0x4
+    uint16_t m_nFlags; // 0x6
     // CTransform m_Frame1;
     // CTransform m_Frame2;
     char pad_00[72];
-    bool m_bEnableCollision;
-    bool m_bIsLinearConstraintDisabled;
-    bool m_bIsAngularConstraintDisabled;
-    bool m_bEnableLinearLimit;
-    VPhysXRange_t m_LinearLimit;
-    bool m_bEnableLinearMotor;
+    bool m_bEnableCollision; // 0x50
+    bool m_bIsLinearConstraintDisabled; // 0x51
+    bool m_bIsAngularConstraintDisabled; // 0x52
+    bool m_bEnableLinearLimit; // 0x53
+    VPhysXRange_t m_LinearLimit; // 0x54
+    bool m_bEnableLinearMotor; // 0x5c
     // Vector m_vLinearTargetVelocity;
     char pad_01[12];
-    float m_flMaxForce;
-    bool m_bEnableSwingLimit;
-    VPhysXRange_t m_SwingLimit;
-    bool m_bEnableTwistLimit;
-    VPhysXRange_t m_TwistLimit;
-    bool m_bEnableAngularMotor;
+    float m_flMaxForce; // 0x6c
+    bool m_bEnableSwingLimit; // 0x70
+    VPhysXRange_t m_SwingLimit; // 0x74
+    bool m_bEnableTwistLimit; // 0x7c
+    VPhysXRange_t m_TwistLimit; // 0x80
+    bool m_bEnableAngularMotor; // 0x88
     // Vector m_vAngularTargetVelocity;
     char pad_02[12];
-    float m_flMaxTorque;
-    float m_flLinearFrequency;
-    float m_flLinearDampingRatio;
-    float m_flAngularFrequency;
-    float m_flAngularDampingRatio;
-    float m_flFriction;
-    float m_flElasticity;
-    float m_flElasticDamping;
-    float m_flPlasticity;
+    float m_flMaxTorque; // 0x98
+    float m_flLinearFrequency; // 0x9c
+    float m_flLinearDampingRatio; // 0xa0
+    float m_flAngularFrequency; // 0xa4
+    float m_flAngularDampingRatio; // 0xa8
+    float m_flFriction; // 0xac
+    float m_flElasticity; // 0xb0
+    float m_flElasticDamping; // 0xb4
+    float m_flPlasticity; // 0xb8
     // CUtlString m_Tag;
     char pad_03[20];
-};
+}; // size: 0xd0
 
-class CDrawCullingData {
+class __declspec(align(1)) CDrawCullingData {
 public:
-    int8_t m_ConeAxis[3];
-    int8_t m_ConeCutoff;
-};
+    int8_t m_ConeAxis[3]; // 0x0
+    int8_t m_ConeCutoff; // 0x3
+}; // size: 0x4
 
-class CSequenceUpdateNodeBase {
+class __declspec(align(4)) CSequenceUpdateNodeBase {
 public:
     char pad_00[108];
-    float m_playbackSpeed;
-    bool m_bLoop;
+    float m_playbackSpeed; // 0x6c
+    bool m_bLoop; // 0x70
     char pad_01[7];
-};
+}; // size: 0x78
 
-class CAttachment {
+class __declspec(align(16)) CAttachment {
 public:
     // CUtlString m_name;
     // CUtlString[3] m_influenceNames;
     // Quaternion[3] m_vInfluenceRotations;
     // Vector[3] m_vInfluenceOffsets;
     char pad_00[116];
-    float m_influenceWeights[3];
-    bool m_bInfluenceRootTransform[3];
-    uint8_t m_nInfluences;
-    bool m_bIgnoreRotation;
+    float m_influenceWeights[3]; // 0x74
+    bool m_bInfluenceRootTransform[3]; // 0x80
+    uint8_t m_nInfluences; // 0x83
+    bool m_bIgnoreRotation; // 0x84
     char pad_01[11];
-};
+}; // size: 0x90
 
-class CNmVirtualParameterFloatNode::CDefinition {
+/// CNmVirtualParameterFloatNode::CDefinition
+class __declspec(align(8)) CNmVirtualParameterFloatNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class PulseGraphExecutionHistoryCursorDesc_t {
+class __declspec(align(8)) PulseGraphExecutionHistoryCursorDesc_t {
 public:
     // CUtlVector< PulseCursorID_t > vecAncestorCursorIDs;
     char pad_00[24];
-    PulseDocNodeID_t nSpawnNodeID;
-    PulseDocNodeID_t nRetiredAtNodeID;
-    float flLastReferenced;
-    int32_t nLastValidEntryIdx;
-};
+    PulseDocNodeID_t nSpawnNodeID; // 0x18
+    PulseDocNodeID_t nRetiredAtNodeID; // 0x1c
+    float flLastReferenced; // 0x20
+    int32_t nLastValidEntryIdx; // 0x24
+}; // size: 0x28
 
-class CSeqPoseSetting {
+class __declspec(align(8)) CSeqPoseSetting {
 public:
     // CBufferString m_sPoseParameter;
     // CBufferString m_sAttachment;
     // CBufferString m_sReferenceSequence;
     char pad_00[48];
-    float m_flValue;
-    bool m_bX;
-    bool m_bY;
-    bool m_bZ;
-    int32_t m_eType;
+    float m_flValue; // 0x30
+    bool m_bX; // 0x34
+    bool m_bY; // 0x35
+    bool m_bZ; // 0x36
+    int32_t m_eType; // 0x38
     char pad_01[4];
-};
+}; // size: 0x40
 
-class CFootPinningUpdateNode {
+class __declspec(align(8)) CFootPinningUpdateNode {
 public:
     char pad_00[120];
-    FootPinningPoseOpFixedData_t m_poseOpFixedData;
-    FootPinningTimingSource m_eTimingSource;
+    FootPinningPoseOpFixedData_t m_poseOpFixedData; // 0x78
+    FootPinningTimingSource m_eTimingSource; // 0xa8
     // CUtlVector< CAnimParamHandle > m_params;
     char pad_01[28];
-    bool m_bResetChild;
+    bool m_bResetChild; // 0xc8
     char pad_02[7];
-};
+}; // size: 0xd0
 
-class CMorphData {
+class __declspec(align(8)) CMorphData {
 public:
     // CUtlString m_name;
     // CUtlVector< CMorphRectData > m_morphRectDatas;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class ModelBoneFlexDriver_t {
+class __declspec(align(8)) ModelBoneFlexDriver_t {
 public:
     // CUtlString m_boneName;
     char pad_00[8];
-    uint32_t m_boneNameToken;
+    uint32_t m_boneNameToken; // 0x8
     // CUtlVector< ModelBoneFlexDriverControl_t > m_controls;
     char pad_01[28];
-};
+}; // size: 0x28
 
-class CNmIDEventConditionNode::CDefinition {
+/// CNmIDEventConditionNode::CDefinition
+class __declspec(align(8)) CNmIDEventConditionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    CNmBitFlags m_eventConditionRules;
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    CNmBitFlags m_eventConditionRules; // 0x14
     // CUtlVectorFixedGrowable< CGlobalSymbol, 5 > m_eventIDs;
     char pad_01[64];
-};
+}; // size: 0x58
 
-class AnimStateID {
+class __declspec(align(4)) AnimStateID {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class CSeqAutoLayerFlag {
+class __declspec(align(1)) CSeqAutoLayerFlag {
 public:
-    bool m_bPost;
-    bool m_bSpline;
-    bool m_bXFade;
-    bool m_bNoBlend;
-    bool m_bLocal;
-    bool m_bPose;
-    bool m_bFetchFrame;
-    bool m_bSubtract;
-};
+    bool m_bPost; // 0x0
+    bool m_bSpline; // 0x1
+    bool m_bXFade; // 0x2
+    bool m_bNoBlend; // 0x3
+    bool m_bLocal; // 0x4
+    bool m_bPose; // 0x5
+    bool m_bFetchFrame; // 0x6
+    bool m_bSubtract; // 0x7
+}; // size: 0x8
 
-class CModelConfigList {
+class __declspec(align(8)) CModelConfigList {
 public:
-    bool m_bHideMaterialGroupInTools;
-    bool m_bHideRenderColorInTools;
+    bool m_bHideMaterialGroupInTools; // 0x0
+    bool m_bHideRenderColorInTools; // 0x1
     // CUtlVector< CModelConfig* > m_Configs;
     char pad_00[30];
-};
+}; // size: 0x20
 
-class CRemapValueComponentUpdater {
+class __declspec(align(8)) CRemapValueComponentUpdater {
 public:
     // CUtlVector< CRemapValueUpdateItem > m_items;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CBlockSelectionMetricEvaluator {
+class __declspec(align(8)) CBlockSelectionMetricEvaluator {
 public:
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CNmFollowBoneNode::CDefinition {
+/// CNmFollowBoneNode::CDefinition
+class __declspec(align(8)) CNmFollowBoneNode__CDefinition {
 public:
     // CGlobalSymbol m_bone;
     // CGlobalSymbol m_followTargetBone;
     char pad_00[40];
-    int16_t m_nEnabledNodeIdx;
-    NmFollowBoneMode_t m_mode;
+    int16_t m_nEnabledNodeIdx; // 0x28
+    NmFollowBoneMode_t m_mode; // 0x2a
     char pad_01[5];
-};
+}; // size: 0x30
 
-class CNmChainLookatNode::CDefinition {
+/// CNmChainLookatNode::CDefinition
+class __declspec(align(8)) CNmChainLookatNode__CDefinition {
 public:
     // CGlobalSymbol m_chainEndBoneID;
     char pad_00[32];
-    int16_t m_nLookatTargetNodeIdx;
-    int16_t m_nEnabledNodeIdx;
-    float m_flBlendTimeSeconds;
-    uint8_t m_nChainLength;
-    bool m_bIsTargetInWorldSpace;
+    int16_t m_nLookatTargetNodeIdx; // 0x20
+    int16_t m_nEnabledNodeIdx; // 0x22
+    float m_flBlendTimeSeconds; // 0x24
+    uint8_t m_nChainLength; // 0x28
+    bool m_bIsTargetInWorldSpace; // 0x29
     // Vector m_chainForwardDir;
     char pad_01[14];
-};
+}; // size: 0x38
 
-class CSingleFrameUpdateNode {
+class __declspec(align(8)) CSingleFrameUpdateNode {
 public:
     // CUtlVector< CSmartPtr< CAnimActionUpdater > > m_actions;
     char pad_00[112];
-    CPoseHandle m_hPoseCacheHandle;
-    HSequence m_hSequence;
-    float m_flCycle;
+    CPoseHandle m_hPoseCacheHandle; // 0x70
+    HSequence m_hSequence; // 0x74
+    float m_flCycle; // 0x78
     char pad_01[4];
-};
+}; // size: 0x80
 
-class CAnimGraphNetworkSettings {
+class __declspec(align(8)) CAnimGraphNetworkSettings {
 public:
     char pad_00[32];
-    bool m_bNetworkingEnabled;
+    bool m_bNetworkingEnabled; // 0x20
     char pad_01[7];
-};
+}; // size: 0x28
 
-class CNmIsExternalPoseSetNode::CDefinition {
+/// CNmIsExternalPoseSetNode::CDefinition
+class __declspec(align(8)) CNmIsExternalPoseSetNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nExternalPoseNodeIdx;
+    int16_t m_nExternalPoseNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CLookComponentUpdater {
+class __declspec(align(8)) CLookComponentUpdater {
 public:
     // CAnimParamHandle m_hLookHeading;
     // CAnimParamHandle m_hLookHeadingNormalized;
@@ -10294,94 +10454,98 @@ public:
     // CAnimParamHandle m_hLookTarget;
     // CAnimParamHandle m_hLookTargetWorldSpace;
     char pad_00[68];
-    bool m_bNetworkLookTarget;
+    bool m_bNetworkLookTarget; // 0x44
     char pad_01[3];
-};
+}; // size: 0x48
 
-class CNmClipSelectorNode::CDefinition {
+/// CNmClipSelectorNode::CDefinition
+class __declspec(align(8)) CNmClipSelectorNode__CDefinition {
 public:
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_optionNodeIndices;
     // CUtlLeanVectorFixedGrowable< int16, 5 > m_conditionNodeIndices;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class AnimNodeID {
+class __declspec(align(4)) AnimNodeID {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class CNmReferencedGraphNode::CDefinition {
+/// CNmReferencedGraphNode::CDefinition
+class __declspec(align(8)) CNmReferencedGraphNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nReferencedGraphIdx;
-    int16_t m_nFallbackNodeIdx;
+    int16_t m_nReferencedGraphIdx; // 0x10
+    int16_t m_nFallbackNodeIdx; // 0x12
     char pad_01[4];
-};
+}; // size: 0x18
 
-class FollowAttachmentSettings_t {
+class __declspec(align(16)) FollowAttachmentSettings_t {
 public:
-    CAnimAttachment m_attachment;
-    int32_t m_boneIndex;
-    AttachmentHandle_t m_attachmentHandle;
-    bool m_bMatchTranslation;
-    bool m_bMatchRotation;
+    CAnimAttachment m_attachment; // 0x0
+    int32_t m_boneIndex; // 0x80
+    AttachmentHandle_t m_attachmentHandle; // 0x84
+    bool m_bMatchTranslation; // 0x85
+    bool m_bMatchRotation; // 0x86
     char pad_00[9];
-};
+}; // size: 0x90
 
-class MotionIndex {
+class __declspec(align(2)) MotionIndex {
 public:
-    uint16_t m_nGroup;
-    uint16_t m_nMotion;
-};
+    uint16_t m_nGroup; // 0x0
+    uint16_t m_nMotion; // 0x2
+}; // size: 0x4
 
-class WeightList {
+class __declspec(align(8)) WeightList {
 public:
     // CUtlString m_name;
     // CUtlVector< float32 > m_weights;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CAnimParamHandle {
+class __declspec(align(1)) CAnimParamHandle {
 public:
-    AnimParamType_t m_type;
-    uint8_t m_index;
-};
+    AnimParamType_t m_type; // 0x0
+    uint8_t m_index; // 0x1
+}; // size: 0x2
 
-class PulseCursorID_t {
+class __declspec(align(4)) PulseCursorID_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CNmFloatAngleMathNode::CDefinition {
+/// CNmFloatAngleMathNode::CDefinition
+class __declspec(align(8)) CNmFloatAngleMathNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    CNmFloatAngleMathNode::Operation_t m_operation;
-    char pad_01[5];
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    // CNmFloatAngleMathNode::Operation_t m_operation;
+    char pad_01[6];
+}; // size: 0x18
 
-class CMotionGraphUpdateNode {
+class __declspec(align(8)) CMotionGraphUpdateNode {
 public:
     // CSmartPtr< CMotionGraph > m_pMotionGraph;
     char pad_00[104];
-};
+}; // size: 0x68
 
-class CNmTargetOffsetNode::CDefinition {
+/// CNmTargetOffsetNode::CDefinition
+class __declspec(align(16)) CNmTargetOffsetNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    bool m_bIsBoneSpaceOffset;
+    int16_t m_nInputValueNodeIdx; // 0x10
+    bool m_bIsBoneSpaceOffset; // 0x12
     // Quaternion m_rotationOffset;
     // Vector m_translationOffset;
     char pad_01[45];
-};
+}; // size: 0x40
 
-class CRootUpdateNode {
+class __declspec(align(8)) CRootUpdateNode {
 public:
     char pad_00[112];
-};
+}; // size: 0x70
 
-class CAnimEncodeDifference {
+class __declspec(align(8)) CAnimEncodeDifference {
 public:
     // CUtlVector< CAnimBoneDifference > m_boneArray;
     // CUtlVector< CAnimMorphDifference > m_morphArray;
@@ -10391,350 +10555,363 @@ public:
     // CUtlVector< uint8 > m_bHasMorphBitArray;
     // CUtlVector< uint8 > m_bHasUserBitArray;
     char pad_00[168];
-};
+}; // size: 0xa8
 
-class CNmFloatEaseNode::CDefinition {
+/// CNmFloatEaseNode::CDefinition
+class __declspec(align(8)) CNmFloatEaseNode__CDefinition {
 public:
     char pad_00[16];
-    float m_flEaseTime;
-    float m_flStartValue;
-    int16_t m_nInputValueNodeIdx;
-    NmEasingOperation_t m_easingOp;
-    bool m_bUseStartValue;
+    float m_flEaseTime; // 0x10
+    float m_flStartValue; // 0x14
+    int16_t m_nInputValueNodeIdx; // 0x18
+    NmEasingOperation_t m_easingOp; // 0x1a
+    bool m_bUseStartValue; // 0x1b
     char pad_01[4];
-};
+}; // size: 0x20
 
-class PulseRuntimeRegisterIndex_t {
+class __declspec(align(2)) PulseRuntimeRegisterIndex_t {
 public:
-    int16_t m_Value;
-};
+    int16_t m_Value; // 0x0
+}; // size: 0x2
 
-class CNmTransitionNode::CDefinition {
+/// CNmTransitionNode::CDefinition
+class __declspec(align(8)) CNmTransitionNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nTargetStateNodeIdx;
-    int16_t m_nDurationOverrideNodeIdx;
-    int16_t m_timeOffsetOverrideNodeIdx;
-    int16_t m_startBoneMaskNodeIdx;
-    float m_flDuration;
-    NmPercent_t m_boneMaskBlendInTimePercentage;
-    float m_flTimeOffset;
-    CNmBitFlags m_transitionOptions;
-    int16_t m_targetSyncIDNodeIdx;
-    NmEasingOperation_t m_blendWeightEasing;
-    NmRootMotionBlendMode_t m_rootMotionBlend;
+    int16_t m_nTargetStateNodeIdx; // 0x10
+    int16_t m_nDurationOverrideNodeIdx; // 0x12
+    int16_t m_timeOffsetOverrideNodeIdx; // 0x14
+    int16_t m_startBoneMaskNodeIdx; // 0x16
+    float m_flDuration; // 0x18
+    NmPercent_t m_boneMaskBlendInTimePercentage; // 0x1c
+    float m_flTimeOffset; // 0x20
+    CNmBitFlags m_transitionOptions; // 0x24
+    int16_t m_targetSyncIDNodeIdx; // 0x28
+    NmEasingOperation_t m_blendWeightEasing; // 0x2a
+    NmRootMotionBlendMode_t m_rootMotionBlend; // 0x2b
     char pad_01[4];
-};
+}; // size: 0x30
 
-class LookAtBone_t {
+class __declspec(align(4)) LookAtBone_t {
 public:
-    int32_t m_index;
-    float m_weight;
-};
+    int32_t m_index; // 0x0
+    float m_weight; // 0x4
+}; // size: 0x8
 
-class PhysShapeMarkup_t {
+class __declspec(align(8)) PhysShapeMarkup_t {
 public:
-    int32_t m_nBodyInAggregate;
-    int32_t m_nShapeInBody;
+    int32_t m_nBodyInAggregate; // 0x0
+    int32_t m_nShapeInBody; // 0x4
     // CGlobalSymbol m_sHitGroup;
     char pad_00[8];
-};
+}; // size: 0x10
 
-class CNmGraphDefinition::ExternalPoseSlot_t {
+/// CNmGraphDefinition::ExternalPoseSlot_t
+class __declspec(align(8)) CNmGraphDefinition__ExternalPoseSlot_t {
 public:
-    int16_t m_nNodeIdx;
+    int16_t m_nNodeIdx; // 0x0
     // CGlobalSymbol m_slotID;
     char pad_00[14];
-};
+}; // size: 0x10
 
-class CStanceOverrideUpdateNode {
+class __declspec(align(8)) CStanceOverrideUpdateNode {
 public:
     // CUtlVector< StanceInfo_t > m_footStanceInfo;
     char pad_00[136];
-    CAnimUpdateNodeRef m_pStanceSourceNode;
-    CAnimParamHandle m_hParameter;
-    StanceOverrideMode m_eMode;
-};
+    CAnimUpdateNodeRef m_pStanceSourceNode; // 0x88
+    CAnimParamHandle m_hParameter; // 0x98
+    StanceOverrideMode m_eMode; // 0x9c
+}; // size: 0xa0
 
-class CNmStateMachineNode::StateDefinition_t {
+/// CNmStateMachineNode::StateDefinition_t
+class __declspec(align(8)) CNmStateMachineNode__StateDefinition_t {
 public:
-    int16_t m_nStateNodeIdx;
-    int16_t m_nEntryConditionNodeIdx;
+    int16_t m_nStateNodeIdx; // 0x0
+    int16_t m_nEntryConditionNodeIdx; // 0x2
     // CUtlLeanVectorFixedGrowable< CNmStateMachineNode::TransitionDefinition_t, 5 > m_transitionDefinitions;
     char pad_00[52];
-};
+}; // size: 0x38
 
-class CNmCachedPoseReadTask {
+class __declspec(align(8)) CNmCachedPoseReadTask {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CVectorAnimParameter {
+class __declspec(align(8)) CVectorAnimParameter {
 public:
     // Vector m_defaultValue;
     char pad_00[140];
-    bool m_bInterpolate;
-    AnimParamVectorType_t m_vectorType;
+    bool m_bInterpolate; // 0x8c
+    AnimParamVectorType_t m_vectorType; // 0x90
     char pad_01[4];
-};
+}; // size: 0x98
 
-class CAnimGraphDebugReplay {
+class __declspec(align(8)) CAnimGraphDebugReplay {
 public:
     // CUtlString m_animGraphFileName;
     // CUtlVector< CSmartPtr< CAnimReplayFrame > > m_frameList;
     char pad_00[96];
-    int32_t m_startIndex;
-    int32_t m_writeIndex;
-    int32_t m_frameCount;
+    int32_t m_startIndex; // 0x60
+    int32_t m_writeIndex; // 0x64
+    int32_t m_frameCount; // 0x68
     char pad_01[4];
-};
+}; // size: 0x70
 
-class CNmVirtualParameterTargetNode::CDefinition {
+/// CNmVirtualParameterTargetNode::CDefinition
+class __declspec(align(8)) CNmVirtualParameterTargetNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CAnimGraphSettingsGroup {
+class __declspec(align(8)) CAnimGraphSettingsGroup {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CNmPoseTask {
+class __declspec(align(1)) CNmPoseTask {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CSeqTransition {
+class __declspec(align(4)) CSeqTransition {
 public:
-    float m_flFadeInTime;
-    float m_flFadeOutTime;
-};
+    float m_flFadeInTime; // 0x0
+    float m_flFadeOutTime; // 0x4
+}; // size: 0x8
 
-class CNmVectorValueNode::CDefinition {
+/// CNmVectorValueNode::CDefinition
+class __declspec(align(1)) CNmVectorValueNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmBlendTask {
+class __declspec(align(8)) CNmBlendTask {
 public:
     char pad_00[224];
-};
+}; // size: 0xe0
 
-class AnimationSnapshot_t {
+class __declspec(align(16)) AnimationSnapshot_t {
 public:
     char pad_00[272];
-    int32_t m_nEntIndex;
+    int32_t m_nEntIndex; // 0x110
     // CUtlString m_modelName;
     char pad_01[12];
-};
+}; // size: 0x120
 
-class CNmVectorInfoNode::CDefinition {
+/// CNmVectorInfoNode::CDefinition
+class __declspec(align(8)) CNmVectorInfoNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nInputValueNodeIdx;
-    CNmVectorInfoNode::Info_t m_desiredInfo;
-    char pad_01[5];
-};
+    int16_t m_nInputValueNodeIdx; // 0x10
+    // CNmVectorInfoNode::Info_t m_desiredInfo;
+    char pad_01[6];
+}; // size: 0x18
 
-class CMotionGraph {
+class __declspec(align(8)) CMotionGraph {
 public:
     char pad_00[16];
-    CParamSpanUpdater m_paramSpans;
+    CParamSpanUpdater m_paramSpans; // 0x10
     // CUtlVector< TagSpan_t > m_tags;
     // CSmartPtr< CMotionNode > m_pRootNode;
     char pad_01[32];
-    int32_t m_nParameterCount;
-    int32_t m_nConfigStartIndex;
-    int32_t m_nConfigCount;
-    bool m_bLoop;
+    int32_t m_nParameterCount; // 0x48
+    int32_t m_nConfigStartIndex; // 0x4c
+    int32_t m_nConfigCount; // 0x50
+    bool m_bLoop; // 0x54
     char pad_02[3];
-};
+}; // size: 0x58
 
-class CPerParticleVecInput {
+class __declspec(align(8)) CPerParticleVecInput {
 public:
     char pad_00[1720];
-};
+}; // size: 0x6b8
 
-class CAnimTagBase {
+class __declspec(align(8)) CAnimTagBase {
 public:
     // CGlobalSymbol m_name;
     // CUtlString m_sComment;
     // CGlobalSymbol m_group;
     char pad_00[48];
-    AnimTagID m_tagID;
+    AnimTagID m_tagID; // 0x30
     char pad_01[20];
-    bool m_bIsReferenced;
+    bool m_bIsReferenced; // 0x48
     char pad_02[7];
-};
+}; // size: 0x50
 
-class CNmPoseNode::CDefinition {
+/// CNmPoseNode::CDefinition
+class __declspec(align(1)) CNmPoseNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class HitReactFixedSettings_t {
+class __declspec(align(4)) HitReactFixedSettings_t {
 public:
-    int32_t m_nWeightListIndex;
-    int32_t m_nEffectedBoneCount;
-    float m_flMaxImpactForce;
-    float m_flMinImpactForce;
-    float m_flWhipImpactScale;
-    float m_flCounterRotationScale;
-    float m_flDistanceFadeScale;
-    float m_flPropagationScale;
-    float m_flWhipDelay;
-    float m_flSpringStrength;
-    float m_flWhipSpringStrength;
-    float m_flMaxAngleRadians;
-    int32_t m_nHipBoneIndex;
-    float m_flHipBoneTranslationScale;
-    float m_flHipDipSpringStrength;
-    float m_flHipDipImpactScale;
-    float m_flHipDipDelay;
-};
+    int32_t m_nWeightListIndex; // 0x0
+    int32_t m_nEffectedBoneCount; // 0x4
+    float m_flMaxImpactForce; // 0x8
+    float m_flMinImpactForce; // 0xc
+    float m_flWhipImpactScale; // 0x10
+    float m_flCounterRotationScale; // 0x14
+    float m_flDistanceFadeScale; // 0x18
+    float m_flPropagationScale; // 0x1c
+    float m_flWhipDelay; // 0x20
+    float m_flSpringStrength; // 0x24
+    float m_flWhipSpringStrength; // 0x28
+    float m_flMaxAngleRadians; // 0x2c
+    int32_t m_nHipBoneIndex; // 0x30
+    float m_flHipBoneTranslationScale; // 0x34
+    float m_flHipDipSpringStrength; // 0x38
+    float m_flHipDipImpactScale; // 0x3c
+    float m_flHipDipDelay; // 0x40
+}; // size: 0x44
 
-class CNmIDEventNode::CDefinition {
+/// CNmIDEventNode::CDefinition
+class __declspec(align(8)) CNmIDEventNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceStateNodeIdx;
-    CNmBitFlags m_eventConditionRules;
+    int16_t m_nSourceStateNodeIdx; // 0x10
+    CNmBitFlags m_eventConditionRules; // 0x14
     // CGlobalSymbol m_defaultValue;
     char pad_01[8];
-};
+}; // size: 0x20
 
-class CNmBoneMaskBlendNode::CDefinition {
+/// CNmBoneMaskBlendNode::CDefinition
+class __declspec(align(8)) CNmBoneMaskBlendNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nSourceMaskNodeIdx;
-    int16_t m_nTargetMaskNodeIdx;
-    int16_t m_nBlendWeightValueNodeIdx;
+    int16_t m_nSourceMaskNodeIdx; // 0x10
+    int16_t m_nTargetMaskNodeIdx; // 0x12
+    int16_t m_nBlendWeightValueNodeIdx; // 0x14
     char pad_01[2];
-};
+}; // size: 0x18
 
-class PulseRuntimeInvokeIndex_t {
+class __declspec(align(4)) PulseRuntimeInvokeIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CStanceScaleUpdateNode {
+class __declspec(align(8)) CStanceScaleUpdateNode {
 public:
     char pad_00[112];
-    CAnimParamHandle m_hParam;
+    CAnimParamHandle m_hParam; // 0x70
     char pad_01[6];
-};
+}; // size: 0x78
 
-class CPulse_Chunk {
+class __declspec(align(8)) CPulse_Chunk {
 public:
     // CUtlLeanVector< PGDInstruction_t > m_Instructions;
     // CUtlLeanVector< CPulse_RegisterInfo > m_Registers;
     // CUtlLeanVector< CPulse_InstructionDebug > m_InstructionDebugInfos;
     char pad_00[88];
-};
+}; // size: 0x58
 
-class IKBoneNameAndIndex_t {
+class __declspec(align(1)) IKBoneNameAndIndex_t {
 public:
     // CUtlString m_Name;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class StanceInfo_t {
+class __declspec(align(4)) StanceInfo_t {
 public:
     // Vector m_vPosition;
     char pad_00[12];
-    float m_flDirection;
-};
+    float m_flDirection; // 0xc
+}; // size: 0x10
 
-class PermModelInfo_t {
+class __declspec(align(8)) PermModelInfo_t {
 public:
-    uint32_t m_nFlags;
+    uint32_t m_nFlags; // 0x0
     // Vector m_vHullMin;
     // Vector m_vHullMax;
     // Vector m_vViewMin;
     // Vector m_vViewMax;
     char pad_00[48];
-    float m_flMass;
+    float m_flMass; // 0x34
     // Vector m_vEyePosition;
     char pad_01[12];
-    float m_flMaxEyeDeflection;
+    float m_flMaxEyeDeflection; // 0x44
     // CUtlString m_sSurfaceProperty;
     // CUtlString m_keyValueText;
     char pad_02[16];
-};
+}; // size: 0x58
 
-class CSeqSeqDescFlag {
+class __declspec(align(1)) CSeqSeqDescFlag {
 public:
-    bool m_bLooping;
-    bool m_bSnap;
-    bool m_bAutoplay;
-    bool m_bPost;
-    bool m_bHidden;
-    bool m_bMulti;
-    bool m_bLegacyDelta;
-    bool m_bLegacyWorldspace;
-    bool m_bLegacyCyclepose;
-    bool m_bLegacyRealtime;
-    bool m_bModelDoc;
-};
+    bool m_bLooping; // 0x0
+    bool m_bSnap; // 0x1
+    bool m_bAutoplay; // 0x2
+    bool m_bPost; // 0x3
+    bool m_bHidden; // 0x4
+    bool m_bMulti; // 0x5
+    bool m_bLegacyDelta; // 0x6
+    bool m_bLegacyWorldspace; // 0x7
+    bool m_bLegacyCyclepose; // 0x8
+    bool m_bLegacyRealtime; // 0x9
+    bool m_bModelDoc; // 0xa
+}; // size: 0xb
 
-class PulseRuntimeDomainValueIndex_t {
+class __declspec(align(2)) PulseRuntimeDomainValueIndex_t {
 public:
-    int16_t m_Value;
-};
+    int16_t m_Value; // 0x0
+}; // size: 0x2
 
-class CAimCameraUpdateNode {
+class __declspec(align(8)) CAimCameraUpdateNode {
 public:
     char pad_00[112];
-    CAnimParamHandle m_hParameterPosition;
-    CAnimParamHandle m_hParameterOrientation;
-    CAnimParamHandle m_hParameterPelvisOffset;
-    CAnimParamHandle m_hParameterCameraOnly;
-    CAnimParamHandle m_hParameterWeaponDepenetrationDistance;
-    CAnimParamHandle m_hParameterWeaponDepenetrationDelta;
-    CAnimParamHandle m_hParameterCameraClearanceDistance;
-    AimCameraOpFixedSettings_t m_opFixedSettings;
+    CAnimParamHandle m_hParameterPosition; // 0x70
+    CAnimParamHandle m_hParameterOrientation; // 0x72
+    CAnimParamHandle m_hParameterPelvisOffset; // 0x74
+    CAnimParamHandle m_hParameterCameraOnly; // 0x76
+    CAnimParamHandle m_hParameterWeaponDepenetrationDistance; // 0x78
+    CAnimParamHandle m_hParameterWeaponDepenetrationDelta; // 0x7a
+    CAnimParamHandle m_hParameterCameraClearanceDistance; // 0x7c
+    AimCameraOpFixedSettings_t m_opFixedSettings; // 0x80
     char pad_01[8];
-};
+}; // size: 0xb8
 
-class PulseRuntimeEntrypointIndex_t {
+class __declspec(align(4)) PulseRuntimeEntrypointIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CNmGraphDefinition::ExternalGraphSlot_t {
+/// CNmGraphDefinition::ExternalGraphSlot_t
+class __declspec(align(8)) CNmGraphDefinition__ExternalGraphSlot_t {
 public:
-    int16_t m_nNodeIdx;
+    int16_t m_nNodeIdx; // 0x0
     // CGlobalSymbol m_slotID;
     char pad_00[14];
-};
+}; // size: 0x10
 
-class CNmClipReferenceNode::CDefinition {
+/// CNmClipReferenceNode::CDefinition
+class __declspec(align(1)) CNmClipReferenceNode__CDefinition {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNmPassthroughNode::CDefinition {
+/// CNmPassthroughNode::CDefinition
+class __declspec(align(8)) CNmPassthroughNode__CDefinition {
 public:
     char pad_00[16];
-    int16_t m_nChildNodeIdx;
+    int16_t m_nChildNodeIdx; // 0x10
     char pad_01[6];
-};
+}; // size: 0x18
 
-class CSequenceUpdateNode {
+class __declspec(align(8)) CSequenceUpdateNode {
 public:
     char pad_00[120];
-    HSequence m_hSequence;
-    float m_duration;
-    CParamSpanUpdater m_paramSpans;
+    HSequence m_hSequence; // 0x78
+    float m_duration; // 0x7c
+    CParamSpanUpdater m_paramSpans; // 0x80
     // CUtlVector< TagSpan_t > m_tags;
     char pad_01[24];
-};
+}; // size: 0xb0
 
-class VPhysXCollisionAttributes_t {
+class __declspec(align(8)) VPhysXCollisionAttributes_t {
 public:
-    int32_t m_nIncludeDetailLayerCount;
-    uint32_t m_CollisionGroup;
+    int32_t m_nIncludeDetailLayerCount; // 0x0
+    uint32_t m_CollisionGroup; // 0x4
     // CUtlVector< uint32 > m_InteractAs;
     // CUtlVector< uint32 > m_InteractWith;
     // CUtlVector< uint32 > m_InteractExclude;
@@ -10745,194 +10922,196 @@ public:
     // CUtlVector< CUtlString > m_InteractExcludeStrings;
     // CUtlVector< CUtlString > m_DetailLayerStrings;
     char pad_00[200];
-};
+}; // size: 0xd0
 
-class ConfigIndex {
+class __declspec(align(2)) ConfigIndex {
 public:
-    uint16_t m_nGroup;
-    uint16_t m_nConfig;
-};
+    uint16_t m_nGroup; // 0x0
+    uint16_t m_nConfig; // 0x2
+}; // size: 0x4
 
-class PulseRuntimeVarIndex_t {
+class __declspec(align(4)) PulseRuntimeVarIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class MovementGaitId_t {
+class __declspec(align(8)) MovementGaitId_t {
 public:
     // CGlobalSymbol m_sId;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class AnimationDecodeDebugDumpElement_t {
+class __declspec(align(8)) AnimationDecodeDebugDumpElement_t {
 public:
-    int32_t m_nEntityIndex;
+    int32_t m_nEntityIndex; // 0x0
     // CUtlString m_modelName;
     // CUtlVector< CUtlString > m_poseParams;
     // CUtlVector< CUtlString > m_decodeOps;
     // CUtlVector< CUtlString > m_internalOps;
     // CUtlVector< CUtlString > m_decodedAnims;
     char pad_00[108];
-};
+}; // size: 0x70
 
-class CAnimScriptManager {
+class __declspec(align(8)) CAnimScriptManager {
 public:
     // CUtlVector< ScriptInfo_t > m_scriptInfo;
     char pad_00[416];
-};
+}; // size: 0x1a0
 
-class CAnimActivity {
+class __declspec(align(8)) CAnimActivity {
 public:
     // CBufferString m_name;
     char pad_00[16];
-    int32_t m_nActivity;
-    int32_t m_nFlags;
-    int32_t m_nWeight;
+    int32_t m_nActivity; // 0x10
+    int32_t m_nFlags; // 0x14
+    int32_t m_nWeight; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CMotionSearchNode {
+class __declspec(align(8)) CMotionSearchNode {
 public:
     // CUtlVector< CMotionSearchNode* > m_children;
     char pad_00[24];
-    CVectorQuantizer m_quantizer;
+    CVectorQuantizer m_quantizer; // 0x18
     // CUtlVector< CUtlVector< SampleCode > > m_sampleCodes;
     // CUtlVector< CUtlVector< int32 > > m_sampleIndices;
     // CUtlVector< int32 > m_selectableSamples;
     char pad_01[72];
-};
+}; // size: 0x80
 
-class CMotionGraphConfig {
+class __declspec(align(4)) CMotionGraphConfig {
 public:
-    float m_paramValues[4];
-    float m_flDuration;
-    MotionIndex m_nMotionIndex;
-    int32_t m_nSampleStart;
-    int32_t m_nSampleCount;
-};
+    float m_paramValues[4]; // 0x0
+    float m_flDuration; // 0x10
+    MotionIndex m_nMotionIndex; // 0x14
+    int32_t m_nSampleStart; // 0x18
+    int32_t m_nSampleCount; // 0x1c
+}; // size: 0x20
 
-class CTaskStatusAnimTag {
+class __declspec(align(8)) CTaskStatusAnimTag {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CNmTransitionEventConditionNode::CDefinition {
+/// CNmTransitionEventConditionNode::CDefinition
+class __declspec(align(8)) CNmTransitionEventConditionNode__CDefinition {
 public:
     // CGlobalSymbol m_requireRuleID;
     char pad_00[24];
-    CNmBitFlags m_eventConditionRules;
-    int16_t m_nSourceStateNodeIdx;
-    NmTransitionRuleCondition_t m_ruleCondition;
+    CNmBitFlags m_eventConditionRules; // 0x18
+    int16_t m_nSourceStateNodeIdx; // 0x1c
+    NmTransitionRuleCondition_t m_ruleCondition; // 0x1e
     char pad_01[1];
-};
+}; // size: 0x20
 
-class CCachedPose {
+class __declspec(align(8)) CCachedPose {
 public:
     // CUtlVector< CTransform > m_transforms;
     // CUtlVector< float32 > m_morphWeights;
     char pad_00[56];
-    HSequence m_hSequence;
-    float m_flCycle;
-};
+    HSequence m_hSequence; // 0x38
+    float m_flCycle; // 0x3c
+}; // size: 0x40
 
-class SampleCode {
+class __declspec(align(1)) SampleCode {
 public:
-    uint8_t m_subCode[8];
-};
+    uint8_t m_subCode[8]; // 0x0
+}; // size: 0x8
 
-class CAnimEncodedFrames {
+class __declspec(align(8)) CAnimEncodedFrames {
 public:
     // CBufferString m_fileName;
     char pad_00[16];
-    int32_t m_nFrames;
-    int32_t m_nFramesPerBlock;
+    int32_t m_nFrames; // 0x10
+    int32_t m_nFramesPerBlock; // 0x14
     // CUtlVector< CAnimFrameBlockAnim > m_frameblockArray;
     char pad_01[24];
-    CAnimEncodeDifference m_usageDifferences;
-};
+    CAnimEncodeDifference m_usageDifferences; // 0x30
+}; // size: 0xd8
 
-class CSeqBoneMaskList {
+class __declspec(align(8)) CSeqBoneMaskList {
 public:
     // CBufferString m_sName;
     // CUtlVector< int16 > m_nLocalBoneArray;
     // CUtlVector< float32 > m_flBoneWeightArray;
     char pad_00[64];
-    float m_flDefaultMorphCtrlWeight;
+    float m_flDefaultMorphCtrlWeight; // 0x40
     // CUtlVector< std::pair< CBufferString, float32 > > m_morphCtrlWeightArray;
     char pad_01[28];
-};
+}; // size: 0x60
 
-class CNmSyncTrack {
+class __declspec(align(8)) CNmSyncTrack {
 public:
     // CUtlLeanVectorFixedGrowable< CNmSyncTrack::Event_t, 10 > m_syncEvents;
     char pad_00[168];
-    int32_t m_nStartEventOffset;
+    int32_t m_nStartEventOffset; // 0xa8
     char pad_01[4];
-};
+}; // size: 0xb0
 
-class AnimNodeOutputID {
+class __declspec(align(4)) AnimNodeOutputID {
 public:
-    uint32_t m_id;
-};
+    uint32_t m_id; // 0x0
+}; // size: 0x4
 
-class CAnimNodePath {
+class __declspec(align(4)) CAnimNodePath {
 public:
-    AnimNodeID m_path;
+    AnimNodeID m_path; // 0x0
     char pad_00[40];
-    int32_t m_nCount;
-};
+    int32_t m_nCount; // 0x2c
+}; // size: 0x30
 
-class CNmFrameSnapEvent {
+class __declspec(align(8)) CNmFrameSnapEvent {
 public:
     char pad_00[32];
-    NmFrameSnapEventMode_t m_frameSnapMode;
+    NmFrameSnapEventMode_t m_frameSnapMode; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CNmScaleTask {
+class __declspec(align(8)) CNmScaleTask {
 public:
     char pad_00[176];
-};
+}; // size: 0xb0
 
-class CNmParameterizedBlendNode::CDefinition {
+/// CNmParameterizedBlendNode::CDefinition
+class __declspec(align(8)) CNmParameterizedBlendNode__CDefinition {
 public:
     // CUtlVectorFixedGrowable< int16, 5 > m_sourceNodeIndices;
     char pad_00[56];
-    int16_t m_nInputParameterValueNodeIdx;
-    bool m_bAllowLooping;
+    int16_t m_nInputParameterValueNodeIdx; // 0x38
+    bool m_bAllowLooping; // 0x3a
     char pad_01[5];
-};
+}; // size: 0x40
 
-class CIntAnimParameter {
+class __declspec(align(8)) CIntAnimParameter {
 public:
     char pad_00[128];
-    int32_t m_defaultValue;
-    int32_t m_minValue;
-    int32_t m_maxValue;
+    int32_t m_defaultValue; // 0x80
+    int32_t m_minValue; // 0x84
+    int32_t m_maxValue; // 0x88
     char pad_01[4];
-};
+}; // size: 0x90
 
-class CInputStreamUpdateNode {
+class __declspec(align(8)) CInputStreamUpdateNode {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CParticleModelInput {
+class __declspec(align(8)) CParticleModelInput {
 public:
     char pad_00[16];
-    ParticleModelType_t m_nType;
+    ParticleModelType_t m_nType; // 0x10
     // CParticleNamedValueRef m_NamedValue;
     char pad_01[68];
-    int32_t m_nControlPoint;
+    int32_t m_nControlPoint; // 0x58
     char pad_02[4];
-};
+}; // size: 0x60
 
-class CFootCycle {
+class __declspec(align(4)) CFootCycle {
 public:
     char pad_00[4];
-};
+}; // size: 0x4
 
-class CSceneObjectData {
+class __declspec(align(8)) CSceneObjectData {
 public:
     // Vector m_vMinBounds;
     // Vector m_vMaxBounds;
@@ -10942,752 +11121,753 @@ public:
     // CUtlLeanVector< CSceneObjectData::RTProxyDrawDescriptor_t > m_rtProxyDrawCalls;
     // Vector4D m_vTintColor;
     char pad_00[160];
-};
+}; // size: 0xa0
 
-class CSequenceFinishedAnimTag {
+class __declspec(align(8)) CSequenceFinishedAnimTag {
 public:
     // CUtlString m_sequenceName;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CAnimParameterBase {
+class __declspec(align(4)) CAnimParameterBase {
 public:
     // CGlobalSymbol m_name;
     // CUtlString m_sComment;
     // CUtlString m_group;
     char pad_00[48];
-    AnimParamID m_id;
+    AnimParamID m_id; // 0x30
     // CUtlString m_componentName;
     char pad_01[52];
-    bool m_bNetworkingRequested;
-    bool m_bIsReferenced;
+    bool m_bNetworkingRequested; // 0x68
+    bool m_bIsReferenced; // 0x69
     char pad_02[6];
-};
+}; // size: 0x70
 
-class COrientationWarpUpdateNode {
+class __declspec(align(8)) COrientationWarpUpdateNode {
 public:
     char pad_00[116];
-    OrientationWarpMode_t m_eMode;
-    CAnimParamHandle m_hTargetParam;
-    CAnimParamHandle m_hTargetPositionParam;
-    CAnimParamHandle m_hFallbackTargetPositionParam;
-    OrientationWarpTargetOffsetMode_t m_eTargetOffsetMode;
-    float m_flTargetOffset;
-    CAnimParamHandle m_hTargetOffsetParam;
-    CAnimInputDamping m_damping;
-    OrientationWarpRootMotionSource_t m_eRootMotionSource;
-    float m_flMaxRootMotionScale;
-    bool m_bEnablePreferredRotationDirection;
-    AnimValueSource m_ePreferredRotationDirection;
-    float m_flPreferredRotationThreshold;
+    OrientationWarpMode_t m_eMode; // 0x74
+    CAnimParamHandle m_hTargetParam; // 0x78
+    CAnimParamHandle m_hTargetPositionParam; // 0x7a
+    CAnimParamHandle m_hFallbackTargetPositionParam; // 0x7c
+    OrientationWarpTargetOffsetMode_t m_eTargetOffsetMode; // 0x80
+    float m_flTargetOffset; // 0x84
+    CAnimParamHandle m_hTargetOffsetParam; // 0x88
+    CAnimInputDamping m_damping; // 0x90
+    OrientationWarpRootMotionSource_t m_eRootMotionSource; // 0xa8
+    float m_flMaxRootMotionScale; // 0xac
+    bool m_bEnablePreferredRotationDirection; // 0xb0
+    AnimValueSource m_ePreferredRotationDirection; // 0xb4
+    float m_flPreferredRotationThreshold; // 0xb8
     char pad_01[4];
-};
+}; // size: 0xc0
 
-class CSlowDownOnSlopesUpdateNode {
+class __declspec(align(8)) CSlowDownOnSlopesUpdateNode {
 public:
     char pad_00[112];
-    float m_flSlowDownStrength;
+    float m_flSlowDownStrength; // 0x70
     char pad_01[4];
-};
+}; // size: 0x78
 
-class CZeroPoseUpdateNode {
+class __declspec(align(8)) CZeroPoseUpdateNode {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CAnimFrameBlockAnim {
+class __declspec(align(8)) CAnimFrameBlockAnim {
 public:
-    int32_t m_nStartFrame;
-    int32_t m_nEndFrame;
+    int32_t m_nStartFrame; // 0x0
+    int32_t m_nEndFrame; // 0x4
     // CUtlVector< int32 > m_segmentIndexArray;
     char pad_00[24];
-};
+}; // size: 0x20
 
-class FeHingeLimitBuild_t {
+class __declspec(align(4)) FeHingeLimitBuild_t {
 public:
-    uint16_t nNode[6];
-    uint32_t nFlags;
-    float flLimitCW;
-    float flLimitCCW;
-};
+    uint16_t nNode[6]; // 0x0
+    uint32_t nFlags; // 0xc
+    float flLimitCW; // 0x10
+    float flLimitCCW; // 0x14
+}; // size: 0x18
 
-class FeFitInfluence_t {
+class __declspec(align(4)) FeFitInfluence_t {
 public:
-    uint32_t nVertexNode;
-    float flWeight;
-    uint32_t nMatrixNode;
-};
+    uint32_t nVertexNode; // 0x0
+    float flWeight; // 0x4
+    uint32_t nMatrixNode; // 0x8
+}; // size: 0xc
 
-class VertexPositionColor_t {
+class __declspec(align(1)) VertexPositionColor_t {
 public:
     // Vector m_vPosition;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class FeSimdTri_t {
+class __declspec(align(16)) FeSimdTri_t {
 public:
-    uint32_t nNode[4];
+    uint32_t nNode[4]; // 0x0
     // fltx4 w1;
     // fltx4 w2;
     // fltx4 v1x;
     // FourVectors2D v2;
     char pad_00[112];
-};
+}; // size: 0x80
 
-class RnHalfEdge_t {
+class __declspec(align(1)) RnHalfEdge_t {
 public:
-    uint8_t m_nNext;
-    uint8_t m_nTwin;
-    uint8_t m_nOrigin;
-    uint8_t m_nFace;
-};
+    uint8_t m_nNext; // 0x0
+    uint8_t m_nTwin; // 0x1
+    uint8_t m_nOrigin; // 0x2
+    uint8_t m_nFace; // 0x3
+}; // size: 0x4
 
-class FeFitWeight_t {
+class __declspec(align(4)) FeFitWeight_t {
 public:
-    float flWeight;
-    uint16_t nNode;
-    uint16_t nDummy;
-};
+    float flWeight; // 0x0
+    uint16_t nNode; // 0x4
+    uint16_t nDummy; // 0x6
+}; // size: 0x8
 
-class FeRodConstraint_t {
+class __declspec(align(4)) FeRodConstraint_t {
 public:
-    uint16_t nNode[2];
-    float flMaxDist;
-    float flMinDist;
-    float flWeight0;
-    float flRelaxationFactor;
-};
+    uint16_t nNode[2]; // 0x0
+    float flMaxDist; // 0x4
+    float flMinDist; // 0x8
+    float flWeight0; // 0xc
+    float flRelaxationFactor; // 0x10
+}; // size: 0x14
 
-class FeTreeChildren_t {
+class __declspec(align(2)) FeTreeChildren_t {
 public:
-    uint16_t nChild[2];
-};
+    uint16_t nChild[2]; // 0x0
+}; // size: 0x4
 
-class RnShapeDesc_t {
+class __declspec(align(8)) RnShapeDesc_t {
 public:
-    uint32_t m_nCollisionAttributeIndex;
-    uint32_t m_nSurfacePropertyIndex;
+    uint32_t m_nCollisionAttributeIndex; // 0x0
+    uint32_t m_nSurfacePropertyIndex; // 0x4
     // CUtlString m_UserFriendlyName;
     char pad_00[8];
-    bool m_bUserFriendlyNameSealed;
-    bool m_bUserFriendlyNameLong;
-    uint32_t m_nToolMaterialHash;
-};
+    bool m_bUserFriendlyNameSealed; // 0x10
+    bool m_bUserFriendlyNameLong; // 0x11
+    uint32_t m_nToolMaterialHash; // 0x14
+}; // size: 0x18
 
-class FeSoftParent_t {
+class __declspec(align(4)) FeSoftParent_t {
 public:
-    int32_t nParent;
-    float flAlpha;
-};
+    int32_t nParent; // 0x0
+    float flAlpha; // 0x4
+}; // size: 0x8
 
-class FeBuildTaperedCapsuleRigid_t {
+class __declspec(align(16)) FeBuildTaperedCapsuleRigid_t {
 public:
     char pad_00[48];
-    int32_t m_nPriority;
-    uint32_t m_nVertexMapHash;
-    uint32_t m_nAntitunnelGroupBits;
+    int32_t m_nPriority; // 0x30
+    uint32_t m_nVertexMapHash; // 0x34
+    uint32_t m_nAntitunnelGroupBits; // 0x38
     char pad_01[4];
-};
+}; // size: 0x40
 
-class CollisionDetailLayerInfo_t::Name_t {
+/// CollisionDetailLayerInfo_t::Name_t
+class __declspec(align(8)) CollisionDetailLayerInfo_t__Name_t {
 public:
     // CUtlStringToken m_nNameToken;
     // CUtlString m_sNameString;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class FeSphereRigid_t {
+class __declspec(align(16)) FeSphereRigid_t {
 public:
     // fltx4 vSphere;
     char pad_00[16];
-    uint16_t nNode;
-    uint16_t nCollisionMask;
-    uint16_t nVertexMapIndex;
-    uint16_t nFlags;
+    uint16_t nNode; // 0x10
+    uint16_t nCollisionMask; // 0x12
+    uint16_t nVertexMapIndex; // 0x14
+    uint16_t nFlags; // 0x16
     char pad_01[8];
-};
+}; // size: 0x20
 
-class constraint_breakableparams_t {
+class __declspec(align(4)) constraint_breakableparams_t {
 public:
-    float strength;
-    float forceLimit;
-    float torqueLimit;
-    float bodyMassScale[2];
-    bool isActive;
+    float strength; // 0x0
+    float forceLimit; // 0x4
+    float torqueLimit; // 0x8
+    float bodyMassScale[2]; // 0xc
+    bool isActive; // 0x14
     char pad_00[3];
-};
+}; // size: 0x18
 
-class FourCovMatrices3 {
+class __declspec(align(16)) FourCovMatrices3 {
 public:
     // FourVectors m_vDiag;
     // fltx4 m_flXY;
     // fltx4 m_flXZ;
     // fltx4 m_flYZ;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class FeAxialEdgeBend_t {
+class __declspec(align(4)) FeAxialEdgeBend_t {
 public:
-    float te;
-    float tv;
-    float flDist;
-    float flWeight[4];
-    uint16_t nNode[6];
-};
+    float te; // 0x0
+    float tv; // 0x4
+    float flDist; // 0x8
+    float flWeight[4]; // 0xc
+    uint16_t nNode[6]; // 0x1c
+}; // size: 0x28
 
-class FeNodeWindBase_t {
+class __declspec(align(2)) FeNodeWindBase_t {
 public:
-    uint16_t nNodeX0;
-    uint16_t nNodeX1;
-    uint16_t nNodeY0;
-    uint16_t nNodeY1;
-};
+    uint16_t nNodeX0; // 0x0
+    uint16_t nNodeX1; // 0x2
+    uint16_t nNodeY0; // 0x4
+    uint16_t nNodeY1; // 0x6
+}; // size: 0x8
 
-class FeTwistConstraint_t {
+class __declspec(align(4)) FeTwistConstraint_t {
 public:
-    uint16_t nNodeOrient;
-    uint16_t nNodeEnd;
-    float flTwistRelax;
-    float flSwingRelax;
-};
+    uint16_t nNodeOrient; // 0x0
+    uint16_t nNodeEnd; // 0x2
+    float flTwistRelax; // 0x4
+    float flSwingRelax; // 0x8
+}; // size: 0xc
 
-class FeSourceEdge_t {
+class __declspec(align(2)) FeSourceEdge_t {
 public:
-    uint16_t nNode[2];
-};
+    uint16_t nNode[2]; // 0x0
+}; // size: 0x4
 
-class FeAntiTunnelProbe_t {
+class __declspec(align(4)) FeAntiTunnelProbe_t {
 public:
-    float flWeight;
-    uint32_t nFlags;
-    uint16_t nProbeNode;
-    uint16_t nCount;
-    uint32_t nBegin;
-    float flActivationDistance;
-    float flCurvatureRadius;
-    float flBias;
-};
+    float flWeight; // 0x0
+    uint32_t nFlags; // 0x4
+    uint16_t nProbeNode; // 0x8
+    uint16_t nCount; // 0xa
+    uint32_t nBegin; // 0xc
+    float flActivationDistance; // 0x10
+    float flCurvatureRadius; // 0x14
+    float flBias; // 0x18
+}; // size: 0x1c
 
-class FeCtrlOsOffset_t {
+class __declspec(align(4)) FeCtrlOsOffset_t {
 public:
-    uint16_t nCtrlParent;
-    uint16_t nCtrlChild;
-};
+    uint16_t nCtrlParent; // 0x0
+    uint16_t nCtrlChild; // 0x2
+}; // size: 0x4
 
-class RnFace_t {
+class __declspec(align(1)) RnFace_t {
 public:
-    uint8_t m_nEdge;
-};
+    uint8_t m_nEdge; // 0x0
+}; // size: 0x1
 
-class FeDynKinLink_t {
+class __declspec(align(2)) FeDynKinLink_t {
 public:
-    uint16_t m_nParent;
-    uint16_t m_nChild;
-};
+    uint16_t m_nParent; // 0x0
+    uint16_t m_nChild; // 0x2
+}; // size: 0x4
 
-class Dop26_t {
+class __declspec(align(4)) Dop26_t {
 public:
-    float m_flSupport[26];
-};
+    float m_flSupport[26]; // 0x0
+}; // size: 0x68
 
-class RnVertex_t {
+class __declspec(align(1)) RnVertex_t {
 public:
-    uint8_t m_nEdge;
-};
+    uint8_t m_nEdge; // 0x0
+}; // size: 0x1
 
-class PhysicsParticleId_t {
+class __declspec(align(4)) PhysicsParticleId_t {
 public:
-    uint32_t m_Value;
-};
+    uint32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CovMatrix3 {
+class __declspec(align(4)) CovMatrix3 {
 public:
     // Vector m_vDiag;
     char pad_00[12];
-    float m_flXY;
-    float m_flXZ;
-    float m_flYZ;
-};
+    float m_flXY; // 0xc
+    float m_flXZ; // 0x10
+    float m_flYZ; // 0x14
+}; // size: 0x18
 
-class FeAntiTunnelGroupBuild_t {
+class __declspec(align(4)) FeAntiTunnelGroupBuild_t {
 public:
-    uint32_t m_nVertexMapHash;
-    uint32_t m_nCollisionMask;
-};
+    uint32_t m_nVertexMapHash; // 0x0
+    uint32_t m_nCollisionMask; // 0x4
+}; // size: 0x8
 
-class FeModelSelfCollisionLayer_t {
+class __declspec(align(8)) FeModelSelfCollisionLayer_t {
 public:
     // CUtlString m_Name;
     // CUtlVector< uint16 > m_Nodes;
     char pad_00[32];
-    float m_flParentReaction;
-    uint32_t m_nFlags;
-    uint32_t m_nEndIdx[4];
-};
+    float m_flParentReaction; // 0x20
+    uint32_t m_nFlags; // 0x24
+    uint32_t m_nEndIdx[4]; // 0x28
+}; // size: 0x38
 
-class RnHull_t {
+class __declspec(align(8)) RnHull_t {
 public:
     // Vector m_vCentroid;
     char pad_00[12];
-    float m_flMaxAngularRadius;
-    AABB_t m_Bounds;
+    float m_flMaxAngularRadius; // 0xc
+    AABB_t m_Bounds; // 0x10
     // Vector m_vOrthographicAreas;
     // matrix3x4_t m_MassProperties;
     char pad_01[60];
-    float m_flVolume;
-    float m_flSurfaceArea;
+    float m_flVolume; // 0x64
+    float m_flSurfaceArea; // 0x68
     // CUtlVector< RnVertex_t > m_Vertices;
     // CUtlVector< Vector > m_VertexPositions;
     // CUtlVector< RnHalfEdge_t > m_Edges;
     // CUtlVector< RnFace_t > m_Faces;
     // CUtlVector< RnPlane_t > m_FacePlanes;
     char pad_02[124];
-    uint32_t m_nFlags;
-    CRegionSVM* m_pRegionSVM;
-};
+    uint32_t m_nFlags; // 0xe8
+    CRegionSVM* m_pRegionSVM; // 0xf0
+}; // size: 0xf8
 
-class FeTri_t {
+class __declspec(align(4)) FeTri_t {
 public:
-    uint16_t nNode[3];
-    float w1;
-    float w2;
-    float v1x;
+    uint16_t nNode[3]; // 0x0
+    float w1; // 0x8
+    float w2; // 0xc
+    float v1x; // 0x10
     // Vector2D v2;
     char pad_00[8];
-};
+}; // size: 0x1c
 
-class CFeVertexMapBuildArray {
+class __declspec(align(8)) CFeVertexMapBuildArray {
 public:
     // CUtlVector< FeVertexMapBuild_t* > m_Array;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class FeVertexMapBuild_t {
+class __declspec(align(8)) FeVertexMapBuild_t {
 public:
     // CUtlString m_VertexMapName;
     char pad_00[8];
-    uint32_t m_nNameHash;
+    uint32_t m_nNameHash; // 0x8
     // Color m_Color;
     char pad_01[4];
-    float m_flVolumetricSolveStrength;
-    int32_t m_nScaleSourceNode;
+    float m_flVolumetricSolveStrength; // 0x10
+    int32_t m_nScaleSourceNode; // 0x14
     // CUtlVector< float32 > m_Weights;
     char pad_02[24];
-};
+}; // size: 0x30
 
-class FeNodeBase_t {
+class __declspec(align(16)) FeNodeBase_t {
 public:
-    uint16_t nNode;
-    uint16_t nDummy[3];
-    uint16_t nNodeX0;
-    uint16_t nNodeX1;
-    uint16_t nNodeY0;
-    uint16_t nNodeY1;
+    uint16_t nNode; // 0x0
+    uint16_t nDummy[3]; // 0x2
+    uint16_t nNodeX0; // 0x8
+    uint16_t nNodeX1; // 0xa
+    uint16_t nNodeY0; // 0xc
+    uint16_t nNodeY1; // 0xe
     // QuaternionStorage qAdjust;
     char pad_00[16];
-};
+}; // size: 0x20
 
-class IPhysicsPlayerController {
+class __declspec(align(1)) IPhysicsPlayerController {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class FeCtrlOffset_t {
+class __declspec(align(4)) FeCtrlOffset_t {
 public:
     // Vector vOffset;
     char pad_00[12];
-    uint16_t nCtrlParent;
-    uint16_t nCtrlChild;
-};
+    uint16_t nCtrlParent; // 0xc
+    uint16_t nCtrlChild; // 0xe
+}; // size: 0x10
 
-class FeMorphLayerDepr_t {
+class __declspec(align(8)) FeMorphLayerDepr_t {
 public:
     // CUtlString m_Name;
     char pad_00[8];
-    uint32_t m_nNameHash;
+    uint32_t m_nNameHash; // 0x8
     // CUtlVector< uint16 > m_Nodes;
     // CUtlVector< Vector > m_InitPos;
     // CUtlVector< float32 > m_Gravity;
     // CUtlVector< float32 > m_GoalStrength;
     // CUtlVector< float32 > m_GoalDamping;
     char pad_01[124];
-    uint32_t m_nFlags;
+    uint32_t m_nFlags; // 0x88
     char pad_02[4];
-};
+}; // size: 0x90
 
-class FeBoxRigid_t {
+class __declspec(align(16)) FeBoxRigid_t {
 public:
     // CTransform tmFrame2;
     char pad_00[32];
-    uint16_t nNode;
-    uint16_t nCollisionMask;
+    uint16_t nNode; // 0x20
+    uint16_t nCollisionMask; // 0x22
     // Vector vSize;
     char pad_01[12];
-    uint16_t nVertexMapIndex;
-    uint16_t nFlags;
+    uint16_t nVertexMapIndex; // 0x30
+    uint16_t nFlags; // 0x32
     char pad_02[12];
-};
+}; // size: 0x40
 
-class FeStiffHingeBuild_t {
+class __declspec(align(4)) FeStiffHingeBuild_t {
 public:
-    float flMaxAngle;
-    float flStrength;
-    float flMotionBias[3];
-    uint16_t nNode[3];
+    float flMaxAngle; // 0x0
+    float flStrength; // 0x4
+    float flMotionBias[3]; // 0x8
+    uint16_t nNode[3]; // 0x14
     char pad_00[2];
-};
+}; // size: 0x1c
 
-class FeCollisionPlane_t {
+class __declspec(align(4)) FeCollisionPlane_t {
 public:
-    uint16_t nCtrlParent;
-    uint16_t nChildNode;
+    uint16_t nCtrlParent; // 0x0
+    uint16_t nChildNode; // 0x2
     // RnPlane_t m_Plane;
     char pad_00[16];
-    float flStrength;
-};
+    float flStrength; // 0x14
+}; // size: 0x18
 
-class FeRigidColliderIndices_t {
+class __declspec(align(2)) FeRigidColliderIndices_t {
 public:
-    uint16_t m_nTaperedCapsuleRigidIndex;
-    uint16_t m_nSphereRigidIndex;
-    uint16_t m_nBoxRigidIndex;
-    uint16_t m_nSDFRigidIndex;
-    uint16_t m_nCollisionPlaneIndex;
-};
+    uint16_t m_nTaperedCapsuleRigidIndex; // 0x0
+    uint16_t m_nSphereRigidIndex; // 0x2
+    uint16_t m_nBoxRigidIndex; // 0x4
+    uint16_t m_nSDFRigidIndex; // 0x6
+    uint16_t m_nCollisionPlaneIndex; // 0x8
+}; // size: 0xa
 
-class CastSphereSATParams_t {
+class __declspec(align(8)) CastSphereSATParams_t {
 public:
     // Vector m_vRayStart;
     // Vector m_vRayDelta;
     char pad_00[24];
-    float m_flRadius;
-    float m_flMaxFraction;
-    float m_flScale;
-    RnHull_t* m_pHull;
-};
+    float m_flRadius; // 0x18
+    float m_flMaxFraction; // 0x1c
+    float m_flScale; // 0x20
+    RnHull_t* m_pHull; // 0x28
+}; // size: 0x30
 
-class FeKelagerBend2_t {
+class __declspec(align(4)) FeKelagerBend2_t {
 public:
-    float flWeight[3];
-    float flHeight0;
-    uint16_t nNode[3];
-    uint16_t nReserved;
-};
+    float flWeight[3]; // 0x0
+    float flHeight0; // 0xc
+    uint16_t nNode[3]; // 0x10
+    uint16_t nReserved; // 0x16
+}; // size: 0x18
 
-class FourVectors2D {
+class __declspec(align(16)) FourVectors2D {
 public:
     // fltx4 x;
     // fltx4 y;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class FeSpringIntegrator_t {
+class __declspec(align(4)) FeSpringIntegrator_t {
 public:
-    uint16_t nNode[2];
-    float flSpringRestLength;
-    float flSpringConstant;
-    float flSpringDamping;
-    float flNodeWeight0;
-};
+    uint16_t nNode[2]; // 0x0
+    float flSpringRestLength; // 0x4
+    float flSpringConstant; // 0x8
+    float flSpringDamping; // 0xc
+    float flNodeWeight0; // 0x10
+}; // size: 0x14
 
-class FeEffectDesc_t {
+class __declspec(align(8)) FeEffectDesc_t {
 public:
     // CUtlString sName;
     char pad_00[8];
-    uint32_t nNameHash;
-    int32_t nType;
+    uint32_t nNameHash; // 0x8
+    int32_t nType; // 0xc
     // KeyValues3 m_Params;
     char pad_01[16];
-};
+}; // size: 0x20
 
-class CollisionDetailLayerInfo_t {
+class __declspec(align(8)) CollisionDetailLayerInfo_t {
 public:
     // CUtlString m_sDescription;
     // CUtlString m_sFriendlyName;
     char pad_00[16];
-    bool m_bIsQueryOnly;
+    bool m_bIsQueryOnly; // 0x10
     // CUtlString m_sParentDetailLayer;
     // CUtlVector< CollisionDetailLayerInfo_t::Name_t > m_vecSubtreeDetailLayers;
     char pad_01[39];
-    bool m_bNotPickable;
+    bool m_bNotPickable; // 0x38
     char pad_02[7];
-};
+}; // size: 0x40
 
-class FeWeightedNode_t {
+class __declspec(align(2)) FeWeightedNode_t {
 public:
-    uint16_t nNode;
-    uint16_t nWeight;
-};
+    uint16_t nNode; // 0x0
+    uint16_t nWeight; // 0x2
+}; // size: 0x4
 
-class RnWing_t {
+class __declspec(align(4)) RnWing_t {
 public:
-    int32_t m_nIndex[3];
-};
+    int32_t m_nIndex[3]; // 0x0
+}; // size: 0xc
 
-class FeHingeLimit_t {
+class __declspec(align(4)) FeHingeLimit_t {
 public:
-    uint16_t nNode[6];
-    uint32_t nFlags;
-    float flWeight4;
-    float flWeight5;
-    float flAngleCenter;
-    float flAngleExtents;
-};
+    uint16_t nNode[6]; // 0x0
+    uint32_t nFlags; // 0xc
+    float flWeight4; // 0x10
+    float flWeight5; // 0x14
+    float flAngleCenter; // 0x18
+    float flAngleExtents; // 0x1c
+}; // size: 0x20
 
-class FeQuad_t {
+class __declspec(align(4)) FeQuad_t {
 public:
-    uint16_t nNode[4];
-    float flSlack;
+    uint16_t nNode[4]; // 0x0
+    float flSlack; // 0x8
     // Vector4D[4] vShape;
     char pad_00[64];
-};
+}; // size: 0x4c
 
-class FeSimdNodeBase_t {
+class __declspec(align(16)) FeSimdNodeBase_t {
 public:
-    uint16_t nNode[4];
-    uint16_t nNodeX0[4];
-    uint16_t nNodeX1[4];
-    uint16_t nNodeY0[4];
-    uint16_t nNodeY1[4];
-    uint16_t nDummy[4];
-    FourQuaternions qAdjust;
-};
+    uint16_t nNode[4]; // 0x0
+    uint16_t nNodeX0[4]; // 0x8
+    uint16_t nNodeX1[4]; // 0x10
+    uint16_t nNodeY0[4]; // 0x18
+    uint16_t nNodeY1[4]; // 0x20
+    uint16_t nDummy[4]; // 0x28
+    FourQuaternions qAdjust; // 0x30
+}; // size: 0x70
 
-class FeSimdSpringIntegrator_t {
+class __declspec(align(16)) FeSimdSpringIntegrator_t {
 public:
-    uint16_t nNode[4];
+    uint16_t nNode[4]; // 0x0
     // fltx4 flSpringRestLength;
     // fltx4 flSpringConstant;
     // fltx4 flSpringDamping;
     // fltx4 flNodeWeight0;
     char pad_00[72];
-};
+}; // size: 0x50
 
-class FeSimdQuad_t {
+class __declspec(align(16)) FeSimdQuad_t {
 public:
-    uint16_t nNode[4];
+    uint16_t nNode[4]; // 0x0
     // fltx4 f4Slack;
     // FourVectors[4] vShape;
     // fltx4[4] f4Weights;
     char pad_00[296];
-};
+}; // size: 0x130
 
-class FeFitMatrix_t {
+class __declspec(align(16)) FeFitMatrix_t {
 public:
     // CTransform bone;
     // Vector vCenter;
     char pad_00[44];
-    uint16_t nEnd;
-    uint16_t nNode;
-    uint16_t nBeginDynamic;
+    uint16_t nEnd; // 0x2c
+    uint16_t nNode; // 0x2e
+    uint16_t nBeginDynamic; // 0x30
     char pad_01[14];
-};
+}; // size: 0x40
 
-class RnNode_t {
+class __declspec(align(16)) RnNode_t {
 public:
     // Vector m_vMin;
     char pad_00[12];
-    uint32_t m_nChildren;
+    uint32_t m_nChildren; // 0xc
     // Vector m_vMax;
     char pad_01[12];
-    uint32_t m_nTriangleOffset;
-};
+    uint32_t m_nTriangleOffset; // 0x1c
+}; // size: 0x20
 
-class FeWorldCollisionParams_t {
+class __declspec(align(4)) FeWorldCollisionParams_t {
 public:
-    float flWorldFriction;
-    float flGroundFriction;
-    uint16_t nListBegin;
-    uint16_t nListEnd;
-};
+    float flWorldFriction; // 0x0
+    float flGroundFriction; // 0x4
+    uint16_t nListBegin; // 0x8
+    uint16_t nListEnd; // 0xa
+}; // size: 0xc
 
-class CRegionSVM {
+class __declspec(align(8)) CRegionSVM {
 public:
     // CUtlVector< RnPlane_t > m_Planes;
     // CUtlVector< uint32 > m_Nodes;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CFeJiggleBone {
+class __declspec(align(4)) CFeJiggleBone {
 public:
-    uint32_t m_nFlags;
-    float m_flLength;
-    float m_flTipMass;
-    float m_flYawStiffness;
-    float m_flYawDamping;
-    float m_flPitchStiffness;
-    float m_flPitchDamping;
-    float m_flAlongStiffness;
-    float m_flAlongDamping;
-    float m_flAngleLimit;
-    float m_flMinYaw;
-    float m_flMaxYaw;
-    float m_flYawFriction;
-    float m_flYawBounce;
-    float m_flMinPitch;
-    float m_flMaxPitch;
-    float m_flPitchFriction;
-    float m_flPitchBounce;
-    float m_flBaseMass;
-    float m_flBaseStiffness;
-    float m_flBaseDamping;
-    float m_flBaseMinLeft;
-    float m_flBaseMaxLeft;
-    float m_flBaseLeftFriction;
-    float m_flBaseMinUp;
-    float m_flBaseMaxUp;
-    float m_flBaseUpFriction;
-    float m_flBaseMinForward;
-    float m_flBaseMaxForward;
-    float m_flBaseForwardFriction;
-    float m_flRadius0;
-    float m_flRadius1;
+    uint32_t m_nFlags; // 0x0
+    float m_flLength; // 0x4
+    float m_flTipMass; // 0x8
+    float m_flYawStiffness; // 0xc
+    float m_flYawDamping; // 0x10
+    float m_flPitchStiffness; // 0x14
+    float m_flPitchDamping; // 0x18
+    float m_flAlongStiffness; // 0x1c
+    float m_flAlongDamping; // 0x20
+    float m_flAngleLimit; // 0x24
+    float m_flMinYaw; // 0x28
+    float m_flMaxYaw; // 0x2c
+    float m_flYawFriction; // 0x30
+    float m_flYawBounce; // 0x34
+    float m_flMinPitch; // 0x38
+    float m_flMaxPitch; // 0x3c
+    float m_flPitchFriction; // 0x40
+    float m_flPitchBounce; // 0x44
+    float m_flBaseMass; // 0x48
+    float m_flBaseStiffness; // 0x4c
+    float m_flBaseDamping; // 0x50
+    float m_flBaseMinLeft; // 0x54
+    float m_flBaseMaxLeft; // 0x58
+    float m_flBaseLeftFriction; // 0x5c
+    float m_flBaseMinUp; // 0x60
+    float m_flBaseMaxUp; // 0x64
+    float m_flBaseUpFriction; // 0x68
+    float m_flBaseMinForward; // 0x6c
+    float m_flBaseMaxForward; // 0x70
+    float m_flBaseForwardFriction; // 0x74
+    float m_flRadius0; // 0x78
+    float m_flRadius1; // 0x7c
     // Vector m_vPoint0;
     // Vector m_vPoint1;
     char pad_00[24];
-    uint16_t m_nCollisionMask;
+    uint16_t m_nCollisionMask; // 0x98
     char pad_01[2];
-};
+}; // size: 0x9c
 
-class FeSDFRigid_t {
+class __declspec(align(8)) FeSDFRigid_t {
 public:
     // Vector vLocalMin;
     // Vector vLocalMax;
     char pad_00[24];
-    float flBounciness;
-    uint16_t nNode;
-    uint16_t nCollisionMask;
-    uint16_t nVertexMapIndex;
-    uint16_t nFlags;
+    float flBounciness; // 0x18
+    uint16_t nNode; // 0x1c
+    uint16_t nCollisionMask; // 0x1e
+    uint16_t nVertexMapIndex; // 0x20
+    uint16_t nFlags; // 0x22
     // CUtlVector< float32 > m_Distances;
     char pad_01[28];
-    int32_t m_nWidth;
-    int32_t m_nHeight;
-    int32_t m_nDepth;
+    int32_t m_nWidth; // 0x40
+    int32_t m_nHeight; // 0x44
+    int32_t m_nDepth; // 0x48
     char pad_02[4];
-};
+}; // size: 0x50
 
-class RnPlane_t {
+class __declspec(align(4)) RnPlane_t {
 public:
     // Vector m_vNormal;
     char pad_00[12];
-    float m_flOffset;
-};
+    float m_flOffset; // 0xc
+}; // size: 0x10
 
-class FeNodeReverseOffset_t {
+class __declspec(align(4)) FeNodeReverseOffset_t {
 public:
     // Vector vOffset;
     char pad_00[12];
-    uint16_t nBoneCtrl;
-    uint16_t nTargetNode;
-};
+    uint16_t nBoneCtrl; // 0xc
+    uint16_t nTargetNode; // 0xe
+}; // size: 0x10
 
-class FeNodeStrayBox_t {
+class __declspec(align(16)) FeNodeStrayBox_t {
 public:
     // Vector vMin;
     char pad_00[12];
-    uint32_t nFlags;
+    uint32_t nFlags; // 0xc
     // Vector vMax;
     char pad_01[12];
-    uint16_t nNode[2];
-};
+    uint16_t nNode[2]; // 0x1c
+}; // size: 0x20
 
-class FeEdgeDesc_t {
+class __declspec(align(2)) FeEdgeDesc_t {
 public:
-    uint16_t nEdge[2];
-    uint16_t nSide[2];
+    uint16_t nEdge[2]; // 0x0
+    uint16_t nSide[2]; // 0x4
     char pad_00[4];
-    uint16_t nVirtElem[2];
-};
+    uint16_t nVirtElem[2]; // 0xc
+}; // size: 0x10
 
-class FeAnimStrayRadius_t {
+class __declspec(align(4)) FeAnimStrayRadius_t {
 public:
-    uint16_t nNode[2];
-    float flMaxDist;
-    float flRelaxationFactor;
-};
+    uint16_t nNode[2]; // 0x0
+    float flMaxDist; // 0x4
+    float flRelaxationFactor; // 0x8
+}; // size: 0xc
 
-class FeTaperedCapsuleRigid_t {
+class __declspec(align(16)) FeTaperedCapsuleRigid_t {
 public:
     // fltx4[2] vSphere;
     char pad_00[32];
-    uint16_t nNode;
-    uint16_t nCollisionMask;
-    uint16_t nVertexMapIndex;
-    uint16_t nFlags;
+    uint16_t nNode; // 0x20
+    uint16_t nCollisionMask; // 0x22
+    uint16_t nVertexMapIndex; // 0x24
+    uint16_t nFlags; // 0x26
     char pad_01[8];
-};
+}; // size: 0x30
 
-class FeVertexMapDesc_t {
+class __declspec(align(8)) FeVertexMapDesc_t {
 public:
     // CUtlString sName;
     char pad_00[8];
-    uint32_t nNameHash;
-    uint32_t nColor;
-    uint32_t nFlags;
-    uint16_t nVertexBase;
-    uint16_t nVertexCount;
-    uint32_t nMapOffset;
-    uint32_t nNodeListOffset;
+    uint32_t nNameHash; // 0x8
+    uint32_t nColor; // 0xc
+    uint32_t nFlags; // 0x10
+    uint16_t nVertexBase; // 0x14
+    uint16_t nVertexCount; // 0x16
+    uint32_t nMapOffset; // 0x18
+    uint32_t nNodeListOffset; // 0x1c
     // Vector vCenterOfMass;
     char pad_01[12];
-    float flVolumetricSolveStrength;
-    int16_t nScaleSourceNode;
-    uint16_t nNodeListCount;
+    float flVolumetricSolveStrength; // 0x2c
+    int16_t nScaleSourceNode; // 0x30
+    uint16_t nNodeListCount; // 0x32
     char pad_02[4];
-};
+}; // size: 0x38
 
-class FeCtrlSoftOffset_t {
+class __declspec(align(4)) FeCtrlSoftOffset_t {
 public:
-    uint16_t nCtrlParent;
-    uint16_t nCtrlChild;
+    uint16_t nCtrlParent; // 0x0
+    uint16_t nCtrlChild; // 0x2
     // Vector vOffset;
     char pad_00[12];
-    float flAlpha;
-};
+    float flAlpha; // 0x10
+}; // size: 0x14
 
-class CFeMorphLayer {
+class __declspec(align(8)) CFeMorphLayer {
 public:
     // CUtlString m_Name;
     char pad_00[8];
-    uint32_t m_nNameHash;
+    uint32_t m_nNameHash; // 0x8
     // CUtlVector< uint16 > m_Nodes;
     // CUtlVector< Vector > m_InitPos;
     // CUtlVector< float32 > m_Gravity;
     // CUtlVector< float32 > m_GoalStrength;
     // CUtlVector< float32 > m_GoalDamping;
     char pad_01[124];
-};
+}; // size: 0x88
 
-class RnBlendVertex_t {
+class __declspec(align(16)) RnBlendVertex_t {
 public:
-    uint16_t m_nWeight0;
-    uint16_t m_nIndex0;
-    uint16_t m_nWeight1;
-    uint16_t m_nIndex1;
-    uint16_t m_nWeight2;
-    uint16_t m_nIndex2;
-    uint16_t m_nFlags;
-    uint16_t m_nTargetIndex;
-};
+    uint16_t m_nWeight0; // 0x0
+    uint16_t m_nIndex0; // 0x2
+    uint16_t m_nWeight1; // 0x4
+    uint16_t m_nIndex1; // 0x6
+    uint16_t m_nWeight2; // 0x8
+    uint16_t m_nIndex2; // 0xa
+    uint16_t m_nFlags; // 0xc
+    uint16_t m_nTargetIndex; // 0xe
+}; // size: 0x10
 
-class FeBuildSDFRigid_t {
+class __declspec(align(8)) FeBuildSDFRigid_t {
 public:
     char pad_00[80];
-    int32_t m_nPriority;
-    uint32_t m_nVertexMapHash;
-    uint32_t m_nAntitunnelGroupBits;
+    int32_t m_nPriority; // 0x50
+    uint32_t m_nVertexMapHash; // 0x54
+    uint32_t m_nAntitunnelGroupBits; // 0x58
     char pad_01[4];
-};
+}; // size: 0x60
 
-class VertexPositionNormal_t {
+class __declspec(align(1)) VertexPositionNormal_t {
 public:
     // Vector m_vPosition;
     // Vector m_vNormal;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class RnMesh_t {
+class __declspec(align(8)) RnMesh_t {
 public:
     // Vector m_vMin;
     // Vector m_vMax;
@@ -11699,35 +11879,35 @@ public:
     // CUtlVector< uint8 > m_Materials;
     // Vector m_vOrthographicAreas;
     char pad_00[180];
-    uint32_t m_nFlags;
-    uint32_t m_nDebugFlags;
+    uint32_t m_nFlags; // 0xb4
+    uint32_t m_nDebugFlags; // 0xb8
     char pad_01[4];
-};
+}; // size: 0xc0
 
-class FeFollowNode_t {
+class __declspec(align(4)) FeFollowNode_t {
 public:
-    uint16_t nParentNode;
-    uint16_t nChildNode;
-    float flWeight;
-};
+    uint16_t nParentNode; // 0x0
+    uint16_t nChildNode; // 0x2
+    float flWeight; // 0x4
+}; // size: 0x8
 
-class OldFeEdge_t {
+class __declspec(align(4)) OldFeEdge_t {
 public:
-    float m_flK[3];
-    float invA;
-    float t;
-    float flThetaRelaxed;
-    float flThetaFactor;
-    float c01;
-    float c02;
-    float c03;
-    float c04;
-    float flAxialModelDist;
-    float flAxialModelWeights[4];
-    uint16_t m_nNode[4];
-};
+    float m_flK[3]; // 0x0
+    float invA; // 0xc
+    float t; // 0x10
+    float flThetaRelaxed; // 0x14
+    float flThetaFactor; // 0x18
+    float c01; // 0x1c
+    float c02; // 0x20
+    float c03; // 0x24
+    float c04; // 0x28
+    float flAxialModelDist; // 0x2c
+    float flAxialModelWeights[4]; // 0x30
+    uint16_t m_nNode[4]; // 0x40
+}; // size: 0x48
 
-class RnBodyDesc_t {
+class __declspec(align(8)) RnBodyDesc_t {
 public:
     // CUtlString m_sDebugName;
     // Vector m_vPosition;
@@ -11737,1294 +11917,1296 @@ public:
     // Vector m_vLocalMassCenter;
     // Vector[3] m_LocalInertiaInv;
     char pad_00[108];
-    float m_flMassInv;
-    float m_flGameMass;
-    float m_flMassScaleInv;
-    float m_flInertiaScaleInv;
-    float m_flLinearDamping;
-    float m_flAngularDamping;
-    float m_flLinearDragScale;
-    float m_flAngularDragScale;
-    float m_flLinearFluidDragScale;
-    float m_flAngularFluidDragScale;
+    float m_flMassInv; // 0x6c
+    float m_flGameMass; // 0x70
+    float m_flMassScaleInv; // 0x74
+    float m_flInertiaScaleInv; // 0x78
+    float m_flLinearDamping; // 0x7c
+    float m_flAngularDamping; // 0x80
+    float m_flLinearDragScale; // 0x84
+    float m_flAngularDragScale; // 0x88
+    float m_flLinearFluidDragScale; // 0x8c
+    float m_flAngularFluidDragScale; // 0x90
     // Vector m_vLastAwakeForceAccum;
     // Vector m_vLastAwakeTorqueAccum;
     char pad_01[24];
-    float m_flBuoyancyScale;
-    float m_flGravityScale;
-    float m_flTimeScale;
-    int32_t m_nBodyType;
-    uint32_t m_nGameIndex;
-    uint32_t m_nGameFlags;
-    int8_t m_nMinVelocityIterations;
-    int8_t m_nMinPositionIterations;
-    int8_t m_nMassPriority;
-    bool m_bEnabled;
-    bool m_bSleeping;
-    bool m_bIsContinuousEnabled;
-    bool m_bDragEnabled;
+    float m_flBuoyancyScale; // 0xac
+    float m_flGravityScale; // 0xb0
+    float m_flTimeScale; // 0xb4
+    int32_t m_nBodyType; // 0xb8
+    uint32_t m_nGameIndex; // 0xbc
+    uint32_t m_nGameFlags; // 0xc0
+    int8_t m_nMinVelocityIterations; // 0xc4
+    int8_t m_nMinPositionIterations; // 0xc5
+    int8_t m_nMassPriority; // 0xc6
+    bool m_bEnabled; // 0xc7
+    bool m_bSleeping; // 0xc8
+    bool m_bIsContinuousEnabled; // 0xc9
+    bool m_bDragEnabled; // 0xca
     // Vector m_vGravity;
     char pad_02[13];
-    bool m_bSpeculativeEnabled;
-    bool m_bHasShadowController;
-    DynamicContinuousContactBehavior_t m_nDynamicContinuousContactBehavior;
+    bool m_bSpeculativeEnabled; // 0xd8
+    bool m_bHasShadowController; // 0xd9
+    DynamicContinuousContactBehavior_t m_nDynamicContinuousContactBehavior; // 0xda
     char pad_03[5];
-};
+}; // size: 0xe0
 
-class FeAntiTunnelProbeBuild_t {
+class __declspec(align(8)) FeAntiTunnelProbeBuild_t {
 public:
-    float flWeight;
-    float flActivationDistance;
-    float flBias;
-    float flCurvature;
-    uint32_t nFlags;
-    uint16_t nProbeNode;
+    float flWeight; // 0x0
+    float flActivationDistance; // 0x4
+    float flBias; // 0x8
+    float flCurvature; // 0xc
+    uint32_t nFlags; // 0x10
+    uint16_t nProbeNode; // 0x14
     // CUtlVector< uint16 > targetNodes;
     char pad_00[26];
-};
+}; // size: 0x30
 
-class CFeNamedJiggleBone {
+class __declspec(align(16)) CFeNamedJiggleBone {
 public:
     // CUtlString m_strParentBone;
     // CTransform m_transform;
     char pad_00[48];
-    uint32_t m_nJiggleParent;
-    CFeJiggleBone m_jiggleBone;
-};
+    uint32_t m_nJiggleParent; // 0x30
+    CFeJiggleBone m_jiggleBone; // 0x34
+}; // size: 0xd0
 
-class RnCapsule_t {
+class __declspec(align(4)) RnCapsule_t {
 public:
     // Vector[2] m_vCenter;
     char pad_00[24];
-    float m_flRadius;
-};
+    float m_flRadius; // 0x18
+}; // size: 0x1c
 
-class FeNodeIntegrator_t {
+class __declspec(align(4)) FeNodeIntegrator_t {
 public:
-    float flPointDamping;
-    float flAnimationForceAttraction;
-    float flAnimationVertexAttraction;
-    float flGravity;
-};
+    float flPointDamping; // 0x0
+    float flAnimationForceAttraction; // 0x4
+    float flAnimationVertexAttraction; // 0x8
+    float flGravity; // 0xc
+}; // size: 0x10
 
-class FeProxyVertexMap_t {
+class __declspec(align(8)) FeProxyVertexMap_t {
 public:
     // CUtlString m_Name;
     char pad_00[8];
-    float m_flWeight;
+    float m_flWeight; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class RnTriangle_t {
+class __declspec(align(4)) RnTriangle_t {
 public:
-    int32_t m_nIndex[3];
-};
+    int32_t m_nIndex[3]; // 0x0
+}; // size: 0xc
 
-class FeSimdAnimStrayRadius_t {
+class __declspec(align(16)) FeSimdAnimStrayRadius_t {
 public:
-    uint16_t nNode[4];
+    uint16_t nNode[4]; // 0x0
     // fltx4 flMaxDist;
     // fltx4 flRelaxationFactor;
     char pad_00[40];
-};
+}; // size: 0x30
 
-class FeBuildSphereRigid_t {
+class __declspec(align(16)) FeBuildSphereRigid_t {
 public:
     char pad_00[32];
-    int32_t m_nPriority;
-    uint32_t m_nVertexMapHash;
-    uint32_t m_nAntitunnelGroupBits;
+    int32_t m_nPriority; // 0x20
+    uint32_t m_nVertexMapHash; // 0x24
+    uint32_t m_nAntitunnelGroupBits; // 0x28
     char pad_01[4];
-};
+}; // size: 0x30
 
-class constraint_hingeparams_t {
+class __declspec(align(4)) constraint_hingeparams_t {
 public:
     // Vector worldPosition;
     // Vector worldAxisDirection;
     // constraint_axislimit_t hingeAxis;
     char pad_00[40];
-    constraint_breakableparams_t constraint;
-};
+    constraint_breakableparams_t constraint; // 0x28
+}; // size: 0x40
 
-class FeSimdRodConstraint_t {
+class __declspec(align(16)) FeSimdRodConstraint_t {
 public:
-    uint16_t nNode[4];
+    uint16_t nNode[4]; // 0x0
     // fltx4 f4MaxDist;
     // fltx4 f4MinDist;
     // fltx4 f4Weight0;
     // fltx4 f4RelaxationFactor;
     char pad_00[72];
-};
+}; // size: 0x50
 
-class FeSimdRodConstraintAnim_t {
+class __declspec(align(16)) FeSimdRodConstraintAnim_t {
 public:
-    uint16_t nNode[4];
+    uint16_t nNode[4]; // 0x0
     // fltx4 f4Weight0;
     // fltx4 f4RelaxationFactor;
     char pad_00[40];
-};
+}; // size: 0x30
 
-class constraint_axislimit_t {
+class __declspec(align(4)) constraint_axislimit_t {
 public:
-    float flMinRotation;
-    float flMaxRotation;
-    float flMotorTargetAngSpeed;
-    float flMotorMaxTorque;
-};
+    float flMinRotation; // 0x0
+    float flMaxRotation; // 0x4
+    float flMotorTargetAngSpeed; // 0x8
+    float flMotorMaxTorque; // 0xc
+}; // size: 0x10
 
-class FeTaperedCapsuleStretch_t {
+class __declspec(align(4)) FeTaperedCapsuleStretch_t {
 public:
-    uint16_t nNode[2];
-    uint16_t nCollisionMask;
-    uint16_t nDummy;
-    float flRadius[2];
-};
+    uint16_t nNode[2]; // 0x0
+    uint16_t nCollisionMask; // 0x4
+    uint16_t nDummy; // 0x6
+    float flRadius[2]; // 0x8
+}; // size: 0x10
 
-class FeBandBendLimit_t {
+class __declspec(align(4)) FeBandBendLimit_t {
 public:
-    float flDistMin;
-    float flDistMax;
-    uint16_t nNode[6];
-};
+    float flDistMin; // 0x0
+    float flDistMax; // 0x4
+    uint16_t nNode[6]; // 0x8
+}; // size: 0x14
 
-class CFeIndexedJiggleBone {
+class __declspec(align(4)) CFeIndexedJiggleBone {
 public:
-    uint32_t m_nNode;
-    uint32_t m_nJiggleParent;
-    CFeJiggleBone m_jiggleBone;
-};
+    uint32_t m_nNode; // 0x0
+    uint32_t m_nJiggleParent; // 0x4
+    CFeJiggleBone m_jiggleBone; // 0x8
+}; // size: 0xa4
 
-class FeBuildBoxRigid_t {
+class __declspec(align(16)) FeBuildBoxRigid_t {
 public:
     char pad_00[64];
-    int32_t m_nPriority;
-    uint32_t m_nVertexMapHash;
-    uint32_t m_nAntitunnelGroupBits;
+    int32_t m_nPriority; // 0x40
+    uint32_t m_nVertexMapHash; // 0x44
+    uint32_t m_nAntitunnelGroupBits; // 0x48
     char pad_01[4];
-};
+}; // size: 0x50
 
-class vphysics_save_cphysicsbody_t {
+class __declspec(align(8)) vphysics_save_cphysicsbody_t {
 public:
     char pad_00[224];
-    uint64_t m_nOldPointer;
-};
+    uint64_t m_nOldPointer; // 0xe0
+}; // size: 0xe8
 
-class VMixDynamicsDesc_t {
+class __declspec(align(4)) VMixDynamicsDesc_t {
 public:
-    float m_fldbGain;
-    float m_fldbNoiseGateThreshold;
-    float m_fldbCompressionThreshold;
-    float m_fldbLimiterThreshold;
-    float m_fldbKneeWidth;
-    float m_flRatio;
-    float m_flLimiterRatio;
-    float m_flAttackTimeMS;
-    float m_flReleaseTimeMS;
-    float m_flRMSTimeMS;
-    float m_flWetMix;
-    bool m_bPeakMode;
+    float m_fldbGain; // 0x0
+    float m_fldbNoiseGateThreshold; // 0x4
+    float m_fldbCompressionThreshold; // 0x8
+    float m_fldbLimiterThreshold; // 0xc
+    float m_fldbKneeWidth; // 0x10
+    float m_flRatio; // 0x14
+    float m_flLimiterRatio; // 0x18
+    float m_flAttackTimeMS; // 0x1c
+    float m_flReleaseTimeMS; // 0x20
+    float m_flRMSTimeMS; // 0x24
+    float m_flWetMix; // 0x28
+    bool m_bPeakMode; // 0x2c
     char pad_00[3];
-};
+}; // size: 0x30
 
-class VMixFlangerDesc_t {
+class __declspec(align(4)) VMixFlangerDesc_t {
 public:
-    bool m_bPhaseInvert;
-    float m_flGlideTime;
-    float m_flDelay;
-    float m_flOutputGain;
-    float m_flFeedbackGain;
-    float m_flFeedforwardGain;
-    float m_flModRate;
-    float m_flModDepth;
-    bool m_bApplyAntialiasing;
+    bool m_bPhaseInvert; // 0x0
+    float m_flGlideTime; // 0x4
+    float m_flDelay; // 0x8
+    float m_flOutputGain; // 0xc
+    float m_flFeedbackGain; // 0x10
+    float m_flFeedforwardGain; // 0x14
+    float m_flModRate; // 0x18
+    float m_flModDepth; // 0x1c
+    bool m_bApplyAntialiasing; // 0x20
     char pad_00[3];
-};
+}; // size: 0x24
 
-class CVMixAutoFilterProcessorDesc {
+class __declspec(align(8)) CVMixAutoFilterProcessorDesc {
 public:
     // VMixAutoFilterDesc_t m_desc;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class VMixOscDesc_t {
+class __declspec(align(4)) VMixOscDesc_t {
 public:
-    VMixLFOShape_t oscType;
-    float m_freq;
-    float m_flPhase;
-};
+    VMixLFOShape_t oscType; // 0x0
+    float m_freq; // 0x4
+    float m_flPhase; // 0x8
+}; // size: 0xc
 
-class VMixFilterDesc_t {
+class __declspec(align(4)) VMixFilterDesc_t {
 public:
-    VMixFilterType_t m_nFilterType;
-    VMixFilterSlope_t m_nFilterSlope;
-    bool m_bEnabled;
-    float m_fldbGain;
-    float m_flCutoffFreq;
-    float m_flQ;
-};
+    VMixFilterType_t m_nFilterType; // 0x0
+    VMixFilterSlope_t m_nFilterSlope; // 0x2
+    bool m_bEnabled; // 0x3
+    float m_fldbGain; // 0x4
+    float m_flCutoffFreq; // 0x8
+    float m_flQ; // 0xc
+}; // size: 0x10
 
-class CVMixBoxverb2ProcessorDesc {
+class __declspec(align(8)) CVMixBoxverb2ProcessorDesc {
 public:
     // VMixBoxverbDesc_t m_desc;
     char pad_00[112];
-};
+}; // size: 0x70
 
-class CVMixDelayProcessorDesc {
+class __declspec(align(8)) CVMixDelayProcessorDesc {
 public:
     // VMixDelayDesc_t m_desc;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CVoiceContainerDecayingSineWave {
+class __declspec(align(8)) CVoiceContainerDecayingSineWave {
 public:
     char pad_00[168];
-    float m_flFrequency;
-    float m_flDecayTime;
-};
+    float m_flFrequency; // 0xa8
+    float m_flDecayTime; // 0xac
+}; // size: 0xb0
 
-class CVoiceContainerLoopTrigger {
+class __declspec(align(8)) CVoiceContainerLoopTrigger {
 public:
     // CSoundContainerReference m_sound;
     char pad_00[192];
-    float m_flRetriggerTimeMin;
-    float m_flRetriggerTimeMax;
-    float m_flFadeTime;
-    bool m_bCrossFade;
+    float m_flRetriggerTimeMin; // 0xc0
+    float m_flRetriggerTimeMax; // 0xc4
+    float m_flFadeTime; // 0xc8
+    bool m_bCrossFade; // 0xcc
     char pad_01[3];
-};
+}; // size: 0xd0
 
-class VMixUtilityDesc_t {
+class __declspec(align(4)) VMixUtilityDesc_t {
 public:
-    VMixChannelOperation_t m_nOp;
-    float m_flInputPan;
-    float m_flOutputBalance;
-    float m_fldbOutputGain;
-    bool m_bBassMono;
-    float m_flBassFreq;
-};
+    VMixChannelOperation_t m_nOp; // 0x0
+    float m_flInputPan; // 0x4
+    float m_flOutputBalance; // 0x8
+    float m_fldbOutputGain; // 0xc
+    bool m_bBassMono; // 0x10
+    float m_flBassFreq; // 0x14
+}; // size: 0x18
 
-class VMixVocoderDesc_t {
+class __declspec(align(4)) VMixVocoderDesc_t {
 public:
-    int32_t m_nBandCount;
-    float m_flBandwidth;
-    float m_fldBModGain;
-    float m_flFreqRangeStart;
-    float m_flFreqRangeEnd;
-    float m_fldBUnvoicedGain;
-    float m_flAttackTimeMS;
-    float m_flReleaseTimeMS;
-    int32_t m_nDebugBand;
-    bool m_bPeakMode;
+    int32_t m_nBandCount; // 0x0
+    float m_flBandwidth; // 0x4
+    float m_fldBModGain; // 0x8
+    float m_flFreqRangeStart; // 0xc
+    float m_flFreqRangeEnd; // 0x10
+    float m_fldBUnvoicedGain; // 0x14
+    float m_flAttackTimeMS; // 0x18
+    float m_flReleaseTimeMS; // 0x1c
+    int32_t m_nDebugBand; // 0x20
+    bool m_bPeakMode; // 0x24
     char pad_00[3];
-};
+}; // size: 0x28
 
-class CSosGroupActionTimeLimitSchema {
+class __declspec(align(8)) CSosGroupActionTimeLimitSchema {
 public:
     char pad_00[8];
-    float m_flMaxDuration;
+    float m_flMaxDuration; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class CVoiceContainerEnum {
+class __declspec(align(8)) CVoiceContainerEnum {
 public:
     // CSoundContainerReferenceArray m_soundsToPlay;
     char pad_00[224];
-    int32_t m_iSelection;
-    float m_flCrossfadeTime;
-};
+    int32_t m_iSelection; // 0xe0
+    float m_flCrossfadeTime; // 0xe4
+}; // size: 0xe8
 
-class CVMixControlMeter {
+class __declspec(align(8)) CVMixControlMeter {
 public:
     char pad_00[16];
-    int32_t m_nValueIndex;
+    int32_t m_nValueIndex; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CVoiceContainerSwitch {
+class __declspec(align(8)) CVoiceContainerSwitch {
 public:
     // CUtlVector< CSoundContainerReference > m_soundsToPlay;
     char pad_00[192];
-};
+}; // size: 0xc0
 
-class CVMixDualCompressorProcessorDesc {
+class __declspec(align(8)) CVMixDualCompressorProcessorDesc {
 public:
     // VMixDualCompressorDesc_t m_desc;
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CSosGroupActionMemberCountEnvelopeSchema {
+class __declspec(align(8)) CSosGroupActionMemberCountEnvelopeSchema {
 public:
     char pad_00[8];
-    int32_t m_nBaseCount;
-    int32_t m_nTargetCount;
-    float m_flBaseValue;
-    float m_flTargetValue;
-    float m_flAttack;
-    float m_flDecay;
+    int32_t m_nBaseCount; // 0x8
+    int32_t m_nTargetCount; // 0xc
+    float m_flBaseValue; // 0x10
+    float m_flTargetValue; // 0x14
+    float m_flAttack; // 0x18
+    float m_flDecay; // 0x1c
     // CUtlString m_resultVarName;
     char pad_01[8];
-    bool m_bSaveToGroup;
+    bool m_bSaveToGroup; // 0x28
     char pad_02[7];
-};
+}; // size: 0x30
 
-class CSosGroupActionTimeBlockLimitSchema {
+class __declspec(align(8)) CSosGroupActionTimeBlockLimitSchema {
 public:
     char pad_00[8];
-    int32_t m_nMaxCount;
-    float m_flMaxDuration;
-};
+    int32_t m_nMaxCount; // 0x8
+    float m_flMaxDuration; // 0xc
+}; // size: 0x10
 
-class CVoiceContainerSelector {
+class __declspec(align(8)) CVoiceContainerSelector {
 public:
     char pad_00[168];
-    PlayBackMode_t m_mode;
+    PlayBackMode_t m_mode; // 0xa8
     // CSoundContainerReferenceArray m_soundsToPlay;
     // CUtlVector< float32 > m_fProbabilityWeights;
     char pad_01[116];
-};
+}; // size: 0x120
 
-class CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance {
+/// CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance
+class __declspec(align(4)) CVoiceContainerStaticAdditiveSynth__CGainScalePerInstance {
 public:
-    float m_flMinVolume;
-    int32_t m_nInstancesAtMinVolume;
-    float m_flMaxVolume;
-    int32_t m_nInstancesAtMaxVolume;
-};
+    float m_flMinVolume; // 0x0
+    int32_t m_nInstancesAtMinVolume; // 0x4
+    float m_flMaxVolume; // 0x8
+    int32_t m_nInstancesAtMaxVolume; // 0xc
+}; // size: 0x10
 
-class CVMixVsndInput {
+class __declspec(align(8)) CVMixVsndInput {
 public:
     // CUtlString m_defaultValue;
     char pad_00[24];
-    int32_t m_nProcessor;
+    int32_t m_nProcessor; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CVoiceContainerMultiBlender {
+class __declspec(align(8)) CVoiceContainerMultiBlender {
 public:
     // CSoundContainerReferenceArray m_soundsToPlay;
     char pad_00[224];
-    float m_flBlendFactor;
-    float m_flCrossover;
-};
+    float m_flBlendFactor; // 0xe0
+    float m_flCrossover; // 0xe4
+}; // size: 0xe8
 
-class CVMixPlateReverbProcessorDesc {
+class __declspec(align(8)) CVMixPlateReverbProcessorDesc {
 public:
     // VMixPlateverbDesc_t m_desc;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class VMixEffectChainDesc_t {
+class __declspec(align(8)) VMixEffectChainDesc_t {
 public:
     // CUtlString m_effectName;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class VMixDynamicsBand_t {
+class __declspec(align(4)) VMixDynamicsBand_t {
 public:
-    float m_fldbGainInput;
-    float m_fldbGainOutput;
-    float m_fldbThresholdBelow;
-    float m_fldbThresholdAbove;
-    float m_flRatioBelow;
-    float m_flRatioAbove;
-    float m_flAttackTimeMS;
-    float m_flReleaseTimeMS;
-    bool m_bEnable;
-    bool m_bSolo;
+    float m_fldbGainInput; // 0x0
+    float m_fldbGainOutput; // 0x4
+    float m_fldbThresholdBelow; // 0x8
+    float m_fldbThresholdAbove; // 0xc
+    float m_flRatioBelow; // 0x10
+    float m_flRatioAbove; // 0x14
+    float m_flAttackTimeMS; // 0x18
+    float m_flReleaseTimeMS; // 0x1c
+    bool m_bEnable; // 0x20
+    bool m_bSolo; // 0x21
     char pad_00[2];
-};
+}; // size: 0x24
 
-class VMixAutoFilterDesc_t {
+class __declspec(align(4)) VMixAutoFilterDesc_t {
 public:
-    float m_flEnvelopeAmount;
-    float m_flAttackTimeMS;
-    float m_flReleaseTimeMS;
-    VMixFilterDesc_t m_filter;
-    float m_flLFOAmount;
-    float m_flLFORate;
-    float m_flPhase;
-    VMixLFOShape_t m_nLFOShape;
-};
+    float m_flEnvelopeAmount; // 0x0
+    float m_flAttackTimeMS; // 0x4
+    float m_flReleaseTimeMS; // 0x8
+    VMixFilterDesc_t m_filter; // 0xc
+    float m_flLFOAmount; // 0x1c
+    float m_flLFORate; // 0x20
+    float m_flPhase; // 0x24
+    VMixLFOShape_t m_nLFOShape; // 0x28
+}; // size: 0x2c
 
-class CVoiceContainerEnvelope {
+class __declspec(align(8)) CVoiceContainerEnvelope {
 public:
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sound;
     char pad_00[176];
-    CVoiceContainerAnalysisBase* m_analysisContainer;
-};
+    CVoiceContainerAnalysisBase* m_analysisContainer; // 0xb0
+}; // size: 0xb8
 
-class CVoiceContainerAmpedDecayingSineWave {
+class __declspec(align(8)) CVoiceContainerAmpedDecayingSineWave {
 public:
     char pad_00[176];
-    float m_flGainAmount;
+    float m_flGainAmount; // 0xb0
     char pad_01[4];
-};
+}; // size: 0xb8
 
-class CSosGroupActionLimitSchema {
+class __declspec(align(8)) CSosGroupActionLimitSchema {
 public:
     char pad_00[8];
-    int32_t m_nMaxCount;
-    SosActionStopType_t m_nStopType;
-    SosActionLimitSortType_t m_nSortType;
-    bool m_bStopImmediate;
-    bool m_bCountStopped;
+    int32_t m_nMaxCount; // 0x8
+    SosActionStopType_t m_nStopType; // 0xc
+    SosActionLimitSortType_t m_nSortType; // 0x10
+    bool m_bStopImmediate; // 0x14
+    bool m_bCountStopped; // 0x15
     char pad_01[2];
-};
+}; // size: 0x18
 
-class CVMixVocoderProcessorDesc {
+class __declspec(align(8)) CVMixVocoderProcessorDesc {
 public:
     char pad_00[32];
-    VMixVocoderDesc_t m_desc;
-};
+    VMixVocoderDesc_t m_desc; // 0x20
+}; // size: 0x48
 
-class CVMixAudioMeter {
+class __declspec(align(8)) CVMixAudioMeter {
 public:
     // CUtlString m_name;
     // CUtlString m_displayName;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CVoiceContainerParameterBlender {
+class __declspec(align(8)) CVoiceContainerParameterBlender {
 public:
     // CSoundContainerReference m_firstSound;
     // CSoundContainerReference m_secondSound;
     char pad_00[216];
-    bool m_bEnableOcclusionBlend;
+    bool m_bEnableOcclusionBlend; // 0xd8
     // CPiecewiseCurve m_curve1;
     // CPiecewiseCurve m_curve2;
     char pad_01[135];
-    bool m_bEnableDistanceBlend;
+    bool m_bEnableDistanceBlend; // 0x160
     // CPiecewiseCurve m_curve3;
     // CPiecewiseCurve m_curve4;
     char pad_02[135];
-};
+}; // size: 0x1e8
 
-class CAudioSentence {
+class __declspec(align(8)) CAudioSentence {
 public:
-    bool m_bShouldVoiceDuck;
+    bool m_bShouldVoiceDuck; // 0x0
     // CUtlVector< CAudioPhonemeTag > m_RunTimePhonemes;
     // CUtlVector< CAudioEmphasisSample > m_EmphasisSamples;
     // CAudioMorphData m_morphData;
     char pad_00[159];
-};
+}; // size: 0xa0
 
-class VMixEnvelopeDesc_t {
+class __declspec(align(4)) VMixEnvelopeDesc_t {
 public:
-    float m_flAttackTimeMS;
-    float m_flHoldTimeMS;
-    float m_flReleaseTimeMS;
-};
+    float m_flAttackTimeMS; // 0x0
+    float m_flHoldTimeMS; // 0x4
+    float m_flReleaseTimeMS; // 0x8
+}; // size: 0xc
 
-class VMixShaperDesc_t {
+class __declspec(align(4)) VMixShaperDesc_t {
 public:
-    int32_t m_nShape;
-    float m_fldbDrive;
-    float m_fldbOutputGain;
-    float m_flWetMix;
-    int32_t m_nOversampleFactor;
-};
+    int32_t m_nShape; // 0x0
+    float m_fldbDrive; // 0x4
+    float m_fldbOutputGain; // 0x8
+    float m_flWetMix; // 0xc
+    int32_t m_nOversampleFactor; // 0x10
+}; // size: 0x14
 
-class CVMixStereoDelayProcessorDesc {
+class __declspec(align(8)) CVMixStereoDelayProcessorDesc {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class VMixDynamicsCompressorDesc_t {
+class __declspec(align(4)) VMixDynamicsCompressorDesc_t {
 public:
-    float m_fldbOutputGain;
-    float m_fldbCompressionThreshold;
-    float m_fldbKneeWidth;
-    float m_flCompressionRatio;
-    float m_flAttackTimeMS;
-    float m_flReleaseTimeMS;
-    float m_flRMSTimeMS;
-    float m_flWetMix;
-    bool m_bPeakMode;
+    float m_fldbOutputGain; // 0x0
+    float m_fldbCompressionThreshold; // 0x4
+    float m_fldbKneeWidth; // 0x8
+    float m_flCompressionRatio; // 0xc
+    float m_flAttackTimeMS; // 0x10
+    float m_flReleaseTimeMS; // 0x14
+    float m_flRMSTimeMS; // 0x18
+    float m_flWetMix; // 0x1c
+    bool m_bPeakMode; // 0x20
     char pad_00[3];
-};
+}; // size: 0x24
 
-class CVMixPannerProcessorDesc {
+class __declspec(align(8)) CVMixPannerProcessorDesc {
 public:
     // VMixPannerDesc_t m_desc;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CVMixSteamAudioPathingProcessorDesc {
+class __declspec(align(8)) CVMixSteamAudioPathingProcessorDesc {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class VMixDiffusorDesc_t {
+class __declspec(align(4)) VMixDiffusorDesc_t {
 public:
-    float m_flSize;
-    float m_flComplexity;
-    float m_flFeedback;
-    float m_flOutputGain;
-};
+    float m_flSize; // 0x0
+    float m_flComplexity; // 0x4
+    float m_flFeedback; // 0x8
+    float m_flOutputGain; // 0xc
+}; // size: 0x10
 
-class CVMixSubgraphSwitchProcessorDesc {
+class __declspec(align(8)) CVMixSubgraphSwitchProcessorDesc {
 public:
     // VMixSubgraphSwitchDesc_t m_desc;
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CVoiceContainerTapePlayer {
+class __declspec(align(8)) CVoiceContainerTapePlayer {
 public:
     char pad_00[184];
-    bool m_bShouldWraparound;
+    bool m_bShouldWraparound; // 0xb8
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sourceAudio;
     char pad_01[12];
-    float m_flTapeSpeedAttackTime;
-    float m_flTapeSpeedReleaseTime;
+    float m_flTapeSpeedAttackTime; // 0xc8
+    float m_flTapeSpeedReleaseTime; // 0xcc
     char pad_02[40];
-};
+}; // size: 0xf8
 
-class CVMixAdditionalOutput {
+class __declspec(align(8)) CVMixAdditionalOutput {
 public:
     // CUtlString m_name;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CVMixFilterProcessorDesc {
+class __declspec(align(8)) CVMixFilterProcessorDesc {
 public:
     char pad_00[32];
-    VMixFilterDesc_t m_desc;
-};
+    VMixFilterDesc_t m_desc; // 0x20
+}; // size: 0x30
 
-class CSoundContainerReferenceArray {
+class __declspec(align(8)) CSoundContainerReferenceArray {
 public:
-    bool m_bUseReference;
+    bool m_bUseReference; // 0x0
     // CUtlVector< CStrongHandle< InfoForResourceTypeCVoiceContainerBase > > m_sounds;
     // CUtlVector< CVoiceContainerBase* > m_pSounds;
     char pad_00[55];
-};
+}; // size: 0x38
 
-class CVMixConvolutionProcessorDesc {
+class __declspec(align(8)) CVMixConvolutionProcessorDesc {
 public:
     // VMixConvolutionDesc_t m_desc;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class VMixPlateverbDesc_t {
+class __declspec(align(4)) VMixPlateverbDesc_t {
 public:
-    float m_flPrefilter;
-    float m_flInputDiffusion1;
-    float m_flInputDiffusion2;
-    float m_flDecay;
-    float m_flDamp;
-    float m_flFeedbackDiffusion1;
-    float m_flFeedbackDiffusion2;
-};
+    float m_flPrefilter; // 0x0
+    float m_flInputDiffusion1; // 0x4
+    float m_flInputDiffusion2; // 0x8
+    float m_flDecay; // 0xc
+    float m_flDamp; // 0x10
+    float m_flFeedbackDiffusion1; // 0x14
+    float m_flFeedbackDiffusion2; // 0x18
+}; // size: 0x1c
 
-class CVMixFreeverbProcessorDesc {
+class __declspec(align(8)) CVMixFreeverbProcessorDesc {
 public:
     // VMixFreeverbDesc_t m_desc;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CVMixEffectChainProcessorDesc {
+class __declspec(align(8)) CVMixEffectChainProcessorDesc {
 public:
     char pad_00[32];
-    VMixEffectChainDesc_t m_desc;
-};
+    VMixEffectChainDesc_t m_desc; // 0x20
+}; // size: 0x28
 
-class CVMixFlangerProcessorDesc {
+class __declspec(align(8)) CVMixFlangerProcessorDesc {
 public:
     char pad_00[32];
-    VMixFlangerDesc_t m_desc;
+    VMixFlangerDesc_t m_desc; // 0x20
     char pad_01[4];
-};
+}; // size: 0x48
 
-class SosEditItemInfo_t {
+class __declspec(align(8)) SosEditItemInfo_t {
 public:
-    SosEditItemType_t itemType;
+    SosEditItemType_t itemType; // 0x0
     // CUtlString itemName;
     // CUtlString itemTypeName;
     // CUtlString itemKVString;
     // Vector2D itemPos;
     char pad_00[44];
-};
+}; // size: 0x30
 
-class CSoundInfoHeader {
+class __declspec(align(1)) CSoundInfoHeader {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class CVoiceContainerAsyncGenerator {
+class __declspec(align(1)) CVoiceContainerAsyncGenerator {
 public:
     char pad_00[184];
-};
+}; // size: 0xb8
 
-class CVoiceContainerSetElement {
+class __declspec(align(8)) CVoiceContainerSetElement {
 public:
     // CSoundContainerReference m_sound;
     char pad_00[24];
-    float m_flVolumeDB;
+    float m_flVolumeDB; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class VMixConvolutionDesc_t {
+class __declspec(align(4)) VMixConvolutionDesc_t {
 public:
-    float m_fldbGain;
-    float m_flPreDelayMS;
-    float m_flWetMix;
-    float m_fldbLow;
-    float m_fldbMid;
-    float m_fldbHigh;
-    float m_flLowCutoffFreq;
-    float m_flHighCutoffFreq;
-};
+    float m_fldbGain; // 0x0
+    float m_flPreDelayMS; // 0x4
+    float m_flWetMix; // 0x8
+    float m_fldbLow; // 0xc
+    float m_fldbMid; // 0x10
+    float m_fldbHigh; // 0x14
+    float m_flLowCutoffFreq; // 0x18
+    float m_flHighCutoffFreq; // 0x1c
+}; // size: 0x20
 
-class CVoiceContainerSet {
+class __declspec(align(8)) CVoiceContainerSet {
 public:
     // CUtlVector< CVoiceContainerSetElement > m_soundsToPlay;
     char pad_00[192];
-};
+}; // size: 0xc0
 
-class CVoiceContainerGenerator {
+class __declspec(align(1)) CVoiceContainerGenerator {
 public:
     char pad_00[168];
-};
+}; // size: 0xa8
 
-class CVMixCurveHeader {
+class __declspec(align(4)) CVMixCurveHeader {
 public:
-    uint32_t m_nControlPointCount;
-    uint32_t m_nControlPointStart;
-};
+    uint32_t m_nControlPointCount; // 0x0
+    uint32_t m_nControlPointStart; // 0x4
+}; // size: 0x8
 
-class CVMixOscProcessorDesc {
+class __declspec(align(8)) CVMixOscProcessorDesc {
 public:
     char pad_00[32];
-    VMixOscDesc_t m_desc;
+    VMixOscDesc_t m_desc; // 0x20
     char pad_01[4];
-};
+}; // size: 0x30
 
-class CAudioEmphasisSample {
+class __declspec(align(4)) CAudioEmphasisSample {
 public:
-    float m_flTime;
-    float m_flValue;
-};
+    float m_flTime; // 0x0
+    float m_flValue; // 0x4
+}; // size: 0x8
 
-class CVMixAutomaticControlInput {
+class __declspec(align(8)) CVMixAutomaticControlInput {
 public:
     // CUtlString m_name;
     char pad_00[8];
-    int32_t m_nControlInputIndex;
-    bool m_bIsTrackSend;
-    bool m_bIsStackVar;
+    int32_t m_nControlInputIndex; // 0x8
+    bool m_bIsTrackSend; // 0xc
+    bool m_bIsStackVar; // 0xd
     char pad_01[2];
-};
+}; // size: 0x10
 
-class CVMixShaperProcessorDesc {
+class __declspec(align(8)) CVMixShaperProcessorDesc {
 public:
     char pad_00[32];
-    VMixShaperDesc_t m_desc;
+    VMixShaperDesc_t m_desc; // 0x20
     char pad_01[4];
-};
+}; // size: 0x38
 
-class CVMixModDelayProcessorDesc {
+class __declspec(align(8)) CVMixModDelayProcessorDesc {
 public:
     // VMixModDelayDesc_t m_desc;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CVMixControlOutput {
+class __declspec(align(8)) CVMixControlOutput {
 public:
     char pad_00[16];
-    float m_flDefaultValue;
+    float m_flDefaultValue; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class VMixPitchShiftDesc_t {
+class __declspec(align(4)) VMixPitchShiftDesc_t {
 public:
-    int32_t m_nGrainSampleCount;
-    float m_flPitchShift;
-    int32_t m_nQuality;
-    int32_t m_nProcType;
-};
+    int32_t m_nGrainSampleCount; // 0x0
+    float m_flPitchShift; // 0x4
+    int32_t m_nQuality; // 0x8
+    int32_t m_nProcType; // 0xc
+}; // size: 0x10
 
-class CSoundEventMetaData {
+class __declspec(align(8)) CSoundEventMetaData {
 public:
     // CStrongHandle< InfoForResourceTypeCVMixListResource > m_soundEventVMix;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CVMixSteamAudioHybridReverbProcessorDesc {
+class __declspec(align(8)) CVMixSteamAudioHybridReverbProcessorDesc {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CVMixImpulseResponseInput {
+class __declspec(align(8)) CVMixImpulseResponseInput {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CVMixBaseProcessorDesc {
+class __declspec(align(4)) CVMixBaseProcessorDesc {
 public:
     // CUtlString m_name;
     char pad_00[20];
-    int32_t m_nChannels;
-    float m_flxfade;
+    int32_t m_nChannels; // 0x14
+    float m_flxfade; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CVoiceContainerEnvelopeAnalyzer {
+class __declspec(align(8)) CVoiceContainerEnvelopeAnalyzer {
 public:
     char pad_00[80];
-    EMode_t m_mode;
-    float m_fAnalysisWindowMs;
-    float m_flThreshold;
+    EMode_t m_mode; // 0x50
+    float m_fAnalysisWindowMs; // 0x54
+    float m_flThreshold; // 0x58
     char pad_01[4];
-};
+}; // size: 0x60
 
-class CSosGroupActionSoundeventCountSchema {
+class __declspec(align(8)) CSosGroupActionSoundeventCountSchema {
 public:
     char pad_00[8];
-    bool m_bExcludeStoppedSounds;
+    bool m_bExcludeStoppedSounds; // 0x8
     // CUtlString m_strCountKeyName;
     char pad_01[15];
-};
+}; // size: 0x18
 
-class CVMixNameInput {
+class __declspec(align(8)) CVMixNameInput {
 public:
     // CUtlString m_defaultValue;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CVMixControlInputArray {
+class __declspec(align(8)) CVMixControlInputArray {
 public:
     char pad_00[16];
-    int32_t m_nArrayIndex;
+    int32_t m_nArrayIndex; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CAudioPhonemeTag {
+class __declspec(align(4)) CAudioPhonemeTag {
 public:
-    float m_flStartTime;
-    float m_flEndTime;
-    int32_t m_nPhonemeCode;
-};
+    float m_flStartTime; // 0x0
+    float m_flEndTime; // 0x4
+    int32_t m_nPhonemeCode; // 0x8
+}; // size: 0xc
 
-class VMixPresetDSPDesc_t {
+class __declspec(align(8)) VMixPresetDSPDesc_t {
 public:
     // CUtlString m_effectName;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CVoiceContainerLoopXFade {
+class __declspec(align(8)) CVoiceContainerLoopXFade {
 public:
     // CSoundContainerReference m_sound;
     char pad_00[192];
-    float m_flLoopEnd;
-    float m_flLoopStart;
-    float m_flFadeOut;
-    float m_flFadeIn;
-    bool m_bPlayHead;
-    bool m_bPlayTail;
-    bool m_bEqualPow;
+    float m_flLoopEnd; // 0xc0
+    float m_flLoopStart; // 0xc4
+    float m_flFadeOut; // 0xc8
+    float m_flFadeIn; // 0xcc
+    bool m_bPlayHead; // 0xd0
+    bool m_bPlayTail; // 0xd1
+    bool m_bEqualPow; // 0xd2
     char pad_01[5];
-};
+}; // size: 0xd8
 
-class CVMixGraphDescData {
+class __declspec(align(8)) CVMixGraphDescData {
 public:
     // CUtlString m_name;
     char pad_00[8];
-    int32_t m_nGraphOutputChannels;
-    bool m_bIsMainGraph;
+    int32_t m_nGraphOutputChannels; // 0x8
+    bool m_bIsMainGraph; // 0xc
     char pad_01[3];
-};
+}; // size: 0x10
 
-class CVMixDynamicsProcessorDesc {
+class __declspec(align(8)) CVMixDynamicsProcessorDesc {
 public:
     char pad_00[32];
-    VMixDynamicsDesc_t m_desc;
-};
+    VMixDynamicsDesc_t m_desc; // 0x20
+}; // size: 0x50
 
-class VMixEQ8Desc_t {
+class __declspec(align(4)) VMixEQ8Desc_t {
 public:
-    VMixFilterDesc_t m_stages;
+    VMixFilterDesc_t m_stages; // 0x0
     char pad_00[112];
-};
+}; // size: 0x80
 
-class VMixDelayDesc_t {
+class __declspec(align(4)) VMixDelayDesc_t {
 public:
-    VMixFilterDesc_t m_feedbackFilter;
-    bool m_bEnableFilter;
-    float m_flDelay;
-    float m_flDirectGain;
-    float m_flDelayGain;
-    float m_flFeedbackGain;
-    float m_flWidth;
-};
+    VMixFilterDesc_t m_feedbackFilter; // 0x0
+    bool m_bEnableFilter; // 0x10
+    float m_flDelay; // 0x14
+    float m_flDirectGain; // 0x18
+    float m_flDelayGain; // 0x1c
+    float m_flFeedbackGain; // 0x20
+    float m_flWidth; // 0x24
+}; // size: 0x28
 
-class CVMixPresetDSPProcessorDesc {
+class __declspec(align(8)) CVMixPresetDSPProcessorDesc {
 public:
     char pad_00[32];
-    VMixPresetDSPDesc_t m_desc;
-};
+    VMixPresetDSPDesc_t m_desc; // 0x20
+}; // size: 0x30
 
-class CVoiceContainerGranulator {
+class __declspec(align(8)) CVoiceContainerGranulator {
 public:
     char pad_00[184];
-    float m_flGrainLength;
-    float m_flGrainCrossfadeAmount;
-    float m_flStartJitter;
-    float m_flPlaybackJitter;
-    bool m_bShouldWraparound;
+    float m_flGrainLength; // 0xb8
+    float m_flGrainCrossfadeAmount; // 0xbc
+    float m_flStartJitter; // 0xc0
+    float m_flPlaybackJitter; // 0xc4
+    bool m_bShouldWraparound; // 0xc8
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sourceAudio;
     char pad_01[199];
-};
+}; // size: 0x190
 
-class CVMixUtilityProcessorDesc {
+class __declspec(align(8)) CVMixUtilityProcessorDesc {
 public:
     char pad_00[32];
-    VMixUtilityDesc_t m_desc;
-};
+    VMixUtilityDesc_t m_desc; // 0x20
+}; // size: 0x38
 
-class CVMixDiffusorProcessorDesc {
+class __declspec(align(8)) CVMixDiffusorProcessorDesc {
 public:
     char pad_00[32];
-    VMixDiffusorDesc_t m_desc;
-};
+    VMixDiffusorDesc_t m_desc; // 0x20
+}; // size: 0x30
 
-class CVoiceContainerBase {
+class __declspec(align(8)) CVoiceContainerBase {
 public:
     // CVSound m_vSound;
     char pad_00[160];
-    CVoiceContainerAnalysisBase* m_pEnvelopeAnalyzer;
-};
+    CVoiceContainerAnalysisBase* m_pEnvelopeAnalyzer; // 0xa0
+}; // size: 0xa8
 
-class CDspPresetModifierList {
+class __declspec(align(8)) CDspPresetModifierList {
 public:
     // CUtlString m_dspName;
     // CUtlVector< CDSPMixgroupModifier > m_modifiers;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CVoiceContainerShapedNoise {
+class __declspec(align(8)) CVoiceContainerShapedNoise {
 public:
     char pad_00[168];
-    bool m_bUseCurveForFrequency;
-    float m_flFrequency;
+    bool m_bUseCurveForFrequency; // 0xa8
+    float m_flFrequency; // 0xac
     // CPiecewiseCurve m_frequencySweep;
     char pad_01[64];
-    bool m_bUseCurveForResonance;
-    float m_flResonance;
+    bool m_bUseCurveForResonance; // 0xf0
+    float m_flResonance; // 0xf4
     // CPiecewiseCurve m_resonanceSweep;
     char pad_02[64];
-    bool m_bUseCurveForAmplitude;
-    float m_flGainInDecibels;
+    bool m_bUseCurveForAmplitude; // 0x138
+    float m_flGainInDecibels; // 0x13c
     // CPiecewiseCurve m_gainSweep;
     char pad_03[64];
-};
+}; // size: 0x180
 
-class CVoiceContainerStaticAdditiveSynth {
+class __declspec(align(8)) CVoiceContainerStaticAdditiveSynth {
 public:
     // CUtlVector< CVoiceContainerStaticAdditiveSynth::CTone > m_tones;
     char pad_00[232];
-};
+}; // size: 0xe8
 
-class VMixDualCompressorDesc_t {
+class __declspec(align(4)) VMixDualCompressorDesc_t {
 public:
-    float m_flRMSTimeMS;
-    float m_fldbKneeWidth;
-    float m_flWetMix;
-    bool m_bPeakMode;
-    VMixDynamicsBand_t m_bandDesc;
-};
+    float m_flRMSTimeMS; // 0x0
+    float m_fldbKneeWidth; // 0x4
+    float m_flWetMix; // 0x8
+    bool m_bPeakMode; // 0xc
+    VMixDynamicsBand_t m_bandDesc; // 0x10
+}; // size: 0x34
 
-class CAudioMorphData {
+class __declspec(align(8)) CAudioMorphData {
 public:
     // CUtlVector< float32 > m_times;
     // CUtlVector< uint32 > m_nameHashCodes;
     // CUtlVector< CUtlString > m_nameStrings;
     // CUtlVector< CUtlVector< float32 > > m_samples;
     char pad_00[96];
-    float m_flEaseIn;
-    float m_flEaseOut;
-};
+    float m_flEaseIn; // 0x60
+    float m_flEaseOut; // 0x64
+}; // size: 0x68
 
-class CDSPMixgroupModifier {
+class __declspec(align(8)) CDSPMixgroupModifier {
 public:
     // CUtlString m_mixgroup;
     char pad_00[8];
-    float m_flModifier;
-    float m_flModifierMin;
-    float m_flSourceModifier;
-    float m_flSourceModifierMin;
-    float m_flListenerReverbModifierWhenSourceReverbIsActive;
+    float m_flModifier; // 0x8
+    float m_flModifierMin; // 0xc
+    float m_flSourceModifier; // 0x10
+    float m_flSourceModifierMin; // 0x14
+    float m_flListenerReverbModifierWhenSourceReverbIsActive; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CVMixEQ8ProcessorDesc {
+class __declspec(align(8)) CVMixEQ8ProcessorDesc {
 public:
     char pad_00[32];
-    VMixEQ8Desc_t m_desc;
-};
+    VMixEQ8Desc_t m_desc; // 0x20
+}; // size: 0xa0
 
-class VMixDynamics3BandDesc_t {
+class __declspec(align(4)) VMixDynamics3BandDesc_t {
 public:
-    float m_fldbGainOutput;
-    float m_flRMSTimeMS;
-    float m_fldbKneeWidth;
-    float m_flDepth;
-    float m_flWetMix;
-    float m_flTimeScale;
-    float m_flLowCutoffFreq;
-    float m_flHighCutoffFreq;
-    bool m_bPeakMode;
-    VMixDynamicsBand_t m_bandDesc;
+    float m_fldbGainOutput; // 0x0
+    float m_flRMSTimeMS; // 0x4
+    float m_fldbKneeWidth; // 0x8
+    float m_flDepth; // 0xc
+    float m_flWetMix; // 0x10
+    float m_flTimeScale; // 0x14
+    float m_flLowCutoffFreq; // 0x18
+    float m_flHighCutoffFreq; // 0x1c
+    bool m_bPeakMode; // 0x20
+    VMixDynamicsBand_t m_bandDesc; // 0x24
     char pad_00[72];
-};
+}; // size: 0x90
 
-class CSosSoundEventGroupSchema {
+class __declspec(align(8)) CSosSoundEventGroupSchema {
 public:
     char pad_00[8];
-    SosGroupType_t m_nGroupType;
-    bool m_bBlocksEvents;
-    int32_t m_nBlockMaxCount;
-    float m_flMemberLifespanTime;
-    bool m_bInvertMatch;
-    SosGroupFieldBehavior_t m_Behavior_EventName;
+    SosGroupType_t m_nGroupType; // 0x8
+    bool m_bBlocksEvents; // 0xc
+    int32_t m_nBlockMaxCount; // 0x10
+    float m_flMemberLifespanTime; // 0x14
+    bool m_bInvertMatch; // 0x18
+    SosGroupFieldBehavior_t m_Behavior_EventName; // 0x1c
     // CUtlString m_matchSoundEventName;
     char pad_01[8];
-    bool m_bMatchEventSubString;
+    bool m_bMatchEventSubString; // 0x28
     // CUtlString m_matchSoundEventSubString;
     char pad_02[12];
-    SosGroupFieldBehavior_t m_Behavior_EntIndex;
-    float m_flEntIndex;
-    SosGroupFieldBehavior_t m_Behavior_Opvar;
-    float m_flOpvar;
-    SosGroupFieldBehavior_t m_Behavior_String;
+    SosGroupFieldBehavior_t m_Behavior_EntIndex; // 0x38
+    float m_flEntIndex; // 0x3c
+    SosGroupFieldBehavior_t m_Behavior_Opvar; // 0x40
+    float m_flOpvar; // 0x44
+    SosGroupFieldBehavior_t m_Behavior_String; // 0x48
     // CUtlString m_opvarString;
     // CUtlVector< CSosGroupActionSchema* > m_vActions;
     char pad_03[36];
-};
+}; // size: 0x70
 
-class CSosGroupActionSchema {
+class __declspec(align(1)) CSosGroupActionSchema {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class VMixBoxverbDesc_t {
+class __declspec(align(4)) VMixBoxverbDesc_t {
 public:
-    float m_flSizeMax;
-    float m_flSizeMin;
-    float m_flComplexity;
-    float m_flDiffusion;
-    float m_flModDepth;
-    float m_flModRate;
-    bool m_bParallel;
-    VMixFilterDesc_t m_filterType;
-    float m_flWidth;
-    float m_flHeight;
-    float m_flDepth;
-    float m_flFeedbackScale;
-    float m_flFeedbackWidth;
-    float m_flFeedbackHeight;
-    float m_flFeedbackDepth;
-    float m_flOutputGain;
-    float m_flTaps;
-};
+    float m_flSizeMax; // 0x0
+    float m_flSizeMin; // 0x4
+    float m_flComplexity; // 0x8
+    float m_flDiffusion; // 0xc
+    float m_flModDepth; // 0x10
+    float m_flModRate; // 0x14
+    bool m_bParallel; // 0x18
+    VMixFilterDesc_t m_filterType; // 0x1c
+    float m_flWidth; // 0x2c
+    float m_flHeight; // 0x30
+    float m_flDepth; // 0x34
+    float m_flFeedbackScale; // 0x38
+    float m_flFeedbackWidth; // 0x3c
+    float m_flFeedbackHeight; // 0x40
+    float m_flFeedbackDepth; // 0x44
+    float m_flOutputGain; // 0x48
+    float m_flTaps; // 0x4c
+}; // size: 0x50
 
-class CVMixDynamics3BandProcessorDesc {
+class __declspec(align(8)) CVMixDynamics3BandProcessorDesc {
 public:
     char pad_00[32];
-    VMixDynamics3BandDesc_t m_desc;
-};
+    VMixDynamics3BandDesc_t m_desc; // 0x20
+}; // size: 0xb0
 
-class CVMixNameInputMeter {
+class __declspec(align(8)) CVMixNameInputMeter {
 public:
     char pad_00[16];
-    int32_t m_nValueIndex;
+    int32_t m_nValueIndex; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class VMixModDelayDesc_t {
+class __declspec(align(4)) VMixModDelayDesc_t {
 public:
-    VMixFilterDesc_t m_feedbackFilter;
-    bool m_bPhaseInvert;
-    float m_flGlideTime;
-    float m_flDelay;
-    float m_flOutputGain;
-    float m_flFeedbackGain;
-    float m_flModRate;
-    float m_flModDepth;
-    bool m_bApplyAntialiasing;
+    VMixFilterDesc_t m_feedbackFilter; // 0x0
+    bool m_bPhaseInvert; // 0x10
+    float m_flGlideTime; // 0x14
+    float m_flDelay; // 0x18
+    float m_flOutputGain; // 0x1c
+    float m_flFeedbackGain; // 0x20
+    float m_flModRate; // 0x24
+    float m_flModDepth; // 0x28
+    bool m_bApplyAntialiasing; // 0x2c
     char pad_00[3];
-};
+}; // size: 0x30
 
-class SelectedEditItemInfo_t {
+class __declspec(align(8)) SelectedEditItemInfo_t {
 public:
     // CUtlVector< SosEditItemInfo_t > m_EditItems;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CVoiceContainerRealtimeFMSineWave {
+class __declspec(align(8)) CVoiceContainerRealtimeFMSineWave {
 public:
     char pad_00[168];
-    float m_flCarrierFrequency;
-    float m_flModulatorFrequency;
-    float m_flModulatorAmount;
+    float m_flCarrierFrequency; // 0xa8
+    float m_flModulatorFrequency; // 0xac
+    float m_flModulatorAmount; // 0xb0
     char pad_01[4];
-};
+}; // size: 0xb8
 
-class CSosGroupActionSoundeventPrioritySchema {
+class __declspec(align(8)) CSosGroupActionSoundeventPrioritySchema {
 public:
     // CUtlString m_priorityValue;
     // CUtlString m_priorityVolumeScalar;
     // CUtlString m_priorityContributeButDontRead;
     // CUtlString m_bPriorityReadButDontContribute;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class VMixPannerDesc_t {
+class __declspec(align(4)) VMixPannerDesc_t {
 public:
-    VMixPannerType_t m_type;
-    float m_flStrength;
-};
+    VMixPannerType_t m_type; // 0x0
+    float m_flStrength; // 0x4
+}; // size: 0x8
 
-class CVMixDynamicsCompressorProcessorDesc {
+class __declspec(align(8)) CVMixDynamicsCompressorProcessorDesc {
 public:
     char pad_00[32];
-    VMixDynamicsCompressorDesc_t m_desc;
+    VMixDynamicsCompressorDesc_t m_desc; // 0x20
     char pad_01[4];
-};
+}; // size: 0x48
 
-class CVMixBoxverbProcessorDesc {
+class __declspec(align(8)) CVMixBoxverbProcessorDesc {
 public:
     char pad_00[32];
-    VMixBoxverbDesc_t m_desc;
-};
+    VMixBoxverbDesc_t m_desc; // 0x20
+}; // size: 0x70
 
-class CVMixControlInput {
+class __declspec(align(8)) CVMixControlInput {
 public:
     char pad_00[16];
-    float m_flDefaultValue;
+    float m_flDefaultValue; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CVMixCommand {
+class __declspec(align(4)) CVMixCommand {
 public:
-    VMixGraphCommandID_t m_nCommand;
-    uint32_t m_nParameterNameHash;
-    int32_t m_nOutputSubmix;
-    int32_t m_nInputSubmix0;
-    int32_t m_nInputSubmix1;
-    int32_t m_nProcessor;
-    int32_t m_nInputValue0;
-    int32_t m_nInputValue1;
-};
+    VMixGraphCommandID_t m_nCommand; // 0x0
+    uint32_t m_nParameterNameHash; // 0x4
+    int32_t m_nOutputSubmix; // 0x8
+    int32_t m_nInputSubmix0; // 0xc
+    int32_t m_nInputSubmix1; // 0x10
+    int32_t m_nProcessor; // 0x14
+    int32_t m_nInputValue0; // 0x18
+    int32_t m_nInputValue1; // 0x1c
+}; // size: 0x20
 
-class CVMixEnvelopeProcessorDesc {
+class __declspec(align(8)) CVMixEnvelopeProcessorDesc {
 public:
     char pad_00[32];
-    VMixEnvelopeDesc_t m_desc;
+    VMixEnvelopeDesc_t m_desc; // 0x20
     char pad_01[4];
-};
+}; // size: 0x30
 
-class CSosGroupActionSoundeventMinMaxValuesSchema {
+class __declspec(align(8)) CSosGroupActionSoundeventMinMaxValuesSchema {
 public:
     // CUtlString m_strQueryPublicFieldName;
     // CUtlString m_strDelayPublicFieldName;
     char pad_00[24];
-    bool m_bExcludeStoppedSounds;
-    bool m_bExcludeDelayedSounds;
-    bool m_bExcludeSoundsBelowThreshold;
-    float m_flExcludeSoundsMinThresholdValue;
-    bool m_bExcludSoundsAboveThreshold;
-    float m_flExcludeSoundsMaxThresholdValue;
+    bool m_bExcludeStoppedSounds; // 0x18
+    bool m_bExcludeDelayedSounds; // 0x19
+    bool m_bExcludeSoundsBelowThreshold; // 0x1a
+    float m_flExcludeSoundsMinThresholdValue; // 0x1c
+    bool m_bExcludSoundsAboveThreshold; // 0x20
+    float m_flExcludeSoundsMaxThresholdValue; // 0x24
     // CUtlString m_strMinValueName;
     // CUtlString m_strMaxValueName;
     char pad_01[24];
-};
+}; // size: 0x40
 
-class CVoiceContainerAnalysisBase {
+class __declspec(align(8)) CVoiceContainerAnalysisBase {
 public:
     char pad_00[8];
-    bool m_bRegenerateCurveOnCompile;
+    bool m_bRegenerateCurveOnCompile; // 0x8
     // CPiecewiseCurve m_curve;
     char pad_01[71];
-};
+}; // size: 0x50
 
-class VMixSubgraphSwitchDesc_t {
+class __declspec(align(8)) VMixSubgraphSwitchDesc_t {
 public:
     // CUtlString m_name;
     // CUtlString m_effectName;
     // CUtlVector< CUtlString > m_subgraphs;
     char pad_00[40];
-    VMixSubgraphSwitchInterpolationType_t m_interpolationMode;
-    bool m_bOnlyTailsOnFadeOut;
-    float m_flInterpolationTime;
+    VMixSubgraphSwitchInterpolationType_t m_interpolationMode; // 0x28
+    bool m_bOnlyTailsOnFadeOut; // 0x2c
+    float m_flInterpolationTime; // 0x30
     char pad_01[4];
-};
+}; // size: 0x38
 
-class CVoiceContainerNull {
+class __declspec(align(8)) CVoiceContainerNull {
 public:
     char pad_00[168];
-};
+}; // size: 0xa8
 
-class CSoundContainerReference {
+class __declspec(align(8)) CSoundContainerReference {
 public:
-    bool m_bUseReference;
+    bool m_bUseReference; // 0x0
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sound;
     char pad_00[8];
-    CVoiceContainerBase* m_pSound;
-};
+    CVoiceContainerBase* m_pSound; // 0x10
+}; // size: 0x18
 
-class CSosGroupActionSetSoundeventParameterSchema {
+class __declspec(align(8)) CSosGroupActionSetSoundeventParameterSchema {
 public:
     char pad_00[8];
-    int32_t m_nMaxCount;
-    float m_flMinValue;
-    float m_flMaxValue;
+    int32_t m_nMaxCount; // 0x8
+    float m_flMinValue; // 0xc
+    float m_flMaxValue; // 0x10
     // CUtlString m_opvarName;
     char pad_01[12];
-    SosActionSetParamSortType_t m_nSortType;
+    SosActionSetParamSortType_t m_nSortType; // 0x20
     char pad_02[4];
-};
+}; // size: 0x28
 
-class CSosGroupActionSoundeventClusterSchema {
+class __declspec(align(8)) CSosGroupActionSoundeventClusterSchema {
 public:
     char pad_00[8];
-    int32_t m_nMinNearby;
-    float m_flClusterEpsilon;
+    int32_t m_nMinNearby; // 0x8
+    float m_flClusterEpsilon; // 0xc
     // CUtlString m_shouldPlayOpvar;
     // CUtlString m_shouldPlayClusterChild;
     // CUtlString m_clusterSizeOpvar;
     // CUtlString m_groupBoundingBoxMinsOpvar;
     // CUtlString m_groupBoundingBoxMaxsOpvar;
     char pad_01[64];
-};
+}; // size: 0x50
 
-class CDSPPresetMixgroupModifierTable {
+class __declspec(align(8)) CDSPPresetMixgroupModifierTable {
 public:
     // CUtlVector< CDspPresetModifierList > m_table;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CVSound {
+class __declspec(align(8)) CVSound {
 public:
-    int32_t m_nRate;
-    CVSoundFormat_t m_nFormat;
-    uint32_t m_nChannels;
-    int32_t m_nLoopStart;
-    uint32_t m_nSampleCount;
-    float m_flDuration;
+    int32_t m_nRate; // 0x0
+    CVSoundFormat_t m_nFormat; // 0x4
+    uint32_t m_nChannels; // 0x8
+    int32_t m_nLoopStart; // 0xc
+    uint32_t m_nSampleCount; // 0x10
+    float m_flDuration; // 0x14
     // CUtlVector< CAudioSentence > m_Sentences;
     char pad_00[24];
-    uint32_t m_nStreamingSize;
+    uint32_t m_nStreamingSize; // 0x30
     // CUtlVector< int32 > m_nSeekTable;
     char pad_01[28];
-    int32_t m_nLoopEnd;
+    int32_t m_nLoopEnd; // 0x50
     // CUtlBinaryBlock m_encodedHeader;
     char pad_02[36];
-};
+}; // size: 0x78
 
-class CVoiceContainerDefault {
+class __declspec(align(8)) CVoiceContainerDefault {
 public:
     char pad_00[168];
-};
+}; // size: 0xa8
 
-class CVMixSteamAudioHRTFProcessorDesc {
+class __declspec(align(8)) CVMixSteamAudioHRTFProcessorDesc {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CVMixSteamAudioDirectProcessorDesc {
+class __declspec(align(8)) CVMixSteamAudioDirectProcessorDesc {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CVoiceContainerRandomSampler {
+class __declspec(align(8)) CVoiceContainerRandomSampler {
 public:
     char pad_00[184];
-    float m_flAmplitude;
-    float m_flAmplitudeJitter;
-    float m_flTimeJitter;
-    float m_flMaxLength;
-    int32_t m_nNumDelayVariations;
+    float m_flAmplitude; // 0xb8
+    float m_flAmplitudeJitter; // 0xbc
+    float m_flTimeJitter; // 0xc0
+    float m_flMaxLength; // 0xc4
+    int32_t m_nNumDelayVariations; // 0xc8
     // CUtlVector< CStrongHandle< InfoForResourceTypeCVoiceContainerBase > > m_grainResources;
     char pad_01[276];
-};
+}; // size: 0x1e0
 
-class CVoiceContainerStaticAdditiveSynth::CTone {
+/// CVoiceContainerStaticAdditiveSynth::CTone
+class __declspec(align(8)) CVoiceContainerStaticAdditiveSynth__CTone {
 public:
     // CUtlVector< CVoiceContainerStaticAdditiveSynth::CHarmonic > m_harmonics;
     // CPiecewiseCurve m_curve;
     char pad_00[88];
-    bool m_bSyncInstances;
+    bool m_bSyncInstances; // 0x58
     char pad_01[7];
-};
+}; // size: 0x60
 
-class CVoiceContainerStaticAdditiveSynth::CHarmonic {
+/// CVoiceContainerStaticAdditiveSynth::CHarmonic
+class __declspec(align(8)) CVoiceContainerStaticAdditiveSynth__CHarmonic {
 public:
-    EWaveform m_nWaveform;
-    EMidiNote m_nFundamental;
-    int32_t m_nOctave;
-    float m_flCents;
-    float m_flPhase;
+    EWaveform m_nWaveform; // 0x0
+    EMidiNote m_nFundamental; // 0x1
+    int32_t m_nOctave; // 0x4
+    float m_flCents; // 0x8
+    float m_flPhase; // 0xc
     // CPiecewiseCurve m_curve;
-    char pad_00[64];
-    CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance m_volumeScaling;
-    char pad_01[8];
-};
+    // CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance m_volumeScaling;
+    char pad_00[88];
+}; // size: 0x68
 
-class VMixFreeverbDesc_t {
+class __declspec(align(4)) VMixFreeverbDesc_t {
 public:
-    float m_flRoomSize;
-    float m_flDamp;
-    float m_flWidth;
-    float m_flLateReflections;
-};
+    float m_flRoomSize; // 0x0
+    float m_flDamp; // 0x4
+    float m_flWidth; // 0x8
+    float m_flLateReflections; // 0xc
+}; // size: 0x10
 
-class CVMixPitchShiftProcessorDesc {
+class __declspec(align(8)) CVMixPitchShiftProcessorDesc {
 public:
     char pad_00[32];
-    VMixPitchShiftDesc_t m_desc;
-};
+    VMixPitchShiftDesc_t m_desc; // 0x20
+}; // size: 0x30
 
-class CVoiceContainerBlender {
+class __declspec(align(8)) CVoiceContainerBlender {
 public:
     char pad_00[168];
-    CSoundContainerReference m_firstSound;
-    CSoundContainerReference m_secondSound;
-    float m_flBlendFactor;
+    CSoundContainerReference m_firstSound; // 0xa8
+    CSoundContainerReference m_secondSound; // 0xc0
+    float m_flBlendFactor; // 0xd8
     char pad_01[4];
-};
+}; // size: 0xe0
 
-class CVMixInputBase {
+class __declspec(align(8)) CVMixInputBase {
 public:
     // CUtlString m_name;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CSteamAudioCompressedReverb {
+class __declspec(align(8)) CSteamAudioCompressedReverb {
 public:
-    int32_t m_nChannels;
-    int32_t m_nBands;
-    int32_t m_nBins;
-    int32_t m_nProbes;
+    int32_t m_nChannels; // 0x0
+    int32_t m_nBands; // 0x4
+    int32_t m_nBins; // 0x8
+    int32_t m_nProbes; // 0xc
     // CUtlVector< int32 > m_vecNumSingularValues;
     // CUtlVector< float32 > m_vecDictionary;
     // CUtlVector< float32 > m_vecCompressedData;
     // IPLCompressedEnergyFields m_pCompressedData;
     char pad_00[80];
-};
+}; // size: 0x60
 
-class CSteamAudioProbeGrid {
+class __declspec(align(8)) CSteamAudioProbeGrid {
 public:
-    AABB_t m_aabb;
-    float m_flSpacing;
-    int32_t m_nx;
-    int32_t m_ny;
-    int32_t m_nz;
+    AABB_t m_aabb; // 0x0
+    float m_flSpacing; // 0x18
+    int32_t m_nx; // 0x1c
+    int32_t m_ny; // 0x20
+    int32_t m_nz; // 0x24
     // CUtlVector< CSteamAudioProbeLineSegment > m_vecLineSegments;
     // CUtlVector< Vector > m_vecProbes;
     char pad_00[48];
-};
+}; // size: 0x58
 
-class CSteamAudioBakedDimensionsData {
+class __declspec(align(8)) CSteamAudioBakedDimensionsData {
 public:
     // SteamAudioCustomDataDimensionsSettings_t m_settings;
     // CSteamAudioProbeData m_probes;
@@ -13034,199 +13216,200 @@ public:
     // CUtlVector< CSteamAudioAmbisonicsField > m_vecInsideSmallSizeField;
     // CSteamAudioMovableBakedData< CSteamAudioBakedDimensionsData > m_movables;
     char pad_00[296];
-};
+}; // size: 0x128
 
-class SteamAudioCustomDataOcclusionSettings_t {
+class __declspec(align(4)) SteamAudioCustomDataOcclusionSettings_t {
 public:
-    bool m_bEnablePathing;
-    bool m_bEnableReflections;
-    int32_t m_nReflectionRays;
-    int32_t m_nReflectionBounces;
-};
+    bool m_bEnablePathing; // 0x0
+    bool m_bEnableReflections; // 0x1
+    int32_t m_nReflectionRays; // 0x4
+    int32_t m_nReflectionBounces; // 0x8
+}; // size: 0xc
 
-class CSteamAudioProbeLineSegment {
+class __declspec(align(8)) CSteamAudioProbeLineSegment {
 public:
     // Vector m_vStart;
     // Vector m_vEnd;
     // CUtlVector< float32 > m_vecIntervals;
     // CUtlVector< int32 > m_vecProbeIndices;
     char pad_00[72];
-};
+}; // size: 0x48
 
-class CSteamAudioBakedReverbData {
+class __declspec(align(8)) CSteamAudioBakedReverbData {
 public:
-    int32_t m_nBands;
+    int32_t m_nBands; // 0x0
     // CSteamAudioProbeData m_probes;
-    CSteamAudioProbeGrid m_grid;
+    char pad_00[8];
+    CSteamAudioProbeGrid m_grid; // 0x10
     // SteamAudioReverbSettings_t m_reverbSettings;
     // SteamAudioReverbClusteringSettings_t m_reverbClusteringSettings;
     // SteamAudioReverbCompressionSettings_t m_reverbCompressionSettings;
     // CSteamAudioProbeData m_clusteredProbes;
     // CUtlVector< int16 > m_vecClusterForProbe;
-    char pad_00[72];
-    CSteamAudioCompressedReverb m_compressedData;
-    CSteamAudioCompressedReverb m_compressedClusteredData;
+    char pad_01[72];
+    CSteamAudioCompressedReverb m_compressedData; // 0xb0
+    CSteamAudioCompressedReverb m_compressedClusteredData; // 0x110
     // CSteamAudioMovableBakedData< CSteamAudioBakedReverbData > m_movables;
-    char pad_01[168];
-};
+    char pad_02[168];
+}; // size: 0x218
 
-class CSteamAudioBakedOcclusionData {
+class __declspec(align(8)) CSteamAudioBakedOcclusionData {
 public:
-    SteamAudioCustomDataOcclusionSettings_t m_settings;
+    SteamAudioCustomDataOcclusionSettings_t m_settings; // 0x0
     // CSteamAudioProbeData m_probes;
     // CUtlVector< float32 > m_vecPathingRatio;
     // CUtlVector< float32 > m_vecPathingDeviation;
     // CUtlVector< float32 > m_vecReflectionRatio;
     char pad_00[84];
-};
+}; // size: 0x60
 
-class CSteamAudioBakedMaterialsData {
+class __declspec(align(8)) CSteamAudioBakedMaterialsData {
 public:
     // CSteamAudioProbeData m_probes;
     // CUtlVector< uint32 > m_vecMaterialTokens;
     // CUtlVector< float32 > m_vecMaterialWeights;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class SteamAudioReverbCompressionSettings_t {
+class __declspec(align(4)) SteamAudioReverbCompressionSettings_t {
 public:
-    bool m_bEnableCompression;
-    float m_flQuality;
-};
+    bool m_bEnableCompression; // 0x0
+    float m_flQuality; // 0x4
+}; // size: 0x8
 
-class CSteamAudioProbeData {
+class __declspec(align(8)) CSteamAudioProbeData {
 public:
     // IPLProbeBatch m_pProbeBatch;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class SteamAudioReverbSettings_t {
+class __declspec(align(4)) SteamAudioReverbSettings_t {
 public:
-    int32_t m_nNumRays;
-    int32_t m_nNumBounces;
-    float m_flIRDuration;
-    int32_t m_nAmbisonicsOrder;
-};
+    int32_t m_nNumRays; // 0x0
+    int32_t m_nNumBounces; // 0x4
+    float m_flIRDuration; // 0x8
+    int32_t m_nAmbisonicsOrder; // 0xc
+}; // size: 0x10
 
-class CSteamAudioBakedPathingData {
+class __declspec(align(8)) CSteamAudioBakedPathingData {
 public:
-    int32_t m_nBands;
-    CSteamAudioProbeData m_probes;
+    int32_t m_nBands; // 0x0
+    CSteamAudioProbeData m_probes; // 0x8
     // CSteamAudioMovableBakedData< CSteamAudioBakedPathingData > m_movables;
     char pad_00[168];
-};
+}; // size: 0xb8
 
-class CSteamAudioAmbisonicsField {
+class __declspec(align(8)) CSteamAudioAmbisonicsField {
 public:
     // CUtlVector< float32 > m_field;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class SteamAudioPathSettings_t {
+class __declspec(align(4)) SteamAudioPathSettings_t {
 public:
-    int32_t m_nNumVisSamples;
-    float m_flProbeVisRadius;
-    float m_flProbeVisThreshold;
-    float m_flProbePathRange;
-};
+    int32_t m_nNumVisSamples; // 0x0
+    float m_flProbeVisRadius; // 0x4
+    float m_flProbeVisThreshold; // 0x8
+    float m_flProbePathRange; // 0xc
+}; // size: 0x10
 
-class SteamAudioCustomDataDimensionsSettings_t {
+class __declspec(align(4)) SteamAudioCustomDataDimensionsSettings_t {
 public:
-    int32_t m_nAmbisonicsOrderOutsideField;
-    int32_t m_nAmbisonicsOrderInsideSizeField;
-    float m_flOutsideThreshold;
-    float m_flSizeThreshold;
-    float m_flInsideThreshold;
-};
+    int32_t m_nAmbisonicsOrderOutsideField; // 0x0
+    int32_t m_nAmbisonicsOrderInsideSizeField; // 0x4
+    float m_flOutsideThreshold; // 0x8
+    float m_flSizeThreshold; // 0xc
+    float m_flInsideThreshold; // 0x10
+}; // size: 0x14
 
-class SteamAudioReverbClusteringSettings_t {
+class __declspec(align(4)) SteamAudioReverbClusteringSettings_t {
 public:
-    bool m_bEnableClustering;
-    int32_t m_nCubeMapResolution;
-    float m_flDepthThreshold;
-};
+    bool m_bEnableClustering; // 0x0
+    int32_t m_nCubeMapResolution; // 0x4
+    float m_flDepthThreshold; // 0x8
+}; // size: 0xc
 
-class CSSDSMsg_EndFrame {
+class __declspec(align(8)) CSSDSMsg_EndFrame {
 public:
     // CUtlVector< CSSDSEndFrameViewInfo > m_Views;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CSSDSMsg_ViewRender {
+class __declspec(align(8)) CSSDSMsg_ViewRender {
 public:
     // SceneViewId_t m_viewId;
     // CUtlString m_ViewName;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CSSDSMsg_ViewTargetList {
+class __declspec(align(8)) CSSDSMsg_ViewTargetList {
 public:
     // SceneViewId_t m_viewId;
     // CUtlString m_ViewName;
     // CUtlVector< CSSDSMsg_ViewTarget > m_Targets;
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CSSDSMsg_PreLayer {
+class __declspec(align(8)) CSSDSMsg_PreLayer {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CSSDSMsg_LayerBase {
+class __declspec(align(8)) CSSDSMsg_LayerBase {
 public:
     // SceneViewId_t m_viewId;
     // CUtlString m_ViewName;
     char pad_00[24];
-    uint64_t m_nLayerId;
+    uint64_t m_nLayerId; // 0x18
     // CUtlString m_LayerName;
     // CUtlString m_displayText;
     char pad_01[16];
-};
+}; // size: 0x30
 
-class CSSDSMsg_PostLayer {
+class __declspec(align(8)) CSSDSMsg_PostLayer {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CSSDSEndFrameViewInfo {
+class __declspec(align(8)) CSSDSEndFrameViewInfo {
 public:
-    uint64_t m_nViewId;
+    uint64_t m_nViewId; // 0x0
     // CUtlString m_ViewName;
     char pad_00[8];
-};
+}; // size: 0x10
 
-class SceneViewId_t {
+class __declspec(align(8)) SceneViewId_t {
 public:
-    uint64_t m_nViewId;
-    uint64_t m_nFrameCount;
-};
+    uint64_t m_nViewId; // 0x0
+    uint64_t m_nFrameCount; // 0x8
+}; // size: 0x10
 
-class CSSDSMsg_ViewTarget {
+class __declspec(align(8)) CSSDSMsg_ViewTarget {
 public:
     // CUtlString m_Name;
     char pad_00[8];
-    uint64_t m_TextureId;
-    int32_t m_nWidth;
-    int32_t m_nHeight;
-    int32_t m_nRequestedWidth;
-    int32_t m_nRequestedHeight;
-    int32_t m_nNumMipLevels;
-    int32_t m_nDepth;
-    int32_t m_nMultisampleNumSamples;
-    int32_t m_nFormat;
-};
+    uint64_t m_TextureId; // 0x8
+    int32_t m_nWidth; // 0x10
+    int32_t m_nHeight; // 0x14
+    int32_t m_nRequestedWidth; // 0x18
+    int32_t m_nRequestedHeight; // 0x1c
+    int32_t m_nNumMipLevels; // 0x20
+    int32_t m_nDepth; // 0x24
+    int32_t m_nMultisampleNumSamples; // 0x28
+    int32_t m_nFormat; // 0x2c
+}; // size: 0x30
 
-class CVoxelVisibility {
+class __declspec(align(8)) CVoxelVisibility {
 public:
     char pad_00[64];
-    uint32_t m_nBaseClusterCount;
-    uint32_t m_nPVSBytesPerCluster;
+    uint32_t m_nBaseClusterCount; // 0x40
+    uint32_t m_nPVSBytesPerCluster; // 0x44
     // Vector m_vMinBounds;
     // Vector m_vMaxBounds;
     char pad_01[24];
-    float m_flGridSize;
-    uint32_t m_nSkyVisibilityCluster;
-    uint32_t m_nSunVisibilityCluster;
+    float m_flGridSize; // 0x60
+    uint32_t m_nSkyVisibilityCluster; // 0x64
+    uint32_t m_nSunVisibilityCluster; // 0x68
     // VoxelVisBlockOffset_t m_NodeBlock;
     // VoxelVisBlockOffset_t m_RegionBlock;
     // VoxelVisBlockOffset_t m_EnclosedClusterListBlock;
@@ -13234,129 +13417,130 @@ public:
     // VoxelVisBlockOffset_t m_MasksBlock;
     // VoxelVisBlockOffset_t m_nVisBlocks;
     char pad_02[52];
-};
+}; // size: 0xa0
 
-class EntityKeyValueData_t {
+class __declspec(align(8)) EntityKeyValueData_t {
 public:
     // CUtlVector< EntityIOConnectionData_t > m_connections;
     // CUtlBinaryBlock m_keyValuesData;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class AggregateRTProxySceneObject_t {
+class __declspec(align(8)) AggregateRTProxySceneObject_t {
 public:
-    int16_t m_nLayer;
+    int16_t m_nLayer; // 0x0
     // CUtlVector< RTProxyBLAS_t > m_BLASes;
     // CUtlVector< RTProxyInstanceInfo_t > m_Instances;
     // CUtlBinaryBlock m_VBData;
     // CUtlBinaryBlock m_IBData;
     // CUtlBinaryBlock m_InstanceAlbedoData;
     char pad_00[102];
-};
+}; // size: 0x68
 
-class MaterialOverride_t {
+class __declspec(align(8)) MaterialOverride_t {
 public:
     char pad_00[4];
-    uint32_t m_nSubSceneObject;
-    uint32_t m_nDrawCallIndex;
+    uint32_t m_nSubSceneObject; // 0x4
+    uint32_t m_nDrawCallIndex; // 0x8
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_pMaterial;
     // Vector m_vLinearTintColor;
     char pad_01[28];
-};
+}; // size: 0x28
 
-class BakedLightingInfo_t::BakedShadowAssignment_t {
+/// BakedLightingInfo_t::BakedShadowAssignment_t
+class __declspec(align(4)) BakedLightingInfo_t__BakedShadowAssignment_t {
 public:
-    uint32_t m_nLightHash;
-    uint32_t m_nMapHash;
-    int8_t m_nShadowChannel;
+    uint32_t m_nLightHash; // 0x0
+    uint32_t m_nMapHash; // 0x4
+    int8_t m_nShadowChannel; // 0x8
     char pad_00[3];
-};
+}; // size: 0xc
 
-class World_t {
+class __declspec(align(8)) World_t {
 public:
     // WorldBuilderParams_t m_builderParams;
     // CUtlVector< NodeData_t > m_worldNodes;
     // BakedLightingInfo_t m_worldLightingInfo;
     // CUtlVector< CStrongHandleCopyable< InfoForResourceTypeCEntityLump > > m_entityLumps;
     char pad_00[216];
-};
+}; // size: 0xd8
 
-class AggregateMeshInfo_t {
+class __declspec(align(4)) AggregateMeshInfo_t {
 public:
-    uint32_t m_nVisClusterMemberOffset;
-    uint8_t m_nVisClusterMemberCount;
-    bool m_bHasTransform;
-    uint8_t m_nLODGroupMask;
-    int16_t m_nDrawCallIndex;
-    int16_t m_nLODSetupIndex;
+    uint32_t m_nVisClusterMemberOffset; // 0x0
+    uint8_t m_nVisClusterMemberCount; // 0x4
+    bool m_bHasTransform; // 0x5
+    uint8_t m_nLODGroupMask; // 0x6
+    int16_t m_nDrawCallIndex; // 0x8
+    int16_t m_nLODSetupIndex; // 0xa
     // Color m_vTintColor;
     char pad_00[4];
-    ObjectTypeFlags_t m_objectFlags;
-    int32_t m_nLightProbeVolumePrecomputedHandshake;
-    uint32_t m_nInstanceStreamOffset;
-    uint32_t m_nVertexAlbedoStreamOffset;
-    AggregateInstanceStream_t m_instanceStreams;
+    ObjectTypeFlags_t m_objectFlags; // 0x10
+    int32_t m_nLightProbeVolumePrecomputedHandshake; // 0x14
+    uint32_t m_nInstanceStreamOffset; // 0x18
+    uint32_t m_nVertexAlbedoStreamOffset; // 0x1c
+    AggregateInstanceStream_t m_instanceStreams; // 0x20
     char pad_01[3];
-};
+}; // size: 0x24
 
-class WorldNodeOnDiskBufferData_t {
+class __declspec(align(8)) WorldNodeOnDiskBufferData_t {
 public:
-    int32_t m_nElementCount;
-    int32_t m_nElementSizeInBytes;
+    int32_t m_nElementCount; // 0x0
+    int32_t m_nElementSizeInBytes; // 0x4
     // CUtlVector< RenderInputLayoutField_t > m_inputLayoutFields;
     // CUtlVector< uint8 > m_pData;
     char pad_00[48];
-};
+}; // size: 0x38
 
-class InfoForResourceTypeVMapResourceData_t {
+class __declspec(align(1)) InfoForResourceTypeVMapResourceData_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class VoxelVisBlockOffset_t {
+class __declspec(align(4)) VoxelVisBlockOffset_t {
 public:
-    uint32_t m_nOffset;
-    uint32_t m_nElementCount;
-};
+    uint32_t m_nOffset; // 0x0
+    uint32_t m_nElementCount; // 0x4
+}; // size: 0x8
 
-class BakedLightingInfo_t {
+class __declspec(align(8)) BakedLightingInfo_t {
 public:
-    uint32_t m_nLightmapVersionNumber;
-    uint32_t m_nLightmapGameVersionNumber;
+    uint32_t m_nLightmapVersionNumber; // 0x0
+    uint32_t m_nLightmapGameVersionNumber; // 0x4
     // Vector2D m_vLightmapUvScale;
     char pad_00[8];
-    bool m_bHasLightmaps;
-    bool m_bBakedShadowsGamma20;
-    bool m_bCompressionEnabled;
-    bool m_bSHLightmaps;
-    uint8_t m_nChartPackIterations;
-    uint8_t m_nVradQuality;
+    bool m_bHasLightmaps; // 0x10
+    bool m_bBakedShadowsGamma20; // 0x11
+    bool m_bCompressionEnabled; // 0x12
+    bool m_bSHLightmaps; // 0x13
+    uint8_t m_nChartPackIterations; // 0x14
+    uint8_t m_nVradQuality; // 0x15
     // CUtlVector< CStrongHandle< InfoForResourceTypeCTextureBase > > m_lightMaps;
     // CUtlVector< BakedLightingInfo_t::BakedShadowAssignment_t > m_bakedShadows;
     char pad_01[50];
-};
+}; // size: 0x48
 
-class EntityIOConnectionData_t {
+class __declspec(align(8)) EntityIOConnectionData_t {
 public:
     // CUtlString m_outputName;
     char pad_00[8];
-    uint32_t m_targetType;
+    uint32_t m_targetType; // 0x8
     // CUtlString m_targetName;
     // CUtlString m_inputName;
     // CUtlString m_overrideParam;
     char pad_01[28];
-    float m_flDelay;
-    int32_t m_nTimesToFire;
+    float m_flDelay; // 0x28
+    int32_t m_nTimesToFire; // 0x2c
     // KeyValues3 m_paramMap;
     char pad_02[16];
-};
+}; // size: 0x40
 
-class BaseSceneObjectOverride_t {
+class __declspec(align(4)) BaseSceneObjectOverride_t {
 public:
-    uint32_t m_nSceneObjectIndex;
-};
+    uint32_t m_nSceneObjectIndex; // 0x0
+}; // size: 0x4
 
-class WorldNode_t {
+class __declspec(align(8)) WorldNode_t {
 public:
     // CUtlVector< SceneObject_t > m_sceneObjects;
     // CUtlVector< uint16 > m_visClusterMembership;
@@ -13372,34 +13556,34 @@ public:
     // CUtlVector< uint8 > m_sceneObjectLayerIndices;
     // CUtlString m_grassFileName;
     char pad_00[296];
-    BakedLightingInfo_t m_nodeLightingInfo;
-    bool m_bHasBakedGeometryFlag;
+    BakedLightingInfo_t m_nodeLightingInfo; // 0x128
+    bool m_bHasBakedGeometryFlag; // 0x170
     char pad_01[7];
-};
+}; // size: 0x178
 
-class PermEntityLumpData_t {
+class __declspec(align(8)) PermEntityLumpData_t {
 public:
     // CUtlString m_name;
     // CUtlVector< CStrongHandleCopyable< InfoForResourceTypeCEntityLump > > m_childLumps;
     // CUtlLeanVector< EntityKeyValueData_t > m_entityKeyValues;
     char pad_00[56];
-};
+}; // size: 0x38
 
-class WorldBuilderParams_t {
+class __declspec(align(8)) WorldBuilderParams_t {
 public:
-    float m_flMinDrawVolumeSize;
-    bool m_bBuildBakedLighting;
-    bool m_bAggregateInstanceStreams;
-    BakedLightingInfo_t m_bakedLightingInfo;
-    uint64_t m_nCompileTimestamp;
-    uint64_t m_nCompileFingerprint;
-};
+    float m_flMinDrawVolumeSize; // 0x0
+    bool m_bBuildBakedLighting; // 0x4
+    bool m_bAggregateInstanceStreams; // 0x5
+    BakedLightingInfo_t m_bakedLightingInfo; // 0x8
+    uint64_t m_nCompileTimestamp; // 0x50
+    uint64_t m_nCompileFingerprint; // 0x58
+}; // size: 0x60
 
-class ClutterSceneObject_t {
+class __declspec(align(8)) ClutterSceneObject_t {
 public:
-    AABB_t m_Bounds;
-    ObjectTypeFlags_t m_flags;
-    int16_t m_nLayer;
+    AABB_t m_Bounds; // 0x0
+    ObjectTypeFlags_t m_flags; // 0x18
+    int16_t m_nLayer; // 0x1c
     // CUtlVector< Vector > m_instancePositions;
     // CUtlVector< float32 > m_instanceScales;
     // CUtlVector< Color > m_instanceTintSrgb;
@@ -13407,1426 +13591,1428 @@ public:
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
     // CUtlStringToken m_materialGroup;
     char pad_00[132];
-    float m_flBeginCullSize;
-    float m_flEndCullSize;
+    float m_flBeginCullSize; // 0xa4
+    float m_flEndCullSize; // 0xa8
     char pad_01[4];
-};
+}; // size: 0xb0
 
-class RTProxyBLAS_t {
+class __declspec(align(4)) RTProxyBLAS_t {
 public:
-    uint32_t m_nFirstIndex;
-    uint32_t m_nIndexCount;
-    uint32_t m_nVBByteOffset;
-    uint32_t m_nBaseVertex;
-    uint16_t m_nVertexCount;
-    VertexAlbedoFormat_t m_albedoFormat;
-    AABB_t m_boundLs;
+    uint32_t m_nFirstIndex; // 0x0
+    uint32_t m_nIndexCount; // 0x4
+    uint32_t m_nVBByteOffset; // 0x8
+    uint32_t m_nBaseVertex; // 0xc
+    uint16_t m_nVertexCount; // 0x10
+    VertexAlbedoFormat_t m_albedoFormat; // 0x12
+    char pad_00[1];
+    AABB_t m_boundLs; // 0x14
     // Vector m_vVertexOriginLs;
     // Vector m_vVertexExtentLs;
-    char pad_00[24];
-};
+    char pad_01[24];
+}; // size: 0x44
 
-class AggregateInstanceStreamOnDiskData_t {
+class __declspec(align(8)) AggregateInstanceStreamOnDiskData_t {
 public:
-    uint32_t m_DecodedSize;
+    uint32_t m_DecodedSize; // 0x0
     // CUtlBinaryBlock m_BufferData;
     char pad_00[20];
-};
+}; // size: 0x18
 
-class VMapResourceData_t {
+class __declspec(align(1)) VMapResourceData_t {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class NodeData_t {
+class __declspec(align(8)) NodeData_t {
 public:
-    int32_t m_nParent;
+    int32_t m_nParent; // 0x0
     // Vector m_vOrigin;
     // Vector m_vMinBounds;
     // Vector m_vMaxBounds;
     char pad_00[36];
-    float m_flMinimumDistance;
+    float m_flMinimumDistance; // 0x28
     // CUtlVector< int32 > m_ChildNodeIndices;
     // CUtlString m_worldNodePrefix;
     char pad_01[36];
-};
+}; // size: 0x50
 
-class AggregateSceneObject_t {
+class __declspec(align(8)) AggregateSceneObject_t {
 public:
-    ObjectTypeFlags_t m_allFlags;
-    ObjectTypeFlags_t m_anyFlags;
-    int16_t m_nLayer;
-    int16_t m_instanceStream;
-    int16_t m_vertexAlbedoStream;
+    ObjectTypeFlags_t m_allFlags; // 0x0
+    ObjectTypeFlags_t m_anyFlags; // 0x4
+    int16_t m_nLayer; // 0x8
+    int16_t m_instanceStream; // 0xa
+    int16_t m_vertexAlbedoStream; // 0xc
     // CUtlVector< AggregateMeshInfo_t > m_aggregateMeshes;
     // CUtlVector< AggregateLODSetup_t > m_lodSetups;
     // CUtlVector< uint16 > m_visClusterMembership;
     // CUtlVector< matrix3x4_t > m_fragmentTransforms;
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
     char pad_00[106];
-};
+}; // size: 0x78
 
-class ClutterTile_t {
+class __declspec(align(4)) ClutterTile_t {
 public:
-    uint32_t m_nFirstInstance;
-    uint32_t m_nLastInstance;
-    AABB_t m_BoundsWs;
-};
+    uint32_t m_nFirstInstance; // 0x0
+    uint32_t m_nLastInstance; // 0x4
+    AABB_t m_BoundsWs; // 0x8
+}; // size: 0x20
 
-class ExtraVertexStreamOverride_t {
+class __declspec(align(8)) ExtraVertexStreamOverride_t {
 public:
     char pad_00[4];
-    uint32_t m_nSubSceneObject;
-    uint32_t m_nDrawCallIndex;
-    MeshDrawPrimitiveFlags_t m_nAdditionalMeshDrawPrimitiveFlags;
-    CRenderBufferBinding m_extraBufferBinding;
-};
+    uint32_t m_nSubSceneObject; // 0x4
+    uint32_t m_nDrawCallIndex; // 0x8
+    MeshDrawPrimitiveFlags_t m_nAdditionalMeshDrawPrimitiveFlags; // 0xc
+    CRenderBufferBinding m_extraBufferBinding; // 0x10
+}; // size: 0x30
 
-class AggregateLODSetup_t {
+class __declspec(align(8)) AggregateLODSetup_t {
 public:
     // Vector m_vLODOrigin;
     char pad_00[12];
-    float m_fMaxObjectScale;
+    float m_fMaxObjectScale; // 0xc
     // CUtlVector< float32 > m_fSwitchDistances;
     char pad_01[24];
-};
+}; // size: 0x28
 
-class SceneObject_t {
+class __declspec(align(8)) SceneObject_t {
 public:
-    uint32_t m_nObjectID;
+    uint32_t m_nObjectID; // 0x0
     // Vector4D[3] m_vTransform;
     char pad_00[48];
-    float m_flFadeStartDistance;
-    float m_flFadeEndDistance;
+    float m_flFadeStartDistance; // 0x34
+    float m_flFadeEndDistance; // 0x38
     // Vector4D m_vTintColor;
     // CUtlString m_skin;
     char pad_01[28];
-    ObjectTypeFlags_t m_nObjectTypeFlags;
+    ObjectTypeFlags_t m_nObjectTypeFlags; // 0x58
     // Vector m_vLightingOrigin;
     char pad_02[12];
-    int16_t m_nOverlayRenderOrder;
-    int16_t m_nLODOverride;
-    int32_t m_nCubeMapPrecomputedHandshake;
-    int32_t m_nLightProbeVolumePrecomputedHandshake;
+    int16_t m_nOverlayRenderOrder; // 0x68
+    int16_t m_nLODOverride; // 0x6a
+    int32_t m_nCubeMapPrecomputedHandshake; // 0x6c
+    int32_t m_nLightProbeVolumePrecomputedHandshake; // 0x70
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
     // CStrongHandle< InfoForResourceTypeCRenderMesh > m_renderable;
     char pad_03[20];
-};
+}; // size: 0x88
 
-class AggregateVertexAlbedoStreamOnDiskData_t {
+class __declspec(align(8)) AggregateVertexAlbedoStreamOnDiskData_t {
 public:
     // CUtlBinaryBlock m_BufferData;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class RTProxyInstanceInfo_t {
+class __declspec(align(4)) RTProxyInstanceInfo_t {
 public:
-    RTProxyInstanceFlags_t m_nFlags;
-    VertexAlbedoFormat_t m_albedoFormat;
-    uint16_t m_nBLASCount;
-    uint32_t m_nBLASIndex;
-    uint32_t m_nVertexAlbedoByteOffset;
+    RTProxyInstanceFlags_t m_nFlags; // 0x0
+    VertexAlbedoFormat_t m_albedoFormat; // 0x1
+    uint16_t m_nBLASCount; // 0x2
+    uint32_t m_nBLASIndex; // 0x4
+    uint32_t m_nVertexAlbedoByteOffset; // 0x8
     // matrix3x4_t m_mWorldFromLocal;
     char pad_00[48];
-};
+}; // size: 0x3c
 
-class C_OP_LerpEndCapScalar {
+class __declspec(align(8)) C_OP_LerpEndCapScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flOutput;
-    float m_flLerpTime;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flOutput; // 0x1d4
+    float m_flLerpTime; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_CPOffsetToPercentageBetweenCPs {
+class __declspec(align(8)) C_OP_CPOffsetToPercentageBetweenCPs {
 public:
     char pad_00[464];
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flInputBias;
-    int32_t m_nStartCP;
-    int32_t m_nEndCP;
-    int32_t m_nOffsetCP;
-    int32_t m_nOuputCP;
-    int32_t m_nInputCP;
-    bool m_bRadialCheck;
-    bool m_bScaleOffset;
+    float m_flInputMin; // 0x1d0
+    float m_flInputMax; // 0x1d4
+    float m_flInputBias; // 0x1d8
+    int32_t m_nStartCP; // 0x1dc
+    int32_t m_nEndCP; // 0x1e0
+    int32_t m_nOffsetCP; // 0x1e4
+    int32_t m_nOuputCP; // 0x1e8
+    int32_t m_nInputCP; // 0x1ec
+    bool m_bRadialCheck; // 0x1f0
+    bool m_bScaleOffset; // 0x1f1
     // Vector m_vecOffset;
     char pad_01[14];
-};
+}; // size: 0x200
 
-class C_INIT_SequenceFromCP {
+class __declspec(align(8)) C_INIT_SequenceFromCP {
 public:
     char pad_00[472];
-    bool m_bKillUnused;
-    bool m_bRadiusScale;
-    int32_t m_nCP;
+    bool m_bKillUnused; // 0x1d8
+    bool m_bRadiusScale; // 0x1d9
+    int32_t m_nCP; // 0x1dc
     // Vector m_vecOffset;
     char pad_01[16];
-};
+}; // size: 0x1f0
 
-class C_INIT_RemapParticleCountToNamedModelMeshGroupScalar {
+class __declspec(align(8)) C_INIT_RemapParticleCountToNamedModelMeshGroupScalar {
 public:
     char pad_00[552];
-};
+}; // size: 0x228
 
-class C_INIT_InitVecCollection {
+class __declspec(align(8)) C_INIT_InitVecCollection {
 public:
     char pad_00[472];
-    CParticleCollectionVecInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
+    CParticleCollectionVecInput m_InputValue; // 0x1d8
+    ParticleAttributeIndex_t m_nOutputField; // 0x890
     char pad_01[4];
-};
+}; // size: 0x898
 
-class C_OP_RotateVector {
+class __declspec(align(8)) C_OP_RotateVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
     // Vector m_vecRotAxisMin;
     // Vector m_vecRotAxisMax;
     char pad_01[24];
-    float m_flRotRateMin;
-    float m_flRotRateMax;
-    bool m_bNormalize;
-    CPerParticleFloatInput m_flScale;
-};
+    float m_flRotRateMin; // 0x1ec
+    float m_flRotRateMax; // 0x1f0
+    bool m_bNormalize; // 0x1f4
+    CPerParticleFloatInput m_flScale; // 0x1f8
+}; // size: 0x368
 
-class C_OP_RampScalarLinear {
+class __declspec(align(16)) C_OP_RampScalarLinear {
 public:
     char pad_00[464];
-    float m_RateMin;
-    float m_RateMax;
-    float m_flStartTime_min;
-    float m_flStartTime_max;
-    float m_flEndTime_min;
-    float m_flEndTime_max;
-    char pad_01[18];
-    ParticleAttributeIndex_t m_nField;
-    bool m_bProportionalOp;
+    float m_RateMin; // 0x1d0
+    float m_RateMax; // 0x1d4
+    float m_flStartTime_min; // 0x1d8
+    float m_flStartTime_max; // 0x1dc
+    float m_flEndTime_min; // 0x1e0
+    float m_flEndTime_max; // 0x1e4
+    char pad_01[40];
+    ParticleAttributeIndex_t m_nField; // 0x210
+    bool m_bProportionalOp; // 0x214
     char pad_02[11];
-};
+}; // size: 0x220
 
-class FloatInputMaterialVariable_t {
+class __declspec(align(8)) FloatInputMaterialVariable_t {
 public:
     // CUtlString m_strVariable;
     char pad_00[8];
-    CParticleCollectionFloatInput m_flInput;
-};
+    CParticleCollectionFloatInput m_flInput; // 0x8
+}; // size: 0x178
 
-class C_OP_RenderMaterialProxy {
+class __declspec(align(8)) C_OP_RenderMaterialProxy {
 public:
     char pad_00[544];
-    int32_t m_nMaterialControlPoint;
-    MaterialProxyType_t m_nProxyType;
+    int32_t m_nMaterialControlPoint; // 0x220
+    MaterialProxyType_t m_nProxyType; // 0x224
     // CUtlVector< MaterialVariable_t > m_MaterialVars;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hOverrideMaterial;
     char pad_01[32];
-    CParticleCollectionFloatInput m_flMaterialOverrideEnabled;
-    CParticleCollectionVecInput m_vecColorScale;
-    CPerParticleFloatInput m_flAlpha;
-    ParticleColorBlendType_t m_nColorBlendType;
+    CParticleCollectionFloatInput m_flMaterialOverrideEnabled; // 0x248
+    CParticleCollectionVecInput m_vecColorScale; // 0x3b8
+    CPerParticleFloatInput m_flAlpha; // 0xa70
+    ParticleColorBlendType_t m_nColorBlendType; // 0xbe0
     char pad_02[28];
-};
+}; // size: 0xc00
 
-class C_OP_CycleScalar {
+class __declspec(align(8)) C_OP_CycleScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nDestField;
-    float m_flStartValue;
-    float m_flEndValue;
-    float m_flCycleTime;
-    bool m_bDoNotRepeatCycle;
-    bool m_bSynchronizeParticles;
-    int32_t m_nCPScale;
-    int32_t m_nCPFieldMin;
-    int32_t m_nCPFieldMax;
-    ParticleSetMethod_t m_nSetMethod;
+    ParticleAttributeIndex_t m_nDestField; // 0x1d0
+    float m_flStartValue; // 0x1d4
+    float m_flEndValue; // 0x1d8
+    float m_flCycleTime; // 0x1dc
+    bool m_bDoNotRepeatCycle; // 0x1e0
+    bool m_bSynchronizeParticles; // 0x1e1
+    int32_t m_nCPScale; // 0x1e4
+    int32_t m_nCPFieldMin; // 0x1e8
+    int32_t m_nCPFieldMax; // 0x1ec
+    ParticleSetMethod_t m_nSetMethod; // 0x1f0
     char pad_01[4];
-};
+}; // size: 0x1f8
 
-class C_OP_SetAttributeToScalarExpression {
+class __declspec(align(16)) C_OP_SetAttributeToScalarExpression {
 public:
     char pad_00[464];
-    ScalarExpressionType_t m_nExpression;
-    CPerParticleFloatInput m_flInput1;
-    CPerParticleFloatInput m_flInput2;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
+    ScalarExpressionType_t m_nExpression; // 0x1d0
+    CPerParticleFloatInput m_flInput1; // 0x1d8
+    CPerParticleFloatInput m_flInput2; // 0x348
+    CParticleRemapFloatInput m_flOutputRemap; // 0x4b8
+    ParticleAttributeIndex_t m_nOutputField; // 0x628
+    ParticleSetMethod_t m_nSetMethod; // 0x62c
     char pad_01[32];
-};
+}; // size: 0x650
 
-class C_OP_WorldCollideConstraint {
+class __declspec(align(8)) C_OP_WorldCollideConstraint {
 public:
     char pad_00[464];
-};
+}; // size: 0x1d0
 
-class C_OP_RenderTreeShake {
+class __declspec(align(8)) C_OP_RenderTreeShake {
 public:
     char pad_00[544];
-    float m_flPeakStrength;
-    ParticleAttributeIndex_t m_nPeakStrengthFieldOverride;
-    float m_flRadius;
-    ParticleAttributeIndex_t m_nRadiusFieldOverride;
-    float m_flShakeDuration;
-    float m_flTransitionTime;
-    float m_flTwistAmount;
-    float m_flRadialAmount;
-    float m_flControlPointOrientationAmount;
-    int32_t m_nControlPointForLinearDirection;
-};
+    float m_flPeakStrength; // 0x220
+    ParticleAttributeIndex_t m_nPeakStrengthFieldOverride; // 0x224
+    float m_flRadius; // 0x228
+    ParticleAttributeIndex_t m_nRadiusFieldOverride; // 0x22c
+    float m_flShakeDuration; // 0x230
+    float m_flTransitionTime; // 0x234
+    float m_flTwistAmount; // 0x238
+    float m_flRadialAmount; // 0x23c
+    float m_flControlPointOrientationAmount; // 0x240
+    int32_t m_nControlPointForLinearDirection; // 0x244
+}; // size: 0x248
 
-class C_OP_SetPerChildControlPoint {
+class __declspec(align(8)) C_OP_SetPerChildControlPoint {
 public:
     char pad_00[464];
-    int32_t m_nChildGroupID;
-    int32_t m_nFirstControlPoint;
-    int32_t m_nNumControlPoints;
-    CParticleCollectionFloatInput m_nParticleIncrement;
-    CParticleCollectionFloatInput m_nFirstSourcePoint;
-    bool m_bSetOrientation;
-    ParticleAttributeIndex_t m_nOrientationField;
-    bool m_bNumBasedOnParticleCount;
+    int32_t m_nChildGroupID; // 0x1d0
+    int32_t m_nFirstControlPoint; // 0x1d4
+    int32_t m_nNumControlPoints; // 0x1d8
+    CParticleCollectionFloatInput m_nParticleIncrement; // 0x1e0
+    CParticleCollectionFloatInput m_nFirstSourcePoint; // 0x350
+    bool m_bSetOrientation; // 0x4c0
+    ParticleAttributeIndex_t m_nOrientationField; // 0x4c4
+    bool m_bNumBasedOnParticleCount; // 0x4c8
     char pad_01[7];
-};
+}; // size: 0x4d0
 
-class C_OP_PercentageBetweenTransformLerpCPs {
+class __declspec(align(8)) C_OP_PercentageBetweenTransformLerpCPs {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    CParticleTransformInput m_TransformStart;
-    CParticleTransformInput m_TransformEnd;
-    int32_t m_nOutputStartCP;
-    int32_t m_nOutputStartField;
-    int32_t m_nOutputEndCP;
-    int32_t m_nOutputEndField;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bRadialCheck;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flInputMin; // 0x1d4
+    float m_flInputMax; // 0x1d8
+    CParticleTransformInput m_TransformStart; // 0x1e0
+    CParticleTransformInput m_TransformEnd; // 0x248
+    int32_t m_nOutputStartCP; // 0x2b0
+    int32_t m_nOutputStartField; // 0x2b4
+    int32_t m_nOutputEndCP; // 0x2b8
+    int32_t m_nOutputEndField; // 0x2bc
+    ParticleSetMethod_t m_nSetMethod; // 0x2c0
+    bool m_bActiveRange; // 0x2c4
+    bool m_bRadialCheck; // 0x2c5
     char pad_01[2];
-};
+}; // size: 0x2c8
 
-class C_OP_RenderSprites {
+class __declspec(align(8)) C_OP_RenderSprites {
 public:
     char pad_00[11752];
-    CParticleCollectionRendererFloatInput m_nSequenceOverride;
-    bool m_bSequenceNumbersAreRawSequenceIndices;
-    ParticleOrientationChoiceList_t m_nOrientationType;
-    int32_t m_nOrientationControlPoint;
-    bool m_bUseYawWithNormalAligned;
-    CParticleCollectionRendererFloatInput m_flMinSize;
-    CParticleCollectionRendererFloatInput m_flMaxSize;
-    CParticleCollectionRendererFloatInput m_flAlphaAdjustWithSizeAdjust;
-    CParticleCollectionRendererFloatInput m_flStartFadeSize;
-    CParticleCollectionRendererFloatInput m_flEndFadeSize;
-    float m_flStartFadeDot;
-    float m_flEndFadeDot;
-    bool m_bDistanceAlpha;
-    bool m_bSoftEdges;
-    float m_flEdgeSoftnessStart;
-    float m_flEdgeSoftnessEnd;
-    bool m_bOutline;
+    CParticleCollectionRendererFloatInput m_nSequenceOverride; // 0x2de8
+    bool m_bSequenceNumbersAreRawSequenceIndices; // 0x2f58
+    ParticleOrientationChoiceList_t m_nOrientationType; // 0x2f5c
+    int32_t m_nOrientationControlPoint; // 0x2f60
+    bool m_bUseYawWithNormalAligned; // 0x2f64
+    CParticleCollectionRendererFloatInput m_flMinSize; // 0x2f68
+    CParticleCollectionRendererFloatInput m_flMaxSize; // 0x30d8
+    CParticleCollectionRendererFloatInput m_flAlphaAdjustWithSizeAdjust; // 0x3248
+    CParticleCollectionRendererFloatInput m_flStartFadeSize; // 0x33b8
+    CParticleCollectionRendererFloatInput m_flEndFadeSize; // 0x3528
+    float m_flStartFadeDot; // 0x3698
+    float m_flEndFadeDot; // 0x369c
+    bool m_bDistanceAlpha; // 0x36a0
+    bool m_bSoftEdges; // 0x36a1
+    float m_flEdgeSoftnessStart; // 0x36a4
+    float m_flEdgeSoftnessEnd; // 0x36a8
+    bool m_bOutline; // 0x36ac
     // Color m_OutlineColor;
     char pad_01[4];
-    int32_t m_nOutlineAlpha;
-    float m_flOutlineStart0;
-    float m_flOutlineStart1;
-    float m_flOutlineEnd0;
-    float m_flOutlineEnd1;
-    ParticleLightingQuality_t m_nLightingMode;
-    CParticleCollectionRendererVecInput m_vecLightingOverride;
-    CParticleCollectionRendererFloatInput m_flLightingTessellation;
-    CParticleCollectionRendererFloatInput m_flLightingDirectionality;
-    bool m_bParticleShadows;
-    float m_flShadowDensity;
+    int32_t m_nOutlineAlpha; // 0x36b4
+    float m_flOutlineStart0; // 0x36b8
+    float m_flOutlineStart1; // 0x36bc
+    float m_flOutlineEnd0; // 0x36c0
+    float m_flOutlineEnd1; // 0x36c4
+    ParticleLightingQuality_t m_nLightingMode; // 0x36c8
+    CParticleCollectionRendererVecInput m_vecLightingOverride; // 0x36d0
+    CParticleCollectionRendererFloatInput m_flLightingTessellation; // 0x3d88
+    CParticleCollectionRendererFloatInput m_flLightingDirectionality; // 0x3ef8
+    bool m_bParticleShadows; // 0x4068
+    float m_flShadowDensity; // 0x406c
     // CReplicationParameters m_replicationParameters;
     char pad_02[4560];
-};
+}; // size: 0x5240
 
-class C_INIT_ModelCull {
+class __declspec(align(8)) C_INIT_ModelCull {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    bool m_bBoundBox;
-    bool m_bCullOutside;
-    bool m_bUseBones;
-    char m_HitboxSetName[128];
+    int32_t m_nControlPointNumber; // 0x1d8
+    bool m_bBoundBox; // 0x1dc
+    bool m_bCullOutside; // 0x1dd
+    bool m_bUseBones; // 0x1de
+    char m_HitboxSetName[128]; // 0x1df
     char pad_01[1];
-};
+}; // size: 0x260
 
-class C_OP_ExternalWindForce {
+class __declspec(align(8)) C_OP_ExternalWindForce {
 public:
     char pad_00[480];
-    CPerParticleVecInput m_vecSamplePosition;
-    CPerParticleVecInput m_vecScale;
-    bool m_bSampleWind;
-    bool m_bSampleWater;
-    bool m_bDampenNearWaterPlane;
-    bool m_bSampleGravity;
-    CPerParticleVecInput m_vecGravityForce;
-    bool m_bUseBasicMovementGravity;
-    CPerParticleFloatInput m_flLocalGravityScale;
-    CPerParticleFloatInput m_flLocalBuoyancyScale;
-    CPerParticleVecInput m_vecBuoyancyForce;
-};
+    CPerParticleVecInput m_vecSamplePosition; // 0x1e0
+    CPerParticleVecInput m_vecScale; // 0x898
+    bool m_bSampleWind; // 0xf50
+    bool m_bSampleWater; // 0xf51
+    bool m_bDampenNearWaterPlane; // 0xf52
+    bool m_bSampleGravity; // 0xf53
+    CPerParticleVecInput m_vecGravityForce; // 0xf58
+    bool m_bUseBasicMovementGravity; // 0x1610
+    CPerParticleFloatInput m_flLocalGravityScale; // 0x1618
+    CPerParticleFloatInput m_flLocalBuoyancyScale; // 0x1788
+    CPerParticleVecInput m_vecBuoyancyForce; // 0x18f8
+}; // size: 0x1fb0
 
-class C_INIT_SetFloatAttributeToVectorExpression {
+class __declspec(align(8)) C_INIT_SetFloatAttributeToVectorExpression {
 public:
     char pad_00[472];
-    VectorFloatExpressionType_t m_nExpression;
-    CPerParticleVecInput m_vInput1;
-    CPerParticleVecInput m_vInput2;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-};
+    VectorFloatExpressionType_t m_nExpression; // 0x1d8
+    CPerParticleVecInput m_vInput1; // 0x1e0
+    CPerParticleVecInput m_vInput2; // 0x898
+    CParticleRemapFloatInput m_flOutputRemap; // 0xf50
+    ParticleAttributeIndex_t m_nOutputField; // 0x10c0
+    ParticleSetMethod_t m_nSetMethod; // 0x10c4
+}; // size: 0x10c8
 
-class RenderProjectedMaterial_t {
+class __declspec(align(8)) RenderProjectedMaterial_t {
 public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial;
     char pad_00[8];
-};
+}; // size: 0x8
 
-class PointDefinitionWithTimeValues_t {
+class __declspec(align(4)) PointDefinitionWithTimeValues_t {
 public:
     char pad_00[20];
-    float m_flTimeDuration;
-};
+    float m_flTimeDuration; // 0x14
+}; // size: 0x18
 
-class C_OP_SpinYaw {
+class __declspec(align(8)) C_OP_SpinYaw {
 public:
     char pad_00[488];
-};
+}; // size: 0x1e8
 
-class C_OP_ClientPhysics {
+class __declspec(align(8)) C_OP_ClientPhysics {
 public:
     // CUtlString m_strPhysicsType;
     char pad_00[552];
-    bool m_bStartAsleep;
-    CParticleCollectionFloatInput m_flPlayerWakeRadius;
-    CParticleCollectionFloatInput m_flVehicleWakeRadius;
-    bool m_bUseHighQualitySimulation;
-    int32_t m_nMaxParticleCount;
-    bool m_bRespectExclusionVolumes;
-    bool m_bKillParticles;
-    bool m_bDeleteSim;
-    int32_t m_nControlPoint;
-    int32_t m_nForcedSimId;
-    ParticleColorBlendType_t m_nColorBlendType;
-    ParticleAttrBoxFlags_t m_nForcedStatusEffects;
+    bool m_bStartAsleep; // 0x228
+    CParticleCollectionFloatInput m_flPlayerWakeRadius; // 0x230
+    CParticleCollectionFloatInput m_flVehicleWakeRadius; // 0x3a0
+    bool m_bUseHighQualitySimulation; // 0x510
+    int32_t m_nMaxParticleCount; // 0x514
+    bool m_bRespectExclusionVolumes; // 0x518
+    bool m_bKillParticles; // 0x519
+    bool m_bDeleteSim; // 0x51a
+    int32_t m_nControlPoint; // 0x51c
+    int32_t m_nForcedSimId; // 0x520
+    ParticleColorBlendType_t m_nColorBlendType; // 0x524
+    ParticleAttrBoxFlags_t m_nForcedStatusEffects; // 0x528
     char pad_01[4];
-};
+}; // size: 0x530
 
-class C_OP_SetControlPointToCPVelocity {
+class __declspec(align(8)) C_OP_SetControlPointToCPVelocity {
 public:
     char pad_00[472];
-    int32_t m_nCPInput;
-    int32_t m_nCPOutputVel;
-    bool m_bNormalize;
-    int32_t m_nCPOutputMag;
-    int32_t m_nCPField;
-    CParticleCollectionVecInput m_vecComparisonVelocity;
-};
+    int32_t m_nCPInput; // 0x1d8
+    int32_t m_nCPOutputVel; // 0x1dc
+    bool m_bNormalize; // 0x1e0
+    int32_t m_nCPOutputMag; // 0x1e4
+    int32_t m_nCPField; // 0x1e8
+    CParticleCollectionVecInput m_vecComparisonVelocity; // 0x1f0
+}; // size: 0x8a8
 
-class C_OP_ParentVortices {
+class __declspec(align(8)) C_OP_ParentVortices {
 public:
     char pad_00[480];
-    float m_flForceScale;
+    float m_flForceScale; // 0x1e0
     // Vector m_vecTwistAxis;
     char pad_01[12];
-    bool m_bFlipBasedOnYaw;
+    bool m_bFlipBasedOnYaw; // 0x1f0
     char pad_02[7];
-};
+}; // size: 0x1f8
 
-class ParticleControlPointDriver_t {
+class __declspec(align(8)) ParticleControlPointDriver_t {
 public:
     // ParticleParamID_t m_iControlPoint;
     char pad_00[16];
-    ParticleAttachment_t m_iAttachType;
+    ParticleAttachment_t m_iAttachType; // 0x10
     // CUtlString m_attachmentName;
     // Vector m_vecOffset;
     // QAngle m_angOffset;
     // CUtlString m_entityName;
     char pad_01[44];
-};
+}; // size: 0x40
 
-class C_OP_SetToCP {
+class __declspec(align(8)) C_OP_SetToCP {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
+    int32_t m_nControlPointNumber; // 0x1d0
     // Vector m_vecOffset;
     char pad_01[12];
-    bool m_bOffsetLocal;
+    bool m_bOffsetLocal; // 0x1e0
     char pad_02[7];
-};
+}; // size: 0x1e8
 
-class C_OP_RemapModelVolumetoCP {
+class __declspec(align(8)) C_OP_RemapModelVolumetoCP {
 public:
     char pad_00[472];
-    BBoxVolumeType_t m_nBBoxType;
-    int32_t m_nInControlPointNumber;
-    int32_t m_nOutControlPointNumber;
-    int32_t m_nOutControlPointMaxNumber;
-    int32_t m_nField;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    bool m_bBBoxOnly;
-    bool m_bCubeRoot;
+    BBoxVolumeType_t m_nBBoxType; // 0x1d8
+    int32_t m_nInControlPointNumber; // 0x1dc
+    int32_t m_nOutControlPointNumber; // 0x1e0
+    int32_t m_nOutControlPointMaxNumber; // 0x1e4
+    int32_t m_nField; // 0x1e8
+    float m_flInputMin; // 0x1ec
+    float m_flInputMax; // 0x1f0
+    float m_flOutputMin; // 0x1f4
+    float m_flOutputMax; // 0x1f8
+    bool m_bBBoxOnly; // 0x1fc
+    bool m_bCubeRoot; // 0x1fd
     char pad_01[2];
-};
+}; // size: 0x200
 
-class C_INIT_QuantizeFloat {
+class __declspec(align(8)) C_INIT_QuantizeFloat {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
+    CPerParticleFloatInput m_InputValue; // 0x1d8
+    ParticleAttributeIndex_t m_nOutputField; // 0x348
     char pad_01[4];
-};
+}; // size: 0x350
 
-class C_OP_RemapParticleCountToScalar {
+class __declspec(align(8)) C_OP_RemapParticleCountToScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CParticleCollectionFloatInput m_nInputMin;
-    CParticleCollectionFloatInput m_nInputMax;
-    CParticleCollectionFloatInput m_flOutputMin;
-    CParticleCollectionFloatInput m_flOutputMax;
-    bool m_bActiveRange;
-    ParticleSetMethod_t m_nSetMethod;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CParticleCollectionFloatInput m_nInputMin; // 0x1d8
+    CParticleCollectionFloatInput m_nInputMax; // 0x348
+    CParticleCollectionFloatInput m_flOutputMin; // 0x4b8
+    CParticleCollectionFloatInput m_flOutputMax; // 0x628
+    bool m_bActiveRange; // 0x798
+    ParticleSetMethod_t m_nSetMethod; // 0x79c
+}; // size: 0x7a0
 
-class C_OP_VectorNoise {
+class __declspec(align(8)) C_OP_VectorNoise {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    float m_fl4NoiseScale;
-    bool m_bAdditive;
-    bool m_bOffset;
-    float m_flNoiseAnimationTimeScale;
-};
+    float m_fl4NoiseScale; // 0x1ec
+    bool m_bAdditive; // 0x1f0
+    bool m_bOffset; // 0x1f1
+    float m_flNoiseAnimationTimeScale; // 0x1f4
+}; // size: 0x1f8
 
-class C_OP_ForceControlPointStub {
+class __declspec(align(8)) C_OP_ForceControlPointStub {
 public:
     char pad_00[472];
-    int32_t m_ControlPoint;
+    int32_t m_ControlPoint; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_INIT_PositionWarpScalar {
+class __declspec(align(8)) C_INIT_PositionWarpScalar {
 public:
     // Vector m_vecWarpMin;
     // Vector m_vecWarpMax;
     char pad_00[496];
-    CPerParticleFloatInput m_InputValue;
-    float m_flPrevPosScale;
-    int32_t m_nScaleControlPointNumber;
-    int32_t m_nControlPointNumber;
+    CPerParticleFloatInput m_InputValue; // 0x1f0
+    float m_flPrevPosScale; // 0x360
+    int32_t m_nScaleControlPointNumber; // 0x364
+    int32_t m_nControlPointNumber; // 0x368
     char pad_01[4];
-};
+}; // size: 0x370
 
-class C_OP_RopeSpringConstraint {
+class __declspec(align(8)) C_OP_RopeSpringConstraint {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_flRestLength;
-    CParticleCollectionFloatInput m_flMinDistance;
-    CParticleCollectionFloatInput m_flMaxDistance;
-    float m_flAdjustmentScale;
-    CParticleCollectionFloatInput m_flInitialRestingLength;
-};
+    CParticleCollectionFloatInput m_flRestLength; // 0x1d0
+    CParticleCollectionFloatInput m_flMinDistance; // 0x340
+    CParticleCollectionFloatInput m_flMaxDistance; // 0x4b0
+    float m_flAdjustmentScale; // 0x620
+    CParticleCollectionFloatInput m_flInitialRestingLength; // 0x628
+}; // size: 0x798
 
-class C_OP_SetControlPointOrientationToCPVelocity {
+class __declspec(align(8)) C_OP_SetControlPointOrientationToCPVelocity {
 public:
     char pad_00[472];
-    int32_t m_nCPInput;
-    int32_t m_nCPOutput;
-};
+    int32_t m_nCPInput; // 0x1d8
+    int32_t m_nCPOutput; // 0x1dc
+}; // size: 0x1e0
 
-class C_INIT_RemapNamedModelMeshGroupToScalar {
+class __declspec(align(8)) C_INIT_RemapNamedModelMeshGroupToScalar {
 public:
     char pad_00[544];
-};
+}; // size: 0x220
 
-class CParticleFunctionEmitter {
+class __declspec(align(4)) CParticleFunctionEmitter {
 public:
     char pad_00[464];
-    int32_t m_nEmitterIndex;
+    int32_t m_nEmitterIndex; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_OP_RenderClientPhysicsImpulse {
+class __declspec(align(8)) C_OP_RenderClientPhysicsImpulse {
 public:
     char pad_00[544];
-    CPerParticleFloatInput m_flRadius;
-    CPerParticleFloatInput m_flMagnitude;
-    int32_t m_nSimIdFilter;
+    CPerParticleFloatInput m_flRadius; // 0x220
+    CPerParticleFloatInput m_flMagnitude; // 0x390
+    int32_t m_nSimIdFilter; // 0x500
     char pad_01[4];
-};
+}; // size: 0x508
 
-class C_OP_RenderModels {
+class __declspec(align(8)) C_OP_RenderModels {
 public:
     char pad_00[544];
-    bool m_bOnlyRenderInEffectsBloomPass;
-    bool m_bOnlyRenderInEffectsWaterPass;
-    bool m_bUseMixedResolutionRendering;
-    bool m_bOnlyRenderInEffecsGameOverlay;
+    bool m_bOnlyRenderInEffectsBloomPass; // 0x220
+    bool m_bOnlyRenderInEffectsWaterPass; // 0x221
+    bool m_bUseMixedResolutionRendering; // 0x222
+    bool m_bOnlyRenderInEffecsGameOverlay; // 0x223
     // CUtlVector< ModelReference_t > m_ModelList;
-    ParticleAttributeIndex_t m_nBodyGroupField;
-    ParticleAttributeIndex_t m_nSubModelField;
-    bool m_bIgnoreNormal;
-    bool m_bOrientZ;
-    bool m_bCenterOffset;
-    CPerParticleVecInput m_vecLocalOffset;
-    CPerParticleVecInput m_vecLocalRotation;
-    bool m_bIgnoreRadius;
-    int32_t m_nModelScaleCP;
-    CPerParticleVecInput m_vecComponentScale;
-    bool m_bLocalScale;
-    int32_t m_nSizeCullBloat;
-    bool m_bAnimated;
-    CPerParticleFloatInput m_flAnimationRate;
-    bool m_bScaleAnimationRate;
-    bool m_bForceLoopingAnimation;
-    bool m_bResetAnimOnStop;
-    bool m_bManualAnimFrame;
-    ParticleAttributeIndex_t m_nAnimationScaleField;
-    ParticleAttributeIndex_t m_nAnimationField;
-    ParticleAttributeIndex_t m_nManualFrameField;
-    char m_ActivityName[256];
-    char m_SequenceName[256];
-    bool m_bEnableClothSimulation;
-    char m_ClothEffectName[64];
+    char pad_01[28];
+    ParticleAttributeIndex_t m_nBodyGroupField; // 0x240
+    ParticleAttributeIndex_t m_nSubModelField; // 0x244
+    bool m_bIgnoreNormal; // 0x248
+    bool m_bOrientZ; // 0x249
+    bool m_bCenterOffset; // 0x24a
+    CPerParticleVecInput m_vecLocalOffset; // 0x250
+    CPerParticleVecInput m_vecLocalRotation; // 0x908
+    bool m_bIgnoreRadius; // 0xfc0
+    int32_t m_nModelScaleCP; // 0xfc4
+    CPerParticleVecInput m_vecComponentScale; // 0xfc8
+    bool m_bLocalScale; // 0x1680
+    int32_t m_nSizeCullBloat; // 0x1684
+    bool m_bAnimated; // 0x1688
+    CPerParticleFloatInput m_flAnimationRate; // 0x1690
+    bool m_bScaleAnimationRate; // 0x1800
+    bool m_bForceLoopingAnimation; // 0x1801
+    bool m_bResetAnimOnStop; // 0x1802
+    bool m_bManualAnimFrame; // 0x1803
+    ParticleAttributeIndex_t m_nAnimationScaleField; // 0x1804
+    ParticleAttributeIndex_t m_nAnimationField; // 0x1808
+    ParticleAttributeIndex_t m_nManualFrameField; // 0x180c
+    char m_ActivityName[256]; // 0x1810
+    char m_SequenceName[256]; // 0x1910
+    bool m_bEnableClothSimulation; // 0x1a10
+    char m_ClothEffectName[64]; // 0x1a11
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hOverrideMaterial;
-    char pad_01[15];
-    bool m_bOverrideTranslucentMaterials;
-    CPerParticleFloatInput m_nSkin;
+    char pad_02[15];
+    bool m_bOverrideTranslucentMaterials; // 0x1a60
+    CPerParticleFloatInput m_nSkin; // 0x1a68
     // CUtlVector< MaterialVariable_t > m_MaterialVars;
-    char pad_02[24];
-    CPerParticleFloatInput m_flRenderFilter;
-    CPerParticleFloatInput m_flManualModelSelection;
-    CParticleModelInput m_modelInput;
-    int32_t m_nLOD;
-    char m_EconSlotName[256];
-    bool m_bOriginalModel;
-    bool m_bSuppressTint;
-    RenderModelSubModelFieldType_t m_nSubModelFieldType;
-    bool m_bDisableShadows;
-    bool m_bDisableDepthPrepass;
-    bool m_bAcceptsDecals;
-    bool m_bForceDrawInterlevedWithSiblings;
-    bool m_bDoNotDrawInParticlePass;
-    bool m_bAllowApproximateTransforms;
-    char m_szRenderAttribute[260];
-    CParticleCollectionFloatInput m_flRadiusScale;
-    CParticleCollectionFloatInput m_flAlphaScale;
-    CParticleCollectionFloatInput m_flRollScale;
-    ParticleAttributeIndex_t m_nAlpha2Field;
-    CParticleCollectionVecInput m_vecColorScale;
-    ParticleColorBlendType_t m_nColorBlendType;
-    char pad_03[68];
-};
+    char pad_03[24];
+    CPerParticleFloatInput m_flRenderFilter; // 0x1bf0
+    CPerParticleFloatInput m_flManualModelSelection; // 0x1d60
+    CParticleModelInput m_modelInput; // 0x1ed0
+    int32_t m_nLOD; // 0x1f30
+    char m_EconSlotName[256]; // 0x1f34
+    bool m_bOriginalModel; // 0x2034
+    bool m_bSuppressTint; // 0x2035
+    RenderModelSubModelFieldType_t m_nSubModelFieldType; // 0x2038
+    bool m_bDisableShadows; // 0x203c
+    bool m_bDisableDepthPrepass; // 0x203d
+    bool m_bAcceptsDecals; // 0x203e
+    bool m_bForceDrawInterlevedWithSiblings; // 0x203f
+    bool m_bDoNotDrawInParticlePass; // 0x2040
+    bool m_bAllowApproximateTransforms; // 0x2041
+    char m_szRenderAttribute[260]; // 0x2042
+    CParticleCollectionFloatInput m_flRadiusScale; // 0x2148
+    CParticleCollectionFloatInput m_flAlphaScale; // 0x22b8
+    CParticleCollectionFloatInput m_flRollScale; // 0x2428
+    ParticleAttributeIndex_t m_nAlpha2Field; // 0x2598
+    CParticleCollectionVecInput m_vecColorScale; // 0x25a0
+    ParticleColorBlendType_t m_nColorBlendType; // 0x2c58
+    char pad_04[68];
+}; // size: 0x2ca0
 
-class C_OP_RemapSpeed {
+class __declspec(align(8)) C_OP_RemapSpeed {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bIgnoreDelta;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flInputMin; // 0x1d4
+    float m_flInputMax; // 0x1d8
+    float m_flOutputMin; // 0x1dc
+    float m_flOutputMax; // 0x1e0
+    ParticleSetMethod_t m_nSetMethod; // 0x1e4
+    bool m_bIgnoreDelta; // 0x1e8
     char pad_01[7];
-};
+}; // size: 0x1f0
 
-class CParticleFunctionConstraint {
+class __declspec(align(1)) CParticleFunctionConstraint {
 public:
     char pad_00[464];
-};
+}; // size: 0x1d0
 
-class MaterialVariable_t {
+class __declspec(align(8)) MaterialVariable_t {
 public:
     // CUtlString m_strVariable;
     char pad_00[8];
-    ParticleAttributeIndex_t m_nVariableField;
-    float m_flScale;
-};
+    ParticleAttributeIndex_t m_nVariableField; // 0x8
+    float m_flScale; // 0xc
+}; // size: 0x10
 
-class C_INIT_SetRigidAttachment {
+class __declspec(align(8)) C_INIT_SetRigidAttachment {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    bool m_bLocalSpace;
+    int32_t m_nControlPointNumber; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1dc
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e0
+    bool m_bLocalSpace; // 0x1e4
     char pad_01[3];
-};
+}; // size: 0x1e8
 
-class ParticleControlPointConfiguration_t {
+class __declspec(align(8)) ParticleControlPointConfiguration_t {
 public:
     // CUtlString m_name;
     // CUtlVector< ParticleControlPointDriver_t > m_drivers;
     // ParticlePreviewState_t m_previewState;
     char pad_00[136];
-};
+}; // size: 0x88
 
-class C_OP_RemapDensityToVector {
+class __declspec(align(8)) C_OP_RemapDensityToVector {
 public:
     char pad_00[464];
-    float m_flRadiusScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flDensityMin;
-    float m_flDensityMax;
+    float m_flRadiusScale; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flDensityMin; // 0x1d8
+    float m_flDensityMax; // 0x1dc
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    bool m_bUseParentDensity;
-    int32_t m_nVoxelGridResolution;
-};
+    bool m_bUseParentDensity; // 0x1f8
+    int32_t m_nVoxelGridResolution; // 0x1fc
+}; // size: 0x200
 
-class C_OP_ForceBasedOnDistanceToPlane {
+class __declspec(align(8)) C_OP_ForceBasedOnDistanceToPlane {
 public:
     char pad_00[480];
-    float m_flMinDist;
+    float m_flMinDist; // 0x1e0
     // Vector m_vecForceAtMinDist;
     char pad_01[12];
-    float m_flMaxDist;
+    float m_flMaxDist; // 0x1f0
     // Vector m_vecForceAtMaxDist;
     // Vector m_vecPlaneNormal;
     char pad_02[24];
-    int32_t m_nControlPointNumber;
-    float m_flExponent;
+    int32_t m_nControlPointNumber; // 0x20c
+    float m_flExponent; // 0x210
     char pad_03[4];
-};
+}; // size: 0x218
 
-class C_OP_EndCapDecay {
+class __declspec(align(8)) C_OP_EndCapDecay {
 public:
     char pad_00[464];
-};
+}; // size: 0x1d0
 
-class CReplicationParameters {
+class __declspec(align(8)) CReplicationParameters {
 public:
-    ParticleReplicationMode_t m_nReplicationMode;
-    bool m_bScaleChildParticleRadii;
-    CParticleCollectionFloatInput m_flMinRandomRadiusScale;
-    CParticleCollectionFloatInput m_flMaxRandomRadiusScale;
-    CParticleCollectionVecInput m_vMinRandomDisplacement;
-    CParticleCollectionVecInput m_vMaxRandomDisplacement;
-    CParticleCollectionFloatInput m_flModellingScale;
-};
+    ParticleReplicationMode_t m_nReplicationMode; // 0x0
+    bool m_bScaleChildParticleRadii; // 0x4
+    CParticleCollectionFloatInput m_flMinRandomRadiusScale; // 0x8
+    CParticleCollectionFloatInput m_flMaxRandomRadiusScale; // 0x178
+    CParticleCollectionVecInput m_vMinRandomDisplacement; // 0x2e8
+    CParticleCollectionVecInput m_vMaxRandomDisplacement; // 0x9a0
+    CParticleCollectionFloatInput m_flModellingScale; // 0x1058
+}; // size: 0x11c8
 
-class C_INIT_DistanceToCPInit {
+class __declspec(align(8)) C_INIT_DistanceToCPInit {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flInputMin;
-    CPerParticleFloatInput m_flInputMax;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-    int32_t m_nStartCP;
-    bool m_bLOS;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    CPerParticleFloatInput m_flMaxTraceLength;
-    float m_flLOSScale;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    CPerParticleFloatInput m_flInputMin; // 0x1e0
+    CPerParticleFloatInput m_flInputMax; // 0x350
+    CPerParticleFloatInput m_flOutputMin; // 0x4c0
+    CPerParticleFloatInput m_flOutputMax; // 0x630
+    int32_t m_nStartCP; // 0x7a0
+    bool m_bLOS; // 0x7a4
+    char m_CollisionGroupName[128]; // 0x7a5
+    ParticleTraceSet_t m_nTraceSet; // 0x828
+    CPerParticleFloatInput m_flMaxTraceLength; // 0x830
+    float m_flLOSScale; // 0x9a0
+    ParticleSetMethod_t m_nSetMethod; // 0x9a4
+    bool m_bActiveRange; // 0x9a8
     // Vector m_vecDistanceScale;
     char pad_01[12];
-    float m_flRemapBias;
+    float m_flRemapBias; // 0x9b8
     char pad_02[4];
-};
+}; // size: 0x9c0
 
-class C_OP_EnableChildrenFromParentParticleCount {
+class __declspec(align(8)) C_OP_EnableChildrenFromParentParticleCount {
 public:
     char pad_00[472];
-    int32_t m_nChildGroupID;
-    int32_t m_nFirstChild;
-    CParticleCollectionFloatInput m_nNumChildrenToEnable;
-    bool m_bDisableChildren;
-    bool m_bPlayEndcapOnStop;
-    bool m_bDestroyImmediately;
+    int32_t m_nChildGroupID; // 0x1d8
+    int32_t m_nFirstChild; // 0x1dc
+    CParticleCollectionFloatInput m_nNumChildrenToEnable; // 0x1e0
+    bool m_bDisableChildren; // 0x350
+    bool m_bPlayEndcapOnStop; // 0x351
+    bool m_bDestroyImmediately; // 0x352
     char pad_01[5];
-};
+}; // size: 0x358
 
-class C_OP_RenderLightBeam {
+class __declspec(align(8)) C_OP_RenderLightBeam {
 public:
     char pad_00[544];
-    CParticleCollectionVecInput m_vColorBlend;
-    ParticleColorBlendType_t m_nColorBlendType;
-    CParticleCollectionFloatInput m_flBrightnessLumensPerMeter;
-    bool m_bCastShadows;
-    CParticleCollectionFloatInput m_flSkirt;
-    CParticleCollectionFloatInput m_flRange;
-    CParticleCollectionFloatInput m_flThickness;
-};
+    CParticleCollectionVecInput m_vColorBlend; // 0x220
+    ParticleColorBlendType_t m_nColorBlendType; // 0x8d8
+    CParticleCollectionFloatInput m_flBrightnessLumensPerMeter; // 0x8e0
+    bool m_bCastShadows; // 0xa50
+    CParticleCollectionFloatInput m_flSkirt; // 0xa58
+    CParticleCollectionFloatInput m_flRange; // 0xbc8
+    CParticleCollectionFloatInput m_flThickness; // 0xd38
+}; // size: 0xea8
 
-class C_OP_RenderFlattenGrass {
+class __declspec(align(8)) C_OP_RenderFlattenGrass {
 public:
     char pad_00[544];
-    float m_flFlattenStrength;
-    ParticleAttributeIndex_t m_nStrengthFieldOverride;
-    float m_flRadiusScale;
+    float m_flFlattenStrength; // 0x220
+    ParticleAttributeIndex_t m_nStrengthFieldOverride; // 0x224
+    float m_flRadiusScale; // 0x228
     char pad_01[4];
-};
+}; // size: 0x230
 
-class C_OP_MovementRigidAttachToCP {
+class __declspec(align(8)) C_OP_MovementRigidAttachToCP {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    int32_t m_nScaleControlPoint;
-    int32_t m_nScaleCPField;
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    bool m_bOffsetLocal;
+    int32_t m_nControlPointNumber; // 0x1d0
+    int32_t m_nScaleControlPoint; // 0x1d4
+    int32_t m_nScaleCPField; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1dc
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e0
+    bool m_bOffsetLocal; // 0x1e4
     char pad_01[3];
-};
+}; // size: 0x1e8
 
-class C_INIT_ChaoticAttractor {
+class __declspec(align(8)) C_INIT_ChaoticAttractor {
 public:
     char pad_00[472];
-    float m_flAParm;
-    float m_flBParm;
-    float m_flCParm;
-    float m_flDParm;
-    float m_flScale;
-    float m_flSpeedMin;
-    float m_flSpeedMax;
-    int32_t m_nBaseCP;
-    bool m_bUniformSpeed;
+    float m_flAParm; // 0x1d8
+    float m_flBParm; // 0x1dc
+    float m_flCParm; // 0x1e0
+    float m_flDParm; // 0x1e4
+    float m_flScale; // 0x1e8
+    float m_flSpeedMin; // 0x1ec
+    float m_flSpeedMax; // 0x1f0
+    int32_t m_nBaseCP; // 0x1f4
+    bool m_bUniformSpeed; // 0x1f8
     char pad_01[7];
-};
+}; // size: 0x200
 
-class C_OP_RampScalarLinearSimple {
+class __declspec(align(16)) C_OP_RampScalarLinearSimple {
 public:
     char pad_00[464];
-    float m_Rate;
-    float m_flStartTime;
-    float m_flEndTime;
-    char pad_01[2];
-    ParticleAttributeIndex_t m_nField;
+    float m_Rate; // 0x1d0
+    float m_flStartTime; // 0x1d4
+    float m_flEndTime; // 0x1d8
+    char pad_01[36];
+    ParticleAttributeIndex_t m_nField; // 0x200
     char pad_02[12];
-};
+}; // size: 0x210
 
-class C_INIT_InheritFromParentParticles {
+class __declspec(align(8)) C_INIT_InheritFromParentParticles {
 public:
     char pad_00[472];
-    float m_flScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nIncrement;
-    bool m_bRandomDistribution;
-    int32_t m_nRandomSeed;
+    float m_flScale; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
+    int32_t m_nIncrement; // 0x1e0
+    bool m_bRandomDistribution; // 0x1e4
+    int32_t m_nRandomSeed; // 0x1e8
     char pad_01[4];
-};
+}; // size: 0x1f0
 
-class C_INIT_RemapParticleCountToScalar {
+class __declspec(align(8)) C_INIT_RemapParticleCountToScalar {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nInputMin;
-    int32_t m_nInputMax;
-    int32_t m_nScaleControlPoint;
-    int32_t m_nScaleControlPointField;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bInvert;
-    bool m_bWrap;
-    float m_flRemapBias;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    int32_t m_nInputMin; // 0x1dc
+    int32_t m_nInputMax; // 0x1e0
+    int32_t m_nScaleControlPoint; // 0x1e4
+    int32_t m_nScaleControlPointField; // 0x1e8
+    float m_flOutputMin; // 0x1ec
+    float m_flOutputMax; // 0x1f0
+    ParticleSetMethod_t m_nSetMethod; // 0x1f4
+    bool m_bActiveRange; // 0x1f8
+    bool m_bInvert; // 0x1f9
+    bool m_bWrap; // 0x1fa
+    float m_flRemapBias; // 0x1fc
     char pad_01[8];
-};
+}; // size: 0x208
 
-class C_OP_SetGravityToCP {
+class __declspec(align(8)) C_OP_SetGravityToCP {
 public:
     char pad_00[472];
-    int32_t m_nCPInput;
-    int32_t m_nCPOutput;
-    CParticleCollectionFloatInput m_flScale;
-    bool m_bSetOrientation;
-    bool m_bSetZDown;
+    int32_t m_nCPInput; // 0x1d8
+    int32_t m_nCPOutput; // 0x1dc
+    CParticleCollectionFloatInput m_flScale; // 0x1e0
+    bool m_bSetOrientation; // 0x350
+    bool m_bSetZDown; // 0x351
     char pad_01[6];
-};
+}; // size: 0x358
 
-class C_INIT_RandomColor {
+class __declspec(align(8)) C_INIT_RandomColor {
 public:
     // Color m_ColorMin;
     // Color m_ColorMax;
     // Color m_TintMin;
     // Color m_TintMax;
     char pad_00[516];
-    float m_flTintPerc;
-    float m_flUpdateThreshold;
-    int32_t m_nTintCP;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleColorBlendMode_t m_nTintBlendMode;
-    float m_flLightAmplification;
+    float m_flTintPerc; // 0x204
+    float m_flUpdateThreshold; // 0x208
+    int32_t m_nTintCP; // 0x20c
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x210
+    ParticleColorBlendMode_t m_nTintBlendMode; // 0x214
+    float m_flLightAmplification; // 0x218
     char pad_01[4];
-};
+}; // size: 0x220
 
-class C_OP_LerpToOtherAttribute {
+class __declspec(align(16)) C_OP_LerpToOtherAttribute {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flInterpolation;
-    ParticleAttributeIndex_t m_nFieldInputFrom;
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
+    CPerParticleFloatInput m_flInterpolation; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldInputFrom; // 0x340
+    ParticleAttributeIndex_t m_nFieldInput; // 0x344
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x348
     char pad_01[36];
-};
+}; // size: 0x370
 
-class C_INIT_PointList {
+class __declspec(align(8)) C_INIT_PointList {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
     // CUtlVector< PointDefinition_t > m_pointList;
     char pad_01[28];
-    bool m_bPlaceAlongPath;
-    bool m_bClosedLoop;
-    int32_t m_nNumPointsAlongPath;
-};
+    bool m_bPlaceAlongPath; // 0x1f8
+    bool m_bClosedLoop; // 0x1f9
+    int32_t m_nNumPointsAlongPath; // 0x1fc
+}; // size: 0x200
 
-class C_OP_PinRopeSegmentParticleToParent {
+class __declspec(align(8)) C_OP_PinRopeSegmentParticleToParent {
 public:
     char pad_00[464];
-    ParticleSelection_t m_nParticleSelection;
-    CParticleCollectionFloatInput m_nParticleNumber;
-    CPerParticleFloatInput m_flInterpolation;
-};
+    ParticleSelection_t m_nParticleSelection; // 0x1d0
+    CParticleCollectionFloatInput m_nParticleNumber; // 0x1d8
+    CPerParticleFloatInput m_flInterpolation; // 0x348
+}; // size: 0x4b8
 
-class C_OP_MoveToHitbox {
+class __declspec(align(8)) C_OP_MoveToHitbox {
 public:
     char pad_00[464];
-    CParticleModelInput m_modelInput;
-    CParticleTransformInput m_transformInput;
+    CParticleModelInput m_modelInput; // 0x1d0
+    CParticleTransformInput m_transformInput; // 0x230
     char pad_01[4];
-    float m_flLifeTimeLerpStart;
-    float m_flLifeTimeLerpEnd;
-    float m_flPrevPosScale;
-    char m_HitboxSetName[128];
-    bool m_bUseBones;
-    HitboxLerpType_t m_nLerpType;
-    CPerParticleFloatInput m_flInterpolation;
-};
+    float m_flLifeTimeLerpStart; // 0x29c
+    float m_flLifeTimeLerpEnd; // 0x2a0
+    float m_flPrevPosScale; // 0x2a4
+    char m_HitboxSetName[128]; // 0x2a8
+    bool m_bUseBones; // 0x328
+    HitboxLerpType_t m_nLerpType; // 0x32c
+    CPerParticleFloatInput m_flInterpolation; // 0x330
+}; // size: 0x4a0
 
-class C_INIT_ScaleVelocity {
+class __declspec(align(8)) C_INIT_ScaleVelocity {
 public:
     char pad_00[472];
-    CParticleCollectionVecInput m_vecScale;
-};
+    CParticleCollectionVecInput m_vecScale; // 0x1d8
+}; // size: 0x890
 
-class C_OP_RemapNamedModelElementEndCap {
+class __declspec(align(4)) C_OP_RemapNamedModelElementEndCap {
 public:
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CUtlVector< CUtlString > m_inNames;
     // CUtlVector< CUtlString > m_outNames;
     // CUtlVector< CUtlString > m_fallbackNames;
     char pad_00[544];
-    bool m_bModelFromRenderer;
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
+    bool m_bModelFromRenderer; // 0x220
+    ParticleAttributeIndex_t m_nFieldInput; // 0x224
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x228
     char pad_01[4];
-};
+}; // size: 0x230
 
-class C_OP_CPVelocityForce {
+class __declspec(align(8)) C_OP_CPVelocityForce {
 public:
     char pad_00[480];
-    int32_t m_nControlPointNumber;
-    CPerParticleFloatInput m_flScale;
-};
+    int32_t m_nControlPointNumber; // 0x1e0
+    CPerParticleFloatInput m_flScale; // 0x1e8
+}; // size: 0x358
 
-class C_INIT_CreateSpiralSphere {
+class __declspec(align(8)) C_INIT_CreateSpiralSphere {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    int32_t m_nOverrideCP;
-    int32_t m_nDensity;
-    float m_flInitialRadius;
-    float m_flInitialSpeedMin;
-    float m_flInitialSpeedMax;
-    bool m_bUseParticleCount;
+    int32_t m_nControlPointNumber; // 0x1d8
+    int32_t m_nOverrideCP; // 0x1dc
+    int32_t m_nDensity; // 0x1e0
+    float m_flInitialRadius; // 0x1e4
+    float m_flInitialSpeedMin; // 0x1e8
+    float m_flInitialSpeedMax; // 0x1ec
+    bool m_bUseParticleCount; // 0x1f0
     char pad_01[7];
-};
+}; // size: 0x1f8
 
-class C_OP_LockPoints {
+class __declspec(align(8)) C_OP_LockPoints {
 public:
     char pad_00[464];
-    int32_t m_nMinCol;
-    int32_t m_nMaxCol;
-    int32_t m_nMinRow;
-    int32_t m_nMaxRow;
-    int32_t m_nControlPoint;
-    float m_flBlendValue;
-};
+    int32_t m_nMinCol; // 0x1d0
+    int32_t m_nMaxCol; // 0x1d4
+    int32_t m_nMinRow; // 0x1d8
+    int32_t m_nMaxRow; // 0x1dc
+    int32_t m_nControlPoint; // 0x1e0
+    float m_flBlendValue; // 0x1e4
+}; // size: 0x1e8
 
-class C_INIT_CreateFromCPs {
+class __declspec(align(8)) C_INIT_CreateFromCPs {
 public:
     char pad_00[472];
-    int32_t m_nIncrement;
-    int32_t m_nMinCP;
-    int32_t m_nMaxCP;
-    CParticleCollectionFloatInput m_nDynamicCPCount;
-};
+    int32_t m_nIncrement; // 0x1d8
+    int32_t m_nMinCP; // 0x1dc
+    int32_t m_nMaxCP; // 0x1e0
+    CParticleCollectionFloatInput m_nDynamicCPCount; // 0x1e8
+}; // size: 0x358
 
-class C_OP_PlanarConstraint {
+class __declspec(align(8)) C_OP_PlanarConstraint {
 public:
     // Vector m_PointOnPlane;
     // Vector m_PlaneNormal;
     char pad_00[488];
-    int32_t m_nControlPointNumber;
-    bool m_bGlobalOrigin;
-    bool m_bGlobalNormal;
-    CPerParticleFloatInput m_flRadiusScale;
-    CParticleCollectionFloatInput m_flMaximumDistanceToCP;
-    bool m_bUseOldCode;
+    int32_t m_nControlPointNumber; // 0x1e8
+    bool m_bGlobalOrigin; // 0x1ec
+    bool m_bGlobalNormal; // 0x1ed
+    CPerParticleFloatInput m_flRadiusScale; // 0x1f0
+    CParticleCollectionFloatInput m_flMaximumDistanceToCP; // 0x360
+    bool m_bUseOldCode; // 0x4d0
     char pad_01[7];
-};
+}; // size: 0x4d8
 
-class ModelReference_t {
+class __declspec(align(8)) ModelReference_t {
 public:
     // CStrongHandle< InfoForResourceTypeCModel > m_model;
     char pad_00[8];
-    float m_flRelativeProbabilityOfSpawn;
+    float m_flRelativeProbabilityOfSpawn; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class C_OP_SelectivelyEnableChildren {
+class __declspec(align(8)) C_OP_SelectivelyEnableChildren {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_nChildGroupID;
-    CParticleCollectionFloatInput m_nFirstChild;
-    CParticleCollectionFloatInput m_nNumChildrenToEnable;
-    bool m_bPlayEndcapOnStop;
-    bool m_bDestroyImmediately;
+    CParticleCollectionFloatInput m_nChildGroupID; // 0x1d8
+    CParticleCollectionFloatInput m_nFirstChild; // 0x348
+    CParticleCollectionFloatInput m_nNumChildrenToEnable; // 0x4b8
+    bool m_bPlayEndcapOnStop; // 0x628
+    bool m_bDestroyImmediately; // 0x629
     char pad_01[6];
-};
+}; // size: 0x630
 
-class CParticleFunctionInitializer {
+class __declspec(align(4)) CParticleFunctionInitializer {
 public:
     char pad_00[464];
-    int32_t m_nAssociatedEmitterIndex;
+    int32_t m_nAssociatedEmitterIndex; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_OP_NoiseEmitter {
+class __declspec(align(8)) C_OP_NoiseEmitter {
 public:
     char pad_00[472];
-    float m_flEmissionDuration;
-    float m_flStartTime;
-    float m_flEmissionScale;
-    int32_t m_nScaleControlPoint;
-    int32_t m_nScaleControlPointField;
-    int32_t m_nWorldNoisePoint;
-    bool m_bAbsVal;
-    bool m_bAbsValInv;
-    float m_flOffset;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flNoiseScale;
-    float m_flWorldNoiseScale;
+    float m_flEmissionDuration; // 0x1d8
+    float m_flStartTime; // 0x1dc
+    float m_flEmissionScale; // 0x1e0
+    int32_t m_nScaleControlPoint; // 0x1e4
+    int32_t m_nScaleControlPointField; // 0x1e8
+    int32_t m_nWorldNoisePoint; // 0x1ec
+    bool m_bAbsVal; // 0x1f0
+    bool m_bAbsValInv; // 0x1f1
+    float m_flOffset; // 0x1f4
+    float m_flOutputMin; // 0x1f8
+    float m_flOutputMax; // 0x1fc
+    float m_flNoiseScale; // 0x200
+    float m_flWorldNoiseScale; // 0x204
     // Vector m_vecOffsetLoc;
     char pad_01[12];
-    float m_flWorldTimeScale;
-};
+    float m_flWorldTimeScale; // 0x214
+}; // size: 0x218
 
-class C_INIT_InitialSequenceFromModel {
+class __declspec(align(8)) C_INIT_InitialSequenceFromModel {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldOutputAnim;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    ParticleSetMethod_t m_nSetMethod;
-};
+    int32_t m_nControlPointNumber; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
+    ParticleAttributeIndex_t m_nFieldOutputAnim; // 0x1e0
+    float m_flInputMin; // 0x1e4
+    float m_flInputMax; // 0x1e8
+    float m_flOutputMin; // 0x1ec
+    float m_flOutputMax; // 0x1f0
+    ParticleSetMethod_t m_nSetMethod; // 0x1f4
+}; // size: 0x1f8
 
-class C_INIT_RemapScalarToVector {
+class __declspec(align(8)) C_INIT_RemapScalarToVector {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
+    float m_flInputMin; // 0x1e0
+    float m_flInputMax; // 0x1e4
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    float m_flStartTime;
-    float m_flEndTime;
-    ParticleSetMethod_t m_nSetMethod;
-    int32_t m_nControlPointNumber;
-    bool m_bLocalCoords;
-    float m_flRemapBias;
+    float m_flStartTime; // 0x200
+    float m_flEndTime; // 0x204
+    ParticleSetMethod_t m_nSetMethod; // 0x208
+    int32_t m_nControlPointNumber; // 0x20c
+    bool m_bLocalCoords; // 0x210
+    float m_flRemapBias; // 0x214
     char pad_02[8];
-};
+}; // size: 0x220
 
-class C_INIT_RemapNamedModelBodyPartToScalar {
+class __declspec(align(8)) C_INIT_RemapNamedModelBodyPartToScalar {
 public:
     char pad_00[544];
-};
+}; // size: 0x220
 
-class C_OP_RadiusDecay {
+class __declspec(align(8)) C_OP_RadiusDecay {
 public:
     char pad_00[464];
-    float m_flMinRadius;
+    float m_flMinRadius; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_INIT_CreateWithinSphereTransform {
+class __declspec(align(8)) C_INIT_CreateWithinSphereTransform {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_fRadiusMin;
-    CPerParticleFloatInput m_fRadiusMax;
-    CPerParticleVecInput m_vecDistanceBias;
+    CPerParticleFloatInput m_fRadiusMin; // 0x1d8
+    CPerParticleFloatInput m_fRadiusMax; // 0x348
+    CPerParticleVecInput m_vecDistanceBias; // 0x4b8
     // Vector m_vecDistanceBiasAbs;
     char pad_01[16];
-    CParticleTransformInput m_TransformInput;
-    CPerParticleFloatInput m_fSpeedMin;
-    CPerParticleFloatInput m_fSpeedMax;
-    float m_fSpeedRandExp;
-    bool m_bLocalCoords;
-    CPerParticleVecInput m_LocalCoordinateSystemSpeedMin;
-    CPerParticleVecInput m_LocalCoordinateSystemSpeedMax;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldVelocity;
-};
+    CParticleTransformInput m_TransformInput; // 0xb80
+    CPerParticleFloatInput m_fSpeedMin; // 0xbe8
+    CPerParticleFloatInput m_fSpeedMax; // 0xd58
+    float m_fSpeedRandExp; // 0xec8
+    bool m_bLocalCoords; // 0xecc
+    CPerParticleVecInput m_LocalCoordinateSystemSpeedMin; // 0xed0
+    CPerParticleVecInput m_LocalCoordinateSystemSpeedMax; // 0x1588
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1c40
+    ParticleAttributeIndex_t m_nFieldVelocity; // 0x1c44
+}; // size: 0x1c48
 
-class C_OP_SnapshotSkinToBones {
+class __declspec(align(8)) C_OP_SnapshotSkinToBones {
 public:
     char pad_00[464];
-    bool m_bTransformNormals;
-    bool m_bTransformRadii;
-    int32_t m_nControlPointNumber;
-    float m_flLifeTimeFadeStart;
-    float m_flLifeTimeFadeEnd;
-    float m_flJumpThreshold;
-    float m_flPrevPosScale;
-};
+    bool m_bTransformNormals; // 0x1d0
+    bool m_bTransformRadii; // 0x1d1
+    int32_t m_nControlPointNumber; // 0x1d4
+    float m_flLifeTimeFadeStart; // 0x1d8
+    float m_flLifeTimeFadeEnd; // 0x1dc
+    float m_flJumpThreshold; // 0x1e0
+    float m_flPrevPosScale; // 0x1e4
+}; // size: 0x1e8
 
-class C_OP_SetCPOrientationToGroundNormal {
+class __declspec(align(8)) C_OP_SetCPOrientationToGroundNormal {
 public:
     char pad_00[464];
-    float m_flInterpRate;
-    float m_flMaxTraceLength;
-    float m_flTolerance;
-    float m_flTraceOffset;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    int32_t m_nInputCP;
-    int32_t m_nOutputCP;
+    float m_flInterpRate; // 0x1d0
+    float m_flMaxTraceLength; // 0x1d4
+    float m_flTolerance; // 0x1d8
+    float m_flTraceOffset; // 0x1dc
+    char m_CollisionGroupName[128]; // 0x1e0
+    ParticleTraceSet_t m_nTraceSet; // 0x260
+    int32_t m_nInputCP; // 0x264
+    int32_t m_nOutputCP; // 0x268
     char pad_01[12];
-    bool m_bIncludeWater;
+    bool m_bIncludeWater; // 0x278
     char pad_02[7];
-};
+}; // size: 0x280
 
-class C_OP_TimeVaryingForce {
+class __declspec(align(8)) C_OP_TimeVaryingForce {
 public:
     char pad_00[480];
-    float m_flStartLerpTime;
+    float m_flStartLerpTime; // 0x1e0
     // Vector m_StartingForce;
     char pad_01[12];
-    float m_flEndLerpTime;
+    float m_flEndLerpTime; // 0x1f0
     // Vector m_EndingForce;
     char pad_02[12];
-};
+}; // size: 0x200
 
-class TextureGroup_t {
+class __declspec(align(8)) TextureGroup_t {
 public:
-    bool m_bEnabled;
-    bool m_bReplaceTextureWithGradient;
+    bool m_bEnabled; // 0x0
+    bool m_bReplaceTextureWithGradient; // 0x1
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hTexture;
     // CColorGradient m_Gradient;
     char pad_00[36];
-    SpriteCardTextureType_t m_nTextureType;
-    SpriteCardTextureChannel_t m_nTextureChannels;
-    ParticleTextureLayerBlendType_t m_nTextureBlendMode;
-    CParticleCollectionRendererFloatInput m_flTextureBlend;
+    SpriteCardTextureType_t m_nTextureType; // 0x28
+    SpriteCardTextureChannel_t m_nTextureChannels; // 0x2c
+    ParticleTextureLayerBlendType_t m_nTextureBlendMode; // 0x30
+    CParticleCollectionRendererFloatInput m_flTextureBlend; // 0x38
     // TextureControls_t m_TextureControls;
     char pad_01[2608];
-};
+}; // size: 0xbd8
 
-class C_OP_SetControlPointFieldToWater {
+class __declspec(align(8)) C_OP_SetControlPointFieldToWater {
 public:
     char pad_00[472];
-    int32_t m_nSourceCP;
-    int32_t m_nDestCP;
-    int32_t m_nCPField;
+    int32_t m_nSourceCP; // 0x1d8
+    int32_t m_nDestCP; // 0x1dc
+    int32_t m_nCPField; // 0x1e0
     char pad_01[4];
-};
+}; // size: 0x1e8
 
-class C_OP_LerpVector {
+class __declspec(align(8)) C_OP_LerpVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
     // Vector m_vecOutput;
     char pad_01[12];
-    float m_flStartTime;
-    float m_flEndTime;
-    ParticleSetMethod_t m_nSetMethod;
+    float m_flStartTime; // 0x1e0
+    float m_flEndTime; // 0x1e4
+    ParticleSetMethod_t m_nSetMethod; // 0x1e8
     char pad_02[4];
-};
+}; // size: 0x1f0
 
-class C_INIT_InitialVelocityFromHitbox {
+class __declspec(align(8)) C_INIT_InitialVelocityFromHitbox {
 public:
     char pad_00[472];
-    float m_flVelocityMin;
-    float m_flVelocityMax;
-    int32_t m_nControlPointNumber;
-    char m_HitboxSetName[128];
-    bool m_bUseBones;
+    float m_flVelocityMin; // 0x1d8
+    float m_flVelocityMax; // 0x1dc
+    int32_t m_nControlPointNumber; // 0x1e0
+    char m_HitboxSetName[128]; // 0x1e4
+    bool m_bUseBones; // 0x264
     char pad_01[3];
-};
+}; // size: 0x268
 
-class C_INIT_RadiusFromCPObject {
+class __declspec(align(8)) C_INIT_RadiusFromCPObject {
 public:
     char pad_00[472];
-    int32_t m_nControlPoint;
+    int32_t m_nControlPoint; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_INIT_GlobalScale {
+class __declspec(align(8)) C_INIT_GlobalScale {
 public:
     char pad_00[472];
-    float m_flScale;
-    int32_t m_nScaleControlPointNumber;
-    int32_t m_nControlPointNumber;
-    bool m_bScaleRadius;
-    bool m_bScalePosition;
-    bool m_bScaleVelocity;
+    float m_flScale; // 0x1d8
+    int32_t m_nScaleControlPointNumber; // 0x1dc
+    int32_t m_nControlPointNumber; // 0x1e0
+    bool m_bScaleRadius; // 0x1e4
+    bool m_bScalePosition; // 0x1e5
+    bool m_bScaleVelocity; // 0x1e6
     char pad_01[1];
-};
+}; // size: 0x1e8
 
-class C_OP_HSVShiftToCP {
+class __declspec(align(8)) C_OP_HSVShiftToCP {
 public:
     char pad_00[472];
-    int32_t m_nColorCP;
-    int32_t m_nColorGemEnableCP;
-    int32_t m_nOutputCP;
+    int32_t m_nColorCP; // 0x1d8
+    int32_t m_nColorGemEnableCP; // 0x1dc
+    int32_t m_nOutputCP; // 0x1e0
     // Color m_DefaultHSVColor;
     char pad_01[20];
-};
+}; // size: 0x1f8
 
-class C_OP_RemapBoundingVolumetoCP {
+class __declspec(align(8)) C_OP_RemapBoundingVolumetoCP {
 public:
     char pad_00[472];
-    int32_t m_nOutControlPointNumber;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
+    int32_t m_nOutControlPointNumber; // 0x1d8
+    float m_flInputMin; // 0x1dc
+    float m_flInputMax; // 0x1e0
+    float m_flOutputMin; // 0x1e4
+    float m_flOutputMax; // 0x1e8
     char pad_01[4];
-};
+}; // size: 0x1f0
 
-class C_OP_RenderScreenShake {
+class __declspec(align(8)) C_OP_RenderScreenShake {
 public:
     char pad_00[544];
-    float m_flDurationScale;
-    float m_flRadiusScale;
-    float m_flFrequencyScale;
-    float m_flAmplitudeScale;
-    ParticleAttributeIndex_t m_nRadiusField;
-    ParticleAttributeIndex_t m_nDurationField;
-    ParticleAttributeIndex_t m_nFrequencyField;
-    ParticleAttributeIndex_t m_nAmplitudeField;
-    int32_t m_nFilterCP;
+    float m_flDurationScale; // 0x220
+    float m_flRadiusScale; // 0x224
+    float m_flFrequencyScale; // 0x228
+    float m_flAmplitudeScale; // 0x22c
+    ParticleAttributeIndex_t m_nRadiusField; // 0x230
+    ParticleAttributeIndex_t m_nDurationField; // 0x234
+    ParticleAttributeIndex_t m_nFrequencyField; // 0x238
+    ParticleAttributeIndex_t m_nAmplitudeField; // 0x23c
+    int32_t m_nFilterCP; // 0x240
     char pad_01[4];
-};
+}; // size: 0x248
 
-class C_OP_FadeIn {
+class __declspec(align(8)) C_OP_FadeIn {
 public:
     char pad_00[464];
-    float m_flFadeInTimeMin;
-    float m_flFadeInTimeMax;
-    float m_flFadeInTimeExp;
-    bool m_bProportional;
+    float m_flFadeInTimeMin; // 0x1d0
+    float m_flFadeInTimeMax; // 0x1d4
+    float m_flFadeInTimeExp; // 0x1d8
+    bool m_bProportional; // 0x1dc
     char pad_01[3];
-};
+}; // size: 0x1e0
 
-class C_OP_SetSimulationRate {
+class __declspec(align(8)) C_OP_SetSimulationRate {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_flSimulationScale;
-};
+    CParticleCollectionFloatInput m_flSimulationScale; // 0x1d8
+}; // size: 0x348
 
-class C_INIT_Orient2DRelToCP {
+class __declspec(align(8)) C_INIT_Orient2DRelToCP {
 public:
     char pad_00[472];
-    int32_t m_nCP;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flRotOffset;
+    int32_t m_nCP; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
+    float m_flRotOffset; // 0x1e0
     char pad_01[4];
-};
+}; // size: 0x1e8
 
-class C_OP_CurlNoiseForce {
+class __declspec(align(8)) C_OP_CurlNoiseForce {
 public:
     char pad_00[480];
-    ParticleDirectionNoiseType_t m_nNoiseType;
-    CPerParticleVecInput m_vecNoiseFreq;
-    CPerParticleVecInput m_vecNoiseScale;
-    CPerParticleVecInput m_vecOffset;
-    CPerParticleVecInput m_vecOffsetRate;
-    CPerParticleFloatInput m_flWorleySeed;
-    CPerParticleFloatInput m_flWorleyJitter;
-};
+    ParticleDirectionNoiseType_t m_nNoiseType; // 0x1e0
+    CPerParticleVecInput m_vecNoiseFreq; // 0x1e8
+    CPerParticleVecInput m_vecNoiseScale; // 0x8a0
+    CPerParticleVecInput m_vecOffset; // 0xf58
+    CPerParticleVecInput m_vecOffsetRate; // 0x1610
+    CPerParticleFloatInput m_flWorleySeed; // 0x1cc8
+    CPerParticleFloatInput m_flWorleyJitter; // 0x1e38
+}; // size: 0x1fa8
 
-class C_OP_SetControlPointRotation {
+class __declspec(align(8)) C_OP_SetControlPointRotation {
 public:
     char pad_00[472];
-    CParticleCollectionVecInput m_vecRotAxis;
-    CParticleCollectionFloatInput m_flRotRate;
-    int32_t m_nCP;
-    int32_t m_nLocalCP;
-};
+    CParticleCollectionVecInput m_vecRotAxis; // 0x1d8
+    CParticleCollectionFloatInput m_flRotRate; // 0x890
+    int32_t m_nCP; // 0xa00
+    int32_t m_nLocalCP; // 0xa04
+}; // size: 0xa08
 
-class C_OP_RemapCPtoCP {
+class __declspec(align(8)) C_OP_RemapCPtoCP {
 public:
     char pad_00[472];
-    int32_t m_nInputControlPoint;
-    int32_t m_nOutputControlPoint;
-    int32_t m_nInputField;
-    int32_t m_nOutputField;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    bool m_bDerivative;
-    float m_flInterpRate;
-};
+    int32_t m_nInputControlPoint; // 0x1d8
+    int32_t m_nOutputControlPoint; // 0x1dc
+    int32_t m_nInputField; // 0x1e0
+    int32_t m_nOutputField; // 0x1e4
+    float m_flInputMin; // 0x1e8
+    float m_flInputMax; // 0x1ec
+    float m_flOutputMin; // 0x1f0
+    float m_flOutputMax; // 0x1f4
+    bool m_bDerivative; // 0x1f8
+    float m_flInterpRate; // 0x1fc
+}; // size: 0x200
 
-class C_OP_RemapDotProductToScalar {
+class __declspec(align(8)) C_OP_RemapDotProductToScalar {
 public:
     char pad_00[464];
-    int32_t m_nInputCP1;
-    int32_t m_nInputCP2;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    bool m_bUseParticleVelocity;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bUseParticleNormal;
+    int32_t m_nInputCP1; // 0x1d0
+    int32_t m_nInputCP2; // 0x1d4
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    float m_flInputMin; // 0x1dc
+    float m_flInputMax; // 0x1e0
+    float m_flOutputMin; // 0x1e4
+    float m_flOutputMax; // 0x1e8
+    bool m_bUseParticleVelocity; // 0x1ec
+    ParticleSetMethod_t m_nSetMethod; // 0x1f0
+    bool m_bActiveRange; // 0x1f4
+    bool m_bUseParticleNormal; // 0x1f5
     char pad_01[2];
-};
+}; // size: 0x1f8
 
-class C_OP_RemapAverageScalarValuetoCP {
+class __declspec(align(8)) C_OP_RemapAverageScalarValuetoCP {
 public:
     char pad_00[472];
-    SetStatisticExpressionType_t m_nExpression;
-    CParticleCollectionFloatInput m_flDecimalPlaces;
-    int32_t m_nOutControlPointNumber;
-    int32_t m_nOutVectorField;
-    ParticleAttributeIndex_t m_nField;
-    CParticleRemapFloatInput m_flOutputRemap;
-};
+    SetStatisticExpressionType_t m_nExpression; // 0x1d8
+    CParticleCollectionFloatInput m_flDecimalPlaces; // 0x1e0
+    int32_t m_nOutControlPointNumber; // 0x350
+    int32_t m_nOutVectorField; // 0x354
+    ParticleAttributeIndex_t m_nField; // 0x358
+    CParticleRemapFloatInput m_flOutputRemap; // 0x360
+}; // size: 0x4d0
 
-class C_OP_SetControlPointToCenter {
+class __declspec(align(8)) C_OP_SetControlPointToCenter {
 public:
     char pad_00[472];
-    int32_t m_nCP1;
+    int32_t m_nCP1; // 0x1d8
     // Vector m_vecCP1Pos;
     char pad_01[12];
-    bool m_bUseAvgParticlePos;
-    ParticleParentSetMode_t m_nSetParent;
-};
+    bool m_bUseAvgParticlePos; // 0x1e8
+    ParticleParentSetMode_t m_nSetParent; // 0x1ec
+}; // size: 0x1f0
 
-class C_OP_RemapControlPointOrientationToRotation {
+class __declspec(align(8)) C_OP_RemapControlPointOrientationToRotation {
 public:
     char pad_00[464];
-    int32_t m_nCP;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flOffsetRot;
-    int32_t m_nComponent;
-};
+    int32_t m_nCP; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flOffsetRot; // 0x1d8
+    int32_t m_nComponent; // 0x1dc
+}; // size: 0x1e0
 
-class C_OP_DistanceToTransform {
+class __declspec(align(8)) C_OP_DistanceToTransform {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flInputMin;
-    CPerParticleFloatInput m_flInputMax;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-    CParticleTransformInput m_TransformStart;
-    bool m_bLOS;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    float m_flMaxTraceLength;
-    float m_flLOSScale;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bAdditive;
-    CPerParticleVecInput m_vecComponentScale;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flInputMin; // 0x1d8
+    CPerParticleFloatInput m_flInputMax; // 0x348
+    CPerParticleFloatInput m_flOutputMin; // 0x4b8
+    CPerParticleFloatInput m_flOutputMax; // 0x628
+    CParticleTransformInput m_TransformStart; // 0x798
+    bool m_bLOS; // 0x800
+    char m_CollisionGroupName[128]; // 0x801
+    ParticleTraceSet_t m_nTraceSet; // 0x884
+    float m_flMaxTraceLength; // 0x888
+    float m_flLOSScale; // 0x88c
+    ParticleSetMethod_t m_nSetMethod; // 0x890
+    bool m_bActiveRange; // 0x894
+    bool m_bAdditive; // 0x895
+    CPerParticleVecInput m_vecComponentScale; // 0x898
+}; // size: 0xf50
 
-class C_OP_RenderStandardLight {
+class __declspec(align(8)) C_OP_RenderStandardLight {
 public:
     char pad_00[544];
-    ParticleLightTypeChoiceList_t m_nLightType;
-    CParticleCollectionVecInput m_vecColorScale;
-    ParticleColorBlendType_t m_nColorBlendType;
-    CPerParticleFloatInput m_flIntensity;
-    bool m_bCastShadows;
-    CParticleCollectionFloatInput m_flTheta;
-    CParticleCollectionFloatInput m_flPhi;
-    CParticleCollectionFloatInput m_flRadiusMultiplier;
-    StandardLightingAttenuationStyle_t m_nAttenuationStyle;
-    CParticleCollectionFloatInput m_flFalloffLinearity;
-    CParticleCollectionFloatInput m_flFiftyPercentFalloff;
-    CParticleCollectionFloatInput m_flZeroPercentFalloff;
-    bool m_bRenderDiffuse;
-    bool m_bRenderSpecular;
+    ParticleLightTypeChoiceList_t m_nLightType; // 0x220
+    CParticleCollectionVecInput m_vecColorScale; // 0x228
+    ParticleColorBlendType_t m_nColorBlendType; // 0x8e0
+    CPerParticleFloatInput m_flIntensity; // 0x8e8
+    bool m_bCastShadows; // 0xa58
+    CParticleCollectionFloatInput m_flTheta; // 0xa60
+    CParticleCollectionFloatInput m_flPhi; // 0xbd0
+    CParticleCollectionFloatInput m_flRadiusMultiplier; // 0xd40
+    StandardLightingAttenuationStyle_t m_nAttenuationStyle; // 0xeb0
+    CParticleCollectionFloatInput m_flFalloffLinearity; // 0xeb8
+    CParticleCollectionFloatInput m_flFiftyPercentFalloff; // 0x1028
+    CParticleCollectionFloatInput m_flZeroPercentFalloff; // 0x1198
+    bool m_bRenderDiffuse; // 0x1308
+    bool m_bRenderSpecular; // 0x1309
     // CUtlString m_lightCookie;
     char pad_01[12];
-    int32_t m_nPriority;
-    ParticleLightFogLightingMode_t m_nFogLightingMode;
-    CParticleCollectionRendererFloatInput m_flFogContribution;
-    ParticleLightBehaviorChoiceList_t m_nCapsuleLightBehavior;
-    float m_flCapsuleLength;
-    bool m_bReverseOrder;
-    bool m_bClosedLoop;
-    ParticleAttributeIndex_t m_nPrevPntSource;
-    float m_flMaxLength;
-    float m_flMinLength;
-    bool m_bIgnoreDT;
-    float m_flConstrainRadiusToLengthRatio;
-    float m_flLengthScale;
-    float m_flLengthFadeInTime;
+    int32_t m_nPriority; // 0x1318
+    ParticleLightFogLightingMode_t m_nFogLightingMode; // 0x131c
+    CParticleCollectionRendererFloatInput m_flFogContribution; // 0x1320
+    ParticleLightBehaviorChoiceList_t m_nCapsuleLightBehavior; // 0x1490
+    float m_flCapsuleLength; // 0x1494
+    bool m_bReverseOrder; // 0x1498
+    bool m_bClosedLoop; // 0x1499
+    ParticleAttributeIndex_t m_nPrevPntSource; // 0x149c
+    float m_flMaxLength; // 0x14a0
+    float m_flMinLength; // 0x14a4
+    bool m_bIgnoreDT; // 0x14a8
+    float m_flConstrainRadiusToLengthRatio; // 0x14ac
+    float m_flLengthScale; // 0x14b0
+    float m_flLengthFadeInTime; // 0x14b4
     char pad_02[8];
-};
+}; // size: 0x14c0
 
-class C_OP_SetVariable {
+class __declspec(align(8)) C_OP_SetVariable {
 public:
     char pad_00[472];
-    CParticleVariableRef m_variableReference;
-    CParticleTransformInput m_transformInput;
+    CParticleVariableRef m_variableReference; // 0x1d8
+    CParticleTransformInput m_transformInput; // 0x228
     // Vector m_positionOffset;
     // QAngle m_rotationOffset;
     char pad_01[24];
-    CParticleCollectionVecInput m_vecInput;
-    CParticleCollectionFloatInput m_floatInput;
-};
+    CParticleCollectionVecInput m_vecInput; // 0x2a8
+    CParticleCollectionFloatInput m_floatInput; // 0x960
+}; // size: 0xad0
 
-class C_OP_WindForce {
+class __declspec(align(8)) C_OP_WindForce {
 public:
     // Vector m_vForce;
     char pad_00[496];
-};
+}; // size: 0x1f0
 
-class IParticleSystemDefinition {
+class __declspec(align(1)) IParticleSystemDefinition {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class C_OP_RenderStatusEffectCitadel {
+class __declspec(align(8)) C_OP_RenderStatusEffectCitadel {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureColorWarp;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureNormal;
@@ -14835,1738 +15021,1740 @@ public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureSelfIllum;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureDetail;
     char pad_00[592];
-};
+}; // size: 0x250
 
-class C_OP_ClampVector {
+class __declspec(align(8)) C_OP_ClampVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleVecInput m_vecOutputMin;
-    CPerParticleVecInput m_vecOutputMax;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleVecInput m_vecOutputMin; // 0x1d8
+    CPerParticleVecInput m_vecOutputMax; // 0x890
+}; // size: 0xf48
 
-class C_INIT_RemapNamedModelElementToScalar {
+class __declspec(align(4)) C_INIT_RemapNamedModelElementToScalar {
 public:
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CUtlVector< CUtlString > m_names;
     // CUtlVector< float32 > m_values;
     char pad_00[528];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bModelFromRenderer;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x210
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x214
+    ParticleSetMethod_t m_nSetMethod; // 0x218
+    bool m_bModelFromRenderer; // 0x21c
     char pad_01[3];
-};
+}; // size: 0x220
 
-class C_OP_LockToSavedSequentialPath {
+class __declspec(align(16)) C_OP_LockToSavedSequentialPath {
 public:
     char pad_00[468];
-    float m_flFadeStart;
-    float m_flFadeEnd;
-    bool m_bCPPairs;
+    float m_flFadeStart; // 0x1d4
+    float m_flFadeEnd; // 0x1d8
+    bool m_bCPPairs; // 0x1dc
     // CPathParameters m_PathParams;
     char pad_01[67];
-};
+}; // size: 0x220
 
-class CGeneralSpin {
+class __declspec(align(4)) CGeneralSpin {
 public:
     char pad_00[464];
-    int32_t m_nSpinRateDegrees;
-    int32_t m_nSpinRateMinDegrees;
+    int32_t m_nSpinRateDegrees; // 0x1d0
+    int32_t m_nSpinRateMinDegrees; // 0x1d4
     char pad_01[4];
-    float m_fSpinRateStopTime;
+    float m_fSpinRateStopTime; // 0x1dc
     char pad_02[8];
-};
+}; // size: 0x1e8
 
-class C_OP_StopAfterCPDuration {
+class __declspec(align(8)) C_OP_StopAfterCPDuration {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_flDuration;
-    bool m_bDestroyImmediately;
-    bool m_bPlayEndCap;
+    CParticleCollectionFloatInput m_flDuration; // 0x1d8
+    bool m_bDestroyImmediately; // 0x348
+    bool m_bPlayEndCap; // 0x349
     char pad_01[6];
-};
+}; // size: 0x350
 
-class C_OP_RemapNamedModelBodyPartEndCap {
+class __declspec(align(8)) C_OP_RemapNamedModelBodyPartEndCap {
 public:
     char pad_00[560];
-};
+}; // size: 0x230
 
-class C_OP_MaintainSequentialPath {
+class __declspec(align(16)) C_OP_MaintainSequentialPath {
 public:
     char pad_00[464];
-    float m_fMaxDistance;
-    float m_flNumToAssign;
-    float m_flCohesionStrength;
-    float m_flTolerance;
-    bool m_bLoop;
-    bool m_bUseParticleCount;
+    float m_fMaxDistance; // 0x1d0
+    float m_flNumToAssign; // 0x1d4
+    float m_flCohesionStrength; // 0x1d8
+    float m_flTolerance; // 0x1dc
+    bool m_bLoop; // 0x1e0
+    bool m_bUseParticleCount; // 0x1e1
     // CPathParameters m_PathParams;
     char pad_01[78];
-};
+}; // size: 0x230
 
-class C_OP_SetControlPointFromObjectScale {
+class __declspec(align(8)) C_OP_SetControlPointFromObjectScale {
 public:
     char pad_00[472];
-    int32_t m_nCPInput;
-    int32_t m_nCPOutput;
-};
+    int32_t m_nCPInput; // 0x1d8
+    int32_t m_nCPOutput; // 0x1dc
+}; // size: 0x1e0
 
-class C_OP_RemapNamedModelSequenceOnceTimed {
+class __declspec(align(8)) C_OP_RemapNamedModelSequenceOnceTimed {
 public:
     char pad_00[560];
-};
+}; // size: 0x230
 
-class C_OP_RampScalarSpline {
+class __declspec(align(16)) C_OP_RampScalarSpline {
 public:
     char pad_00[464];
-    float m_RateMin;
-    float m_RateMax;
-    float m_flStartTime_min;
-    float m_flStartTime_max;
-    float m_flEndTime_min;
-    float m_flEndTime_max;
-    float m_flBias;
-    char pad_01[18];
-    ParticleAttributeIndex_t m_nField;
-    bool m_bProportionalOp;
-    bool m_bEaseOut;
+    float m_RateMin; // 0x1d0
+    float m_RateMax; // 0x1d4
+    float m_flStartTime_min; // 0x1d8
+    float m_flStartTime_max; // 0x1dc
+    float m_flEndTime_min; // 0x1e0
+    float m_flEndTime_max; // 0x1e4
+    float m_flBias; // 0x1e8
+    char pad_01[36];
+    ParticleAttributeIndex_t m_nField; // 0x210
+    bool m_bProportionalOp; // 0x214
+    bool m_bEaseOut; // 0x215
     char pad_02[10];
-};
+}; // size: 0x220
 
-class C_OP_ColorInterpolate {
+class __declspec(align(8)) C_OP_ColorInterpolate {
 public:
     // Color m_ColorFade;
     char pad_00[480];
-    float m_flFadeStartTime;
-    float m_flFadeEndTime;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    bool m_bEaseInOut;
+    float m_flFadeStartTime; // 0x1e0
+    float m_flFadeEndTime; // 0x1e4
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e8
+    bool m_bEaseInOut; // 0x1ec
     char pad_01[3];
-};
+}; // size: 0x1f0
 
-class C_OP_FadeAndKill {
+class __declspec(align(8)) C_OP_FadeAndKill {
 public:
     char pad_00[464];
-    float m_flStartFadeInTime;
-    float m_flEndFadeInTime;
-    float m_flStartFadeOutTime;
-    float m_flEndFadeOutTime;
-    float m_flStartAlpha;
-    float m_flEndAlpha;
-    bool m_bForcePreserveParticleOrder;
+    float m_flStartFadeInTime; // 0x1d0
+    float m_flEndFadeInTime; // 0x1d4
+    float m_flStartFadeOutTime; // 0x1d8
+    float m_flEndFadeOutTime; // 0x1dc
+    float m_flStartAlpha; // 0x1e0
+    float m_flEndAlpha; // 0x1e4
+    bool m_bForcePreserveParticleOrder; // 0x1e8
     char pad_01[7];
-};
+}; // size: 0x1f0
 
-class C_INIT_RemapInitialTransformDirectionToRotation {
+class __declspec(align(8)) C_INIT_RemapInitialTransformDirectionToRotation {
 public:
     char pad_00[472];
-    CParticleTransformInput m_TransformInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flOffsetRot;
-    int32_t m_nComponent;
+    CParticleTransformInput m_TransformInput; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x240
+    float m_flOffsetRot; // 0x244
+    int32_t m_nComponent; // 0x248
     char pad_01[4];
-};
+}; // size: 0x250
 
-class C_INIT_PositionOffsetToCP {
+class __declspec(align(8)) C_INIT_PositionOffsetToCP {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumberStart;
-    int32_t m_nControlPointNumberEnd;
-    bool m_bLocalCoords;
+    int32_t m_nControlPointNumberStart; // 0x1d8
+    int32_t m_nControlPointNumberEnd; // 0x1dc
+    bool m_bLocalCoords; // 0x1e0
     char pad_01[7];
-};
+}; // size: 0x1e8
 
-class C_OP_MaintainEmitter {
+class __declspec(align(8)) C_OP_MaintainEmitter {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_nParticlesToMaintain;
-    float m_flStartTime;
-    CParticleCollectionFloatInput m_flEmissionDuration;
-    float m_flEmissionRate;
-    int32_t m_nSnapshotControlPoint;
+    CParticleCollectionFloatInput m_nParticlesToMaintain; // 0x1d8
+    float m_flStartTime; // 0x348
+    CParticleCollectionFloatInput m_flEmissionDuration; // 0x350
+    float m_flEmissionRate; // 0x4c0
+    int32_t m_nSnapshotControlPoint; // 0x4c4
     // CUtlString m_strSnapshotSubset;
     char pad_01[8];
-    bool m_bEmitInstantaneously;
-    bool m_bFinalEmitOnStop;
-    CParticleCollectionFloatInput m_flScale;
-};
+    bool m_bEmitInstantaneously; // 0x4d0
+    bool m_bFinalEmitOnStop; // 0x4d1
+    CParticleCollectionFloatInput m_flScale; // 0x4d8
+}; // size: 0x648
 
-class C_INIT_VelocityFromNormal {
+class __declspec(align(8)) C_INIT_VelocityFromNormal {
 public:
     char pad_00[472];
-    float m_fSpeedMin;
-    float m_fSpeedMax;
-    bool m_bIgnoreDt;
+    float m_fSpeedMin; // 0x1d8
+    float m_fSpeedMax; // 0x1dc
+    bool m_bIgnoreDt; // 0x1e0
     char pad_01[7];
-};
+}; // size: 0x1e8
 
-class C_OP_MaxVelocity {
+class __declspec(align(8)) C_OP_MaxVelocity {
 public:
     char pad_00[464];
-    float m_flMaxVelocity;
-    float m_flMinVelocity;
-    int32_t m_nOverrideCP;
-    int32_t m_nOverrideCPField;
-};
+    float m_flMaxVelocity; // 0x1d0
+    float m_flMinVelocity; // 0x1d4
+    int32_t m_nOverrideCP; // 0x1d8
+    int32_t m_nOverrideCPField; // 0x1dc
+}; // size: 0x1e0
 
-class C_OP_RenderProjected {
+class __declspec(align(8)) C_OP_RenderProjected {
 public:
     char pad_00[544];
-    bool m_bProjectCharacter;
-    bool m_bProjectWorld;
-    bool m_bProjectWater;
-    bool m_bFlipHorizontal;
-    bool m_bEnableProjectedDepthControls;
-    float m_flMinProjectionDepth;
-    float m_flMaxProjectionDepth;
+    bool m_bProjectCharacter; // 0x220
+    bool m_bProjectWorld; // 0x221
+    bool m_bProjectWater; // 0x222
+    bool m_bFlipHorizontal; // 0x223
+    bool m_bEnableProjectedDepthControls; // 0x224
+    float m_flMinProjectionDepth; // 0x228
+    float m_flMaxProjectionDepth; // 0x22c
     // CUtlVector< RenderProjectedMaterial_t > m_vecProjectedMaterials;
     char pad_01[24];
-    CPerParticleFloatInput m_flMaterialSelection;
-    float m_flAnimationTimeScale;
-    bool m_bOrientToNormal;
+    CPerParticleFloatInput m_flMaterialSelection; // 0x248
+    float m_flAnimationTimeScale; // 0x3b8
+    bool m_bOrientToNormal; // 0x3bc
     // CUtlVector< MaterialVariable_t > m_MaterialVars;
     char pad_02[24];
-    CParticleCollectionFloatInput m_flRadiusScale;
-    CParticleCollectionFloatInput m_flAlphaScale;
-    CParticleCollectionFloatInput m_flRollScale;
-    ParticleAttributeIndex_t m_nAlpha2Field;
-    CParticleCollectionVecInput m_vecColorScale;
-    ParticleColorBlendType_t m_nColorBlendType;
+    CParticleCollectionFloatInput m_flRadiusScale; // 0x3d8
+    CParticleCollectionFloatInput m_flAlphaScale; // 0x548
+    CParticleCollectionFloatInput m_flRollScale; // 0x6b8
+    ParticleAttributeIndex_t m_nAlpha2Field; // 0x828
+    CParticleCollectionVecInput m_vecColorScale; // 0x830
+    ParticleColorBlendType_t m_nColorBlendType; // 0xee8
     char pad_03[28];
-};
+}; // size: 0xf08
 
-class C_INIT_RandomNamedModelMeshGroup {
+class __declspec(align(8)) C_INIT_RandomNamedModelMeshGroup {
 public:
     char pad_00[512];
-};
+}; // size: 0x200
 
-class C_OP_PerParticleForce {
+class __declspec(align(8)) C_OP_PerParticleForce {
 public:
     char pad_00[480];
-    CPerParticleFloatInput m_flForceScale;
-    CPerParticleVecInput m_vForce;
-    int32_t m_nCP;
+    CPerParticleFloatInput m_flForceScale; // 0x1e0
+    CPerParticleVecInput m_vForce; // 0x350
+    int32_t m_nCP; // 0xa08
     char pad_01[4];
-};
+}; // size: 0xa10
 
-class C_OP_InheritFromPeerSystem {
+class __declspec(align(8)) C_OP_InheritFromPeerSystem {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldInput;
-    int32_t m_nIncrement;
-    int32_t m_nGroupID;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d4
+    int32_t m_nIncrement; // 0x1d8
+    int32_t m_nGroupID; // 0x1dc
+}; // size: 0x1e0
 
-class C_INIT_CreateOnModel {
+class __declspec(align(8)) C_INIT_CreateOnModel {
 public:
     char pad_00[472];
-    CParticleModelInput m_modelInput;
-    CParticleTransformInput m_transformInput;
-    int32_t m_nForceInModel;
-    bool m_bScaleToVolume;
-    bool m_bEvenDistribution;
-    CParticleCollectionFloatInput m_nDesiredHitbox;
-    int32_t m_nHitboxValueFromControlPointIndex;
-    CParticleCollectionVecInput m_vecHitBoxScale;
-    float m_flBoneVelocity;
-    float m_flMaxBoneVelocity;
-    CParticleCollectionVecInput m_vecDirectionBias;
-    char m_HitboxSetName[128];
-    bool m_bLocalCoords;
-    bool m_bUseBones;
-    bool m_bUseMesh;
-    CParticleCollectionFloatInput m_flShellSize;
-};
+    CParticleModelInput m_modelInput; // 0x1d8
+    CParticleTransformInput m_transformInput; // 0x238
+    int32_t m_nForceInModel; // 0x2a0
+    bool m_bScaleToVolume; // 0x2a4
+    bool m_bEvenDistribution; // 0x2a5
+    CParticleCollectionFloatInput m_nDesiredHitbox; // 0x2a8
+    int32_t m_nHitboxValueFromControlPointIndex; // 0x418
+    CParticleCollectionVecInput m_vecHitBoxScale; // 0x420
+    float m_flBoneVelocity; // 0xad8
+    float m_flMaxBoneVelocity; // 0xadc
+    CParticleCollectionVecInput m_vecDirectionBias; // 0xae0
+    char m_HitboxSetName[128]; // 0x1198
+    bool m_bLocalCoords; // 0x1218
+    bool m_bUseBones; // 0x1219
+    bool m_bUseMesh; // 0x121a
+    CParticleCollectionFloatInput m_flShellSize; // 0x1220
+}; // size: 0x1390
 
-class C_INIT_InitFloat {
+class __declspec(align(8)) C_INIT_InitFloat {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    CPerParticleFloatInput m_InputStrength;
-};
+    CPerParticleFloatInput m_InputValue; // 0x1d8
+    ParticleAttributeIndex_t m_nOutputField; // 0x348
+    ParticleSetMethod_t m_nSetMethod; // 0x34c
+    CPerParticleFloatInput m_InputStrength; // 0x350
+}; // size: 0x4c0
 
-class C_OP_IntraParticleForce {
+class __declspec(align(8)) C_OP_IntraParticleForce {
 public:
     char pad_00[480];
-    float m_flAttractionMinDistance;
-    float m_flAttractionMaxDistance;
-    float m_flAttractionMaxStrength;
-    float m_flRepulsionMinDistance;
-    float m_flRepulsionMaxDistance;
-    float m_flRepulsionMaxStrength;
-    bool m_bUseAABB;
+    float m_flAttractionMinDistance; // 0x1e0
+    float m_flAttractionMaxDistance; // 0x1e4
+    float m_flAttractionMaxStrength; // 0x1e8
+    float m_flRepulsionMinDistance; // 0x1ec
+    float m_flRepulsionMaxDistance; // 0x1f0
+    float m_flRepulsionMaxStrength; // 0x1f4
+    bool m_bUseAABB; // 0x1f8
     char pad_01[7];
-};
+}; // size: 0x200
 
-class C_OP_MovementRotateParticleAroundAxis {
+class __declspec(align(8)) C_OP_MovementRotateParticleAroundAxis {
 public:
     char pad_00[464];
-    CParticleCollectionVecInput m_vecRotAxis;
-    CParticleCollectionFloatInput m_flRotRate;
-    CParticleTransformInput m_TransformInput;
-    bool m_bLocalSpace;
+    CParticleCollectionVecInput m_vecRotAxis; // 0x1d0
+    CParticleCollectionFloatInput m_flRotRate; // 0x888
+    CParticleTransformInput m_TransformInput; // 0x9f8
+    bool m_bLocalSpace; // 0xa60
     char pad_01[7];
-};
+}; // size: 0xa68
 
-class C_OP_SetFloatAttributeToVectorExpression {
+class __declspec(align(8)) C_OP_SetFloatAttributeToVectorExpression {
 public:
     char pad_00[464];
-    VectorFloatExpressionType_t m_nExpression;
-    CPerParticleVecInput m_vInput1;
-    CPerParticleVecInput m_vInput2;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-};
+    VectorFloatExpressionType_t m_nExpression; // 0x1d0
+    CPerParticleVecInput m_vInput1; // 0x1d8
+    CPerParticleVecInput m_vInput2; // 0x890
+    CParticleRemapFloatInput m_flOutputRemap; // 0xf48
+    ParticleAttributeIndex_t m_nOutputField; // 0x10b8
+    ParticleSetMethod_t m_nSetMethod; // 0x10bc
+}; // size: 0x10c0
 
-class C_OP_SetControlPointPositions {
+class __declspec(align(8)) C_OP_SetControlPointPositions {
 public:
     char pad_00[472];
-    bool m_bUseWorldLocation;
-    bool m_bOrient;
-    bool m_bSetOnce;
-    int32_t m_nCP1;
-    int32_t m_nCP2;
-    int32_t m_nCP3;
-    int32_t m_nCP4;
+    bool m_bUseWorldLocation; // 0x1d8
+    bool m_bOrient; // 0x1d9
+    bool m_bSetOnce; // 0x1da
+    int32_t m_nCP1; // 0x1dc
+    int32_t m_nCP2; // 0x1e0
+    int32_t m_nCP3; // 0x1e4
+    int32_t m_nCP4; // 0x1e8
     // Vector m_vecCP1Pos;
     // Vector m_vecCP2Pos;
     // Vector m_vecCP3Pos;
     // Vector m_vecCP4Pos;
     char pad_01[48];
-    int32_t m_nHeadLocation;
-};
+    int32_t m_nHeadLocation; // 0x21c
+}; // size: 0x220
 
-class C_OP_ConstrainDistanceToUserSpecifiedPath {
+class __declspec(align(8)) C_OP_ConstrainDistanceToUserSpecifiedPath {
 public:
     char pad_00[464];
-    float m_fMinDistance;
-    float m_flMaxDistance;
-    float m_flTimeScale;
-    bool m_bLoopedPath;
+    float m_fMinDistance; // 0x1d0
+    float m_flMaxDistance; // 0x1d4
+    float m_flTimeScale; // 0x1d8
+    bool m_bLoopedPath; // 0x1dc
     // CUtlVector< PointDefinitionWithTimeValues_t > m_pointList;
     char pad_01[27];
-};
+}; // size: 0x1f8
 
-class C_INIT_CreateInEpitrochoid {
+class __declspec(align(8)) C_INIT_CreateInEpitrochoid {
 public:
     char pad_00[472];
-    int32_t m_nComponent1;
-    int32_t m_nComponent2;
-    CParticleTransformInput m_TransformInput;
-    CPerParticleFloatInput m_flParticleDensity;
-    CPerParticleFloatInput m_flOffset;
-    CPerParticleFloatInput m_flRadius1;
-    CPerParticleFloatInput m_flRadius2;
-    bool m_bUseCount;
-    bool m_bUseLocalCoords;
-    bool m_bOffsetExistingPos;
+    int32_t m_nComponent1; // 0x1d8
+    int32_t m_nComponent2; // 0x1dc
+    CParticleTransformInput m_TransformInput; // 0x1e0
+    CPerParticleFloatInput m_flParticleDensity; // 0x248
+    CPerParticleFloatInput m_flOffset; // 0x3b8
+    CPerParticleFloatInput m_flRadius1; // 0x528
+    CPerParticleFloatInput m_flRadius2; // 0x698
+    bool m_bUseCount; // 0x808
+    bool m_bUseLocalCoords; // 0x809
+    bool m_bOffsetExistingPos; // 0x80a
     char pad_01[5];
-};
+}; // size: 0x810
 
-class C_OP_DensityForce {
+class __declspec(align(8)) C_OP_DensityForce {
 public:
     char pad_00[480];
-    float m_flRadiusScale;
-    float m_flForceScale;
-    float m_flTargetDensity;
+    float m_flRadiusScale; // 0x1e0
+    float m_flForceScale; // 0x1e4
+    float m_flTargetDensity; // 0x1e8
     char pad_01[4];
-};
+}; // size: 0x1f0
 
-class C_INIT_CreateParticleImpulse {
+class __declspec(align(8)) C_INIT_CreateParticleImpulse {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_InputRadius;
-    CPerParticleFloatInput m_InputMagnitude;
-    ParticleFalloffFunction_t m_nFalloffFunction;
-    CPerParticleFloatInput m_InputFalloffExp;
-    ParticleImpulseType_t m_nImpulseType;
+    CPerParticleFloatInput m_InputRadius; // 0x1d8
+    CPerParticleFloatInput m_InputMagnitude; // 0x348
+    ParticleFalloffFunction_t m_nFalloffFunction; // 0x4b8
+    CPerParticleFloatInput m_InputFalloffExp; // 0x4c0
+    ParticleImpulseType_t m_nImpulseType; // 0x630
     char pad_01[4];
-};
+}; // size: 0x638
 
-class C_OP_RemapCPtoVector {
+class __declspec(align(8)) C_OP_RemapCPtoVector {
 public:
     char pad_00[464];
-    int32_t m_nCPInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nLocalSpaceCP;
+    int32_t m_nCPInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    int32_t m_nLocalSpaceCP; // 0x1d8
     // Vector m_vInputMin;
     // Vector m_vInputMax;
     // Vector m_vOutputMin;
     // Vector m_vOutputMax;
     char pad_01[48];
-    float m_flStartTime;
-    float m_flEndTime;
-    float m_flInterpRate;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bOffset;
-    bool m_bAccelerate;
+    float m_flStartTime; // 0x20c
+    float m_flEndTime; // 0x210
+    float m_flInterpRate; // 0x214
+    ParticleSetMethod_t m_nSetMethod; // 0x218
+    bool m_bOffset; // 0x21c
+    bool m_bAccelerate; // 0x21d
     char pad_02[2];
-};
+}; // size: 0x220
 
-class C_OP_PinParticleToCP {
+class __declspec(align(8)) C_OP_PinParticleToCP {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    CParticleCollectionVecInput m_vecOffset;
-    bool m_bOffsetLocal;
-    ParticleSelection_t m_nParticleSelection;
-    CParticleCollectionFloatInput m_nParticleNumber;
-    ParticlePinDistance_t m_nPinBreakType;
-    CParticleCollectionFloatInput m_flBreakDistance;
-    CParticleCollectionFloatInput m_flBreakSpeed;
-    CParticleCollectionFloatInput m_flAge;
-    int32_t m_nBreakControlPointNumber;
-    int32_t m_nBreakControlPointNumber2;
-    CParticleCollectionFloatInput m_flBreakValue;
-    CPerParticleFloatInput m_flInterpolation;
-    bool m_bRetainInitialVelocity;
+    int32_t m_nControlPointNumber; // 0x1d0
+    CParticleCollectionVecInput m_vecOffset; // 0x1d8
+    bool m_bOffsetLocal; // 0x890
+    ParticleSelection_t m_nParticleSelection; // 0x894
+    CParticleCollectionFloatInput m_nParticleNumber; // 0x898
+    ParticlePinDistance_t m_nPinBreakType; // 0xa08
+    CParticleCollectionFloatInput m_flBreakDistance; // 0xa10
+    CParticleCollectionFloatInput m_flBreakSpeed; // 0xb80
+    CParticleCollectionFloatInput m_flAge; // 0xcf0
+    int32_t m_nBreakControlPointNumber; // 0xe60
+    int32_t m_nBreakControlPointNumber2; // 0xe64
+    CParticleCollectionFloatInput m_flBreakValue; // 0xe68
+    CPerParticleFloatInput m_flInterpolation; // 0xfd8
+    bool m_bRetainInitialVelocity; // 0x1148
     char pad_01[7];
-};
+}; // size: 0x1150
 
-class C_OP_RtEnvCull {
+class __declspec(align(8)) C_OP_RtEnvCull {
 public:
     // Vector m_vecTestDir;
     // Vector m_vecTestNormal;
     char pad_00[488];
-    bool m_bCullOnMiss;
-    bool m_bStickInsteadOfCull;
-    char m_RtEnvName[128];
-    int32_t m_nRTEnvCP;
-    int32_t m_nComponent;
+    bool m_bCullOnMiss; // 0x1e8
+    bool m_bStickInsteadOfCull; // 0x1e9
+    char m_RtEnvName[128]; // 0x1ea
+    int32_t m_nRTEnvCP; // 0x26c
+    int32_t m_nComponent; // 0x270
     char pad_01[4];
-};
+}; // size: 0x278
 
-class C_INIT_ScreenSpacePositionOfTarget {
+class __declspec(align(8)) C_INIT_ScreenSpacePositionOfTarget {
 public:
     char pad_00[472];
-    CPerParticleVecInput m_vecTargetPosition;
-    bool m_bOututBehindness;
-    ParticleAttributeIndex_t m_nBehindFieldOutput;
-    CParticleRemapFloatInput m_flBehindOutputRemap;
-};
+    CPerParticleVecInput m_vecTargetPosition; // 0x1d8
+    bool m_bOututBehindness; // 0x890
+    ParticleAttributeIndex_t m_nBehindFieldOutput; // 0x894
+    CParticleRemapFloatInput m_flBehindOutputRemap; // 0x898
+}; // size: 0xa08
 
-class C_OP_DriveCPFromGlobalSoundFloat {
+class __declspec(align(8)) C_OP_DriveCPFromGlobalSoundFloat {
 public:
     char pad_00[472];
-    int32_t m_nOutputControlPoint;
-    int32_t m_nOutputField;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
+    int32_t m_nOutputControlPoint; // 0x1d8
+    int32_t m_nOutputField; // 0x1dc
+    float m_flInputMin; // 0x1e0
+    float m_flInputMax; // 0x1e4
+    float m_flOutputMin; // 0x1e8
+    float m_flOutputMax; // 0x1ec
     // CUtlString m_StackName;
     // CUtlString m_OperatorName;
     // CUtlString m_FieldName;
     char pad_01[32];
-};
+}; // size: 0x210
 
-class C_OP_RemapDirectionToCPToVector {
+class __declspec(align(8)) C_OP_RemapDirectionToCPToVector {
 public:
     char pad_00[464];
-    int32_t m_nCP;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flScale;
-    float m_flOffsetRot;
+    int32_t m_nCP; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flScale; // 0x1d8
+    float m_flOffsetRot; // 0x1dc
     // Vector m_vecOffsetAxis;
     char pad_01[12];
-    bool m_bNormalize;
-    ParticleAttributeIndex_t m_nFieldStrength;
+    bool m_bNormalize; // 0x1ec
+    ParticleAttributeIndex_t m_nFieldStrength; // 0x1f0
     char pad_02[4];
-};
+}; // size: 0x1f8
 
-class C_OP_ChladniWave {
+class __declspec(align(8)) C_OP_ChladniWave {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flInputMin;
-    CPerParticleFloatInput m_flInputMax;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-    CPerParticleVecInput m_vecWaveLength;
-    CPerParticleVecInput m_vecHarmonics;
-    ParticleSetMethod_t m_nSetMethod;
-    int32_t m_nLocalSpaceControlPoint;
-    bool m_b3D;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flInputMin; // 0x1d8
+    CPerParticleFloatInput m_flInputMax; // 0x348
+    CPerParticleFloatInput m_flOutputMin; // 0x4b8
+    CPerParticleFloatInput m_flOutputMax; // 0x628
+    CPerParticleVecInput m_vecWaveLength; // 0x798
+    CPerParticleVecInput m_vecHarmonics; // 0xe50
+    ParticleSetMethod_t m_nSetMethod; // 0x1508
+    int32_t m_nLocalSpaceControlPoint; // 0x150c
+    bool m_b3D; // 0x1510
     char pad_01[7];
-};
+}; // size: 0x1518
 
-class C_OP_SetChildControlPoints {
+class __declspec(align(8)) C_OP_SetChildControlPoints {
 public:
     char pad_00[464];
-    int32_t m_nChildGroupID;
-    int32_t m_nFirstControlPoint;
-    int32_t m_nNumControlPoints;
-    CParticleCollectionFloatInput m_nFirstSourcePoint;
-    bool m_bReverse;
-    bool m_bSetOrientation;
-    ParticleOrientationType_t m_nOrientation;
-};
+    int32_t m_nChildGroupID; // 0x1d0
+    int32_t m_nFirstControlPoint; // 0x1d4
+    int32_t m_nNumControlPoints; // 0x1d8
+    CParticleCollectionFloatInput m_nFirstSourcePoint; // 0x1e0
+    bool m_bReverse; // 0x350
+    bool m_bSetOrientation; // 0x351
+    ParticleOrientationType_t m_nOrientation; // 0x354
+}; // size: 0x358
 
-class C_OP_ShapeMatchingConstraint {
+class __declspec(align(8)) C_OP_ShapeMatchingConstraint {
 public:
     char pad_00[464];
-    float m_flShapeRestorationTime;
+    float m_flShapeRestorationTime; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_INIT_NormalAlignToCP {
+class __declspec(align(8)) C_INIT_NormalAlignToCP {
 public:
     char pad_00[472];
-    CParticleTransformInput m_transformInput;
-    ParticleControlPointAxis_t m_nControlPointAxis;
+    CParticleTransformInput m_transformInput; // 0x1d8
+    ParticleControlPointAxis_t m_nControlPointAxis; // 0x240
     char pad_01[4];
-};
+}; // size: 0x248
 
-class C_INIT_PositionOffset {
+class __declspec(align(8)) C_INIT_PositionOffset {
 public:
     char pad_00[472];
-    CPerParticleVecInput m_OffsetMin;
-    CPerParticleVecInput m_OffsetMax;
-    CParticleTransformInput m_TransformInput;
-    bool m_bLocalCoords;
-    bool m_bProportional;
+    CPerParticleVecInput m_OffsetMin; // 0x1d8
+    CPerParticleVecInput m_OffsetMax; // 0x890
+    CParticleTransformInput m_TransformInput; // 0xf48
+    bool m_bLocalCoords; // 0xfb0
+    bool m_bProportional; // 0xfb1
     // CRandomNumberGeneratorParameters m_randomnessParameters;
     char pad_01[14];
-};
+}; // size: 0xfc0
 
-class C_OP_SetControlPointToWaterSurface {
+class __declspec(align(8)) C_OP_SetControlPointToWaterSurface {
 public:
     char pad_00[472];
-    int32_t m_nSourceCP;
-    int32_t m_nDestCP;
-    int32_t m_nFlowCP;
-    int32_t m_nActiveCP;
-    int32_t m_nActiveCPField;
-    CParticleCollectionFloatInput m_flRetestRate;
-    bool m_bAdaptiveThreshold;
+    int32_t m_nSourceCP; // 0x1d8
+    int32_t m_nDestCP; // 0x1dc
+    int32_t m_nFlowCP; // 0x1e0
+    int32_t m_nActiveCP; // 0x1e4
+    int32_t m_nActiveCPField; // 0x1e8
+    CParticleCollectionFloatInput m_flRetestRate; // 0x1f0
+    bool m_bAdaptiveThreshold; // 0x360
     char pad_01[7];
-};
+}; // size: 0x368
 
-class C_INIT_InheritVelocity {
+class __declspec(align(8)) C_INIT_InheritVelocity {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    float m_flVelocityScale;
-};
+    int32_t m_nControlPointNumber; // 0x1d8
+    float m_flVelocityScale; // 0x1dc
+}; // size: 0x1e0
 
-class C_OP_RenderCables {
+class __declspec(align(8)) C_OP_RenderCables {
 public:
     char pad_00[544];
-    CParticleCollectionFloatInput m_flRadiusScale;
-    CParticleCollectionFloatInput m_flAlphaScale;
-    CParticleCollectionVecInput m_vecColorScale;
-    ParticleColorBlendType_t m_nColorBlendType;
+    CParticleCollectionFloatInput m_flRadiusScale; // 0x220
+    CParticleCollectionFloatInput m_flAlphaScale; // 0x390
+    CParticleCollectionVecInput m_vecColorScale; // 0x500
+    ParticleColorBlendType_t m_nColorBlendType; // 0xbb8
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial;
     char pad_01[12];
-    TextureRepetitionMode_t m_nTextureRepetitionMode;
-    CParticleCollectionFloatInput m_flTextureRepeatsPerSegment;
-    CParticleCollectionFloatInput m_flTextureRepeatsCircumference;
-    CParticleCollectionFloatInput m_flColorMapOffsetV;
-    CParticleCollectionFloatInput m_flColorMapOffsetU;
-    CParticleCollectionFloatInput m_flNormalMapOffsetV;
-    CParticleCollectionFloatInput m_flNormalMapOffsetU;
-    bool m_bDrawCableCaps;
-    float m_flCapRoundness;
-    float m_flCapOffsetAmount;
-    float m_flTessScale;
-    int32_t m_nMinTesselation;
-    int32_t m_nMaxTesselation;
-    int32_t m_nRoundness;
-    bool m_nForceRoundnessFixed;
-    CParticleTransformInput m_LightingTransform;
+    TextureRepetitionMode_t m_nTextureRepetitionMode; // 0xbc8
+    CParticleCollectionFloatInput m_flTextureRepeatsPerSegment; // 0xbd0
+    CParticleCollectionFloatInput m_flTextureRepeatsCircumference; // 0xd40
+    CParticleCollectionFloatInput m_flColorMapOffsetV; // 0xeb0
+    CParticleCollectionFloatInput m_flColorMapOffsetU; // 0x1020
+    CParticleCollectionFloatInput m_flNormalMapOffsetV; // 0x1190
+    CParticleCollectionFloatInput m_flNormalMapOffsetU; // 0x1300
+    bool m_bDrawCableCaps; // 0x1470
+    float m_flCapRoundness; // 0x1474
+    float m_flCapOffsetAmount; // 0x1478
+    float m_flTessScale; // 0x147c
+    int32_t m_nMinTesselation; // 0x1480
+    int32_t m_nMaxTesselation; // 0x1484
+    int32_t m_nRoundness; // 0x1488
+    bool m_nForceRoundnessFixed; // 0x148c
+    CParticleTransformInput m_LightingTransform; // 0x1490
     // CUtlLeanVector< FloatInputMaterialVariable_t > m_MaterialFloatVars;
     // CUtlLeanVector< VecInputMaterialVariable_t > m_MaterialVecVars;
     char pad_02[64];
-};
+}; // size: 0x1538
 
-class C_INIT_InitFromCPSnapshot {
+class __declspec(align(8)) C_INIT_InitFromCPSnapshot {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
+    int32_t m_nControlPointNumber; // 0x1d8
     // CUtlString m_strSnapshotSubset;
-    ParticleAttributeIndex_t m_nAttributeToRead;
-    ParticleAttributeIndex_t m_nAttributeToWrite;
-    int32_t m_nLocalSpaceCP;
-    bool m_bRandom;
-    bool m_bReverse;
-    CParticleCollectionFloatInput m_nSnapShotIncrement;
-    CPerParticleFloatInput m_nManualSnapshotIndex;
-    int32_t m_nRandomSeed;
-    bool m_bLocalSpaceAngles;
-    char pad_01[3];
-};
+    char pad_01[12];
+    ParticleAttributeIndex_t m_nAttributeToRead; // 0x1e8
+    ParticleAttributeIndex_t m_nAttributeToWrite; // 0x1ec
+    int32_t m_nLocalSpaceCP; // 0x1f0
+    bool m_bRandom; // 0x1f4
+    bool m_bReverse; // 0x1f5
+    CParticleCollectionFloatInput m_nSnapShotIncrement; // 0x1f8
+    CPerParticleFloatInput m_nManualSnapshotIndex; // 0x368
+    int32_t m_nRandomSeed; // 0x4d8
+    bool m_bLocalSpaceAngles; // 0x4dc
+    char pad_02[3];
+}; // size: 0x4e0
 
-class C_OP_RemapNamedModelSequenceEndCap {
+class __declspec(align(8)) C_OP_RemapNamedModelSequenceEndCap {
 public:
     char pad_00[560];
-};
+}; // size: 0x230
 
-class C_INIT_PlaneCull {
+class __declspec(align(8)) C_INIT_PlaneCull {
 public:
     char pad_00[472];
-    int32_t m_nControlPoint;
-    CParticleCollectionFloatInput m_flDistance;
-    bool m_bCullInside;
+    int32_t m_nControlPoint; // 0x1d8
+    CParticleCollectionFloatInput m_flDistance; // 0x1e0
+    bool m_bCullInside; // 0x350
     char pad_01[7];
-};
+}; // size: 0x358
 
-class C_OP_PercentageBetweenTransforms {
+class __declspec(align(8)) C_OP_PercentageBetweenTransforms {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    CParticleTransformInput m_TransformStart;
-    CParticleTransformInput m_TransformEnd;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bRadialCheck;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flInputMin; // 0x1d4
+    float m_flInputMax; // 0x1d8
+    float m_flOutputMin; // 0x1dc
+    float m_flOutputMax; // 0x1e0
+    CParticleTransformInput m_TransformStart; // 0x1e8
+    CParticleTransformInput m_TransformEnd; // 0x250
+    ParticleSetMethod_t m_nSetMethod; // 0x2b8
+    bool m_bActiveRange; // 0x2bc
+    bool m_bRadialCheck; // 0x2bd
     char pad_01[2];
-};
+}; // size: 0x2c0
 
-class C_OP_SetControlPointFieldFromVectorExpression {
+class __declspec(align(8)) C_OP_SetControlPointFieldFromVectorExpression {
 public:
     char pad_00[472];
-    VectorFloatExpressionType_t m_nExpression;
-    CParticleCollectionVecInput m_vecInput1;
-    CParticleCollectionVecInput m_vecInput2;
-    CPerParticleFloatInput m_flLerp;
-    CParticleRemapFloatInput m_flOutputRemap;
-    int32_t m_nOutputCP;
-    int32_t m_nOutVectorField;
-};
+    VectorFloatExpressionType_t m_nExpression; // 0x1d8
+    CParticleCollectionVecInput m_vecInput1; // 0x1e0
+    CParticleCollectionVecInput m_vecInput2; // 0x898
+    CPerParticleFloatInput m_flLerp; // 0xf50
+    CParticleRemapFloatInput m_flOutputRemap; // 0x10c0
+    int32_t m_nOutputCP; // 0x1230
+    int32_t m_nOutVectorField; // 0x1234
+}; // size: 0x1238
 
-class C_OP_DifferencePreviousParticle {
+class __declspec(align(8)) C_OP_DifferencePreviousParticle {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bSetPreviousParticle;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flInputMin; // 0x1d8
+    float m_flInputMax; // 0x1dc
+    float m_flOutputMin; // 0x1e0
+    float m_flOutputMax; // 0x1e4
+    ParticleSetMethod_t m_nSetMethod; // 0x1e8
+    bool m_bActiveRange; // 0x1ec
+    bool m_bSetPreviousParticle; // 0x1ed
     char pad_01[2];
-};
+}; // size: 0x1f0
 
-class C_OP_SetControlPointToHMD {
+class __declspec(align(8)) C_OP_SetControlPointToHMD {
 public:
     char pad_00[472];
-    int32_t m_nCP1;
+    int32_t m_nCP1; // 0x1d8
     // Vector m_vecCP1Pos;
     char pad_01[12];
-    bool m_bOrientToHMD;
+    bool m_bOrientToHMD; // 0x1e8
     char pad_02[7];
-};
+}; // size: 0x1f0
 
-class C_OP_ClampScalar {
+class __declspec(align(8)) C_OP_ClampScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flOutputMin; // 0x1d8
+    CPerParticleFloatInput m_flOutputMax; // 0x348
+}; // size: 0x4b8
 
-class C_INIT_InitialRepulsionVelocity {
+class __declspec(align(8)) C_INIT_InitialRepulsionVelocity {
 public:
     char pad_00[472];
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
+    char m_CollisionGroupName[128]; // 0x1d8
+    ParticleTraceSet_t m_nTraceSet; // 0x258
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    int32_t m_nControlPointNumber;
-    bool m_bPerParticle;
-    bool m_bTranslate;
-    bool m_bProportional;
-    float m_flTraceLength;
-    bool m_bPerParticleTR;
-    bool m_bInherit;
-    int32_t m_nChildCP;
-    int32_t m_nChildGroupID;
+    int32_t m_nControlPointNumber; // 0x274
+    bool m_bPerParticle; // 0x278
+    bool m_bTranslate; // 0x279
+    bool m_bProportional; // 0x27a
+    float m_flTraceLength; // 0x27c
+    bool m_bPerParticleTR; // 0x280
+    bool m_bInherit; // 0x281
+    int32_t m_nChildCP; // 0x284
+    int32_t m_nChildGroupID; // 0x288
     char pad_02[4];
-};
+}; // size: 0x290
 
-class C_OP_LerpScalar {
+class __declspec(align(8)) C_OP_LerpScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flOutput;
-    float m_flStartTime;
-    float m_flEndTime;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flOutput; // 0x1d8
+    float m_flStartTime; // 0x348
+    float m_flEndTime; // 0x34c
+}; // size: 0x350
 
-class C_OP_MovementMoveAlongSkinnedCPSnapshot {
+class __declspec(align(8)) C_OP_MovementMoveAlongSkinnedCPSnapshot {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    int32_t m_nSnapshotControlPointNumber;
-    bool m_bSetNormal;
-    bool m_bSetRadius;
-    CPerParticleFloatInput m_flInterpolation;
-    CPerParticleFloatInput m_flTValue;
-};
+    int32_t m_nControlPointNumber; // 0x1d0
+    int32_t m_nSnapshotControlPointNumber; // 0x1d4
+    bool m_bSetNormal; // 0x1d8
+    bool m_bSetRadius; // 0x1d9
+    CPerParticleFloatInput m_flInterpolation; // 0x1e0
+    CPerParticleFloatInput m_flTValue; // 0x350
+}; // size: 0x4c0
 
-class C_INIT_SetHitboxToModel {
+class __declspec(align(8)) C_INIT_SetHitboxToModel {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    int32_t m_nForceInModel;
-    bool m_bEvenDistribution;
-    int32_t m_nDesiredHitbox;
-    CParticleCollectionVecInput m_vecHitBoxScale;
+    int32_t m_nControlPointNumber; // 0x1d8
+    int32_t m_nForceInModel; // 0x1dc
+    bool m_bEvenDistribution; // 0x1e0
+    int32_t m_nDesiredHitbox; // 0x1e4
+    CParticleCollectionVecInput m_vecHitBoxScale; // 0x1e8
     // Vector m_vecDirectionBias;
     char pad_01[12];
-    bool m_bMaintainHitbox;
-    bool m_bUseBones;
-    char m_HitboxSetName[128];
-    CParticleCollectionFloatInput m_flShellSize;
-};
+    bool m_bMaintainHitbox; // 0x8ac
+    bool m_bUseBones; // 0x8ad
+    char m_HitboxSetName[128]; // 0x8ae
+    CParticleCollectionFloatInput m_flShellSize; // 0x930
+}; // size: 0xaa0
 
-class C_INIT_InitVec {
+class __declspec(align(8)) C_INIT_InitVec {
 public:
     char pad_00[472];
-    CPerParticleVecInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bNormalizedOutput;
-    bool m_bWritePreviousPosition;
+    CPerParticleVecInput m_InputValue; // 0x1d8
+    ParticleAttributeIndex_t m_nOutputField; // 0x890
+    ParticleSetMethod_t m_nSetMethod; // 0x894
+    bool m_bNormalizedOutput; // 0x898
+    bool m_bWritePreviousPosition; // 0x899
     char pad_01[6];
-};
+}; // size: 0x8a0
 
-class C_OP_RemapDensityGradientToVectorAttribute {
+class __declspec(align(8)) C_OP_RemapDensityGradientToVectorAttribute {
 public:
     char pad_00[464];
-    float m_flRadiusScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    float m_flRadiusScale; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+}; // size: 0x1d8
 
-class C_OP_AlphaDecay {
+class __declspec(align(8)) C_OP_AlphaDecay {
 public:
     char pad_00[464];
-    float m_flMinAlpha;
+    float m_flMinAlpha; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_OP_SequenceFromModel {
+class __declspec(align(8)) C_OP_SequenceFromModel {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldOutputAnim;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    ParticleSetMethod_t m_nSetMethod;
-};
+    int32_t m_nControlPointNumber; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    ParticleAttributeIndex_t m_nFieldOutputAnim; // 0x1d8
+    float m_flInputMin; // 0x1dc
+    float m_flInputMax; // 0x1e0
+    float m_flOutputMin; // 0x1e4
+    float m_flOutputMax; // 0x1e8
+    ParticleSetMethod_t m_nSetMethod; // 0x1ec
+}; // size: 0x1f0
 
-class CParticleMassCalculationParameters {
+class __declspec(align(8)) CParticleMassCalculationParameters {
 public:
-    ParticleMassMode_t m_nMassMode;
-    CPerParticleFloatInput m_flRadius;
-    CPerParticleFloatInput m_flNominalRadius;
-    CPerParticleFloatInput m_flScale;
-};
+    ParticleMassMode_t m_nMassMode; // 0x0
+    CPerParticleFloatInput m_flRadius; // 0x8
+    CPerParticleFloatInput m_flNominalRadius; // 0x178
+    CPerParticleFloatInput m_flScale; // 0x2e8
+}; // size: 0x458
 
-class C_OP_ColorAdjustHSL {
-public:
-    char pad_00[464];
-    CPerParticleFloatInput m_flHueAdjust;
-    CPerParticleFloatInput m_flSaturationAdjust;
-    CPerParticleFloatInput m_flLightnessAdjust;
-};
-
-class C_OP_FadeAndKillForTracers {
+class __declspec(align(8)) C_OP_ColorAdjustHSL {
 public:
     char pad_00[464];
-    float m_flStartFadeInTime;
-    float m_flEndFadeInTime;
-    float m_flStartFadeOutTime;
-    float m_flEndFadeOutTime;
-    float m_flStartAlpha;
-    float m_flEndAlpha;
-};
+    CPerParticleFloatInput m_flHueAdjust; // 0x1d0
+    CPerParticleFloatInput m_flSaturationAdjust; // 0x340
+    CPerParticleFloatInput m_flLightnessAdjust; // 0x4b0
+}; // size: 0x620
 
-class C_OP_Noise {
+class __declspec(align(8)) C_OP_FadeAndKillForTracers {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_fl4NoiseScale;
-    bool m_bAdditive;
-    float m_flNoiseAnimationTimeScale;
-};
+    float m_flStartFadeInTime; // 0x1d0
+    float m_flEndFadeInTime; // 0x1d4
+    float m_flStartFadeOutTime; // 0x1d8
+    float m_flEndFadeOutTime; // 0x1dc
+    float m_flStartAlpha; // 0x1e0
+    float m_flEndAlpha; // 0x1e4
+}; // size: 0x1e8
 
-class C_OP_CollideWithSelf {
+class __declspec(align(8)) C_OP_Noise {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flRadiusScale;
-    CPerParticleFloatInput m_flMinimumSpeed;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flOutputMin; // 0x1d4
+    float m_flOutputMax; // 0x1d8
+    float m_fl4NoiseScale; // 0x1dc
+    bool m_bAdditive; // 0x1e0
+    float m_flNoiseAnimationTimeScale; // 0x1e4
+}; // size: 0x1e8
 
-class C_OP_LagCompensation {
+class __declspec(align(8)) C_OP_CollideWithSelf {
 public:
     char pad_00[464];
-    int32_t m_nDesiredVelocityCP;
-    int32_t m_nLatencyCP;
-    int32_t m_nLatencyCPField;
-    int32_t m_nDesiredVelocityCPField;
-};
+    CPerParticleFloatInput m_flRadiusScale; // 0x1d0
+    CPerParticleFloatInput m_flMinimumSpeed; // 0x340
+}; // size: 0x4b0
 
-class C_INIT_InitSkinnedPositionFromCPSnapshot {
+class __declspec(align(8)) C_OP_LagCompensation {
+public:
+    char pad_00[464];
+    int32_t m_nDesiredVelocityCP; // 0x1d0
+    int32_t m_nLatencyCP; // 0x1d4
+    int32_t m_nLatencyCPField; // 0x1d8
+    int32_t m_nDesiredVelocityCPField; // 0x1dc
+}; // size: 0x1e0
+
+class __declspec(align(8)) C_INIT_InitSkinnedPositionFromCPSnapshot {
 public:
     char pad_00[472];
-    int32_t m_nSnapshotControlPointNumber;
-    int32_t m_nControlPointNumber;
-    bool m_bRandom;
-    int32_t m_nRandomSeed;
-    bool m_bRigid;
-    bool m_bSetNormal;
-    bool m_bIgnoreDt;
-    float m_flMinNormalVelocity;
-    float m_flMaxNormalVelocity;
-    SnapshotIndexType_t m_nIndexType;
-    CPerParticleFloatInput m_flReadIndex;
-    float m_flIncrement;
-    int32_t m_nFullLoopIncrement;
-    int32_t m_nSnapShotStartPoint;
-    float m_flBoneVelocity;
-    float m_flBoneVelocityMax;
-    bool m_bCopyColor;
-    bool m_bCopyAlpha;
-    bool m_bSetRadius;
+    int32_t m_nSnapshotControlPointNumber; // 0x1d8
+    int32_t m_nControlPointNumber; // 0x1dc
+    bool m_bRandom; // 0x1e0
+    int32_t m_nRandomSeed; // 0x1e4
+    bool m_bRigid; // 0x1e8
+    bool m_bSetNormal; // 0x1e9
+    bool m_bIgnoreDt; // 0x1ea
+    float m_flMinNormalVelocity; // 0x1ec
+    float m_flMaxNormalVelocity; // 0x1f0
+    SnapshotIndexType_t m_nIndexType; // 0x1f4
+    CPerParticleFloatInput m_flReadIndex; // 0x1f8
+    float m_flIncrement; // 0x368
+    int32_t m_nFullLoopIncrement; // 0x36c
+    int32_t m_nSnapShotStartPoint; // 0x370
+    float m_flBoneVelocity; // 0x374
+    float m_flBoneVelocityMax; // 0x378
+    bool m_bCopyColor; // 0x37c
+    bool m_bCopyAlpha; // 0x37d
+    bool m_bSetRadius; // 0x37e
     char pad_01[1];
-};
+}; // size: 0x380
 
-class C_INIT_RemapParticleCountToNamedModelBodyPartScalar {
+class __declspec(align(8)) C_INIT_RemapParticleCountToNamedModelBodyPartScalar {
 public:
     char pad_00[552];
-};
+}; // size: 0x228
 
-class CPAssignment_t {
+class __declspec(align(8)) CPAssignment_t {
 public:
-    int32_t m_nCPNumber;
-    CPerParticleVecInput m_Pos;
-    ParticleOrientationSetMode_t m_nOrientationMode;
+    int32_t m_nCPNumber; // 0x0
+    CPerParticleVecInput m_Pos; // 0x8
+    ParticleOrientationSetMode_t m_nOrientationMode; // 0x6c0
     char pad_00[4];
-};
+}; // size: 0x6c8
 
-class C_OP_ConnectParentParticleToNearest {
+class __declspec(align(8)) C_OP_ConnectParentParticleToNearest {
 public:
     char pad_00[464];
-    int32_t m_nFirstControlPoint;
-    int32_t m_nSecondControlPoint;
-    bool m_bUseRadius;
-    CParticleCollectionFloatInput m_flRadiusScale;
-    CParticleCollectionFloatInput m_flParentRadiusScale;
-};
+    int32_t m_nFirstControlPoint; // 0x1d0
+    int32_t m_nSecondControlPoint; // 0x1d4
+    bool m_bUseRadius; // 0x1d8
+    CParticleCollectionFloatInput m_flRadiusScale; // 0x1e0
+    CParticleCollectionFloatInput m_flParentRadiusScale; // 0x350
+}; // size: 0x4c0
 
-class C_OP_RenderOmni2Light {
+class __declspec(align(8)) C_OP_RenderOmni2Light {
 public:
     char pad_00[544];
-    ParticleOmni2LightTypeChoiceList_t m_nLightType;
-    CParticleCollectionVecInput m_vColorBlend;
-    ParticleColorBlendType_t m_nColorBlendType;
-    ParticleLightUnitChoiceList_t m_nBrightnessUnit;
-    CPerParticleFloatInput m_flBrightnessLumens;
-    CPerParticleFloatInput m_flBrightnessCandelas;
-    bool m_bCastShadows;
-    bool m_bFog;
-    CPerParticleFloatInput m_flFogScale;
-    CPerParticleFloatInput m_flLuminaireRadius;
-    CPerParticleFloatInput m_flSkirt;
-    CPerParticleFloatInput m_flRange;
-    CPerParticleFloatInput m_flInnerConeAngle;
-    CPerParticleFloatInput m_flOuterConeAngle;
+    ParticleOmni2LightTypeChoiceList_t m_nLightType; // 0x220
+    CParticleCollectionVecInput m_vColorBlend; // 0x228
+    ParticleColorBlendType_t m_nColorBlendType; // 0x8e0
+    ParticleLightUnitChoiceList_t m_nBrightnessUnit; // 0x8e4
+    CPerParticleFloatInput m_flBrightnessLumens; // 0x8e8
+    CPerParticleFloatInput m_flBrightnessCandelas; // 0xa58
+    bool m_bCastShadows; // 0xbc8
+    bool m_bFog; // 0xbc9
+    CPerParticleFloatInput m_flFogScale; // 0xbd0
+    CPerParticleFloatInput m_flLuminaireRadius; // 0xd40
+    CPerParticleFloatInput m_flSkirt; // 0xeb0
+    CPerParticleFloatInput m_flRange; // 0x1020
+    CPerParticleFloatInput m_flInnerConeAngle; // 0x1190
+    CPerParticleFloatInput m_flOuterConeAngle; // 0x1300
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hLightCookie;
     char pad_01[8];
-    bool m_bSphericalCookie;
+    bool m_bSphericalCookie; // 0x1478
     char pad_02[15];
-};
+}; // size: 0x1488
 
-class C_INIT_RandomNamedModelBodyPart {
+class __declspec(align(8)) C_INIT_RandomNamedModelBodyPart {
 public:
     char pad_00[512];
-};
+}; // size: 0x200
 
-class C_INIT_CheckParticleForWater {
+class __declspec(align(8)) C_INIT_CheckParticleForWater {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_flRadius;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleSetMethod_t m_nSetMethod;
+    CPerParticleFloatInput m_flRadius; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x348
+    CParticleRemapFloatInput m_flOutputRemap; // 0x350
+    ParticleSetMethod_t m_nSetMethod; // 0x4c0
     char pad_01[4];
-};
+}; // size: 0x4c8
 
-class C_INIT_CreateFromParentParticles {
+class __declspec(align(8)) C_INIT_CreateFromParentParticles {
 public:
     char pad_00[472];
-    float m_flVelocityScale;
-    float m_flIncrement;
-    bool m_bRandomDistribution;
-    int32_t m_nRandomSeed;
-    bool m_bSubFrame;
-    bool m_bSetRopeSegmentID;
+    float m_flVelocityScale; // 0x1d8
+    float m_flIncrement; // 0x1dc
+    bool m_bRandomDistribution; // 0x1e0
+    int32_t m_nRandomSeed; // 0x1e4
+    bool m_bSubFrame; // 0x1e8
+    bool m_bSetRopeSegmentID; // 0x1e9
     char pad_01[6];
-};
+}; // size: 0x1f0
 
-class C_OP_SetVec {
+class __declspec(align(8)) C_OP_SetVec {
 public:
     char pad_00[464];
-    CPerParticleVecInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    CPerParticleFloatInput m_Lerp;
-    bool m_bNormalizedOutput;
+    CPerParticleVecInput m_InputValue; // 0x1d0
+    ParticleAttributeIndex_t m_nOutputField; // 0x888
+    ParticleSetMethod_t m_nSetMethod; // 0x88c
+    CPerParticleFloatInput m_Lerp; // 0x890
+    bool m_bNormalizedOutput; // 0xa00
     char pad_01[7];
-};
+}; // size: 0xa08
 
-class C_INIT_CreateWithinCapsuleTransform {
+class __declspec(align(8)) C_INIT_CreateWithinCapsuleTransform {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_fRadiusMin;
-    CPerParticleFloatInput m_fRadiusMax;
-    CPerParticleFloatInput m_fHeight;
-    CParticleTransformInput m_TransformInput;
-    CPerParticleFloatInput m_fSpeedMin;
-    CPerParticleFloatInput m_fSpeedMax;
-    float m_fSpeedRandExp;
-    CPerParticleVecInput m_LocalCoordinateSystemSpeedMin;
-    CPerParticleVecInput m_LocalCoordinateSystemSpeedMax;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldVelocity;
-};
+    CPerParticleFloatInput m_fRadiusMin; // 0x1d8
+    CPerParticleFloatInput m_fRadiusMax; // 0x348
+    CPerParticleFloatInput m_fHeight; // 0x4b8
+    CParticleTransformInput m_TransformInput; // 0x628
+    CPerParticleFloatInput m_fSpeedMin; // 0x690
+    CPerParticleFloatInput m_fSpeedMax; // 0x800
+    float m_fSpeedRandExp; // 0x970
+    CPerParticleVecInput m_LocalCoordinateSystemSpeedMin; // 0x978
+    CPerParticleVecInput m_LocalCoordinateSystemSpeedMax; // 0x1030
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x16e8
+    ParticleAttributeIndex_t m_nFieldVelocity; // 0x16ec
+}; // size: 0x16f0
 
-class C_OP_MovementMaintainOffset {
+class __declspec(align(8)) C_OP_MovementMaintainOffset {
 public:
     // Vector m_vecOffset;
     char pad_00[476];
-    int32_t m_nCP;
-    bool m_bRadiusScale;
+    int32_t m_nCP; // 0x1dc
+    bool m_bRadiusScale; // 0x1e0
     char pad_01[7];
-};
+}; // size: 0x1e8
 
-class C_OP_ScreenSpaceRotateTowardTarget {
+class __declspec(align(8)) C_OP_ScreenSpaceRotateTowardTarget {
 public:
     char pad_00[464];
-    CPerParticleVecInput m_vecTargetPosition;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleSetMethod_t m_nSetMethod;
-    CPerParticleFloatInput m_flScreenEdgeAlignmentDistance;
-};
+    CPerParticleVecInput m_vecTargetPosition; // 0x1d0
+    CParticleRemapFloatInput m_flOutputRemap; // 0x888
+    ParticleSetMethod_t m_nSetMethod; // 0x9f8
+    CPerParticleFloatInput m_flScreenEdgeAlignmentDistance; // 0xa00
+}; // size: 0xb70
 
-class C_OP_RemapNamedModelBodyPartOnceTimed {
+class __declspec(align(8)) C_OP_RemapNamedModelBodyPartOnceTimed {
 public:
     char pad_00[560];
-};
+}; // size: 0x230
 
-class C_OP_LockToBone {
+class __declspec(align(8)) C_OP_LockToBone {
 public:
     char pad_00[464];
-    CParticleModelInput m_modelInput;
-    CParticleTransformInput m_transformInput;
-    float m_flLifeTimeFadeStart;
-    float m_flLifeTimeFadeEnd;
-    float m_flJumpThreshold;
-    float m_flPrevPosScale;
-    char m_HitboxSetName[128];
-    bool m_bRigid;
-    bool m_bUseBones;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldOutputPrev;
-    ParticleRotationLockType_t m_nRotationSetType;
-    bool m_bRigidRotationLock;
-    CPerParticleVecInput m_vecRotation;
-    CPerParticleFloatInput m_flRotLerp;
-};
+    CParticleModelInput m_modelInput; // 0x1d0
+    CParticleTransformInput m_transformInput; // 0x230
+    float m_flLifeTimeFadeStart; // 0x298
+    float m_flLifeTimeFadeEnd; // 0x29c
+    float m_flJumpThreshold; // 0x2a0
+    float m_flPrevPosScale; // 0x2a4
+    char m_HitboxSetName[128]; // 0x2a8
+    bool m_bRigid; // 0x328
+    bool m_bUseBones; // 0x329
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x32c
+    ParticleAttributeIndex_t m_nFieldOutputPrev; // 0x330
+    ParticleRotationLockType_t m_nRotationSetType; // 0x334
+    bool m_bRigidRotationLock; // 0x338
+    CPerParticleVecInput m_vecRotation; // 0x340
+    CPerParticleFloatInput m_flRotLerp; // 0x9f8
+}; // size: 0xb68
 
-class C_OP_CalculateVectorAttribute {
+class __declspec(align(8)) C_OP_CalculateVectorAttribute {
 public:
     // Vector m_vStartValue;
     char pad_00[476];
-    ParticleAttributeIndex_t m_nFieldInput1;
-    float m_flInputScale1;
-    ParticleAttributeIndex_t m_nFieldInput2;
-    float m_flInputScale2;
+    ParticleAttributeIndex_t m_nFieldInput1; // 0x1dc
+    float m_flInputScale1; // 0x1e0
+    ParticleAttributeIndex_t m_nFieldInput2; // 0x1e4
+    float m_flInputScale2; // 0x1e8
     // ControlPointReference_t m_nControlPointInput1;
     char pad_01[20];
-    float m_flControlPointScale1;
+    float m_flControlPointScale1; // 0x200
     // ControlPointReference_t m_nControlPointInput2;
     char pad_02[20];
-    float m_flControlPointScale2;
-    ParticleAttributeIndex_t m_nFieldOutput;
+    float m_flControlPointScale2; // 0x218
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x21c
     // Vector m_vFinalOutputScale;
     char pad_03[16];
-};
+}; // size: 0x230
 
-class C_OP_DampenToCP {
+class __declspec(align(8)) C_OP_DampenToCP {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    float m_flRange;
-    float m_flScale;
+    int32_t m_nControlPointNumber; // 0x1d0
+    float m_flRange; // 0x1d4
+    float m_flScale; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_DistanceBetweenVecs {
+class __declspec(align(8)) C_OP_DistanceBetweenVecs {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleVecInput m_vecPoint1;
-    CPerParticleVecInput m_vecPoint2;
-    CPerParticleFloatInput m_flInputMin;
-    CPerParticleFloatInput m_flInputMax;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bDeltaTime;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleVecInput m_vecPoint1; // 0x1d8
+    CPerParticleVecInput m_vecPoint2; // 0x890
+    CPerParticleFloatInput m_flInputMin; // 0xf48
+    CPerParticleFloatInput m_flInputMax; // 0x10b8
+    CPerParticleFloatInput m_flOutputMin; // 0x1228
+    CPerParticleFloatInput m_flOutputMax; // 0x1398
+    ParticleSetMethod_t m_nSetMethod; // 0x1508
+    bool m_bDeltaTime; // 0x150c
     char pad_01[3];
-};
+}; // size: 0x1510
 
-class CGeneralRandomRotation {
+class __declspec(align(4)) CGeneralRandomRotation {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flDegrees;
-    float m_flDegreesMin;
-    float m_flDegreesMax;
-    float m_flRotationRandExponent;
-    bool m_bRandomlyFlipDirection;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    float m_flDegrees; // 0x1dc
+    float m_flDegreesMin; // 0x1e0
+    float m_flDegreesMax; // 0x1e4
+    float m_flRotationRandExponent; // 0x1e8
+    bool m_bRandomlyFlipDirection; // 0x1ec
     char pad_01[11];
-};
+}; // size: 0x1f8
 
-class C_OP_RemapVectorComponentToScalar {
+class __declspec(align(8)) C_OP_RemapVectorComponentToScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nComponent;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    int32_t m_nComponent; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_INIT_AgeNoise {
+class __declspec(align(8)) C_INIT_AgeNoise {
 public:
     char pad_00[472];
-    bool m_bAbsVal;
-    bool m_bAbsValInv;
-    float m_flOffset;
-    float m_flAgeMin;
-    float m_flAgeMax;
-    float m_flNoiseScale;
-    float m_flNoiseScaleLoc;
+    bool m_bAbsVal; // 0x1d8
+    bool m_bAbsValInv; // 0x1d9
+    float m_flOffset; // 0x1dc
+    float m_flAgeMin; // 0x1e0
+    float m_flAgeMax; // 0x1e4
+    float m_flNoiseScale; // 0x1e8
+    float m_flNoiseScaleLoc; // 0x1ec
     // Vector m_vecOffsetLoc;
     char pad_01[16];
-};
+}; // size: 0x200
 
-class C_OP_Diffusion {
+class __declspec(align(8)) C_OP_Diffusion {
 public:
     char pad_00[464];
-    float m_flRadiusScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nVoxelGridResolution;
+    float m_flRadiusScale; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    int32_t m_nVoxelGridResolution; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_SetControlPointPositionToRandomActiveCP {
+class __declspec(align(8)) C_OP_SetControlPointPositionToRandomActiveCP {
 public:
     char pad_00[472];
-    int32_t m_nCP1;
-    int32_t m_nHeadLocationMin;
-    int32_t m_nHeadLocationMax;
-    CParticleCollectionFloatInput m_flResetRate;
-};
+    int32_t m_nCP1; // 0x1d8
+    int32_t m_nHeadLocationMin; // 0x1dc
+    int32_t m_nHeadLocationMax; // 0x1e0
+    CParticleCollectionFloatInput m_flResetRate; // 0x1e8
+}; // size: 0x358
 
-class PointDefinition_t {
+class __declspec(align(4)) PointDefinition_t {
 public:
-    int32_t m_nControlPoint;
-    bool m_bLocalCoords;
+    int32_t m_nControlPoint; // 0x0
+    bool m_bLocalCoords; // 0x4
     // Vector m_vOffset;
     char pad_00[15];
-};
+}; // size: 0x14
 
-class C_OP_SetFloatCollection {
+class __declspec(align(16)) C_OP_SetFloatCollection {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    CParticleCollectionFloatInput m_Lerp;
+    CParticleCollectionFloatInput m_InputValue; // 0x1d0
+    ParticleAttributeIndex_t m_nOutputField; // 0x340
+    ParticleSetMethod_t m_nSetMethod; // 0x344
+    CParticleCollectionFloatInput m_Lerp; // 0x348
     char pad_01[40];
-};
+}; // size: 0x4e0
 
-class C_INIT_RandomSecondSequence {
+class __declspec(align(8)) C_INIT_RandomSecondSequence {
 public:
     char pad_00[472];
-    int32_t m_nSequenceMin;
-    int32_t m_nSequenceMax;
-};
+    int32_t m_nSequenceMin; // 0x1d8
+    int32_t m_nSequenceMax; // 0x1dc
+}; // size: 0x1e0
 
-class C_OP_InheritFromParentParticlesV2 {
+class __declspec(align(8)) C_OP_InheritFromParentParticlesV2 {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_nIncrement;
-    bool m_bRandomDistribution;
-    bool m_bReverse;
-    MissingParentInheritBehavior_t m_nMissingParentBehavior;
-    CPerParticleFloatInput m_flInterpolation;
-};
+    CPerParticleFloatInput m_flScale; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x340
+    CPerParticleFloatInput m_nIncrement; // 0x348
+    bool m_bRandomDistribution; // 0x4b8
+    bool m_bReverse; // 0x4b9
+    MissingParentInheritBehavior_t m_nMissingParentBehavior; // 0x4bc
+    CPerParticleFloatInput m_flInterpolation; // 0x4c0
+}; // size: 0x630
 
-class C_INIT_RandomRotationSpeed {
+class __declspec(align(8)) C_INIT_RandomRotationSpeed {
 public:
     char pad_00[504];
-};
+}; // size: 0x1f8
 
-class C_OP_RemapTransformOrientationToRotations {
+class __declspec(align(8)) C_OP_RemapTransformOrientationToRotations {
 public:
     char pad_00[464];
-    CParticleTransformInput m_TransformInput;
+    CParticleTransformInput m_TransformInput; // 0x1d0
     // Vector m_vecRotation;
     char pad_01[12];
-    bool m_bUseQuat;
-    bool m_bWriteNormal;
+    bool m_bUseQuat; // 0x244
+    bool m_bWriteNormal; // 0x245
     char pad_02[2];
-};
+}; // size: 0x248
 
-class C_OP_RemapCrossProductOfTwoVectorsToVector {
+class __declspec(align(8)) C_OP_RemapCrossProductOfTwoVectorsToVector {
 public:
     char pad_00[464];
-    CPerParticleVecInput m_InputVec1;
-    CPerParticleVecInput m_InputVec2;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    bool m_bNormalize;
+    CPerParticleVecInput m_InputVec1; // 0x1d0
+    CPerParticleVecInput m_InputVec2; // 0x888
+    ParticleAttributeIndex_t m_nFieldOutput; // 0xf40
+    bool m_bNormalize; // 0xf44
     char pad_01[3];
-};
+}; // size: 0xf48
 
-class C_OP_SetCPOrientationToDirection {
+class __declspec(align(8)) C_OP_SetCPOrientationToDirection {
 public:
     char pad_00[464];
-    int32_t m_nInputControlPoint;
-    int32_t m_nOutputControlPoint;
-};
+    int32_t m_nInputControlPoint; // 0x1d0
+    int32_t m_nOutputControlPoint; // 0x1d4
+}; // size: 0x1d8
 
-class C_OP_MovementPlaceOnGround {
+class __declspec(align(8)) C_OP_MovementPlaceOnGround {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flOffset;
-    float m_flMaxTraceLength;
-    float m_flTolerance;
-    float m_flTraceOffset;
-    float m_flLerpRate;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    int32_t m_nRefCP1;
-    int32_t m_nRefCP2;
-    int32_t m_nLerpCP;
+    CPerParticleFloatInput m_flOffset; // 0x1d0
+    float m_flMaxTraceLength; // 0x340
+    float m_flTolerance; // 0x344
+    float m_flTraceOffset; // 0x348
+    float m_flLerpRate; // 0x34c
+    char m_CollisionGroupName[128]; // 0x350
+    ParticleTraceSet_t m_nTraceSet; // 0x3d0
+    int32_t m_nRefCP1; // 0x3d4
+    int32_t m_nRefCP2; // 0x3d8
+    int32_t m_nLerpCP; // 0x3dc
     char pad_01[8];
-    ParticleTraceMissBehavior_t m_nTraceMissBehavior;
-    bool m_bIncludeShotHull;
-    bool m_bIncludeWater;
+    ParticleTraceMissBehavior_t m_nTraceMissBehavior; // 0x3e8
+    bool m_bIncludeShotHull; // 0x3ec
+    bool m_bIncludeWater; // 0x3ed
     char pad_02[2];
-    bool m_bSetNormal;
-    bool m_bScaleOffset;
-    int32_t m_nPreserveOffsetCP;
-    int32_t m_nIgnoreCP;
+    bool m_bSetNormal; // 0x3f0
+    bool m_bScaleOffset; // 0x3f1
+    int32_t m_nPreserveOffsetCP; // 0x3f4
+    int32_t m_nIgnoreCP; // 0x3f8
     char pad_03[4];
-};
+}; // size: 0x400
 
-class C_OP_LockToPointList {
+class __declspec(align(8)) C_OP_LockToPointList {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
     // CUtlVector< PointDefinition_t > m_pointList;
     char pad_01[28];
-    bool m_bPlaceAlongPath;
-    bool m_bClosedLoop;
-    int32_t m_nNumPointsAlongPath;
-};
+    bool m_bPlaceAlongPath; // 0x1f0
+    bool m_bClosedLoop; // 0x1f1
+    int32_t m_nNumPointsAlongPath; // 0x1f4
+}; // size: 0x1f8
 
-class C_OP_SetCPOrientationToPointAtCP {
+class __declspec(align(8)) C_OP_SetCPOrientationToPointAtCP {
 public:
     char pad_00[472];
-    int32_t m_nInputCP;
-    int32_t m_nOutputCP;
-    CParticleCollectionFloatInput m_flInterpolation;
-    bool m_b2DOrientation;
-    bool m_bAvoidSingularity;
-    bool m_bPointAway;
+    int32_t m_nInputCP; // 0x1d8
+    int32_t m_nOutputCP; // 0x1dc
+    CParticleCollectionFloatInput m_flInterpolation; // 0x1e0
+    bool m_b2DOrientation; // 0x350
+    bool m_bAvoidSingularity; // 0x351
+    bool m_bPointAway; // 0x352
     char pad_01[5];
-};
+}; // size: 0x358
 
-class C_OP_VelocityDecay {
+class __declspec(align(8)) C_OP_VelocityDecay {
 public:
     char pad_00[464];
-    float m_flMinVelocity;
+    float m_flMinVelocity; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_OP_LerpEndCapVector {
+class __declspec(align(8)) C_OP_LerpEndCapVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
     // Vector m_vecOutput;
     char pad_01[12];
-    float m_flLerpTime;
+    float m_flLerpTime; // 0x1e0
     char pad_02[4];
-};
+}; // size: 0x1e8
 
-class C_INIT_RandomRotation {
+class __declspec(align(8)) C_INIT_RandomRotation {
 public:
     char pad_00[504];
-};
+}; // size: 0x1f8
 
-class C_OP_LerpToInitialPosition {
+class __declspec(align(8)) C_OP_LerpToInitialPosition {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    CPerParticleFloatInput m_flInterpolation;
-    ParticleAttributeIndex_t m_nCacheField;
-    CParticleCollectionFloatInput m_flScale;
-    CParticleCollectionVecInput m_vecScale;
-};
+    int32_t m_nControlPointNumber; // 0x1d0
+    CPerParticleFloatInput m_flInterpolation; // 0x1d8
+    ParticleAttributeIndex_t m_nCacheField; // 0x348
+    CParticleCollectionFloatInput m_flScale; // 0x350
+    CParticleCollectionVecInput m_vecScale; // 0x4c0
+}; // size: 0xb78
 
-class C_OP_RenderText {
+class __declspec(align(8)) C_OP_RenderText {
 public:
     // Color m_OutlineColor;
     // CUtlString m_DefaultText;
     char pad_00[560];
-};
+}; // size: 0x230
 
-class C_OP_ReadFromNeighboringParticle {
+class __declspec(align(8)) C_OP_ReadFromNeighboringParticle {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nIncrement;
-    CPerParticleFloatInput m_DistanceCheck;
-    CPerParticleFloatInput m_flInterpolation;
-};
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    int32_t m_nIncrement; // 0x1d8
+    CPerParticleFloatInput m_DistanceCheck; // 0x1e0
+    CPerParticleFloatInput m_flInterpolation; // 0x350
+}; // size: 0x4c0
 
-class SequenceWeightedList_t {
+class __declspec(align(4)) SequenceWeightedList_t {
 public:
-    int32_t m_nSequence;
-    float m_flRelativeWeight;
-};
+    int32_t m_nSequence; // 0x0
+    float m_flRelativeWeight; // 0x4
+}; // size: 0x8
 
-class C_INIT_RandomYawFlip {
+class __declspec(align(8)) C_INIT_RandomYawFlip {
 public:
     char pad_00[472];
-    float m_flPercent;
+    float m_flPercent; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_Cull {
+class __declspec(align(8)) C_OP_Cull {
 public:
     char pad_00[464];
-    float m_flCullPerc;
-    float m_flCullStart;
-    float m_flCullEnd;
-    float m_flCullExp;
-};
+    float m_flCullPerc; // 0x1d0
+    float m_flCullStart; // 0x1d4
+    float m_flCullEnd; // 0x1d8
+    float m_flCullExp; // 0x1dc
+}; // size: 0x1e0
 
-class C_INIT_RemapTransformOrientationToRotations {
+class __declspec(align(8)) C_INIT_RemapTransformOrientationToRotations {
 public:
     char pad_00[472];
-    CParticleTransformInput m_TransformInput;
+    CParticleTransformInput m_TransformInput; // 0x1d8
     // Vector m_vecRotation;
     char pad_01[12];
-    bool m_bUseQuat;
-    bool m_bWriteNormal;
+    bool m_bUseQuat; // 0x24c
+    bool m_bWriteNormal; // 0x24d
     char pad_02[2];
-};
+}; // size: 0x250
 
-class C_OP_NormalLock {
+class __declspec(align(8)) C_OP_NormalLock {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
+    int32_t m_nControlPointNumber; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_OP_LockToSavedSequentialPathV2 {
+class __declspec(align(16)) C_OP_LockToSavedSequentialPathV2 {
 public:
     char pad_00[464];
-    float m_flFadeStart;
-    float m_flFadeEnd;
-    bool m_bCPPairs;
+    float m_flFadeStart; // 0x1d0
+    float m_flFadeEnd; // 0x1d4
+    bool m_bCPPairs; // 0x1d8
     // CPathParameters m_PathParams;
     char pad_01[71];
-};
+}; // size: 0x220
 
-class C_INIT_RemapInitialDirectionToTransformToVector {
+class __declspec(align(8)) C_INIT_RemapInitialDirectionToTransformToVector {
 public:
     char pad_00[472];
-    CParticleTransformInput m_TransformInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flScale;
-    float m_flOffsetRot;
+    CParticleTransformInput m_TransformInput; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x240
+    float m_flScale; // 0x244
+    float m_flOffsetRot; // 0x248
     // Vector m_vecOffsetAxis;
     char pad_01[12];
-    bool m_bNormalize;
+    bool m_bNormalize; // 0x258
     char pad_02[7];
-};
+}; // size: 0x260
 
-class VecInputMaterialVariable_t {
+class __declspec(align(8)) VecInputMaterialVariable_t {
 public:
     // CUtlString m_strVariable;
     char pad_00[8];
-    CParticleCollectionVecInput m_vecInput;
-};
+    CParticleCollectionVecInput m_vecInput; // 0x8
+}; // size: 0x6c0
 
-class C_INIT_CreateSequentialPathV2 {
+class __declspec(align(16)) C_INIT_CreateSequentialPathV2 {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_fMaxDistance;
-    CParticleCollectionFloatInput m_flNumToAssign;
-    bool m_bLoop;
-    bool m_bCPPairs;
-    bool m_bSaveOffset;
+    CPerParticleFloatInput m_fMaxDistance; // 0x1d8
+    CParticleCollectionFloatInput m_flNumToAssign; // 0x348
+    bool m_bLoop; // 0x4b8
+    bool m_bCPPairs; // 0x4b9
+    bool m_bSaveOffset; // 0x4ba
     // CPathParameters m_PathParams;
     char pad_01[85];
-};
+}; // size: 0x510
 
-class C_OP_RemapVisibilityScalar {
+class __declspec(align(8)) C_OP_RemapVisibilityScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flRadiusScale;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flInputMin; // 0x1d8
+    float m_flInputMax; // 0x1dc
+    float m_flOutputMin; // 0x1e0
+    float m_flOutputMax; // 0x1e4
+    float m_flRadiusScale; // 0x1e8
     char pad_01[4];
-};
+}; // size: 0x1f0
 
-class C_OP_RenderClothForce {
+class __declspec(align(8)) C_OP_RenderClothForce {
 public:
     char pad_00[544];
-};
+}; // size: 0x220
 
-class C_OP_RestartAfterDuration {
+class __declspec(align(8)) C_OP_RestartAfterDuration {
 public:
     char pad_00[464];
-    float m_flDurationMin;
-    float m_flDurationMax;
-    int32_t m_nCP;
-    int32_t m_nCPField;
-    int32_t m_nChildGroupID;
-    bool m_bOnlyChildren;
+    float m_flDurationMin; // 0x1d0
+    float m_flDurationMax; // 0x1d4
+    int32_t m_nCP; // 0x1d8
+    int32_t m_nCPField; // 0x1dc
+    int32_t m_nChildGroupID; // 0x1e0
+    bool m_bOnlyChildren; // 0x1e4
     char pad_01[3];
-};
+}; // size: 0x1e8
 
-class C_OP_ModelSurfaceSnapshotGenerator {
+class __declspec(align(8)) C_OP_ModelSurfaceSnapshotGenerator {
 public:
     char pad_00[472];
-    int32_t m_nCPSnapshot;
-    CParticleModelInput m_modelInput;
-    CParticleCollectionFloatInput m_flRecalcRate;
-    CParticleCollectionFloatInput m_flUSpacing;
-    CParticleCollectionFloatInput m_flVSpacing;
-    CParticleCollectionFloatInput m_flSurfaceOffset;
-    bool m_bSetNormal;
-    bool m_bSetUp;
-    bool m_bSetGravity;
-    bool m_bSetUV;
+    int32_t m_nCPSnapshot; // 0x1d8
+    CParticleModelInput m_modelInput; // 0x1e0
+    CParticleCollectionFloatInput m_flRecalcRate; // 0x240
+    CParticleCollectionFloatInput m_flUSpacing; // 0x3b0
+    CParticleCollectionFloatInput m_flVSpacing; // 0x520
+    CParticleCollectionFloatInput m_flSurfaceOffset; // 0x690
+    bool m_bSetNormal; // 0x800
+    bool m_bSetUp; // 0x801
+    bool m_bSetGravity; // 0x802
+    bool m_bSetUV; // 0x803
     char pad_01[4];
-};
+}; // size: 0x808
 
-class C_INIT_CreateOnModelAtHeight {
+class __declspec(align(8)) C_INIT_CreateOnModelAtHeight {
 public:
     char pad_00[472];
-    bool m_bUseBones;
-    bool m_bForceZ;
-    int32_t m_nControlPointNumber;
-    int32_t m_nHeightCP;
-    bool m_bUseWaterHeight;
-    CParticleCollectionFloatInput m_flDesiredHeight;
-    CParticleCollectionVecInput m_vecHitBoxScale;
-    CParticleCollectionVecInput m_vecDirectionBias;
-    ParticleHitboxBiasType_t m_nBiasType;
-    bool m_bLocalCoords;
-    bool m_bPreferMovingBoxes;
-    char m_HitboxSetName[128];
-    CParticleCollectionFloatInput m_flHitboxVelocityScale;
-    CParticleCollectionFloatInput m_flMaxBoneVelocity;
-};
+    bool m_bUseBones; // 0x1d8
+    bool m_bForceZ; // 0x1d9
+    int32_t m_nControlPointNumber; // 0x1dc
+    int32_t m_nHeightCP; // 0x1e0
+    bool m_bUseWaterHeight; // 0x1e4
+    CParticleCollectionFloatInput m_flDesiredHeight; // 0x1e8
+    CParticleCollectionVecInput m_vecHitBoxScale; // 0x358
+    CParticleCollectionVecInput m_vecDirectionBias; // 0xa10
+    ParticleHitboxBiasType_t m_nBiasType; // 0x10c8
+    bool m_bLocalCoords; // 0x10cc
+    bool m_bPreferMovingBoxes; // 0x10cd
+    char m_HitboxSetName[128]; // 0x10ce
+    CParticleCollectionFloatInput m_flHitboxVelocityScale; // 0x1150
+    CParticleCollectionFloatInput m_flMaxBoneVelocity; // 0x12c0
+}; // size: 0x1430
 
-class C_INIT_RandomAlphaWindowThreshold {
+class __declspec(align(8)) C_INIT_RandomAlphaWindowThreshold {
 public:
     char pad_00[472];
-    float m_flMin;
-    float m_flMax;
-    float m_flExponent;
+    float m_flMin; // 0x1d8
+    float m_flMax; // 0x1dc
+    float m_flExponent; // 0x1e0
     char pad_01[4];
-};
+}; // size: 0x1e8
 
-class C_OP_VelocityMatchingForce {
+class __declspec(align(8)) C_OP_VelocityMatchingForce {
 public:
     char pad_00[464];
-    float m_flDirScale;
-    float m_flSpdScale;
-    float m_flNeighborDistance;
-    float m_flFacingStrength;
-    bool m_bUseAABB;
-    int32_t m_nCPBroadcast;
-};
+    float m_flDirScale; // 0x1d0
+    float m_flSpdScale; // 0x1d4
+    float m_flNeighborDistance; // 0x1d8
+    float m_flFacingStrength; // 0x1dc
+    bool m_bUseAABB; // 0x1e0
+    int32_t m_nCPBroadcast; // 0x1e4
+}; // size: 0x1e8
 
-class C_OP_RampCPLinearRandom {
+class __declspec(align(8)) C_OP_RampCPLinearRandom {
 public:
     char pad_00[472];
-    int32_t m_nOutControlPointNumber;
+    int32_t m_nOutControlPointNumber; // 0x1d8
     // Vector m_vecRateMin;
     // Vector m_vecRateMax;
     char pad_01[28];
-};
+}; // size: 0x1f8
 
-class C_INIT_CreateOnGrid {
+class __declspec(align(8)) C_INIT_CreateOnGrid {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_nXCount;
-    CParticleCollectionFloatInput m_nYCount;
-    CParticleCollectionFloatInput m_nZCount;
-    CParticleCollectionFloatInput m_nXSpacing;
-    CParticleCollectionFloatInput m_nYSpacing;
-    CParticleCollectionFloatInput m_nZSpacing;
-    int32_t m_nControlPointNumber;
-    bool m_bLocalSpace;
-    bool m_bCenter;
-    bool m_bHollow;
+    CParticleCollectionFloatInput m_nXCount; // 0x1d8
+    CParticleCollectionFloatInput m_nYCount; // 0x348
+    CParticleCollectionFloatInput m_nZCount; // 0x4b8
+    CParticleCollectionFloatInput m_nXSpacing; // 0x628
+    CParticleCollectionFloatInput m_nYSpacing; // 0x798
+    CParticleCollectionFloatInput m_nZSpacing; // 0x908
+    int32_t m_nControlPointNumber; // 0xa78
+    bool m_bLocalSpace; // 0xa7c
+    bool m_bCenter; // 0xa7d
+    bool m_bHollow; // 0xa7e
     char pad_01[1];
-};
+}; // size: 0xa80
 
-class C_INIT_SetAttributeToScalarExpression {
+class __declspec(align(16)) C_INIT_SetAttributeToScalarExpression {
 public:
     char pad_00[472];
-    ScalarExpressionType_t m_nExpression;
-    CPerParticleFloatInput m_flInput1;
-    CPerParticleFloatInput m_flInput2;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
+    ScalarExpressionType_t m_nExpression; // 0x1d8
+    CPerParticleFloatInput m_flInput1; // 0x1e0
+    CPerParticleFloatInput m_flInput2; // 0x350
+    CParticleRemapFloatInput m_flOutputRemap; // 0x4c0
+    ParticleAttributeIndex_t m_nOutputField; // 0x630
+    ParticleSetMethod_t m_nSetMethod; // 0x634
     char pad_01[40];
-};
+}; // size: 0x660
 
-class C_OP_RenderPoints {
+class __declspec(align(8)) C_OP_RenderPoints {
 public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial;
     char pad_00[552];
-};
+}; // size: 0x228
 
-class C_INIT_ColorLitPerParticle {
+class __declspec(align(8)) C_INIT_ColorLitPerParticle {
 public:
     // Color m_ColorMin;
     // Color m_ColorMax;
     // Color m_TintMin;
     // Color m_TintMax;
     char pad_00[512];
-    float m_flTintPerc;
-    ParticleColorBlendMode_t m_nTintBlendMode;
-    float m_flLightAmplification;
+    float m_flTintPerc; // 0x200
+    ParticleColorBlendMode_t m_nTintBlendMode; // 0x204
+    float m_flLightAmplification; // 0x208
     char pad_01[4];
-};
+}; // size: 0x210
 
-class CRandomNumberGeneratorParameters {
+class __declspec(align(4)) CRandomNumberGeneratorParameters {
 public:
-    bool m_bDistributeEvenly;
-    int32_t m_nSeed;
-};
+    bool m_bDistributeEvenly; // 0x0
+    int32_t m_nSeed; // 0x4
+}; // size: 0x8
 
-class C_OP_DecayClampCount {
+class __declspec(align(8)) C_OP_DecayClampCount {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_nCount;
-};
+    CParticleCollectionFloatInput m_nCount; // 0x1d0
+}; // size: 0x340
 
-class C_OP_RenderLights {
+class __declspec(align(8)) C_OP_RenderLights {
 public:
     char pad_00[552];
-    float m_flAnimationRate;
-    AnimationType_t m_nAnimationType;
-    bool m_bAnimateInFPS;
-    float m_flMinSize;
-    float m_flMaxSize;
-    float m_flStartFadeSize;
-    float m_flEndFadeSize;
+    float m_flAnimationRate; // 0x228
+    AnimationType_t m_nAnimationType; // 0x22c
+    bool m_bAnimateInFPS; // 0x230
+    float m_flMinSize; // 0x234
+    float m_flMaxSize; // 0x238
+    float m_flStartFadeSize; // 0x23c
+    float m_flEndFadeSize; // 0x240
     char pad_01[4];
-};
+}; // size: 0x248
 
-class C_INIT_RemapNamedModelSequenceToScalar {
+class __declspec(align(8)) C_INIT_RemapNamedModelSequenceToScalar {
 public:
     char pad_00[544];
-};
+}; // size: 0x220
 
-class C_OP_ColorInterpolateRandom {
+class __declspec(align(8)) C_OP_ColorInterpolateRandom {
 public:
     // Color m_ColorFadeMin;
     // Color m_ColorFadeMax;
     char pad_00[508];
-    float m_flFadeStartTime;
-    float m_flFadeEndTime;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    bool m_bEaseInOut;
+    float m_flFadeStartTime; // 0x1fc
+    float m_flFadeEndTime; // 0x200
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x204
+    bool m_bEaseInOut; // 0x208
     char pad_01[7];
-};
+}; // size: 0x210
 
-class C_OP_SetControlPointsToModelParticles {
+class __declspec(align(8)) C_OP_SetControlPointsToModelParticles {
 public:
     char pad_00[464];
-    char m_HitboxSetName[128];
-    char m_AttachmentName[128];
-    int32_t m_nFirstControlPoint;
-    int32_t m_nNumControlPoints;
-    int32_t m_nFirstSourcePoint;
-    bool m_bSkin;
-    bool m_bAttachment;
+    char m_HitboxSetName[128]; // 0x1d0
+    char m_AttachmentName[128]; // 0x250
+    int32_t m_nFirstControlPoint; // 0x2d0
+    int32_t m_nNumControlPoints; // 0x2d4
+    int32_t m_nFirstSourcePoint; // 0x2d8
+    bool m_bSkin; // 0x2dc
+    bool m_bAttachment; // 0x2dd
     char pad_01[2];
-};
+}; // size: 0x2e0
 
-class C_OP_GameDecalRenderer {
+class __declspec(align(8)) C_OP_GameDecalRenderer {
 public:
     // CGlobalSymbol m_sDecalGroupName;
     char pad_00[552];
-    EventTypeSelection_t m_nEventType;
-    ParticleCollisionMask_t m_nInteractionMask;
-    ParticleCollisionGroup_t m_nCollisionGroup;
-    CPerParticleVecInput m_vecStartPos;
-    CPerParticleVecInput m_vecEndPos;
-    CPerParticleFloatInput m_flTraceBloat;
-    CPerParticleFloatInput m_flDecalSize;
-    CPerParticleFloatInput m_nDecalGroupIndex;
-    CPerParticleFloatInput m_flDecalRotation;
-    CPerParticleVecInput m_vModulationColor;
-    bool m_bUseGameDefaultDecalSize;
-    bool m_bRandomDecalRotation;
-    bool m_bRandomlySelectDecalInGroup;
-    bool m_bNoDecalsOnOwner;
-    bool m_bVisualizeTraces;
+    EventTypeSelection_t m_nEventType; // 0x228
+    ParticleCollisionMask_t m_nInteractionMask; // 0x230
+    ParticleCollisionGroup_t m_nCollisionGroup; // 0x238
+    CPerParticleVecInput m_vecStartPos; // 0x240
+    CPerParticleVecInput m_vecEndPos; // 0x8f8
+    CPerParticleFloatInput m_flTraceBloat; // 0xfb0
+    CPerParticleFloatInput m_flDecalSize; // 0x1120
+    CPerParticleFloatInput m_nDecalGroupIndex; // 0x1290
+    CPerParticleFloatInput m_flDecalRotation; // 0x1400
+    CPerParticleVecInput m_vModulationColor; // 0x1570
+    bool m_bUseGameDefaultDecalSize; // 0x1c28
+    bool m_bRandomDecalRotation; // 0x1c29
+    bool m_bRandomlySelectDecalInGroup; // 0x1c2a
+    bool m_bNoDecalsOnOwner; // 0x1c2b
+    bool m_bVisualizeTraces; // 0x1c2c
     char pad_01[3];
-};
+}; // size: 0x1c30
 
-class C_INIT_CreateAlongPath {
+class __declspec(align(16)) C_INIT_CreateAlongPath {
 public:
     char pad_00[472];
-    float m_fMaxDistance;
+    float m_fMaxDistance; // 0x1d8
     // CPathParameters m_PathParams;
     char pad_01[68];
-    bool m_bUseRandomCPs;
+    bool m_bUseRandomCPs; // 0x220
     // Vector m_vEndOffset;
     char pad_02[15];
-    bool m_bSaveOffset;
+    bool m_bSaveOffset; // 0x230
     char pad_03[15];
-};
+}; // size: 0x240
 
-class C_OP_DistanceCull {
+class __declspec(align(8)) C_OP_DistanceCull {
 public:
     char pad_00[464];
-    int32_t m_nControlPoint;
+    int32_t m_nControlPoint; // 0x1d0
     // Vector m_vecPointOffset;
     char pad_01[8];
-    CParticleCollectionFloatInput m_flDistance;
-    bool m_bCullInside;
-    ParticleAttributeIndex_t m_nAttribute;
-};
+    CParticleCollectionFloatInput m_flDistance; // 0x1e0
+    bool m_bCullInside; // 0x350
+    ParticleAttributeIndex_t m_nAttribute; // 0x354
+}; // size: 0x358
 
-class C_OP_ConstrainDistanceToPath {
+class __declspec(align(16)) C_OP_ConstrainDistanceToPath {
 public:
     char pad_00[464];
-    float m_fMinDistance;
-    float m_flMaxDistance0;
-    float m_flMaxDistanceMid;
-    float m_flMaxDistance1;
+    float m_fMinDistance; // 0x1d0
+    float m_flMaxDistance0; // 0x1d4
+    float m_flMaxDistanceMid; // 0x1d8
+    float m_flMaxDistance1; // 0x1dc
     // CPathParameters m_PathParameters;
     char pad_01[64];
-    float m_flTravelTime;
-    ParticleAttributeIndex_t m_nFieldScale;
-    ParticleAttributeIndex_t m_nManualTField;
+    float m_flTravelTime; // 0x220
+    ParticleAttributeIndex_t m_nFieldScale; // 0x224
+    ParticleAttributeIndex_t m_nManualTField; // 0x228
     char pad_02[4];
-};
+}; // size: 0x230
 
-class C_OP_SetControlPointToHand {
+class __declspec(align(8)) C_OP_SetControlPointToHand {
 public:
     char pad_00[472];
-    int32_t m_nCP1;
-    int32_t m_nHand;
+    int32_t m_nCP1; // 0x1d8
+    int32_t m_nHand; // 0x1dc
     // Vector m_vecCP1Pos;
     char pad_01[12];
-    bool m_bOrientToHand;
+    bool m_bOrientToHand; // 0x1ec
     char pad_02[3];
-};
+}; // size: 0x1f0
 
-class C_OP_DistanceBetweenCPsToCP {
+class __declspec(align(8)) C_OP_DistanceBetweenCPsToCP {
 public:
     char pad_00[472];
-    int32_t m_nStartCP;
-    int32_t m_nEndCP;
-    int32_t m_nOutputCP;
-    int32_t m_nOutputCPField;
-    bool m_bSetOnce;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flMaxTraceLength;
-    float m_flLOSScale;
-    bool m_bLOS;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    ParticleParentSetMode_t m_nSetParent;
-};
+    int32_t m_nStartCP; // 0x1d8
+    int32_t m_nEndCP; // 0x1dc
+    int32_t m_nOutputCP; // 0x1e0
+    int32_t m_nOutputCPField; // 0x1e4
+    bool m_bSetOnce; // 0x1e8
+    float m_flInputMin; // 0x1ec
+    float m_flInputMax; // 0x1f0
+    float m_flOutputMin; // 0x1f4
+    float m_flOutputMax; // 0x1f8
+    float m_flMaxTraceLength; // 0x1fc
+    float m_flLOSScale; // 0x200
+    bool m_bLOS; // 0x204
+    char m_CollisionGroupName[128]; // 0x205
+    ParticleTraceSet_t m_nTraceSet; // 0x288
+    ParticleParentSetMode_t m_nSetParent; // 0x28c
+}; // size: 0x290
 
-class C_OP_SetFromCPSnapshot {
+class __declspec(align(8)) C_OP_SetFromCPSnapshot {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
+    int32_t m_nControlPointNumber; // 0x1d0
     // CUtlString m_strSnapshotSubset;
-    ParticleAttributeIndex_t m_nAttributeToRead;
-    ParticleAttributeIndex_t m_nAttributeToWrite;
-    int32_t m_nLocalSpaceCP;
-    bool m_bRandom;
-    bool m_bReverse;
-    int32_t m_nRandomSeed;
-    CParticleCollectionFloatInput m_nSnapShotStartPoint;
-    CParticleCollectionFloatInput m_nSnapShotIncrement;
-    CPerParticleFloatInput m_flInterpolation;
-    bool m_bSubSample;
-    bool m_bPrev;
-    char pad_01[6];
-};
+    char pad_01[12];
+    ParticleAttributeIndex_t m_nAttributeToRead; // 0x1e0
+    ParticleAttributeIndex_t m_nAttributeToWrite; // 0x1e4
+    int32_t m_nLocalSpaceCP; // 0x1e8
+    bool m_bRandom; // 0x1ec
+    bool m_bReverse; // 0x1ed
+    int32_t m_nRandomSeed; // 0x1f0
+    CParticleCollectionFloatInput m_nSnapShotStartPoint; // 0x1f8
+    CParticleCollectionFloatInput m_nSnapShotIncrement; // 0x368
+    CPerParticleFloatInput m_flInterpolation; // 0x4d8
+    bool m_bSubSample; // 0x648
+    bool m_bPrev; // 0x649
+    char pad_02[6];
+}; // size: 0x650
 
-class C_OP_RemapVectortoCP {
+class __declspec(align(8)) C_OP_RemapVectortoCP {
 public:
     char pad_00[464];
-    int32_t m_nOutControlPointNumber;
-    ParticleAttributeIndex_t m_nFieldInput;
-    int32_t m_nParticleNumber;
+    int32_t m_nOutControlPointNumber; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d4
+    int32_t m_nParticleNumber; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_RemapDistanceToLineSegmentToScalar {
+class __declspec(align(8)) C_OP_RemapDistanceToLineSegmentToScalar {
 public:
     char pad_00[488];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flMinOutputValue;
-    float m_flMaxOutputValue;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e8
+    float m_flMinOutputValue; // 0x1ec
+    float m_flMaxOutputValue; // 0x1f0
     char pad_01[4];
-};
+}; // size: 0x1f8
 
-class C_OP_ScreenSpaceDistanceToEdge {
+class __declspec(align(16)) C_OP_ScreenSpaceDistanceToEdge {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flMaxDistFromEdge;
-    CParticleRemapFloatInput m_flOutputRemap;
-    ParticleSetMethod_t m_nSetMethod;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flMaxDistFromEdge; // 0x1d8
+    CParticleRemapFloatInput m_flOutputRemap; // 0x348
+    ParticleSetMethod_t m_nSetMethod; // 0x4b8
     char pad_01[36];
-};
+}; // size: 0x4e0
 
-class C_INIT_RemapTransformToVector {
+class __declspec(align(8)) C_INIT_RemapTransformToVector {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
     // Vector m_vInputMin;
     // Vector m_vInputMax;
     // Vector m_vOutputMin;
     // Vector m_vOutputMax;
     char pad_01[48];
-    CParticleTransformInput m_TransformInput;
-    CParticleTransformInput m_LocalSpaceTransform;
-    float m_flStartTime;
-    float m_flEndTime;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bOffset;
-    bool m_bAccelerate;
-    float m_flRemapBias;
+    CParticleTransformInput m_TransformInput; // 0x210
+    CParticleTransformInput m_LocalSpaceTransform; // 0x278
+    float m_flStartTime; // 0x2e0
+    float m_flEndTime; // 0x2e4
+    ParticleSetMethod_t m_nSetMethod; // 0x2e8
+    bool m_bOffset; // 0x2ec
+    bool m_bAccelerate; // 0x2ed
+    float m_flRemapBias; // 0x2f0
     char pad_02[4];
-};
+}; // size: 0x2f8
 
-class C_OP_SetFloat {
+class __declspec(align(16)) C_OP_SetFloat {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    CPerParticleFloatInput m_Lerp;
+    CPerParticleFloatInput m_InputValue; // 0x1d0
+    ParticleAttributeIndex_t m_nOutputField; // 0x340
+    ParticleSetMethod_t m_nSetMethod; // 0x344
+    CPerParticleFloatInput m_Lerp; // 0x348
     char pad_01[40];
-};
+}; // size: 0x4e0
 
-class C_OP_ModelCull {
+class __declspec(align(8)) C_OP_ModelCull {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    bool m_bBoundBox;
-    bool m_bCullOutside;
-    bool m_bUseBones;
-    char m_HitboxSetName[128];
+    int32_t m_nControlPointNumber; // 0x1d0
+    bool m_bBoundBox; // 0x1d4
+    bool m_bCullOutside; // 0x1d5
+    bool m_bUseBones; // 0x1d6
+    char m_HitboxSetName[128]; // 0x1d7
     char pad_01[1];
-};
+}; // size: 0x258
 
-class C_OP_LocalAccelerationForce {
+class __declspec(align(8)) C_OP_LocalAccelerationForce {
 public:
     char pad_00[480];
-    int32_t m_nCP;
-    int32_t m_nScaleCP;
-    CParticleCollectionVecInput m_vecAccel;
-};
+    int32_t m_nCP; // 0x1e0
+    int32_t m_nScaleCP; // 0x1e4
+    CParticleCollectionVecInput m_vecAccel; // 0x1e8
+}; // size: 0x8a0
 
-class ParticlePreviewState_t {
+class __declspec(align(8)) ParticlePreviewState_t {
 public:
     // CUtlString m_previewModel;
     char pad_00[8];
-    uint32_t m_nModSpecificData;
-    PetGroundType_t m_groundType;
+    uint32_t m_nModSpecificData; // 0x8
+    PetGroundType_t m_groundType; // 0xc
     // CUtlString m_sequenceName;
     char pad_01[8];
-    int32_t m_nFireParticleOnSequenceFrame;
+    int32_t m_nFireParticleOnSequenceFrame; // 0x18
     // CUtlString m_hitboxSetName;
     // CUtlString m_materialGroupName;
     // CUtlVector< ParticlePreviewBodyGroup_t > m_vecBodyGroups;
     char pad_02[44];
-    float m_flPlaybackSpeed;
-    float m_flParticleSimulationRate;
-    bool m_bShouldDrawHitboxes;
-    bool m_bShouldDrawAttachments;
-    bool m_bShouldDrawAttachmentNames;
-    bool m_bShouldDrawControlPointAxes;
-    bool m_bAnimationNonLooping;
-    bool m_bSequenceNameIsAnimClipPath;
+    float m_flPlaybackSpeed; // 0x48
+    float m_flParticleSimulationRate; // 0x4c
+    bool m_bShouldDrawHitboxes; // 0x50
+    bool m_bShouldDrawAttachments; // 0x51
+    bool m_bShouldDrawAttachmentNames; // 0x52
+    bool m_bShouldDrawControlPointAxes; // 0x53
+    bool m_bAnimationNonLooping; // 0x54
+    bool m_bSequenceNameIsAnimClipPath; // 0x55
     // Vector m_vecPreviewGravity;
     char pad_03[18];
-};
+}; // size: 0x68
 
-class C_OP_RemapParticleCountOnScalarEndCap {
+class __declspec(align(8)) C_OP_RemapParticleCountOnScalarEndCap {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nInputMin;
-    int32_t m_nInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    bool m_bBackwards;
-    ParticleSetMethod_t m_nSetMethod;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    int32_t m_nInputMin; // 0x1d4
+    int32_t m_nInputMax; // 0x1d8
+    float m_flOutputMin; // 0x1dc
+    float m_flOutputMax; // 0x1e0
+    bool m_bBackwards; // 0x1e4
+    ParticleSetMethod_t m_nSetMethod; // 0x1e8
     char pad_01[4];
-};
+}; // size: 0x1f0
 
-class C_OP_RandomForce {
+class __declspec(align(8)) C_OP_RandomForce {
 public:
     // Vector m_MinForce;
     // Vector m_MaxForce;
     char pad_00[504];
-};
+}; // size: 0x1f8
 
-class C_OP_RenderStatusEffect {
+class __declspec(align(8)) C_OP_RenderStatusEffect {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureColorWarp;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureDetail2;
@@ -16576,372 +16764,372 @@ public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureSpecularWarp;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pTextureEnvMap;
     char pad_00[600];
-};
+}; // size: 0x258
 
-class C_OP_RemapTransformOrientationToYaw {
+class __declspec(align(8)) C_OP_RemapTransformOrientationToYaw {
 public:
     char pad_00[464];
-    CParticleTransformInput m_TransformInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flRotOffset;
-    float m_flSpinStrength;
+    CParticleTransformInput m_TransformInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x238
+    float m_flRotOffset; // 0x23c
+    float m_flSpinStrength; // 0x240
     char pad_01[4];
-};
+}; // size: 0x248
 
-class C_INIT_RemapInitialVisibilityScalar {
+class __declspec(align(8)) C_INIT_RemapInitialVisibilityScalar {
 public:
     char pad_00[476];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
+    float m_flInputMin; // 0x1e0
+    float m_flInputMax; // 0x1e4
+    float m_flOutputMin; // 0x1e8
+    float m_flOutputMax; // 0x1ec
+}; // size: 0x1f0
 
-class C_INIT_AddVectorToVector {
+class __declspec(align(8)) C_INIT_AddVectorToVector {
 public:
     // Vector m_vecScale;
     char pad_00[484];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldInput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e4
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1e8
     // Vector m_vOffsetMin;
     // Vector m_vOffsetMax;
     char pad_01[24];
-    CRandomNumberGeneratorParameters m_randomnessParameters;
+    CRandomNumberGeneratorParameters m_randomnessParameters; // 0x204
     char pad_02[4];
-};
+}; // size: 0x210
 
-class C_OP_SetVectorAttributeToVectorExpression {
+class __declspec(align(16)) C_OP_SetVectorAttributeToVectorExpression {
 public:
     char pad_00[464];
-    VectorExpressionType_t m_nExpression;
-    CPerParticleVecInput m_vInput1;
-    CPerParticleVecInput m_vInput2;
-    CPerParticleFloatInput m_flLerp;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bNormalizedOutput;
+    VectorExpressionType_t m_nExpression; // 0x1d0
+    CPerParticleVecInput m_vInput1; // 0x1d8
+    CPerParticleVecInput m_vInput2; // 0x890
+    CPerParticleFloatInput m_flLerp; // 0xf48
+    ParticleAttributeIndex_t m_nOutputField; // 0x10b8
+    ParticleSetMethod_t m_nSetMethod; // 0x10bc
+    bool m_bNormalizedOutput; // 0x10c0
     char pad_01[111];
-};
+}; // size: 0x1130
 
-class C_INIT_InitFromVectorFieldSnapshot {
+class __declspec(align(8)) C_INIT_InitFromVectorFieldSnapshot {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    int32_t m_nLocalSpaceCP;
-    int32_t m_nWeightUpdateCP;
-    bool m_bUseVerticalVelocity;
-    CPerParticleVecInput m_vecScale;
-};
+    int32_t m_nControlPointNumber; // 0x1d8
+    int32_t m_nLocalSpaceCP; // 0x1dc
+    int32_t m_nWeightUpdateCP; // 0x1e0
+    bool m_bUseVerticalVelocity; // 0x1e4
+    CPerParticleVecInput m_vecScale; // 0x1e8
+}; // size: 0x8a0
 
-class C_OP_CollideWithParentParticles {
+class __declspec(align(8)) C_OP_CollideWithParentParticles {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flParentRadiusScale;
-    CPerParticleFloatInput m_flRadiusScale;
-};
+    CPerParticleFloatInput m_flParentRadiusScale; // 0x1d0
+    CPerParticleFloatInput m_flRadiusScale; // 0x340
+}; // size: 0x4b0
 
-class C_INIT_DistanceCull {
+class __declspec(align(8)) C_INIT_DistanceCull {
 public:
     char pad_00[472];
-    int32_t m_nControlPoint;
-    CParticleCollectionFloatInput m_flDistance;
-    bool m_bCullInside;
+    int32_t m_nControlPoint; // 0x1d8
+    CParticleCollectionFloatInput m_flDistance; // 0x1e0
+    bool m_bCullInside; // 0x350
     char pad_01[7];
-};
+}; // size: 0x358
 
-class C_OP_RampScalarSplineSimple {
+class __declspec(align(16)) C_OP_RampScalarSplineSimple {
 public:
     char pad_00[464];
-    float m_Rate;
-    float m_flStartTime;
-    float m_flEndTime;
-    char pad_01[2];
-    ParticleAttributeIndex_t m_nField;
-    bool m_bEaseOut;
+    float m_Rate; // 0x1d0
+    float m_flStartTime; // 0x1d4
+    float m_flEndTime; // 0x1d8
+    char pad_01[36];
+    ParticleAttributeIndex_t m_nField; // 0x200
+    bool m_bEaseOut; // 0x204
     char pad_02[11];
-};
+}; // size: 0x210
 
-class C_INIT_RandomSequence {
+class __declspec(align(8)) C_INIT_RandomSequence {
 public:
     char pad_00[472];
-    int32_t m_nSequenceMin;
-    int32_t m_nSequenceMax;
-    bool m_bShuffle;
-    bool m_bLinear;
+    int32_t m_nSequenceMin; // 0x1d8
+    int32_t m_nSequenceMax; // 0x1dc
+    bool m_bShuffle; // 0x1e0
+    bool m_bLinear; // 0x1e1
     // CUtlVector< SequenceWeightedList_t > m_WeightedList;
     char pad_01[38];
-};
+}; // size: 0x208
 
-class C_OP_WaterImpulseRenderer {
+class __declspec(align(8)) C_OP_WaterImpulseRenderer {
 public:
     char pad_00[544];
-    CPerParticleVecInput m_vecPos;
-    CPerParticleFloatInput m_flRadius;
-    CPerParticleFloatInput m_flMagnitude;
-    CPerParticleFloatInput m_flShape;
-    CPerParticleFloatInput m_flWindSpeed;
-    CPerParticleFloatInput m_flWobble;
-    bool m_bIsRadialWind;
-    EventTypeSelection_t m_nEventType;
-};
+    CPerParticleVecInput m_vecPos; // 0x220
+    CPerParticleFloatInput m_flRadius; // 0x8d8
+    CPerParticleFloatInput m_flMagnitude; // 0xa48
+    CPerParticleFloatInput m_flShape; // 0xbb8
+    CPerParticleFloatInput m_flWindSpeed; // 0xd28
+    CPerParticleFloatInput m_flWobble; // 0xe98
+    bool m_bIsRadialWind; // 0x1008
+    EventTypeSelection_t m_nEventType; // 0x100c
+}; // size: 0x1010
 
-class C_OP_FadeOut {
+class __declspec(align(16)) C_OP_FadeOut {
 public:
     char pad_00[464];
-    float m_flFadeOutTimeMin;
-    float m_flFadeOutTimeMax;
-    float m_flFadeOutTimeExp;
-    float m_flFadeBias;
+    float m_flFadeOutTimeMin; // 0x1d0
+    float m_flFadeOutTimeMax; // 0x1d4
+    float m_flFadeOutTimeExp; // 0x1d8
+    float m_flFadeBias; // 0x1dc
     char pad_01[48];
-    bool m_bProportional;
-    bool m_bEaseInAndOut;
+    bool m_bProportional; // 0x210
+    bool m_bEaseInAndOut; // 0x211
     char pad_02[14];
-};
+}; // size: 0x220
 
-class C_OP_OscillateScalar {
+class __declspec(align(8)) C_OP_OscillateScalar {
 public:
     char pad_00[464];
-    float m_RateMin;
-    float m_RateMax;
-    float m_FrequencyMin;
-    float m_FrequencyMax;
-    ParticleAttributeIndex_t m_nField;
-    bool m_bProportional;
-    bool m_bProportionalOp;
-    float m_flStartTime_min;
-    float m_flStartTime_max;
-    float m_flEndTime_min;
-    float m_flEndTime_max;
-    float m_flOscMult;
-    float m_flOscAdd;
-};
+    float m_RateMin; // 0x1d0
+    float m_RateMax; // 0x1d4
+    float m_FrequencyMin; // 0x1d8
+    float m_FrequencyMax; // 0x1dc
+    ParticleAttributeIndex_t m_nField; // 0x1e0
+    bool m_bProportional; // 0x1e4
+    bool m_bProportionalOp; // 0x1e5
+    float m_flStartTime_min; // 0x1e8
+    float m_flStartTime_max; // 0x1ec
+    float m_flEndTime_min; // 0x1f0
+    float m_flEndTime_max; // 0x1f4
+    float m_flOscMult; // 0x1f8
+    float m_flOscAdd; // 0x1fc
+}; // size: 0x200
 
-class C_OP_RenderBlobs {
+class __declspec(align(8)) C_OP_RenderBlobs {
 public:
     char pad_00[544];
-    CParticleCollectionRendererFloatInput m_cubeWidth;
-    CParticleCollectionRendererFloatInput m_cutoffRadius;
-    CParticleCollectionRendererFloatInput m_renderRadius;
-    uint32_t m_nVertexCountKb;
-    uint32_t m_nIndexCountKb;
-    int32_t m_nScaleCP;
+    CParticleCollectionRendererFloatInput m_cubeWidth; // 0x220
+    CParticleCollectionRendererFloatInput m_cutoffRadius; // 0x390
+    CParticleCollectionRendererFloatInput m_renderRadius; // 0x500
+    uint32_t m_nVertexCountKb; // 0x670
+    uint32_t m_nIndexCountKb; // 0x674
+    int32_t m_nScaleCP; // 0x678
     // CUtlVector< MaterialVariable_t > m_MaterialVars;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial;
     char pad_01[60];
-};
+}; // size: 0x6b8
 
-class C_OP_WorldTraceConstraint {
+class __declspec(align(8)) C_OP_WorldTraceConstraint {
 public:
     char pad_00[464];
-    int32_t m_nCP;
+    int32_t m_nCP; // 0x1d0
     // Vector m_vecCpOffset;
     char pad_01[12];
-    ParticleCollisionMode_t m_nCollisionMode;
-    ParticleCollisionMode_t m_nCollisionModeMin;
-    ParticleTraceSet_t m_nTraceSet;
-    char m_CollisionGroupName[128];
-    bool m_bWorldOnly;
-    bool m_bBrushOnly;
-    bool m_bIncludeWater;
-    int32_t m_nIgnoreCP;
-    float m_flCpMovementTolerance;
-    float m_flRetestRate;
-    float m_flTraceTolerance;
-    float m_flCollisionConfirmationSpeed;
-    float m_nMaxTracesPerFrame;
-    CPerParticleFloatInput m_flRadiusScale;
-    CPerParticleFloatInput m_flBounceAmount;
-    CPerParticleFloatInput m_flSlideAmount;
-    CPerParticleFloatInput m_flRandomDirScale;
-    bool m_bDecayBounce;
-    bool m_bKillonContact;
-    float m_flMinSpeed;
-    bool m_bSetNormal;
-    ParticleAttributeIndex_t m_nStickOnCollisionField;
-    CPerParticleFloatInput m_flStopSpeed;
-    ParticleAttributeIndex_t m_nEntityStickDataField;
-    ParticleAttributeIndex_t m_nEntityStickNormalField;
-};
+    ParticleCollisionMode_t m_nCollisionMode; // 0x1e0
+    ParticleCollisionMode_t m_nCollisionModeMin; // 0x1e4
+    ParticleTraceSet_t m_nTraceSet; // 0x1e8
+    char m_CollisionGroupName[128]; // 0x1ec
+    bool m_bWorldOnly; // 0x26c
+    bool m_bBrushOnly; // 0x26d
+    bool m_bIncludeWater; // 0x26e
+    int32_t m_nIgnoreCP; // 0x270
+    float m_flCpMovementTolerance; // 0x274
+    float m_flRetestRate; // 0x278
+    float m_flTraceTolerance; // 0x27c
+    float m_flCollisionConfirmationSpeed; // 0x280
+    float m_nMaxTracesPerFrame; // 0x284
+    CPerParticleFloatInput m_flRadiusScale; // 0x288
+    CPerParticleFloatInput m_flBounceAmount; // 0x3f8
+    CPerParticleFloatInput m_flSlideAmount; // 0x568
+    CPerParticleFloatInput m_flRandomDirScale; // 0x6d8
+    bool m_bDecayBounce; // 0x848
+    bool m_bKillonContact; // 0x849
+    float m_flMinSpeed; // 0x84c
+    bool m_bSetNormal; // 0x850
+    ParticleAttributeIndex_t m_nStickOnCollisionField; // 0x854
+    CPerParticleFloatInput m_flStopSpeed; // 0x858
+    ParticleAttributeIndex_t m_nEntityStickDataField; // 0x9c8
+    ParticleAttributeIndex_t m_nEntityStickNormalField; // 0x9cc
+}; // size: 0x9d0
 
-class C_OP_RenderPostProcessing {
+class __declspec(align(8)) C_OP_RenderPostProcessing {
 public:
     char pad_00[544];
-    CPerParticleFloatInput m_flPostProcessStrength;
+    CPerParticleFloatInput m_flPostProcessStrength; // 0x220
     // CStrongHandle< InfoForResourceTypeCPostProcessingResource > m_hPostTexture;
     char pad_01[8];
-    ParticlePostProcessPriorityGroup_t m_nPriority;
+    ParticlePostProcessPriorityGroup_t m_nPriority; // 0x398
     char pad_02[4];
-};
+}; // size: 0x3a0
 
-class C_INIT_RandomScalar {
+class __declspec(align(8)) C_INIT_RandomScalar {
 public:
     char pad_00[472];
-    float m_flMin;
-    float m_flMax;
-    float m_flExponent;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    float m_flMin; // 0x1d8
+    float m_flMax; // 0x1dc
+    float m_flExponent; // 0x1e0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e4
+}; // size: 0x1e8
 
-class C_INIT_PositionPlaceOnGround {
+class __declspec(align(8)) C_INIT_PositionPlaceOnGround {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_flOffset;
-    CPerParticleFloatInput m_flMaxTraceLength;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
+    CPerParticleFloatInput m_flOffset; // 0x1d8
+    CPerParticleFloatInput m_flMaxTraceLength; // 0x348
+    char m_CollisionGroupName[128]; // 0x4b8
+    ParticleTraceSet_t m_nTraceSet; // 0x538
     char pad_01[12];
-    ParticleTraceMissBehavior_t m_nTraceMissBehavior;
-    bool m_bIncludeWater;
-    bool m_bSetNormal;
-    ParticleAttributeIndex_t m_nAttribute;
-    bool m_bSetPXYZOnly;
-    bool m_bTraceAlongNormal;
-    ParticleAttributeIndex_t m_nTraceDirectionAttribute;
-    bool m_bOffsetonColOnly;
-    float m_flOffsetByRadiusFactor;
-    int32_t m_nPreserveOffsetCP;
-    int32_t m_nIgnoreCP;
+    ParticleTraceMissBehavior_t m_nTraceMissBehavior; // 0x548
+    bool m_bIncludeWater; // 0x54c
+    bool m_bSetNormal; // 0x54d
+    ParticleAttributeIndex_t m_nAttribute; // 0x550
+    bool m_bSetPXYZOnly; // 0x554
+    bool m_bTraceAlongNormal; // 0x555
+    ParticleAttributeIndex_t m_nTraceDirectionAttribute; // 0x558
+    bool m_bOffsetonColOnly; // 0x55c
+    float m_flOffsetByRadiusFactor; // 0x560
+    int32_t m_nPreserveOffsetCP; // 0x564
+    int32_t m_nIgnoreCP; // 0x568
     char pad_02[4];
-};
+}; // size: 0x570
 
-class C_OP_CylindricalDistanceToTransform {
+class __declspec(align(8)) C_OP_CylindricalDistanceToTransform {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flInputMin;
-    CPerParticleFloatInput m_flInputMax;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-    CParticleTransformInput m_TransformStart;
-    CParticleTransformInput m_TransformEnd;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bAdditive;
-    bool m_bCapsule;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flInputMin; // 0x1d8
+    CPerParticleFloatInput m_flInputMax; // 0x348
+    CPerParticleFloatInput m_flOutputMin; // 0x4b8
+    CPerParticleFloatInput m_flOutputMax; // 0x628
+    CParticleTransformInput m_TransformStart; // 0x798
+    CParticleTransformInput m_TransformEnd; // 0x800
+    ParticleSetMethod_t m_nSetMethod; // 0x868
+    bool m_bActiveRange; // 0x86c
+    bool m_bAdditive; // 0x86d
+    bool m_bCapsule; // 0x86e
     char pad_01[1];
-};
+}; // size: 0x870
 
-class C_OP_VectorFieldSnapshot {
+class __declspec(align(8)) C_OP_VectorFieldSnapshot {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    ParticleAttributeIndex_t m_nAttributeToWrite;
-    int32_t m_nLocalSpaceCP;
-    CPerParticleFloatInput m_flInterpolation;
-    CPerParticleVecInput m_vecScale;
-    float m_flBoundaryDampening;
-    bool m_bSetVelocity;
-    bool m_bLockToSurface;
-    float m_flGridSpacing;
+    int32_t m_nControlPointNumber; // 0x1d0
+    ParticleAttributeIndex_t m_nAttributeToWrite; // 0x1d4
+    int32_t m_nLocalSpaceCP; // 0x1d8
+    CPerParticleFloatInput m_flInterpolation; // 0x1e0
+    CPerParticleVecInput m_vecScale; // 0x350
+    float m_flBoundaryDampening; // 0xa08
+    bool m_bSetVelocity; // 0xa0c
+    bool m_bLockToSurface; // 0xa0d
+    float m_flGridSpacing; // 0xa10
     char pad_01[4];
-};
+}; // size: 0xa18
 
-class C_OP_ControlpointLight {
+class __declspec(align(16)) C_OP_ControlpointLight {
 public:
     char pad_00[464];
-    float m_flScale;
+    float m_flScale; // 0x1d0
     char pad_01[1164];
-    int32_t m_nControlPoint1;
-    int32_t m_nControlPoint2;
-    int32_t m_nControlPoint3;
-    int32_t m_nControlPoint4;
+    int32_t m_nControlPoint1; // 0x660
+    int32_t m_nControlPoint2; // 0x664
+    int32_t m_nControlPoint3; // 0x668
+    int32_t m_nControlPoint4; // 0x66c
     // Vector m_vecCPOffset1;
     // Vector m_vecCPOffset2;
     // Vector m_vecCPOffset3;
     // Vector m_vecCPOffset4;
     char pad_02[48];
-    float m_LightFiftyDist1;
-    float m_LightZeroDist1;
-    float m_LightFiftyDist2;
-    float m_LightZeroDist2;
-    float m_LightFiftyDist3;
-    float m_LightZeroDist3;
-    float m_LightFiftyDist4;
-    float m_LightZeroDist4;
+    float m_LightFiftyDist1; // 0x6a0
+    float m_LightZeroDist1; // 0x6a4
+    float m_LightFiftyDist2; // 0x6a8
+    float m_LightZeroDist2; // 0x6ac
+    float m_LightFiftyDist3; // 0x6b0
+    float m_LightZeroDist3; // 0x6b4
+    float m_LightFiftyDist4; // 0x6b8
+    float m_LightZeroDist4; // 0x6bc
     // Color m_LightColor1;
     // Color m_LightColor2;
     // Color m_LightColor3;
     // Color m_LightColor4;
     char pad_03[16];
-    bool m_bLightType1;
-    bool m_bLightType2;
-    bool m_bLightType3;
-    bool m_bLightType4;
-    bool m_bLightDynamic1;
-    bool m_bLightDynamic2;
-    bool m_bLightDynamic3;
-    bool m_bLightDynamic4;
-    bool m_bUseNormal;
-    bool m_bUseHLambert;
+    bool m_bLightType1; // 0x6d0
+    bool m_bLightType2; // 0x6d1
+    bool m_bLightType3; // 0x6d2
+    bool m_bLightType4; // 0x6d3
+    bool m_bLightDynamic1; // 0x6d4
+    bool m_bLightDynamic2; // 0x6d5
+    bool m_bLightDynamic3; // 0x6d6
+    bool m_bLightDynamic4; // 0x6d7
+    bool m_bUseNormal; // 0x6d8
+    bool m_bUseHLambert; // 0x6d9
     char pad_04[4];
-    bool m_bClampLowerRange;
-    bool m_bClampUpperRange;
-};
+    bool m_bClampLowerRange; // 0x6de
+    bool m_bClampUpperRange; // 0x6df
+}; // size: 0x6e0
 
-class C_OP_ChooseRandomChildrenInGroup {
+class __declspec(align(8)) C_OP_ChooseRandomChildrenInGroup {
 public:
     char pad_00[472];
-    int32_t m_nChildGroupID;
-    CParticleCollectionFloatInput m_flNumberOfChildren;
-};
+    int32_t m_nChildGroupID; // 0x1d8
+    CParticleCollectionFloatInput m_flNumberOfChildren; // 0x1e0
+}; // size: 0x350
 
-class C_INIT_CreateWithinBox {
+class __declspec(align(8)) C_INIT_CreateWithinBox {
 public:
     char pad_00[472];
-    CPerParticleVecInput m_vecMin;
-    CPerParticleVecInput m_vecMax;
-    int32_t m_nControlPointNumber;
-    bool m_bLocalSpace;
-    CRandomNumberGeneratorParameters m_randomnessParameters;
-    bool m_bUseNewCode;
+    CPerParticleVecInput m_vecMin; // 0x1d8
+    CPerParticleVecInput m_vecMax; // 0x890
+    int32_t m_nControlPointNumber; // 0xf48
+    bool m_bLocalSpace; // 0xf4c
+    CRandomNumberGeneratorParameters m_randomnessParameters; // 0xf50
+    bool m_bUseNewCode; // 0xf58
     char pad_01[7];
-};
+}; // size: 0xf60
 
-class C_OP_UpdateLightSource {
+class __declspec(align(8)) C_OP_UpdateLightSource {
 public:
     // Color m_vColorTint;
     char pad_00[468];
-    float m_flBrightnessScale;
-    float m_flRadiusScale;
-    float m_flMinimumLightingRadius;
-    float m_flMaximumLightingRadius;
-    float m_flPositionDampingConstant;
-};
+    float m_flBrightnessScale; // 0x1d4
+    float m_flRadiusScale; // 0x1d8
+    float m_flMinimumLightingRadius; // 0x1dc
+    float m_flMaximumLightingRadius; // 0x1e0
+    float m_flPositionDampingConstant; // 0x1e4
+}; // size: 0x1e8
 
-class C_OP_RenderScreenVelocityRotate {
+class __declspec(align(8)) C_OP_RenderScreenVelocityRotate {
 public:
     char pad_00[544];
-    float m_flRotateRateDegrees;
-    float m_flForwardDegrees;
-};
+    float m_flRotateRateDegrees; // 0x220
+    float m_flForwardDegrees; // 0x224
+}; // size: 0x228
 
-class C_OP_PercentageBetweenTransformsVector {
+class __declspec(align(8)) C_OP_PercentageBetweenTransformsVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flInputMin; // 0x1d4
+    float m_flInputMax; // 0x1d8
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    CParticleTransformInput m_TransformStart;
-    CParticleTransformInput m_TransformEnd;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bActiveRange;
-    bool m_bRadialCheck;
+    CParticleTransformInput m_TransformStart; // 0x1f8
+    CParticleTransformInput m_TransformEnd; // 0x260
+    ParticleSetMethod_t m_nSetMethod; // 0x2c8
+    bool m_bActiveRange; // 0x2cc
+    bool m_bRadialCheck; // 0x2cd
     char pad_02[2];
-};
+}; // size: 0x2d0
 
-class C_OP_RemapNamedModelMeshGroupEndCap {
+class __declspec(align(8)) C_OP_RemapNamedModelMeshGroupEndCap {
 public:
     char pad_00[560];
-};
+}; // size: 0x230
 
-class CParticleSystemDefinition {
+class __declspec(align(16)) CParticleSystemDefinition {
 public:
     char pad_00[8];
-    int32_t m_nBehaviorVersion;
+    int32_t m_nBehaviorVersion; // 0x8
     // CUtlVector< CParticleFunctionPreEmission* > m_PreEmissionOperators;
     // CUtlVector< CParticleFunctionEmitter* > m_Emitters;
     // CUtlVector< CParticleFunctionInitializer* > m_Initializers;
@@ -16951,2159 +17139,2159 @@ public:
     // CUtlVector< CParticleFunctionRenderer* > m_Renderers;
     // CUtlVector< ParticleChildrenInfo_t > m_Children;
     char pad_01[364];
-    int32_t m_nFirstMultipleOverride_BackwardCompat;
+    int32_t m_nFirstMultipleOverride_BackwardCompat; // 0x178
     char pad_02[220];
-    int32_t m_nInitialParticles;
-    int32_t m_nMaxParticles;
-    int32_t m_nGroupID;
+    int32_t m_nInitialParticles; // 0x258
+    int32_t m_nMaxParticles; // 0x25c
+    int32_t m_nGroupID; // 0x260
     // Vector m_BoundingBoxMin;
     // Vector m_BoundingBoxMax;
     char pad_03[24];
-    float m_flDepthSortBias;
-    int32_t m_nSortOverridePositionCP;
-    bool m_bInfiniteBounds;
-    bool m_bEnableNamedValues;
+    float m_flDepthSortBias; // 0x27c
+    int32_t m_nSortOverridePositionCP; // 0x280
+    bool m_bInfiniteBounds; // 0x284
+    bool m_bEnableNamedValues; // 0x285
     // CUtlString m_NamedValueDomain;
     // CUtlVector< ParticleNamedValueSource_t* > m_NamedValueLocals;
     // Color m_ConstantColor;
     // Vector m_ConstantNormal;
     char pad_04[48];
-    float m_flConstantRadius;
-    float m_flConstantRotation;
-    float m_flConstantRotationSpeed;
-    float m_flConstantLifespan;
-    int32_t m_nConstantSequenceNumber;
-    int32_t m_nConstantSequenceNumber1;
-    int32_t m_nSnapshotControlPoint;
+    float m_flConstantRadius; // 0x2b8
+    float m_flConstantRotation; // 0x2bc
+    float m_flConstantRotationSpeed; // 0x2c0
+    float m_flConstantLifespan; // 0x2c4
+    int32_t m_nConstantSequenceNumber; // 0x2c8
+    int32_t m_nConstantSequenceNumber1; // 0x2cc
+    int32_t m_nSnapshotControlPoint; // 0x2d0
     // CStrongHandle< InfoForResourceTypeIParticleSnapshot > m_hSnapshot;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_pszCullReplacementName;
     char pad_05[20];
-    float m_flCullRadius;
-    float m_flCullFillCost;
-    int32_t m_nCullControlPoint;
+    float m_flCullRadius; // 0x2e8
+    float m_flCullFillCost; // 0x2ec
+    int32_t m_nCullControlPoint; // 0x2f0
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hFallback;
     char pad_06[12];
-    int32_t m_nFallbackMaxCount;
+    int32_t m_nFallbackMaxCount; // 0x300
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hLowViolenceDef;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hReferenceReplacement;
     char pad_07[20];
-    float m_flPreSimulationTime;
-    float m_flStopSimulationAfterTime;
-    float m_flMaximumTimeStep;
-    float m_flMaximumSimTime;
-    float m_flMinimumSimTime;
-    float m_flMinimumTimeStep;
-    int32_t m_nMinimumFrames;
-    int32_t m_nMinCPULevel;
-    int32_t m_nMinGPULevel;
-    float m_flNoDrawTimeToGoToSleep;
-    float m_flMaxDrawDistance;
-    float m_flStartFadeDistance;
-    float m_flMaxCreationDistance;
-    int32_t m_nAggregationMinAvailableParticles;
-    float m_flAggregateRadius;
-    bool m_bShouldBatch;
-    bool m_bShouldHitboxesFallbackToRenderBounds;
-    bool m_bShouldHitboxesFallbackToSnapshot;
-    bool m_bShouldHitboxesFallbackToCollisionHulls;
-    InheritableBoolType_t m_nViewModelEffect;
-    bool m_bScreenSpaceEffect;
+    float m_flPreSimulationTime; // 0x318
+    float m_flStopSimulationAfterTime; // 0x31c
+    float m_flMaximumTimeStep; // 0x320
+    float m_flMaximumSimTime; // 0x324
+    float m_flMinimumSimTime; // 0x328
+    float m_flMinimumTimeStep; // 0x32c
+    int32_t m_nMinimumFrames; // 0x330
+    int32_t m_nMinCPULevel; // 0x334
+    int32_t m_nMinGPULevel; // 0x338
+    float m_flNoDrawTimeToGoToSleep; // 0x33c
+    float m_flMaxDrawDistance; // 0x340
+    float m_flStartFadeDistance; // 0x344
+    float m_flMaxCreationDistance; // 0x348
+    int32_t m_nAggregationMinAvailableParticles; // 0x34c
+    float m_flAggregateRadius; // 0x350
+    bool m_bShouldBatch; // 0x354
+    bool m_bShouldHitboxesFallbackToRenderBounds; // 0x355
+    bool m_bShouldHitboxesFallbackToSnapshot; // 0x356
+    bool m_bShouldHitboxesFallbackToCollisionHulls; // 0x357
+    InheritableBoolType_t m_nViewModelEffect; // 0x358
+    bool m_bScreenSpaceEffect; // 0x35c
     // CUtlSymbolLarge m_pszTargetLayerID;
     char pad_08[8];
-    int32_t m_nSkipRenderControlPoint;
-    int32_t m_nAllowRenderControlPoint;
-    bool m_bShouldSort;
+    int32_t m_nSkipRenderControlPoint; // 0x368
+    int32_t m_nAllowRenderControlPoint; // 0x36c
+    bool m_bShouldSort; // 0x370
     // CUtlVector< ParticleControlPointConfiguration_t > m_controlPointConfigurations;
     char pad_09[207];
-};
+}; // size: 0x440
 
-class CParticleFunctionRenderer {
+class __declspec(align(1)) CParticleFunctionRenderer {
 public:
     // CParticleVisibilityInputs VisibilityInputs;
     char pad_00[536];
-    bool m_bCannotBeRefracted;
-    bool m_bSkipRenderingOnMobile;
+    bool m_bCannotBeRefracted; // 0x218
+    bool m_bSkipRenderingOnMobile; // 0x219
     char pad_01[6];
-};
+}; // size: 0x220
 
-class C_OP_RemapCPtoScalar {
+class __declspec(align(8)) C_OP_RemapCPtoScalar {
 public:
     char pad_00[464];
-    int32_t m_nCPInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nField;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flStartTime;
-    float m_flEndTime;
-    float m_flInterpRate;
-    ParticleSetMethod_t m_nSetMethod;
+    int32_t m_nCPInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    int32_t m_nField; // 0x1d8
+    float m_flInputMin; // 0x1dc
+    float m_flInputMax; // 0x1e0
+    float m_flOutputMin; // 0x1e4
+    float m_flOutputMax; // 0x1e8
+    float m_flStartTime; // 0x1ec
+    float m_flEndTime; // 0x1f0
+    float m_flInterpRate; // 0x1f4
+    ParticleSetMethod_t m_nSetMethod; // 0x1f8
     char pad_01[4];
-};
+}; // size: 0x200
 
-class C_INIT_DistanceToNeighborCull {
+class __declspec(align(8)) C_INIT_DistanceToNeighborCull {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_flDistance;
-    bool m_bIncludeRadii;
-    CPerParticleFloatInput m_flLifespanOverlap;
-    ParticleAttributeIndex_t m_nFieldModify;
-    CPerParticleFloatInput m_flModify;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bUseNeighbor;
+    CPerParticleFloatInput m_flDistance; // 0x1d8
+    bool m_bIncludeRadii; // 0x348
+    CPerParticleFloatInput m_flLifespanOverlap; // 0x350
+    ParticleAttributeIndex_t m_nFieldModify; // 0x4c0
+    CPerParticleFloatInput m_flModify; // 0x4c8
+    ParticleSetMethod_t m_nSetMethod; // 0x638
+    bool m_bUseNeighbor; // 0x63c
     char pad_01[3];
-};
+}; // size: 0x640
 
-class C_OP_SetSingleControlPointPosition {
+class __declspec(align(8)) C_OP_SetSingleControlPointPosition {
 public:
     char pad_00[472];
-    bool m_bSetOnce;
-    int32_t m_nCP1;
-    CParticleCollectionVecInput m_vecCP1Pos;
-    CParticleTransformInput m_transformInput;
-};
+    bool m_bSetOnce; // 0x1d8
+    int32_t m_nCP1; // 0x1dc
+    CParticleCollectionVecInput m_vecCP1Pos; // 0x1e0
+    CParticleTransformInput m_transformInput; // 0x898
+}; // size: 0x900
 
-class C_OP_SnapshotRigidSkinToBones {
+class __declspec(align(8)) C_OP_SnapshotRigidSkinToBones {
 public:
     char pad_00[464];
-    bool m_bTransformNormals;
-    bool m_bTransformRadii;
-    int32_t m_nControlPointNumber;
-};
+    bool m_bTransformNormals; // 0x1d0
+    bool m_bTransformRadii; // 0x1d1
+    int32_t m_nControlPointNumber; // 0x1d4
+}; // size: 0x1d8
 
-class C_INIT_RandomYaw {
+class __declspec(align(8)) C_INIT_RandomYaw {
 public:
     char pad_00[504];
-};
+}; // size: 0x1f8
 
-class C_OP_SetCPtoVector {
+class __declspec(align(8)) C_OP_SetCPtoVector {
 public:
     char pad_00[464];
-    int32_t m_nCPInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    int32_t m_nCPInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+}; // size: 0x1d8
 
-class C_OP_DragRelativeToPlane {
+class __declspec(align(8)) C_OP_DragRelativeToPlane {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_flDragAtPlane;
-    CParticleCollectionFloatInput m_flFalloff;
-    bool m_bDirectional;
-    CParticleCollectionVecInput m_vecPlaneNormal;
-    int32_t m_nControlPointNumber;
+    CParticleCollectionFloatInput m_flDragAtPlane; // 0x1d0
+    CParticleCollectionFloatInput m_flFalloff; // 0x340
+    bool m_bDirectional; // 0x4b0
+    CParticleCollectionVecInput m_vecPlaneNormal; // 0x4b8
+    int32_t m_nControlPointNumber; // 0xb70
     char pad_01[4];
-};
+}; // size: 0xb78
 
-class CParticleFunctionOperator {
+class __declspec(align(1)) CParticleFunctionOperator {
 public:
     char pad_00[464];
-};
+}; // size: 0x1d0
 
-class C_OP_ScreenSpacePositionOfTarget {
+class __declspec(align(8)) C_OP_ScreenSpacePositionOfTarget {
 public:
     char pad_00[464];
-    CPerParticleVecInput m_vecTargetPosition;
-    bool m_bOututBehindness;
-    ParticleAttributeIndex_t m_nBehindFieldOutput;
-    CParticleRemapFloatInput m_flBehindOutputRemap;
-    ParticleSetMethod_t m_nBehindSetMethod;
+    CPerParticleVecInput m_vecTargetPosition; // 0x1d0
+    bool m_bOututBehindness; // 0x888
+    ParticleAttributeIndex_t m_nBehindFieldOutput; // 0x88c
+    CParticleRemapFloatInput m_flBehindOutputRemap; // 0x890
+    ParticleSetMethod_t m_nBehindSetMethod; // 0xa00
     char pad_01[4];
-};
+}; // size: 0xa08
 
-class C_OP_RemapControlPointDirectionToVector {
+class __declspec(align(8)) C_OP_RemapControlPointDirectionToVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flScale;
-    int32_t m_nControlPointNumber;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flScale; // 0x1d4
+    int32_t m_nControlPointNumber; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_RemapTransformVisibilityToScalar {
+class __declspec(align(8)) C_OP_RemapTransformVisibilityToScalar {
 public:
     char pad_00[464];
-    ParticleSetMethod_t m_nSetMethod;
-    CParticleTransformInput m_TransformInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flRadius;
-};
+    ParticleSetMethod_t m_nSetMethod; // 0x1d0
+    CParticleTransformInput m_TransformInput; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x240
+    float m_flInputMin; // 0x244
+    float m_flInputMax; // 0x248
+    float m_flOutputMin; // 0x24c
+    float m_flOutputMax; // 0x250
+    float m_flRadius; // 0x254
+}; // size: 0x258
 
-class C_OP_SetRandomControlPointPosition {
+class __declspec(align(8)) C_OP_SetRandomControlPointPosition {
 public:
     char pad_00[472];
-    bool m_bUseWorldLocation;
-    bool m_bOrient;
-    int32_t m_nCP1;
-    int32_t m_nHeadLocation;
-    CParticleCollectionFloatInput m_flReRandomRate;
+    bool m_bUseWorldLocation; // 0x1d8
+    bool m_bOrient; // 0x1d9
+    int32_t m_nCP1; // 0x1dc
+    int32_t m_nHeadLocation; // 0x1e0
+    CParticleCollectionFloatInput m_flReRandomRate; // 0x1e8
     // Vector m_vecCPMinPos;
     // Vector m_vecCPMaxPos;
     char pad_01[24];
-    CParticleCollectionFloatInput m_flInterpolation;
-};
+    CParticleCollectionFloatInput m_flInterpolation; // 0x370
+}; // size: 0x4e0
 
-class C_OP_RenderGpuImplicit {
+class __declspec(align(8)) C_OP_RenderGpuImplicit {
 public:
     char pad_00[544];
-    bool m_bUsePerParticleRadius;
-    uint32_t m_nVertexCountKb;
-    uint32_t m_nIndexCountKb;
-    CParticleCollectionRendererFloatInput m_fGridSize;
-    CParticleCollectionRendererFloatInput m_fRadiusScale;
-    CParticleCollectionRendererFloatInput m_fIsosurfaceThreshold;
-    int32_t m_nScaleCP;
+    bool m_bUsePerParticleRadius; // 0x220
+    uint32_t m_nVertexCountKb; // 0x224
+    uint32_t m_nIndexCountKb; // 0x228
+    CParticleCollectionRendererFloatInput m_fGridSize; // 0x230
+    CParticleCollectionRendererFloatInput m_fRadiusScale; // 0x3a0
+    CParticleCollectionRendererFloatInput m_fIsosurfaceThreshold; // 0x510
+    int32_t m_nScaleCP; // 0x680
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial;
     char pad_01[12];
-};
+}; // size: 0x690
 
-class C_OP_EndCapTimedFreeze {
+class __declspec(align(8)) C_OP_EndCapTimedFreeze {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_flFreezeTime;
-};
+    CParticleCollectionFloatInput m_flFreezeTime; // 0x1d0
+}; // size: 0x340
 
-class C_OP_SetControlPointToPlayer {
+class __declspec(align(8)) C_OP_SetControlPointToPlayer {
 public:
     char pad_00[472];
-    int32_t m_nCP1;
+    int32_t m_nCP1; // 0x1d8
     // Vector m_vecCP1Pos;
     char pad_01[12];
-    bool m_bOrientToEyes;
-    ParticleEntityPos_t m_nPosition;
-};
+    bool m_bOrientToEyes; // 0x1e8
+    ParticleEntityPos_t m_nPosition; // 0x1ec
+}; // size: 0x1f0
 
-class C_OP_RemapNamedModelElementOnceTimed {
+class __declspec(align(4)) C_OP_RemapNamedModelElementOnceTimed {
 public:
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CUtlVector< CUtlString > m_inNames;
     // CUtlVector< CUtlString > m_outNames;
     // CUtlVector< CUtlString > m_fallbackNames;
     char pad_00[544];
-    bool m_bModelFromRenderer;
-    bool m_bProportional;
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flRemapTime;
-};
+    bool m_bModelFromRenderer; // 0x220
+    bool m_bProportional; // 0x221
+    ParticleAttributeIndex_t m_nFieldInput; // 0x224
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x228
+    float m_flRemapTime; // 0x22c
+}; // size: 0x230
 
-class C_OP_TurbulenceForce {
+class __declspec(align(8)) C_OP_TurbulenceForce {
 public:
     char pad_00[480];
-    float m_flNoiseCoordScale0;
-    float m_flNoiseCoordScale1;
-    float m_flNoiseCoordScale2;
-    float m_flNoiseCoordScale3;
+    float m_flNoiseCoordScale0; // 0x1e0
+    float m_flNoiseCoordScale1; // 0x1e4
+    float m_flNoiseCoordScale2; // 0x1e8
+    float m_flNoiseCoordScale3; // 0x1ec
     // Vector m_vecNoiseAmount0;
     // Vector m_vecNoiseAmount1;
     // Vector m_vecNoiseAmount2;
     // Vector m_vecNoiseAmount3;
     char pad_01[48];
-};
+}; // size: 0x220
 
-class C_OP_ReinitializeScalarEndCap {
+class __declspec(align(8)) C_OP_ReinitializeScalarEndCap {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flOutputMin;
-    float m_flOutputMax;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flOutputMin; // 0x1d4
+    float m_flOutputMax; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_InterpolateRadius {
+class __declspec(align(16)) C_OP_InterpolateRadius {
 public:
     char pad_00[464];
-    float m_flStartTime;
-    float m_flEndTime;
-    float m_flStartScale;
-    float m_flEndScale;
-    bool m_bEaseInAndOut;
-    float m_flBias;
+    float m_flStartTime; // 0x1d0
+    float m_flEndTime; // 0x1d4
+    float m_flStartScale; // 0x1d8
+    float m_flEndScale; // 0x1dc
+    bool m_bEaseInAndOut; // 0x1e0
+    float m_flBias; // 0x1e4
     char pad_01[56];
-};
+}; // size: 0x220
 
-class C_OP_SetControlPointToImpactPoint {
+class __declspec(align(8)) C_OP_SetControlPointToImpactPoint {
 public:
     char pad_00[472];
-    int32_t m_nCPOut;
-    int32_t m_nCPIn;
-    float m_flUpdateRate;
-    CParticleCollectionFloatInput m_flTraceLength;
-    float m_flStartOffset;
-    float m_flOffset;
+    int32_t m_nCPOut; // 0x1d8
+    int32_t m_nCPIn; // 0x1dc
+    float m_flUpdateRate; // 0x1e0
+    CParticleCollectionFloatInput m_flTraceLength; // 0x1e8
+    float m_flStartOffset; // 0x358
+    float m_flOffset; // 0x35c
     // Vector m_vecTraceDir;
     char pad_01[12];
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    bool m_bSetToEndpoint;
-    bool m_bTraceToClosestSurface;
-    bool m_bIncludeWater;
+    char m_CollisionGroupName[128]; // 0x36c
+    ParticleTraceSet_t m_nTraceSet; // 0x3ec
+    bool m_bSetToEndpoint; // 0x3f0
+    bool m_bTraceToClosestSurface; // 0x3f1
+    bool m_bIncludeWater; // 0x3f2
     char pad_02[5];
-};
+}; // size: 0x3f8
 
-class C_OP_RenderVRHapticEvent {
+class __declspec(align(8)) C_OP_RenderVRHapticEvent {
 public:
     char pad_00[544];
-    ParticleVRHandChoiceList_t m_nHand;
-    int32_t m_nOutputHandCP;
-    int32_t m_nOutputField;
-    CPerParticleFloatInput m_flAmplitude;
-};
+    ParticleVRHandChoiceList_t m_nHand; // 0x220
+    int32_t m_nOutputHandCP; // 0x224
+    int32_t m_nOutputField; // 0x228
+    CPerParticleFloatInput m_flAmplitude; // 0x230
+}; // size: 0x3a0
 
-class C_OP_PositionLock {
+class __declspec(align(8)) C_OP_PositionLock {
 public:
     char pad_00[464];
-    CParticleTransformInput m_TransformInput;
-    float m_flStartTime_min;
-    float m_flStartTime_max;
-    float m_flStartTime_exp;
-    float m_flEndTime_min;
-    float m_flEndTime_max;
-    float m_flEndTime_exp;
-    float m_flRange;
-    CParticleCollectionFloatInput m_flRangeBias;
-    float m_flJumpThreshold;
-    float m_flPrevPosScale;
-    bool m_bLockRot;
-    CParticleCollectionVecInput m_vecScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    ParticleAttributeIndex_t m_nFieldOutputPrev;
-};
+    CParticleTransformInput m_TransformInput; // 0x1d0
+    float m_flStartTime_min; // 0x238
+    float m_flStartTime_max; // 0x23c
+    float m_flStartTime_exp; // 0x240
+    float m_flEndTime_min; // 0x244
+    float m_flEndTime_max; // 0x248
+    float m_flEndTime_exp; // 0x24c
+    float m_flRange; // 0x250
+    CParticleCollectionFloatInput m_flRangeBias; // 0x258
+    float m_flJumpThreshold; // 0x3c8
+    float m_flPrevPosScale; // 0x3cc
+    bool m_bLockRot; // 0x3d0
+    CParticleCollectionVecInput m_vecScale; // 0x3d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0xa90
+    ParticleAttributeIndex_t m_nFieldOutputPrev; // 0xa94
+}; // size: 0xa98
 
-class C_OP_OscillateVector {
+class __declspec(align(8)) C_OP_OscillateVector {
 public:
     // Vector m_RateMin;
     // Vector m_RateMax;
     // Vector m_FrequencyMin;
     // Vector m_FrequencyMax;
     char pad_00[512];
-    ParticleAttributeIndex_t m_nField;
-    bool m_bProportional;
-    bool m_bProportionalOp;
-    bool m_bOffset;
-    float m_flStartTime_min;
-    float m_flStartTime_max;
-    float m_flEndTime_min;
-    float m_flEndTime_max;
-    CPerParticleFloatInput m_flOscMult;
-    CPerParticleFloatInput m_flOscAdd;
-    CPerParticleFloatInput m_flRateScale;
-};
+    ParticleAttributeIndex_t m_nField; // 0x200
+    bool m_bProportional; // 0x204
+    bool m_bProportionalOp; // 0x205
+    bool m_bOffset; // 0x206
+    float m_flStartTime_min; // 0x208
+    float m_flStartTime_max; // 0x20c
+    float m_flEndTime_min; // 0x210
+    float m_flEndTime_max; // 0x214
+    CPerParticleFloatInput m_flOscMult; // 0x218
+    CPerParticleFloatInput m_flOscAdd; // 0x388
+    CPerParticleFloatInput m_flRateScale; // 0x4f8
+}; // size: 0x668
 
-class C_OP_MovementSkinnedPositionFromCPSnapshot {
+class __declspec(align(8)) C_OP_MovementSkinnedPositionFromCPSnapshot {
 public:
     char pad_00[464];
-    int32_t m_nSnapshotControlPointNumber;
-    int32_t m_nControlPointNumber;
-    bool m_bRandom;
-    int32_t m_nRandomSeed;
-    bool m_bSetNormal;
-    bool m_bSetRadius;
-    SnapshotIndexType_t m_nIndexType;
-    CPerParticleFloatInput m_flReadIndex;
-    CParticleCollectionFloatInput m_flIncrement;
-    CParticleCollectionFloatInput m_nFullLoopIncrement;
-    CParticleCollectionFloatInput m_nSnapShotStartPoint;
-    CPerParticleFloatInput m_flInterpolation;
-};
+    int32_t m_nSnapshotControlPointNumber; // 0x1d0
+    int32_t m_nControlPointNumber; // 0x1d4
+    bool m_bRandom; // 0x1d8
+    int32_t m_nRandomSeed; // 0x1dc
+    bool m_bSetNormal; // 0x1e0
+    bool m_bSetRadius; // 0x1e1
+    SnapshotIndexType_t m_nIndexType; // 0x1e4
+    CPerParticleFloatInput m_flReadIndex; // 0x1e8
+    CParticleCollectionFloatInput m_flIncrement; // 0x358
+    CParticleCollectionFloatInput m_nFullLoopIncrement; // 0x4c8
+    CParticleCollectionFloatInput m_nSnapShotStartPoint; // 0x638
+    CPerParticleFloatInput m_flInterpolation; // 0x7a8
+}; // size: 0x918
 
-class C_OP_SetControlPointOrientation {
+class __declspec(align(8)) C_OP_SetControlPointOrientation {
 public:
     char pad_00[472];
-    bool m_bUseWorldLocation;
+    bool m_bUseWorldLocation; // 0x1d8
     char pad_01[1];
-    bool m_bRandomize;
-    bool m_bSetOnce;
-    int32_t m_nCP;
-    int32_t m_nHeadLocation;
+    bool m_bRandomize; // 0x1da
+    bool m_bSetOnce; // 0x1db
+    int32_t m_nCP; // 0x1dc
+    int32_t m_nHeadLocation; // 0x1e0
     // QAngle m_vecRotation;
     // QAngle m_vecRotationB;
     char pad_02[24];
-    CParticleCollectionFloatInput m_flInterpolation;
-};
+    CParticleCollectionFloatInput m_flInterpolation; // 0x200
+}; // size: 0x370
 
-class C_INIT_VelocityFromCP {
+class __declspec(align(8)) C_INIT_VelocityFromCP {
 public:
     char pad_00[472];
-    CParticleCollectionVecInput m_velocityInput;
-    CParticleTransformInput m_transformInput;
-    float m_flVelocityScale;
-    bool m_bDirectionOnly;
+    CParticleCollectionVecInput m_velocityInput; // 0x1d8
+    CParticleTransformInput m_transformInput; // 0x890
+    float m_flVelocityScale; // 0x8f8
+    bool m_bDirectionOnly; // 0x8fc
     char pad_01[3];
-};
+}; // size: 0x900
 
-class CBaseTrailRenderer {
+class __declspec(align(8)) CBaseTrailRenderer {
 public:
     char pad_00[11752];
-    ParticleOrientationChoiceList_t m_nOrientationType;
-    int32_t m_nOrientationControlPoint;
-    float m_flMinSize;
-    float m_flMaxSize;
-    CParticleCollectionRendererFloatInput m_flStartFadeSize;
-    CParticleCollectionRendererFloatInput m_flEndFadeSize;
-    bool m_bClampV;
+    ParticleOrientationChoiceList_t m_nOrientationType; // 0x2de8
+    int32_t m_nOrientationControlPoint; // 0x2dec
+    float m_flMinSize; // 0x2df0
+    float m_flMaxSize; // 0x2df4
+    CParticleCollectionRendererFloatInput m_flStartFadeSize; // 0x2df8
+    CParticleCollectionRendererFloatInput m_flEndFadeSize; // 0x2f68
+    bool m_bClampV; // 0x30d8
     char pad_01[7];
-};
+}; // size: 0x30e0
 
-class C_INIT_LifespanFromVelocity {
+class __declspec(align(8)) C_INIT_LifespanFromVelocity {
 public:
     // Vector m_vecComponentScale;
     char pad_00[484];
-    float m_flTraceOffset;
-    float m_flMaxTraceLength;
-    float m_flTraceTolerance;
-    int32_t m_nMaxPlanes;
+    float m_flTraceOffset; // 0x1e4
+    float m_flMaxTraceLength; // 0x1e8
+    float m_flTraceTolerance; // 0x1ec
+    int32_t m_nMaxPlanes; // 0x1f0
     char pad_01[4];
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
+    char m_CollisionGroupName[128]; // 0x1f8
+    ParticleTraceSet_t m_nTraceSet; // 0x278
     char pad_02[12];
-    bool m_bIncludeWater;
+    bool m_bIncludeWater; // 0x288
     char pad_03[7];
-};
+}; // size: 0x290
 
-class C_OP_ConstrainLineLength {
+class __declspec(align(8)) C_OP_ConstrainLineLength {
 public:
     char pad_00[464];
-    float m_flMinDistance;
-    float m_flMaxDistance;
-};
+    float m_flMinDistance; // 0x1d0
+    float m_flMaxDistance; // 0x1d4
+}; // size: 0x1d8
 
-class C_OP_InstantaneousEmitter {
+class __declspec(align(8)) C_OP_InstantaneousEmitter {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_nParticlesToEmit;
-    CParticleCollectionFloatInput m_flStartTime;
-    float m_flInitFromKilledParentParticles;
-    EventTypeSelection_t m_nEventType;
-    CParticleCollectionFloatInput m_flParentParticleScale;
-    int32_t m_nMaxEmittedPerFrame;
-    int32_t m_nSnapshotControlPoint;
+    CParticleCollectionFloatInput m_nParticlesToEmit; // 0x1d8
+    CParticleCollectionFloatInput m_flStartTime; // 0x348
+    float m_flInitFromKilledParentParticles; // 0x4b8
+    EventTypeSelection_t m_nEventType; // 0x4bc
+    CParticleCollectionFloatInput m_flParentParticleScale; // 0x4c0
+    int32_t m_nMaxEmittedPerFrame; // 0x630
+    int32_t m_nSnapshotControlPoint; // 0x634
     // CUtlString m_strSnapshotSubset;
     char pad_01[8];
-};
+}; // size: 0x640
 
-class C_OP_GameLiquidSpill {
+class __declspec(align(8)) C_OP_GameLiquidSpill {
 public:
     char pad_00[544];
-    CParticleCollectionFloatInput m_flLiquidContentsField;
-    CParticleCollectionFloatInput m_flExpirationTime;
-    ParticleAttributeIndex_t m_nAmountAttribute;
+    CParticleCollectionFloatInput m_flLiquidContentsField; // 0x220
+    CParticleCollectionFloatInput m_flExpirationTime; // 0x390
+    ParticleAttributeIndex_t m_nAmountAttribute; // 0x500
     char pad_01[4];
-};
+}; // size: 0x508
 
-class C_OP_Spin {
+class __declspec(align(8)) C_OP_Spin {
 public:
     char pad_00[488];
-};
+}; // size: 0x1e8
 
-class C_INIT_CreationNoise {
+class __declspec(align(8)) C_INIT_CreationNoise {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    bool m_bAbsVal;
-    bool m_bAbsValInv;
-    float m_flOffset;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flNoiseScale;
-    float m_flNoiseScaleLoc;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    bool m_bAbsVal; // 0x1dc
+    bool m_bAbsValInv; // 0x1dd
+    float m_flOffset; // 0x1e0
+    float m_flOutputMin; // 0x1e4
+    float m_flOutputMax; // 0x1e8
+    float m_flNoiseScale; // 0x1ec
+    float m_flNoiseScaleLoc; // 0x1f0
     // Vector m_vecOffsetLoc;
     char pad_01[12];
-    float m_flWorldTimeScale;
+    float m_flWorldTimeScale; // 0x200
     char pad_02[4];
-};
+}; // size: 0x208
 
-class C_OP_RenderAsModels {
+class __declspec(align(8)) C_OP_RenderAsModels {
 public:
     // CUtlVector< ModelReference_t > m_ModelList;
     char pad_00[572];
-    float m_flModelScale;
-    bool m_bFitToModelSize;
-    bool m_bNonUniformScaling;
-    ParticleAttributeIndex_t m_nXAxisScalingAttribute;
-    ParticleAttributeIndex_t m_nYAxisScalingAttribute;
-    ParticleAttributeIndex_t m_nZAxisScalingAttribute;
-    int32_t m_nSizeCullBloat;
+    float m_flModelScale; // 0x23c
+    bool m_bFitToModelSize; // 0x240
+    bool m_bNonUniformScaling; // 0x241
+    ParticleAttributeIndex_t m_nXAxisScalingAttribute; // 0x244
+    ParticleAttributeIndex_t m_nYAxisScalingAttribute; // 0x248
+    ParticleAttributeIndex_t m_nZAxisScalingAttribute; // 0x24c
+    int32_t m_nSizeCullBloat; // 0x250
     char pad_01[4];
-};
+}; // size: 0x258
 
-class C_OP_RemapDistanceToLineSegmentToVector {
+class __declspec(align(8)) C_OP_RemapDistanceToLineSegmentToVector {
 public:
     char pad_00[488];
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e8
     // Vector m_vMinOutputValue;
     // Vector m_vMaxOutputValue;
     char pad_01[28];
-};
+}; // size: 0x208
 
-class C_INIT_NormalOffset {
+class __declspec(align(8)) C_INIT_NormalOffset {
 public:
     // Vector m_OffsetMin;
     // Vector m_OffsetMax;
     char pad_00[496];
-    int32_t m_nControlPointNumber;
-    bool m_bLocalCoords;
-    bool m_bNormalize;
+    int32_t m_nControlPointNumber; // 0x1f0
+    bool m_bLocalCoords; // 0x1f4
+    bool m_bNormalize; // 0x1f5
     char pad_01[2];
-};
+}; // size: 0x1f8
 
-class C_OP_SpinUpdate {
+class __declspec(align(8)) C_OP_SpinUpdate {
 public:
     char pad_00[464];
-};
+}; // size: 0x1d0
 
-class C_OP_ControlPointToRadialScreenSpace {
+class __declspec(align(8)) C_OP_ControlPointToRadialScreenSpace {
 public:
     char pad_00[472];
-    int32_t m_nCPIn;
+    int32_t m_nCPIn; // 0x1d8
     // Vector m_vecCP1Pos;
     char pad_01[12];
-    int32_t m_nCPOut;
-    int32_t m_nCPOutField;
-    int32_t m_nCPSSPosOut;
+    int32_t m_nCPOut; // 0x1e8
+    int32_t m_nCPOutField; // 0x1ec
+    int32_t m_nCPSSPosOut; // 0x1f0
     char pad_02[4];
-};
+}; // size: 0x1f8
 
-class C_OP_LazyCullCompareFloat {
+class __declspec(align(8)) C_OP_LazyCullCompareFloat {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flComparsion1;
-    CPerParticleFloatInput m_flComparsion2;
-    CPerParticleFloatInput m_flCullTime;
-};
+    CPerParticleFloatInput m_flComparsion1; // 0x1d0
+    CPerParticleFloatInput m_flComparsion2; // 0x340
+    CPerParticleFloatInput m_flCullTime; // 0x4b0
+}; // size: 0x620
 
-class C_INIT_CreateFromPlaneCache {
+class __declspec(align(8)) C_INIT_CreateFromPlaneCache {
 public:
     // Vector m_vecOffsetMin;
     // Vector m_vecOffsetMax;
     char pad_00[497];
-    bool m_bUseNormal;
+    bool m_bUseNormal; // 0x1f1
     char pad_01[6];
-};
+}; // size: 0x1f8
 
-class C_OP_RemapScalarEndCap {
+class __declspec(align(8)) C_OP_RemapScalarEndCap {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-};
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flInputMin; // 0x1d8
+    float m_flInputMax; // 0x1dc
+    float m_flOutputMin; // 0x1e0
+    float m_flOutputMax; // 0x1e4
+}; // size: 0x1e8
 
-class CPathParameters {
+class __declspec(align(16)) CPathParameters {
 public:
-    int32_t m_nStartControlPointNumber;
-    int32_t m_nEndControlPointNumber;
-    int32_t m_nBulgeControl;
-    float m_flBulge;
-    float m_flMidPoint;
+    int32_t m_nStartControlPointNumber; // 0x0
+    int32_t m_nEndControlPointNumber; // 0x4
+    int32_t m_nBulgeControl; // 0x8
+    float m_flBulge; // 0xc
+    float m_flMidPoint; // 0x10
     // Vector m_vStartPointOffset;
     // Vector m_vMidPointOffset;
     // Vector m_vEndOffset;
     char pad_00[44];
-};
+}; // size: 0x40
 
-class C_INIT_InitFloatCollection {
+class __declspec(align(8)) C_INIT_InitFloatCollection {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
+    CParticleCollectionFloatInput m_InputValue; // 0x1d8
+    ParticleAttributeIndex_t m_nOutputField; // 0x348
     char pad_01[4];
-};
+}; // size: 0x350
 
-class C_OP_PlayEndCapWhenFinished {
+class __declspec(align(8)) C_OP_PlayEndCapWhenFinished {
 public:
     char pad_00[472];
-    bool m_bFireOnEmissionEnd;
-    bool m_bIncludeChildren;
+    bool m_bFireOnEmissionEnd; // 0x1d8
+    bool m_bIncludeChildren; // 0x1d9
     char pad_01[6];
-};
+}; // size: 0x1e0
 
-class C_OP_QuantizeCPComponent {
+class __declspec(align(8)) C_OP_QuantizeCPComponent {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_flInputValue;
-    int32_t m_nCPOutput;
-    int32_t m_nOutVectorField;
-    CParticleCollectionFloatInput m_flQuantizeValue;
-};
+    CParticleCollectionFloatInput m_flInputValue; // 0x1d8
+    int32_t m_nCPOutput; // 0x348
+    int32_t m_nOutVectorField; // 0x34c
+    CParticleCollectionFloatInput m_flQuantizeValue; // 0x350
+}; // size: 0x4c0
 
-class C_OP_RenderSimpleModelCollection {
+class __declspec(align(8)) C_OP_RenderSimpleModelCollection {
 public:
     char pad_00[544];
-    bool m_bCenterOffset;
+    bool m_bCenterOffset; // 0x220
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     char pad_01[8];
-    CParticleModelInput m_modelInput;
-    CParticleCollectionFloatInput m_fSizeCullScale;
-    bool m_bDisableShadows;
-    bool m_bDisableMotionBlur;
-    bool m_bAcceptsDecals;
-    CPerParticleFloatInput m_fDrawFilter;
-    ParticleAttributeIndex_t m_nAngularVelocityField;
+    CParticleModelInput m_modelInput; // 0x230
+    CParticleCollectionFloatInput m_fSizeCullScale; // 0x290
+    bool m_bDisableShadows; // 0x400
+    bool m_bDisableMotionBlur; // 0x401
+    bool m_bAcceptsDecals; // 0x402
+    CPerParticleFloatInput m_fDrawFilter; // 0x408
+    ParticleAttributeIndex_t m_nAngularVelocityField; // 0x578
     char pad_02[20];
-};
+}; // size: 0x590
 
-class C_OP_MovementLoopInsideSphere {
+class __declspec(align(8)) C_OP_MovementLoopInsideSphere {
 public:
     char pad_00[464];
-    int32_t m_nCP;
-    CParticleCollectionFloatInput m_flDistance;
-    CParticleCollectionVecInput m_vecScale;
-    ParticleAttributeIndex_t m_nDistSqrAttr;
+    int32_t m_nCP; // 0x1d0
+    CParticleCollectionFloatInput m_flDistance; // 0x1d8
+    CParticleCollectionVecInput m_vecScale; // 0x348
+    ParticleAttributeIndex_t m_nDistSqrAttr; // 0xa00
     char pad_01[4];
-};
+}; // size: 0xa08
 
-class C_OP_DirectionBetweenVecsToVec {
+class __declspec(align(8)) C_OP_DirectionBetweenVecsToVec {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleVecInput m_vecPoint1;
-    CPerParticleVecInput m_vecPoint2;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleVecInput m_vecPoint1; // 0x1d8
+    CPerParticleVecInput m_vecPoint2; // 0x890
+}; // size: 0xf48
 
-class C_OP_RemapTransformVisibilityToVector {
+class __declspec(align(8)) C_OP_RemapTransformVisibilityToVector {
 public:
     char pad_00[464];
-    ParticleSetMethod_t m_nSetMethod;
-    CParticleTransformInput m_TransformInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
+    ParticleSetMethod_t m_nSetMethod; // 0x1d0
+    CParticleTransformInput m_TransformInput; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x240
+    float m_flInputMin; // 0x244
+    float m_flInputMax; // 0x248
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    float m_flRadius;
-};
+    float m_flRadius; // 0x264
+}; // size: 0x268
 
-class C_INIT_SetVectorAttributeToVectorExpression {
+class __declspec(align(16)) C_INIT_SetVectorAttributeToVectorExpression {
 public:
     char pad_00[472];
-    VectorExpressionType_t m_nExpression;
-    CPerParticleVecInput m_vInput1;
-    CPerParticleVecInput m_vInput2;
-    CPerParticleFloatInput m_flLerp;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bNormalizedOutput;
+    VectorExpressionType_t m_nExpression; // 0x1d8
+    CPerParticleVecInput m_vInput1; // 0x1e0
+    CPerParticleVecInput m_vInput2; // 0x898
+    CPerParticleFloatInput m_flLerp; // 0xf50
+    ParticleAttributeIndex_t m_nOutputField; // 0x10c0
+    ParticleSetMethod_t m_nSetMethod; // 0x10c4
+    bool m_bNormalizedOutput; // 0x10c8
     char pad_01[103];
-};
+}; // size: 0x1130
 
-class C_OP_InheritFromParentParticles {
+class __declspec(align(8)) C_OP_InheritFromParentParticles {
 public:
     char pad_00[464];
-    float m_flScale;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nIncrement;
-    bool m_bRandomDistribution;
+    float m_flScale; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    int32_t m_nIncrement; // 0x1d8
+    bool m_bRandomDistribution; // 0x1dc
     char pad_01[3];
-};
+}; // size: 0x1e0
 
-class C_INIT_RandomVectorComponent {
+class __declspec(align(8)) C_INIT_RandomVectorComponent {
 public:
     char pad_00[472];
-    float m_flMin;
-    float m_flMax;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nComponent;
-};
+    float m_flMin; // 0x1d8
+    float m_flMax; // 0x1dc
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1e0
+    int32_t m_nComponent; // 0x1e4
+}; // size: 0x1e8
 
-class CParticleFunctionForce {
+class __declspec(align(1)) CParticleFunctionForce {
 public:
     char pad_00[480];
-};
+}; // size: 0x1e0
 
-class C_OP_CreateParticleSystemRenderer {
+class __declspec(align(8)) C_OP_CreateParticleSystemRenderer {
 public:
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hEffect;
     char pad_00[552];
-    EventTypeSelection_t m_nEventType;
+    EventTypeSelection_t m_nEventType; // 0x228
     // CUtlLeanVector< CPAssignment_t > m_vecCPs;
     // CUtlString m_szParticleConfig;
     char pad_01[24];
-    CPerParticleVecInput m_AggregationPos;
-};
+    CPerParticleVecInput m_AggregationPos; // 0x248
+}; // size: 0x900
 
-class C_OP_SetControlPointFieldToScalarExpression {
+class __declspec(align(8)) C_OP_SetControlPointFieldToScalarExpression {
 public:
     char pad_00[472];
-    ScalarExpressionType_t m_nExpression;
-    CParticleCollectionFloatInput m_flInput1;
-    CParticleCollectionFloatInput m_flInput2;
-    CParticleRemapFloatInput m_flOutputRemap;
-    int32_t m_nOutputCP;
-    int32_t m_nOutVectorField;
-    CParticleCollectionFloatInput m_flInterpolation;
-};
+    ScalarExpressionType_t m_nExpression; // 0x1d8
+    CParticleCollectionFloatInput m_flInput1; // 0x1e0
+    CParticleCollectionFloatInput m_flInput2; // 0x350
+    CParticleRemapFloatInput m_flOutputRemap; // 0x4c0
+    int32_t m_nOutputCP; // 0x630
+    int32_t m_nOutVectorField; // 0x634
+    CParticleCollectionFloatInput m_flInterpolation; // 0x638
+}; // size: 0x7a8
 
-class C_INIT_PositionWarp {
+class __declspec(align(8)) C_INIT_PositionWarp {
 public:
     char pad_00[472];
-    CParticleCollectionVecInput m_vecWarpMin;
-    CParticleCollectionVecInput m_vecWarpMax;
-    int32_t m_nScaleControlPointNumber;
-    int32_t m_nControlPointNumber;
-    int32_t m_nRadiusComponent;
-    float m_flWarpTime;
-    float m_flWarpStartTime;
-    float m_flPrevPosScale;
-    bool m_bInvertWarp;
-    bool m_bUseCount;
+    CParticleCollectionVecInput m_vecWarpMin; // 0x1d8
+    CParticleCollectionVecInput m_vecWarpMax; // 0x890
+    int32_t m_nScaleControlPointNumber; // 0xf48
+    int32_t m_nControlPointNumber; // 0xf4c
+    int32_t m_nRadiusComponent; // 0xf50
+    float m_flWarpTime; // 0xf54
+    float m_flWarpStartTime; // 0xf58
+    float m_flPrevPosScale; // 0xf5c
+    bool m_bInvertWarp; // 0xf60
+    bool m_bUseCount; // 0xf61
     char pad_01[6];
-};
+}; // size: 0xf68
 
-class C_INIT_RemapQAnglesToRotation {
+class __declspec(align(8)) C_INIT_RemapQAnglesToRotation {
 public:
     char pad_00[472];
-    CParticleTransformInput m_TransformInput;
-};
+    CParticleTransformInput m_TransformInput; // 0x1d8
+}; // size: 0x240
 
-class C_OP_RemapNamedModelMeshGroupOnceTimed {
+class __declspec(align(8)) C_OP_RemapNamedModelMeshGroupOnceTimed {
 public:
     char pad_00[560];
-};
+}; // size: 0x230
 
-class C_OP_LightningSnapshotGenerator {
+class __declspec(align(8)) C_OP_LightningSnapshotGenerator {
 public:
     char pad_00[472];
-    int32_t m_nCPSnapshot;
-    int32_t m_nCPStartPnt;
-    int32_t m_nCPEndPnt;
-    CParticleCollectionFloatInput m_flSegments;
-    CParticleCollectionFloatInput m_flOffset;
-    CParticleCollectionFloatInput m_flOffsetDecay;
-    CParticleCollectionFloatInput m_flRecalcRate;
-    CParticleCollectionFloatInput m_flUVScale;
-    CParticleCollectionFloatInput m_flUVOffset;
-    CParticleCollectionFloatInput m_flSplitRate;
-    CParticleCollectionFloatInput m_flBranchTwist;
-    ParticleLightnintBranchBehavior_t m_nBranchBehavior;
-    CParticleCollectionFloatInput m_flRadiusStart;
-    CParticleCollectionFloatInput m_flRadiusEnd;
-    CParticleCollectionFloatInput m_flDedicatedPool;
-};
+    int32_t m_nCPSnapshot; // 0x1d8
+    int32_t m_nCPStartPnt; // 0x1dc
+    int32_t m_nCPEndPnt; // 0x1e0
+    CParticleCollectionFloatInput m_flSegments; // 0x1e8
+    CParticleCollectionFloatInput m_flOffset; // 0x358
+    CParticleCollectionFloatInput m_flOffsetDecay; // 0x4c8
+    CParticleCollectionFloatInput m_flRecalcRate; // 0x638
+    CParticleCollectionFloatInput m_flUVScale; // 0x7a8
+    CParticleCollectionFloatInput m_flUVOffset; // 0x918
+    CParticleCollectionFloatInput m_flSplitRate; // 0xa88
+    CParticleCollectionFloatInput m_flBranchTwist; // 0xbf8
+    ParticleLightnintBranchBehavior_t m_nBranchBehavior; // 0xd68
+    CParticleCollectionFloatInput m_flRadiusStart; // 0xd70
+    CParticleCollectionFloatInput m_flRadiusEnd; // 0xee0
+    CParticleCollectionFloatInput m_flDedicatedPool; // 0x1050
+}; // size: 0x11c0
 
-class C_OP_SetControlPointToVectorExpression {
+class __declspec(align(8)) C_OP_SetControlPointToVectorExpression {
 public:
     char pad_00[472];
-    VectorExpressionType_t m_nExpression;
-    int32_t m_nOutputCP;
-    CParticleCollectionVecInput m_vInput1;
-    CParticleCollectionVecInput m_vInput2;
-    CPerParticleFloatInput m_flLerp;
-    bool m_bNormalizedOutput;
+    VectorExpressionType_t m_nExpression; // 0x1d8
+    int32_t m_nOutputCP; // 0x1dc
+    CParticleCollectionVecInput m_vInput1; // 0x1e0
+    CParticleCollectionVecInput m_vInput2; // 0x898
+    CPerParticleFloatInput m_flLerp; // 0xf50
+    bool m_bNormalizedOutput; // 0x10c0
     char pad_01[7];
-};
+}; // size: 0x10c8
 
-class ControlPointReference_t {
+class __declspec(align(4)) ControlPointReference_t {
 public:
-    int32_t m_controlPointNameString;
+    int32_t m_controlPointNameString; // 0x0
     // Vector m_vOffsetFromControlPoint;
     char pad_00[12];
-    bool m_bOffsetInLocalSpace;
+    bool m_bOffsetInLocalSpace; // 0x10
     char pad_01[3];
-};
+}; // size: 0x14
 
-class TextureControls_t {
+class __declspec(align(8)) TextureControls_t {
 public:
-    CParticleCollectionRendererFloatInput m_flFinalTextureScaleU;
-    CParticleCollectionRendererFloatInput m_flFinalTextureScaleV;
-    CParticleCollectionRendererFloatInput m_flFinalTextureOffsetU;
-    CParticleCollectionRendererFloatInput m_flFinalTextureOffsetV;
-    CParticleCollectionRendererFloatInput m_flFinalTextureUVRotation;
-    CParticleCollectionRendererFloatInput m_flZoomScale;
-    CParticleCollectionRendererFloatInput m_flDistortion;
-    bool m_bRandomizeOffsets;
-    bool m_bClampUVs;
-    SpriteCardPerParticleScale_t m_nPerParticleBlend;
-    SpriteCardPerParticleScale_t m_nPerParticleScale;
-    SpriteCardPerParticleScale_t m_nPerParticleOffsetU;
-    SpriteCardPerParticleScale_t m_nPerParticleOffsetV;
-    SpriteCardPerParticleScale_t m_nPerParticleRotation;
-    SpriteCardPerParticleScale_t m_nPerParticleZoom;
-    SpriteCardPerParticleScale_t m_nPerParticleDistortion;
-};
+    CParticleCollectionRendererFloatInput m_flFinalTextureScaleU; // 0x0
+    CParticleCollectionRendererFloatInput m_flFinalTextureScaleV; // 0x170
+    CParticleCollectionRendererFloatInput m_flFinalTextureOffsetU; // 0x2e0
+    CParticleCollectionRendererFloatInput m_flFinalTextureOffsetV; // 0x450
+    CParticleCollectionRendererFloatInput m_flFinalTextureUVRotation; // 0x5c0
+    CParticleCollectionRendererFloatInput m_flZoomScale; // 0x730
+    CParticleCollectionRendererFloatInput m_flDistortion; // 0x8a0
+    bool m_bRandomizeOffsets; // 0xa10
+    bool m_bClampUVs; // 0xa11
+    SpriteCardPerParticleScale_t m_nPerParticleBlend; // 0xa14
+    SpriteCardPerParticleScale_t m_nPerParticleScale; // 0xa18
+    SpriteCardPerParticleScale_t m_nPerParticleOffsetU; // 0xa1c
+    SpriteCardPerParticleScale_t m_nPerParticleOffsetV; // 0xa20
+    SpriteCardPerParticleScale_t m_nPerParticleRotation; // 0xa24
+    SpriteCardPerParticleScale_t m_nPerParticleZoom; // 0xa28
+    SpriteCardPerParticleScale_t m_nPerParticleDistortion; // 0xa2c
+}; // size: 0xa30
 
-class C_OP_Orient2DRelToCP {
+class __declspec(align(8)) C_OP_Orient2DRelToCP {
 public:
     char pad_00[464];
-    float m_flRotOffset;
-    float m_flSpinStrength;
-    int32_t m_nCP;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    float m_flRotOffset; // 0x1d0
+    float m_flSpinStrength; // 0x1d4
+    int32_t m_nCP; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
+}; // size: 0x1e0
 
-class C_INIT_RandomRadius {
+class __declspec(align(8)) C_INIT_RandomRadius {
 public:
     char pad_00[472];
-    float m_flRadiusMin;
-    float m_flRadiusMax;
-    float m_flRadiusRandExponent;
+    float m_flRadiusMin; // 0x1d8
+    float m_flRadiusMax; // 0x1dc
+    float m_flRadiusRandExponent; // 0x1e0
     char pad_01[4];
-};
+}; // size: 0x1e8
 
-class C_INIT_VelocityRadialRandom {
+class __declspec(align(8)) C_INIT_VelocityRadialRandom {
 public:
     char pad_00[472];
-    bool m_bPerParticleCenter;
-    int32_t m_nControlPointNumber;
-    CPerParticleVecInput m_vecPosition;
-    CPerParticleVecInput m_vecFwd;
-    CPerParticleFloatInput m_fSpeedMin;
-    CPerParticleFloatInput m_fSpeedMax;
+    bool m_bPerParticleCenter; // 0x1d8
+    int32_t m_nControlPointNumber; // 0x1dc
+    CPerParticleVecInput m_vecPosition; // 0x1e0
+    CPerParticleVecInput m_vecFwd; // 0x898
+    CPerParticleFloatInput m_fSpeedMin; // 0xf50
+    CPerParticleFloatInput m_fSpeedMax; // 0x10c0
     // Vector m_vecLocalCoordinateSystemSpeedScale;
     char pad_01[13];
-    bool m_bIgnoreDelta;
+    bool m_bIgnoreDelta; // 0x123d
     char pad_02[2];
-};
+}; // size: 0x1240
 
-class C_INIT_RemapParticleCountToNamedModelSequenceScalar {
+class __declspec(align(8)) C_INIT_RemapParticleCountToNamedModelSequenceScalar {
 public:
     char pad_00[552];
-};
+}; // size: 0x228
 
-class C_INIT_RandomLifeTime {
+class __declspec(align(8)) C_INIT_RandomLifeTime {
 public:
     char pad_00[472];
-    float m_fLifetimeMin;
-    float m_fLifetimeMax;
-    float m_fLifetimeRandExponent;
+    float m_fLifetimeMin; // 0x1d8
+    float m_fLifetimeMax; // 0x1dc
+    float m_fLifetimeRandExponent; // 0x1e0
     char pad_01[4];
-};
+}; // size: 0x1e8
 
-class C_OP_AttractToControlPoint {
+class __declspec(align(8)) C_OP_AttractToControlPoint {
 public:
     // Vector m_vecComponentScale;
     char pad_00[496];
-    CPerParticleFloatInput m_fForceAmount;
-    float m_fFalloffPower;
-    CParticleTransformInput m_TransformInput;
-    CPerParticleFloatInput m_fForceAmountMin;
-    bool m_bApplyMinForce;
+    CPerParticleFloatInput m_fForceAmount; // 0x1f0
+    float m_fFalloffPower; // 0x360
+    CParticleTransformInput m_TransformInput; // 0x368
+    CPerParticleFloatInput m_fForceAmountMin; // 0x3d0
+    bool m_bApplyMinForce; // 0x540
     char pad_01[7];
-};
+}; // size: 0x548
 
-class C_INIT_CreatePhyllotaxis {
+class __declspec(align(8)) C_INIT_CreatePhyllotaxis {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    int32_t m_nScaleCP;
-    int32_t m_nComponent;
-    float m_fRadCentCore;
-    float m_fRadPerPoint;
-    float m_fRadPerPointTo;
-    float m_fpointAngle;
-    float m_fsizeOverall;
-    float m_fRadBias;
-    float m_fMinRad;
-    float m_fDistBias;
-    bool m_bUseLocalCoords;
-    bool m_bUseWithContEmit;
-    bool m_bUseOrigRadius;
+    int32_t m_nControlPointNumber; // 0x1d8
+    int32_t m_nScaleCP; // 0x1dc
+    int32_t m_nComponent; // 0x1e0
+    float m_fRadCentCore; // 0x1e4
+    float m_fRadPerPoint; // 0x1e8
+    float m_fRadPerPointTo; // 0x1ec
+    float m_fpointAngle; // 0x1f0
+    float m_fsizeOverall; // 0x1f4
+    float m_fRadBias; // 0x1f8
+    float m_fMinRad; // 0x1fc
+    float m_fDistBias; // 0x200
+    bool m_bUseLocalCoords; // 0x204
+    bool m_bUseWithContEmit; // 0x205
+    bool m_bUseOrigRadius; // 0x206
     char pad_01[1];
-};
+}; // size: 0x208
 
-class C_OP_BoxConstraint {
+class __declspec(align(8)) C_OP_BoxConstraint {
 public:
     char pad_00[464];
-    CParticleCollectionVecInput m_vecMin;
-    CParticleCollectionVecInput m_vecMax;
-    int32_t m_nCP;
-    bool m_bLocalSpace;
-    bool m_bAccountForRadius;
+    CParticleCollectionVecInput m_vecMin; // 0x1d0
+    CParticleCollectionVecInput m_vecMax; // 0x888
+    int32_t m_nCP; // 0xf40
+    bool m_bLocalSpace; // 0xf44
+    bool m_bAccountForRadius; // 0xf45
     char pad_01[2];
-};
+}; // size: 0xf48
 
-class C_OP_SetParentControlPointsToChildCP {
+class __declspec(align(8)) C_OP_SetParentControlPointsToChildCP {
 public:
     char pad_00[472];
-    int32_t m_nChildGroupID;
-    int32_t m_nChildControlPoint;
-    int32_t m_nNumControlPoints;
-    int32_t m_nFirstSourcePoint;
-    bool m_bSetOrientation;
+    int32_t m_nChildGroupID; // 0x1d8
+    int32_t m_nChildControlPoint; // 0x1dc
+    int32_t m_nNumControlPoints; // 0x1e0
+    int32_t m_nFirstSourcePoint; // 0x1e4
+    bool m_bSetOrientation; // 0x1e8
     char pad_01[7];
-};
+}; // size: 0x1f0
 
-class C_OP_SetPerChildControlPointFromAttribute {
+class __declspec(align(8)) C_OP_SetPerChildControlPointFromAttribute {
 public:
     char pad_00[464];
-    int32_t m_nChildGroupID;
-    int32_t m_nFirstControlPoint;
-    int32_t m_nNumControlPoints;
-    int32_t m_nParticleIncrement;
-    int32_t m_nFirstSourcePoint;
-    bool m_bNumBasedOnParticleCount;
-    ParticleAttributeIndex_t m_nAttributeToRead;
-    int32_t m_nCPField;
-};
+    int32_t m_nChildGroupID; // 0x1d0
+    int32_t m_nFirstControlPoint; // 0x1d4
+    int32_t m_nNumControlPoints; // 0x1d8
+    int32_t m_nParticleIncrement; // 0x1dc
+    int32_t m_nFirstSourcePoint; // 0x1e0
+    bool m_bNumBasedOnParticleCount; // 0x1e4
+    ParticleAttributeIndex_t m_nAttributeToRead; // 0x1e8
+    int32_t m_nCPField; // 0x1ec
+}; // size: 0x1f0
 
-class C_INIT_OffsetVectorToVector {
+class __declspec(align(8)) C_INIT_OffsetVectorToVector {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d8
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1dc
     // Vector m_vecOutputMin;
     // Vector m_vecOutputMax;
     char pad_01[24];
-    CRandomNumberGeneratorParameters m_randomnessParameters;
-};
+    CRandomNumberGeneratorParameters m_randomnessParameters; // 0x1f8
+}; // size: 0x200
 
-class C_OP_GlobalLight {
+class __declspec(align(8)) C_OP_GlobalLight {
 public:
     char pad_00[464];
-    float m_flScale;
-    bool m_bClampLowerRange;
-    bool m_bClampUpperRange;
+    float m_flScale; // 0x1d0
+    bool m_bClampLowerRange; // 0x1d4
+    bool m_bClampUpperRange; // 0x1d5
     char pad_01[2];
-};
+}; // size: 0x1d8
 
-class CParticleFunction {
+class __declspec(align(8)) CParticleFunction {
 public:
     char pad_00[8];
-    CParticleCollectionFloatInput m_flOpStrength;
-    ParticleEndcapMode_t m_nOpEndCapState;
-    float m_flOpStartFadeInTime;
-    float m_flOpEndFadeInTime;
-    float m_flOpStartFadeOutTime;
-    float m_flOpEndFadeOutTime;
-    float m_flOpFadeOscillatePeriod;
-    bool m_bNormalizeToStopTime;
-    float m_flOpTimeOffsetMin;
-    float m_flOpTimeOffsetMax;
-    int32_t m_nOpTimeOffsetSeed;
-    int32_t m_nOpTimeScaleSeed;
-    float m_flOpTimeScaleMin;
-    float m_flOpTimeScaleMax;
+    CParticleCollectionFloatInput m_flOpStrength; // 0x8
+    ParticleEndcapMode_t m_nOpEndCapState; // 0x178
+    float m_flOpStartFadeInTime; // 0x17c
+    float m_flOpEndFadeInTime; // 0x180
+    float m_flOpStartFadeOutTime; // 0x184
+    float m_flOpEndFadeOutTime; // 0x188
+    float m_flOpFadeOscillatePeriod; // 0x18c
+    bool m_bNormalizeToStopTime; // 0x190
+    float m_flOpTimeOffsetMin; // 0x194
+    float m_flOpTimeOffsetMax; // 0x198
+    int32_t m_nOpTimeOffsetSeed; // 0x19c
+    int32_t m_nOpTimeScaleSeed; // 0x1a0
+    float m_flOpTimeScaleMin; // 0x1a4
+    float m_flOpTimeScaleMax; // 0x1a8
     char pad_01[2];
-    bool m_bDisableOperator;
+    bool m_bDisableOperator; // 0x1ae
     // CUtlString m_Notes;
     char pad_02[33];
-};
+}; // size: 0x1d0
 
-class C_OP_Callback {
+class __declspec(align(8)) C_OP_Callback {
 public:
     char pad_00[544];
-};
+}; // size: 0x220
 
-class C_INIT_InitFromParentKilled {
+class __declspec(align(8)) C_INIT_InitFromParentKilled {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nAttributeToCopy;
-    EventTypeSelection_t m_nEventType;
+    ParticleAttributeIndex_t m_nAttributeToCopy; // 0x1d8
+    EventTypeSelection_t m_nEventType; // 0x1dc
     char pad_01[128];
-};
+}; // size: 0x260
 
-class C_INIT_RandomNamedModelElement {
+class __declspec(align(4)) C_INIT_RandomNamedModelElement {
 public:
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CUtlVector< CUtlString > m_names;
     char pad_00[504];
-    bool m_bShuffle;
-    bool m_bLinear;
-    bool m_bModelFromRenderer;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    bool m_bShuffle; // 0x1f8
+    bool m_bLinear; // 0x1f9
+    bool m_bModelFromRenderer; // 0x1fa
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1fc
+}; // size: 0x200
 
-class C_OP_BasicMovement {
+class __declspec(align(8)) C_OP_BasicMovement {
 public:
     char pad_00[464];
-    CParticleCollectionVecInput m_Gravity;
-    CParticleCollectionFloatInput m_fDrag;
-    CParticleMassCalculationParameters m_massControls;
-    int32_t m_nMaxConstraintPasses;
-    bool m_bUseNewCode;
+    CParticleCollectionVecInput m_Gravity; // 0x1d0
+    CParticleCollectionFloatInput m_fDrag; // 0x888
+    CParticleMassCalculationParameters m_massControls; // 0x9f8
+    int32_t m_nMaxConstraintPasses; // 0xe50
+    bool m_bUseNewCode; // 0xe54
     char pad_01[3];
-};
+}; // size: 0xe58
 
-class C_OP_QuantizeFloat {
+class __declspec(align(16)) C_OP_QuantizeFloat {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_InputValue;
-    ParticleAttributeIndex_t m_nOutputField;
+    CPerParticleFloatInput m_InputValue; // 0x1d0
+    ParticleAttributeIndex_t m_nOutputField; // 0x340
     char pad_01[44];
-};
+}; // size: 0x370
 
-class C_OP_SetUserEvent {
+class __declspec(align(8)) C_OP_SetUserEvent {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flInput;
-    CPerParticleFloatInput m_flRisingEdge;
-    EventTypeSelection_t m_nRisingEventType;
-    CPerParticleFloatInput m_flFallingEdge;
-    EventTypeSelection_t m_nFallingEventType;
+    CPerParticleFloatInput m_flInput; // 0x1d0
+    CPerParticleFloatInput m_flRisingEdge; // 0x340
+    EventTypeSelection_t m_nRisingEventType; // 0x4b0
+    CPerParticleFloatInput m_flFallingEdge; // 0x4b8
+    EventTypeSelection_t m_nFallingEventType; // 0x628
     char pad_01[4];
-};
+}; // size: 0x630
 
-class C_INIT_MoveBetweenPoints {
+class __declspec(align(8)) C_INIT_MoveBetweenPoints {
 public:
     char pad_00[472];
-    CPerParticleFloatInput m_flSpeedMin;
-    CPerParticleFloatInput m_flSpeedMax;
-    CPerParticleFloatInput m_flEndSpread;
-    CPerParticleFloatInput m_flStartOffset;
-    CPerParticleFloatInput m_flEndOffset;
-    int32_t m_nEndControlPointNumber;
-    bool m_bTrailBias;
+    CPerParticleFloatInput m_flSpeedMin; // 0x1d8
+    CPerParticleFloatInput m_flSpeedMax; // 0x348
+    CPerParticleFloatInput m_flEndSpread; // 0x4b8
+    CPerParticleFloatInput m_flStartOffset; // 0x628
+    CPerParticleFloatInput m_flEndOffset; // 0x798
+    int32_t m_nEndControlPointNumber; // 0x908
+    bool m_bTrailBias; // 0x90c
     char pad_01[3];
-};
+}; // size: 0x910
 
-class C_INIT_SequenceLifeTime {
+class __declspec(align(8)) C_INIT_SequenceLifeTime {
 public:
     char pad_00[472];
-    float m_flFramerate;
+    float m_flFramerate; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class C_OP_OscillateVectorSimple {
+class __declspec(align(8)) C_OP_OscillateVectorSimple {
 public:
     // Vector m_Rate;
     // Vector m_Frequency;
     char pad_00[488];
-    ParticleAttributeIndex_t m_nField;
-    float m_flOscMult;
-    float m_flOscAdd;
-    bool m_bOffset;
+    ParticleAttributeIndex_t m_nField; // 0x1e8
+    float m_flOscMult; // 0x1ec
+    float m_flOscAdd; // 0x1f0
+    bool m_bOffset; // 0x1f4
     char pad_01[3];
-};
+}; // size: 0x1f8
 
-class C_OP_ContinuousEmitter {
+class __declspec(align(8)) C_OP_ContinuousEmitter {
 public:
     char pad_00[472];
-    CParticleCollectionFloatInput m_flEmissionDuration;
-    CParticleCollectionFloatInput m_flStartTime;
-    CParticleCollectionFloatInput m_flEmitRate;
-    float m_flEmissionScale;
-    float m_flScalePerParentParticle;
-    bool m_bInitFromKilledParentParticles;
-    EventTypeSelection_t m_nEventType;
-    int32_t m_nSnapshotControlPoint;
+    CParticleCollectionFloatInput m_flEmissionDuration; // 0x1d8
+    CParticleCollectionFloatInput m_flStartTime; // 0x348
+    CParticleCollectionFloatInput m_flEmitRate; // 0x4b8
+    float m_flEmissionScale; // 0x628
+    float m_flScalePerParentParticle; // 0x62c
+    bool m_bInitFromKilledParentParticles; // 0x630
+    EventTypeSelection_t m_nEventType; // 0x634
+    int32_t m_nSnapshotControlPoint; // 0x638
     // CUtlString m_strSnapshotSubset;
     char pad_01[12];
-    int32_t m_nLimitPerUpdate;
-    bool m_bForceEmitOnFirstUpdate;
-    bool m_bForceEmitOnLastUpdate;
+    int32_t m_nLimitPerUpdate; // 0x648
+    bool m_bForceEmitOnFirstUpdate; // 0x64c
+    bool m_bForceEmitOnLastUpdate; // 0x64d
     char pad_02[10];
-};
+}; // size: 0x658
 
-class C_OP_RemapDistanceToLineSegmentBase {
+class __declspec(align(4)) C_OP_RemapDistanceToLineSegmentBase {
 public:
     char pad_00[464];
-    int32_t m_nCP0;
-    int32_t m_nCP1;
-    float m_flMinInputValue;
-    float m_flMaxInputValue;
-    bool m_bInfiniteLine;
+    int32_t m_nCP0; // 0x1d0
+    int32_t m_nCP1; // 0x1d4
+    float m_flMinInputValue; // 0x1d8
+    float m_flMaxInputValue; // 0x1dc
+    bool m_bInfiniteLine; // 0x1e0
     char pad_01[7];
-};
+}; // size: 0x1e8
 
-class C_OP_EndCapTimedDecay {
+class __declspec(align(8)) C_OP_EndCapTimedDecay {
 public:
     char pad_00[464];
-    float m_flDecayTime;
+    float m_flDecayTime; // 0x1d0
     char pad_01[4];
-};
+}; // size: 0x1d8
 
-class C_INIT_CreateSequentialPath {
+class __declspec(align(16)) C_INIT_CreateSequentialPath {
 public:
     char pad_00[472];
-    float m_fMaxDistance;
-    float m_flNumToAssign;
-    bool m_bLoop;
-    bool m_bCPPairs;
-    bool m_bSaveOffset;
-    CPathParameters m_PathParams;
-};
+    float m_fMaxDistance; // 0x1d8
+    float m_flNumToAssign; // 0x1dc
+    bool m_bLoop; // 0x1e0
+    bool m_bCPPairs; // 0x1e1
+    bool m_bSaveOffset; // 0x1e2
+    CPathParameters m_PathParams; // 0x1f0
+}; // size: 0x230
 
-class C_OP_DecayOffscreen {
+class __declspec(align(8)) C_OP_DecayOffscreen {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_flOffscreenTime;
-};
+    CParticleCollectionFloatInput m_flOffscreenTime; // 0x1d0
+}; // size: 0x340
 
-class C_OP_DistanceBetweenTransforms {
+class __declspec(align(8)) C_OP_DistanceBetweenTransforms {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CParticleTransformInput m_TransformStart;
-    CParticleTransformInput m_TransformEnd;
-    CPerParticleFloatInput m_flInputMin;
-    CPerParticleFloatInput m_flInputMax;
-    CPerParticleFloatInput m_flOutputMin;
-    CPerParticleFloatInput m_flOutputMax;
-    float m_flMaxTraceLength;
-    float m_flLOSScale;
-    char m_CollisionGroupName[128];
-    ParticleTraceSet_t m_nTraceSet;
-    bool m_bLOS;
-    ParticleSetMethod_t m_nSetMethod;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CParticleTransformInput m_TransformStart; // 0x1d8
+    CParticleTransformInput m_TransformEnd; // 0x240
+    CPerParticleFloatInput m_flInputMin; // 0x2a8
+    CPerParticleFloatInput m_flInputMax; // 0x418
+    CPerParticleFloatInput m_flOutputMin; // 0x588
+    CPerParticleFloatInput m_flOutputMax; // 0x6f8
+    float m_flMaxTraceLength; // 0x868
+    float m_flLOSScale; // 0x86c
+    char m_CollisionGroupName[128]; // 0x870
+    ParticleTraceSet_t m_nTraceSet; // 0x8f0
+    bool m_bLOS; // 0x8f4
+    ParticleSetMethod_t m_nSetMethod; // 0x8f8
     char pad_01[4];
-};
+}; // size: 0x900
 
-class C_OP_RemapScalar {
+class __declspec(align(8)) C_OP_RemapScalar {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    bool m_bOldCode;
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flInputMin; // 0x1d8
+    float m_flInputMax; // 0x1dc
+    float m_flOutputMin; // 0x1e0
+    float m_flOutputMax; // 0x1e4
+    bool m_bOldCode; // 0x1e8
     char pad_01[7];
-};
+}; // size: 0x1f0
 
-class C_INIT_RandomTrailLength {
+class __declspec(align(8)) C_INIT_RandomTrailLength {
 public:
     char pad_00[472];
-    float m_flMinLength;
-    float m_flMaxLength;
-    float m_flLengthRandExponent;
+    float m_flMinLength; // 0x1d8
+    float m_flMaxLength; // 0x1dc
+    float m_flLengthRandExponent; // 0x1e0
     char pad_01[4];
-};
+}; // size: 0x1e8
 
-class C_INIT_RingWave {
+class __declspec(align(8)) C_INIT_RingWave {
 public:
     char pad_00[472];
-    CParticleTransformInput m_TransformInput;
-    CParticleCollectionFloatInput m_flParticlesPerOrbit;
-    CPerParticleFloatInput m_flInitialRadius;
-    CPerParticleFloatInput m_flThickness;
-    CPerParticleFloatInput m_flInitialSpeedMin;
-    CPerParticleFloatInput m_flInitialSpeedMax;
-    CPerParticleFloatInput m_flRoll;
-    CPerParticleFloatInput m_flPitch;
-    CPerParticleFloatInput m_flYaw;
-    bool m_bEvenDistribution;
-    bool m_bXYVelocityOnly;
+    CParticleTransformInput m_TransformInput; // 0x1d8
+    CParticleCollectionFloatInput m_flParticlesPerOrbit; // 0x240
+    CPerParticleFloatInput m_flInitialRadius; // 0x3b0
+    CPerParticleFloatInput m_flThickness; // 0x520
+    CPerParticleFloatInput m_flInitialSpeedMin; // 0x690
+    CPerParticleFloatInput m_flInitialSpeedMax; // 0x800
+    CPerParticleFloatInput m_flRoll; // 0x970
+    CPerParticleFloatInput m_flPitch; // 0xae0
+    CPerParticleFloatInput m_flYaw; // 0xc50
+    bool m_bEvenDistribution; // 0xdc0
+    bool m_bXYVelocityOnly; // 0xdc1
     char pad_01[6];
-};
+}; // size: 0xdc8
 
-class C_INIT_SetHitboxToClosest {
+class __declspec(align(8)) C_INIT_SetHitboxToClosest {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    int32_t m_nDesiredHitbox;
-    CParticleCollectionVecInput m_vecHitBoxScale;
-    char m_HitboxSetName[128];
-    bool m_bUseBones;
-    bool m_bUseClosestPointOnHitbox;
-    ClosestPointTestType_t m_nTestType;
-    CParticleCollectionFloatInput m_flHybridRatio;
-    bool m_bUpdatePosition;
+    int32_t m_nControlPointNumber; // 0x1d8
+    int32_t m_nDesiredHitbox; // 0x1dc
+    CParticleCollectionVecInput m_vecHitBoxScale; // 0x1e0
+    char m_HitboxSetName[128]; // 0x898
+    bool m_bUseBones; // 0x918
+    bool m_bUseClosestPointOnHitbox; // 0x919
+    ClosestPointTestType_t m_nTestType; // 0x91c
+    CParticleCollectionFloatInput m_flHybridRatio; // 0x920
+    bool m_bUpdatePosition; // 0xa90
     char pad_01[7];
-};
+}; // size: 0xa98
 
-class C_OP_RemapVelocityToVector {
+class __declspec(align(8)) C_OP_RemapVelocityToVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flScale;
-    bool m_bNormalize;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flScale; // 0x1d4
+    bool m_bNormalize; // 0x1d8
     char pad_01[7];
-};
+}; // size: 0x1e0
 
-class C_OP_RepeatedTriggerChildGroup {
+class __declspec(align(8)) C_OP_RepeatedTriggerChildGroup {
 public:
     char pad_00[472];
-    int32_t m_nChildGroupID;
-    CParticleCollectionFloatInput m_flClusterRefireTime;
-    CParticleCollectionFloatInput m_flClusterSize;
-    CParticleCollectionFloatInput m_flClusterCooldown;
-    bool m_bLimitChildCount;
+    int32_t m_nChildGroupID; // 0x1d8
+    CParticleCollectionFloatInput m_flClusterRefireTime; // 0x1e0
+    CParticleCollectionFloatInput m_flClusterSize; // 0x350
+    CParticleCollectionFloatInput m_flClusterCooldown; // 0x4c0
+    bool m_bLimitChildCount; // 0x630
     char pad_01[7];
-};
+}; // size: 0x638
 
-class C_OP_FadeInSimple {
+class __declspec(align(8)) C_OP_FadeInSimple {
 public:
     char pad_00[464];
-    float m_flFadeInTime;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    float m_flFadeInTime; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+}; // size: 0x1d8
 
-class C_OP_NormalizeVector {
+class __declspec(align(8)) C_OP_NormalizeVector {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flScale;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    float m_flScale; // 0x1d4
+}; // size: 0x1d8
 
-class C_INIT_RandomAlpha {
+class __declspec(align(8)) C_INIT_RandomAlpha {
 public:
     char pad_00[472];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    int32_t m_nAlphaMin;
-    int32_t m_nAlphaMax;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    int32_t m_nAlphaMin; // 0x1dc
+    int32_t m_nAlphaMax; // 0x1e0
     char pad_01[8];
-    float m_flAlphaRandExponent;
-};
+    float m_flAlphaRandExponent; // 0x1ec
+}; // size: 0x1f0
 
-class C_OP_RemapAverageHitboxSpeedtoCP {
+class __declspec(align(8)) C_OP_RemapAverageHitboxSpeedtoCP {
 public:
     char pad_00[472];
-    int32_t m_nInControlPointNumber;
-    int32_t m_nOutControlPointNumber;
-    int32_t m_nField;
-    ParticleHitboxDataSelection_t m_nHitboxDataType;
-    CParticleCollectionFloatInput m_flInputMin;
-    CParticleCollectionFloatInput m_flInputMax;
-    CParticleCollectionFloatInput m_flOutputMin;
-    CParticleCollectionFloatInput m_flOutputMax;
-    int32_t m_nHeightControlPointNumber;
-    CParticleCollectionVecInput m_vecComparisonVelocity;
-    char m_HitboxSetName[128];
-};
+    int32_t m_nInControlPointNumber; // 0x1d8
+    int32_t m_nOutControlPointNumber; // 0x1dc
+    int32_t m_nField; // 0x1e0
+    ParticleHitboxDataSelection_t m_nHitboxDataType; // 0x1e4
+    CParticleCollectionFloatInput m_flInputMin; // 0x1e8
+    CParticleCollectionFloatInput m_flInputMax; // 0x358
+    CParticleCollectionFloatInput m_flOutputMin; // 0x4c8
+    CParticleCollectionFloatInput m_flOutputMax; // 0x638
+    int32_t m_nHeightControlPointNumber; // 0x7a8
+    CParticleCollectionVecInput m_vecComparisonVelocity; // 0x7b0
+    char m_HitboxSetName[128]; // 0xe68
+}; // size: 0xee8
 
-class C_OP_ExternalGameImpulseForce {
+class __declspec(align(8)) C_OP_ExternalGameImpulseForce {
 public:
     char pad_00[480];
-    CPerParticleFloatInput m_flForceScale;
-    bool m_bRopes;
-    bool m_bRopesZOnly;
-    bool m_bExplosions;
-    bool m_bParticles;
+    CPerParticleFloatInput m_flForceScale; // 0x1e0
+    bool m_bRopes; // 0x350
+    bool m_bRopesZOnly; // 0x351
+    bool m_bExplosions; // 0x352
+    bool m_bParticles; // 0x353
     char pad_01[4];
-};
+}; // size: 0x358
 
-class C_INIT_RandomModelSequence {
+class __declspec(align(8)) C_INIT_RandomModelSequence {
 public:
     char pad_00[472];
-    char m_ActivityName[256];
-    char m_SequenceName[256];
+    char m_ActivityName[256]; // 0x1d8
+    char m_SequenceName[256]; // 0x2d8
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     char pad_01[8];
-};
+}; // size: 0x3e0
 
-class C_OP_DecayMaintainCount {
+class __declspec(align(8)) C_OP_DecayMaintainCount {
 public:
     char pad_00[464];
-    int32_t m_nParticlesToMaintain;
-    float m_flDecayDelay;
-    int32_t m_nSnapshotControlPoint;
+    int32_t m_nParticlesToMaintain; // 0x1d0
+    float m_flDecayDelay; // 0x1d4
+    int32_t m_nSnapshotControlPoint; // 0x1d8
     // CUtlString m_strSnapshotSubset;
     char pad_01[12];
-    bool m_bLifespanDecay;
-    CParticleCollectionFloatInput m_flScale;
-    bool m_bKillNewest;
+    bool m_bLifespanDecay; // 0x1e8
+    CParticleCollectionFloatInput m_flScale; // 0x1f0
+    bool m_bKillNewest; // 0x360
     char pad_02[7];
-};
+}; // size: 0x368
 
-class C_OP_SetControlPointPositionToTimeOfDayValue {
+class __declspec(align(8)) C_OP_SetControlPointPositionToTimeOfDayValue {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    char m_pszTimeOfDayParameter[128];
+    int32_t m_nControlPointNumber; // 0x1d8
+    char m_pszTimeOfDayParameter[128]; // 0x1dc
     // Vector m_vecDefaultValue;
     char pad_01[20];
-};
+}; // size: 0x270
 
-class C_OP_RenderTrails {
+class __declspec(align(8)) C_OP_RenderTrails {
 public:
     char pad_00[12512];
-    bool m_bEnableFadingAndClamping;
-    float m_flStartFadeDot;
-    float m_flEndFadeDot;
-    ParticleAttributeIndex_t m_nPrevPntSource;
-    float m_flMaxLength;
-    float m_flMinLength;
-    bool m_bIgnoreDT;
-    float m_flConstrainRadiusToLengthRatio;
-    float m_flLengthScale;
-    float m_flLengthFadeInTime;
-    CPerParticleFloatInput m_flRadiusHeadTaper;
-    CParticleCollectionVecInput m_vecHeadColorScale;
-    CPerParticleFloatInput m_flHeadAlphaScale;
-    CPerParticleFloatInput m_flRadiusTaper;
-    CParticleCollectionVecInput m_vecTailColorScale;
-    CPerParticleFloatInput m_flTailAlphaScale;
-    ParticleAttributeIndex_t m_nHorizCropField;
-    ParticleAttributeIndex_t m_nVertCropField;
-    float m_flForwardShift;
-    bool m_bFlipUVBasedOnPitchYaw;
+    bool m_bEnableFadingAndClamping; // 0x30e0
+    float m_flStartFadeDot; // 0x30e4
+    float m_flEndFadeDot; // 0x30e8
+    ParticleAttributeIndex_t m_nPrevPntSource; // 0x30ec
+    float m_flMaxLength; // 0x30f0
+    float m_flMinLength; // 0x30f4
+    bool m_bIgnoreDT; // 0x30f8
+    float m_flConstrainRadiusToLengthRatio; // 0x30fc
+    float m_flLengthScale; // 0x3100
+    float m_flLengthFadeInTime; // 0x3104
+    CPerParticleFloatInput m_flRadiusHeadTaper; // 0x3108
+    CParticleCollectionVecInput m_vecHeadColorScale; // 0x3278
+    CPerParticleFloatInput m_flHeadAlphaScale; // 0x3930
+    CPerParticleFloatInput m_flRadiusTaper; // 0x3aa0
+    CParticleCollectionVecInput m_vecTailColorScale; // 0x3c10
+    CPerParticleFloatInput m_flTailAlphaScale; // 0x42c8
+    ParticleAttributeIndex_t m_nHorizCropField; // 0x4438
+    ParticleAttributeIndex_t m_nVertCropField; // 0x443c
+    float m_flForwardShift; // 0x4440
+    bool m_bFlipUVBasedOnPitchYaw; // 0x4444
     char pad_01[3];
-};
+}; // size: 0x4448
 
-class C_INIT_RemapParticleCountToNamedModelElementScalar {
+class __declspec(align(8)) C_INIT_RemapParticleCountToNamedModelElementScalar {
 public:
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CUtlString m_outputMinName;
     // CUtlString m_outputMaxName;
     char pad_00[544];
-    bool m_bModelFromRenderer;
+    bool m_bModelFromRenderer; // 0x220
     char pad_01[7];
-};
+}; // size: 0x228
 
-class C_OP_RemapDotProductToCP {
+class __declspec(align(8)) C_OP_RemapDotProductToCP {
 public:
     char pad_00[472];
-    int32_t m_nInputCP1;
-    int32_t m_nInputCP2;
-    int32_t m_nOutputCP;
-    int32_t m_nOutVectorField;
-    CParticleCollectionFloatInput m_flInputMin;
-    CParticleCollectionFloatInput m_flInputMax;
-    CParticleCollectionFloatInput m_flOutputMin;
-    CParticleCollectionFloatInput m_flOutputMax;
-};
+    int32_t m_nInputCP1; // 0x1d8
+    int32_t m_nInputCP2; // 0x1dc
+    int32_t m_nOutputCP; // 0x1e0
+    int32_t m_nOutVectorField; // 0x1e4
+    CParticleCollectionFloatInput m_flInputMin; // 0x1e8
+    CParticleCollectionFloatInput m_flInputMax; // 0x358
+    CParticleCollectionFloatInput m_flOutputMin; // 0x4c8
+    CParticleCollectionFloatInput m_flOutputMax; // 0x638
+}; // size: 0x7a8
 
-class C_OP_OrientTo2dDirection {
+class __declspec(align(8)) C_OP_OrientTo2dDirection {
 public:
     char pad_00[464];
-    float m_flRotOffset;
-    float m_flSpinStrength;
-    ParticleAttributeIndex_t m_nFieldOutput;
+    float m_flRotOffset; // 0x1d0
+    float m_flSpinStrength; // 0x1d4
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
     char pad_01[4];
-};
+}; // size: 0x1e0
 
-class CSpinUpdateBase {
+class __declspec(align(1)) CSpinUpdateBase {
 public:
     char pad_00[464];
-};
+}; // size: 0x1d0
 
-class CBaseRendererSource2 {
+class __declspec(align(8)) CBaseRendererSource2 {
 public:
     char pad_00[544];
-    CParticleCollectionRendererFloatInput m_flRadiusScale;
-    CParticleCollectionRendererFloatInput m_flAlphaScale;
-    CParticleCollectionRendererFloatInput m_flRollScale;
-    ParticleAttributeIndex_t m_nAlpha2Field;
-    CParticleCollectionRendererVecInput m_vecColorScale;
-    ParticleColorBlendType_t m_nColorBlendType;
-    SpriteCardShaderType_t m_nShaderType;
+    CParticleCollectionRendererFloatInput m_flRadiusScale; // 0x220
+    CParticleCollectionRendererFloatInput m_flAlphaScale; // 0x390
+    CParticleCollectionRendererFloatInput m_flRollScale; // 0x500
+    ParticleAttributeIndex_t m_nAlpha2Field; // 0x670
+    CParticleCollectionRendererVecInput m_vecColorScale; // 0x678
+    ParticleColorBlendType_t m_nColorBlendType; // 0xd30
+    SpriteCardShaderType_t m_nShaderType; // 0xd34
     // CUtlString m_strShaderOverride;
     char pad_01[8];
-    CParticleCollectionRendererFloatInput m_flCenterXOffset;
-    CParticleCollectionRendererFloatInput m_flCenterYOffset;
-    float m_flBumpStrength;
-    ParticleSequenceCropOverride_t m_nCropTextureOverride;
+    CParticleCollectionRendererFloatInput m_flCenterXOffset; // 0xd40
+    CParticleCollectionRendererFloatInput m_flCenterYOffset; // 0xeb0
+    float m_flBumpStrength; // 0x1020
+    ParticleSequenceCropOverride_t m_nCropTextureOverride; // 0x1024
     // CUtlLeanVector< TextureGroup_t > m_vecTexturesInput;
     char pad_02[16];
-    float m_flAnimationRate;
-    AnimationType_t m_nAnimationType;
-    bool m_bAnimateInFPS;
-    CParticleCollectionRendererFloatInput m_flMotionVectorScaleU;
-    CParticleCollectionRendererFloatInput m_flMotionVectorScaleV;
-    CParticleCollectionRendererFloatInput m_flSelfIllumAmount;
-    CParticleCollectionRendererFloatInput m_flDiffuseAmount;
-    CParticleCollectionRendererFloatInput m_flDiffuseClamp;
-    int32_t m_nLightingControlPoint;
-    ParticleOutputBlendMode_t m_nOutputBlendMode;
-    bool m_bGammaCorrectVertexColors;
-    bool m_bSaturateColorPreAlphaBlend;
-    CParticleCollectionRendererFloatInput m_flAddSelfAmount;
-    CParticleCollectionRendererFloatInput m_flDesaturation;
-    CParticleCollectionRendererFloatInput m_flOverbrightFactor;
-    int32_t m_nHSVShiftControlPoint;
-    ParticleFogType_t m_nFogType;
-    CParticleCollectionRendererFloatInput m_flFogAmount;
-    bool m_bTintByFOW;
-    bool m_bTintByGlobalLight;
-    SpriteCardPerParticleScale_t m_nPerParticleAlphaReference;
-    SpriteCardPerParticleScale_t m_nPerParticleAlphaRefWindow;
-    ParticleAlphaReferenceType_t m_nAlphaReferenceType;
-    CParticleCollectionRendererFloatInput m_flAlphaReferenceSoftness;
-    CParticleCollectionRendererFloatInput m_flSourceAlphaValueToMapToZero;
-    CParticleCollectionRendererFloatInput m_flSourceAlphaValueToMapToOne;
-    bool m_bRefract;
-    bool m_bRefractSolid;
-    CParticleCollectionRendererFloatInput m_flRefractAmount;
-    int32_t m_nRefractBlurRadius;
-    BlurFilterType_t m_nRefractBlurType;
-    bool m_bOnlyRenderInEffectsBloomPass;
-    bool m_bOnlyRenderInEffectsWaterPass;
-    bool m_bUseMixedResolutionRendering;
-    bool m_bOnlyRenderInEffecsGameOverlay;
-    char m_stencilTestID[128];
-    bool m_bStencilTestExclude;
-    char m_stencilWriteID[128];
-    bool m_bWriteStencilOnDepthPass;
-    bool m_bWriteStencilOnDepthFail;
-    bool m_bReverseZBuffering;
-    bool m_bDisableZBuffering;
-    ParticleDepthFeatheringMode_t m_nFeatheringMode;
-    CParticleCollectionRendererFloatInput m_flFeatheringMinDist;
-    CParticleCollectionRendererFloatInput m_flFeatheringMaxDist;
-    CParticleCollectionRendererFloatInput m_flFeatheringFilter;
-    CParticleCollectionRendererFloatInput m_flFeatheringDepthMapFilter;
-    CParticleCollectionRendererFloatInput m_flDepthBias;
-    ParticleSortingChoiceList_t m_nSortMethod;
-    bool m_bBlendFramesSeq0;
-    bool m_bMaxLuminanceBlendingSequence0;
+    float m_flAnimationRate; // 0x1038
+    AnimationType_t m_nAnimationType; // 0x103c
+    bool m_bAnimateInFPS; // 0x1040
+    CParticleCollectionRendererFloatInput m_flMotionVectorScaleU; // 0x1048
+    CParticleCollectionRendererFloatInput m_flMotionVectorScaleV; // 0x11b8
+    CParticleCollectionRendererFloatInput m_flSelfIllumAmount; // 0x1328
+    CParticleCollectionRendererFloatInput m_flDiffuseAmount; // 0x1498
+    CParticleCollectionRendererFloatInput m_flDiffuseClamp; // 0x1608
+    int32_t m_nLightingControlPoint; // 0x1778
+    ParticleOutputBlendMode_t m_nOutputBlendMode; // 0x177c
+    bool m_bGammaCorrectVertexColors; // 0x1780
+    bool m_bSaturateColorPreAlphaBlend; // 0x1781
+    CParticleCollectionRendererFloatInput m_flAddSelfAmount; // 0x1788
+    CParticleCollectionRendererFloatInput m_flDesaturation; // 0x18f8
+    CParticleCollectionRendererFloatInput m_flOverbrightFactor; // 0x1a68
+    int32_t m_nHSVShiftControlPoint; // 0x1bd8
+    ParticleFogType_t m_nFogType; // 0x1bdc
+    CParticleCollectionRendererFloatInput m_flFogAmount; // 0x1be0
+    bool m_bTintByFOW; // 0x1d50
+    bool m_bTintByGlobalLight; // 0x1d51
+    SpriteCardPerParticleScale_t m_nPerParticleAlphaReference; // 0x1d54
+    SpriteCardPerParticleScale_t m_nPerParticleAlphaRefWindow; // 0x1d58
+    ParticleAlphaReferenceType_t m_nAlphaReferenceType; // 0x1d5c
+    CParticleCollectionRendererFloatInput m_flAlphaReferenceSoftness; // 0x1d60
+    CParticleCollectionRendererFloatInput m_flSourceAlphaValueToMapToZero; // 0x1ed0
+    CParticleCollectionRendererFloatInput m_flSourceAlphaValueToMapToOne; // 0x2040
+    bool m_bRefract; // 0x21b0
+    bool m_bRefractSolid; // 0x21b1
+    CParticleCollectionRendererFloatInput m_flRefractAmount; // 0x21b8
+    int32_t m_nRefractBlurRadius; // 0x2328
+    BlurFilterType_t m_nRefractBlurType; // 0x232c
+    bool m_bOnlyRenderInEffectsBloomPass; // 0x2330
+    bool m_bOnlyRenderInEffectsWaterPass; // 0x2331
+    bool m_bUseMixedResolutionRendering; // 0x2332
+    bool m_bOnlyRenderInEffecsGameOverlay; // 0x2333
+    char m_stencilTestID[128]; // 0x2334
+    bool m_bStencilTestExclude; // 0x23b4
+    char m_stencilWriteID[128]; // 0x23b5
+    bool m_bWriteStencilOnDepthPass; // 0x2435
+    bool m_bWriteStencilOnDepthFail; // 0x2436
+    bool m_bReverseZBuffering; // 0x2437
+    bool m_bDisableZBuffering; // 0x2438
+    ParticleDepthFeatheringMode_t m_nFeatheringMode; // 0x243c
+    CParticleCollectionRendererFloatInput m_flFeatheringMinDist; // 0x2440
+    CParticleCollectionRendererFloatInput m_flFeatheringMaxDist; // 0x25b0
+    CParticleCollectionRendererFloatInput m_flFeatheringFilter; // 0x2720
+    CParticleCollectionRendererFloatInput m_flFeatheringDepthMapFilter; // 0x2890
+    CParticleCollectionRendererFloatInput m_flDepthBias; // 0x2a00
+    ParticleSortingChoiceList_t m_nSortMethod; // 0x2b70
+    bool m_bBlendFramesSeq0; // 0x2b74
+    bool m_bMaxLuminanceBlendingSequence0; // 0x2b75
     char pad_03[626];
-};
+}; // size: 0x2de8
 
-class C_OP_RemapExternalWindToCP {
+class __declspec(align(8)) C_OP_RemapExternalWindToCP {
 public:
     char pad_00[472];
-    int32_t m_nCP;
-    int32_t m_nCPOutput;
-    CParticleCollectionVecInput m_vecScale;
-    bool m_bSetMagnitude;
-    int32_t m_nOutVectorField;
-};
+    int32_t m_nCP; // 0x1d8
+    int32_t m_nCPOutput; // 0x1dc
+    CParticleCollectionVecInput m_vecScale; // 0x1e0
+    bool m_bSetMagnitude; // 0x898
+    int32_t m_nOutVectorField; // 0x89c
+}; // size: 0x8a0
 
-class C_OP_TeleportBeam {
+class __declspec(align(8)) C_OP_TeleportBeam {
 public:
     char pad_00[464];
-    int32_t m_nCPPosition;
-    int32_t m_nCPVelocity;
-    int32_t m_nCPMisc;
-    int32_t m_nCPColor;
-    int32_t m_nCPInvalidColor;
-    int32_t m_nCPExtraArcData;
+    int32_t m_nCPPosition; // 0x1d0
+    int32_t m_nCPVelocity; // 0x1d4
+    int32_t m_nCPMisc; // 0x1d8
+    int32_t m_nCPColor; // 0x1dc
+    int32_t m_nCPInvalidColor; // 0x1e0
+    int32_t m_nCPExtraArcData; // 0x1e4
     // Vector m_vGravity;
     char pad_01[12];
-    float m_flArcMaxDuration;
-    float m_flSegmentBreak;
-    float m_flArcSpeed;
-    float m_flAlpha;
+    float m_flArcMaxDuration; // 0x1f4
+    float m_flSegmentBreak; // 0x1f8
+    float m_flArcSpeed; // 0x1fc
+    float m_flAlpha; // 0x200
     char pad_02[4];
-};
+}; // size: 0x208
 
-class C_OP_TwistAroundAxis {
+class __declspec(align(8)) C_OP_TwistAroundAxis {
 public:
     char pad_00[480];
-    float m_fForceAmount;
+    float m_fForceAmount; // 0x1e0
     // Vector m_TwistAxis;
     char pad_01[12];
-    bool m_bLocalSpace;
-    int32_t m_nControlPointNumber;
-};
+    bool m_bLocalSpace; // 0x1f0
+    int32_t m_nControlPointNumber; // 0x1f4
+}; // size: 0x1f8
 
-class C_OP_ModelDampenMovement {
+class __declspec(align(8)) C_OP_ModelDampenMovement {
 public:
     char pad_00[464];
-    int32_t m_nControlPointNumber;
-    bool m_bBoundBox;
-    bool m_bOutside;
-    bool m_bUseBones;
-    char m_HitboxSetName[128];
-    CPerParticleVecInput m_vecPosOffset;
-    float m_fDrag;
+    int32_t m_nControlPointNumber; // 0x1d0
+    bool m_bBoundBox; // 0x1d4
+    bool m_bOutside; // 0x1d5
+    bool m_bUseBones; // 0x1d6
+    char m_HitboxSetName[128]; // 0x1d7
+    CPerParticleVecInput m_vecPosOffset; // 0x258
+    float m_fDrag; // 0x910
     char pad_01[4];
-};
+}; // size: 0x918
 
-class C_INIT_VelocityRandom {
+class __declspec(align(8)) C_INIT_VelocityRandom {
 public:
     char pad_00[472];
-    int32_t m_nControlPointNumber;
-    CPerParticleFloatInput m_fSpeedMin;
-    CPerParticleFloatInput m_fSpeedMax;
-    CPerParticleVecInput m_LocalCoordinateSystemSpeedMin;
-    CPerParticleVecInput m_LocalCoordinateSystemSpeedMax;
-    bool m_bIgnoreDT;
-    CRandomNumberGeneratorParameters m_randomnessParameters;
+    int32_t m_nControlPointNumber; // 0x1d8
+    CPerParticleFloatInput m_fSpeedMin; // 0x1e0
+    CPerParticleFloatInput m_fSpeedMax; // 0x350
+    CPerParticleVecInput m_LocalCoordinateSystemSpeedMin; // 0x4c0
+    CPerParticleVecInput m_LocalCoordinateSystemSpeedMax; // 0xb78
+    bool m_bIgnoreDT; // 0x1230
+    CRandomNumberGeneratorParameters m_randomnessParameters; // 0x1234
     char pad_01[4];
-};
+}; // size: 0x1240
 
-class C_OP_PlaneCull {
+class __declspec(align(8)) C_OP_PlaneCull {
 public:
     char pad_00[464];
-    int32_t m_nPlaneControlPoint;
-    CParticleCollectionVecInput m_vecPlaneDirection;
-    bool m_bLocalSpace;
-    float m_flPlaneOffset;
-};
+    int32_t m_nPlaneControlPoint; // 0x1d0
+    CParticleCollectionVecInput m_vecPlaneDirection; // 0x1d8
+    bool m_bLocalSpace; // 0x890
+    float m_flPlaneOffset; // 0x894
+}; // size: 0x898
 
-class C_INIT_RandomNamedModelSequence {
+class __declspec(align(8)) C_INIT_RandomNamedModelSequence {
 public:
     char pad_00[512];
-};
+}; // size: 0x200
 
-class C_OP_RemapScalarOnceTimed {
+class __declspec(align(8)) C_OP_RemapScalarOnceTimed {
 public:
     char pad_00[464];
-    bool m_bProportional;
-    ParticleAttributeIndex_t m_nFieldInput;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    float m_flRemapTime;
-};
+    bool m_bProportional; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldInput; // 0x1d4
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d8
+    float m_flInputMin; // 0x1dc
+    float m_flInputMax; // 0x1e0
+    float m_flOutputMin; // 0x1e4
+    float m_flOutputMax; // 0x1e8
+    float m_flRemapTime; // 0x1ec
+}; // size: 0x1f0
 
-class ParticleChildrenInfo_t {
+class __declspec(align(16)) ParticleChildrenInfo_t {
 public:
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_ChildRef;
     char pad_00[8];
-    float m_flDelay;
-    bool m_bEndCap;
-    bool m_bDisableChild;
-    ParticleDetailLevel_t m_nDetailLevel;
+    float m_flDelay; // 0x8
+    bool m_bEndCap; // 0xc
+    bool m_bDisableChild; // 0xd
+    ParticleDetailLevel_t m_nDetailLevel; // 0x10
     char pad_01[12];
-};
+}; // size: 0x20
 
-class C_INIT_InitialVelocityNoise {
+class __declspec(align(8)) C_INIT_InitialVelocityNoise {
 public:
     // Vector m_vecAbsVal;
     // Vector m_vecAbsValInv;
     char pad_00[496];
-    CPerParticleVecInput m_vecOffsetLoc;
-    CPerParticleFloatInput m_flOffset;
-    CPerParticleVecInput m_vecOutputMin;
-    CPerParticleVecInput m_vecOutputMax;
-    CPerParticleFloatInput m_flNoiseScale;
-    CPerParticleFloatInput m_flNoiseScaleLoc;
-    CParticleTransformInput m_TransformInput;
-    bool m_bIgnoreDt;
+    CPerParticleVecInput m_vecOffsetLoc; // 0x1f0
+    CPerParticleFloatInput m_flOffset; // 0x8a8
+    CPerParticleVecInput m_vecOutputMin; // 0xa18
+    CPerParticleVecInput m_vecOutputMax; // 0x10d0
+    CPerParticleFloatInput m_flNoiseScale; // 0x1788
+    CPerParticleFloatInput m_flNoiseScaleLoc; // 0x18f8
+    CParticleTransformInput m_TransformInput; // 0x1a68
+    bool m_bIgnoreDt; // 0x1ad0
     char pad_01[7];
-};
+}; // size: 0x1ad8
 
-class C_INIT_RandomVector {
+class __declspec(align(8)) C_INIT_RandomVector {
 public:
     // Vector m_vecMin;
     // Vector m_vecMax;
     char pad_00[496];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CRandomNumberGeneratorParameters m_randomnessParameters;
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1f0
+    CRandomNumberGeneratorParameters m_randomnessParameters; // 0x1f4
     char pad_01[4];
-};
+}; // size: 0x200
 
-class C_OP_ConstrainDistance {
+class __declspec(align(8)) C_OP_ConstrainDistance {
 public:
     char pad_00[464];
-    CParticleCollectionFloatInput m_fMinDistance;
-    CParticleCollectionFloatInput m_fMaxDistance;
-    int32_t m_nControlPointNumber;
+    CParticleCollectionFloatInput m_fMinDistance; // 0x1d0
+    CParticleCollectionFloatInput m_fMaxDistance; // 0x340
+    int32_t m_nControlPointNumber; // 0x4b0
     // Vector m_CenterOffset;
     char pad_01[12];
-    bool m_bGlobalCenter;
+    bool m_bGlobalCenter; // 0x4c0
     char pad_02[7];
-};
+}; // size: 0x4c8
 
-class C_INIT_RtEnvCull {
+class __declspec(align(8)) C_INIT_RtEnvCull {
 public:
     // Vector m_vecTestDir;
     // Vector m_vecTestNormal;
     char pad_00[496];
-    bool m_bUseVelocity;
-    bool m_bCullOnMiss;
-    bool m_bLifeAdjust;
-    char m_RtEnvName[128];
-    int32_t m_nRTEnvCP;
-    int32_t m_nComponent;
+    bool m_bUseVelocity; // 0x1f0
+    bool m_bCullOnMiss; // 0x1f1
+    bool m_bLifeAdjust; // 0x1f2
+    char m_RtEnvName[128]; // 0x1f3
+    int32_t m_nRTEnvCP; // 0x274
+    int32_t m_nComponent; // 0x278
     char pad_01[4];
-};
+}; // size: 0x280
 
-class C_INIT_StatusEffect {
+class __declspec(align(8)) C_INIT_StatusEffect {
 public:
     char pad_00[472];
-    Detail2Combo_t m_nDetail2Combo;
-    float m_flDetail2Rotation;
-    float m_flDetail2Scale;
-    float m_flDetail2BlendFactor;
-    float m_flColorWarpIntensity;
-    float m_flDiffuseWarpBlendToFull;
-    float m_flEnvMapIntensity;
-    float m_flAmbientScale;
+    Detail2Combo_t m_nDetail2Combo; // 0x1d8
+    float m_flDetail2Rotation; // 0x1dc
+    float m_flDetail2Scale; // 0x1e0
+    float m_flDetail2BlendFactor; // 0x1e4
+    float m_flColorWarpIntensity; // 0x1e8
+    float m_flDiffuseWarpBlendToFull; // 0x1ec
+    float m_flEnvMapIntensity; // 0x1f0
+    float m_flAmbientScale; // 0x1f4
     // Color m_specularColor;
     char pad_01[4];
-    float m_flSpecularScale;
-    float m_flSpecularExponent;
-    float m_flSpecularExponentBlendToFull;
-    float m_flSpecularBlendToFull;
+    float m_flSpecularScale; // 0x1fc
+    float m_flSpecularExponent; // 0x200
+    float m_flSpecularExponentBlendToFull; // 0x204
+    float m_flSpecularBlendToFull; // 0x208
     // Color m_rimLightColor;
     char pad_02[4];
-    float m_flRimLightScale;
-    float m_flReflectionsTintByBaseBlendToNone;
-    float m_flMetalnessBlendToFull;
-    float m_flSelfIllumBlendToFull;
+    float m_flRimLightScale; // 0x210
+    float m_flReflectionsTintByBaseBlendToNone; // 0x214
+    float m_flMetalnessBlendToFull; // 0x218
+    float m_flSelfIllumBlendToFull; // 0x21c
     char pad_03[24];
-};
+}; // size: 0x238
 
-class C_OP_OscillateScalarSimple {
+class __declspec(align(16)) C_OP_OscillateScalarSimple {
 public:
     char pad_00[464];
-    float m_Rate;
-    float m_Frequency;
-    ParticleAttributeIndex_t m_nField;
-    float m_flOscMult;
-    float m_flOscAdd;
+    float m_Rate; // 0x1d0
+    float m_Frequency; // 0x1d4
+    ParticleAttributeIndex_t m_nField; // 0x1d8
+    float m_flOscMult; // 0x1dc
+    float m_flOscAdd; // 0x1e0
     char pad_01[44];
-};
+}; // size: 0x210
 
-class ParticlePreviewBodyGroup_t {
+class __declspec(align(8)) ParticlePreviewBodyGroup_t {
 public:
     // CUtlString m_bodyGroupName;
     char pad_00[8];
-    int32_t m_nValue;
+    int32_t m_nValue; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class C_OP_PointVectorAtNextParticle {
+class __declspec(align(8)) C_OP_PointVectorAtNextParticle {
 public:
     char pad_00[464];
-    ParticleAttributeIndex_t m_nFieldOutput;
-    CPerParticleFloatInput m_flInterpolation;
-};
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d0
+    CPerParticleFloatInput m_flInterpolation; // 0x1d8
+}; // size: 0x348
 
-class C_OP_RemapCPVelocityToVector {
+class __declspec(align(8)) C_OP_RemapCPVelocityToVector {
 public:
     char pad_00[464];
-    int32_t m_nControlPoint;
-    ParticleAttributeIndex_t m_nFieldOutput;
-    float m_flScale;
-    bool m_bNormalize;
+    int32_t m_nControlPoint; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+    float m_flScale; // 0x1d8
+    bool m_bNormalize; // 0x1dc
     char pad_01[3];
-};
+}; // size: 0x1e0
 
-class C_OP_SetControlPointsToParticle {
+class __declspec(align(8)) C_OP_SetControlPointsToParticle {
 public:
     char pad_00[464];
-    int32_t m_nChildGroupID;
-    int32_t m_nFirstControlPoint;
-    int32_t m_nNumControlPoints;
-    int32_t m_nFirstSourcePoint;
-    bool m_bReverse;
-    bool m_bSetOrientation;
-    ParticleOrientationSetMode_t m_nOrientationMode;
-    ParticleParentSetMode_t m_nSetParent;
+    int32_t m_nChildGroupID; // 0x1d0
+    int32_t m_nFirstControlPoint; // 0x1d4
+    int32_t m_nNumControlPoints; // 0x1d8
+    int32_t m_nFirstSourcePoint; // 0x1dc
+    bool m_bReverse; // 0x1e0
+    bool m_bSetOrientation; // 0x1e1
+    ParticleOrientationSetMode_t m_nOrientationMode; // 0x1e4
+    ParticleParentSetMode_t m_nSetParent; // 0x1e8
     char pad_01[4];
-};
+}; // size: 0x1f0
 
-class CParticleVisibilityInputs {
+class __declspec(align(4)) CParticleVisibilityInputs {
 public:
-    float m_flCameraBias;
-    int32_t m_nCPin;
-    float m_flProxyRadius;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flInputPixelVisFade;
-    float m_flNoPixelVisibilityFallback;
-    float m_flDistanceInputMin;
-    float m_flDistanceInputMax;
-    float m_flDotInputMin;
-    float m_flDotInputMax;
-    bool m_bDotCPAngles;
-    bool m_bDotCameraAngles;
-    float m_flAlphaScaleMin;
-    float m_flAlphaScaleMax;
-    float m_flRadiusScaleMin;
-    float m_flRadiusScaleMax;
-    float m_flRadiusScaleFOVBase;
-    bool m_bRightEye;
+    float m_flCameraBias; // 0x0
+    int32_t m_nCPin; // 0x4
+    float m_flProxyRadius; // 0x8
+    float m_flInputMin; // 0xc
+    float m_flInputMax; // 0x10
+    float m_flInputPixelVisFade; // 0x14
+    float m_flNoPixelVisibilityFallback; // 0x18
+    float m_flDistanceInputMin; // 0x1c
+    float m_flDistanceInputMax; // 0x20
+    float m_flDotInputMin; // 0x24
+    float m_flDotInputMax; // 0x28
+    bool m_bDotCPAngles; // 0x2c
+    bool m_bDotCameraAngles; // 0x2d
+    float m_flAlphaScaleMin; // 0x30
+    float m_flAlphaScaleMax; // 0x34
+    float m_flRadiusScaleMin; // 0x38
+    float m_flRadiusScaleMax; // 0x3c
+    float m_flRadiusScaleFOVBase; // 0x40
+    bool m_bRightEye; // 0x44
     char pad_00[3];
-};
+}; // size: 0x48
 
-class C_OP_RenderSound {
+class __declspec(align(8)) C_OP_RenderSound {
 public:
     char pad_00[544];
-    float m_flDurationScale;
-    float m_flSndLvlScale;
-    float m_flPitchScale;
-    float m_flVolumeScale;
-    ParticleAttributeIndex_t m_nSndLvlField;
-    ParticleAttributeIndex_t m_nDurationField;
-    ParticleAttributeIndex_t m_nPitchField;
-    ParticleAttributeIndex_t m_nVolumeField;
-    int32_t m_nChannel;
-    int32_t m_nCPReference;
-    char m_pszSoundName[256];
-    bool m_bSuppressStopSoundEvent;
+    float m_flDurationScale; // 0x220
+    float m_flSndLvlScale; // 0x224
+    float m_flPitchScale; // 0x228
+    float m_flVolumeScale; // 0x22c
+    ParticleAttributeIndex_t m_nSndLvlField; // 0x230
+    ParticleAttributeIndex_t m_nDurationField; // 0x234
+    ParticleAttributeIndex_t m_nPitchField; // 0x238
+    ParticleAttributeIndex_t m_nVolumeField; // 0x23c
+    int32_t m_nChannel; // 0x240
+    int32_t m_nCPReference; // 0x244
+    char m_pszSoundName[256]; // 0x248
+    bool m_bSuppressStopSoundEvent; // 0x348
     char pad_01[7];
-};
+}; // size: 0x350
 
-class C_INIT_StatusEffectCitadel {
+class __declspec(align(8)) C_INIT_StatusEffectCitadel {
 public:
     char pad_00[472];
-    float m_flSFXColorWarpAmount;
-    float m_flSFXNormalAmount;
-    float m_flSFXMetalnessAmount;
-    float m_flSFXRoughnessAmount;
-    float m_flSFXSelfIllumAmount;
-    float m_flSFXSScale;
-    float m_flSFXSScrollX;
-    float m_flSFXSScrollY;
-    float m_flSFXSScrollZ;
-    float m_flSFXSOffsetX;
-    float m_flSFXSOffsetY;
-    float m_flSFXSOffsetZ;
-    DetailCombo_t m_nDetailCombo;
-    float m_flSFXSDetailAmount;
-    float m_flSFXSDetailScale;
-    float m_flSFXSDetailScrollX;
-    float m_flSFXSDetailScrollY;
-    float m_flSFXSDetailScrollZ;
-    float m_flSFXSUseModelUVs;
+    float m_flSFXColorWarpAmount; // 0x1d8
+    float m_flSFXNormalAmount; // 0x1dc
+    float m_flSFXMetalnessAmount; // 0x1e0
+    float m_flSFXRoughnessAmount; // 0x1e4
+    float m_flSFXSelfIllumAmount; // 0x1e8
+    float m_flSFXSScale; // 0x1ec
+    float m_flSFXSScrollX; // 0x1f0
+    float m_flSFXSScrollY; // 0x1f4
+    float m_flSFXSScrollZ; // 0x1f8
+    float m_flSFXSOffsetX; // 0x1fc
+    float m_flSFXSOffsetY; // 0x200
+    float m_flSFXSOffsetZ; // 0x204
+    DetailCombo_t m_nDetailCombo; // 0x208
+    float m_flSFXSDetailAmount; // 0x20c
+    float m_flSFXSDetailScale; // 0x210
+    float m_flSFXSDetailScrollX; // 0x214
+    float m_flSFXSDetailScrollY; // 0x218
+    float m_flSFXSDetailScrollZ; // 0x21c
+    float m_flSFXSUseModelUVs; // 0x220
     char pad_01[4];
-};
+}; // size: 0x228
 
-class C_OP_RenderRopes {
+class __declspec(align(8)) C_OP_RenderRopes {
 public:
     char pad_00[11752];
-    bool m_bEnableFadingAndClamping;
-    float m_flMinSize;
-    float m_flMaxSize;
-    float m_flStartFadeSize;
-    float m_flEndFadeSize;
-    float m_flStartFadeDot;
-    float m_flEndFadeDot;
-    float m_flRadiusTaper;
-    int32_t m_nMinTesselation;
-    int32_t m_nMaxTesselation;
-    float m_flTessScale;
-    CParticleCollectionRendererFloatInput m_flTextureVWorldSize;
-    CParticleCollectionRendererFloatInput m_flTextureVScrollRate;
-    CParticleCollectionRendererFloatInput m_flTextureVOffset;
-    int32_t m_nTextureVParamsCP;
-    bool m_bClampV;
-    int32_t m_nScaleCP1;
-    int32_t m_nScaleCP2;
-    float m_flScaleVSizeByControlPointDistance;
-    float m_flScaleVScrollByControlPointDistance;
-    float m_flScaleVOffsetByControlPointDistance;
+    bool m_bEnableFadingAndClamping; // 0x2de8
+    float m_flMinSize; // 0x2dec
+    float m_flMaxSize; // 0x2df0
+    float m_flStartFadeSize; // 0x2df4
+    float m_flEndFadeSize; // 0x2df8
+    float m_flStartFadeDot; // 0x2dfc
+    float m_flEndFadeDot; // 0x2e00
+    float m_flRadiusTaper; // 0x2e04
+    int32_t m_nMinTesselation; // 0x2e08
+    int32_t m_nMaxTesselation; // 0x2e0c
+    float m_flTessScale; // 0x2e10
+    CParticleCollectionRendererFloatInput m_flTextureVWorldSize; // 0x2e18
+    CParticleCollectionRendererFloatInput m_flTextureVScrollRate; // 0x2f88
+    CParticleCollectionRendererFloatInput m_flTextureVOffset; // 0x30f8
+    int32_t m_nTextureVParamsCP; // 0x3268
+    bool m_bClampV; // 0x326c
+    int32_t m_nScaleCP1; // 0x3270
+    int32_t m_nScaleCP2; // 0x3274
+    float m_flScaleVSizeByControlPointDistance; // 0x3278
+    float m_flScaleVScrollByControlPointDistance; // 0x327c
+    float m_flScaleVOffsetByControlPointDistance; // 0x3280
     char pad_01[1];
-    bool m_bUseScalarForTextureCoordinate;
-    ParticleAttributeIndex_t m_nScalarFieldForTextureCoordinate;
-    float m_flScalarAttributeTextureCoordScale;
-    bool m_bReverseOrder;
-    bool m_bClosedLoop;
-    ParticleAttributeIndex_t m_nSplitField;
-    bool m_bSortBySegmentID;
-    ParticleOrientationChoiceList_t m_nOrientationType;
-    ParticleAttributeIndex_t m_nVectorFieldForOrientation;
-    bool m_bDrawAsOpaque;
-    bool m_bGenerateNormals;
+    bool m_bUseScalarForTextureCoordinate; // 0x3285
+    ParticleAttributeIndex_t m_nScalarFieldForTextureCoordinate; // 0x3288
+    float m_flScalarAttributeTextureCoordScale; // 0x328c
+    bool m_bReverseOrder; // 0x3290
+    bool m_bClosedLoop; // 0x3291
+    ParticleAttributeIndex_t m_nSplitField; // 0x3294
+    bool m_bSortBySegmentID; // 0x3298
+    ParticleOrientationChoiceList_t m_nOrientationType; // 0x329c
+    ParticleAttributeIndex_t m_nVectorFieldForOrientation; // 0x32a0
+    bool m_bDrawAsOpaque; // 0x32a4
+    bool m_bGenerateNormals; // 0x32a5
     char pad_02[2];
-};
+}; // size: 0x32a8
 
-class C_OP_SpringToVectorConstraint {
+class __declspec(align(8)) C_OP_SpringToVectorConstraint {
 public:
     char pad_00[464];
-    CPerParticleFloatInput m_flRestLength;
-    CPerParticleFloatInput m_flMinDistance;
-    CPerParticleFloatInput m_flMaxDistance;
-    CPerParticleFloatInput m_flRestingLength;
-    CPerParticleVecInput m_vecAnchorVector;
-};
+    CPerParticleFloatInput m_flRestLength; // 0x1d0
+    CPerParticleFloatInput m_flMinDistance; // 0x340
+    CPerParticleFloatInput m_flMaxDistance; // 0x4b0
+    CPerParticleFloatInput m_flRestingLength; // 0x620
+    CPerParticleVecInput m_vecAnchorVector; // 0x790
+}; // size: 0xe48
 
-class C_OP_FadeOutSimple {
+class __declspec(align(8)) C_OP_FadeOutSimple {
 public:
     char pad_00[464];
-    float m_flFadeOutTime;
-    ParticleAttributeIndex_t m_nFieldOutput;
-};
+    float m_flFadeOutTime; // 0x1d0
+    ParticleAttributeIndex_t m_nFieldOutput; // 0x1d4
+}; // size: 0x1d8
 
-class CParticleFunctionPreEmission {
+class __declspec(align(1)) CParticleFunctionPreEmission {
 public:
     char pad_00[464];
-    bool m_bRunOnce;
+    bool m_bRunOnce; // 0x1d0
     char pad_01[7];
-};
+}; // size: 0x1d8
 
-class CollisionGroupContext_t {
+class __declspec(align(4)) CollisionGroupContext_t {
 public:
-    int32_t m_nCollisionGroupNumber;
-};
+    int32_t m_nCollisionGroupNumber; // 0x0
+}; // size: 0x4
 
-class C_OP_RemapTransformToVelocity {
+class __declspec(align(8)) C_OP_RemapTransformToVelocity {
 public:
     char pad_00[464];
-    CParticleTransformInput m_TransformInput;
-};
+    CParticleTransformInput m_TransformInput; // 0x1d0
+}; // size: 0x238
 
-class C_OP_RemapSpeedtoCP {
+class __declspec(align(8)) C_OP_RemapSpeedtoCP {
 public:
     char pad_00[472];
-    int32_t m_nInControlPointNumber;
-    int32_t m_nOutControlPointNumber;
-    int32_t m_nField;
-    float m_flInputMin;
-    float m_flInputMax;
-    float m_flOutputMin;
-    float m_flOutputMax;
-    bool m_bUseDeltaV;
+    int32_t m_nInControlPointNumber; // 0x1d8
+    int32_t m_nOutControlPointNumber; // 0x1dc
+    int32_t m_nField; // 0x1e0
+    float m_flInputMin; // 0x1e4
+    float m_flInputMax; // 0x1e8
+    float m_flOutputMin; // 0x1ec
+    float m_flOutputMax; // 0x1f0
+    bool m_bUseDeltaV; // 0x1f4
     char pad_01[3];
-};
+}; // size: 0x1f8
 
-class C_OP_RenderDeferredLight {
+class __declspec(align(8)) C_OP_RenderDeferredLight {
 public:
     char pad_00[544];
-    bool m_bUseAlphaTestWindow;
-    bool m_bUseTexture;
-    float m_flRadiusScale;
-    float m_flAlphaScale;
-    ParticleAttributeIndex_t m_nAlpha2Field;
-    CParticleCollectionVecInput m_vecColorScale;
-    ParticleColorBlendType_t m_nColorBlendType;
-    float m_flLightDistance;
-    float m_flStartFalloff;
-    float m_flDistanceFalloff;
-    float m_flSpotFoV;
-    ParticleAttributeIndex_t m_nAlphaTestPointField;
-    ParticleAttributeIndex_t m_nAlphaTestRangeField;
-    ParticleAttributeIndex_t m_nAlphaTestSharpnessField;
+    bool m_bUseAlphaTestWindow; // 0x220
+    bool m_bUseTexture; // 0x221
+    float m_flRadiusScale; // 0x224
+    float m_flAlphaScale; // 0x228
+    ParticleAttributeIndex_t m_nAlpha2Field; // 0x22c
+    CParticleCollectionVecInput m_vecColorScale; // 0x230
+    ParticleColorBlendType_t m_nColorBlendType; // 0x8e8
+    float m_flLightDistance; // 0x8ec
+    float m_flStartFalloff; // 0x8f0
+    float m_flDistanceFalloff; // 0x8f4
+    float m_flSpotFoV; // 0x8f8
+    ParticleAttributeIndex_t m_nAlphaTestPointField; // 0x8fc
+    ParticleAttributeIndex_t m_nAlphaTestRangeField; // 0x900
+    ParticleAttributeIndex_t m_nAlphaTestSharpnessField; // 0x904
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hTexture;
     char pad_01[8];
-    int32_t m_nHSVShiftControlPoint;
+    int32_t m_nHSVShiftControlPoint; // 0x910
     char pad_02[4];
-};
+}; // size: 0x918
 
-class C_OP_Decay {
+class __declspec(align(8)) C_OP_Decay {
 public:
     char pad_00[464];
-    bool m_bRopeDecay;
-    bool m_bForcePreserveParticleOrder;
+    bool m_bRopeDecay; // 0x1d0
+    bool m_bForcePreserveParticleOrder; // 0x1d1
     char pad_01[6];
-};
+}; // size: 0x1d8
 
-class C_OP_RemapGravityToVector {
+class __declspec(align(16)) C_OP_RemapGravityToVector {
 public:
     char pad_00[464];
-    CPerParticleVecInput m_vInput1;
-    ParticleAttributeIndex_t m_nOutputField;
-    ParticleSetMethod_t m_nSetMethod;
-    bool m_bNormalizedOutput;
+    CPerParticleVecInput m_vInput1; // 0x1d0
+    ParticleAttributeIndex_t m_nOutputField; // 0x888
+    ParticleSetMethod_t m_nSetMethod; // 0x88c
+    bool m_bNormalizedOutput; // 0x890
     char pad_01[111];
-};
+}; // size: 0x900
 
-class Relationship_t {
+class __declspec(align(4)) Relationship_t {
 public:
-    Disposition_t disposition;
-    int32_t priority;
-};
+    Disposition_t disposition; // 0x0
+    int32_t priority; // 0x4
+}; // size: 0x8
 
-class CNavVolumeSphere {
+class __declspec(align(4)) CNavVolumeSphere {
 public:
     // Vector m_vCenter;
     char pad_00[132];
-    float m_flRadius;
-};
+    float m_flRadius; // 0x84
+}; // size: 0x88
 
-class CNavVolumeAll {
+class __declspec(align(1)) CNavVolumeAll {
 public:
     char pad_00[160];
-};
+}; // size: 0xa0
 
-class CDestructiblePart_DamageLevel {
+class __declspec(align(8)) CDestructiblePart_DamageLevel {
 public:
     // CUtlString m_sName;
     // CGlobalSymbol m_sBreakablePieceName;
     char pad_00[16];
-    int32_t m_nBodyGroupValue;
+    int32_t m_nBodyGroupValue; // 0x10
     // CSkillInt m_nHealth;
     char pad_01[16];
-    float m_flCriticalDamagePercent;
-    EDestructiblePartDamagePassThroughType m_nDamagePassthroughType;
-    DestructiblePartDestructionDeathBehavior_t m_nDestructionDeathBehavior;
+    float m_flCriticalDamagePercent; // 0x24
+    EDestructiblePartDamagePassThroughType m_nDamagePassthroughType; // 0x28
+    DestructiblePartDestructionDeathBehavior_t m_nDestructionDeathBehavior; // 0x2c
     // CGlobalSymbol m_sCustomDeathHandshake;
     char pad_02[8];
-    bool m_bShouldDestroyOnDeath;
-    CRangeFloat m_flDeathDestroyTime;
+    bool m_bShouldDestroyOnDeath; // 0x38
+    CRangeFloat m_flDeathDestroyTime; // 0x3c
     char pad_03[4];
-};
+}; // size: 0x48
 
-class CNetworkVelocityVector {
+class __declspec(align(1)) CNetworkVelocityVector {
 public:
     // CNetworkedQuantizedFloat m_vecX;
     // CNetworkedQuantizedFloat m_vecY;
     // CNetworkedQuantizedFloat m_vecZ;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CAnimGraphControllerBase {
+class __declspec(align(1)) CAnimGraphControllerBase {
 public:
     // ExternalAnimGraphHandle_t m_hExternalGraph;
     char pad_00[144];
-};
+}; // size: 0x90
 
-class hudtextparms_t {
+class __declspec(align(4)) hudtextparms_t {
 public:
     // Color color1;
     // Color color2;
     char pad_00[8];
-    uint8_t effect;
-    uint8_t channel;
-    float x;
-    float y;
-};
+    uint8_t effect; // 0x8
+    uint8_t channel; // 0x9
+    float x; // 0xc
+    float y; // 0x10
+}; // size: 0x14
 
-class IRagdoll {
+class __declspec(align(1)) IRagdoll {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CSAdditionalMatchStats_t {
+class __declspec(align(4)) CSAdditionalMatchStats_t {
 public:
     char pad_00[240];
-    int32_t m_numRoundsSurvivedStreak;
-    int32_t m_maxNumRoundsSurvivedStreak;
-    int32_t m_numRoundsSurvivedTotal;
-    int32_t m_iRoundsWonWithoutPurchase;
-    int32_t m_iRoundsWonWithoutPurchaseTotal;
-    int32_t m_numFirstKills;
-    int32_t m_numClutchKills;
-    int32_t m_numPistolKills;
-    int32_t m_numSniperKills;
-    int32_t m_iNumSuicides;
-    int32_t m_iNumTeamKills;
-    float m_flTeamDamage;
-};
+    int32_t m_numRoundsSurvivedStreak; // 0xf0
+    int32_t m_maxNumRoundsSurvivedStreak; // 0xf4
+    int32_t m_numRoundsSurvivedTotal; // 0xf8
+    int32_t m_iRoundsWonWithoutPurchase; // 0xfc
+    int32_t m_iRoundsWonWithoutPurchaseTotal; // 0x100
+    int32_t m_numFirstKills; // 0x104
+    int32_t m_numClutchKills; // 0x108
+    int32_t m_numPistolKills; // 0x10c
+    int32_t m_numSniperKills; // 0x110
+    int32_t m_iNumSuicides; // 0x114
+    int32_t m_iNumTeamKills; // 0x118
+    float m_flTeamDamage; // 0x11c
+}; // size: 0x120
 
-class dynpitchvol_base_t {
+class __declspec(align(4)) dynpitchvol_base_t {
 public:
-    int32_t preset;
-    int32_t pitchrun;
-    int32_t pitchstart;
-    int32_t spinup;
-    int32_t spindown;
-    int32_t volrun;
-    int32_t volstart;
-    int32_t fadein;
-    int32_t fadeout;
-    int32_t lfotype;
-    int32_t lforate;
-    int32_t lfomodpitch;
-    int32_t lfomodvol;
-    int32_t cspinup;
-    int32_t cspincount;
-    int32_t pitch;
-    int32_t spinupsav;
-    int32_t spindownsav;
-    int32_t pitchfrac;
-    int32_t vol;
-    int32_t fadeinsav;
-    int32_t fadeoutsav;
-    int32_t volfrac;
-    int32_t lfofrac;
-    int32_t lfomult;
-};
+    int32_t preset; // 0x0
+    int32_t pitchrun; // 0x4
+    int32_t pitchstart; // 0x8
+    int32_t spinup; // 0xc
+    int32_t spindown; // 0x10
+    int32_t volrun; // 0x14
+    int32_t volstart; // 0x18
+    int32_t fadein; // 0x1c
+    int32_t fadeout; // 0x20
+    int32_t lfotype; // 0x24
+    int32_t lforate; // 0x28
+    int32_t lfomodpitch; // 0x2c
+    int32_t lfomodvol; // 0x30
+    int32_t cspinup; // 0x34
+    int32_t cspincount; // 0x38
+    int32_t pitch; // 0x3c
+    int32_t spinupsav; // 0x40
+    int32_t spindownsav; // 0x44
+    int32_t pitchfrac; // 0x48
+    int32_t vol; // 0x4c
+    int32_t fadeinsav; // 0x50
+    int32_t fadeoutsav; // 0x54
+    int32_t volfrac; // 0x58
+    int32_t lfofrac; // 0x5c
+    int32_t lfomult; // 0x60
+}; // size: 0x64
 
-class dynpitchvol_t : public dynpitchvol_base_t {
+class __declspec(align(4)) dynpitchvol_t : public dynpitchvol_base_t {
 public:
-    char pad_00[100];
-};
+}; // size: 0x64
 
-class CNavVolumeBreadthFirstSearch {
+class __declspec(align(4)) CNavVolumeBreadthFirstSearch {
 public:
     // Vector m_vStartPos;
     char pad_00[180];
-    float m_flSearchDist;
+    float m_flSearchDist; // 0xb4
     char pad_01[8];
-};
+}; // size: 0xc0
 
-class CBreakableStageHelper {
+class __declspec(align(4)) CBreakableStageHelper {
 public:
     char pad_00[8];
-    int32_t m_nCurrentStage;
-    int32_t m_nStageCount;
+    int32_t m_nCurrentStage; // 0x8
+    int32_t m_nStageCount; // 0xc
     char pad_01[8];
-};
+}; // size: 0x18
 
-class CEntitySubclassVDataBase {
+class __declspec(align(8)) CEntitySubclassVDataBase {
 public:
     char pad_00[40];
-};
+}; // size: 0x28
 
-class ModelConfigHandle_t {
+class __declspec(align(4)) ModelConfigHandle_t {
 public:
-    uint32_t m_Value;
-};
+    uint32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CEmptyGraphController {
+class __declspec(align(8)) CEmptyGraphController {
 public:
     char pad_00[144];
-};
+}; // size: 0x90
 
-class CSAdditionalPerRoundStats_t {
+class __declspec(align(4)) CSAdditionalPerRoundStats_t {
 public:
-    int32_t m_numChickensKilled;
-    int32_t m_killsWhileBlind;
-    int32_t m_bombCarrierkills;
-    float m_flBurnDamageInflicted;
-    float m_flBlastDamageInflicted;
-    int32_t m_iDinks;
-    bool m_bFreshStartThisRound;
-    bool m_bBombPlantedAndAlive;
-    int32_t m_nDefuseStarts;
-    int32_t m_nHostagePickUps;
-    int32_t m_numTeammatesFlashed;
+    int32_t m_numChickensKilled; // 0x0
+    int32_t m_killsWhileBlind; // 0x4
+    int32_t m_bombCarrierkills; // 0x8
+    float m_flBurnDamageInflicted; // 0xc
+    float m_flBlastDamageInflicted; // 0x10
+    int32_t m_iDinks; // 0x14
+    bool m_bFreshStartThisRound; // 0x18
+    bool m_bBombPlantedAndAlive; // 0x19
+    int32_t m_nDefuseStarts; // 0x1c
+    int32_t m_nHostagePickUps; // 0x20
+    int32_t m_numTeammatesFlashed; // 0x24
     char pad_00[200];
-};
+}; // size: 0xf0
 
-class CBtNodeDecorator {
+class __declspec(align(1)) CBtNodeDecorator {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CFiringModeInt {
+class __declspec(align(4)) CFiringModeInt {
 public:
-    int32_t m_nValues[2];
-};
+    int32_t m_nValues[2]; // 0x0
+}; // size: 0x8
 
-class CNavVolumeCalculatedVector {
+class __declspec(align(1)) CNavVolumeCalculatedVector {
 public:
     char pad_00[160];
-};
+}; // size: 0xa0
 
-class CAnimEventListener {
+class __declspec(align(1)) CAnimEventListener {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class SoundOpvarTraceResult_t {
+class __declspec(align(4)) SoundOpvarTraceResult_t {
 public:
     // Vector vPos;
     char pad_00[12];
-    bool bDidHit;
-    float flDistSqrToCenter;
-};
+    bool bDidHit; // 0xc
+    float flDistSqrToCenter; // 0x10
+}; // size: 0x14
 
-class CNmSnapWeaponNode::CDefinition {
+/// CNmSnapWeaponNode::CDefinition
+class __declspec(align(8)) CNmSnapWeaponNode__CDefinition {
 public:
     char pad_00[24];
-    int16_t m_nEnabledNodeIdx;
-    int16_t m_nLockLeftHandNodeIdx;
-    float m_flBlendTimeSeconds;
-};
+    int16_t m_nEnabledNodeIdx; // 0x18
+    int16_t m_nLockLeftHandNodeIdx; // 0x1a
+    float m_flBlendTimeSeconds; // 0x1c
+}; // size: 0x20
 
-class CNavHullVData {
+class __declspec(align(4)) CNavHullVData {
 public:
-    bool m_bAgentEnabled;
-    float m_agentRadius;
-    float m_agentHeight;
-    bool m_agentShortHeightEnabled;
-    float m_agentShortHeight;
-    bool m_agentCrawlEnabled;
-    float m_agentCrawlHeight;
-    float m_agentMaxClimb;
-    int32_t m_agentMaxSlope;
-    float m_agentMaxJumpDownDist;
-    float m_agentMaxJumpHorizDistBase;
-    float m_agentMaxJumpUpDist;
-    int32_t m_agentBorderErosion;
-    bool m_flowMapGenerationEnabled;
-    float m_flowMapNodeMaxRadius;
-};
+    bool m_bAgentEnabled; // 0x0
+    float m_agentRadius; // 0x4
+    float m_agentHeight; // 0x8
+    bool m_agentShortHeightEnabled; // 0xc
+    float m_agentShortHeight; // 0x10
+    bool m_agentCrawlEnabled; // 0x14
+    float m_agentCrawlHeight; // 0x18
+    float m_agentMaxClimb; // 0x1c
+    int32_t m_agentMaxSlope; // 0x20
+    float m_agentMaxJumpDownDist; // 0x24
+    float m_agentMaxJumpHorizDistBase; // 0x28
+    float m_agentMaxJumpUpDist; // 0x2c
+    int32_t m_agentBorderErosion; // 0x30
+    bool m_flowMapGenerationEnabled; // 0x34
+    float m_flowMapNodeMaxRadius; // 0x38
+}; // size: 0x3c
 
-class CNmEventConsumerParticle {
+class __declspec(align(8)) CNmEventConsumerParticle {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CInButtonState {
+class __declspec(align(8)) CInButtonState {
 public:
     char pad_00[8];
-    uint64_t m_pButtonStates[3];
-};
+    uint64_t m_pButtonStates[3]; // 0x8
+}; // size: 0x20
 
-class CNmEventConsumerLegacy {
+class __declspec(align(8)) CNmEventConsumerLegacy {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CNmEventConsumerSound {
+class __declspec(align(8)) CNmEventConsumerSound {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CIronSightController {
+class __declspec(align(4)) CIronSightController {
 public:
     char pad_00[8];
-    bool m_bIronSightAvailable;
-    float m_flIronSightAmount;
-    float m_flIronSightAmountGained;
-    float m_flIronSightAmountBiased;
-};
+    bool m_bIronSightAvailable; // 0x8
+    float m_flIronSightAmount; // 0xc
+    float m_flIronSightAmountGained; // 0x10
+    float m_flIronSightAmountBiased; // 0x14
+}; // size: 0x18
 
-class CTakeDamageSummaryScopeGuard {
+class __declspec(align(1)) CTakeDamageSummaryScopeGuard {
 public:
     // CUtlVector< SummaryTakeDamageInfo_t* > m_vecSummaries;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CAI_ExpresserWithFollowup {
+class __declspec(align(1)) CAI_ExpresserWithFollowup {
 public:
     char pad_00[160];
-};
+}; // size: 0xa0
 
-class ParticleIndex_t {
+class __declspec(align(4)) ParticleIndex_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CNmAimCSTask {
+class __declspec(align(16)) CNmAimCSTask {
 public:
     char pad_00[256];
-};
+}; // size: 0x100
 
-class QuestProgress {
+class __declspec(align(1)) QuestProgress {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class CNavVolume {
+class __declspec(align(1)) CNavVolume {
 public:
     char pad_00[120];
-};
+}; // size: 0x78
 
-class CMultiplayer_Expresser {
+class __declspec(align(1)) CMultiplayer_Expresser {
 public:
     char pad_00[160];
-    bool m_bAllowMultipleScenes;
+    bool m_bAllowMultipleScenes; // 0xa0
     char pad_01[7];
-};
+}; // size: 0xa8
 
-class IEconItemInterface {
+class __declspec(align(1)) IEconItemInterface {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class sndopvarlatchdata_t {
+class __declspec(align(4)) sndopvarlatchdata_t {
 public:
     // CUtlSymbolLarge m_iszStack;
     // CUtlSymbolLarge m_iszOperator;
     // CUtlSymbolLarge m_iszOpvar;
     char pad_00[32];
-    float m_flVal;
+    float m_flVal; // 0x20
     // Vector m_vPos;
     char pad_01[12];
-};
+}; // size: 0x30
 
-class Extent {
+class __declspec(align(1)) Extent {
 public:
     // VectorWS lo;
     // VectorWS hi;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CRelativeLocation {
+class __declspec(align(1)) CRelativeLocation {
 public:
     char pad_00[24];
-    RelativeLocationType_t m_Type;
+    RelativeLocationType_t m_Type; // 0x18
     // Vector m_vRelativeOffset;
     // VectorWS m_vWorldSpacePos;
     // CHandle< CBaseEntity > m_hEntity;
     char pad_01[31];
-};
+}; // size: 0x38
 
-class CBtNodeComposite {
+class __declspec(align(1)) CBtNodeComposite {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CSimpleSimTimer {
+class __declspec(align(4)) CSimpleSimTimer {
 public:
-    GameTime_t m_flNext;
+    GameTime_t m_flNext; // 0x0
     // WorldGroupId_t m_nWorldGroupId;
     char pad_00[4];
-};
+}; // size: 0x8
 
-class CRandSimTimer : public CSimpleSimTimer {
+class __declspec(align(4)) CRandSimTimer : public CSimpleSimTimer {
 public:
-    float m_flMinInterval;
-    float m_flMaxInterval;
-};
+    float m_flMinInterval; // 0x8
+    float m_flMaxInterval; // 0xc
+}; // size: 0x10
 
-class CTakeDamageInfo {
+class __declspec(align(8)) CTakeDamageInfo {
 public:
     // Vector m_vecDamageForce;
     // VectorWS m_vecDamagePosition;
@@ -19113,254 +19301,255 @@ public:
     // CHandle< CBaseEntity > m_hAttacker;
     // CHandle< CBaseEntity > m_hAbility;
     char pad_00[68];
-    float m_flDamage;
-    float m_flTotalledDamage;
-    DamageTypes_t m_bitsDamageType;
-    int32_t m_iDamageCustom;
+    float m_flDamage; // 0x44
+    float m_flTotalledDamage; // 0x48
+    DamageTypes_t m_bitsDamageType; // 0x4c
+    int32_t m_iDamageCustom; // 0x50
     // AmmoIndex_t m_iAmmoType;
     char pad_01[12];
-    float m_flOriginalDamage;
-    bool m_bShouldBleed;
-    bool m_bShouldSpark;
+    float m_flOriginalDamage; // 0x60
+    bool m_bShouldBleed; // 0x64
+    bool m_bShouldSpark; // 0x65
     char pad_02[8];
-    TakeDamageFlags_t m_nDamageFlags;
-    HitGroup_t m_iHitGroupId;
-    int32_t m_nNumObjectsPenetrated;
-    float m_flFriendlyFireDamageReductionRatio;
-    bool m_bStoppedBullet;
+    TakeDamageFlags_t m_nDamageFlags; // 0x70
+    HitGroup_t m_iHitGroupId; // 0x78
+    int32_t m_nNumObjectsPenetrated; // 0x7c
+    float m_flFriendlyFireDamageReductionRatio; // 0x80
+    bool m_bStoppedBullet; // 0x84
     // CUtlVector< DestructibleHitGroupToDestroy_t > m_nDestructibleHitGroupsToForceDestroy;
     char pad_03[147];
-    bool m_bInTakeDamageFlow;
+    bool m_bInTakeDamageFlow; // 0x118
     char pad_04[7];
-};
+}; // size: 0x120
 
-class WaterWheelDrag_t {
+class __declspec(align(4)) WaterWheelDrag_t {
 public:
-    float m_flFractionOfWheelSubmerged;
-    float m_flWheelDrag;
-};
+    float m_flFractionOfWheelSubmerged; // 0x0
+    float m_flWheelDrag; // 0x4
+}; // size: 0x8
 
-class CConstantForceController {
+class __declspec(align(1)) CConstantForceController {
 public:
     // Vector m_linear;
     // RotationVector m_angular;
     // Vector m_linearSave;
     // RotationVector m_angularSave;
     char pad_00[64];
-};
+}; // size: 0x40
 
-class CNmAimCSNode::CDefinition {
+/// CNmAimCSNode::CDefinition
+class __declspec(align(8)) CNmAimCSNode__CDefinition {
 public:
     char pad_00[24];
-    int16_t m_nVerticalAngleNodeIdx;
-    int16_t m_nHorizontalAngleNodeIdx;
-    int16_t m_nWeaponCategoryNodeIdx;
-    int16_t m_nWeaponTypeNodeIdx;
-    int16_t m_nIsWeaponActionActiveNodeIdx;
-    int16_t m_nWeaponDropNodeIdx;
-    int16_t m_nEnabledNodeIdx;
-    float m_flBlendTimeSeconds;
-    float m_flReduceRangeTimeSeconds;
-};
+    int16_t m_nVerticalAngleNodeIdx; // 0x18
+    int16_t m_nHorizontalAngleNodeIdx; // 0x1a
+    int16_t m_nWeaponCategoryNodeIdx; // 0x1c
+    int16_t m_nWeaponTypeNodeIdx; // 0x1e
+    int16_t m_nIsWeaponActionActiveNodeIdx; // 0x20
+    int16_t m_nWeaponDropNodeIdx; // 0x22
+    int16_t m_nEnabledNodeIdx; // 0x24
+    float m_flBlendTimeSeconds; // 0x28
+    float m_flReduceRangeTimeSeconds; // 0x2c
+}; // size: 0x30
 
-class CVectorExponentialMovingAverage {
+class __declspec(align(1)) CVectorExponentialMovingAverage {
 public:
     char pad_00[44];
-};
+}; // size: 0x2c
 
-class CRR_Response {
+class __declspec(align(8)) CRR_Response {
 public:
-    uint8_t m_Type;
-    char m_szResponseName[192];
-    char m_szMatchingRule[128];
+    uint8_t m_Type; // 0x0
+    char m_szResponseName[192]; // 0x1
+    char m_szMatchingRule[128]; // 0xc1
     // ResponseParams m_Params;
     char pad_00[60];
-    float m_fMatchScore;
-    bool m_bAnyMatchingRulesInCooldown;
-    char* m_szSpeakerContext;
-    char* m_szWorldContext;
+    float m_fMatchScore; // 0x180
+    bool m_bAnyMatchingRulesInCooldown; // 0x184
+    char* m_szSpeakerContext; // 0x188
+    char* m_szWorldContext; // 0x190
     // ResponseFollowup m_Followup;
     // CUtlSymbol m_recipientFilter;
     char pad_01[56];
-};
+}; // size: 0x1d0
 
-class DestructibleHitGroupToDestroy_t {
+class __declspec(align(4)) DestructibleHitGroupToDestroy_t {
 public:
-    HitGroup_t m_nHitGroup;
-    int32_t m_nMaxDamageLevel;
-};
+    HitGroup_t m_nHitGroup; // 0x0
+    int32_t m_nMaxDamageLevel; // 0x4
+}; // size: 0x8
 
-class DestructiblePartDestructionRequest_t {
+class __declspec(align(4)) DestructiblePartDestructionRequest_t {
 public:
-    EDestructibleParts_DestroyParameterFlags m_nDestroyFlags;
-    DamageTypes_t m_nDamageType;
-    float m_flPartDamage;
-    float m_flPartDamageRadius;
+    EDestructibleParts_DestroyParameterFlags m_nDestroyFlags; // 0x0
+    DamageTypes_t m_nDamageType; // 0x4
+    float m_flPartDamage; // 0x8
+    float m_flPartDamageRadius; // 0xc
     // VectorWS m_vWsPartDamageOrigin;
     // Vector m_vWsPartDamageForce;
     char pad_00[24];
-};
+}; // size: 0x28
 
-class CSceneRequest {
+class __declspec(align(4)) CSceneRequest {
 public:
     // CUtlSymbolLarge m_szPayloadTypeName;
     // SceneRequestHandle_t m_uHandle;
     char pad_00[12];
-    ESceneRequestState_t m_state;
+    ESceneRequestState_t m_state; // 0xc
     char pad_01[16];
-};
+}; // size: 0x20
 
-class SummaryTakeDamageInfo_t {
+class __declspec(align(8)) SummaryTakeDamageInfo_t {
 public:
-    int32_t nSummarisedCount;
-    CTakeDamageInfo info;
+    int32_t nSummarisedCount; // 0x0
+    CTakeDamageInfo info; // 0x8
     // CTakeDamageResult result;
     // CHandle< CBaseEntity > hTarget;
     char pad_00[56];
-};
+}; // size: 0x160
 
-class CBaseIssue {
+class __declspec(align(4)) CBaseIssue {
 public:
     char pad_00[32];
-    char m_szTypeString[64];
-    char m_szDetailsString[260];
-    int32_t m_iNumYesVotes;
-    int32_t m_iNumNoVotes;
-    int32_t m_iNumPotentialVotes;
+    char m_szTypeString[64]; // 0x20
+    char m_szDetailsString[260]; // 0x60
+    int32_t m_iNumYesVotes; // 0x164
+    int32_t m_iNumNoVotes; // 0x168
+    int32_t m_iNumPotentialVotes; // 0x16c
     // CVoteController* m_pVoteController;
     char pad_01[8];
-};
+}; // size: 0x178
 
-class CSimTimer : public CSimpleSimTimer {
+class __declspec(align(4)) CSimTimer : public CSimpleSimTimer {
 public:
-    float m_flInterval;
-};
+    float m_flInterval; // 0x8
+}; // size: 0xc
 
-class CMotorController {
+class __declspec(align(4)) CMotorController {
 public:
     char pad_00[8];
-    float m_speed;
-    float m_maxTorque;
+    float m_speed; // 0x8
+    float m_maxTorque; // 0xc
     // VectorWS m_axis;
     char pad_01[12];
-    float m_inertiaFactor;
-};
+    float m_inertiaFactor; // 0x1c
+}; // size: 0x20
 
-class GameAmmoTypeInfo_t {
+class __declspec(align(8)) GameAmmoTypeInfo_t {
 public:
     char pad_00[56];
-    int32_t m_nBuySize;
-    int32_t m_nCost;
+    int32_t m_nBuySize; // 0x38
+    int32_t m_nCost; // 0x3c
     char pad_01[16];
-};
+}; // size: 0x50
 
-class RotatorHistoryEntry_t {
+class __declspec(align(4)) RotatorHistoryEntry_t {
 public:
     // Quaternion qInvChange;
     char pad_00[16];
-    GameTime_t flTimeRotationStart;
+    GameTime_t flTimeRotationStart; // 0x10
     char pad_01[12];
-};
+}; // size: 0x20
 
-class ISkeletonAnimationController {
+class __declspec(align(1)) ISkeletonAnimationController {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class HullFlags_t {
+class __declspec(align(1)) HullFlags_t {
 public:
-    bool m_bHull_Human;
-    bool m_bHull_SmallCentered;
-    bool m_bHull_WideHuman;
-    bool m_bHull_Tiny;
-    bool m_bHull_Medium;
-    bool m_bHull_TinyCentered;
-    bool m_bHull_Large;
-    bool m_bHull_LargeCentered;
-    bool m_bHull_MediumTall;
-    bool m_bHull_Small;
-};
+    bool m_bHull_Human; // 0x0
+    bool m_bHull_SmallCentered; // 0x1
+    bool m_bHull_WideHuman; // 0x2
+    bool m_bHull_Tiny; // 0x3
+    bool m_bHull_Medium; // 0x4
+    bool m_bHull_TinyCentered; // 0x5
+    bool m_bHull_Large; // 0x6
+    bool m_bHull_LargeCentered; // 0x7
+    bool m_bHull_MediumTall; // 0x8
+    bool m_bHull_Small; // 0x9
+}; // size: 0xa
 
-class ragdoll_t {
+class __declspec(align(1)) ragdoll_t {
 public:
     // CUtlVector< ragdollelement_t > list;
     // CUtlVector< ragdollhierarchyjoint_t > hierarchyJoints;
     // CUtlVector< int32 > boneIndex;
     char pad_00[72];
-    bool allowStretch;
-    bool unused;
+    bool allowStretch; // 0x48
+    bool unused; // 0x49
     char pad_01[6];
-};
+}; // size: 0x50
 
-class IHasAttributes {
+class __declspec(align(1)) IHasAttributes {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CSmoothFunc {
+class __declspec(align(4)) CSmoothFunc {
 public:
     char pad_00[8];
-    float m_flSmoothAmplitude;
-    float m_flSmoothBias;
-    float m_flSmoothDuration;
-    float m_flSmoothRemainingTime;
-    int32_t m_nSmoothDir;
+    float m_flSmoothAmplitude; // 0x8
+    float m_flSmoothBias; // 0xc
+    float m_flSmoothDuration; // 0x10
+    float m_flSmoothRemainingTime; // 0x14
+    int32_t m_nSmoothDir; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CFloatMovingAverage {
+class __declspec(align(1)) CFloatMovingAverage {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CCopyRecipientFilter {
+class __declspec(align(4)) CCopyRecipientFilter {
 public:
     char pad_00[8];
-    int32_t m_Flags;
+    int32_t m_Flags; // 0x8
     // CUtlVector< CPlayerSlot > m_Recipients;
     // CPlayerSlot m_slotPlayerExcludedDueToPrediction;
     char pad_01[44];
-};
+}; // size: 0x38
 
-class CFiringModeFloat {
+class __declspec(align(4)) CFiringModeFloat {
 public:
-    float m_flValues[2];
-};
+    float m_flValues[2]; // 0x0
+}; // size: 0x8
 
-class CAnimGraphControllerManager {
+class __declspec(align(1)) CAnimGraphControllerManager {
 public:
     // CUtlVector< CAnimGraphControllerBase* > m_controllers;
     char pad_00[168];
-    bool m_bGraphBindingsCreated;
+    bool m_bGraphBindingsCreated; // 0xa8
     char pad_01[7];
-};
+}; // size: 0xb0
 
-class CBtNode {
+class __declspec(align(1)) CBtNode {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class DecalGroupOption_t {
+class __declspec(align(8)) DecalGroupOption_t {
 public:
     // CStrongHandleCopyable< InfoForResourceTypeIMaterial2 > m_hMaterial;
     // CGlobalSymbol m_sSequenceName;
     char pad_00[16];
-    float m_flProbability;
-    bool m_bEnableAngleBetweenNormalAndGravityRange;
-    float m_flMinAngleBetweenNormalAndGravity;
-    float m_flMaxAngleBetweenNormalAndGravity;
-};
+    float m_flProbability; // 0x10
+    bool m_bEnableAngleBetweenNormalAndGravityRange; // 0x14
+    float m_flMinAngleBetweenNormalAndGravity; // 0x18
+    float m_flMaxAngleBetweenNormalAndGravity; // 0x1c
+}; // size: 0x20
 
-class locksound_t {
+class __declspec(align(4)) locksound_t {
 public:
     // CUtlSymbolLarge sLockedSound;
     // CUtlSymbolLarge sUnlockedSound;
     char pad_00[24];
-    GameTime_t flwaitSound;
+    GameTime_t flwaitSound; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CCS2ChickenGraphController {
+class __declspec(align(8)) CCS2ChickenGraphController {
 public:
     // CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_action;
     // CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_actionSubtype;
@@ -19371,473 +19560,474 @@ public:
     // CAnimGraph2ParamOptionalRef< float32 > m_squatVariation;
     // CAnimGraph2ParamOptionalRef< bool > m_bInWater;
     char pad_00[344];
-    bool m_bHasActionCompletedEvent;
-    bool m_bWaitingForCompletedEvent;
+    bool m_bHasActionCompletedEvent; // 0x158
+    bool m_bWaitingForCompletedEvent; // 0x159
     char pad_01[6];
-};
+}; // size: 0x160
 
-class CSoundPatch {
+class __declspec(align(4)) CSoundPatch {
 public:
     // CSoundEnvelope m_pitch;
     // CSoundEnvelope m_volume;
     char pad_00[60];
-    float m_shutdownTime;
-    float m_flLastTime;
+    float m_shutdownTime; // 0x3c
+    float m_flLastTime; // 0x40
     // CUtlSymbolLarge m_iszSoundScriptName;
     // CHandle< CBaseEntity > m_hEnt;
     // CEntityIndex m_soundEntityIndex;
     // Vector m_soundOrigin;
     char pad_01[32];
-    int32_t m_isPlaying;
-    CCopyRecipientFilter m_Filter;
-    float m_flCloseCaptionDuration;
-    bool m_bUpdatedSoundOrigin;
+    int32_t m_isPlaying; // 0x64
+    CCopyRecipientFilter m_Filter; // 0x68
+    float m_flCloseCaptionDuration; // 0xa0
+    bool m_bUpdatedSoundOrigin; // 0xa4
     // CUtlSymbolLarge m_iszClassName;
     char pad_02[11];
-};
+}; // size: 0xb0
 
-class SoundeventPathCornerPairNetworked_t {
+class __declspec(align(4)) SoundeventPathCornerPairNetworked_t {
 public:
     // Vector vP1;
     // Vector vP2;
     char pad_00[24];
-    float flPathLengthSqr;
-    float flP1Pct;
-    float flP2Pct;
-};
+    float flPathLengthSqr; // 0x18
+    float flP1Pct; // 0x1c
+    float flP2Pct; // 0x20
+}; // size: 0x24
 
-class CSceneEventInfo {
+class __declspec(align(4)) CSceneEventInfo {
 public:
-    int32_t m_iLayer;
-    int32_t m_iPriority;
-    HSequence m_hSequence;
-    float m_flWeight;
+    int32_t m_iLayer; // 0x0
+    int32_t m_iPriority; // 0x4
+    HSequence m_hSequence; // 0x8
+    float m_flWeight; // 0xc
     // CStrongHandle< InfoForResourceTypeCNmClip > m_hAnimClip;
     // CGlobalSymbol m_sAnimClipSlot;
     // CGlobalSymbol m_sAnimClipSlotWeight;
     char pad_00[24];
-    bool m_bHasArrived;
-    int32_t m_nType;
-    GameTime_t m_flNext;
-    bool m_bIsGesture;
-    bool m_bShouldRemove;
+    bool m_bHasArrived; // 0x28
+    int32_t m_nType; // 0x2c
+    GameTime_t m_flNext; // 0x30
+    bool m_bIsGesture; // 0x34
+    bool m_bShouldRemove; // 0x35
     // CHandle< CBaseEntity > m_hTarget;
     // SceneEventId_t m_nSceneEventId;
     char pad_01[46];
-    bool m_bClientSide;
-    bool m_bStarted;
+    bool m_bClientSide; // 0x64
+    bool m_bStarted; // 0x65
     char pad_02[2];
-};
+}; // size: 0x68
 
-class ragdollhierarchyjoint_t {
+class __declspec(align(4)) ragdollhierarchyjoint_t {
 public:
-    int32_t parentIndex;
-    int32_t childIndex;
+    int32_t parentIndex; // 0x0
+    int32_t childIndex; // 0x4
     char pad_00[8];
-};
+}; // size: 0x10
 
-class WaterWheelFrictionScale_t {
+class __declspec(align(4)) WaterWheelFrictionScale_t {
 public:
-    float m_flFractionOfWheelSubmerged;
-    float m_flFrictionScale;
-};
+    float m_flFractionOfWheelSubmerged; // 0x0
+    float m_flFrictionScale; // 0x4
+}; // size: 0x8
 
-class CSkillFloat {
+class __declspec(align(4)) CSkillFloat {
 public:
-    float m_pValue[4];
-};
+    float m_pValue[4]; // 0x0
+}; // size: 0x10
 
-class CNavHullPresetVData {
+class __declspec(align(8)) CNavHullPresetVData {
 public:
     // CUtlVector< CUtlString > m_vecNavHulls;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class thinkfunc_t {
+class __declspec(align(4)) thinkfunc_t {
 public:
     // HSCRIPT m_hFn;
     // CUtlStringToken m_nContext;
     char pad_00[20];
-    GameTick_t m_nNextThinkTick;
-    GameTick_t m_nLastThinkTick;
+    GameTick_t m_nNextThinkTick; // 0x14
+    GameTick_t m_nLastThinkTick; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CSkillInt {
+class __declspec(align(4)) CSkillInt {
 public:
-    int32_t m_pValue[4];
-};
+    int32_t m_pValue[4]; // 0x0
+}; // size: 0x10
 
-class CHintMessageQueue {
+class __declspec(align(4)) CHintMessageQueue {
 public:
-    float m_tmMessageEnd;
+    float m_tmMessageEnd; // 0x0
     // CUtlVector< CHintMessage* > m_messages;
     // CBasePlayerController* m_pPlayerController;
     char pad_00[36];
-};
+}; // size: 0x28
 
-class magnetted_objects_t {
+class __declspec(align(1)) magnetted_objects_t {
 public:
     // CHandle< CBaseEntity > hEntity;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CNetworkOriginQuantizedVector {
+class __declspec(align(1)) CNetworkOriginQuantizedVector {
 public:
     // CNetworkedQuantizedFloat m_vecX;
     // CNetworkedQuantizedFloat m_vecY;
     // CNetworkedQuantizedFloat m_vecZ;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class DynamicVolumeDef_t {
+class __declspec(align(4)) DynamicVolumeDef_t {
 public:
     // CHandle< CBaseEntity > m_source;
     // CHandle< CBaseEntity > m_target;
     char pad_00[8];
-    int32_t m_nHullIdx;
+    int32_t m_nHullIdx; // 0x8
     // Vector m_vSourceAnchorPos;
     // Vector m_vTargetAnchorPos;
     char pad_01[24];
-    uint32_t m_nAreaSrc;
-    uint32_t m_nAreaDst;
-    bool m_bAttached;
+    uint32_t m_nAreaSrc; // 0x24
+    uint32_t m_nAreaDst; // 0x28
+    bool m_bAttached; // 0x2c
     char pad_02[3];
-};
+}; // size: 0x30
 
-class CBaseAnimGraphVariationUserData {
+class __declspec(align(8)) CBaseAnimGraphVariationUserData {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CNetworkOriginCellCoordQuantizedVector {
+class __declspec(align(2)) CNetworkOriginCellCoordQuantizedVector {
 public:
     char pad_00[16];
-    uint16_t m_cellX;
-    uint16_t m_cellY;
-    uint16_t m_cellZ;
-    uint16_t m_nOutsideWorld;
+    uint16_t m_cellX; // 0x10
+    uint16_t m_cellY; // 0x12
+    uint16_t m_cellZ; // 0x14
+    uint16_t m_nOutsideWorld; // 0x16
     // CNetworkedQuantizedFloat m_vecX;
     // CNetworkedQuantizedFloat m_vecY;
     // CNetworkedQuantizedFloat m_vecZ;
     char pad_01[24];
-};
+}; // size: 0x30
 
-class CGameScriptedMoveDef_t {
+class __declspec(align(4)) CGameScriptedMoveDef_t {
 public:
     // Vector m_vDestOffset;
     // CHandle< CBaseEntity > m_hDestEntity;
     // QAngle m_angDest;
     char pad_00[28];
-    float m_flDuration;
-    float m_flAngRate;
-    float m_flMoveSpeed;
-    bool m_bAimDisabled;
-    bool m_bIgnoreRotation;
-    ForcedCrouchState_t m_nForcedCrouchState;
-};
+    float m_flDuration; // 0x1c
+    float m_flAngRate; // 0x20
+    float m_flMoveSpeed; // 0x24
+    bool m_bAimDisabled; // 0x28
+    bool m_bIgnoreRotation; // 0x29
+    ForcedCrouchState_t m_nForcedCrouchState; // 0x2c
+}; // size: 0x30
 
-class ragdollelement_t {
+class __declspec(align(4)) ragdollelement_t {
 public:
     // Vector originParentSpace;
     char pad_00[32];
-    int32_t parentIndex;
-    float m_flRadius;
-    int32_t m_nHeight;
+    int32_t parentIndex; // 0x20
+    float m_flRadius; // 0x24
+    int32_t m_nHeight; // 0x28
     char pad_01[4];
-};
+}; // size: 0x30
 
-class CShatterGlassShard {
+class __declspec(align(4)) CShatterGlassShard {
 public:
     char pad_00[8];
-    uint32_t m_hShardHandle;
+    uint32_t m_hShardHandle; // 0x8
     // CUtlVector< Vector2D > m_vecPanelVertices;
     // Vector2D m_vLocalPanelSpaceOrigin;
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CHandle< CShatterGlassShardPhysics > m_hPhysicsEntity;
     // CHandle< CFuncShatterglass > m_hParentPanel;
     char pad_01[52];
-    uint32_t m_hParentShard;
-    ShatterGlassStressType m_ShatterStressType;
+    uint32_t m_hParentShard; // 0x40
+    ShatterGlassStressType m_ShatterStressType; // 0x44
     // Vector m_vecStressVelocity;
     char pad_02[15];
-    bool m_bCreatedModel;
-    float m_flLongestEdge;
-    float m_flShortestEdge;
-    float m_flLongestAcross;
-    float m_flShortestAcross;
-    float m_flSumOfAllEdges;
-    float m_flArea;
-    OnFrame m_nOnFrameEdge;
-    int32_t m_nSubShardGeneration;
+    bool m_bCreatedModel; // 0x54
+    float m_flLongestEdge; // 0x58
+    float m_flShortestEdge; // 0x5c
+    float m_flLongestAcross; // 0x60
+    float m_flShortestAcross; // 0x64
+    float m_flSumOfAllEdges; // 0x68
+    float m_flArea; // 0x6c
+    OnFrame m_nOnFrameEdge; // 0x70
+    int32_t m_nSubShardGeneration; // 0x74
     // Vector2D m_vecAverageVertPosition;
     char pad_03[8];
-    bool m_bAverageVertPositionIsValid;
+    bool m_bAverageVertPositionIsValid; // 0x80
     // Vector2D m_vecPanelSpaceStressPositionA;
     // Vector2D m_vecPanelSpaceStressPositionB;
     char pad_04[19];
-    bool m_bStressPositionAIsValid;
-    bool m_bStressPositionBIsValid;
-    bool m_bFlaggedForRemoval;
-    GameTime_t m_flPhysicsEntitySpawnedAtTime;
+    bool m_bStressPositionAIsValid; // 0x94
+    bool m_bStressPositionBIsValid; // 0x95
+    bool m_bFlaggedForRemoval; // 0x96
+    GameTime_t m_flPhysicsEntitySpawnedAtTime; // 0x98
     // CHandle< CBaseEntity > m_hEntityHittingMe;
     // CUtlVector< uint32 > m_vecNeighbors;
     char pad_05[28];
-};
+}; // size: 0xb8
 
-class CSimpleStopwatch {
+class __declspec(align(1)) CSimpleStopwatch {
 public:
     char pad_00[12];
-};
+}; // size: 0xc
 
-class IChoreoServices {
+class __declspec(align(1)) IChoreoServices {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CGameChoreoServices : public IChoreoServices {
+class __declspec(align(4)) CGameChoreoServices : public IChoreoServices {
 public:
     // CHandle< CBaseAnimGraph > m_hOwner;
     // CHandle< CScriptedSequence > m_hScriptedSequence;
-    char pad_01[8];
-    IChoreoServices::ScriptState_t m_scriptState;
-    IChoreoServices::ChoreoState_t m_choreoState;
-    GameTime_t m_flTimeStartedState;
+    // IChoreoServices::ScriptState_t m_scriptState;
+    // IChoreoServices::ChoreoState_t m_choreoState;
+    char pad_01[16];
+    GameTime_t m_flTimeStartedState; // 0x18
     char pad_02[4];
-};
+}; // size: 0x20
 
-class CMovementStatsProperty {
+class __declspec(align(4)) CMovementStatsProperty {
 public:
     char pad_00[16];
-    int32_t m_nUseCounter;
-    CVectorExponentialMovingAverage m_emaMovementDirection;
-};
+    int32_t m_nUseCounter; // 0x10
+    CVectorExponentialMovingAverage m_emaMovementDirection; // 0x14
+}; // size: 0x40
 
-class CStopwatchBase : public CSimpleSimTimer {
+class __declspec(align(4)) CStopwatchBase : public CSimpleSimTimer {
 public:
-    bool m_fIsRunning;
+    bool m_fIsRunning; // 0x8
     char pad_01[3];
-};
+}; // size: 0xc
 
-class CRandStopwatch : public CStopwatchBase {
+class __declspec(align(4)) CRandStopwatch : public CStopwatchBase {
 public:
-    float m_flMinInterval;
-    float m_flMaxInterval;
-};
+    float m_flMinInterval; // 0xc
+    float m_flMaxInterval; // 0x10
+}; // size: 0x14
 
-class CWorldCompositionChunkReferenceElement_t {
+class __declspec(align(1)) CWorldCompositionChunkReferenceElement_t {
 public:
     // CUtlString m_strMapToLoad;
     // CUtlString m_strLandmarkName;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CRangeInt {
+class __declspec(align(4)) CRangeInt {
 public:
-    int32_t m_pValue[2];
-};
+    int32_t m_pValue[2]; // 0x0
+}; // size: 0x8
 
-class RagdollCreationParams_t {
+class __declspec(align(4)) RagdollCreationParams_t {
 public:
     // Vector m_vForce;
     char pad_00[12];
-    int32_t m_nForceBone;
-    bool m_bForceCurrentWorldTransform;
-    bool m_bUseLRURetirement;
-    int32_t m_nHealthToGrant;
-};
+    int32_t m_nForceBone; // 0xc
+    bool m_bForceCurrentWorldTransform; // 0x10
+    bool m_bUseLRURetirement; // 0x11
+    int32_t m_nHealthToGrant; // 0x14
+}; // size: 0x18
 
-class CPathQueryUtil {
+class __declspec(align(1)) CPathQueryUtil {
 public:
     // CTransform m_PathToEntityTransform;
     // CUtlVector< Vector > m_vecPathSamplePositions;
     // CUtlVector< float32 > m_vecPathSampleParameters;
     // CUtlVector< float32 > m_vecPathSampleDistances;
     char pad_00[120];
-    bool m_bIsClosedLoop;
+    bool m_bIsClosedLoop; // 0x78
     char pad_01[7];
-};
+}; // size: 0x80
 
-class CNetworkTransmitComponent {
+class __declspec(align(1)) CNetworkTransmitComponent {
 public:
     char pad_00[388];
-    uint8_t m_nTransmitStateOwnedCounter;
+    uint8_t m_nTransmitStateOwnedCounter; // 0x184
     char pad_01[75];
-};
+}; // size: 0x1d0
 
-class AmmoTypeInfo_t {
+class __declspec(align(8)) AmmoTypeInfo_t {
 public:
     char pad_00[16];
-    int32_t m_nMaxCarry;
-    CRangeInt m_nSplashSize;
-    AmmoFlags_t m_nFlags;
-    float m_flMass;
-    CRangeFloat m_flSpeed;
-    char pad_01[4];
-};
+    int32_t m_nMaxCarry; // 0x10
+    char pad_01[8];
+    CRangeInt m_nSplashSize; // 0x1c
+    AmmoFlags_t m_nFlags; // 0x24
+    float m_flMass; // 0x28
+    CRangeFloat m_flSpeed; // 0x2c
+    char pad_02[4];
+}; // size: 0x38
 
-class ResponseFollowup {
+class __declspec(align(8)) ResponseFollowup {
 public:
-    char* followup_concept;
-    char* followup_contexts;
-    float followup_delay;
-    char* followup_target;
-    char* followup_entityiotarget;
-    char* followup_entityioinput;
-    float followup_entityiodelay;
-    bool bFired;
-};
+    char* followup_concept; // 0x0
+    char* followup_contexts; // 0x8
+    float followup_delay; // 0x10
+    char* followup_target; // 0x14
+    char* followup_entityiotarget; // 0x1c
+    char* followup_entityioinput; // 0x24
+    float followup_entityiodelay; // 0x2c
+    bool bFired; // 0x30
+}; // size: 0x31
 
-class CCommentarySystem {
+class __declspec(align(4)) CCommentarySystem {
 public:
     char pad_00[17];
-    bool m_bCommentaryConvarsChanging;
-    bool m_bCommentaryEnabledMidGame;
-    GameTime_t m_flNextTeleportTime;
-    int32_t m_iTeleportStage;
-    bool m_bCheatState;
-    bool m_bIsFirstSpawnGroupToLoad;
+    bool m_bCommentaryConvarsChanging; // 0x11
+    bool m_bCommentaryEnabledMidGame; // 0x12
+    GameTime_t m_flNextTeleportTime; // 0x14
+    int32_t m_iTeleportStage; // 0x18
+    bool m_bCheatState; // 0x1c
+    bool m_bIsFirstSpawnGroupToLoad; // 0x1d
     // CHandle< CPointCommentaryNode > m_hCurrentNode;
     // CHandle< CPointCommentaryNode > m_hActiveCommentaryNode;
     // CHandle< CPointCommentaryNode > m_hLastCommentaryNode;
     // CUtlVector< CHandle< CPointCommentaryNode > > m_vecNodes;
     char pad_01[66];
-};
+}; // size: 0x60
 
-class ExternalAnimGraph_t {
+class __declspec(align(1)) ExternalAnimGraph_t {
 public:
     // ExternalAnimGraphHandle_t m_hExtGraphHandle;
     // CGlobalSymbol m_sExternalGraphSlotID;
     // CStrongHandleCopyable< InfoForResourceTypeCNmGraphDefinition > m_hGraphDefinition;
     // CHandle< CBaseAnimGraph > m_hExternalGraphOwner;
     char pad_00[48];
-    ExternalAnimGraphInactiveBehavior_t m_nInactiveBehavior;
+    ExternalAnimGraphInactiveBehavior_t m_nInactiveBehavior; // 0x30
     char pad_01[7];
-};
+}; // size: 0x38
 
-class SceneEventId_t {
+class __declspec(align(4)) SceneEventId_t {
 public:
-    uint32_t m_Value;
-};
+    uint32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CTakeDamageResult {
+class __declspec(align(8)) CTakeDamageResult {
 public:
-    CTakeDamageInfo* m_pOriginatingInfo;
-    int32_t m_nHealthLost;
-    int32_t m_nHealthBefore;
-    int32_t m_nDamageDealt;
-    float m_flPreModifiedDamage;
-    int32_t m_nTotalledHealthLost;
-    int32_t m_nTotalledDamageDealt;
-    float m_flTotalledPreModifiedDamage;
-    bool m_bWasDamageSuppressed;
-    bool m_bSuppressFlinch;
-    HitGroup_t m_nOverrideFlinchHitGroup;
+    CTakeDamageInfo* m_pOriginatingInfo; // 0x0
+    int32_t m_nHealthLost; // 0x8
+    int32_t m_nHealthBefore; // 0xc
+    int32_t m_nDamageDealt; // 0x10
+    float m_flPreModifiedDamage; // 0x14
+    int32_t m_nTotalledHealthLost; // 0x18
+    int32_t m_nTotalledDamageDealt; // 0x1c
+    float m_flTotalledPreModifiedDamage; // 0x20
+    bool m_bWasDamageSuppressed; // 0x24
+    bool m_bSuppressFlinch; // 0x25
+    HitGroup_t m_nOverrideFlinchHitGroup; // 0x28
     char pad_00[4];
-};
+}; // size: 0x30
 
-class VelocitySampler {
+class __declspec(align(4)) VelocitySampler {
 public:
     // Vector m_prevSample;
     char pad_00[12];
-    GameTime_t m_fPrevSampleTime;
-    float m_fIdealSampleRate;
-};
+    GameTime_t m_fPrevSampleTime; // 0xc
+    float m_fIdealSampleRate; // 0x10
+}; // size: 0x14
 
-class CPhysicsShake {
+class __declspec(align(1)) CPhysicsShake {
 public:
     // Vector m_force;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class ExternalAnimGraphHandle_t {
+class __declspec(align(4)) ExternalAnimGraphHandle_t {
 public:
-    uint32_t m_Value;
-};
+    uint32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CBaseAnimGraphDestructibleParts_GraphController {
+class __declspec(align(8)) CBaseAnimGraphDestructibleParts_GraphController {
 public:
     char pad_00[144];
-};
+}; // size: 0x90
 
-class RotatorQueueEntry_t {
+class __declspec(align(4)) RotatorQueueEntry_t {
 public:
     // Quaternion qTarget;
     char pad_00[16];
-    RotatorTargetSpace_t eSpace;
+    RotatorTargetSpace_t eSpace; // 0x10
     char pad_01[12];
-};
+}; // size: 0x20
 
-class PulseScriptedSequenceData_t {
+class __declspec(align(8)) PulseScriptedSequenceData_t {
 public:
-    int32_t m_nActorID;
+    int32_t m_nActorID; // 0x0
     // CUtlString m_szPreIdleSequence;
     // CUtlString m_szEntrySequence;
     // CUtlString m_szSequence;
     // CUtlString m_szExitSequence;
     char pad_00[36];
-    ScriptedMoveTo_t m_nMoveTo;
-    SharedMovementGait_t m_nMoveToGait;
-    ScriptedHeldWeaponBehavior_t m_nHeldWeaponBehavior;
-    bool m_bLoopPreIdleSequence;
-    bool m_bLoopActionSequence;
-    bool m_bLoopPostIdleSequence;
-    bool m_bIgnoreLookAt;
-};
+    ScriptedMoveTo_t m_nMoveTo; // 0x28
+    SharedMovementGait_t m_nMoveToGait; // 0x2c
+    ScriptedHeldWeaponBehavior_t m_nHeldWeaponBehavior; // 0x30
+    bool m_bLoopPreIdleSequence; // 0x34
+    bool m_bLoopActionSequence; // 0x35
+    bool m_bLoopPostIdleSequence; // 0x36
+    bool m_bIgnoreLookAt; // 0x37
+}; // size: 0x38
 
-class NavGravity_t {
+class __declspec(align(1)) NavGravity_t {
 public:
     // Vector m_vGravity;
     char pad_00[12];
-    bool m_bDefault;
+    bool m_bDefault; // 0xc
     char pad_01[3];
-};
+}; // size: 0x10
 
-class CNavVolumeVector {
+class __declspec(align(1)) CNavVolumeVector {
 public:
     char pad_00[128];
-    bool m_bHasBeenPreFiltered;
+    bool m_bHasBeenPreFiltered; // 0x80
     char pad_01[31];
-};
+}; // size: 0xa0
 
-class SceneRequestHandle_t {
+class __declspec(align(4)) SceneRequestHandle_t {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class CSoundEnvelope {
+class __declspec(align(4)) CSoundEnvelope {
 public:
-    float m_current;
-    float m_target;
-    float m_rate;
-    bool m_forceupdate;
+    float m_current; // 0x0
+    float m_target; // 0x4
+    float m_rate; // 0x8
+    bool m_forceupdate; // 0xc
     char pad_00[3];
-};
+}; // size: 0x10
 
-class CVectorMovingAverage {
+class __declspec(align(1)) CVectorMovingAverage {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class PointCameraSettings_t {
+class __declspec(align(4)) PointCameraSettings_t {
 public:
-    float m_flNearBlurryDistance;
-    float m_flNearCrispDistance;
-    float m_flFarCrispDistance;
-    float m_flFarBlurryDistance;
-};
+    float m_flNearBlurryDistance; // 0x0
+    float m_flNearCrispDistance; // 0x4
+    float m_flFarCrispDistance; // 0x8
+    float m_flFarBlurryDistance; // 0xc
+}; // size: 0x10
 
-class CPhysicsBodyGameMarkup {
+class __declspec(align(8)) CPhysicsBodyGameMarkup {
 public:
     // CUtlString m_TargetBody;
     // CGlobalSymbol m_Tag;
     char pad_00[16];
-};
+}; // size: 0x10
 
-class ConstraintSoundInfo {
+class __declspec(align(4)) ConstraintSoundInfo {
 public:
     char pad_00[8];
-    VelocitySampler m_vSampler;
+    VelocitySampler m_vSampler; // 0x8
     // SimpleConstraintSoundProfile m_soundProfile;
     // Vector m_forwardAxis;
     // CUtlSymbolLarge m_iszTravelSoundFwd;
@@ -19846,73 +20036,73 @@ public:
     // CUtlSymbolLarge m_iszReversalSoundMedium;
     // CUtlSymbolLarge m_iszReversalSoundLarge;
     char pad_01[116];
-    bool m_bPlayTravelSound;
-    bool m_bPlayReversalSound;
+    bool m_bPlayTravelSound; // 0x90
+    bool m_bPlayReversalSound; // 0x91
     char pad_02[6];
-};
+}; // size: 0x98
 
-class ResponseParams {
+class __declspec(align(8)) ResponseParams {
 public:
     char pad_00[16];
-    int16_t odds;
-    int16_t flags;
-    ResponseFollowup* m_pFollowup;
-};
+    int16_t odds; // 0x10
+    int16_t flags; // 0x12
+    ResponseFollowup* m_pFollowup; // 0x18
+}; // size: 0x20
 
-class CStopwatch : public CStopwatchBase {
+class __declspec(align(4)) CStopwatch : public CStopwatchBase {
 public:
-    float m_flInterval;
-};
+    float m_flInterval; // 0xc
+}; // size: 0x10
 
-class CNmEventConsumerAttributes {
+class __declspec(align(8)) CNmEventConsumerAttributes {
 public:
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CAI_Expresser {
+class __declspec(align(4)) CAI_Expresser {
 public:
     char pad_00[96];
-    GameTime_t m_flStopTalkTime;
-    GameTime_t m_flStopTalkTimeWithoutDelay;
-    GameTime_t m_flQueuedSpeechTime;
-    GameTime_t m_flBlockedTalkTime;
-    int32_t m_voicePitch;
-    GameTime_t m_flLastTimeAcceptedSpeak;
-    bool m_bAllowSpeakingInterrupts;
-    bool m_bConsiderSceneInvolvementAsSpeech;
-    bool m_bSceneEntityDisabled;
-    int32_t m_nLastSpokenPriority;
+    GameTime_t m_flStopTalkTime; // 0x60
+    GameTime_t m_flStopTalkTimeWithoutDelay; // 0x64
+    GameTime_t m_flQueuedSpeechTime; // 0x68
+    GameTime_t m_flBlockedTalkTime; // 0x6c
+    int32_t m_voicePitch; // 0x70
+    GameTime_t m_flLastTimeAcceptedSpeak; // 0x74
+    bool m_bAllowSpeakingInterrupts; // 0x78
+    bool m_bConsiderSceneInvolvementAsSpeech; // 0x79
+    bool m_bSceneEntityDisabled; // 0x7a
+    int32_t m_nLastSpokenPriority; // 0x7c
     // CBaseFlex* m_pOuter;
     char pad_01[32];
-};
+}; // size: 0xa0
 
-class CResponseCriteriaSet {
+class __declspec(align(4)) CResponseCriteriaSet {
 public:
     char pad_00[48];
-    int32_t m_nNumPrefixedContexts;
-    bool m_bOverrideOnAppend;
+    int32_t m_nNumPrefixedContexts; // 0x30
+    bool m_bOverrideOnAppend; // 0x34
     char pad_01[3];
-};
+}; // size: 0x38
 
-class CPathMoverEntitySpawn {
+class __declspec(align(1)) CPathMoverEntitySpawn {
 public:
     // CHandle< CFuncMover > hMover;
     // CUtlVector< CHandle< CBaseEntity > > vecOtherEntities;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CNavVolumeMarkupVolume {
+class __declspec(align(1)) CNavVolumeMarkupVolume {
 public:
     char pad_00[224];
-};
+}; // size: 0xe0
 
-class CSkeletonAnimationController : public ISkeletonAnimationController {
+class __declspec(align(1)) CSkeletonAnimationController : public ISkeletonAnimationController {
 public:
     // CSkeletonInstance* m_pSkeletonInstance;
-    char pad_01[16];
-};
+    char pad_01[8];
+}; // size: 0x10
 
-class CGameScriptedMoveData {
+class __declspec(align(4)) CGameScriptedMoveData {
 public:
     // Vector m_vAccumulatedRootMotion;
     // QAngle m_angAccumulatedRootMotionRotation;
@@ -19920,307 +20110,308 @@ public:
     // QAngle m_angSrc;
     // QAngle m_angCurrent;
     char pad_00[60];
-    float m_flLockedSpeed;
-    float m_flAngRate;
-    float m_flDuration;
-    GameTime_t m_flStartTime;
-    bool m_bActive;
-    bool m_bTeleportOnEnd;
-    bool m_bIgnoreRotation;
-    bool m_bSuccess;
-    ForcedCrouchState_t m_nForcedCrouchState;
-    bool m_bIgnoreCollisions;
+    float m_flLockedSpeed; // 0x3c
+    float m_flAngRate; // 0x40
+    float m_flDuration; // 0x44
+    GameTime_t m_flStartTime; // 0x48
+    bool m_bActive; // 0x4c
+    bool m_bTeleportOnEnd; // 0x4d
+    bool m_bIgnoreRotation; // 0x4e
+    bool m_bSuccess; // 0x4f
+    ForcedCrouchState_t m_nForcedCrouchState; // 0x50
+    bool m_bIgnoreCollisions; // 0x54
     // Vector m_vDest;
     // QAngle m_angDst;
     // CHandle< CBaseEntity > m_hDestEntity;
     char pad_01[31];
-};
+}; // size: 0x74
 
-class CDecalInstance {
+class __declspec(align(4)) CDecalInstance {
 public:
     // CGlobalSymbol m_sDecalGroup;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterial;
     // CUtlStringToken m_sSequenceName;
     // CHandle< CBaseEntity > m_hEntity;
     char pad_00[24];
-    int32_t m_nBoneIndex;
-    int32_t m_nTriangleIndex;
+    int32_t m_nBoneIndex; // 0x18
+    int32_t m_nTriangleIndex; // 0x1c
     // Vector m_vPositionLS;
     // Vector m_vNormalLS;
     // Vector m_vSAxisLS;
     char pad_01[36];
-    DecalFlags_t m_nFlags;
+    DecalFlags_t m_nFlags; // 0x44
     // Color m_Color;
     char pad_02[4];
-    float m_flWidth;
-    float m_flHeight;
-    float m_flDepth;
+    float m_flWidth; // 0x4c
+    float m_flHeight; // 0x50
+    float m_flDepth; // 0x54
     // CTransformWS m_transform;
     char pad_03[40];
-    float m_flAnimationScale;
-    float m_flAnimationStartTime;
-    GameTime_t m_flPlaceTime;
-    float m_flFadeStartTime;
-    float m_flFadeDuration;
-    float m_flLightingOriginOffset;
+    float m_flAnimationScale; // 0x80
+    float m_flAnimationStartTime; // 0x84
+    GameTime_t m_flPlaceTime; // 0x88
+    float m_flFadeStartTime; // 0x8c
+    float m_flFadeDuration; // 0x90
+    float m_flLightingOriginOffset; // 0x94
     char pad_04[8];
-    float m_flBoundingRadiusSqr;
-    int16_t m_nSequenceIndex;
-    bool m_bIsAdjacent;
-    bool m_bDoDecalLightmapping;
-    DecalRtEncoding_t m_nDecalRtEncoding;
-    bool m_bProjectToBackfaces;
+    float m_flBoundingRadiusSqr; // 0xa0
+    int16_t m_nSequenceIndex; // 0xa4
+    bool m_bIsAdjacent; // 0xa6
+    bool m_bDoDecalLightmapping; // 0xa7
+    DecalRtEncoding_t m_nDecalRtEncoding; // 0xa8
+    bool m_bProjectToBackfaces; // 0xa9
     char pad_05[6];
-};
+}; // size: 0xb0
 
-class CPlayerPawnComponent {
+class __declspec(align(4)) CPlayerPawnComponent {
 public:
     char pad_00[8];
-    CNetworkVarChainer __m_pChainEntity;
+    CNetworkVarChainer __m_pChainEntity; // 0x8
     char pad_01[24];
-};
+}; // size: 0x48
 
-class CNavVolumeSphericalShell {
+class __declspec(align(4)) CNavVolumeSphericalShell {
 public:
     char pad_00[136];
-    float m_flRadiusInner;
+    float m_flRadiusInner; // 0x88
     char pad_01[4];
-};
+}; // size: 0x90
 
-class ResponseContext_t {
+class __declspec(align(4)) ResponseContext_t {
 public:
     // CUtlSymbolLarge m_iszName;
     // CUtlSymbolLarge m_iszValue;
     char pad_00[16];
-    GameTime_t m_fExpirationTime;
+    GameTime_t m_fExpirationTime; // 0x10
     char pad_01[4];
-};
+}; // size: 0x18
 
-class CRopeOverlapHit {
+class __declspec(align(1)) CRopeOverlapHit {
 public:
     // CHandle< CBaseEntity > m_hEntity;
     // CUtlVector< int32 > m_vecOverlappingLinks;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CDestructiblePartsSystemData {
+class __declspec(align(8)) CDestructiblePartsSystemData {
 public:
     // CUtlOrderedMap< HitGroup_t, CDestructiblePart > m_PartsDataByHitGroup;
     char pad_00[40];
-    CRangeInt m_nMinMaxNumberHitGroupsToDestroyWhenGibbing;
-};
+    CRangeInt m_nMinMaxNumberHitGroupsToDestroyWhenGibbing; // 0x28
+}; // size: 0x30
 
-class AmmoIndex_t {
+class __declspec(align(1)) AmmoIndex_t {
 public:
-    int8_t m_Value;
-};
+    int8_t m_Value; // 0x0
+}; // size: 0x1
 
-class CNetworkViewOffsetVector {
+class __declspec(align(1)) CNetworkViewOffsetVector {
 public:
     // CNetworkedQuantizedFloat m_vecX;
     // CNetworkedQuantizedFloat m_vecY;
     // CNetworkedQuantizedFloat m_vecZ;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class CNmEventConsumer {
+class __declspec(align(1)) CNmEventConsumer {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class CAnimEventListenerBase {
+class __declspec(align(1)) CAnimEventListenerBase {
 public:
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CFloatExponentialMovingAverage {
+class __declspec(align(1)) CFloatExponentialMovingAverage {
 public:
     char pad_00[20];
-};
+}; // size: 0x14
 
-class CSkillDamage {
+class __declspec(align(4)) CSkillDamage {
 public:
-    CSkillFloat m_flDamage;
-    float m_flNPCDamageScalarVsNPC;
-    float m_flPhysicsForceDamage;
-};
+    CSkillFloat m_flDamage; // 0x0
+    float m_flNPCDamageScalarVsNPC; // 0x10
+    float m_flPhysicsForceDamage; // 0x14
+}; // size: 0x18
 
-class CPhysicsBodyGameMarkupData {
+class __declspec(align(8)) CPhysicsBodyGameMarkupData {
 public:
     // CUtlOrderedMap< CUtlString, CPhysicsBodyGameMarkup > m_PhysicsBodyMarkupByBoneName;
     char pad_00[40];
-};
+}; // size: 0x28
 
-class SimpleConstraintSoundProfile {
+class __declspec(align(4)) SimpleConstraintSoundProfile {
 public:
     char pad_00[8];
-    float m_flKeyPointMinSoundThreshold;
-    float m_flKeyPointMaxSoundThreshold;
-    float m_reversalSoundThresholdSmall;
-    float m_reversalSoundThresholdMedium;
-    float m_reversalSoundThresholdLarge;
+    float m_flKeyPointMinSoundThreshold; // 0x8
+    float m_flKeyPointMaxSoundThreshold; // 0xc
+    float m_reversalSoundThresholdSmall; // 0x10
+    float m_reversalSoundThresholdMedium; // 0x14
+    float m_reversalSoundThresholdLarge; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class WrappedPhysicsJoint_t {
+class __declspec(align(1)) WrappedPhysicsJoint_t {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class lerpdata_t {
+class __declspec(align(4)) lerpdata_t {
 public:
     // CHandle< CBaseEntity > m_hEnt;
     char pad_00[4];
-    MoveType_t m_MoveType;
-    GameTime_t m_flStartTime;
+    MoveType_t m_MoveType; // 0x4
+    GameTime_t m_flStartTime; // 0x8
     // Vector m_vecStartOrigin;
     // Quaternion m_qStartRot;
-    ParticleIndex_t m_nFXIndex;
-    char pad_01[28];
-};
+    char pad_01[36];
+    ParticleIndex_t m_nFXIndex; // 0x30
+    char pad_02[28];
+}; // size: 0x50
 
-class CScriptUniformRandomStream {
+class __declspec(align(4)) CScriptUniformRandomStream {
 public:
     // HSCRIPT m_hScriptScope;
     char pad_00[156];
-    int32_t m_nInitialSeed;
-};
+    int32_t m_nInitialSeed; // 0x9c
+}; // size: 0xa0
 
-class CodeGenAABB_t {
+class __declspec(align(1)) CodeGenAABB_t {
 public:
     // Vector m_vMinBounds;
     // Vector m_vMaxBounds;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class CResponseQueue {
+class __declspec(align(1)) CResponseQueue {
 public:
     // CUtlVector< CAI_Expresser* > m_ExpresserTargets;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CPlayerControllerComponent {
+class __declspec(align(4)) CPlayerControllerComponent {
 public:
     char pad_00[8];
-    CNetworkVarChainer __m_pChainEntity;
+    CNetworkVarChainer __m_pChainEntity; // 0x8
     char pad_01[16];
-};
+}; // size: 0x40
 
-class CNmSnapWeaponTask {
+class __declspec(align(8)) CNmSnapWeaponTask {
 public:
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CDecalGroupVData {
+class __declspec(align(8)) CDecalGroupVData {
 public:
     // CUtlVector< DecalGroupOption_t > m_vecOptions;
     char pad_00[24];
-    float m_flTotalProbability;
+    float m_flTotalProbability; // 0x18
     char pad_01[4];
-};
+}; // size: 0x20
 
-class CFootstepTableHandle {
+class __declspec(align(1)) CFootstepTableHandle {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class ParticleNode_t {
+class __declspec(align(4)) ParticleNode_t {
 public:
     // CHandle< CBaseEntity > m_hEntity;
     char pad_00[4];
-    ParticleIndex_t m_iIndex;
-    GameTime_t m_flStartTime;
-    float m_flGrowthDuration;
+    ParticleIndex_t m_iIndex; // 0x4
+    GameTime_t m_flStartTime; // 0x8
+    float m_flGrowthDuration; // 0xc
     // Vector m_vecGrowthOrigin;
     char pad_01[12];
-    float m_flEndcapTime;
-    bool m_bMarkedForDelete;
+    float m_flEndcapTime; // 0x1c
+    bool m_bMarkedForDelete; // 0x20
     char pad_02[3];
-};
+}; // size: 0x24
 
-class CHintMessage {
+class __declspec(align(8)) CHintMessage {
 public:
-    char* m_hintString;
+    char* m_hintString; // 0x0
     // CUtlVector< char* > m_args;
     char pad_00[24];
-    float m_duration;
+    float m_duration; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CRemapFloat {
+class __declspec(align(4)) CRemapFloat {
 public:
-    float m_pValue[4];
-};
+    float m_pValue[4]; // 0x0
+}; // size: 0x10
 
-class AutoRoomDoorwayPairs_t {
+class __declspec(align(1)) AutoRoomDoorwayPairs_t {
 public:
     // Vector vP1;
     // Vector vP2;
     char pad_00[24];
-};
+}; // size: 0x18
 
-class RelationshipOverride_t : public Relationship_t {
+class __declspec(align(4)) RelationshipOverride_t : public Relationship_t {
 public:
     // CHandle< CBaseEntity > entity;
     char pad_00[4];
-    Class_T classType;
-};
+    Class_T classType; // 0xc
+}; // size: 0x10
 
-class CAnimEventQueueListener {
+class __declspec(align(1)) CAnimEventQueueListener {
 public:
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CDestructiblePart {
+class __declspec(align(8)) CDestructiblePart {
 public:
     // CGlobalSymbol m_DebugName;
     char pad_00[8];
-    HitGroup_t m_nHitGroup;
-    bool m_bDisableHitGroupWhenDestroyed;
+    HitGroup_t m_nHitGroup; // 0x8
+    bool m_bDisableHitGroupWhenDestroyed; // 0xc
     // CUtlVector< HitGroup_t > m_nOtherHitgroupsToDestroyWhenFullyDestructed;
     char pad_01[27];
-    bool m_bOnlyDestroyWhenGibbing;
+    bool m_bOnlyDestroyWhenGibbing; // 0x28
     // CGlobalSymbol m_sBodyGroupName;
     // CUtlVector< CDestructiblePart_DamageLevel > m_DamageLevels;
     char pad_02[39];
-};
+}; // size: 0x50
 
-class CompositeMaterial_t {
+class __declspec(align(1)) CompositeMaterial_t {
 public:
     // KeyValues3 m_TargetKVs;
     // KeyValues3 m_PreGenerationKVs;
     // KeyValues3 m_FinalKVs;
     // CUtlVector< GeneratedTextureHandle_t > m_vecGeneratedTextures;
     char pad_00[160];
-};
+}; // size: 0xa0
 
-class CompositeMaterialMatchFilter_t {
+class __declspec(align(8)) CompositeMaterialMatchFilter_t {
 public:
-    CompositeMaterialMatchFilterType_t m_nCompositeMaterialMatchFilterType;
+    CompositeMaterialMatchFilterType_t m_nCompositeMaterialMatchFilterType; // 0x0
     // CUtlString m_strMatchFilter;
     // CUtlString m_strMatchValue;
     char pad_00[20];
-    bool m_bPassWhenTrue;
+    bool m_bPassWhenTrue; // 0x18
     char pad_01[7];
-};
+}; // size: 0x20
 
-class inv_image_light_sun_t {
+class __declspec(align(4)) inv_image_light_sun_t {
 public:
     // Vector color;
     // QAngle angle;
     char pad_00[24];
-    float brightness;
-};
+    float brightness; // 0x18
+}; // size: 0x1c
 
-class IClientAlphaProperty {
+class __declspec(align(1)) IClientAlphaProperty {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CGlobalLightBase {
+class __declspec(align(4)) CGlobalLightBase {
 public:
     char pad_00[16];
-    bool m_bSpotLight;
+    bool m_bSpotLight; // 0x10
     // Vector m_SpotLightOrigin;
     // QAngle m_SpotLightAngles;
     // Vector m_ShadowDirection;
@@ -20228,80 +20419,80 @@ public:
     // Vector m_SpecularDirection;
     // Vector m_InspectorSpecularDirection;
     char pad_01[72];
-    float m_flSpecularPower;
-    float m_flSpecularIndependence;
+    float m_flSpecularPower; // 0x5c
+    float m_flSpecularIndependence; // 0x60
     // Color m_SpecularColor;
     char pad_02[4];
-    bool m_bStartDisabled;
-    bool m_bEnabled;
+    bool m_bStartDisabled; // 0x68
+    bool m_bEnabled; // 0x69
     // Color m_LightColor;
     // Color m_AmbientColor1;
     // Color m_AmbientColor2;
     // Color m_AmbientColor3;
     char pad_03[16];
-    float m_flSunDistance;
-    float m_flFOV;
-    float m_flNearZ;
-    float m_flFarZ;
-    bool m_bEnableShadows;
-    bool m_bOldEnableShadows;
-    bool m_bBackgroundClearNotRequired;
-    float m_flCloudScale;
-    float m_flCloud1Speed;
-    float m_flCloud1Direction;
-    float m_flCloud2Speed;
-    float m_flCloud2Direction;
+    float m_flSunDistance; // 0x7c
+    float m_flFOV; // 0x80
+    float m_flNearZ; // 0x84
+    float m_flFarZ; // 0x88
+    bool m_bEnableShadows; // 0x8c
+    bool m_bOldEnableShadows; // 0x8d
+    bool m_bBackgroundClearNotRequired; // 0x8e
+    float m_flCloudScale; // 0x90
+    float m_flCloud1Speed; // 0x94
+    float m_flCloud1Direction; // 0x98
+    float m_flCloud2Speed; // 0x9c
+    float m_flCloud2Direction; // 0xa0
     char pad_04[12];
-    float m_flAmbientScale1;
-    float m_flAmbientScale2;
-    float m_flGroundScale;
-    float m_flLightScale;
-    float m_flFoWDarkness;
-    bool m_bEnableSeparateSkyboxFog;
+    float m_flAmbientScale1; // 0xb0
+    float m_flAmbientScale2; // 0xb4
+    float m_flGroundScale; // 0xb8
+    float m_flLightScale; // 0xbc
+    float m_flFoWDarkness; // 0xc0
+    bool m_bEnableSeparateSkyboxFog; // 0xc4
     // Vector m_vFowColor;
     // Vector m_ViewOrigin;
     // QAngle m_ViewAngles;
     char pad_05[36];
-    float m_flViewFoV;
+    float m_flViewFoV; // 0xec
     // Vector[8] m_WorldPoints;
     // Vector2D m_vFogOffsetLayer0;
     // Vector2D m_vFogOffsetLayer1;
     // CHandle< C_BaseEntity > m_hEnvWind;
     // CHandle< C_BaseEntity > m_hEnvSky;
     char pad_06[976];
-};
+}; // size: 0x4c0
 
-class CClientAlphaProperty {
+class __declspec(align(4)) CClientAlphaProperty {
 public:
     char pad_00[16];
-    uint16_t m_nDistFadeStart;
-    uint16_t m_nDistFadeEnd;
+    uint16_t m_nDistFadeStart; // 0x10
+    uint16_t m_nDistFadeEnd; // 0x12
     // bitfield:14 m_nDesyncOffset;
     // bitfield:1 m_bAlphaOverride;
     // bitfield:1 m_bShadowAlphaOverride;
     // bitfield:3 m_nRenderMode;
     // bitfield:5 m_nRenderFX;
     char pad_01[3];
-    uint8_t m_nAlpha;
-    float m_flFadeScale;
-    GameTime_t m_flRenderFxStartTime;
-    float m_flRenderFxDuration;
+    uint8_t m_nAlpha; // 0x17
+    float m_flFadeScale; // 0x18
+    GameTime_t m_flRenderFxStartTime; // 0x1c
+    float m_flRenderFxDuration; // 0x20
     char pad_02[12];
-};
+}; // size: 0x30
 
-class CCompositeMaterialEditorDoc {
+class __declspec(align(8)) CCompositeMaterialEditorDoc {
 public:
     char pad_00[8];
-    int32_t m_nVersion;
+    int32_t m_nVersion; // 0x8
     // CUtlVector< CompositeMaterialEditorPoint_t > m_Points;
     // KeyValues3 m_KVthumbnail;
     char pad_01[44];
-};
+}; // size: 0x38
 
-class CompMatPropertyMutator_t {
+class __declspec(align(8)) CompMatPropertyMutator_t {
 public:
-    bool m_bEnabled;
-    CompMatPropertyMutatorType_t m_nMutatorCommandType;
+    bool m_bEnabled; // 0x0
+    CompMatPropertyMutatorType_t m_nMutatorCommandType; // 0x4
     // CUtlString m_strInitWith_Container;
     // CUtlString m_strCopyProperty_InputContainerSrc;
     // CUtlString m_strCopyProperty_InputContainerProperty;
@@ -20316,12 +20507,12 @@ public:
     // CUtlString m_strGenerateTexture_TargetParam;
     // CUtlString m_strGenerateTexture_InitialContainer;
     char pad_00[760];
-    int32_t m_nResolution;
-    bool m_bIsScratchTarget;
+    int32_t m_nResolution; // 0x300
+    bool m_bIsScratchTarget; // 0x304
     // CUtlString m_strCompressionFormat;
     char pad_01[11];
-    bool m_bSplatDebugInfo;
-    bool m_bCaptureInRenderDoc;
+    bool m_bSplatDebugInfo; // 0x310
+    bool m_bCaptureInRenderDoc; // 0x311
     // CUtlVector< CompMatPropertyMutator_t > m_vecTexGenInstructions;
     // CUtlVector< CompMatPropertyMutator_t > m_vecConditionalMutators;
     // CUtlString m_strPopInputQueue_Container;
@@ -20332,88 +20523,88 @@ public:
     // CUtlString m_strDrawText_Font;
     // CUtlVector< CompMatMutatorCondition_t > m_vecConditions;
     char pad_02[126];
-};
+}; // size: 0x390
 
-class inv_image_data_t {
+class __declspec(align(8)) inv_image_data_t {
 public:
     // inv_image_map_t map;
     // inv_image_item_t item;
     // inv_image_camera_t camera;
     char pad_00[100];
-    inv_image_light_sun_t lightsun;
+    inv_image_light_sun_t lightsun; // 0x64
     // inv_image_light_fill_t lightfill;
     // inv_image_light_barn_t light0;
     // inv_image_light_barn_t light1;
     // inv_image_clearcolor_t clearcolor;
     char pad_01[104];
-};
+}; // size: 0xe8
 
-class CompMatMutatorCondition_t {
+class __declspec(align(8)) CompMatMutatorCondition_t {
 public:
-    CompMatPropertyMutatorConditionType_t m_nMutatorCondition;
+    CompMatPropertyMutatorConditionType_t m_nMutatorCondition; // 0x0
     // CUtlString m_strMutatorConditionContainerName;
     // CUtlString m_strMutatorConditionContainerVarName;
     // CUtlString m_strMutatorConditionContainerVarValue;
     char pad_00[28];
-    bool m_bPassWhenTrue;
+    bool m_bPassWhenTrue; // 0x20
     char pad_01[7];
-};
+}; // size: 0x28
 
-class C_IronSightController {
+class __declspec(align(4)) C_IronSightController {
 public:
     char pad_00[16];
-    bool m_bIronSightAvailable;
-    float m_flIronSightAmount;
-    float m_flIronSightAmountGained;
-    float m_flIronSightAmountBiased;
-    float m_flIronSightAmount_Interpolated;
-    float m_flIronSightAmountGained_Interpolated;
-    float m_flIronSightAmountBiased_Interpolated;
-    float m_flInterpolationLastUpdated;
+    bool m_bIronSightAvailable; // 0x10
+    float m_flIronSightAmount; // 0x14
+    float m_flIronSightAmountGained; // 0x18
+    float m_flIronSightAmountBiased; // 0x1c
+    float m_flIronSightAmount_Interpolated; // 0x20
+    float m_flIronSightAmountGained_Interpolated; // 0x24
+    float m_flIronSightAmountBiased_Interpolated; // 0x28
+    float m_flInterpolationLastUpdated; // 0x2c
     // QAngle[8] m_angDeltaAverage;
     // QAngle m_angViewLast;
     // Vector2D m_vecDotCoords;
     char pad_01[116];
-    float m_flFiringInaccuracyExtraWidthMultiplier;
-    float m_flSpeedRatio;
+    float m_flFiringInaccuracyExtraWidthMultiplier; // 0xa4
+    float m_flSpeedRatio; // 0xa8
     char pad_02[4];
-};
+}; // size: 0xb0
 
-class CPlayerSprayDecalRenderHelper {
+class __declspec(align(1)) CPlayerSprayDecalRenderHelper {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CompositeMaterialEditorPoint_t {
+class __declspec(align(8)) CompositeMaterialEditorPoint_t {
 public:
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > > m_ModelName;
     char pad_00[224];
-    int32_t m_nSequenceIndex;
-    float m_flCycle;
+    int32_t m_nSequenceIndex; // 0xe0
+    float m_flCycle; // 0xe4
     // KeyValues3 m_KVModelStateChoices;
     char pad_01[16];
-    bool m_bEnableChildModel;
+    bool m_bEnableChildModel; // 0xf8
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCModel > > m_ChildModelName;
     // CUtlVector< CompositeMaterialAssemblyProcedure_t > m_vecCompositeMaterialAssemblyProcedures;
     // CUtlVector< CompositeMaterial_t > m_vecCompositeMaterials;
     char pad_02[287];
-};
+}; // size: 0x218
 
-class C_CommandContext {
+class __declspec(align(4)) C_CommandContext {
 public:
-    bool needsprocessing;
+    bool needsprocessing; // 0x0
     char pad_00[156];
-    int32_t command_number;
+    int32_t command_number; // 0xa0
     char pad_01[4];
-};
+}; // size: 0xa8
 
-class inv_image_clearcolor_t {
+class __declspec(align(4)) inv_image_clearcolor_t {
 public:
     // Vector color;
     char pad_00[12];
-};
+}; // size: 0xc
 
-class C_CSGO_PreviewPlayer_GraphController {
+class __declspec(align(8)) C_CSGO_PreviewPlayer_GraphController {
 public:
     // CAnimGraphParamRef< char* > m_pszCharacterMode;
     // CAnimGraphParamRef< char* > m_pszTeamPreviewVariant;
@@ -20424,219 +20615,222 @@ public:
     // CAnimGraphParamRef< char* > m_pszWeaponType;
     // CAnimGraphParamRef< bool > m_bCT;
     char pad_00[512];
-};
+}; // size: 0x200
 
-class CInventoryImageData {
+class __declspec(align(8)) CInventoryImageData {
 public:
-    InventoryNodeType_t m_nNodeType;
+    InventoryNodeType_t m_nNodeType; // 0x0
     // CUtlString name;
     char pad_00[8];
-    inv_image_data_t inventory_image_data;
-};
+    inv_image_data_t inventory_image_data; // 0x10
+}; // size: 0xf8
 
-class inv_image_camera_t {
+class __declspec(align(4)) inv_image_camera_t {
 public:
     // QAngle angle;
     char pad_00[12];
-    float fov;
-    float znear;
-    float zfar;
+    float fov; // 0xc
+    float znear; // 0x10
+    float zfar; // 0x14
     // Vector target;
     // Vector target_nudge;
     char pad_01[24];
-    float orbit_distance;
-};
+    float orbit_distance; // 0x30
+}; // size: 0x34
 
-class CFlashlightEffect {
+class __declspec(align(4)) CFlashlightEffect {
 public:
     char pad_00[16];
-    bool m_bIsOn;
+    bool m_bIsOn; // 0x10
     char pad_01[15];
-    bool m_bMuzzleFlashEnabled;
-    float m_flMuzzleFlashBrightness;
+    bool m_bMuzzleFlashEnabled; // 0x20
+    float m_flMuzzleFlashBrightness; // 0x24
     // Quaternion m_quatMuzzleFlashOrientation;
     // Vector m_vecMuzzleFlashOrigin;
     char pad_02[36];
-    float m_flFov;
-    float m_flFarZ;
-    float m_flLinearAtten;
-    bool m_bCastsShadows;
-    float m_flCurrentPullBackDist;
+    float m_flFov; // 0x4c
+    float m_flFarZ; // 0x50
+    float m_flLinearAtten; // 0x54
+    bool m_bCastsShadows; // 0x58
+    float m_flCurrentPullBackDist; // 0x5c
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_FlashlightTexture;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_MuzzleFlashTexture;
     char pad_03[16];
-    char m_textureName[64];
+    char m_textureName[64]; // 0x70
     char pad_04[560];
-};
+}; // size: 0x2e0
 
-class TimedEvent {
+class __declspec(align(4)) TimedEvent {
 public:
-    float m_TimeBetweenEvents;
-    float m_fNextEvent;
-};
+    float m_TimeBetweenEvents; // 0x0
+    float m_fNextEvent; // 0x4
+}; // size: 0x8
 
-class inv_image_item_t {
+class __declspec(align(8)) inv_image_item_t {
 public:
     // Vector position;
     // QAngle angle;
     // CUtlString pose_sequence;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class CInterpolatedValue {
+class __declspec(align(4)) CInterpolatedValue {
 public:
-    float m_flStartTime;
-    float m_flEndTime;
-    float m_flStartValue;
-    float m_flEndValue;
-    int32_t m_nInterpType;
-};
+    float m_flStartTime; // 0x0
+    float m_flEndTime; // 0x4
+    float m_flStartValue; // 0x8
+    float m_flEndValue; // 0xc
+    int32_t m_nInterpType; // 0x10
+}; // size: 0x14
 
-class inv_image_light_fill_t {
+class __declspec(align(4)) inv_image_light_fill_t {
 public:
     // Vector color;
     // QAngle angle;
     char pad_00[24];
-    float brightness;
-};
+    float brightness; // 0x18
+}; // size: 0x1c
 
-class inv_image_map_t {
+class __declspec(align(8)) inv_image_map_t {
 public:
     // CUtlString map_name;
     char pad_00[8];
-    float map_rotation;
+    float map_rotation; // 0x8
     char pad_01[4];
-};
+}; // size: 0x10
 
-class inv_image_light_barn_t {
+class __declspec(align(4)) inv_image_light_barn_t {
 public:
     // Vector color;
     // QAngle angle;
     char pad_00[24];
-    float brightness;
-    float orbit_distance;
-};
+    float brightness; // 0x18
+    float orbit_distance; // 0x1c
+}; // size: 0x20
 
-class CNmEventConsumerHudModelArmsAttributes {
+class __declspec(align(8)) CNmEventConsumerHudModelArmsAttributes {
 public:
     char pad_00[88];
-};
+}; // size: 0x58
 
-class CompositeMaterialInputLooseVariable_t {
+class __declspec(align(8)) CompositeMaterialInputLooseVariable_t {
 public:
     // CUtlString m_strName;
     char pad_00[8];
-    bool m_bExposeExternally;
+    bool m_bExposeExternally; // 0x8
     // CUtlString m_strExposedFriendlyName;
     // CUtlString m_strExposedFriendlyGroupName;
     char pad_01[23];
-    bool m_bExposedVariableIsFixedRange;
+    bool m_bExposedVariableIsFixedRange; // 0x20
     // CUtlString m_strExposedVisibleWhenTrue;
     // CUtlString m_strExposedHiddenWhenTrue;
     // CUtlString m_strExposedValueList;
     char pad_02[28];
-    CompositeMaterialInputLooseVariableType_t m_nVariableType;
-    bool m_bValueBoolean;
-    int32_t m_nValueIntX;
-    int32_t m_nValueIntY;
-    int32_t m_nValueIntZ;
-    int32_t m_nValueIntW;
-    bool m_bHasFloatBounds;
-    float m_flValueFloatX;
-    float m_flValueFloatX_Min;
-    float m_flValueFloatX_Max;
-    float m_flValueFloatY;
-    float m_flValueFloatY_Min;
-    float m_flValueFloatY_Max;
-    float m_flValueFloatZ;
-    float m_flValueFloatZ_Min;
-    float m_flValueFloatZ_Max;
-    float m_flValueFloatW;
-    float m_flValueFloatW_Min;
-    float m_flValueFloatW_Max;
+    CompositeMaterialInputLooseVariableType_t m_nVariableType; // 0x40
+    bool m_bValueBoolean; // 0x44
+    int32_t m_nValueIntX; // 0x48
+    int32_t m_nValueIntY; // 0x4c
+    int32_t m_nValueIntZ; // 0x50
+    int32_t m_nValueIntW; // 0x54
+    bool m_bHasFloatBounds; // 0x58
+    float m_flValueFloatX; // 0x5c
+    float m_flValueFloatX_Min; // 0x60
+    float m_flValueFloatX_Max; // 0x64
+    float m_flValueFloatY; // 0x68
+    float m_flValueFloatY_Min; // 0x6c
+    float m_flValueFloatY_Max; // 0x70
+    float m_flValueFloatZ; // 0x74
+    float m_flValueFloatZ_Min; // 0x78
+    float m_flValueFloatZ_Max; // 0x7c
+    float m_flValueFloatW; // 0x80
+    float m_flValueFloatW_Min; // 0x84
+    float m_flValueFloatW_Max; // 0x88
     // Color m_cValueColor4;
     char pad_03[4];
-    CompositeMaterialVarSystemVar_t m_nValueSystemVar;
+    CompositeMaterialVarSystemVar_t m_nValueSystemVar; // 0x90
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeIMaterial2 > > m_strResourceMaterial;
     // CUtlString m_strTextureContentAssetPath;
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCTextureBase > > m_strTextureRuntimeResourcePath;
     // CUtlString m_strTextureCompilationVtexTemplate;
     char pad_04[468];
-    CompositeMaterialInputTextureType_t m_nTextureType;
+    CompositeMaterialInputTextureType_t m_nTextureType; // 0x268
     // CUtlString m_strString;
     // CUtlString m_strPanoramaPanelPath;
     char pad_05[20];
-    int32_t m_nPanoramaRenderRes;
+    int32_t m_nPanoramaRenderRes; // 0x280
     char pad_06[4];
-};
+}; // size: 0x288
 
-class CompositeMaterialAssemblyProcedure_t {
+class __declspec(align(8)) CompositeMaterialAssemblyProcedure_t {
 public:
     // CUtlVector< CResourceNameTyped< CWeakHandle< InfoForResourceTypeCCompositeMaterialKit > > > m_vecCompMatIncludes;
     // CUtlVector< CompositeMaterialMatchFilter_t > m_vecMatchFilters;
     // CUtlVector< CompositeMaterialInputContainer_t > m_vecCompositeInputContainers;
     // CUtlVector< CompMatPropertyMutator_t > m_vecPropertyMutators;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CompositeMaterialInputContainer_t {
+class __declspec(align(8)) CompositeMaterialInputContainer_t {
 public:
-    bool m_bEnabled;
-    CompositeMaterialInputContainerSourceType_t m_nCompositeMaterialInputContainerSourceType;
+    bool m_bEnabled; // 0x0
+    CompositeMaterialInputContainerSourceType_t m_nCompositeMaterialInputContainerSourceType; // 0x4
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeIMaterial2 > > m_strSpecificContainerMaterial;
     // CUtlString m_strAttrName;
     // CUtlString m_strAlias;
     // CUtlVector< CompositeMaterialInputLooseVariable_t > m_vecLooseVariables;
     // CUtlString m_strAttrNameForVar;
     char pad_00[272];
-    bool m_bExposeExternally;
+    bool m_bExposeExternally; // 0x118
     char pad_01[31];
-};
+}; // size: 0x138
 
-class GeneratedTextureHandle_t {
+class __declspec(align(1)) GeneratedTextureHandle_t {
 public:
     // CUtlString m_strBitmapName;
     char pad_00[96];
-};
+}; // size: 0x60
 
-class CAnimScriptBase {
+class __declspec(align(1)) CAnimScriptBase {
 public:
     char pad_00[8];
-    bool m_bIsValid;
+    bool m_bIsValid; // 0x8
     char pad_01[7];
-};
+}; // size: 0x10
 
-class EmptyTestScript {
+class __declspec(align(1)) EmptyTestScript {
 public:
     // CAnimScriptParam< float32 > m_hTest;
     char pad_00[32];
-};
+}; // size: 0x20
 
-class Vector {
+class __declspec(align(4)) Vector {
 public:
-    float x;
-    float y;
-    float z;
-};
+    float x; // 0x0
+    float y; // 0x4
+    float z; // 0x8
+}; // size: 0xc
 
-class Vector4D {
+class __declspec(align(4)) Vector4D {
 public:
-    float x;
-    float y;
-    float z;
-    float w;
-};
+    float x; // 0x0
+    float y; // 0x4
+    float z; // 0x8
+    float w; // 0xc
+}; // size: 0x10
 
-class Vector2D {
+class __declspec(align(4)) Vector2D {
 public:
-    float x;
-    float y;
-};
+    float x; // 0x0
+    float y; // 0x4
+}; // size: 0x8
 
-class QAngle {
+class __declspec(align(4)) QAngle {
 public:
-    float pitch;
-    float yaw;
-    float roll;
-};
+    float pitch; // 0x0
+    float yaw; // 0x4
+    float roll; // 0x8
+}; // size: 0xc
 
+#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus

@@ -1,10 +1,27 @@
-enum EntityDormancyType_t : uint32_t {
+#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+#include "global_types.h"
+#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
+
+
+/// EntityDormancyType_t
+_enum EntityDormancyType_t0 : uint32_t {
     ENTITY_NOT_DORMANT = 0,
     ENTITY_DORMANT = 1,
     ENTITY_SUSPENDED = 2,
 };
 
-enum EntityIOTargetType_t : uint32_t {
+/// EntityIOTargetType_t
+_enum EntityIOTargetType_t0 : uint32_t {
     ENTITY_IO_TARGET_INVALID = 4294967295,
     ENTITY_IO_TARGET_ENTITYNAME = 2,
     ENTITY_IO_TARGET_EHANDLE = 6,
@@ -14,56 +31,63 @@ enum EntityIOTargetType_t : uint32_t {
 class CEntityIdentity;
 
 
-class EngineLoopState_t {
+/// EngineLoopState_t
+class __declspec(align(4)) EngineLoopState_t0 {
 public:
     char pad_00[24];
-    int32_t m_nPlatWindowWidth;
-    int32_t m_nPlatWindowHeight;
-    int32_t m_nRenderWidth;
-    int32_t m_nRenderHeight;
-};
+    int32_t m_nPlatWindowWidth; // 0x18
+    int32_t m_nPlatWindowHeight; // 0x1c
+    int32_t m_nRenderWidth; // 0x20
+    int32_t m_nRenderHeight; // 0x24
+}; // size: 0x28
 
-class CEntityComponent {
+class __declspec(align(1)) CEntityComponent {
 public:
     char pad_00[8];
-};
+}; // size: 0x8
 
-class CScriptComponent : public CEntityComponent {
+class __declspec(align(1)) CScriptComponent : public CEntityComponent {
 public:
     // CUtlSymbolLarge m_scriptClassName;
-    char pad_01[56];
-};
+    char pad_01[48];
+}; // size: 0x38
 
-class ChangeAccessorFieldPathIndex_t {
+/// ChangeAccessorFieldPathIndex_t
+class __declspec(align(4)) ChangeAccessorFieldPathIndex_t0 {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
-class EventModInitialized_t {
+/// EventModInitialized_t
+class __declspec(align(1)) EventModInitialized_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventFrameBoundary_t {
+/// EventFrameBoundary_t
+class __declspec(align(4)) EventFrameBoundary_t0 {
 public:
-    float m_flFrameTime;
-};
+    float m_flFrameTime; // 0x0
+}; // size: 0x4
 
-class EventProfileStorageAvailable_t {
+/// EventProfileStorageAvailable_t
+class __declspec(align(1)) EventProfileStorageAvailable_t0 {
 public:
     // CSplitScreenSlot m_nSplitScreenSlot;
     char pad_00[4];
-};
+}; // size: 0x4
 
-class EventSplitScreenStateChanged_t {
+/// EventSplitScreenStateChanged_t
+class __declspec(align(1)) EventSplitScreenStateChanged_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventSetTime_t {
+/// EventSetTime_t
+class __declspec(align(4)) EventSetTime_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    int32_t m_nClientOutputFrames;
+    EngineLoopState_t m_LoopState; // 0x0
+    int32_t m_nClientOutputFrames; // 0x28
     // float64 m_flRealTime;
     // float64 m_flRenderTime;
     // float64 m_flRenderFrameTime;
@@ -71,322 +95,370 @@ public:
     // float64 m_flRenderFrameTimeUnscaled;
     // float64 m_flTickRemainder;
     char pad_00[52];
-};
+}; // size: 0x60
 
-class EventClientPollInput_t {
+/// EventClientPollInput_t
+class __declspec(align(4)) EventClientPollInput_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
     char pad_00[4];
-};
+}; // size: 0x30
 
-class EventClientProcessInput_t {
+/// EventClientProcessInput_t
+class __declspec(align(4)) EventClientProcessInput_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flTickInterval;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flTickInterval; // 0x2c
     // float64 m_flTickStartTime;
     char pad_00[8];
-};
+}; // size: 0x38
 
-class EventClientProcessGameInput_t {
+/// EventClientProcessGameInput_t
+class __declspec(align(4)) EventClientProcessGameInput_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flFrameTime;
-};
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flFrameTime; // 0x2c
+}; // size: 0x30
 
-class EventClientPreOutput_t {
+/// EventClientPreOutput_t
+class __declspec(align(4)) EventClientPreOutput_t0 {
 public:
-    EngineLoopState_t m_LoopState;
+    EngineLoopState_t m_LoopState; // 0x0
     // float64 m_flRenderTime;
     // float64 m_flRenderFrameTime;
     // float64 m_flRenderFrameTimeUnbounded;
     char pad_00[24];
-    float m_flRealTime;
-    bool m_bRenderOnly;
+    float m_flRealTime; // 0x40
+    bool m_bRenderOnly; // 0x44
     char pad_01[3];
-};
+}; // size: 0x48
 
-class EventClientPreOutputParallelWithServer_t {
+/// EventClientPreOutputParallelWithServer_t
+class __declspec(align(1)) EventClientPreOutputParallelWithServer_t0 {
 public:
     char pad_00[72];
-};
+}; // size: 0x48
 
-class EventClientSceneSystemThreadStateChange_t {
+/// EventClientSceneSystemThreadStateChange_t
+class __declspec(align(1)) EventClientSceneSystemThreadStateChange_t0 {
 public:
-    bool m_bThreadsActive;
-};
+    bool m_bThreadsActive; // 0x0
+}; // size: 0x1
 
-class EventClientOutput_t {
+/// EventClientOutput_t
+class __declspec(align(4)) EventClientOutput_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRenderTime;
-    float m_flRealTime;
-    float m_flRenderFrameTimeUnbounded;
-    bool m_bRenderOnly;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRenderTime; // 0x28
+    float m_flRealTime; // 0x2c
+    float m_flRenderFrameTimeUnbounded; // 0x30
+    bool m_bRenderOnly; // 0x34
     char pad_00[3];
-};
+}; // size: 0x38
 
-class EventClientPostOutput_t {
+/// EventClientPostOutput_t
+class __declspec(align(4)) EventClientPostOutput_t0 {
 public:
-    EngineLoopState_t m_LoopState;
+    EngineLoopState_t m_LoopState; // 0x0
     // float64 m_flRenderTime;
     char pad_00[8];
-    float m_flRenderFrameTime;
-    float m_flRenderFrameTimeUnbounded;
-    bool m_bRenderOnly;
+    float m_flRenderFrameTime; // 0x30
+    float m_flRenderFrameTimeUnbounded; // 0x34
+    bool m_bRenderOnly; // 0x38
     char pad_01[7];
-};
+}; // size: 0x40
 
-class EventClientAdvanceNonRenderedFrame_t {
+/// EventClientAdvanceNonRenderedFrame_t
+class __declspec(align(1)) EventClientAdvanceNonRenderedFrame_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventClientFrameSimulate_t {
+/// EventClientFrameSimulate_t
+class __declspec(align(4)) EventClientFrameSimulate_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flFrameTime;
-    bool m_bScheduleSendTickPacket;
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flFrameTime; // 0x2c
+    bool m_bScheduleSendTickPacket; // 0x30
     char pad_00[7];
-};
+}; // size: 0x38
 
-class EventSimpleLoopFrameUpdate_t {
+/// EventSimpleLoopFrameUpdate_t
+class __declspec(align(4)) EventSimpleLoopFrameUpdate_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    float m_flRealTime;
-    float m_flFrameTime;
-};
+    EngineLoopState_t m_LoopState; // 0x0
+    float m_flRealTime; // 0x28
+    float m_flFrameTime; // 0x2c
+}; // size: 0x30
 
-class EventSimulate_t {
+/// EventSimulate_t
+class __declspec(align(4)) EventSimulate_t0 {
 public:
-    EngineLoopState_t m_LoopState;
-    bool m_bFirstTick;
-    bool m_bLastTick;
+    EngineLoopState_t m_LoopState; // 0x0
+    bool m_bFirstTick; // 0x28
+    bool m_bLastTick; // 0x29
     char pad_00[6];
-};
+}; // size: 0x30
 
-class EventAdvanceTick_t {
+/// EventAdvanceTick_t
+class __declspec(align(4)) EventAdvanceTick_t0 {
 public:
     char pad_00[48];
-    int32_t m_nCurrentTick;
-    int32_t m_nCurrentTickThisFrame;
-    int32_t m_nTotalTicksThisFrame;
-    int32_t m_nTotalTicks;
-};
+    int32_t m_nCurrentTick; // 0x30
+    int32_t m_nCurrentTickThisFrame; // 0x34
+    int32_t m_nTotalTicksThisFrame; // 0x38
+    int32_t m_nTotalTicks; // 0x3c
+}; // size: 0x40
 
-class EventPostAdvanceTick_t {
+/// EventPostAdvanceTick_t
+class __declspec(align(4)) EventPostAdvanceTick_t0 {
 public:
     char pad_00[48];
-    int32_t m_nCurrentTick;
-    int32_t m_nCurrentTickThisFrame;
-    int32_t m_nTotalTicksThisFrame;
-    int32_t m_nTotalTicks;
-};
+    int32_t m_nCurrentTick; // 0x30
+    int32_t m_nCurrentTickThisFrame; // 0x34
+    int32_t m_nTotalTicksThisFrame; // 0x38
+    int32_t m_nTotalTicks; // 0x3c
+}; // size: 0x40
 
-class EventServerAdvanceTick_t {
+/// EventServerAdvanceTick_t
+class __declspec(align(1)) EventServerAdvanceTick_t0 {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class EventServerPostAdvanceTick_t {
+/// EventServerPostAdvanceTick_t
+class __declspec(align(1)) EventServerPostAdvanceTick_t0 {
 public:
     char pad_00[64];
-    bool m_bLastTickBeforeClientUpdate;
+    bool m_bLastTickBeforeClientUpdate; // 0x40
     char pad_01[7];
-};
+}; // size: 0x48
 
-class EventServerBeginAsyncPostTickWork_t {
+/// EventServerBeginAsyncPostTickWork_t
+class __declspec(align(1)) EventServerBeginAsyncPostTickWork_t0 {
 public:
-    bool m_bIsOncePerFrameAsyncWorkPhase;
-};
+    bool m_bIsOncePerFrameAsyncWorkPhase; // 0x0
+}; // size: 0x1
 
-class EventServerEndAsyncPostTickWork_t {
+/// EventServerEndAsyncPostTickWork_t
+class __declspec(align(1)) EventServerEndAsyncPostTickWork_t0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EventClientAdvanceTick_t {
+/// EventClientAdvanceTick_t
+class __declspec(align(1)) EventClientAdvanceTick_t0 {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class EventClientPostAdvanceTick_t {
+/// EventClientPostAdvanceTick_t
+class __declspec(align(1)) EventClientPostAdvanceTick_t0 {
 public:
     char pad_00[64];
-};
+}; // size: 0x40
 
-class EventClientPollNetworking_t {
+/// EventClientPollNetworking_t
+class __declspec(align(4)) EventClientPollNetworking_t0 {
 public:
-    int32_t m_nTickCount;
-};
+    int32_t m_nTickCount; // 0x0
+}; // size: 0x4
 
-class EventClientProcessNetworking_t {
+/// EventClientProcessNetworking_t
+class __declspec(align(4)) EventClientProcessNetworking_t0 {
 public:
-    int32_t m_nTickCount;
-};
+    int32_t m_nTickCount; // 0x0
+}; // size: 0x4
 
-class EventClientPreSimulate_t {
-public:
-    char pad_00[48];
-};
-
-class EventClientSimulate_t {
+/// EventClientPreSimulate_t
+class __declspec(align(1)) EventClientPreSimulate_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventServerPollNetworking_t {
+/// EventClientSimulate_t
+class __declspec(align(1)) EventClientSimulate_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventServerProcessNetworking_t {
+/// EventServerPollNetworking_t
+class __declspec(align(1)) EventServerPollNetworking_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventServerBeginSimulate_t {
+/// EventServerProcessNetworking_t
+class __declspec(align(1)) EventServerProcessNetworking_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventServerEndSimulate_t {
-public:
-    bool m_bLastTick;
-};
-
-class EventServerPostSimulate_t {
+/// EventServerBeginSimulate_t
+class __declspec(align(1)) EventServerBeginSimulate_t0 {
 public:
     char pad_00[48];
-    bool m_bLastTickBeforeClientUpdate;
+}; // size: 0x30
+
+/// EventServerEndSimulate_t
+class __declspec(align(1)) EventServerEndSimulate_t0 {
+public:
+    bool m_bLastTick; // 0x0
+}; // size: 0x1
+
+/// EventServerPostSimulate_t
+class __declspec(align(1)) EventServerPostSimulate_t0 {
+public:
+    char pad_00[48];
+    bool m_bLastTickBeforeClientUpdate; // 0x30
     char pad_01[7];
-};
+}; // size: 0x38
 
-class EventClientPostSimulate_t {
+/// EventClientPostSimulate_t
+class __declspec(align(1)) EventClientPostSimulate_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventClientPauseSimulate_t {
+/// EventClientPauseSimulate_t
+class __declspec(align(1)) EventClientPauseSimulate_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class EventPostDataUpdate_t {
+/// EventPostDataUpdate_t
+class __declspec(align(4)) EventPostDataUpdate_t0 {
 public:
-    int32_t m_nCount;
+    int32_t m_nCount; // 0x0
     char pad_00[12];
-};
+}; // size: 0x10
 
-class EventPreDataUpdate_t {
+/// EventPreDataUpdate_t
+class __declspec(align(4)) EventPreDataUpdate_t0 {
 public:
-    int32_t m_nCount;
+    int32_t m_nCount; // 0x0
     char pad_00[12];
-};
+}; // size: 0x10
 
-class EventAppShutdown_t {
+/// EventAppShutdown_t
+class __declspec(align(4)) EventAppShutdown_t0 {
 public:
-    int32_t m_nDummy0;
-};
+    int32_t m_nDummy0; // 0x0
+}; // size: 0x4
 
-class CNetworkVarChainer {
+/// CNetworkVarChainer
+class __declspec(align(4)) CNetworkVarChainer0 {
 public:
     char pad_00[32];
-    ChangeAccessorFieldPathIndex_t m_PathIndex;
+    ChangeAccessorFieldPathIndex_t m_PathIndex; // 0x20
     char pad_01[4];
-};
+}; // size: 0x28
 
-class CEntityAttributeTable {
+/// CEntityAttributeTable
+class __declspec(align(1)) CEntityAttributeTable0 {
 public:
     // CUtlOrderedMap< CUtlStringToken, Attribute_t > m_Attributes;
     // CUtlOrderedMap< CUtlStringToken, CUtlString > m_Names;
     char pad_00[80];
-};
+}; // size: 0x50
 
-class CVariantDefaultAllocator {
+/// CVariantDefaultAllocator
+class __declspec(align(1)) CVariantDefaultAllocator0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class EntOutput_t {
+/// EntOutput_t
+class __declspec(align(1)) EntOutput_t0 {
 public:
     char pad_00[16];
-};
+}; // size: 0x10
 
-class EntComponentInfo_t {
+/// EntComponentInfo_t
+class __declspec(align(8)) EntComponentInfo_t0 {
 public:
-    char* m_pName;
-    char* m_pCPPClassname;
-    char* m_pNetworkDataReferencedDescription;
-    char* m_pNetworkDataReferencedPtrPropDescription;
-    int32_t m_nRuntimeIndex;
-    uint32_t m_nFlags;
+    char* m_pName; // 0x0
+    char* m_pCPPClassname; // 0x8
+    char* m_pNetworkDataReferencedDescription; // 0x10
+    char* m_pNetworkDataReferencedPtrPropDescription; // 0x18
+    int32_t m_nRuntimeIndex; // 0x20
+    uint32_t m_nFlags; // 0x24
     char pad_00[56];
-    CEntityComponentHelper* m_pBaseClassComponentHelper;
-};
+    CEntityComponentHelper* m_pBaseClassComponentHelper; // 0x60
+}; // size: 0x68
 
-class CEntityComponentHelper {
+/// CEntityComponentHelper
+class __declspec(align(8)) CEntityComponentHelper0 {
 public:
     char pad_00[8];
-    uint32_t m_flags;
-    EntComponentInfo_t* m_pInfo;
-    int32_t m_nPriority;
-    CEntityComponentHelper* m_pNext;
-};
+    uint32_t m_flags; // 0x8
+    EntComponentInfo_t* m_pInfo; // 0x10
+    int32_t m_nPriority; // 0x18
+    CEntityComponentHelper* m_pNext; // 0x20
+}; // size: 0x28
 
-class EntInput_t {
+/// EntInput_t
+class __declspec(align(1)) EntInput_t0 {
 public:
     char pad_00[48];
-};
+}; // size: 0x30
 
-class CEntityIdentity {
+class __declspec(align(8)) CEntityIdentity {
 public:
     char pad_00[20];
-    int32_t m_nameStringableIndex;
+    int32_t m_nameStringableIndex; // 0x14
     // CUtlSymbolLarge m_name;
     // CUtlSymbolLarge m_designerName;
     char pad_01[24];
-    uint32_t m_flags;
+    uint32_t m_flags; // 0x30
     // WorldGroupId_t m_worldGroupId;
     char pad_02[8];
-    uint32_t m_fDataObjectTypes;
-    ChangeAccessorFieldPathIndex_t m_PathIndex;
-    CEntityAttributeTable* m_pAttributes;
-    CEntityIdentity* m_pPrev;
-    CEntityIdentity* m_pNext;
-    CEntityIdentity* m_pPrevByClass;
-    CEntityIdentity* m_pNextByClass;
-};
+    uint32_t m_fDataObjectTypes; // 0x3c
+    ChangeAccessorFieldPathIndex_t m_PathIndex; // 0x40
+    CEntityAttributeTable* m_pAttributes; // 0x48
+    CEntityIdentity* m_pPrev; // 0x50
+    CEntityIdentity* m_pNext; // 0x58
+    CEntityIdentity* m_pPrevByClass; // 0x60
+    CEntityIdentity* m_pNextByClass; // 0x68
+}; // size: 0x70
 
-class CEmptyEntityInstance {
+/// CEmptyEntityInstance
+class __declspec(align(1)) CEmptyEntityInstance0 {
 public:
     char pad_00[1];
-};
+}; // size: 0x1
 
-class CEntityInstance {
+class __declspec(align(8)) CEntityInstance {
 public:
     // CUtlSymbolLarge m_iszPrivateVScripts;
     char pad_00[16];
-    CEntityIdentity* m_pEntity;
+    CEntityIdentity* m_pEntity; // 0x10
     char pad_01[24];
-    CScriptComponent* m_CScriptComponent;
-};
+    CScriptComponent* m_CScriptComponent; // 0x30
+}; // size: 0x38
 
-class CEntityIOOutput {
+/// CEntityIOOutput
+class __declspec(align(1)) CEntityIOOutput0 {
 public:
     char pad_00[24];
-};
+}; // size: 0x18
 
-class GameTime_t {
+/// GameTime_t
+class __declspec(align(4)) GameTime_t0 {
 public:
-    float m_Value;
-};
+    float m_Value; // 0x0
+}; // size: 0x4
 
-class GameTick_t {
+/// GameTick_t
+class __declspec(align(4)) GameTick_t0 {
 public:
-    int32_t m_Value;
-};
+    int32_t m_Value; // 0x0
+}; // size: 0x4
 
+#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus

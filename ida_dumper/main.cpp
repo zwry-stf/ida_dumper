@@ -81,7 +81,7 @@ int main() {
     }
 
     std::println("formatting...");
-    d.dump(out_path);
+    d.dump(out_path, true /* add_tests */);
     std::println("done!");
 
     return 0;

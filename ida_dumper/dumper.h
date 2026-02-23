@@ -32,6 +32,8 @@ private:
     std::unique_ptr<std::vector<loaded_scope_t>> scopes_;
     std::unique_ptr<loaded_scope_t> global_scope_;
     std::vector<std::string> current_forward_declared_classes_;
+    bool add_tests_{};
+    std::string current_test_source_;
 
 public:
     dumper();
@@ -68,7 +70,7 @@ public:
     /// dumping
     bool parse(CSchemaSystem* schema_system);
 
-    void dump(const std::filesystem::path& path);
+    void dump(const std::filesystem::path& path, bool add_tests = false);
 
 private:
     void add_forward_declared_classs(const std::string& name);

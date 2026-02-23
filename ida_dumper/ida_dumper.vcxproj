@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="dumper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="output\client.dll_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dumper.h" />

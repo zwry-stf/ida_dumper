@@ -12,15 +12,16 @@ struct loaded_field_t {
     std::string type_name;
     std::uint32_t offset;
     std::uint32_t size{};
-    std::uint32_t alignment{};
+    std::int32_t alignment{};
     bool was_valid{};
 };
 
 struct loaded_class_t {
     std::string name;
+    std::string original_name;
     std::string parent_name;
     std::uint32_t size;
-    std::uint32_t alignment{ 1 };
+    std::int32_t alignment{ 1 };
     bool parent_removed{};
     std::uint32_t pad_idx{};
     const loaded_class_t* parent_cls{};
@@ -35,6 +36,7 @@ struct loaded_enum_value_t {
 
 struct loaded_enum_t {
     std::string name;
+    std::string original_name;
     std::uint32_t size;
     std::uint32_t alignment;
     std::vector<loaded_enum_value_t> values;
@@ -397,7 +399,7 @@ bool dumper::parse_class(const CSchemaClassData& cls, loaded_class_t& out) {
 
     out.name = class_name_buffer;
     out.size = cls.class_size;
-    out.alignment = cls.alignment;
+    out.alignment = (std::max)(static_cast<std::int32_t>(cls.alignment), 1);
 
     // get parent class
     if (cls.base_class_count > 0 &&
@@ -650,7 +652,9 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
                     add_forward_declared_classs(c.name);
                 }
                 out_name = type_name;
-                std::uint32_t size, alignment;
+
+                std::uint32_t size;
+                std::int32_t alignment;
                 if (is_pointer) {
                     out_name += '*';
                     size = sizeof(void*);
@@ -661,12 +665,15 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
                     alignment = c.alignment;
                 }
 
+                if (alignment < 1)
+                    alignment = 1;
+
                 const auto aligned = out_pos % alignment;
                 if (aligned == 0) {
                     last_pos_with_alignment = out_pos;
                 }
                 else {
-                    last_pos_with_alignment = out_pos + alignment - aligned;
+                    last_pos_with_alignment = out_pos + static_cast<std::uint32_t>(alignment) - aligned;
                 }
                 out_pos = field.offset + size;
                 field.size = size;
@@ -678,6 +685,7 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
         for (const auto& e : scope->enums) {
             if (e.name == type_name) {
                 out_name = type_name;
+
                 std::uint32_t size, alignment;
                 if (is_pointer) {
                     out_name += '*';
@@ -688,6 +696,9 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
                     size = e.size;
                     alignment = e.alignment;
                 }
+
+                if (alignment < 1)
+                    alignment = 1;
 
                 const auto aligned = out_pos % alignment;
                 if (aligned == 0) {
@@ -708,7 +719,15 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
 }
 
 void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_scope_t*>& includes, std::string& source) {
-    source += "class ";
+    const auto name_changed = cls.name != cls.original_name;
+
+    if (name_changed) {
+        source += "/// " + cls.original_name + "\n";
+    }
+
+    source += "class __declspec(align(";
+    const auto num_align_insert_pos = source.length();
+    source += ")) ";
     source += cls.name;
 
     if (!cls.parent_name.empty() &&
@@ -720,6 +739,10 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         source += cls.parent_name;
 
         cls.pad_idx = cls.parent_cls->pad_idx;
+
+        if (cls.parent_cls->alignment > cls.alignment) {
+            cls.alignment = cls.parent_cls->alignment;
+        }
     }
 
     source += " {";
@@ -732,7 +755,12 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
     source += "\npublic:\n";
 
     std::uint32_t byte_pos = 0;
-    std::uint32_t last_pos = 0;
+
+    if (!cls.parent_name.empty() &&
+        !cls.parent_removed) {
+        byte_pos = cls.parent_cls->size;
+    }
+
     bool is_first_field = true;
     for (auto& f : cls.fields) {
         std::string translated_type_name;
@@ -800,9 +828,8 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
             source += translated_type_name.substr(format_delimiter);
         }
 
-        source += ";\n";
+        source += std::format("; // {:#x}\n", f.offset);
 
-        last_pos = byte_pos;
         is_first_field = false;
     }
 
@@ -816,14 +843,47 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         cls.size = byte_pos;
     }
 
-    source += "};\n\n";
+    source += std::format("}}; // size: {:#x}\n\n", cls.size);
+
+    const std::string align_text = std::to_string(
+        cls.alignment
+    );
+    source.insert(
+        source.begin() + num_align_insert_pos,
+        align_text.begin(),
+        align_text.end()
+    );
 
     cls.formatted = true;
+
+    if (add_tests_) {
+        current_test_source_ += "// " + cls.original_name += "\n";
+
+        current_test_source_ += "static_assert(sizeof(";
+        current_test_source_ += cls.name;
+        current_test_source_ += ") == ";
+        current_test_source_ += std::to_string(cls.size);
+        current_test_source_ += ");\n";
+
+        // wont be accurate because of missing fields
+        current_test_source_ += "static_assert(alignof(";
+        current_test_source_ += cls.name;
+        current_test_source_ += ") == ";
+        current_test_source_ += std::to_string(cls.alignment);
+        current_test_source_ += ");\n";
+    }
 }
 
 void dumper::format_enum(loaded_enum_t& en, std::string& source) {
-    source += "enum ";
+    const auto name_changed = en.name != en.original_name;
+
+    if (name_changed) {
+        source += "/// " + en.original_name + "\n";
+    }
+
+    source += "_enum ";
     source += en.name;
+
     source += " : ";
 
     switch (en.size) {
@@ -858,12 +918,29 @@ void dumper::format_enum(loaded_enum_t& en, std::string& source) {
     }
 
     source += "};\n\n";
+
+    if (add_tests_) {
+        current_test_source_ += "// " + en.original_name += "\n";
+
+        current_test_source_ += "static_assert(sizeof(";
+        current_test_source_ += en.name;
+        current_test_source_ += ") == ";
+        current_test_source_ += std::to_string(en.size);
+        current_test_source_ += ");\n";
+
+        current_test_source_ += "static_assert(alignof(";
+        current_test_source_ += en.name;
+        current_test_source_ += ") == ";
+        current_test_source_ += std::to_string(en.alignment);
+        current_test_source_ += ");\n";
+    }
 }
 
 void dumper::format_scope(loaded_scope_t& scope, const std::vector<const loaded_scope_t*>& includes,
                           const std::filesystem::path& out_path) {
     auto file_name = scope.name;
-    if (scope.name == "!GlobalTypes") {
+    const bool is_global_types = scope.name == "!GlobalTypes";
+    if (is_global_types) {
         file_name = "global_types";
     }
 
@@ -874,6 +951,8 @@ void dumper::format_scope(loaded_scope_t& scope, const std::vector<const loaded_
             }
         }
     }
+
+    current_test_source_.clear();
 
     const auto file_path = out_path / (file_name + ".h");
     std::ofstream file(file_path, std::ios::trunc);
@@ -942,7 +1021,85 @@ void dumper::format_scope(loaded_scope_t& scope, const std::vector<const loaded_
         }
     }
 
+    // update class names
+    for (auto& c : scope.classes) {
+        c.original_name = c.name;
+
+        for (auto& ck : c.name) {
+            if (ck == ':')
+                ck = '_';
+        }
+    }
+    for (auto& e : scope.enums) {
+        e.original_name = e.name;
+
+        for (auto& ck : e.name) {
+            if (ck == ':')
+                ck = '_';
+        }
+    }
+
+    std::int32_t num_renamed = 0;
+    while (true) {
+        num_renamed = 0;
+        for (auto& c : scope.classes) {
+            for (auto& i : includes) {
+                for (auto& ic : i->classes) {
+                    if (&c != &ic &&
+                        c.name == ic.name) {
+                        c.name += '0';
+                        num_renamed++;
+                        goto next;
+                    }
+                }
+            }
+        next:
+            continue;
+        }
+
+        for (auto& e : scope.enums) {
+            for (auto& i : includes) {
+                for (auto& ie : i->enums) {
+                    if (&e != &ie &&
+                        e.name == ie.name) {
+                        e.name += '0';
+                        num_renamed++;
+                        goto next_e;
+                    }
+                }
+            }
+        next_e:
+            continue;
+        }
+
+        if (num_renamed == 0)
+            break;
+    }
+
     std::string source;
+
+    // header
+    source += R"(#ifdef __cplusplus
+#include <stdint.h>
+#pragma warning(push)
+#pragma warning(disable: 4324)
+#ifndef _enum
+#define _enum enum class
+#endif // _enum
+)";
+
+    if (!is_global_types) {
+        source += "#include \"global_types.h\"\n";
+    }
+
+    source += R"(#else
+#ifndef _enum
+#define _enum enum
+#endif // _enum
+#endif // __cplusplus
+
+
+)";
 
     for (auto& e : scope.enums) {
         format_enum(e, source);
@@ -971,12 +1128,42 @@ void dumper::format_scope(loaded_scope_t& scope, const std::vector<const loaded_
         );
     }
 
+    source += R"(#ifdef __cplusplus
+#pragma warning(pop)
+#endif // __cplusplus)";
+
     file.write(source.data(), source.length());
     file.close();
+
+    if (add_tests_ &&
+        !current_test_source_.empty()) {
+        std::string include_test = "#include \"";
+        include_test += file_name + ".h\"\n\n";
+        const auto test_file_path = out_path / (file_name + "_test.cpp");
+        std::ofstream test_file(test_file_path, std::ios::trunc);
+        if (!test_file) {
+            std::println(stderr, "failed to open test file '{}' for write", test_file_path.string());
+            return;
+        }
+
+        current_test_source_.insert(
+            current_test_source_.begin(),
+            include_test.begin(),
+            include_test.end()
+        );
+
+        test_file.write(
+            current_test_source_.data(),
+            current_test_source_.size()
+        );
+        test_file.close();
+    }
 }
 
-void dumper::dump(const std::filesystem::path& out_path) {
+void dumper::dump(const std::filesystem::path& out_path, bool add_tests) {
     assert(global_scope_);
+
+    add_tests_ = add_tests;
 
     {
         std::vector<const loaded_scope_t*> includes;
