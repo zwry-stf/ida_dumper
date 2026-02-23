@@ -21,57 +21,6 @@
     <ClCompile Include="dumper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="output\animationsystem.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\client.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\engine2.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\global_types_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\host.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\materialsystem2.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\particles.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\pulse_system.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\rendersystemdx11.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\resourcesystem.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\scenesystem.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\schemasystem.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\server.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\soundsystem.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\steamaudio.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\vphysics2.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="output\worldrenderer.dll_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdk.h">
@@ -84,57 +33,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="str_util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\animationsystem.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\client.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\engine2.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\global_types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\host.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\materialsystem2.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\particles.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\pulse_system.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\rendersystemdx11.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\resourcesystem.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\scenesystem.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\schemasystem.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\server.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\soundsystem.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\steamaudio.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\vphysics2.dll.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="output\worldrenderer.dll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
