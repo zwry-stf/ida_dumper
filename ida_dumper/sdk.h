@@ -3,12 +3,6 @@
 #include <functional>
 
 
-struct c_interface_register {
-    void* fn_create; // 0x0
-    const char* name; // 0x8
-    c_interface_register* next; // 0x10
-};
-
 struct CSchemaClassData;
 struct CSchemaClassDataRef {
     char pad00[0x8]; // 0x0

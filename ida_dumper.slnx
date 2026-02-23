@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="ida_dumper/ida_dumper.vcxproj" />
+  <Project Path="ida_dumper/ida_dumper.vcxproj" Id="a9771a25-0004-44d4-a6ed-9de8132b1dcd" />
 </Solution>
