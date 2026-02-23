@@ -75,23 +75,22 @@ public:
 class SceneObject_t {
 public:
     uint32_t m_nObjectID;
-    // Vector4D[3] m_vTransform;
-    char pad_00[48];
+    Vector4D m_vTransform;
+    char pad_00[32];
     float m_flFadeStartDistance;
     float m_flFadeEndDistance;
-    // Vector4D m_vTintColor;
+    Vector4D m_vTintColor;
     // CUtlString m_skin;
-    char pad_01[28];
+    char pad_01[12];
     ObjectTypeFlags_t m_nObjectTypeFlags;
-    // Vector m_vLightingOrigin;
-    char pad_02[12];
+    Vector m_vLightingOrigin;
     int16_t m_nOverlayRenderOrder;
     int16_t m_nLODOverride;
     int32_t m_nCubeMapPrecomputedHandshake;
     int32_t m_nLightProbeVolumePrecomputedHandshake;
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
     // CStrongHandle< InfoForResourceTypeCRenderMesh > m_renderable;
-    char pad_03[20];
+    char pad_02[20];
 };
 
 class BaseSceneObjectOverride_t {
@@ -114,16 +113,16 @@ public:
     uint32_t m_nSubSceneObject;
     uint32_t m_nDrawCallIndex;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_pMaterial;
-    // Vector m_vLinearTintColor;
-    char pad_01[28];
+    char pad_01[12];
+    Vector m_vLinearTintColor;
+    char pad_02[4];
 };
 
 class BakedLightingInfo_t {
 public:
     uint32_t m_nLightmapVersionNumber;
     uint32_t m_nLightmapGameVersionNumber;
-    // Vector2D m_vLightmapUvScale;
-    char pad_00[8];
+    Vector2D m_vLightmapUvScale;
     bool m_bHasLightmaps;
     bool m_bBakedShadowsGamma20;
     bool m_bCompressionEnabled;
@@ -132,7 +131,7 @@ public:
     uint8_t m_nVradQuality;
     // CUtlVector< CStrongHandle< InfoForResourceTypeCTextureBase > > m_lightMaps;
     // CUtlVector< BakedLightingInfo_t::BakedShadowAssignment_t > m_bakedShadows;
-    char pad_01[50];
+    char pad_00[50];
 };
 
 class BakedLightingInfo_t::BakedShadowAssignment_t {
@@ -185,11 +184,10 @@ public:
 
 class AggregateLODSetup_t {
 public:
-    // Vector m_vLODOrigin;
-    char pad_00[12];
+    Vector m_vLODOrigin;
     float m_fMaxObjectScale;
     // CUtlVector< float32 > m_fSwitchDistances;
-    char pad_01[24];
+    char pad_00[24];
 };
 
 class AggregateSceneObject_t {
@@ -216,9 +214,8 @@ public:
     uint16_t m_nVertexCount;
     VertexAlbedoFormat_t m_albedoFormat;
     AABB_t m_boundLs;
-    // Vector m_vVertexOriginLs;
-    // Vector m_vVertexExtentLs;
-    char pad_00[24];
+    Vector m_vVertexOriginLs;
+    Vector m_vVertexExtentLs;
 };
 
 class RTProxyInstanceInfo_t {
@@ -301,14 +298,13 @@ public:
 class NodeData_t {
 public:
     int32_t m_nParent;
-    // Vector m_vOrigin;
-    // Vector m_vMinBounds;
-    // Vector m_vMaxBounds;
-    char pad_00[36];
+    Vector m_vOrigin;
+    Vector m_vMinBounds;
+    Vector m_vMaxBounds;
     float m_flMinimumDistance;
     // CUtlVector< int32 > m_ChildNodeIndices;
     // CUtlString m_worldNodePrefix;
-    char pad_01[36];
+    char pad_00[36];
 };
 
 class World_t {
@@ -332,9 +328,8 @@ public:
     char pad_00[64];
     uint32_t m_nBaseClusterCount;
     uint32_t m_nPVSBytesPerCluster;
-    // Vector m_vMinBounds;
-    // Vector m_vMaxBounds;
-    char pad_01[24];
+    Vector m_vMinBounds;
+    Vector m_vMaxBounds;
     float m_flGridSize;
     uint32_t m_nSkyVisibilityCluster;
     uint32_t m_nSunVisibilityCluster;
@@ -344,7 +339,7 @@ public:
     VoxelVisBlockOffset_t m_EnclosedClustersBlock;
     VoxelVisBlockOffset_t m_MasksBlock;
     VoxelVisBlockOffset_t m_nVisBlocks;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class VMapResourceData_t {

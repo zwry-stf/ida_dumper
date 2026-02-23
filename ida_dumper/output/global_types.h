@@ -20612,3 +20612,31 @@ public:
     char pad_00[32];
 };
 
+class Vector {
+public:
+    float x;
+    float y;
+    float z;
+};
+
+class Vector4D {
+public:
+    float x;
+    float y;
+    float z;
+    float w;
+};
+
+class Vector2D {
+public:
+    float x;
+    float y;
+};
+
+class QAngle {
+public:
+    float pitch;
+    float yaw;
+    float roll;
+};
+

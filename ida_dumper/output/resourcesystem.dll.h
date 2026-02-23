@@ -259,9 +259,8 @@ public:
 
 class AABB_t {
 public:
-    // Vector m_vMinBounds;
-    // Vector m_vMaxBounds;
-    char pad_00[24];
+    Vector m_vMinBounds;
+    Vector m_vMaxBounds;
 };
 
 class PackedAABB_t {

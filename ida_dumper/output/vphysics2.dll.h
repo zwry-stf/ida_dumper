@@ -37,9 +37,8 @@ public:
 
 class constraint_hingeparams_t {
 public:
-    // Vector worldPosition;
-    // Vector worldAxisDirection;
-    char pad_00[24];
+    Vector worldPosition;
+    Vector worldAxisDirection;
     constraint_axislimit_t hingeAxis;
     constraint_breakableparams_t constraint;
 };
@@ -83,11 +82,10 @@ public:
     float m_flBaseForwardFriction;
     float m_flRadius0;
     float m_flRadius1;
-    // Vector m_vPoint0;
-    // Vector m_vPoint1;
-    char pad_00[24];
+    Vector m_vPoint0;
+    Vector m_vPoint1;
     uint16_t m_nCollisionMask;
-    char pad_01[2];
+    char pad_00[2];
 };
 
 class CFeNamedJiggleBone {
@@ -133,8 +131,8 @@ class FeQuad_t {
 public:
     uint16_t nNode[4];
     float flSlack;
-    // Vector4D[4] vShape;
-    char pad_00[64];
+    Vector4D vShape;
+    char pad_00[48];
 };
 
 class FeSimdQuad_t {
@@ -221,11 +219,9 @@ public:
 
 class FeNodeStrayBox_t {
 public:
-    // Vector vMin;
-    char pad_00[12];
+    Vector vMin;
     uint32_t nFlags;
-    // Vector vMax;
-    char pad_01[12];
+    Vector vMax;
     uint16_t nNode[2];
 };
 
@@ -240,8 +236,7 @@ public:
 
 class FeCtrlOffset_t {
 public:
-    // Vector vOffset;
-    char pad_00[12];
+    Vector vOffset;
     uint16_t nCtrlParent;
     uint16_t nCtrlChild;
 };
@@ -340,8 +335,8 @@ public:
 class FeFitMatrix_t {
 public:
     // CTransform bone;
-    // Vector vCenter;
-    char pad_00[44];
+    char pad_00[32];
+    Vector vCenter;
     uint16_t nEnd;
     uint16_t nNode;
     uint16_t nBeginDynamic;
@@ -357,8 +352,7 @@ public:
 
 class FeNodeReverseOffset_t {
 public:
-    // Vector vOffset;
-    char pad_00[12];
+    Vector vOffset;
     uint16_t nBoneCtrl;
     uint16_t nTargetNode;
 };
@@ -390,8 +384,7 @@ class FeCtrlSoftOffset_t {
 public:
     uint16_t nCtrlParent;
     uint16_t nCtrlChild;
-    // Vector vOffset;
-    char pad_00[12];
+    Vector vOffset;
     float flAlpha;
 };
 
@@ -401,26 +394,24 @@ public:
     float w1;
     float w2;
     float v1x;
-    // Vector2D v2;
-    char pad_00[8];
+    Vector2D v2;
 };
 
 class FeSDFRigid_t {
 public:
-    // Vector vLocalMin;
-    // Vector vLocalMax;
-    char pad_00[24];
+    Vector vLocalMin;
+    Vector vLocalMax;
     float flBounciness;
     uint16_t nNode;
     uint16_t nCollisionMask;
     uint16_t nVertexMapIndex;
     uint16_t nFlags;
     // CUtlVector< float32 > m_Distances;
-    char pad_01[28];
+    char pad_00[28];
     int32_t m_nWidth;
     int32_t m_nHeight;
     int32_t m_nDepth;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class FeBoxRigid_t {
@@ -429,11 +420,10 @@ public:
     char pad_00[32];
     uint16_t nNode;
     uint16_t nCollisionMask;
-    // Vector vSize;
-    char pad_01[12];
+    Vector vSize;
     uint16_t nVertexMapIndex;
     uint16_t nFlags;
-    char pad_02[12];
+    char pad_01[12];
 };
 
 class FeRigidColliderIndices_t {
@@ -471,12 +461,11 @@ public:
     uint16_t nVertexCount;
     uint32_t nMapOffset;
     uint32_t nNodeListOffset;
-    // Vector vCenterOfMass;
-    char pad_01[12];
+    Vector vCenterOfMass;
     float flVolumetricSolveStrength;
     int16_t nScaleSourceNode;
     uint16_t nNodeListCount;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class FeEffectDesc_t {
@@ -594,15 +583,13 @@ public:
 
 class RnPlane_t {
 public:
-    // Vector m_vNormal;
-    char pad_00[12];
+    Vector m_vNormal;
     float m_flOffset;
 };
 
 class CovMatrix3 {
 public:
-    // Vector m_vDiag;
-    char pad_00[12];
+    Vector m_vDiag;
     float m_flXY;
     float m_flXZ;
     float m_flYZ;
@@ -717,8 +704,8 @@ public:
 
 class RnCapsule_t {
 public:
-    // Vector[2] m_vCenter;
-    char pad_00[24];
+    Vector m_vCenter;
+    char pad_00[12];
     float m_flRadius;
 };
 
@@ -749,13 +736,12 @@ public:
 
 class RnHull_t {
 public:
-    // Vector m_vCentroid;
-    char pad_00[12];
+    Vector m_vCentroid;
     float m_flMaxAngularRadius;
     AABB_t m_Bounds;
-    // Vector m_vOrthographicAreas;
+    Vector m_vOrthographicAreas;
     // matrix3x4_t m_MassProperties;
-    char pad_01[60];
+    char pad_00[48];
     float m_flVolume;
     float m_flSurfaceArea;
     // CUtlVector< RnVertex_t > m_Vertices;
@@ -763,7 +749,7 @@ public:
     // CUtlVector< RnHalfEdge_t > m_Edges;
     // CUtlVector< RnFace_t > m_Faces;
     // CUtlVector< RnPlane_t > m_FacePlanes;
-    char pad_02[124];
+    char pad_01[124];
     uint32_t m_nFlags;
     CRegionSVM* m_pRegionSVM;
 };
@@ -780,26 +766,24 @@ public:
 
 class RnNode_t {
 public:
-    // Vector m_vMin;
-    char pad_00[12];
+    Vector m_vMin;
     uint32_t m_nChildren;
-    // Vector m_vMax;
-    char pad_01[12];
+    Vector m_vMax;
     uint32_t m_nTriangleOffset;
 };
 
 class RnMesh_t {
 public:
-    // Vector m_vMin;
-    // Vector m_vMax;
+    Vector m_vMin;
+    Vector m_vMax;
     // CUtlVector< RnNode_t > m_Nodes;
     // CUtlVectorSIMDPaddedVector m_Vertices;
     // CUtlVector< RnTriangle_t > m_Triangles;
     // CUtlVector< RnWing_t > m_Wings;
     // CUtlVector< uint8 > m_TriangleEdgeFlags;
     // CUtlVector< uint8 > m_Materials;
-    // Vector m_vOrthographicAreas;
-    char pad_00[180];
+    char pad_00[144];
+    Vector m_vOrthographicAreas;
     uint32_t m_nFlags;
     uint32_t m_nDebugFlags;
     char pad_01[4];
@@ -830,9 +814,8 @@ public:
 
 class CastSphereSATParams_t {
 public:
-    // Vector m_vRayStart;
-    // Vector m_vRayDelta;
-    char pad_00[24];
+    Vector m_vRayStart;
+    Vector m_vRayDelta;
     float m_flRadius;
     float m_flMaxFraction;
     float m_flScale;
@@ -842,13 +825,15 @@ public:
 class RnBodyDesc_t {
 public:
     // CUtlString m_sDebugName;
-    // Vector m_vPosition;
+    char pad_00[8];
+    Vector m_vPosition;
     // QuaternionStorage m_qOrientation;
-    // Vector m_vLinearVelocity;
-    // Vector m_vAngularVelocity;
-    // Vector m_vLocalMassCenter;
-    // Vector[3] m_LocalInertiaInv;
-    char pad_00[108];
+    char pad_01[16];
+    Vector m_vLinearVelocity;
+    Vector m_vAngularVelocity;
+    Vector m_vLocalMassCenter;
+    Vector m_LocalInertiaInv;
+    char pad_02[24];
     float m_flMassInv;
     float m_flGameMass;
     float m_flMassScaleInv;
@@ -859,9 +844,8 @@ public:
     float m_flAngularDragScale;
     float m_flLinearFluidDragScale;
     float m_flAngularFluidDragScale;
-    // Vector m_vLastAwakeForceAccum;
-    // Vector m_vLastAwakeTorqueAccum;
-    char pad_01[24];
+    Vector m_vLastAwakeForceAccum;
+    Vector m_vLastAwakeTorqueAccum;
     float m_flBuoyancyScale;
     float m_flGravityScale;
     float m_flTimeScale;
@@ -875,8 +859,7 @@ public:
     bool m_bSleeping;
     bool m_bIsContinuousEnabled;
     bool m_bDragEnabled;
-    // Vector m_vGravity;
-    char pad_02[13];
+    Vector m_vGravity;
     bool m_bSpeculativeEnabled;
     bool m_bHasShadowController;
     DynamicContinuousContactBehavior_t m_nDynamicContinuousContactBehavior;
@@ -905,15 +888,14 @@ public:
 
 class VertexPositionNormal_t {
 public:
-    // Vector m_vPosition;
-    // Vector m_vNormal;
-    char pad_00[24];
+    Vector m_vPosition;
+    Vector m_vNormal;
 };
 
 class VertexPositionColor_t {
 public:
-    // Vector m_vPosition;
-    char pad_00[16];
+    Vector m_vPosition;
+    char pad_00[4];
 };
 
 class vphysics_save_cphysicsbody_t {

@@ -648,8 +648,8 @@ public:
     bool m_bShouldDrawControlPointAxes;
     bool m_bAnimationNonLooping;
     bool m_bSequenceNameIsAnimClipPath;
-    // Vector m_vecPreviewGravity;
-    char pad_03[18];
+    Vector m_vecPreviewGravity;
+    char pad_03[4];
 };
 
 class ParticleControlPointDriver_t {
@@ -658,10 +658,11 @@ public:
     char pad_00[16];
     ParticleAttachment_t m_iAttachType;
     // CUtlString m_attachmentName;
-    // Vector m_vecOffset;
-    // QAngle m_angOffset;
+    char pad_01[12];
+    Vector m_vecOffset;
+    QAngle m_angOffset;
     // CUtlString m_entityName;
-    char pad_01[44];
+    char pad_02[8];
 };
 
 class ParticleControlPointConfiguration_t {
@@ -708,10 +709,10 @@ public:
     int32_t m_nBulgeControl;
     float m_flBulge;
     float m_flMidPoint;
-    // Vector m_vStartPointOffset;
-    // Vector m_vMidPointOffset;
-    // Vector m_vEndOffset;
-    char pad_00[44];
+    Vector m_vStartPointOffset;
+    Vector m_vMidPointOffset;
+    Vector m_vEndOffset;
+    char pad_00[8];
 };
 
 class ParticleChildrenInfo_t {
@@ -728,10 +729,9 @@ public:
 class ControlPointReference_t {
 public:
     int32_t m_controlPointNameString;
-    // Vector m_vOffsetFromControlPoint;
-    char pad_00[12];
+    Vector m_vOffsetFromControlPoint;
     bool m_bOffsetInLocalSpace;
-    char pad_01[3];
+    char pad_00[3];
 };
 
 class ModelReference_t {
@@ -757,8 +757,7 @@ class PointDefinition_t {
 public:
     int32_t m_nControlPoint;
     bool m_bLocalCoords;
-    // Vector m_vOffset;
-    char pad_00[15];
+    Vector m_vOffset;
 };
 
 class PointDefinitionWithTimeValues_t {
@@ -785,9 +784,8 @@ public:
     int32_t m_nInitialParticles;
     int32_t m_nMaxParticles;
     int32_t m_nGroupID;
-    // Vector m_BoundingBoxMin;
-    // Vector m_BoundingBoxMax;
-    char pad_03[24];
+    Vector m_BoundingBoxMin;
+    Vector m_BoundingBoxMax;
     float m_flDepthSortBias;
     int32_t m_nSortOverridePositionCP;
     bool m_bInfiniteBounds;
@@ -795,8 +793,8 @@ public:
     // CUtlString m_NamedValueDomain;
     // CUtlVector< ParticleNamedValueSource_t* > m_NamedValueLocals;
     // Color m_ConstantColor;
-    // Vector m_ConstantNormal;
-    char pad_04[48];
+    char pad_03[36];
+    Vector m_ConstantNormal;
     float m_flConstantRadius;
     float m_flConstantRotation;
     float m_flConstantRotationSpeed;
@@ -806,16 +804,16 @@ public:
     int32_t m_nSnapshotControlPoint;
     // CStrongHandle< InfoForResourceTypeIParticleSnapshot > m_hSnapshot;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_pszCullReplacementName;
-    char pad_05[20];
+    char pad_04[20];
     float m_flCullRadius;
     float m_flCullFillCost;
     int32_t m_nCullControlPoint;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hFallback;
-    char pad_06[12];
+    char pad_05[12];
     int32_t m_nFallbackMaxCount;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hLowViolenceDef;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hReferenceReplacement;
-    char pad_07[20];
+    char pad_06[20];
     float m_flPreSimulationTime;
     float m_flStopSimulationAfterTime;
     float m_flMaximumTimeStep;
@@ -838,12 +836,12 @@ public:
     InheritableBoolType_t m_nViewModelEffect;
     bool m_bScreenSpaceEffect;
     // CUtlSymbolLarge m_pszTargetLayerID;
-    char pad_08[8];
+    char pad_07[8];
     int32_t m_nSkipRenderControlPoint;
     int32_t m_nAllowRenderControlPoint;
     bool m_bShouldSort;
     // CUtlVector< ParticleControlPointConfiguration_t > m_controlPointConfigurations;
-    char pad_09[207];
+    char pad_08[207];
 };
 
 class CParticleFunctionPreEmission {
@@ -1579,10 +1577,9 @@ public:
     CParticleCollectionFloatInput m_fMinDistance;
     CParticleCollectionFloatInput m_fMaxDistance;
     int32_t m_nControlPointNumber;
-    // Vector m_CenterOffset;
-    char pad_01[12];
+    Vector m_CenterOffset;
     bool m_bGlobalCenter;
-    char pad_02[7];
+    char pad_01[7];
 };
 
 class C_OP_CollideWithSelf {
@@ -1626,9 +1623,9 @@ public:
 
 class C_OP_PlanarConstraint {
 public:
-    // Vector m_PointOnPlane;
-    // Vector m_PlaneNormal;
-    char pad_00[488];
+    char pad_00[464];
+    Vector m_PointOnPlane;
+    Vector m_PlaneNormal;
     int32_t m_nControlPointNumber;
     bool m_bGlobalOrigin;
     bool m_bGlobalNormal;
@@ -1647,8 +1644,7 @@ class C_OP_WorldTraceConstraint {
 public:
     char pad_00[464];
     int32_t m_nCP;
-    // Vector m_vecCpOffset;
-    char pad_01[12];
+    Vector m_vecCpOffset;
     ParticleCollisionMode_t m_nCollisionMode;
     ParticleCollisionMode_t m_nCollisionModeMin;
     ParticleTraceSet_t m_nTraceSet;
@@ -1859,8 +1855,7 @@ public:
     bool m_bEvenDistribution;
     int32_t m_nDesiredHitbox;
     CParticleCollectionVecInput m_vecHitBoxScale;
-    // Vector m_vecDirectionBias;
-    char pad_01[12];
+    Vector m_vecDirectionBias;
     bool m_bMaintainHitbox;
     bool m_bUseBones;
     char m_HitboxSetName[128];
@@ -1873,8 +1868,7 @@ public:
     CPerParticleFloatInput m_fRadiusMin;
     CPerParticleFloatInput m_fRadiusMax;
     CPerParticleVecInput m_vecDistanceBias;
-    // Vector m_vecDistanceBiasAbs;
-    char pad_01[16];
+    Vector m_vecDistanceBiasAbs;
     CParticleTransformInput m_TransformInput;
     CPerParticleFloatInput m_fSpeedMin;
     CPerParticleFloatInput m_fSpeedMax;
@@ -1997,9 +1991,9 @@ public:
 
 class C_INIT_InitialVelocityNoise {
 public:
-    // Vector m_vecAbsVal;
-    // Vector m_vecAbsValInv;
-    char pad_00[496];
+    char pad_00[472];
+    Vector m_vecAbsVal;
+    Vector m_vecAbsValInv;
     CPerParticleVecInput m_vecOffsetLoc;
     CPerParticleFloatInput m_flOffset;
     CPerParticleVecInput m_vecOutputMin;
@@ -2031,8 +2025,8 @@ public:
     CPerParticleVecInput m_vecFwd;
     CPerParticleFloatInput m_fSpeedMin;
     CPerParticleFloatInput m_fSpeedMax;
-    // Vector m_vecLocalCoordinateSystemSpeedScale;
-    char pad_01[13];
+    Vector m_vecLocalCoordinateSystemSpeedScale;
+    char pad_01[1];
     bool m_bIgnoreDelta;
     char pad_02[2];
 };
@@ -2057,9 +2051,9 @@ public:
 
 class C_INIT_RandomVector {
 public:
-    // Vector m_vecMin;
-    // Vector m_vecMax;
-    char pad_00[496];
+    char pad_00[472];
+    Vector m_vecMin;
+    Vector m_vecMax;
     ParticleAttributeIndex_t m_nFieldOutput;
     CRandomNumberGeneratorParameters m_randomnessParameters;
     char pad_01[4];
@@ -2076,15 +2070,14 @@ public:
 
 class C_INIT_AddVectorToVector {
 public:
-    // Vector m_vecScale;
-    char pad_00[484];
+    char pad_00[472];
+    Vector m_vecScale;
     ParticleAttributeIndex_t m_nFieldOutput;
     ParticleAttributeIndex_t m_nFieldInput;
-    // Vector m_vOffsetMin;
-    // Vector m_vOffsetMax;
-    char pad_01[24];
+    Vector m_vOffsetMin;
+    Vector m_vOffsetMax;
     CRandomNumberGeneratorParameters m_randomnessParameters;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_INIT_RandomAlphaWindowThreshold {
@@ -2206,8 +2199,8 @@ public:
     bool m_bKillUnused;
     bool m_bRadiusScale;
     int32_t m_nCP;
-    // Vector m_vecOffset;
-    char pad_01[16];
+    Vector m_vecOffset;
+    char pad_01[4];
 };
 
 class C_INIT_RandomModelSequence {
@@ -2243,9 +2236,9 @@ public:
 
 class C_INIT_PositionWarpScalar {
 public:
-    // Vector m_vecWarpMin;
-    // Vector m_vecWarpMax;
-    char pad_00[496];
+    char pad_00[472];
+    Vector m_vecWarpMin;
+    Vector m_vecWarpMax;
     CPerParticleFloatInput m_InputValue;
     float m_flPrevPosScale;
     int32_t m_nScaleControlPointNumber;
@@ -2264,10 +2257,9 @@ public:
     float m_flOutputMax;
     float m_flNoiseScale;
     float m_flNoiseScaleLoc;
-    // Vector m_vecOffsetLoc;
-    char pad_01[12];
+    Vector m_vecOffsetLoc;
     float m_flWorldTimeScale;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_INIT_CheckParticleForWater {
@@ -2286,10 +2278,9 @@ public:
     float m_fMaxDistance;
     CPathParameters m_PathParams;
     bool m_bUseRandomCPs;
-    // Vector m_vEndOffset;
-    char pad_01[15];
+    Vector m_vEndOffset;
     bool m_bSaveOffset;
-    char pad_02[15];
+    char pad_01[15];
 };
 
 class C_INIT_MoveBetweenPoints {
@@ -2375,8 +2366,8 @@ public:
     float m_flAgeMax;
     float m_flNoiseScale;
     float m_flNoiseScaleLoc;
-    // Vector m_vecOffsetLoc;
-    char pad_01[16];
+    Vector m_vecOffsetLoc;
+    char pad_01[4];
 };
 
 class C_INIT_SequenceLifeTime {
@@ -2393,16 +2384,15 @@ public:
     ParticleAttributeIndex_t m_nFieldOutput;
     float m_flInputMin;
     float m_flInputMax;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     float m_flStartTime;
     float m_flEndTime;
     ParticleSetMethod_t m_nSetMethod;
     int32_t m_nControlPointNumber;
     bool m_bLocalCoords;
     float m_flRemapBias;
-    char pad_02[8];
+    char pad_01[8];
 };
 
 class C_INIT_OffsetVectorToVector {
@@ -2410,9 +2400,8 @@ public:
     char pad_00[472];
     ParticleAttributeIndex_t m_nFieldInput;
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     CRandomNumberGeneratorParameters m_randomnessParameters;
 };
 
@@ -2444,9 +2433,8 @@ public:
     char pad_00[472];
     char m_CollisionGroupName[128];
     ParticleTraceSet_t m_nTraceSet;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     int32_t m_nControlPointNumber;
     bool m_bPerParticle;
     bool m_bTranslate;
@@ -2456,7 +2444,7 @@ public:
     bool m_bInherit;
     int32_t m_nChildCP;
     int32_t m_nChildGroupID;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_INIT_RandomYawFlip {
@@ -2477,11 +2465,10 @@ class C_INIT_RemapTransformToVector {
 public:
     char pad_00[472];
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vInputMin;
-    // Vector m_vInputMax;
-    // Vector m_vOutputMin;
-    // Vector m_vOutputMax;
-    char pad_01[48];
+    Vector m_vInputMin;
+    Vector m_vInputMax;
+    Vector m_vOutputMin;
+    Vector m_vOutputMax;
     CParticleTransformInput m_TransformInput;
     CParticleTransformInput m_LocalSpaceTransform;
     float m_flStartTime;
@@ -2490,7 +2477,7 @@ public:
     bool m_bOffset;
     bool m_bAccelerate;
     float m_flRemapBias;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_INIT_ChaoticAttractor {
@@ -2556,16 +2543,15 @@ public:
     float m_flLOSScale;
     ParticleSetMethod_t m_nSetMethod;
     bool m_bActiveRange;
-    // Vector m_vecDistanceScale;
-    char pad_01[12];
+    Vector m_vecDistanceScale;
     float m_flRemapBias;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_INIT_LifespanFromVelocity {
 public:
-    // Vector m_vecComponentScale;
-    char pad_00[484];
+    char pad_00[472];
+    Vector m_vecComponentScale;
     float m_flTraceOffset;
     float m_flMaxTraceLength;
     float m_flTraceTolerance;
@@ -2580,11 +2566,12 @@ public:
 
 class C_INIT_CreateFromPlaneCache {
 public:
-    // Vector m_vecOffsetMin;
-    // Vector m_vecOffsetMax;
-    char pad_00[497];
+    char pad_00[472];
+    Vector m_vecOffsetMin;
+    Vector m_vecOffsetMax;
+    char pad_01[1];
     bool m_bUseNormal;
-    char pad_01[6];
+    char pad_02[6];
 };
 
 class C_INIT_ModelCull {
@@ -2631,9 +2618,9 @@ public:
 
 class C_INIT_RtEnvCull {
 public:
-    // Vector m_vecTestDir;
-    // Vector m_vecTestNormal;
-    char pad_00[496];
+    char pad_00[472];
+    Vector m_vecTestDir;
+    Vector m_vecTestNormal;
     bool m_bUseVelocity;
     bool m_bCullOnMiss;
     bool m_bLifeAdjust;
@@ -2653,9 +2640,9 @@ public:
 
 class C_INIT_NormalOffset {
 public:
-    // Vector m_OffsetMin;
-    // Vector m_OffsetMax;
-    char pad_00[496];
+    char pad_00[472];
+    Vector m_OffsetMin;
+    Vector m_OffsetMax;
     int32_t m_nControlPointNumber;
     bool m_bLocalCoords;
     bool m_bNormalize;
@@ -2729,10 +2716,9 @@ public:
     ParticleAttributeIndex_t m_nFieldOutput;
     float m_flScale;
     float m_flOffsetRot;
-    // Vector m_vecOffsetAxis;
-    char pad_01[12];
+    Vector m_vecOffsetAxis;
     bool m_bNormalize;
-    char pad_02[7];
+    char pad_01[7];
 };
 
 class C_INIT_RemapInitialTransformDirectionToRotation {
@@ -2755,11 +2741,10 @@ class C_INIT_RemapTransformOrientationToRotations {
 public:
     char pad_00[472];
     CParticleTransformInput m_TransformInput;
-    // Vector m_vecRotation;
-    char pad_01[12];
+    Vector m_vecRotation;
     bool m_bUseQuat;
     bool m_bWriteNormal;
-    char pad_02[2];
+    char pad_01[2];
 };
 
 class C_INIT_SetRigidAttachment {
@@ -3070,8 +3055,7 @@ public:
     float m_flOutputMax;
     float m_flNoiseScale;
     float m_flWorldNoiseScale;
-    // Vector m_vecOffsetLoc;
-    char pad_01[12];
+    Vector m_vecOffsetLoc;
     float m_flWorldTimeScale;
 };
 
@@ -3092,9 +3076,9 @@ public:
 
 class C_OP_RandomForce {
 public:
-    // Vector m_MinForce;
-    // Vector m_MaxForce;
-    char pad_00[504];
+    char pad_00[480];
+    Vector m_MinForce;
+    Vector m_MaxForce;
 };
 
 class C_OP_CPVelocityForce {
@@ -3108,26 +3092,24 @@ class C_OP_ParentVortices {
 public:
     char pad_00[480];
     float m_flForceScale;
-    // Vector m_vecTwistAxis;
-    char pad_01[12];
+    Vector m_vecTwistAxis;
     bool m_bFlipBasedOnYaw;
-    char pad_02[7];
+    char pad_01[7];
 };
 
 class C_OP_TwistAroundAxis {
 public:
     char pad_00[480];
     float m_fForceAmount;
-    // Vector m_TwistAxis;
-    char pad_01[12];
+    Vector m_TwistAxis;
     bool m_bLocalSpace;
     int32_t m_nControlPointNumber;
 };
 
 class C_OP_AttractToControlPoint {
 public:
-    // Vector m_vecComponentScale;
-    char pad_00[496];
+    char pad_00[480];
+    Vector m_vecComponentScale;
     CPerParticleFloatInput m_fForceAmount;
     float m_fFalloffPower;
     CParticleTransformInput m_TransformInput;
@@ -3140,26 +3122,22 @@ class C_OP_ForceBasedOnDistanceToPlane {
 public:
     char pad_00[480];
     float m_flMinDist;
-    // Vector m_vecForceAtMinDist;
-    char pad_01[12];
+    Vector m_vecForceAtMinDist;
     float m_flMaxDist;
-    // Vector m_vecForceAtMaxDist;
-    // Vector m_vecPlaneNormal;
-    char pad_02[24];
+    Vector m_vecForceAtMaxDist;
+    Vector m_vecPlaneNormal;
     int32_t m_nControlPointNumber;
     float m_flExponent;
-    char pad_03[4];
+    char pad_01[4];
 };
 
 class C_OP_TimeVaryingForce {
 public:
     char pad_00[480];
     float m_flStartLerpTime;
-    // Vector m_StartingForce;
-    char pad_01[12];
+    Vector m_StartingForce;
     float m_flEndLerpTime;
-    // Vector m_EndingForce;
-    char pad_02[12];
+    Vector m_EndingForce;
 };
 
 class C_OP_TurbulenceForce {
@@ -3169,11 +3147,10 @@ public:
     float m_flNoiseCoordScale1;
     float m_flNoiseCoordScale2;
     float m_flNoiseCoordScale3;
-    // Vector m_vecNoiseAmount0;
-    // Vector m_vecNoiseAmount1;
-    // Vector m_vecNoiseAmount2;
-    // Vector m_vecNoiseAmount3;
-    char pad_01[48];
+    Vector m_vecNoiseAmount0;
+    Vector m_vecNoiseAmount1;
+    Vector m_vecNoiseAmount2;
+    Vector m_vecNoiseAmount3;
 };
 
 class C_OP_CurlNoiseForce {
@@ -3199,8 +3176,9 @@ public:
 
 class C_OP_WindForce {
 public:
-    // Vector m_vForce;
-    char pad_00[496];
+    char pad_00[480];
+    Vector m_vForce;
+    char pad_01[4];
 };
 
 class C_OP_ExternalWindForce {
@@ -3379,11 +3357,11 @@ public:
 
 class C_OP_OscillateVector {
 public:
-    // Vector m_RateMin;
-    // Vector m_RateMax;
-    // Vector m_FrequencyMin;
-    // Vector m_FrequencyMax;
-    char pad_00[512];
+    char pad_00[464];
+    Vector m_RateMin;
+    Vector m_RateMax;
+    Vector m_FrequencyMin;
+    Vector m_FrequencyMax;
     ParticleAttributeIndex_t m_nField;
     bool m_bProportional;
     bool m_bProportionalOp;
@@ -3399,9 +3377,9 @@ public:
 
 class C_OP_OscillateVectorSimple {
 public:
-    // Vector m_Rate;
-    // Vector m_Frequency;
-    char pad_00[488];
+    char pad_00[464];
+    Vector m_Rate;
+    Vector m_Frequency;
     ParticleAttributeIndex_t m_nField;
     float m_flOscMult;
     float m_flOscAdd;
@@ -3481,9 +3459,8 @@ public:
     ParticleAttributeIndex_t m_nFieldOutput;
     float m_flDensityMin;
     float m_flDensityMax;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     bool m_bUseParentDensity;
     int32_t m_nVoxelGridResolution;
 };
@@ -3589,9 +3566,8 @@ public:
     ParticleAttributeIndex_t m_nFieldOutput;
     float m_flInputMin;
     float m_flInputMax;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     float m_flRadius;
 };
 
@@ -3617,22 +3593,20 @@ class C_OP_LerpEndCapVector {
 public:
     char pad_00[464];
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vecOutput;
-    char pad_01[12];
+    Vector m_vecOutput;
     float m_flLerpTime;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_OP_LerpVector {
 public:
     char pad_00[464];
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vecOutput;
-    char pad_01[12];
+    Vector m_vecOutput;
     float m_flStartTime;
     float m_flEndTime;
     ParticleSetMethod_t m_nSetMethod;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_OP_LerpToOtherAttribute {
@@ -3753,9 +3727,8 @@ class C_OP_VectorNoise {
 public:
     char pad_00[464];
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     float m_fl4NoiseScale;
     bool m_bAdditive;
     bool m_bOffset;
@@ -3946,11 +3919,10 @@ public:
     int32_t m_nControlPoint2;
     int32_t m_nControlPoint3;
     int32_t m_nControlPoint4;
-    // Vector m_vecCPOffset1;
-    // Vector m_vecCPOffset2;
-    // Vector m_vecCPOffset3;
-    // Vector m_vecCPOffset4;
-    char pad_02[48];
+    Vector m_vecCPOffset1;
+    Vector m_vecCPOffset2;
+    Vector m_vecCPOffset3;
+    Vector m_vecCPOffset4;
     float m_LightFiftyDist1;
     float m_LightZeroDist1;
     float m_LightFiftyDist2;
@@ -3963,7 +3935,7 @@ public:
     // Color m_LightColor2;
     // Color m_LightColor3;
     // Color m_LightColor4;
-    char pad_03[16];
+    char pad_02[16];
     bool m_bLightType1;
     bool m_bLightType2;
     bool m_bLightType3;
@@ -3974,7 +3946,7 @@ public:
     bool m_bLightDynamic4;
     bool m_bUseNormal;
     bool m_bUseHLambert;
-    char pad_04[4];
+    char pad_03[4];
     bool m_bClampLowerRange;
     bool m_bClampUpperRange;
 };
@@ -4077,10 +4049,9 @@ class C_OP_SetToCP {
 public:
     char pad_00[464];
     int32_t m_nControlPointNumber;
-    // Vector m_vecOffset;
-    char pad_01[12];
+    Vector m_vecOffset;
     bool m_bOffsetLocal;
-    char pad_02[7];
+    char pad_01[7];
 };
 
 class C_OP_PinParticleToCP {
@@ -4174,15 +4145,14 @@ public:
     ParticleAttributeIndex_t m_nFieldOutput;
     float m_flInputMin;
     float m_flInputMax;
-    // Vector m_vecOutputMin;
-    // Vector m_vecOutputMax;
-    char pad_01[24];
+    Vector m_vecOutputMin;
+    Vector m_vecOutputMax;
     CParticleTransformInput m_TransformStart;
     CParticleTransformInput m_TransformEnd;
     ParticleSetMethod_t m_nSetMethod;
     bool m_bActiveRange;
     bool m_bRadialCheck;
-    char pad_02[2];
+    char pad_01[2];
 };
 
 class C_OP_PercentageBetweenTransformLerpCPs {
@@ -4265,9 +4235,9 @@ public:
 
 class C_OP_RtEnvCull {
 public:
-    // Vector m_vecTestDir;
-    // Vector m_vecTestNormal;
-    char pad_00[488];
+    char pad_00[464];
+    Vector m_vecTestDir;
+    Vector m_vecTestNormal;
     bool m_bCullOnMiss;
     bool m_bStickInsteadOfCull;
     char m_RtEnvName[128];
@@ -4354,8 +4324,7 @@ public:
     int32_t m_nInputCP;
     bool m_bRadialCheck;
     bool m_bScaleOffset;
-    // Vector m_vecOffset;
-    char pad_01[14];
+    Vector m_vecOffset;
 };
 
 class C_OP_PlaneCull {
@@ -4371,8 +4340,7 @@ class C_OP_DistanceCull {
 public:
     char pad_00[464];
     int32_t m_nControlPoint;
-    // Vector m_vecPointOffset;
-    char pad_01[8];
+    Vector m_vecPointOffset;
     CParticleCollectionFloatInput m_flDistance;
     bool m_bCullInside;
     ParticleAttributeIndex_t m_nAttribute;
@@ -4428,8 +4396,8 @@ public:
 
 class C_OP_MovementMaintainOffset {
 public:
-    // Vector m_vecOffset;
-    char pad_00[476];
+    char pad_00[464];
+    Vector m_vecOffset;
     int32_t m_nCP;
     bool m_bRadiusScale;
     char pad_01[7];
@@ -4554,9 +4522,8 @@ class C_OP_RotateVector {
 public:
     char pad_00[464];
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vecRotAxisMin;
-    // Vector m_vecRotAxisMax;
-    char pad_01[24];
+    Vector m_vecRotAxisMin;
+    Vector m_vecRotAxisMax;
     float m_flRotRateMin;
     float m_flRotRateMax;
     bool m_bNormalize;
@@ -4658,18 +4625,17 @@ public:
     int32_t m_nCPInput;
     ParticleAttributeIndex_t m_nFieldOutput;
     int32_t m_nLocalSpaceCP;
-    // Vector m_vInputMin;
-    // Vector m_vInputMax;
-    // Vector m_vOutputMin;
-    // Vector m_vOutputMax;
-    char pad_01[48];
+    Vector m_vInputMin;
+    Vector m_vInputMax;
+    Vector m_vOutputMin;
+    Vector m_vOutputMax;
     float m_flStartTime;
     float m_flEndTime;
     float m_flInterpRate;
     ParticleSetMethod_t m_nSetMethod;
     bool m_bOffset;
     bool m_bAccelerate;
-    char pad_02[2];
+    char pad_01[2];
 };
 
 class C_OP_SetCPtoVector {
@@ -4718,11 +4684,10 @@ public:
     ParticleAttributeIndex_t m_nFieldOutput;
     float m_flScale;
     float m_flOffsetRot;
-    // Vector m_vecOffsetAxis;
-    char pad_01[12];
+    Vector m_vecOffsetAxis;
     bool m_bNormalize;
     ParticleAttributeIndex_t m_nFieldStrength;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_OP_RemapCrossProductOfTwoVectorsToVector {
@@ -4771,11 +4736,10 @@ class C_OP_RemapTransformOrientationToRotations {
 public:
     char pad_00[464];
     CParticleTransformInput m_TransformInput;
-    // Vector m_vecRotation;
-    char pad_01[12];
+    Vector m_vecRotation;
     bool m_bUseQuat;
     bool m_bWriteNormal;
-    char pad_02[2];
+    char pad_01[2];
 };
 
 class C_OP_RemapControlPointOrientationToRotation {
@@ -5066,9 +5030,9 @@ class C_OP_RemapDistanceToLineSegmentToVector {
 public:
     char pad_00[488];
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vMinOutputValue;
-    // Vector m_vMaxOutputValue;
-    char pad_01[28];
+    Vector m_vMinOutputValue;
+    Vector m_vMaxOutputValue;
+    char pad_01[4];
 };
 
 class C_OP_TeleportBeam {
@@ -5080,13 +5044,12 @@ public:
     int32_t m_nCPColor;
     int32_t m_nCPInvalidColor;
     int32_t m_nCPExtraArcData;
-    // Vector m_vGravity;
-    char pad_01[12];
+    Vector m_vGravity;
     float m_flArcMaxDuration;
     float m_flSegmentBreak;
     float m_flArcSpeed;
     float m_flAlpha;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_OP_CycleScalar {
@@ -5107,8 +5070,8 @@ public:
 
 class C_OP_CalculateVectorAttribute {
 public:
-    // Vector m_vStartValue;
-    char pad_00[476];
+    char pad_00[464];
+    Vector m_vStartValue;
     ParticleAttributeIndex_t m_nFieldInput1;
     float m_flInputScale1;
     ParticleAttributeIndex_t m_nFieldInput2;
@@ -5118,8 +5081,8 @@ public:
     ControlPointReference_t m_nControlPointInput2;
     float m_flControlPointScale2;
     ParticleAttributeIndex_t m_nFieldOutput;
-    // Vector m_vFinalOutputScale;
-    char pad_01[16];
+    Vector m_vFinalOutputScale;
+    char pad_01[4];
 };
 
 class C_OP_ColorAdjustHSL {
@@ -5273,9 +5236,9 @@ class C_OP_RampCPLinearRandom {
 public:
     char pad_00[472];
     int32_t m_nOutControlPointNumber;
-    // Vector m_vecRateMin;
-    // Vector m_vecRateMax;
-    char pad_01[28];
+    Vector m_vecRateMin;
+    Vector m_vecRateMax;
+    char pad_01[4];
 };
 
 class C_OP_SetParentControlPointsToChildCP {
@@ -5294,9 +5257,8 @@ public:
     char pad_00[472];
     CParticleVariableRef m_variableReference;
     CParticleTransformInput m_transformInput;
-    // Vector m_positionOffset;
-    // QAngle m_rotationOffset;
-    char pad_01[24];
+    Vector m_positionOffset;
+    QAngle m_rotationOffset;
     CParticleCollectionVecInput m_vecInput;
     CParticleCollectionFloatInput m_floatInput;
 };
@@ -5311,11 +5273,10 @@ public:
     int32_t m_nCP2;
     int32_t m_nCP3;
     int32_t m_nCP4;
-    // Vector m_vecCP1Pos;
-    // Vector m_vecCP2Pos;
-    // Vector m_vecCP3Pos;
-    // Vector m_vecCP4Pos;
-    char pad_01[48];
+    Vector m_vecCP1Pos;
+    Vector m_vecCP2Pos;
+    Vector m_vecCP3Pos;
+    Vector m_vecCP4Pos;
     int32_t m_nHeadLocation;
 };
 
@@ -5345,9 +5306,8 @@ public:
     int32_t m_nCP1;
     int32_t m_nHeadLocation;
     CParticleCollectionFloatInput m_flReRandomRate;
-    // Vector m_vecCPMinPos;
-    // Vector m_vecCPMaxPos;
-    char pad_01[24];
+    Vector m_vecCPMinPos;
+    Vector m_vecCPMaxPos;
     CParticleCollectionFloatInput m_flInterpolation;
 };
 
@@ -5360,9 +5320,8 @@ public:
     bool m_bSetOnce;
     int32_t m_nCP;
     int32_t m_nHeadLocation;
-    // QAngle m_vecRotation;
-    // QAngle m_vecRotationB;
-    char pad_02[24];
+    QAngle m_vecRotation;
+    QAngle m_vecRotationB;
     CParticleCollectionFloatInput m_flInterpolation;
 };
 
@@ -5397,8 +5356,7 @@ class C_OP_SetControlPointToPlayer {
 public:
     char pad_00[472];
     int32_t m_nCP1;
-    // Vector m_vecCP1Pos;
-    char pad_01[12];
+    Vector m_vecCP1Pos;
     bool m_bOrientToEyes;
     ParticleEntityPos_t m_nPosition;
 };
@@ -5408,20 +5366,18 @@ public:
     char pad_00[472];
     int32_t m_nCP1;
     int32_t m_nHand;
-    // Vector m_vecCP1Pos;
-    char pad_01[12];
+    Vector m_vecCP1Pos;
     bool m_bOrientToHand;
-    char pad_02[3];
+    char pad_01[3];
 };
 
 class C_OP_SetControlPointToHMD {
 public:
     char pad_00[472];
     int32_t m_nCP1;
-    // Vector m_vecCP1Pos;
-    char pad_01[12];
+    Vector m_vecCP1Pos;
     bool m_bOrientToHMD;
-    char pad_02[7];
+    char pad_01[7];
 };
 
 class C_OP_SetControlPointPositionToTimeOfDayValue {
@@ -5429,16 +5385,15 @@ public:
     char pad_00[472];
     int32_t m_nControlPointNumber;
     char m_pszTimeOfDayParameter[128];
-    // Vector m_vecDefaultValue;
-    char pad_01[20];
+    Vector m_vecDefaultValue;
+    char pad_01[8];
 };
 
 class C_OP_SetControlPointToCenter {
 public:
     char pad_00[472];
     int32_t m_nCP1;
-    // Vector m_vecCP1Pos;
-    char pad_01[12];
+    Vector m_vecCP1Pos;
     bool m_bUseAvgParticlePos;
     ParticleParentSetMode_t m_nSetParent;
 };
@@ -5513,14 +5468,13 @@ public:
     CParticleCollectionFloatInput m_flTraceLength;
     float m_flStartOffset;
     float m_flOffset;
-    // Vector m_vecTraceDir;
-    char pad_01[12];
+    Vector m_vecTraceDir;
     char m_CollisionGroupName[128];
     ParticleTraceSet_t m_nTraceSet;
     bool m_bSetToEndpoint;
     bool m_bTraceToClosestSurface;
     bool m_bIncludeWater;
-    char pad_02[5];
+    char pad_01[5];
 };
 
 class C_OP_SetCPOrientationToPointAtCP {
@@ -5638,12 +5592,11 @@ class C_OP_ControlPointToRadialScreenSpace {
 public:
     char pad_00[472];
     int32_t m_nCPIn;
-    // Vector m_vecCP1Pos;
-    char pad_01[12];
+    Vector m_vecCP1Pos;
     int32_t m_nCPOut;
     int32_t m_nCPOutField;
     int32_t m_nCPSSPosOut;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class C_OP_LightningSnapshotGenerator {

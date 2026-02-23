@@ -1792,32 +1792,31 @@ public:
     GameTime_t m_flCreateTime;
     bool m_bClientSideRagdoll;
     uint8_t m_ubInterpolationFrame;
-    // Vector m_vPrevVPhysicsUpdatePos;
-    char pad_08[14];
+    Vector m_vPrevVPhysicsUpdatePos;
     uint8_t m_iTeamNum;
     // CUtlSymbolLarge m_iGlobalname;
-    char pad_09[8];
+    char pad_08[8];
     int32_t m_iSentToClients;
     float m_flSpeed;
     // CUtlString m_sUniqueHammerID;
-    char pad_010[8];
+    char pad_09[8];
     uint32_t m_spawnflags;
     GameTick_t m_nNextThinkTick;
     int32_t m_nSimulationTick;
     CEntityIOOutput m_OnKilled;
     uint32_t m_fFlags;
-    // Vector m_vecAbsVelocity;
+    Vector m_vecAbsVelocity;
     CNetworkVelocityVector m_vecVelocity;
-    // Vector m_vecBaseVelocity;
-    char pad_011[20];
+    char pad_010[8];
+    Vector m_vecBaseVelocity;
     int32_t m_nPushEnumCount;
     CCollisionProperty* m_pCollision;
     // CHandle< CBaseEntity > m_hEffectEntity;
     // CHandle< CBaseEntity > m_hOwnerEntity;
-    char pad_012[8];
+    char pad_011[8];
     uint32_t m_fEffects;
     // CHandle< CBaseEntity > m_hGroundEntity;
-    char pad_013[4];
+    char pad_012[4];
     int32_t m_nGroundBodyIndex;
     float m_flFriction;
     float m_flElasticity;
@@ -1837,12 +1836,11 @@ public:
     CEntityIOOutput m_OnUser4;
     int32_t m_iInitialTeamNum;
     GameTime_t m_flNavIgnoreUntilTime;
-    // QAngle m_vecAngVelocity;
-    char pad_014[12];
+    QAngle m_vecAngVelocity;
     bool m_bNetworkQuantizeOriginAndAngles;
     bool m_bLagCompensate;
     // CHandle< CBaseEntity > m_pBlocker;
-    char pad_015[4];
+    char pad_013[4];
     float m_flLocalTime;
     float m_flVPhysicsUpdateLocalTime;
     BloodType m_nBloodType;
@@ -2332,10 +2330,9 @@ public:
 
 class NavGravity_t {
 public:
-    // Vector m_vGravity;
-    char pad_00[12];
+    Vector m_vGravity;
     bool m_bDefault;
-    char pad_01[3];
+    char pad_00[3];
 };
 
 class Extent {
@@ -2364,8 +2361,8 @@ public:
 
 class CNavVolumeSphere {
 public:
-    // Vector m_vCenter;
-    char pad_00[132];
+    char pad_00[120];
+    Vector m_vCenter;
     float m_flRadius;
 };
 
@@ -2430,12 +2427,12 @@ public:
     CGameSceneNode* m_pNextSibling;
     // CGameSceneNodeHandle m_hParent;
     CNetworkOriginCellCoordQuantizedVector m_vecOrigin;
-    // QAngle m_angRotation;
-    char pad_01[20];
+    char pad_01[8];
+    QAngle m_angRotation;
     float m_flScale;
     // VectorWS m_vecAbsOrigin;
-    // QAngle m_angAbsRotation;
-    char pad_02[24];
+    char pad_02[12];
+    QAngle m_angAbsRotation;
     float m_flAbsScale;
     int16_t m_nParentAttachmentOrBone;
     bool m_bDebugAbsOriginChanges;
@@ -2459,8 +2456,8 @@ public:
     char pad_04[24];
     float m_flZOffset;
     float m_flClientLocalScale;
-    // Vector m_vRenderOrigin;
-    char pad_05[24];
+    Vector m_vRenderOrigin;
+    char pad_05[12];
 };
 
 class CBodyComponent : public CEntityComponent {
@@ -2561,29 +2558,28 @@ public:
     bool m_bEnabled;
     bool m_bFlicker;
     bool m_bPrecomputedFieldsValid;
-    // Vector m_vPrecomputedBoundsMins;
-    // Vector m_vPrecomputedBoundsMaxs;
-    // Vector m_vPrecomputedOBBOrigin;
-    // QAngle m_vPrecomputedOBBAngles;
-    // Vector m_vPrecomputedOBBExtent;
-    char pad_04[60];
+    Vector m_vPrecomputedBoundsMins;
+    Vector m_vPrecomputedBoundsMaxs;
+    Vector m_vPrecomputedOBBOrigin;
+    QAngle m_vPrecomputedOBBAngles;
+    Vector m_vPrecomputedOBBExtent;
     float m_flPrecomputedMaxRange;
     int32_t m_nFogLightingMode;
     float m_flFogContributionStength;
     float m_flNearClipPlane;
     // Color m_SkyColor;
-    char pad_05[4];
+    char pad_04[4];
     float m_flSkyIntensity;
     // Color m_SkyAmbientBounce;
-    char pad_06[4];
+    char pad_05[4];
     bool m_bUseSecondaryColor;
     bool m_bMixedShadows;
     GameTime_t m_flLightStyleStartTime;
     float m_flCapsuleLength;
     float m_flMinRoughness;
-    char pad_07[12];
+    char pad_06[12];
     bool m_bPvsModifyEntity;
-    char pad_08[7];
+    char pad_07[7];
 };
 
 class CNetworkTransmitComponent {
@@ -2643,7 +2639,7 @@ public:
     float m_Resolution;
     bool m_bFogEnable;
     // Color m_FogColor;
-    char pad_016[4];
+    char pad_014[4];
     float m_flFogStart;
     float m_flFogEnd;
     float m_flFogMaxDensity;
@@ -2727,9 +2723,8 @@ public:
 
 class SoundeventPathCornerPairNetworked_t {
 public:
-    // Vector vP1;
-    // Vector vP2;
-    char pad_00[24];
+    Vector vP1;
+    Vector vP2;
     float flPathLengthSqr;
     float flP1Pct;
     float flP2Pct;
@@ -2756,32 +2751,31 @@ public:
     char pad_00[24];
     int32_t m_nBoneIndex;
     int32_t m_nTriangleIndex;
-    // Vector m_vPositionLS;
-    // Vector m_vNormalLS;
-    // Vector m_vSAxisLS;
-    char pad_01[36];
+    Vector m_vPositionLS;
+    Vector m_vNormalLS;
+    Vector m_vSAxisLS;
     DecalFlags_t m_nFlags;
     // Color m_Color;
-    char pad_02[4];
+    char pad_01[4];
     float m_flWidth;
     float m_flHeight;
     float m_flDepth;
     // CTransformWS m_transform;
-    char pad_03[40];
+    char pad_02[40];
     float m_flAnimationScale;
     float m_flAnimationStartTime;
     GameTime_t m_flPlaceTime;
     float m_flFadeStartTime;
     float m_flFadeDuration;
     float m_flLightingOriginOffset;
-    char pad_04[8];
+    char pad_03[8];
     float m_flBoundingRadiusSqr;
     int16_t m_nSequenceIndex;
     bool m_bIsAdjacent;
     bool m_bDoDecalLightmapping;
     DecalRtEncoding_t m_nDecalRtEncoding;
     bool m_bProjectToBackfaces;
-    char pad_05[6];
+    char pad_04[6];
 };
 
 class CSkillDamage {
@@ -2840,12 +2834,12 @@ public:
     bool m_bAllowFadeInView;
     // Color m_clrRender;
     // CUtlVectorEmbeddedNetworkVar< EntityRenderAttribute_t > m_vecRenderAttributes;
-    char pad_016[141];
+    char pad_014[141];
     bool m_bRenderToCubemaps;
     bool m_bNoInterpolate;
     // CCollisionProperty m_Collision;
     // CGlowProperty m_Glow;
-    char pad_017[268];
+    char pad_015[268];
     float m_flGlowBackfaceMult;
     float m_fadeMinDist;
     float m_fadeMaxDist;
@@ -2853,9 +2847,9 @@ public:
     float m_flShadowStrength;
     uint8_t m_nObjectCulling;
     CNetworkViewOffsetVector m_vecViewOffset;
-    char pad_018[8];
+    char pad_016[8];
     uint32_t m_bvDisabledHitGroups[1];
-    char pad_019[4];
+    char pad_017[4];
 };
 
 class CBaseAnimGraph : public CBaseModelEntity {
@@ -2867,18 +2861,17 @@ public:
     bool m_bAnimGraphUpdateEnabled;
     float m_flMaxSlopeDistance;
     // VectorWS m_vLastSlopeCheckPos;
-    char pad_020[12];
+    char pad_018[12];
     uint32_t m_nAnimGraphUpdateId;
     bool m_bAnimationUpdateScheduled;
-    // Vector m_vecForce;
-    char pad_021[12];
+    Vector m_vecForce;
     int32_t m_nForceBone;
     // PhysicsRagdollPose_t m_RagdollPose;
-    char pad_022[60];
+    char pad_019[60];
     bool m_bRagdollEnabled;
     bool m_bRagdollClientSide;
     // CTransform m_xParentedRagdollRootInEntitySpace;
-    char pad_023[446];
+    char pad_020[446];
 };
 
 class CPulseCell_PlaySequence::CursorState_t {
@@ -2906,10 +2899,9 @@ class ViewAngleServerChange_t {
 public:
     char pad_00[48];
     FixAngleSet_t nType;
-    // QAngle qAngle;
-    char pad_01[12];
+    QAngle qAngle;
     uint32_t nIndex;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class CBreakableStageHelper {
@@ -2965,8 +2957,9 @@ public:
 
 class audioparams_t {
 public:
-    // Vector[8] localSound;
-    char pad_00[104];
+    char pad_00[8];
+    Vector localSound;
+    char pad_01[84];
     int32_t soundscapeIndex;
     uint8_t localBits;
     int32_t soundscapeEntityListIndex;
@@ -3013,7 +3006,7 @@ public:
     float m_flCurWeight;
     char m_netlookupFilename[512];
     // CUtlSymbolLarge m_lookupFilename;
-    char pad_016[8];
+    char pad_014[8];
 };
 
 class CTonemapController2 : public CBaseEntity {
@@ -3023,7 +3016,7 @@ public:
     float m_flExposureAdaptationSpeedUp;
     float m_flExposureAdaptationSpeedDown;
     float m_flTonemapEVSmoothingRange;
-    char pad_016[4];
+    char pad_014[4];
 };
 
 class CBaseToggle : public CBaseModelEntity {
@@ -3033,20 +3026,19 @@ public:
     float m_flWait;
     float m_flLip;
     bool m_bAlwaysFireBlockedOutputs;
-    // Vector m_vecPosition1;
-    // Vector m_vecPosition2;
-    // QAngle m_vecMoveAng;
-    // QAngle m_vecAngle1;
-    // QAngle m_vecAngle2;
-    char pad_020[60];
+    Vector m_vecPosition1;
+    Vector m_vecPosition2;
+    QAngle m_vecMoveAng;
+    QAngle m_vecAngle1;
+    QAngle m_vecAngle2;
     float m_flHeight;
     // CHandle< CBaseEntity > m_hActivator;
-    // Vector m_vecFinalDest;
-    // QAngle m_vecFinalAngle;
-    char pad_021[28];
+    char pad_018[4];
+    Vector m_vecFinalDest;
+    QAngle m_vecFinalAngle;
     int32_t m_movementType;
     // CUtlSymbolLarge m_sMaster;
-    char pad_022[12];
+    char pad_019[12];
 };
 
 class CBaseTrigger : public CBaseToggle {
@@ -3061,17 +3053,17 @@ public:
     // CUtlVector< CHandle< CBaseEntity > > m_hTouchingEntities;
     // CUtlSymbolLarge m_iFilterName;
     // CHandle< CBaseFilter > m_hFilter;
-    char pad_023[36];
+    char pad_020[36];
     bool m_bDisabled;
-    char pad_024[11];
+    char pad_021[11];
     bool m_bUseAsyncQueries;
-    char pad_025[7];
+    char pad_022[7];
 };
 
 class CPostProcessingVolume : public CBaseTrigger {
 public:
     // CStrongHandle< InfoForResourceTypeCPostProcessingResource > m_hPostSettings;
-    char pad_026[24];
+    char pad_023[24];
     float m_flFadeDuration;
     float m_flMinLogExposure;
     float m_flMaxLogExposure;
@@ -3083,7 +3075,7 @@ public:
     float m_flTonemapEVSmoothingRange;
     bool m_bMaster;
     bool m_bExposureControl;
-    char pad_027[2];
+    char pad_024[2];
 };
 
 class CEnvSoundscape : public CBaseEntity {
@@ -3091,28 +3083,28 @@ public:
     CEntityIOOutput m_OnPlay;
     float m_flRadius;
     // CUtlSymbolLarge m_soundEventName;
-    char pad_016[12];
+    char pad_014[12];
     bool m_bOverrideWithEvent;
     int32_t m_soundscapeIndex;
     int32_t m_soundscapeEntityListId;
     // CUtlSymbolLarge[8] m_positionNames;
     // CHandle< CEnvSoundscape > m_hProxySoundscape;
-    char pad_017[72];
+    char pad_015[72];
     bool m_bDisabled;
     // CUtlSymbolLarge m_soundscapeName;
-    char pad_018[8];
+    char pad_016[8];
     uint32_t m_soundEventHash;
-    char pad_019[4];
+    char pad_017[4];
 };
 
 class CEnvSoundscapeTriggerable : public CEnvSoundscape {
 public:
-    char pad_020[1336];
+    char pad_018[1336];
 };
 
 class CPlayer_CameraServices : public CPlayerPawnComponent {
 public:
-    // QAngle m_vecCsViewPunchAngle;
+    QAngle m_vecCsViewPunchAngle;
     GameTick_t m_nCsViewPunchAngleTick;
     float m_flCsViewPunchAngleTickRatio;
     fogplayerparams_t m_PlayerFog;
@@ -3160,23 +3152,22 @@ public:
     float m_flForwardMove;
     float m_flLeftMove;
     float m_flUpMove;
-    // Vector m_vecLastMovementImpulses;
-    // QAngle m_vecOldViewAngles;
-    char pad_03[128];
+    Vector m_vecLastMovementImpulses;
+    char pad_03[92];
+    QAngle m_vecOldViewAngles;
+    char pad_04[12];
 };
 
 class CPlayer_MovementServices_Humanoid : public CPlayer_MovementServices {
 public:
     float m_flStepSoundTime;
     float m_flFallVelocity;
-    // Vector m_groundNormal;
-    char pad_04[12];
+    Vector m_groundNormal;
     float m_flSurfaceFriction;
     // CUtlStringToken m_surfaceProps;
     char pad_05[16];
     int32_t m_nStepside;
-    // Vector m_vecSmoothedVelocity;
-    char pad_06[12];
+    Vector m_vecSmoothedVelocity;
 };
 
 class CPlayer_ObserverServices : public CPlayerPawnComponent {
@@ -3207,13 +3198,13 @@ public:
     GameTime_t m_flLastFlexAnimationTime;
     SceneEventId_t m_nNextSceneEventId;
     bool m_bUpdateLayerPriorities;
-    char pad_024[11];
+    char pad_021[11];
 };
 
 class CEconEntity : public CBaseFlex {
 public:
     // CAttributeContainer m_AttributeManager;
-    char pad_025[776];
+    char pad_022[776];
     uint32_t m_OriginalOwnerXuidLow;
     uint32_t m_OriginalOwnerXuidHigh;
     int32_t m_nFallbackPaintKit;
@@ -3221,9 +3212,9 @@ public:
     float m_flFallbackWear;
     int32_t m_nFallbackStatTrak;
     // CHandle< CBaseEntity > m_hOldProvidee;
-    char pad_026[4];
+    char pad_023[4];
     int32_t m_iOldOwnerClass;
-    char pad_027[8];
+    char pad_024[8];
 };
 
 class CBasePlayerWeapon : public CEconEntity {
@@ -3236,7 +3227,7 @@ public:
     int32_t m_iClip2;
     int32_t m_pReserveAmmo[2];
     CEntityIOOutput m_OnPlayerUse;
-    char pad_028[8];
+    char pad_025[8];
 };
 
 class CPlayer_WeaponServices : public CPlayerPawnComponent {
@@ -3357,8 +3348,9 @@ public:
 class EntityRenderAttribute_t {
 public:
     // CUtlStringToken m_ID;
-    // Vector4D m_Values;
-    char pad_00[72];
+    char pad_00[52];
+    Vector4D m_Values;
+    char pad_01[4];
 };
 
 class ModelConfigHandle_t {
@@ -3457,8 +3449,8 @@ public:
     float m_flPartDamage;
     float m_flPartDamageRadius;
     // VectorWS m_vWsPartDamageOrigin;
-    // Vector m_vWsPartDamageForce;
-    char pad_00[24];
+    char pad_00[12];
+    Vector m_vWsPartDamageForce;
 };
 
 class CNetworkOriginCellCoordQuantizedVector {
@@ -3505,11 +3497,10 @@ public:
     ParticleIndex_t m_iIndex;
     GameTime_t m_flStartTime;
     float m_flGrowthDuration;
-    // Vector m_vecGrowthOrigin;
-    char pad_01[12];
+    Vector m_vecGrowthOrigin;
     float m_flEndcapTime;
     bool m_bMarkedForDelete;
-    char pad_02[3];
+    char pad_01[3];
 };
 
 class CPulseFuncs_GameParticleManager {
@@ -3835,15 +3826,14 @@ public:
     // CUtlSymbolLarge m_iszViewPosition;
     // CHandle< CBaseEntity > m_hViewPosition;
     // CHandle< CBaseEntity > m_hViewPositionMover;
-    char pad_024[56];
+    char pad_021[56];
     bool m_bPreventMovement;
     bool m_bUnderCrosshair;
     bool m_bUnstoppable;
     GameTime_t m_flFinishedTime;
-    // Vector m_vecFinishOrigin;
-    // QAngle m_vecOriginalAngles;
-    // QAngle m_vecFinishAngles;
-    char pad_025[36];
+    Vector m_vecFinishOrigin;
+    QAngle m_vecOriginalAngles;
+    QAngle m_vecFinishAngles;
     bool m_bPreventChangesWhileMoving;
     bool m_bDisabled;
     // VectorWS m_vecTeleportOrigin;
@@ -3855,27 +3845,28 @@ public:
     float m_flStartTimeInCommentary;
     // CUtlSymbolLarge m_iszTitle;
     // CUtlSymbolLarge m_iszSpeakers;
-    char pad_026[20];
+    char pad_022[20];
     int32_t m_iNodeNumber;
     int32_t m_iNodeNumberMax;
     bool m_bListenedTo;
-    char pad_027[15];
+    char pad_023[15];
 };
 
 class CPhysicsShake {
 public:
-    // Vector m_force;
-    char pad_00[24];
+    char pad_00[8];
+    Vector m_force;
+    char pad_01[4];
 };
 
 class CGameScriptedMoveData {
 public:
-    // Vector m_vAccumulatedRootMotion;
-    // QAngle m_angAccumulatedRootMotionRotation;
+    Vector m_vAccumulatedRootMotion;
+    QAngle m_angAccumulatedRootMotionRotation;
     // VectorWS m_vSrc;
-    // QAngle m_angSrc;
-    // QAngle m_angCurrent;
-    char pad_00[60];
+    char pad_00[12];
+    QAngle m_angSrc;
+    QAngle m_angCurrent;
     float m_flLockedSpeed;
     float m_flAngRate;
     float m_flDuration;
@@ -3886,18 +3877,18 @@ public:
     bool m_bSuccess;
     ForcedCrouchState_t m_nForcedCrouchState;
     bool m_bIgnoreCollisions;
-    // Vector m_vDest;
-    // QAngle m_angDst;
+    Vector m_vDest;
+    QAngle m_angDst;
     // CHandle< CBaseEntity > m_hDestEntity;
-    char pad_01[31];
+    char pad_01[4];
 };
 
 class CGameScriptedMoveDef_t {
 public:
-    // Vector m_vDestOffset;
+    Vector m_vDestOffset;
     // CHandle< CBaseEntity > m_hDestEntity;
-    // QAngle m_angDest;
-    char pad_00[28];
+    char pad_00[4];
+    QAngle m_angDest;
     float m_flDuration;
     float m_flAngRate;
     float m_flMoveSpeed;
@@ -3927,7 +3918,7 @@ public:
     // CUtlSymbolLarge m_iszNextScript;
     // CUtlSymbolLarge m_iszEntity;
     // CUtlSymbolLarge m_iszSyncGroup;
-    char pad_016[64];
+    char pad_014[64];
     ScriptedMoveTo_t m_nMoveTo;
     SharedMovementGait_t m_nMoveToGait;
     ScriptedHeldWeaponBehavior_t m_nHeldWeaponBehavior;
@@ -3975,13 +3966,13 @@ public:
     bool m_bPositionRelativeToOtherEntity;
     // CHandle< CBaseEntity > m_hTargetEnt;
     // CHandle< CScriptedSequence > m_hNextCine;
-    char pad_017[9];
+    char pad_015[9];
     bool m_bThinking;
     bool m_bInitiatedSelfDelete;
     bool m_bIsTeleportingDueToMoveTo;
     bool m_bAllowCustomInterruptConditions;
     // CHandle< CBaseAnimGraph > m_hForcedTarget;
-    char pad_018[4];
+    char pad_016[4];
     bool m_bDontCancelOtherSequences;
     bool m_bForceSynch;
     bool m_bPreventUpdateYawOnFinish;
@@ -3997,19 +3988,21 @@ public:
     CEntityIOOutput m_OnScriptEvent;
     // CTransform m_matOtherToMain;
     // CHandle< CBaseEntity > m_hInteractionMainEntity;
-    char pad_019[212];
+    char pad_017[212];
     int32_t m_iPlayerDeathBehavior;
     bool m_bSkipFadeIn;
-    char pad_020[7];
+    char pad_018[7];
 };
 
 class CConstantForceController {
 public:
-    // Vector m_linear;
+    char pad_00[12];
+    Vector m_linear;
     // RotationVector m_angular;
-    // Vector m_linearSave;
+    char pad_01[12];
+    Vector m_linearSave;
     // RotationVector m_angularSave;
-    char pad_00[64];
+    char pad_02[16];
 };
 
 class CPhysMotorAPI {
@@ -4244,12 +4237,12 @@ public:
 
 class CServerOnlyEntity : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CLogicalEntity : public CServerOnlyEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CBaseFilter : public CLogicalEntity {
@@ -4262,9 +4255,10 @@ public:
 class CCollisionProperty {
 public:
     // VPhysicsCollisionAttribute_t m_collisionAttribute;
-    // Vector m_vecMins;
-    // Vector m_vecMaxs;
-    char pad_00[90];
+    char pad_00[64];
+    Vector m_vecMins;
+    Vector m_vecMaxs;
+    char pad_01[2];
     uint8_t m_usSolidFlags;
     SolidType_t m_nSolidType;
     uint8_t m_triggerBloat;
@@ -4272,25 +4266,24 @@ public:
     uint8_t m_CollisionGroup;
     uint8_t m_nEnablePhysics;
     float m_flBoundingRadius;
-    // Vector m_vecSpecifiedSurroundingMins;
-    // Vector m_vecSpecifiedSurroundingMaxs;
-    // Vector m_vecSurroundingMaxs;
-    // Vector m_vecSurroundingMins;
-    // Vector m_vCapsuleCenter1;
-    // Vector m_vCapsuleCenter2;
-    char pad_01[72];
+    Vector m_vecSpecifiedSurroundingMins;
+    Vector m_vecSpecifiedSurroundingMaxs;
+    Vector m_vecSurroundingMaxs;
+    Vector m_vecSurroundingMins;
+    Vector m_vCapsuleCenter1;
+    Vector m_vCapsuleCenter2;
     float m_flCapsuleRadius;
 };
 
 class CServerOnlyPointEntity : public CServerOnlyEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CEntityFlame : public CBaseEntity {
 public:
     // CHandle< CBaseEntity > m_hEntAttached;
-    char pad_016[4];
+    char pad_014[4];
     bool m_bCheapEffect;
     float m_flSize;
     bool m_bUseHitboxes;
@@ -4298,26 +4291,25 @@ public:
     float m_flHitboxFireScale;
     GameTime_t m_flLifetime;
     // CHandle< CBaseEntity > m_hAttacker;
-    char pad_017[4];
+    char pad_015[4];
     float m_flDirectDamagePerSecond;
     int32_t m_iCustomDamageType;
-    char pad_018[24];
+    char pad_016[24];
 };
 
 class CFish : public CBaseAnimGraph {
 public:
     // CHandle< CFishPool > m_pool;
-    char pad_024[4];
+    char pad_021[4];
     uint32_t m_id;
     float m_x;
     float m_y;
     float m_z;
     float m_angle;
     float m_angleChange;
-    // Vector m_forward;
-    // Vector m_perp;
-    // Vector m_poolOrigin;
-    char pad_025[36];
+    Vector m_forward;
+    Vector m_perp;
+    Vector m_poolOrigin;
     float m_waterLevel;
     float m_speed;
     float m_desiredSpeed;
@@ -4332,12 +4324,12 @@ public:
     CountdownTimer m_disperseTimer;
     CountdownTimer m_proximityTimer;
     // CUtlVector< CFish* > m_visible;
-    char pad_026[32];
+    char pad_022[32];
 };
 
 class CFishPool : public CBaseEntity {
 public:
-    char pad_016[16];
+    char pad_014[16];
     int32_t m_fishCount;
     float m_maxRange;
     float m_swimDepth;
@@ -4361,7 +4353,7 @@ public:
     // CHandle< CPathMover > m_hPrevPathMover;
     // CUtlSymbolLarge m_iszPathNodeStart;
     // CUtlSymbolLarge m_iszPathNodeEnd;
-    char pad_020[32];
+    char pad_018[32];
     CFuncMover::Move_t m_eMoveType;
     bool m_bIsReversing;
     float m_flStartSpeed;
@@ -4382,7 +4374,7 @@ public:
     GameTime_t m_flTimeMovementStart;
     GameTime_t m_flTimeMovementStop;
     // CHandle< CMoverPathNode > m_hStopAtNode;
-    char pad_021[4];
+    char pad_019[4];
     float m_flPathLocationToBeginStop;
     float m_flPathLocationStart;
     float m_flBeginStopT;
@@ -4407,11 +4399,10 @@ public:
     // CEntityOutputTemplate< CUtlString, char* > m_OnNodePassed;
     // CUtlSymbolLarge m_iszOrientationMatchEntityName;
     // CHandle< CBaseEntity > m_hOrientationMatchEntity;
-    char pad_022[48];
+    char pad_020[48];
     float m_flTimeToTraverseToNextNode;
-    // Vector m_vLerpToNewPosStartInPathEntitySpace;
-    // Vector m_vLerpToNewPosEndInPathEntitySpace;
-    char pad_023[24];
+    Vector m_vLerpToNewPosStartInPathEntitySpace;
+    Vector m_vLerpToNewPosEndInPathEntitySpace;
     float m_flLerpToPositionT;
     float m_flLerpToPositionDeltaT;
     CEntityIOOutput m_OnLerpToPositionComplete;
@@ -4420,7 +4411,7 @@ public:
     int32_t m_nDelayedTeleportToNode;
     bool m_bIsVerboseLogging;
     // CHandle< CBaseEntity > m_hFollowEntity;
-    char pad_024[4];
+    char pad_021[4];
     float m_flFollowDistance;
     float m_flFollowMinimumSpeed;
     float m_flCurFollowEntityT;
@@ -4434,11 +4425,11 @@ public:
     CEntityIOOutput m_OnStopped;
     bool m_bNextNodeReturnsCurrent;
     bool m_bStartedMoving;
-    char pad_025[28];
+    char pad_022[28];
     CFuncMover::FollowEntityDirection_t m_eFollowEntityDirection;
     // CHandle< CFuncMover > m_hFollowMover;
     // CUtlSymbolLarge m_iszFollowMoverEntityName;
-    char pad_026[12];
+    char pad_023[12];
     float m_flFollowMoverDistance;
     float m_flFollowMoverCalculatedDistance;
     float m_flFollowMoverSpringStrength;
@@ -4453,16 +4444,16 @@ class CPathSimple : public CBaseEntity {
 public:
     CPathQueryComponent m_CPathQueryComponent;
     // CUtlString m_pathString;
-    char pad_016[88];
+    char pad_014[88];
     bool m_bClosedLoop;
-    char pad_017[7];
+    char pad_015[7];
 };
 
 class CPathWithDynamicNodes : public CPathSimple {
 public:
     // CNetworkUtlVectorBase< CHandle< CPathNode > > m_vecPathNodes;
     // CTransform m_xInitialPathWorldToLocal;
-    char pad_018[1520];
+    char pad_016[1520];
 };
 
 class CPathMover : public CPathWithDynamicNodes {
@@ -4470,24 +4461,24 @@ public:
     // CUtlVector< CHandle< CFuncMover > > m_vecMovers;
     // CHandle< CPathMoverEntitySpawner > m_hMoverSpawner;
     // CUtlSymbolLarge m_iszMoverSpawnerName;
-    char pad_019[1568];
+    char pad_017[1568];
 };
 
 class CPathMoverEntitySpawner : public CLogicalEntity {
 public:
     // CUtlSymbolLarge[4] m_szSpawnTemplates;
-    char pad_018[32];
+    char pad_016[32];
     int32_t m_nSpawnIndex;
     // CHandle< CPathMover > m_hPathMover;
-    char pad_019[4];
+    char pad_017[4];
     float m_flSpawnFrequencySeconds;
     float m_flSpawnFrequencyDistToNearestMover;
     // CUtlHashtable< CHandle< CFuncMover >, CPathMoverEntitySpawn > m_mapSpawnedMoverTemplates;
-    char pad_020[32];
+    char pad_018[32];
     int32_t m_nMaxActive;
     GameTime_t m_flLastSpawnTime;
     bool m_bEnabled;
-    char pad_021[7];
+    char pad_019[7];
 };
 
 class CFuncMoverAPI {
@@ -4513,7 +4504,7 @@ public:
 
 class CInfoData : public CServerOnlyEntity {
 public:
-    char pad_017[2112];
+    char pad_015[2112];
 };
 
 class locksound_t {
@@ -4537,7 +4528,7 @@ class CLogicDistanceCheck : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_iszEntityA;
     // CUtlSymbolLarge m_iszEntityB;
-    char pad_018[16];
+    char pad_016[16];
     float m_flZone1Distance;
     float m_flZone2Distance;
     CEntityIOOutput m_InZone1;
@@ -4554,9 +4545,9 @@ public:
     // CEntityOutputTemplate< CUtlSymbolLarge, CUtlSymbolLarge > m_OnVariantString;
     // CEntityOutputTemplate< Color, Color > m_OnVariantColor;
     // CEntityOutputTemplate< Vector, Vector > m_OnVariantVector;
-    char pad_018[200];
+    char pad_016[200];
     bool m_bAllowEmptyInputs;
-    char pad_019[7];
+    char pad_017[7];
 };
 
 class CTestPulseIOAPI {
@@ -4567,7 +4558,7 @@ public:
 class CMapSharedEnvironment : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_targetMapName;
-    char pad_018[1208];
+    char pad_016[1208];
 };
 
 class DynamicVolumeDef_t {
@@ -4576,13 +4567,12 @@ public:
     // CHandle< CBaseEntity > m_target;
     char pad_00[8];
     int32_t m_nHullIdx;
-    // Vector m_vSourceAnchorPos;
-    // Vector m_vTargetAnchorPos;
-    char pad_01[24];
+    Vector m_vSourceAnchorPos;
+    Vector m_vTargetAnchorPos;
     uint32_t m_nAreaSrc;
     uint32_t m_nAreaDst;
     bool m_bAttached;
-    char pad_02[3];
+    char pad_01[3];
 };
 
 class CMotorController {
@@ -4601,7 +4591,7 @@ public:
     // CUtlSymbolLarge m_nameAnchor;
     // CHandle< CBaseEntity > m_hAttachedObject;
     // CHandle< CBaseEntity > m_hAnchorObject;
-    char pad_018[24];
+    char pad_016[24];
     float m_spinUp;
     float m_spinDown;
     float m_flMotorFriction;
@@ -4615,8 +4605,7 @@ public:
 
 class VelocitySampler {
 public:
-    // Vector m_prevSample;
-    char pad_00[12];
+    Vector m_prevSample;
     GameTime_t m_fPrevSampleTime;
     float m_fIdealSampleRate;
 };
@@ -4637,13 +4626,13 @@ public:
     char pad_00[8];
     VelocitySampler m_vSampler;
     SimpleConstraintSoundProfile m_soundProfile;
-    // Vector m_forwardAxis;
+    Vector m_forwardAxis;
     // CUtlSymbolLarge m_iszTravelSoundFwd;
     // CUtlSymbolLarge m_iszTravelSoundBack;
     // CUtlSymbolLarge m_iszReversalSoundSmall;
     // CUtlSymbolLarge m_iszReversalSoundMedium;
     // CUtlSymbolLarge m_iszReversalSoundLarge;
-    char pad_01[80];
+    char pad_01[68];
     bool m_bPlayTravelSound;
     bool m_bPlayReversalSound;
     char pad_02[6];
@@ -4671,11 +4660,11 @@ public:
     // CUtlSymbolLarge m_targetMapName;
     // CUtlSymbolLarge m_forceWorldGroupID;
     // CUtlSymbolLarge m_associatedRelayTargetName;
-    char pad_018[24];
+    char pad_016[24];
     bool m_fixupNames;
     bool m_bLoadDynamic;
     // CHandle< CPointPrefab > m_associatedRelayEntity;
-    char pad_019[78];
+    char pad_017[78];
 };
 
 class CScenePayloadVData {
@@ -4702,7 +4691,7 @@ class CSkyCamera : public CBaseEntity {
 public:
     // sky3dparams_t m_skyboxData;
     // CUtlStringToken m_skyboxSlotToken;
-    char pad_016[148];
+    char pad_014[148];
     bool m_bUseAngles;
     CSkyCamera* m_pNext;
 };
@@ -4711,20 +4700,19 @@ class CSkyboxReference : public CBaseEntity {
 public:
     // WorldGroupId_t m_worldGroupId;
     // CHandle< CSkyCamera > m_hSkyCamera;
-    char pad_016[1200];
+    char pad_014[1200];
 };
 
 class sky3dparams_t {
 public:
     char pad_00[8];
     int16_t scale;
-    // Vector origin;
-    char pad_01[14];
+    Vector origin;
     bool bClip3DSkyBoxNearToWorldFar;
     float flClip3DSkyBoxNearToWorldFarOffset;
     // fogparams_t fog;
     // WorldGroupId_t m_nWorldGroupID;
-    char pad_02[112];
+    char pad_01[112];
 };
 
 class lerpdata_t {
@@ -4733,7 +4721,7 @@ public:
     char pad_00[4];
     MoveType_t m_MoveType;
     GameTime_t m_flStartTime;
-    // Vector m_vecStartOrigin;
+    Vector m_vecStartOrigin;
     // Quaternion m_qStartRot;
     ParticleIndex_t m_nFXIndex;
     char pad_01[28];
@@ -4750,10 +4738,10 @@ class CRelativeLocation {
 public:
     char pad_00[24];
     RelativeLocationType_t m_Type;
-    // Vector m_vRelativeOffset;
+    Vector m_vRelativeOffset;
     // VectorWS m_vWorldSpacePos;
     // CHandle< CBaseEntity > m_hEntity;
-    char pad_01[31];
+    char pad_01[16];
 };
 
 class CNavVolumeMarkupVolume {
@@ -4768,8 +4756,8 @@ public:
 
 class CNavVolumeBreadthFirstSearch {
 public:
-    // Vector m_vStartPos;
-    char pad_00[180];
+    char pad_00[168];
+    Vector m_vStartPos;
     float m_flSearchDist;
     char pad_01[8];
 };
@@ -4794,17 +4782,18 @@ class CEffectData {
 public:
     // VectorWS m_vOrigin;
     // VectorWS m_vStart;
-    // Vector m_vNormal;
-    // QAngle m_vAngles;
+    char pad_00[32];
+    Vector m_vNormal;
+    QAngle m_vAngles;
     // CEntityHandle m_hEntity;
     // CEntityHandle m_hOtherEntity;
-    char pad_00[64];
+    char pad_01[8];
     float m_flScale;
     float m_flMagnitude;
     float m_flRadius;
     // CUtlStringToken m_nSurfaceProp;
     // CWeakHandle< InfoForResourceTypeIParticleSystemDefinition > m_nEffectIndex;
-    char pad_01[12];
+    char pad_02[12];
     uint32_t m_nDamageType;
     uint8_t m_nPenetrate;
     uint16_t m_nMaterial;
@@ -4813,10 +4802,10 @@ public:
     uint8_t m_fFlags;
     AttachmentHandle_t m_nAttachmentIndex;
     // CUtlStringToken m_nAttachmentName;
-    char pad_02[6];
+    char pad_03[6];
     uint16_t m_iEffectName;
     uint8_t m_nExplosionType;
-    char pad_03[1];
+    char pad_04[1];
 };
 
 class CEnvDetailController : public CBaseEntity {
@@ -4841,7 +4830,7 @@ public:
     uint16_t m_iGustDirChange;
     uint16_t m_iInitialWindDir;
     float m_flInitialWindSpeed;
-    // Vector m_location;
+    Vector m_location;
     CEntityIOOutput m_OnGustStart;
     CEntityIOOutput m_OnGustEnd;
     // CHandle< CBaseEntity > m_hEntOwner;
@@ -4850,7 +4839,7 @@ public:
 
 class CInfoLadderDismount : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class shard_model_desc_t {
@@ -4861,12 +4850,12 @@ public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterialDamageOverlay;
     char pad_01[20];
     ShardSolid_t m_solid;
-    // Vector2D m_vecPanelSize;
-    // Vector2D m_vecStressPositionA;
-    // Vector2D m_vecStressPositionB;
+    Vector2D m_vecPanelSize;
+    Vector2D m_vecStressPositionA;
+    Vector2D m_vecStressPositionB;
     // CNetworkUtlVectorBase< Vector2D > m_vecPanelVertices;
     // CNetworkUtlVectorBase< Vector4D > m_vInitialPanelVertices;
-    char pad_02[76];
+    char pad_02[52];
     float m_flGlassHalfThickness;
     bool m_bHasParent;
     bool m_bParentFrozen;
@@ -4879,15 +4868,15 @@ public:
     char pad_00[8];
     uint32_t m_hShardHandle;
     // CUtlVector< Vector2D > m_vecPanelVertices;
-    // Vector2D m_vLocalPanelSpaceOrigin;
+    char pad_01[28];
+    Vector2D m_vLocalPanelSpaceOrigin;
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
     // CHandle< CShatterGlassShardPhysics > m_hPhysicsEntity;
     // CHandle< CFuncShatterglass > m_hParentPanel;
-    char pad_01[52];
+    char pad_02[16];
     uint32_t m_hParentShard;
     ShatterGlassStressType m_ShatterStressType;
-    // Vector m_vecStressVelocity;
-    char pad_02[15];
+    Vector m_vecStressVelocity;
     bool m_bCreatedModel;
     float m_flLongestEdge;
     float m_flShortestEdge;
@@ -4897,19 +4886,17 @@ public:
     float m_flArea;
     OnFrame m_nOnFrameEdge;
     int32_t m_nSubShardGeneration;
-    // Vector2D m_vecAverageVertPosition;
-    char pad_03[8];
+    Vector2D m_vecAverageVertPosition;
     bool m_bAverageVertPositionIsValid;
-    // Vector2D m_vecPanelSpaceStressPositionA;
-    // Vector2D m_vecPanelSpaceStressPositionB;
-    char pad_04[19];
+    Vector2D m_vecPanelSpaceStressPositionA;
+    Vector2D m_vecPanelSpaceStressPositionB;
     bool m_bStressPositionAIsValid;
     bool m_bStressPositionBIsValid;
     bool m_bFlaggedForRemoval;
     GameTime_t m_flPhysicsEntitySpawnedAtTime;
     // CHandle< CBaseEntity > m_hEntityHittingMe;
     // CUtlVector< uint32 > m_vecNeighbors;
-    char pad_05[28];
+    char pad_03[28];
 };
 
 class CBaseProp : public CBaseAnimGraph {
@@ -4918,7 +4905,7 @@ public:
     int32_t m_iShapeType;
     bool m_bConformToCollisionBounds;
     // CTransform m_mPreferredCatchTransform;
-    char pad_024[39];
+    char pad_021[39];
 };
 
 class CBreakableProp : public CBaseProp {
@@ -4930,19 +4917,18 @@ public:
     CEntityIOOutput m_OnTakeDamage;
     float m_impactEnergyScale;
     int32_t m_iMinHealthDmg;
-    // QAngle m_preferredCarryAngles;
-    char pad_025[12];
+    QAngle m_preferredCarryAngles;
     float m_flPressureDelay;
     float m_flDefBurstScale;
-    // Vector m_vDefBurstOffset;
+    Vector m_vDefBurstOffset;
     // CHandle< CBaseEntity > m_hBreaker;
-    char pad_026[16];
+    char pad_022[4];
     PerformanceMode_t m_PerformanceMode;
     GameTime_t m_flPreventDamageBeforeTime;
     BreakableContentsType_t m_BreakableContentsType;
     // CUtlString m_strBreakableContentsPropGroupOverride;
     // CUtlString m_strBreakableContentsParticleOverride;
-    char pad_027[16];
+    char pad_023[16];
     bool m_bHasBreakPiecesOrCommands;
     float m_explodeDamage;
     float m_explodeRadius;
@@ -4957,10 +4943,10 @@ public:
     float m_flDefaultFadeScale;
     // CHandle< CBaseEntity > m_hLastAttacker;
     // CUtlSymbolLarge m_iszPuntSound;
-    char pad_028[12];
+    char pad_024[12];
     bool m_bUsePuntSound;
     bool m_bOriginalBlockLOS;
-    char pad_029[6];
+    char pad_025[6];
 };
 
 class CPhysicsProp : public CBreakableProp {
@@ -4993,10 +4979,10 @@ public:
     int32_t m_nGlowRange;
     int32_t m_nGlowRangeMin;
     // Color m_glowColor;
-    char pad_030[4];
+    char pad_026[4];
     bool m_bShouldAutoConvertBackFromDebris;
     bool m_bMuteImpactEffects;
-    char pad_031[6];
+    char pad_027[6];
     bool m_bUpdateNavWhenMoving;
     bool m_bForceNavObstacleCut;
     bool m_bAllowObstacleConvexHullMerging;
@@ -5004,12 +4990,12 @@ public:
     bool m_bEnableUseOutput;
     CPhysicsProp::CrateType_t m_CrateType;
     // CUtlSymbolLarge[4] m_strItemClass;
-    char pad_032[32];
+    char pad_028[32];
     int32_t m_nItemCount[4];
     bool m_bRemovableForAmmoBalancing;
     bool m_bAwake;
     bool m_bAttachedToReferenceFrame;
-    char pad_033[5];
+    char pad_029[5];
 };
 
 class CShatterGlassShardPhysics : public CPhysicsProp {
@@ -5017,7 +5003,7 @@ public:
     bool m_bDebris;
     uint32_t m_hParentShard;
     shard_model_desc_t m_ShardDesc;
-    char pad_034[8];
+    char pad_030[8];
 };
 
 class CFuncShatterglass : public CBaseModelEntity {
@@ -5025,7 +5011,8 @@ public:
     // matrix3x4_t m_matPanelTransform;
     // matrix3x4_t m_matPanelTransformWsTemp;
     // CUtlVector< uint32 > m_vecShatterGlassShards;
-    // Vector2D m_PanelSize;
+    char pad_018[120];
+    Vector2D m_PanelSize;
     GameTime_t m_flLastShatterSoundEmitTime;
     GameTime_t m_flLastCleanupTime;
     GameTime_t m_flInitAtTime;
@@ -5045,16 +5032,16 @@ public:
     // CUtlVector< Vector > m_vInitialDamagePositions;
     // CUtlVector< Vector > m_vExtraDamagePositions;
     // CUtlVector< Vector4D > m_vInitialPanelVertices;
-    char pad_020[64];
+    char pad_019[64];
     CEntityIOOutput m_OnBroken;
     uint8_t m_iSurfaceType;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hMaterialDamageBase;
-    char pad_021[15];
+    char pad_020[15];
 };
 
 class CGameRulesProxy : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CGameRules {
@@ -5073,20 +5060,21 @@ public:
 
 class CGlowProperty {
 public:
-    // Vector m_fGlowColor;
-    char pad_00[48];
+    char pad_00[8];
+    Vector m_fGlowColor;
+    char pad_01[28];
     int32_t m_iGlowType;
     int32_t m_iGlowTeam;
     int32_t m_nGlowRange;
     int32_t m_nGlowRangeMin;
     // Color m_glowColorOverride;
-    char pad_01[4];
+    char pad_02[4];
     bool m_bFlashing;
     float m_flGlowTime;
     float m_flGlowStartTime;
     bool m_bEligibleForScreenHighlight;
     bool m_bGlowing;
-    char pad_02[6];
+    char pad_03[6];
 };
 
 class CMultiplayRules {
@@ -5101,12 +5089,13 @@ public:
 
 class fogparams_t {
 public:
-    // Vector dirPrimary;
+    char pad_00[8];
+    Vector dirPrimary;
     // Color colorPrimary;
     // Color colorSecondary;
     // Color colorPrimaryLerpTo;
     // Color colorSecondaryLerpTo;
-    char pad_00[36];
+    char pad_01[16];
     float start;
     float end;
     float farz;
@@ -5143,8 +5132,7 @@ public:
     // CUtlSymbolLarge m_iszOpvar;
     char pad_00[32];
     float m_flVal;
-    // Vector m_vPos;
-    char pad_01[12];
+    Vector m_vPos;
 };
 
 class IRagdoll {
@@ -5154,8 +5142,8 @@ public:
 
 class ragdollelement_t {
 public:
-    // Vector originParentSpace;
-    char pad_00[32];
+    Vector originParentSpace;
+    char pad_00[20];
     int32_t parentIndex;
     float m_flRadius;
     int32_t m_nHeight;
@@ -5228,8 +5216,7 @@ public:
 
 class RagdollCreationParams_t {
 public:
-    // Vector m_vForce;
-    char pad_00[12];
+    Vector m_vForce;
     int32_t m_nForceBone;
     bool m_bForceCurrentWorldTransform;
     bool m_bUseLRURetirement;
@@ -5249,9 +5236,8 @@ public:
 
 class CodeGenAABB_t {
 public:
-    // Vector m_vMinBounds;
-    // Vector m_vMaxBounds;
-    char pad_00[24];
+    Vector m_vMinBounds;
+    Vector m_vMaxBounds;
 };
 
 class CSimpleSimTimer {
@@ -5330,8 +5316,8 @@ public:
     // CUtlSymbolLarge m_iszSoundScriptName;
     // CHandle< CBaseEntity > m_hEnt;
     // CEntityIndex m_soundEntityIndex;
-    // Vector m_soundOrigin;
-    char pad_02[32];
+    char pad_02[20];
+    Vector m_soundOrigin;
     int32_t m_isPlaying;
     CCopyRecipientFilter m_Filter;
     float m_flCloseCaptionDuration;
@@ -5345,17 +5331,17 @@ public:
     bool m_bDisabled;
     // CEntityHandle m_hSource;
     // CUtlSymbolLarge m_iszSourceEntityName;
-    // Vector m_vLastPosition;
-    char pad_016[128];
+    char pad_014[116];
+    Vector m_vLastPosition;
     float m_flRefreshTime;
     // CUtlSymbolLarge m_iszStackName;
     // CUtlSymbolLarge m_iszOperatorName;
     // CUtlSymbolLarge m_iszOpvarName;
-    char pad_017[24];
+    char pad_015[24];
     int32_t m_iOpvarIndex;
     bool m_bUseAutoCompare;
     bool m_bFastRefresh;
-    char pad_018[2];
+    char pad_016[2];
 };
 
 class CSoundOpvarSetPointEntity : public CSoundOpvarSetPointBase {
@@ -5363,7 +5349,7 @@ public:
     CEntityIOOutput m_OnEnter;
     CEntityIOOutput m_OnExit;
     bool m_bAutoDisable;
-    char pad_019[64];
+    char pad_017[64];
     float m_flDistanceMin;
     float m_flDistanceMax;
     float m_flDistanceMapMin;
@@ -5376,84 +5362,78 @@ public:
     bool m_bReloading;
     int32_t m_nSimulationMode;
     int32_t m_nVisibilitySamples;
-    // Vector m_vDynamicProxyPoint;
-    char pad_020[12];
+    Vector m_vDynamicProxyPoint;
     float m_flDynamicMaximumOcclusion;
     // CEntityHandle m_hDynamicEntity;
     // CUtlSymbolLarge m_iszDynamicEntityName;
-    char pad_021[16];
+    char pad_018[16];
     float m_flPathingDistanceNormFactor;
-    // Vector m_vPathingSourcePos;
-    // Vector m_vPathingListenerPos;
-    // Vector m_vPathingDirection;
-    char pad_022[36];
+    Vector m_vPathingSourcePos;
+    Vector m_vPathingListenerPos;
+    Vector m_vPathingDirection;
     int32_t m_nPathingSourceIndex;
-    char pad_023[4];
+    char pad_019[4];
 };
 
 class CSoundOpvarSetAABBEntity : public CSoundOpvarSetPointEntity {
 public:
-    // Vector m_vDistanceInnerMins;
-    // Vector m_vDistanceInnerMaxs;
-    // Vector m_vDistanceOuterMins;
-    // Vector m_vDistanceOuterMaxs;
-    char pad_024[48];
+    Vector m_vDistanceInnerMins;
+    Vector m_vDistanceInnerMaxs;
+    Vector m_vDistanceOuterMins;
+    Vector m_vDistanceOuterMaxs;
     int32_t m_nAABBDirection;
-    // Vector m_vInnerMins;
-    // Vector m_vInnerMaxs;
-    // Vector m_vOuterMins;
-    // Vector m_vOuterMaxs;
-    char pad_025[52];
+    Vector m_vInnerMins;
+    Vector m_vInnerMaxs;
+    Vector m_vOuterMins;
+    Vector m_vOuterMaxs;
+    char pad_020[4];
 };
 
 class CSoundOpvarSetOBBEntity : public CSoundOpvarSetAABBEntity {
 public:
-    char pad_026[1704];
+    char pad_021[1704];
 };
 
 class CSoundOpvarSetPathCornerEntity : public CSoundOpvarSetPointEntity {
 public:
-    char pad_024[24];
+    char pad_020[24];
     bool m_bUseParentedPath;
     float m_flDistMinSqr;
     float m_flDistMaxSqr;
     // CUtlSymbolLarge m_iszPathCornerEntityName;
-    char pad_025[12];
+    char pad_021[12];
 };
 
 class SoundOpvarTraceResult_t {
 public:
-    // Vector vPos;
-    char pad_00[12];
+    Vector vPos;
     bool bDidHit;
     float flDistSqrToCenter;
 };
 
 class AutoRoomDoorwayPairs_t {
 public:
-    // Vector vP1;
-    // Vector vP2;
-    char pad_00[24];
+    Vector vP1;
+    Vector vP2;
 };
 
 class CSoundOpvarSetAutoRoomEntity : public CSoundOpvarSetPointEntity {
 public:
     // CUtlVector< SoundOpvarTraceResult_t > m_traceResults;
     // CUtlVector< AutoRoomDoorwayPairs_t > m_doorwayPairs;
-    char pad_024[48];
+    char pad_020[48];
     float m_flSize;
     float m_flHeightTolerance;
     float m_flSizeSqr;
-    char pad_025[4];
+    char pad_021[4];
 };
 
 class CSoundOpvarSetOBBWindEntity : public CSoundOpvarSetPointBase {
 public:
-    // Vector m_vMins;
-    // Vector m_vMaxs;
-    // Vector m_vDistanceMins;
-    // Vector m_vDistanceMaxs;
-    char pad_019[48];
+    Vector m_vMins;
+    Vector m_vMaxs;
+    Vector m_vDistanceMins;
+    Vector m_vDistanceMaxs;
     float m_flWindMin;
     float m_flWindMax;
     float m_flWindMapMin;
@@ -5468,33 +5448,35 @@ public:
 
 class CTakeDamageInfo {
 public:
-    // Vector m_vecDamageForce;
+    char pad_00[8];
+    Vector m_vecDamageForce;
     // VectorWS m_vecDamagePosition;
     // VectorWS m_vecReportedPosition;
-    // Vector m_vecDamageDirection;
+    char pad_01[24];
+    Vector m_vecDamageDirection;
     // CHandle< CBaseEntity > m_hInflictor;
     // CHandle< CBaseEntity > m_hAttacker;
     // CHandle< CBaseEntity > m_hAbility;
-    char pad_00[68];
+    char pad_02[12];
     float m_flDamage;
     float m_flTotalledDamage;
     DamageTypes_t m_bitsDamageType;
     int32_t m_iDamageCustom;
     AmmoIndex_t m_iAmmoType;
-    char pad_01[8];
+    char pad_03[8];
     float m_flOriginalDamage;
     bool m_bShouldBleed;
     bool m_bShouldSpark;
-    char pad_02[8];
+    char pad_04[8];
     TakeDamageFlags_t m_nDamageFlags;
     HitGroup_t m_iHitGroupId;
     int32_t m_nNumObjectsPenetrated;
     float m_flFriendlyFireDamageReductionRatio;
     bool m_bStoppedBullet;
     // CUtlVector< DestructibleHitGroupToDestroy_t > m_nDestructibleHitGroupsToForceDestroy;
-    char pad_03[147];
+    char pad_05[147];
     bool m_bInTakeDamageFlow;
-    char pad_04[7];
+    char pad_06[7];
 };
 
 class CTakeDamageResult {
@@ -5639,7 +5621,7 @@ public:
     int32_t m_iPriority;
     bool m_bEnabled;
     int32_t m_nType;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CCSGameRules {
@@ -5708,9 +5690,9 @@ public:
     int32_t m_iMatchStats_PlayersAlive_T[30];
     float m_TeamRespawnWaveTimes[32];
     GameTime_t m_flNextRespawnWave;
-    // Vector m_vMinimapMins;
-    // Vector m_vMinimapMaxs;
-    char pad_01[148];
+    char pad_01[124];
+    Vector m_vMinimapMins;
+    Vector m_vMinimapMaxs;
     float m_MinimapVerticalSectionHeights[8];
     uint64_t m_ullLocalMatchID;
     int32_t m_nEndMatchMapGroupVoteTypes[10];
@@ -5795,10 +5777,11 @@ public:
     bool m_bTargetBombed;
     bool m_bBombDefused;
     bool m_bMapHasBombZone;
-    // Vector m_vecMainCTSpawnPos;
+    char pad_013[76];
+    Vector m_vecMainCTSpawnPos;
     // CUtlVector< CHandle< SpawnPoint > > m_CTSpawnPointsMasterList;
     // CUtlVector< CHandle< SpawnPoint > > m_TerroristSpawnPointsMasterList;
-    char pad_013[141];
+    char pad_014[52];
     bool m_bRespawningAllRespawnablePlayers;
     int32_t m_iNextCTSpawnPoint;
     float m_flCTSpawnPointUsedTime;
@@ -5806,10 +5789,10 @@ public:
     float m_flTerroristSpawnPointUsedTime;
     // CUtlVector< CHandle< SpawnPoint > > m_CTSpawnPoints;
     // CUtlVector< CHandle< SpawnPoint > > m_TerroristSpawnPoints;
-    char pad_014[52];
+    char pad_015[52];
     bool m_bIsUnreservedGameServer;
     float m_fAutobalanceDisplayTime;
-    char pad_015[56];
+    char pad_016[56];
     bool m_bAllowWeaponSwitch;
     bool m_bRoundTimeWarningTriggered;
     GameTime_t m_phaseChangeAnnouncementTime;
@@ -5817,19 +5800,19 @@ public:
     GameTime_t m_flLastThinkTime;
     float m_fAccumulatedRoundOffDamage;
     int32_t m_nShorthandedBonusLastEvalRound;
-    char pad_016[72];
+    char pad_017[72];
     int32_t m_nMatchAbortedEarlyReason;
     bool m_bHasTriggeredRoundStartMusic;
     bool m_bSwitchingTeamsAtRoundReset;
-    char pad_017[24];
+    char pad_018[24];
     CCSGameModeRules* m_pGameModeRules;
     // KeyValues3 m_BtGlobalBlackboard;
     // CHandle< CBaseEntity > m_hPlayerResource;
     // CRetakeGameRules m_RetakeRules;
     // CUtlVector< int32 >[4] m_arrTeamUniqueKillWeaponsMatch;
-    char pad_018[752];
+    char pad_019[752];
     bool m_bTeamLastKillUsedUniqueWeaponMatch[4];
-    char pad_019[36];
+    char pad_020[36];
     uint8_t m_nMatchEndCount;
     int32_t m_nTTeamIntroVariant;
     int32_t m_nCTTeamIntroVariant;
@@ -5842,12 +5825,12 @@ public:
     int32_t m_iRoundEndTimerTime;
     // CUtlString m_sRoundEndFunFactToken;
     // CPlayerSlot m_iRoundEndFunFactPlayerSlot;
-    char pad_020[12];
+    char pad_021[12];
     int32_t m_iRoundEndFunFactData1;
     int32_t m_iRoundEndFunFactData2;
     int32_t m_iRoundEndFunFactData3;
     // CUtlString m_sRoundEndMessage;
-    char pad_021[8];
+    char pad_022[8];
     int32_t m_iRoundEndPlayerCount;
     bool m_bRoundEndNoMusic;
     int32_t m_iRoundEndLegacy;
@@ -5855,7 +5838,7 @@ public:
     int32_t m_iRoundStartRoundNumber;
     uint8_t m_nRoundStartCount;
     // float64 m_flLastPerfSampleTime;
-    char pad_022[65579];
+    char pad_023[65579];
 };
 
 class CCSGameRulesProxy : public CGameRulesProxy {
@@ -5905,13 +5888,13 @@ class CBaseCombatCharacter : public CBaseFlex {
 public:
     bool m_bForceServerRagdoll;
     // CNetworkUtlVectorBase< CHandle< CEconWearable > > m_hMyWearables;
-    char pad_025[28];
+    char pad_022[28];
     float m_impactEnergyScale;
     bool m_bApplyStressDamage;
     bool m_bDeathEventsDispatched;
     // CUtlVector< RelationshipOverride_t >* m_pVecRelationships;
     // CUtlSymbolLarge m_strRelationships;
-    char pad_026[80];
+    char pad_023[80];
     Hull_t m_eHull;
     uint32_t m_nNavHullIdx;
     CMovementStatsProperty m_movementStats;
@@ -5929,9 +5912,9 @@ public:
     CPlayer_CameraServices* m_pCameraServices;
     CPlayer_MovementServices* m_pMovementServices;
     // CUtlVectorEmbeddedNetworkVar< ViewAngleServerChange_t > m_ServerViewAngleChanges;
-    // QAngle v_angle;
-    // QAngle v_anglePrevious;
-    char pad_027[136];
+    char pad_024[112];
+    QAngle v_angle;
+    QAngle v_anglePrevious;
     uint32_t m_iHideHUD;
     sky3dparams_t m_skybox3d;
     GameTime_t m_fTimeLastHurt;
@@ -5941,12 +5924,12 @@ public:
     CAI_Expresser* m_pExpresser;
     // CHandle< CBasePlayerController > m_hController;
     // CHandle< CBasePlayerController > m_hDefaultController;
-    char pad_028[12];
+    char pad_025[12];
     float m_fHltvReplayDelay;
     float m_fHltvReplayEnd;
     // CEntityIndex m_iHltvReplayEntity;
     // CUtlVector< sndopvarlatchdata_t > m_sndOpvarLatchData;
-    char pad_029[28];
+    char pad_026[28];
 };
 
 class CCSPlayerPawnBase : public CBasePlayerPawn {
@@ -5956,11 +5939,11 @@ public:
     GameTime_t m_blindUntilTime;
     GameTime_t m_blindStartTime;
     CSPlayerState m_iPlayerState;
-    char pad_030[172];
+    char pad_027[172];
     bool m_bRespawning;
     bool m_bHasMovedSinceSpawn;
     int32_t m_iNumSpawns;
-    char pad_031[4];
+    char pad_028[4];
     float m_flIdleTimeSinceLastAction;
     float m_fNextRadarUpdateTime;
     float m_flFlashDuration;
@@ -5968,12 +5951,12 @@ public:
     float m_flProgressBarStartTime;
     int32_t m_iProgressBarDuration;
     // CHandle< CCSPlayerController > m_hOriginalController;
-    char pad_032[12];
+    char pad_029[12];
 };
 
 class CCSPlayerPawn : public CCSPlayerPawnBase {
 public:
-    char pad_033[8];
+    char pad_030[8];
     CCSPlayer_BulletServices* m_pBulletServices;
     CCSPlayer_HostageServices* m_pHostageServices;
     CCSPlayer_BuyServices* m_pBuyServices;
@@ -5983,13 +5966,13 @@ public:
     uint16_t m_nCharacterDefIndex;
     bool m_bHasFemaleVoice;
     // CUtlString m_strVOPrefix;
-    char pad_034[13];
+    char pad_031[13];
     char m_szLastPlaceName[18];
-    char pad_035[222];
+    char pad_032[222];
     bool m_bInHostageResetZone;
     bool m_bInBuyZone;
     // CUtlVector< CHandle< CBaseEntity > > m_TouchingBuyZones;
-    char pad_036[30];
+    char pad_033[30];
     bool m_bWasInBuyZone;
     bool m_bInHostageRescueZone;
     bool m_bInBombZone;
@@ -6002,15 +5985,14 @@ public:
     loadout_slot_t m_RetakesMVPBoostExtraUtility;
     GameTime_t m_flHealthShotBoostExpirationTime;
     float m_flLandingTimeSeconds;
-    // QAngle m_aimPunchAngle;
-    // QAngle m_aimPunchAngleVel;
-    char pad_037[16];
+    QAngle m_aimPunchAngle;
+    QAngle m_aimPunchAngleVel;
     GameTick_t m_aimPunchTickBase;
     float m_aimPunchTickFraction;
     // CUtlVector< QAngle > m_aimPunchCache;
-    char pad_038[24];
+    char pad_034[24];
     bool m_bIsBuyMenuOpen;
-    char pad_039[1489];
+    char pad_035[1489];
     GameTime_t m_lastLandTime;
     bool m_bOnGroundLastTick;
     int32_t m_iPlayerLocked;
@@ -6018,16 +6000,14 @@ public:
     GameTime_t m_flNextSprayDecalTime;
     bool m_bNextSprayDecalTimeExpedited;
     int32_t m_nRagdollDamageBone;
-    // Vector m_vRagdollDamageForce;
-    // Vector m_vRagdollDamagePosition;
-    char pad_040[24];
+    Vector m_vRagdollDamageForce;
+    Vector m_vRagdollDamagePosition;
     char m_szRagdollDamageWeaponName[64];
     bool m_bRagdollDamageHeadshot;
-    // Vector m_vRagdollServerOrigin;
+    Vector m_vRagdollServerOrigin;
     CEconItemView m_EconGloves;
     uint8_t m_nEconGlovesChanged;
-    // QAngle m_qDeathEyeAngles;
-    char pad_041[15];
+    QAngle m_qDeathEyeAngles;
     bool m_bSkipOneHeadConstraintUpdate;
     bool m_bLeftHanded;
     GameTime_t m_fSwitchedHandednessTime;
@@ -6054,7 +6034,7 @@ public:
     GameTime_t m_flEmitSoundTime;
     bool m_bInNoDefuseArea;
     // CEntityIndex m_iBombSiteIndex;
-    char pad_042[4];
+    char pad_036[4];
     int32_t m_nWhichBombZone;
     bool m_bInBombZoneTrigger;
     bool m_bWasInBombZoneTrigger;
@@ -6063,20 +6043,17 @@ public:
     float m_flVelocityModifier;
     float m_flHitHeading;
     int32_t m_nHitBodyPart;
-    // Vector m_vecTotalBulletForce;
-    char pad_043[12];
+    Vector m_vecTotalBulletForce;
     bool m_bWaitForNoAttack;
     float m_ignoreLadderJumpTime;
     bool m_bKilledByHeadshot;
     int32_t m_LastHitBox;
     CCSBot* m_pBot;
     bool m_bBotAllowActive;
-    // QAngle m_thirdPersonHeading;
-    char pad_044[12];
+    QAngle m_thirdPersonHeading;
     float m_flSlopeDropOffset;
     float m_flSlopeDropHeight;
-    // Vector m_vHeadConstraintOffset;
-    char pad_045[12];
+    Vector m_vHeadConstraintOffset;
     int32_t m_nLastPickupPriority;
     float m_flLastPickupPriorityTime;
     int32_t m_ArmorValue;
@@ -6085,32 +6062,33 @@ public:
     uint16_t m_unFreezetimeEndEquipmentValue;
     int32_t m_iLastWeaponFireUsercmd;
     bool m_bIsSpawning;
-    char pad_046[8];
+    char pad_037[8];
     int32_t m_iDeathFlags;
     bool m_bHasDeathInfo;
     float m_flDeathInfoTime;
-    // Vector m_vecDeathInfoOrigin;
-    char pad_047[12];
+    Vector m_vecDeathInfoOrigin;
     uint32_t m_vecPlayerPatchEconIndices[5];
     // Color m_GunGameImmunityColor;
     GameTime_t m_grenadeParameterStashTime;
     bool m_bGrenadeParametersStashed;
-    // QAngle m_angStashedShootAngles;
-    // Vector m_vecStashedGrenadeThrowPosition;
-    // Vector m_vecStashedVelocity;
-    // QAngle[2] m_angShootAngleHistory;
-    // Vector[2] m_vecThrowPositionHistory;
-    // Vector[2] m_vecVelocityHistory;
+    QAngle m_angStashedShootAngles;
+    Vector m_vecStashedGrenadeThrowPosition;
+    Vector m_vecStashedVelocity;
+    QAngle m_angShootAngleHistory;
+    char pad_038[12];
+    Vector m_vecThrowPositionHistory;
+    char pad_039[12];
+    Vector m_vecVelocityHistory;
     // CUtlVectorEmbeddedNetworkVar< PredictedDamageTag_t > m_PredictedDamageTags;
-    char pad_048[216];
+    char pad_040[120];
     int32_t m_nHighestAppliedDamageTagTick;
     bool m_bCommittingSuicideOnTeamChange;
     bool m_wasNotKilledNaturally;
     GameTime_t m_fImmuneToGunGameDamageTime;
     bool m_bGunGameImmunity;
     float m_fMolotovDamageTime;
-    // QAngle m_angEyeAngles;
-    char pad_049[20];
+    QAngle m_angEyeAngles;
+    char pad_041[8];
 };
 
 class QuestProgress {
@@ -6170,7 +6148,7 @@ public:
     int32_t m_nRandom;
     int32_t m_nOrdinal;
     // CUtlString m_sWeaponName;
-    char pad_016[8];
+    char pad_014[8];
     uint64_t m_xuid;
     CEconItemView m_agentItem;
     CEconItemView m_glovesItem;
@@ -6179,57 +6157,57 @@ public:
 
 class CCSGO_TeamSelectCharacterPosition : public CCSGO_TeamPreviewCharacterPosition {
 public:
-    char pad_017[3264];
+    char pad_015[3264];
 };
 
 class CCSGO_TeamSelectTerroristPosition : public CCSGO_TeamSelectCharacterPosition {
 public:
-    char pad_018[3264];
+    char pad_016[3264];
 };
 
 class CCSGO_TeamSelectCounterTerroristPosition : public CCSGO_TeamSelectCharacterPosition {
 public:
-    char pad_018[3264];
+    char pad_016[3264];
 };
 
 class CCSGO_TeamIntroCharacterPosition : public CCSGO_TeamPreviewCharacterPosition {
 public:
-    char pad_017[3264];
+    char pad_015[3264];
 };
 
 class CCSGO_TeamIntroTerroristPosition : public CCSGO_TeamIntroCharacterPosition {
 public:
-    char pad_018[3264];
+    char pad_016[3264];
 };
 
 class CCSGO_TeamIntroCounterTerroristPosition : public CCSGO_TeamIntroCharacterPosition {
 public:
-    char pad_018[3264];
+    char pad_016[3264];
 };
 
 class CCSGO_WingmanIntroCharacterPosition : public CCSGO_TeamIntroCharacterPosition {
 public:
-    char pad_018[3264];
+    char pad_016[3264];
 };
 
 class CCSGO_WingmanIntroTerroristPosition : public CCSGO_WingmanIntroCharacterPosition {
 public:
-    char pad_019[3264];
+    char pad_017[3264];
 };
 
 class CCSGO_WingmanIntroCounterTerroristPosition : public CCSGO_WingmanIntroCharacterPosition {
 public:
-    char pad_019[3264];
+    char pad_017[3264];
 };
 
 class CCSMinimapBoundary : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CCSPetPlacement : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class PredictedDamageTag_t {
@@ -6245,11 +6223,11 @@ class CPlayerPing : public CBaseEntity {
 public:
     // CHandle< CCSPlayerPawn > m_hPlayer;
     // CHandle< CBaseEntity > m_hPingedEntity;
-    char pad_016[16];
+    char pad_014[16];
     int32_t m_iType;
     bool m_bUrgent;
     char m_szPlaceName[18];
-    char pad_017[1];
+    char pad_015[1];
 };
 
 class CCSPlayer_PingServices : public CPlayerPawnComponent {
@@ -6264,15 +6242,15 @@ public:
     bool m_bHostageAlive[12];
     bool m_isHostageFollowingSomeone[12];
     // CEntityIndex[12] m_iHostageEntityIDs;
-    // Vector m_bombsiteCenterA;
-    // Vector m_bombsiteCenterB;
-    char pad_016[72];
+    char pad_014[48];
+    Vector m_bombsiteCenterA;
+    Vector m_bombsiteCenterB;
     int32_t m_hostageRescueX[4];
     int32_t m_hostageRescueY[4];
     int32_t m_hostageRescueZ[4];
     bool m_bEndMatchNextMapAllVoted;
     bool m_foundGoalPositions;
-    char pad_017[6];
+    char pad_015[6];
 };
 
 class CCSPlayer_DamageReactServices : public CPlayerPawnComponent {
@@ -6382,8 +6360,7 @@ public:
 
 class CCSPlayer_MovementServices : public CPlayer_MovementServices_Humanoid {
 public:
-    // Vector m_vecLadderNormal;
-    char pad_07[12];
+    Vector m_vecLadderNormal;
     int32_t m_nLadderSurfacePropIndex;
     bool m_bDucked;
     float m_flDuckAmount;
@@ -6396,21 +6373,20 @@ public:
     uint32_t m_nDuckJumpTimeMsecs;
     uint32_t m_nJumpTimeMsecs;
     float m_flLastDuckTime;
-    // Vector2D m_vecLastPositionAtFullCrouchSpeed;
-    char pad_08[20];
+    char pad_06[12];
+    Vector2D m_vecLastPositionAtFullCrouchSpeed;
     bool m_duckUntilOnGround;
     bool m_bHasWalkMovedSinceLastJump;
     bool m_bInStuckTest;
-    char pad_09[524];
+    char pad_07[524];
     int32_t m_nTraceCount;
     int32_t m_StuckLast;
     bool m_bSpeedCropped;
     int32_t m_nOldWaterLevel;
     float m_flWaterEntryTime;
-    // Vector m_vecForward;
-    // Vector m_vecLeft;
-    // Vector m_vecUp;
-    char pad_010[36];
+    Vector m_vecForward;
+    Vector m_vecLeft;
+    Vector m_vecUp;
     int32_t m_nGameCodeHasMovedPlayerAfterCommand;
     bool m_bMadeFootstepNoise;
     int32_t m_iFootsteps;
@@ -6433,8 +6409,9 @@ public:
     bool m_bJumpApexPending;
     float m_flTicksSinceLastSurfingDetected;
     bool m_bWasSurfing;
-    // Vector m_vecInputRotated;
-    char pad_011[2235];
+    char pad_08[140];
+    Vector m_vecInputRotated;
+    char pad_09[2080];
 };
 
 class CCSPlayer_UseServices : public CPlayer_UseServices {
@@ -6451,10 +6428,9 @@ public:
     int32_t m_nDrownDmgRate;
     GameTime_t m_AirFinishedTime;
     float m_flWaterJumpTime;
-    // Vector m_vecWaterJumpVel;
-    char pad_03[12];
+    Vector m_vecWaterJumpVel;
     float m_flSwimSoundTime;
-    char pad_04[24];
+    char pad_03[24];
 };
 
 class CCSPlayer_WeaponServices : public CPlayer_WeaponServices {
@@ -6516,7 +6492,7 @@ public:
 
 class CCSObserver_MovementServices : public CPlayer_MovementServices {
 public:
-    char pad_04[576];
+    char pad_05[576];
 };
 
 class CCSObserver_UseServices : public CPlayer_UseServices {
@@ -6569,43 +6545,43 @@ public:
 
 class CBasePlayerController : public CBaseEntity {
 public:
-    char pad_016[8];
+    char pad_014[8];
     uint64_t m_nInButtonsWhichAreToggles;
     uint32_t m_nTickBase;
     // CHandle< CBasePlayerPawn > m_hPawn;
-    char pad_017[40];
+    char pad_015[40];
     bool m_bKnownTeamMismatch;
     // CSplitScreenSlot m_nSplitScreenSlot;
     // CHandle< CBasePlayerController > m_hSplitOwner;
     // CUtlVector< CHandle< CBasePlayerController > > m_hSplitScreenPlayers;
-    char pad_018[35];
+    char pad_016[35];
     bool m_bIsHLTV;
     PlayerConnectedState m_iConnected;
     char m_iszPlayerName[128];
     // CUtlString m_szNetworkIDString;
-    char pad_019[8];
+    char pad_017[8];
     float m_fLerpTime;
     bool m_bLagCompensation;
     bool m_bPredict;
-    char pad_020[6];
+    char pad_018[6];
     bool m_bIsLowViolence;
     bool m_bGamePaused;
-    char pad_021[312];
+    char pad_019[312];
     ChatIgnoreType_t m_iIgnoreGlobalChat;
     float m_flLastPlayerTalkTime;
     float m_flLastEntitySteadyState;
     int32_t m_nAvailableEntitySteadyState;
     bool m_bHasAnySteadyStateEnts;
-    char pad_022[8];
+    char pad_020[8];
     uint64_t m_steamID;
     bool m_bNoClipEnabled;
     uint32_t m_iDesiredFOV;
-    char pad_023[184];
+    char pad_021[184];
 };
 
 class CCSPlayerController : public CBasePlayerController {
 public:
-    char pad_024[16];
+    char pad_022[16];
     CCSPlayerController_InGameMoneyServices* m_pInGameMoneyServices;
     CCSPlayerController_InventoryServices* m_pInventoryServices;
     CCSPlayerController_ActionTrackingServices* m_pActionTrackingServices;
@@ -6614,7 +6590,7 @@ public:
     bool m_bHasCommunicationAbuseMute;
     uint32_t m_uiCommunicationMuteFlags;
     // CUtlSymbolLarge m_szCrosshairCodes;
-    char pad_025[12];
+    char pad_023[12];
     uint8_t m_iPendingTeamNum;
     GameTime_t m_flForceTeamTime;
     int32_t m_iCompTeammateColor;
@@ -6629,7 +6605,7 @@ public:
     bool m_bRemoveAllItemsOnNextRoundReset;
     GameTime_t m_flLastJoinTeamTime;
     // CUtlSymbolLarge m_szClan;
-    char pad_026[8];
+    char pad_024[8];
     int32_t m_iCoachingTeam;
     uint64_t m_nPlayerDominated;
     uint64_t m_nPlayerDominatingMe;
@@ -6644,7 +6620,7 @@ public:
     uint32_t m_rtActiveMissionPeriod;
     QuestProgress::Reason m_nQuestProgressReason;
     uint32_t m_unPlayerTvControlFlags;
-    char pad_027[44];
+    char pad_025[44];
     int32_t m_iDraftIndex;
     uint32_t m_msQueuedModeDisconnectionTimestamp;
     uint32_t m_uiAbandonRecordedReason;
@@ -6656,7 +6632,7 @@ public:
     bool m_bDisconnection1MinWarningPrinted;
     bool m_bScoreReported;
     int32_t m_nDisconnectionTick;
-    char pad_028[12];
+    char pad_026[12];
     bool m_bControllingBot;
     bool m_bHasControlledBotThisRound;
     bool m_bHasBeenControlledByPlayerThisRound;
@@ -6664,10 +6640,10 @@ public:
     bool m_bCanControlObservedBot;
     // CHandle< CCSPlayerPawn > m_hPlayerPawn;
     // CHandle< CCSObserverPawn > m_hObserverPawn;
-    char pad_029[8];
+    char pad_027[8];
     int32_t m_DesiredObserverMode;
     // CEntityHandle m_hDesiredObserverTarget;
-    char pad_030[4];
+    char pad_028[4];
     bool m_bPawnIsAlive;
     uint32_t m_iPawnHealth;
     int32_t m_iPawnArmor;
@@ -6678,7 +6654,7 @@ public:
     int32_t m_iPawnLifetimeEnd;
     int32_t m_iPawnBotDifficulty;
     // CHandle< CCSPlayerController > m_hOriginalControllerOfCurrentPawn;
-    char pad_031[4];
+    char pad_029[4];
     int32_t m_iScore;
     int32_t m_iRoundScore;
     int32_t m_iRoundsWon;
@@ -6693,7 +6669,7 @@ public:
     int32_t m_nUpdateCounter;
     float m_flSmoothedPing;
     IntervalTimer m_lastHeldVoteTimer;
-    char pad_032[8];
+    char pad_030[8];
     bool m_bShowHints;
     int32_t m_iNextTimeCheck;
     bool m_bJustDidTeamKill;
@@ -6705,9 +6681,9 @@ public:
     GameTime_t m_LastTimePlayerWasDisconnectedForPawnsRemove;
     uint32_t m_nSuspiciousHitCount;
     uint32_t m_nNonSuspiciousHitStreak;
-    char pad_033[161];
+    char pad_031[161];
     bool m_bFireBulletsSeedSynchronized;
-    char pad_034[126];
+    char pad_032[126];
 };
 
 class CDamageRecord {
@@ -6869,11 +6845,11 @@ public:
     int32_t m_nVotesCast[64];
     // CPlayerSlot m_playerHoldingVote;
     // CPlayerSlot m_playerOverrideForVote;
-    char pad_016[8];
+    char pad_014[8];
     int32_t m_nHighestCountIndex;
     // CUtlVector< CBaseIssue* > m_potentialIssues;
     // CUtlVector< char* > m_VoteOptions;
-    char pad_017[52];
+    char pad_015[52];
 };
 
 class CMapVetoPickController : public CBaseEntity {
@@ -6881,7 +6857,7 @@ public:
     bool m_bPlayedIntroVcd;
     bool m_bNeedToPlayFiveSecondsRemaining;
     // float64 m_dblPreMatchDraftSequenceTime;
-    char pad_016[38];
+    char pad_014[38];
     bool m_bPreMatchDraftStateChanged;
     int32_t m_nDraftType;
     int32_t m_nTeamWinningCoinToss;
@@ -6903,17 +6879,17 @@ public:
     // CEntityOutputTemplate< int32, int32 > m_OnSidesPicked;
     // CEntityOutputTemplate< int32, int32 > m_OnNewPhaseStarted;
     // CEntityOutputTemplate< int32, int32 > m_OnLevelTransition;
-    char pad_017[164];
+    char pad_015[164];
 };
 
 class CLogicEventListener : public CLogicalEntity {
 public:
     // CUtlString m_strEventName;
-    char pad_018[24];
+    char pad_016[24];
     bool m_bIsEnabled;
     int32_t m_nTeam;
     // CEntityOutputTemplate< CUtlString, char* > m_OnEventFired;
-    char pad_019[32];
+    char pad_017[32];
 };
 
 class CCSPointPulseAPI {
@@ -6923,7 +6899,7 @@ public:
 
 class CCSPointScriptEntity : public CBaseEntity {
 public:
-    char pad_016[1552];
+    char pad_014[1552];
 };
 
 class CBot {
@@ -6941,8 +6917,8 @@ public:
     float m_verticalSpeed;
     uint64_t m_buttonFlags;
     float m_jumpTimestamp;
-    // Vector m_viewForward;
-    char pad_02[28];
+    Vector m_viewForward;
+    char pad_02[16];
     int32_t m_postureStackIndex;
     char pad_03[4];
 };
@@ -6972,7 +6948,7 @@ public:
     float m_flLerpStartTime;
     float m_flNextLookTargetLerpTime;
     float m_flPenaltyReductionRatio;
-    // QAngle m_NextLookTarget;
+    QAngle m_NextLookTarget;
     CountdownTimer m_AimTimer;
     CountdownTimer m_SniperHoldTimer;
     CountdownTimer m_FocusIntervalTimer;
@@ -6995,8 +6971,8 @@ public:
     // CUtlString m_szDestinationInputKey;
     // CUtlString m_szHidingSpotInputKey;
     // CUtlString m_szThreatInputKey;
-    // Vector m_vecDestination;
-    char pad_00[132];
+    char pad_00[120];
+    Vector m_vecDestination;
     bool m_bAutoLookAdjust;
     bool m_bComputePath;
     float m_flDamagingAreasPenaltyCost;
@@ -7033,16 +7009,16 @@ public:
 
 class CPointEntity : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CEnvCombinedLightProbeVolume : public CBaseEntity {
 public:
     // Color m_Entity_Color;
-    char pad_016[4220];
+    char pad_014[4220];
     float m_Entity_flBrightness;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hCubemapTexture;
-    char pad_017[8];
+    char pad_015[8];
     bool m_Entity_bCustomCubemapTexture;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeTexture_AmbientCube;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeTexture_SDF;
@@ -7053,58 +7029,55 @@ public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeDirectLightIndicesTexture;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeDirectLightScalarsTexture;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeDirectLightShadowsTexture;
-    // Vector m_Entity_vBoxMins;
-    // Vector m_Entity_vBoxMaxs;
-    char pad_018[103];
+    char pad_016[76];
+    Vector m_Entity_vBoxMins;
+    Vector m_Entity_vBoxMaxs;
     bool m_Entity_bMoveable;
     int32_t m_Entity_nHandshake;
     int32_t m_Entity_nEnvCubeMapArrayIndex;
     int32_t m_Entity_nPriority;
     bool m_Entity_bStartDisabled;
     float m_Entity_flEdgeFadeDist;
-    // Vector m_Entity_vEdgeFadeDists;
-    char pad_019[12];
+    Vector m_Entity_vEdgeFadeDists;
     int32_t m_Entity_nLightProbeSizeX;
     int32_t m_Entity_nLightProbeSizeY;
     int32_t m_Entity_nLightProbeSizeZ;
     int32_t m_Entity_nLightProbeAtlasX;
     int32_t m_Entity_nLightProbeAtlasY;
     int32_t m_Entity_nLightProbeAtlasZ;
-    char pad_020[21];
+    char pad_017[21];
     bool m_Entity_bEnabled;
-    char pad_021[6];
+    char pad_018[6];
 };
 
 class CEnvCubemap : public CBaseEntity {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hCubemapTexture;
-    char pad_016[136];
+    char pad_014[136];
     bool m_Entity_bCustomCubemapTexture;
     float m_Entity_flInfluenceRadius;
-    // Vector m_Entity_vBoxProjectMins;
-    // Vector m_Entity_vBoxProjectMaxs;
-    char pad_017[24];
+    Vector m_Entity_vBoxProjectMins;
+    Vector m_Entity_vBoxProjectMaxs;
     bool m_Entity_bMoveable;
     int32_t m_Entity_nHandshake;
     int32_t m_Entity_nEnvCubeMapArrayIndex;
     int32_t m_Entity_nPriority;
     float m_Entity_flEdgeFadeDist;
-    // Vector m_Entity_vEdgeFadeDists;
-    char pad_018[12];
+    Vector m_Entity_vEdgeFadeDists;
     float m_Entity_flDiffuseScale;
     bool m_Entity_bStartDisabled;
     bool m_Entity_bDefaultEnvMap;
     bool m_Entity_bDefaultSpecEnvMap;
     bool m_Entity_bIndoorCubeMap;
     bool m_Entity_bCopyDiffuseFromDefaultCubemap;
-    char pad_019[15];
+    char pad_015[15];
     bool m_Entity_bEnabled;
-    char pad_020[7];
+    char pad_016[7];
 };
 
 class CEnvCubemapBox : public CEnvCubemap {
 public:
-    char pad_021[1424];
+    char pad_017[1424];
 };
 
 class CEnvCubemapFog : public CBaseEntity {
@@ -7125,16 +7098,16 @@ public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hSkyMaterial;
     // CUtlSymbolLarge m_iszSkyEntity;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hFogCubemapTexture;
-    char pad_016[24];
+    char pad_014[24];
     bool m_bHasHeightFogEnd;
     bool m_bFirstTime;
-    char pad_017[6];
+    char pad_015[6];
 };
 
 class CGradientFog : public CBaseEntity {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hGradientFogTexture;
-    char pad_016[8];
+    char pad_014[8];
     float m_flFogStartDistance;
     float m_flFogEndDistance;
     bool m_bHeightFogEnabled;
@@ -7145,13 +7118,13 @@ public:
     float m_flFogFalloffExponent;
     float m_flFogVerticalExponent;
     // Color m_fogColor;
-    char pad_017[4];
+    char pad_015[4];
     float m_flFogStrength;
     float m_flFadeTime;
     bool m_bStartDisabled;
     bool m_bIsEnabled;
     bool m_bGradientFogNeedsTextures;
-    char pad_018[5];
+    char pad_016[5];
 };
 
 class CEnvLightProbeVolume : public CBaseEntity {
@@ -7165,9 +7138,9 @@ public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeDirectLightIndicesTexture;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeDirectLightScalarsTexture;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_Entity_hLightProbeDirectLightShadowsTexture;
-    // Vector m_Entity_vBoxMins;
-    // Vector m_Entity_vBoxMaxs;
-    char pad_016[4184];
+    char pad_014[4160];
+    Vector m_Entity_vBoxMins;
+    Vector m_Entity_vBoxMaxs;
     bool m_Entity_bMoveable;
     int32_t m_Entity_nHandshake;
     int32_t m_Entity_nPriority;
@@ -7178,9 +7151,9 @@ public:
     int32_t m_Entity_nLightProbeAtlasX;
     int32_t m_Entity_nLightProbeAtlasY;
     int32_t m_Entity_nLightProbeAtlasZ;
-    char pad_017[9];
+    char pad_015[9];
     bool m_Entity_bEnabled;
-    char pad_018[6];
+    char pad_016[6];
 };
 
 class CPlayerVisibility : public CBaseEntity {
@@ -7191,14 +7164,14 @@ public:
     float m_flFadeTime;
     bool m_bStartDisabled;
     bool m_bIsEnabled;
-    char pad_016[6];
+    char pad_014[6];
 };
 
 class CEnvVolumetricFogController : public CBaseEntity {
 public:
     float m_flScattering;
     // Color m_TintColor;
-    char pad_016[4];
+    char pad_014[4];
     float m_flAnisotropy;
     float m_flFadeSpeed;
     float m_flDrawDistance;
@@ -7210,9 +7183,8 @@ public:
     int32_t m_nIndirectTextureDimX;
     int32_t m_nIndirectTextureDimY;
     int32_t m_nIndirectTextureDimZ;
-    // Vector m_vBoxMins;
-    // Vector m_vBoxMaxs;
-    char pad_017[24];
+    Vector m_vBoxMins;
+    Vector m_vBoxMaxs;
     bool m_bActive;
     GameTime_t m_flStartAnisoTime;
     GameTime_t m_flStartScatterTime;
@@ -7227,25 +7199,22 @@ public:
     bool m_bEnableIndirect;
     bool m_bIsMaster;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hFogIndirectTexture;
-    char pad_018[8];
+    char pad_015[8];
     int32_t m_nForceRefreshCount;
     float m_fNoiseSpeed;
     float m_fNoiseStrength;
-    // Vector m_vNoiseScale;
-    char pad_019[12];
+    Vector m_vNoiseScale;
     float m_fWindSpeed;
-    // Vector m_vWindDirection;
-    char pad_020[12];
+    Vector m_vWindDirection;
     bool m_bFirstTime;
-    char pad_021[7];
+    char pad_016[7];
 };
 
 class CEnvVolumetricFogVolume : public CBaseEntity {
 public:
     bool m_bActive;
-    // Vector m_vBoxMins;
-    // Vector m_vBoxMaxs;
-    char pad_016[27];
+    Vector m_vBoxMins;
+    Vector m_vBoxMaxs;
     bool m_bStartDisabled;
     bool m_bIndirectUseLPVs;
     float m_flStrength;
@@ -7257,7 +7226,7 @@ public:
     float m_fSunLightStrength;
     float m_fNoiseStrength;
     // Color m_TintColor;
-    char pad_017[4];
+    char pad_014[4];
     bool m_bOverrideTintColor;
     bool m_bOverrideIndirectLightStrength;
     bool m_bOverrideSunLightStrength;
@@ -7277,52 +7246,50 @@ public:
     int32_t m_nClipmapLevels;
     bool m_bIsMaster;
     bool m_bFirstTime;
-    char pad_016[6];
+    char pad_014[6];
 };
 
 class CEnvWindVolume : public CBaseEntity {
 public:
     bool m_bActive;
-    // Vector m_vBoxMins;
-    // Vector m_vBoxMaxs;
-    char pad_016[27];
+    Vector m_vBoxMins;
+    Vector m_vBoxMaxs;
     bool m_bStartDisabled;
     int32_t m_nShape;
     float m_fWindSpeedMultiplier;
     float m_fWindTurbulenceMultiplier;
     float m_fWindSpeedVariationMultiplier;
     float m_fWindDirectionVariationMultiplier;
-    char pad_017[4];
+    char pad_014[4];
 };
 
 class CInfoTarget : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CInfoTargetServerOnly : public CServerOnlyPointEntity {
 public:
-    char pad_018[1192];
+    char pad_016[1192];
 };
 
 class CInfoParticleTarget : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CChoreoInfoTarget : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CInfoVisibilityBox : public CBaseEntity {
 public:
-    char pad_016[4];
+    char pad_014[4];
     int32_t m_nMode;
-    // Vector m_vBoxSize;
-    char pad_017[12];
+    Vector m_vBoxSize;
     bool m_bEnabled;
-    char pad_018[3];
+    char pad_015[3];
 };
 
 class CInfoWorldLayer : public CBaseEntity {
@@ -7330,7 +7297,7 @@ public:
     CEntityIOOutput m_pOutputOnEntitiesSpawned;
     // CUtlSymbolLarge m_worldName;
     // CUtlSymbolLarge m_layerName;
-    char pad_016[16];
+    char pad_014[16];
     bool m_bWorldLayerVisible;
     bool m_bEntitiesSpawned;
     bool m_bCreateAsChildSpawnGroup;
@@ -7346,33 +7313,33 @@ class CMultiLightProxy : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_iszLightNameFilter;
     // CUtlSymbolLarge m_iszLightClassFilter;
-    char pad_018[16];
+    char pad_016[16];
     float m_flLightRadiusFilter;
     float m_flBrightnessDelta;
     bool m_bPerformScreenFade;
     float m_flTargetBrightnessMultiplier;
     float m_flCurrentBrightnessMultiplier;
     // CUtlVector< CHandle< CLightEntity > > m_vecLights;
-    char pad_019[28];
+    char pad_017[28];
 };
 
 class CPointChildModifier : public CPointEntity {
 public:
     bool m_bOrphanInsteadOfDeletingChildrenOnRemove;
-    char pad_017[7];
+    char pad_015[7];
 };
 
 class CPointCameraVFOV : public CPointCamera {
 public:
     float m_flVerticalFOV;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CPointOrient : public CBaseEntity {
 public:
     // CUtlSymbolLarge m_iszSpawnTargetName;
     // CHandle< CBaseEntity > m_hTarget;
-    char pad_016[12];
+    char pad_014[12];
     bool m_bActive;
     PointOrientGoalDirectionType_t m_nGoalDirection;
     PointOrientConstraint_t m_nConstraint;
@@ -7385,7 +7352,7 @@ public:
     // CUtlSymbolLarge m_iszWorldName;
     // CUtlSymbolLarge m_iszSource2EntityLumpName;
     // CUtlSymbolLarge m_iszEntityFilterName;
-    char pad_018[24];
+    char pad_016[24];
     float m_flTimeoutInterval;
     bool m_bAsynchronouslySpawnEntities;
     PointTemplateClientOnlyEntityBehavior_t m_clientOnlyEntityBehavior;
@@ -7394,12 +7361,12 @@ public:
     // CUtlVector< CEntityHandle > m_SpawnedEntityHandles;
     // HSCRIPT m_ScriptSpawnCallback;
     // HSCRIPT m_ScriptCallbackScope;
-    char pad_019[64];
+    char pad_017[64];
 };
 
 class CGameGibManager : public CBaseEntity {
 public:
-    char pad_016[24];
+    char pad_014[24];
     bool m_bAllowNewGibs;
     int32_t m_iCurrentMaxPieces;
     int32_t m_iMaxPieces;
@@ -7412,34 +7379,34 @@ public:
     int32_t m_iMaxRagdollCount;
     bool m_bSaveImportant;
     bool m_bCanTakeDamage;
-    char pad_016[6];
+    char pad_014[6];
 };
 
 class CSoundAreaEntityBase : public CBaseEntity {
 public:
     bool m_bDisabled;
     // CUtlSymbolLarge m_iszSoundAreaType;
-    // Vector m_vPos;
-    char pad_016[31];
+    char pad_014[12];
+    Vector m_vPos;
+    char pad_015[4];
 };
 
 class CSoundAreaEntitySphere : public CSoundAreaEntityBase {
 public:
     float m_flRadius;
-    char pad_017[4];
+    char pad_016[4];
 };
 
 class CSoundAreaEntityOrientedBox : public CSoundAreaEntityBase {
 public:
-    // Vector m_vMin;
-    // Vector m_vMax;
-    char pad_017[1248];
+    Vector m_vMin;
+    Vector m_vMax;
 };
 
 class CSoundStackSave : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_iszStackName;
-    char pad_018[1200];
+    char pad_016[1200];
 };
 
 class CSoundEventEntity : public CBaseEntity {
@@ -7457,34 +7424,33 @@ public:
     float m_flClientCullRadius;
     // CUtlSymbolLarge m_iszSoundName;
     // CEntityHandle m_hSource;
-    char pad_016[76];
+    char pad_014[76];
     int32_t m_nEntityIndexSelection;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CSoundEventEntityAlias_snd_event_point : public CSoundEventEntity {
 public:
-    char pad_018[1368];
+    char pad_016[1368];
 };
 
 class CSoundEventAABBEntity : public CSoundEventEntity {
 public:
-    // Vector m_vMins;
-    // Vector m_vMaxs;
-    char pad_018[1392];
+    Vector m_vMins;
+    Vector m_vMaxs;
 };
 
 class CSoundEventOBBEntity : public CSoundEventEntity {
 public:
-    // Vector m_vMins;
-    // Vector m_vMaxs;
-    char pad_018[1408];
+    Vector m_vMins;
+    Vector m_vMaxs;
+    char pad_016[16];
 };
 
 class CSoundEventSphereEntity : public CSoundEventEntity {
 public:
     float m_flRadius;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CSoundEventConeEntity : public CSoundEventEntity {
@@ -7494,48 +7460,48 @@ public:
     float m_flAttenMin;
     float m_flAttenMax;
     // CUtlSymbolLarge m_iszParameterName;
-    char pad_018[8];
+    char pad_016[8];
 };
 
 class CSoundEventPathCornerEntity : public CSoundEventEntity {
 public:
     // CUtlSymbolLarge m_iszPathCorner;
-    char pad_018[8];
+    char pad_016[8];
     int32_t m_iCountMax;
     float m_flDistanceMax;
     float m_flDistMaxSqr;
     float m_flDotProductMax;
     bool m_bPlaying;
     // CNetworkUtlVectorBase< SoundeventPathCornerPairNetworked_t > m_vecCornerPairsNetworked;
-    char pad_019[135];
+    char pad_017[135];
 };
 
 class CSoundEventParameter : public CBaseEntity {
 public:
     // CUtlSymbolLarge m_iszParamName;
-    char pad_016[32];
+    char pad_014[32];
     float m_flFloatValue;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CTeam : public CBaseEntity {
 public:
     // CNetworkUtlVectorBase< CHandle< CBasePlayerController > > m_aPlayerControllers;
     // CNetworkUtlVectorBase< CHandle< CBasePlayerPawn > > m_aPlayers;
-    char pad_016[48];
+    char pad_014[48];
     int32_t m_iScore;
     char m_szTeamname[129];
-    char pad_017[3];
+    char pad_015[3];
 };
 
 class CInfoFan : public CPointEntity {
 public:
-    char pad_017[64];
+    char pad_015[64];
     float m_fFanForceMaxRadius;
     float m_fFanForceMinRadius;
     float m_flCurveDistRange;
     // CUtlSymbolLarge m_FanForceCurveString;
-    char pad_018[12];
+    char pad_016[12];
 };
 
 class CPulseGraphInstance_GameBlackboard {
@@ -7547,7 +7513,7 @@ class CPulseGameBlackboard : public CBaseEntity {
 public:
     // CUtlString m_strGraphName;
     // CUtlString m_strStateBlob;
-    char pad_016[1216];
+    char pad_014[1216];
 };
 
 class CBasePlayerVData {
@@ -7574,24 +7540,24 @@ public:
     filter_t m_nFilterType;
     // CUtlSymbolLarge[10] m_iFilterName;
     // CHandle< CBaseEntity >[10] m_hFilter;
-    char pad_018[124];
+    char pad_016[124];
 };
 
 class CFilterProximity : public CBaseFilter {
 public:
     float m_flRadius;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CFilterLOS : public CBaseFilter {
 public:
-    char pad_018[1248];
+    char pad_016[1248];
 };
 
 class CFilterClass : public CBaseFilter {
 public:
     // CUtlSymbolLarge m_iFilterClass;
-    char pad_018[1256];
+    char pad_016[1256];
 };
 
 class CBasePlayerWeaponVData {
@@ -7635,28 +7601,28 @@ public:
 class CInfoGameEventProxy : public CPointEntity {
 public:
     // CUtlSymbolLarge m_iszEventName;
-    char pad_017[8];
+    char pad_015[8];
     float m_flRange;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CServerOnlyModelEntity : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CModelPointEntity : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CInfoInteraction : public CPointEntity {
 public:
     // CUtlSymbolLarge[8] m_strSlotEntityName;
     // CUtlSymbolLarge m_strInteractVData;
-    char pad_017[72];
+    char pad_015[72];
     float m_flInteractRadius;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CLogicRelay : public CLogicalEntity {
@@ -7666,22 +7632,22 @@ public:
     bool m_bTriggerOnce;
     bool m_bFastRetrigger;
     bool m_bPassthoughCaller;
-    char pad_018[3];
+    char pad_016[3];
 };
 
 class CPathParticleRope : public CBaseEntity {
 public:
-    char pad_016[8];
+    char pad_014[8];
     bool m_bStartActive;
     float m_flMaxSimulationTime;
     // CUtlSymbolLarge m_iszEffectName;
     // CUtlVector< CUtlSymbolLarge > m_PathNodes_Name;
-    char pad_017[32];
+    char pad_015[32];
     float m_flParticleSpacing;
     float m_flSlack;
     float m_flRadius;
     // Color m_ColorTint;
-    char pad_018[4];
+    char pad_016[4];
     int32_t m_nEffectState;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_iEffectIndex;
     // CNetworkUtlVectorBase< Vector > m_PathNodes_Position;
@@ -7690,56 +7656,56 @@ public:
     // CNetworkUtlVectorBase< Vector > m_PathNodes_Color;
     // CNetworkUtlVectorBase< bool > m_PathNodes_PinEnabled;
     // CNetworkUtlVectorBase< float32 > m_PathNodes_RadiusScale;
-    char pad_019[164];
+    char pad_017[164];
 };
 
 class CPathParticleRopeAlias_path_particle_rope_clientside : public CPathParticleRope {
 public:
-    char pad_020[1424];
+    char pad_018[1424];
 };
 
 class CPathNode : public CPointEntity {
 public:
-    // Vector m_vInTangentLocal;
-    // Vector m_vOutTangentLocal;
+    Vector m_vInTangentLocal;
+    Vector m_vOutTangentLocal;
     // CUtlString m_strParentPathUniqueID;
     // CUtlString m_strPathNodeParameter;
     // CTransform m_xWSPrevParent;
     // CHandle< CPathWithDynamicNodes > m_hPath;
-    char pad_017[1280];
+    char pad_015[64];
 };
 
 class CEnvSoundscapeProxy : public CEnvSoundscape {
 public:
     // CUtlSymbolLarge m_MainSoundscapeName;
-    char pad_020[1344];
+    char pad_018[1344];
 };
 
 class CFuncWall : public CBaseModelEntity {
 public:
     int32_t m_nState;
-    char pad_020[4];
+    char pad_018[4];
 };
 
 class CFuncWallToggle : public CFuncWall {
 public:
-    char pad_021[1848];
+    char pad_019[1848];
 };
 
 class CFuncVehicleClip : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CFuncIllusionary : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CFuncVPhysicsClip : public CBaseModelEntity {
 public:
     bool m_bDisabled;
-    char pad_020[7];
+    char pad_018[7];
 };
 
 class CFuncInteractionLayerClip : public CBaseModelEntity {
@@ -7747,22 +7713,22 @@ public:
     bool m_bDisabled;
     // CUtlSymbolLarge m_iszInteractsAs;
     // CUtlSymbolLarge m_iszInteractsWith;
-    char pad_020[23];
+    char pad_018[23];
 };
 
 class CPointClientCommand : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CPointServerCommand : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CPointBroadcastClientCommand : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CCommentaryAuto : public CBaseEntity {
@@ -7794,12 +7760,12 @@ public:
     uint8_t m_nNumBeamEnts;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hBaseMaterial;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_nHaloIndex;
-    char pad_020[20];
+    char pad_018[20];
     BeamType_t m_nBeamType;
     uint32_t m_nBeamFlags;
     // CHandle< CBaseEntity >[10] m_hAttachEntity;
     AttachmentHandle_t m_nAttachIndex;
-    char pad_021[8];
+    char pad_019[8];
     float m_fWidth;
     float m_fEndWidth;
     float m_fFadeLength;
@@ -7812,7 +7778,7 @@ public:
     bool m_bTurnedOff;
     // VectorWS m_vecEndPos;
     // CHandle< CBaseEntity > m_hEndEntity;
-    char pad_022[16];
+    char pad_020[16];
     int32_t m_nDissolveType;
 };
 
@@ -7821,17 +7787,16 @@ public:
     int32_t m_iLoop;
     int32_t m_iBeam;
     // CHandle< CBeam >[24] m_pBeam;
-    char pad_016[21];
+    char pad_014[21];
     GameTime_t m_flBeamTime;
     GameTime_t m_flStartTime;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CBlood : public CPointEntity {
 public:
-    // QAngle m_vecSprayAngles;
-    // Vector m_vecSprayDir;
-    char pad_017[24];
+    QAngle m_vecSprayAngles;
+    Vector m_vecSprayDir;
     float m_flAmount;
     BloodType m_Color;
 };
@@ -7844,7 +7809,7 @@ public:
 
 class CPrecipitationBlocker : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CEnvWind : public CBaseEntity {
@@ -7855,51 +7820,50 @@ public:
 class CPhysicsWire : public CBaseEntity {
 public:
     int32_t m_nDensity;
-    char pad_016[4];
+    char pad_014[4];
 };
 
 class CEnvMuzzleFlash : public CPointEntity {
 public:
     float m_flScale;
     // CUtlSymbolLarge m_iszParentAttachment;
-    char pad_017[12];
+    char pad_015[12];
 };
 
 class CEnvSplash : public CPointEntity {
 public:
     float m_flScale;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CEnvViewPunch : public CPointEntity {
 public:
     float m_flRadius;
-    // QAngle m_angViewPunch;
-    char pad_017[12];
+    QAngle m_angViewPunch;
 };
 
 class CEnvEntityIgniter : public CBaseEntity {
 public:
     float m_flLifetime;
-    char pad_016[4];
+    char pad_014[4];
 };
 
 class CDebugHistory : public CBaseEntity {
 public:
-    char pad_016[4096064];
+    char pad_014[4096064];
     int32_t m_nNpcEvents;
-    char pad_017[4004];
+    char pad_015[4004];
 };
 
 class CEnvEntityMaker : public CPointEntity {
 public:
-    // Vector m_vecEntityMins;
-    // Vector m_vecEntityMaxs;
+    Vector m_vecEntityMins;
+    Vector m_vecEntityMaxs;
     // CHandle< CBaseEntity > m_hCurrentInstance;
     // CHandle< CBaseEntity > m_hCurrentBlocker;
-    // Vector m_vecBlockerOrigin;
-    // QAngle m_angPostSpawnDirection;
-    char pad_017[56];
+    char pad_015[8];
+    Vector m_vecBlockerOrigin;
+    QAngle m_angPostSpawnDirection;
     float m_flPostSpawnDirectionVariance;
     float m_flPostSpawnSpeed;
     bool m_bPostSpawnUseAngles;
@@ -7910,7 +7874,7 @@ public:
 
 class CInfoInstructorHintTarget : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CEnvInstructorHint : public CPointEntity {
@@ -7918,7 +7882,7 @@ public:
     // CUtlSymbolLarge m_iszName;
     // CUtlSymbolLarge m_iszReplace_Key;
     // CUtlSymbolLarge m_iszHintTargetEntity;
-    char pad_017[24];
+    char pad_015[24];
     int32_t m_iTimeout;
     int32_t m_iDisplayLimit;
     // CUtlSymbolLarge m_iszIcon_Onscreen;
@@ -7926,7 +7890,7 @@ public:
     // CUtlSymbolLarge m_iszCaption;
     // CUtlSymbolLarge m_iszActivatorCaption;
     // Color m_Color;
-    char pad_018[36];
+    char pad_016[36];
     float m_fIconOffset;
     float m_fRange;
     uint8_t m_iPulseOption;
@@ -7938,25 +7902,25 @@ public:
     int32_t m_iInstanceType;
     bool m_bSuppressRest;
     // CUtlSymbolLarge m_iszBinding;
-    char pad_019[15];
+    char pad_017[15];
     bool m_bAllowNoDrawTarget;
     bool m_bAutoStart;
     bool m_bLocalPlayerOnly;
-    char pad_020[5];
+    char pad_018[5];
 };
 
 class CEnvInstructorVRHint : public CPointEntity {
 public:
     // CUtlSymbolLarge m_iszName;
     // CUtlSymbolLarge m_iszHintTargetEntity;
-    char pad_017[16];
+    char pad_015[16];
     int32_t m_iTimeout;
     // CUtlSymbolLarge m_iszCaption;
     // CUtlSymbolLarge m_iszStartSound;
-    char pad_018[20];
+    char pad_016[20];
     int32_t m_iLayoutFileType;
     // CUtlSymbolLarge m_iszCustomLayoutFile;
-    char pad_019[12];
+    char pad_017[12];
     int32_t m_iAttachType;
     float m_flHeightOffset;
 };
@@ -7966,13 +7930,13 @@ public:
     // CUtlSymbolLarge m_iszName;
     // CUtlSymbolLarge m_iszHintTargetEntity;
     // CHandle< CBasePlayerPawn > m_hTargetPlayer;
-    char pad_017[1216];
+    char pad_015[1216];
 };
 
 class CEnvFade : public CLogicalEntity {
 public:
     // Color m_fadeColor;
-    char pad_018[4];
+    char pad_016[4];
     float m_Duration;
     float m_HoldDuration;
     CEntityIOOutput m_OnBeginFade;
@@ -7988,7 +7952,7 @@ public:
 class CEnvShake : public CPointEntity {
 public:
     // CUtlSymbolLarge m_limitToEntity;
-    char pad_017[8];
+    char pad_015[8];
     float m_Amplitude;
     float m_Frequency;
     float m_Duration;
@@ -7996,7 +7960,7 @@ public:
     GameTime_t m_stopTime;
     GameTime_t m_nextShake;
     float m_currentAmp;
-    // Vector m_maxForce;
+    Vector m_maxForce;
     CPhysicsShake m_shakeCallback;
 };
 
@@ -8019,7 +7983,7 @@ public:
 
 class CShower : public CModelPointEntity {
 public:
-    char pad_021[1840];
+    char pad_019[1840];
 };
 
 class CEnvExplosion : public CModelPointEntity {
@@ -8030,18 +7994,18 @@ public:
     float m_flInnerRadius;
     float m_flDamageForce;
     // CHandle< CBaseEntity > m_hInflictor;
-    char pad_021[4];
+    char pad_019[4];
     DamageTypes_t m_iCustomDamageType;
     bool m_bCreateDebris;
     // CUtlSymbolLarge m_iszCustomEffectName;
     // CUtlSymbolLarge m_iszCustomSoundName;
-    char pad_022[27];
+    char pad_020[27];
     bool m_bSuppressParticleImpulse;
     Class_T m_iClassIgnore;
     Class_T m_iClassIgnore2;
     // CUtlSymbolLarge m_iszEntityIgnoreName;
     // CHandle< CBaseEntity > m_hEntityIgnore;
-    char pad_023[20];
+    char pad_021[20];
 };
 
 class CFuncTimescale : public CBaseEntity {
@@ -8051,7 +8015,7 @@ public:
     float m_flMinBlendRate;
     float m_flBlendDeltaMultiplier;
     bool m_isStarted;
-    char pad_016[7];
+    char pad_014[7];
 };
 
 class CLogicAchievement : public CLogicalEntity {
@@ -8066,10 +8030,10 @@ public:
     CEntityIOOutput m_OnEventFired;
     // CUtlSymbolLarge m_iszGameEventName;
     // CUtlSymbolLarge m_iszGameEventItem;
-    char pad_018[16];
+    char pad_016[16];
     bool m_bEnabled;
     bool m_bStartDisabled;
-    char pad_019[6];
+    char pad_017[6];
 };
 
 class CLogicMeasureMovement : public CLogicalEntity {
@@ -8081,14 +8045,14 @@ public:
     // CHandle< CBaseEntity > m_hMeasureReference;
     // CHandle< CBaseEntity > m_hTarget;
     // CHandle< CBaseEntity > m_hTargetReference;
-    char pad_018[40];
+    char pad_016[40];
     float m_flScale;
     int32_t m_nMeasureType;
 };
 
 class CLogicNavigation : public CLogicalEntity {
 public:
-    char pad_018[8];
+    char pad_016[8];
     bool m_isOn;
     navproperties_t m_navProperty;
 };
@@ -8099,7 +8063,7 @@ public:
     CEntityIOOutput m_OnMaxCountAll;
     // CEntityOutputTemplate< float32, float32 > m_OnFactorAll;
     // CEntityOutputTemplate< float32, float32 > m_OnMinPlayerDistAll;
-    char pad_016[29];
+    char pad_014[29];
     CEntityIOOutput m_OnMinCount_1;
     CEntityIOOutput m_OnMaxCount_1;
     // CEntityOutputTemplate< float32, float32 > m_OnFactor_1;
@@ -8114,7 +8078,7 @@ public:
     // CEntityOutputTemplate< float32, float32 > m_OnMinPlayerDist_3;
     // CEntityHandle m_hSource;
     // CUtlSymbolLarge m_iszSourceEntityName;
-    char pad_017[80];
+    char pad_015[80];
     float m_flDistanceMax;
     bool m_bDisabled;
     int32_t m_nMinCountAll;
@@ -8122,50 +8086,49 @@ public:
     int32_t m_nMinFactorAll;
     int32_t m_nMaxFactorAll;
     // CUtlSymbolLarge m_iszNPCClassname_1;
-    char pad_018[16];
+    char pad_016[16];
     int32_t m_nNPCState_1;
     bool m_bInvertState_1;
     int32_t m_nMinCount_1;
     int32_t m_nMaxCount_1;
     int32_t m_nMinFactor_1;
     int32_t m_nMaxFactor_1;
-    char pad_019[4];
+    char pad_017[4];
     float m_flDefaultDist_1;
     // CUtlSymbolLarge m_iszNPCClassname_2;
-    char pad_020[8];
+    char pad_018[8];
     int32_t m_nNPCState_2;
     bool m_bInvertState_2;
     int32_t m_nMinCount_2;
     int32_t m_nMaxCount_2;
     int32_t m_nMinFactor_2;
     int32_t m_nMaxFactor_2;
-    char pad_021[4];
+    char pad_019[4];
     float m_flDefaultDist_2;
     // CUtlSymbolLarge m_iszNPCClassname_3;
-    char pad_022[8];
+    char pad_020[8];
     int32_t m_nNPCState_3;
     bool m_bInvertState_3;
     int32_t m_nMinCount_3;
     int32_t m_nMaxCount_3;
     int32_t m_nMinFactor_3;
     int32_t m_nMaxFactor_3;
-    char pad_023[4];
+    char pad_021[4];
     float m_flDefaultDist_3;
-    char pad_024[24];
+    char pad_022[24];
 };
 
 class CLogicNPCCounterAABB : public CLogicNPCCounter {
 public:
-    // Vector m_vDistanceOuterMins;
-    // Vector m_vDistanceOuterMaxs;
-    // Vector m_vOuterMins;
-    // Vector m_vOuterMaxs;
-    char pad_025[1880];
+    Vector m_vDistanceOuterMins;
+    Vector m_vDistanceOuterMaxs;
+    Vector m_vOuterMins;
+    Vector m_vOuterMaxs;
 };
 
 class CLogicNPCCounterOBB : public CLogicNPCCounterAABB {
 public:
-    char pad_026[1880];
+    char pad_023[1880];
 };
 
 class CLogicPlayerProxy : public CLogicalEntity {
@@ -8175,7 +8138,7 @@ public:
     CEntityIOOutput m_PlayerDied;
     // CEntityOutputTemplate< int32, int32 > m_RequestedPlayerHealth;
     // CHandle< CBaseEntity > m_hPlayer;
-    char pad_018[40];
+    char pad_016[40];
 };
 
 class CLogicAuto : public CBaseEntity {
@@ -8191,12 +8154,12 @@ public:
     CEntityIOOutput m_OnVREnabled;
     CEntityIOOutput m_OnVRNotEnabled;
     // CUtlSymbolLarge m_globalstate;
-    char pad_016[8];
+    char pad_014[8];
 };
 
 class CLogicScript : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CTimerEntity : public CLogicalEntity {
@@ -8214,7 +8177,7 @@ public:
     float m_flUpperRandomBound;
     float m_flRemainingTime;
     bool m_bPaused;
-    char pad_018[3];
+    char pad_016[3];
 };
 
 class CLogicLineToEntity : public CLogicalEntity {
@@ -8223,7 +8186,7 @@ public:
     // CUtlSymbolLarge m_SourceName;
     // CHandle< CBaseEntity > m_StartEntity;
     // CHandle< CBaseEntity > m_EndEntity;
-    char pad_018[1248];
+    char pad_016[1248];
 };
 
 class CMathRemap : public CLogicalEntity {
@@ -8248,29 +8211,29 @@ public:
     // Color m_OutColor1;
     // Color m_OutColor2;
     // CEntityOutputTemplate< Color, Color > m_OutValue;
-    char pad_018[40];
+    char pad_016[40];
 };
 
 class CEnvGlobal : public CLogicalEntity {
 public:
     // CEntityOutputTemplate< int32, int32 > m_outCounter;
     // CUtlSymbolLarge m_globalstate;
-    char pad_018[40];
+    char pad_016[40];
     int32_t m_triggermode;
     int32_t m_initialstate;
     int32_t m_counter;
-    char pad_019[4];
+    char pad_017[4];
 };
 
 class CMultiSource : public CLogicalEntity {
 public:
     // CHandle< CBaseEntity >[32] m_rgEntities;
-    char pad_018[128];
+    char pad_016[128];
     int32_t m_rgTriggered[32];
     CEntityIOOutput m_OnTrigger;
     int32_t m_iTotal;
     // CUtlSymbolLarge m_globalstate;
-    char pad_019[12];
+    char pad_017[12];
 };
 
 class CMathCounter : public CLogicalEntity {
@@ -8291,13 +8254,13 @@ public:
 class CLogicCase : public CLogicalEntity {
 public:
     // CUtlSymbolLarge[32] m_nCase;
-    char pad_018[256];
+    char pad_016[256];
     int32_t m_nShuffleCases;
     int32_t m_nLastShuffleCase;
     uint8_t m_uchShuffleCaseMap[32];
     CEntityIOOutput m_OnCase;
     // CEntityOutputTemplate< CUtlString, char* > m_OnDefault;
-    char pad_019[776];
+    char pad_017[776];
 };
 
 class CLogicCompare : public CLogicalEntity {
@@ -8308,7 +8271,7 @@ public:
     // CEntityOutputTemplate< float32, float32 > m_OnEqualTo;
     // CEntityOutputTemplate< float32, float32 > m_OnNotEqualTo;
     // CEntityOutputTemplate< float32, float32 > m_OnGreaterThan;
-    char pad_018[128];
+    char pad_016[128];
 };
 
 class CLogicAutosave : public CLogicalEntity {
@@ -8316,7 +8279,7 @@ public:
     bool m_bForceNewLevelUnit;
     int32_t m_minHitPoints;
     int32_t m_minHitPointsToCommit;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CLogicActiveAutosave : public CLogicAutosave {
@@ -8330,32 +8293,32 @@ public:
 class CLogicDistanceAutosave : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_iszTargetEntity;
-    char pad_018[8];
+    char pad_016[8];
     float m_flDistanceToPlayer;
     bool m_bForceNewLevelUnit;
     bool m_bCheckCough;
     bool m_bThinkDangerous;
     float m_flDangerousTime;
-    char pad_019[4];
+    char pad_017[4];
 };
 
 class CLogicCollisionPair : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_nameAttach1;
     // CUtlSymbolLarge m_nameAttach2;
-    char pad_018[16];
+    char pad_016[16];
     bool m_includeHierarchy;
     bool m_supportMultipleEntitiesWithSameName;
     bool m_disabled;
     bool m_succeeded;
-    char pad_019[4];
+    char pad_017[4];
 };
 
 class CLogicBranchList : public CLogicalEntity {
 public:
     // CUtlSymbolLarge[16] m_nLogicBranchNames;
     // CUtlVector< CHandle< CBaseEntity > > m_LogicBranchList;
-    char pad_018[152];
+    char pad_016[152];
     CLogicBranchList::LogicBranchListenerLastState_t m_eLastState;
     CEntityIOOutput m_OnAllTrue;
     CEntityIOOutput m_OnAllFalse;
@@ -8365,18 +8328,18 @@ public:
 class CLogicGameEvent : public CLogicalEntity {
 public:
     // CUtlSymbolLarge m_iszEventName;
-    char pad_018[1200];
+    char pad_016[1200];
 };
 
 class CMessageEntity : public CPointEntity {
 public:
     int32_t m_radius;
     // CUtlSymbolLarge m_messageText;
-    char pad_017[12];
+    char pad_015[12];
     bool m_drawText;
     bool m_bDeveloperOnly;
     bool m_bEnabled;
-    char pad_018[5];
+    char pad_016[5];
 };
 
 class CTriggerBrush : public CBaseModelEntity {
@@ -8390,16 +8353,16 @@ public:
 
 class CPathKeyFrame : public CLogicalEntity {
 public:
-    // Vector m_Origin;
-    // QAngle m_Angles;
+    Vector m_Origin;
+    QAngle m_Angles;
     // Quaternion m_qAngle;
     // CUtlSymbolLarge m_iNextKey;
-    char pad_018[48];
+    char pad_016[24];
     float m_flNextTime;
     CPathKeyFrame* m_pNextKey;
     CPathKeyFrame* m_pPrevKey;
     float m_flMoveSpeed;
-    char pad_019[12];
+    char pad_017[12];
 };
 
 class CBaseMoveBehavior : public CPathKeyFrame {
@@ -8427,38 +8390,39 @@ public:
 class CPhysForce : public CPointEntity {
 public:
     // CUtlSymbolLarge m_nameAttach;
-    char pad_017[16];
+    char pad_015[16];
     float m_force;
     float m_forceTime;
     // CHandle< CBaseEntity > m_attachedObject;
-    char pad_018[4];
+    char pad_016[4];
     bool m_wasRestored;
     CConstantForceController m_integrator;
 };
 
 class CPhysThruster : public CPhysForce {
 public:
-    // Vector m_localOrigin;
-    char pad_019[1304];
+    Vector m_localOrigin;
+    char pad_017[4];
 };
 
 class CPhysTorque : public CPhysForce {
 public:
     // VectorWS m_axis;
-    char pad_019[1304];
+    char pad_017[1304];
 };
 
 class CKeepUpright : public CPointEntity {
 public:
-    // Vector m_worldGoalAxis;
-    // Vector m_localTestAxis;
+    char pad_015[8];
+    Vector m_worldGoalAxis;
+    Vector m_localTestAxis;
     // CUtlSymbolLarge m_nameAttach;
     // CHandle< CBaseEntity > m_attachedObject;
-    char pad_017[52];
+    char pad_016[20];
     float m_angularLimit;
     bool m_bActive;
     bool m_bDampAllRotation;
-    char pad_018[6];
+    char pad_017[6];
 };
 
 class CPhysConstraint : public CLogicalEntity {
@@ -8470,7 +8434,7 @@ public:
     // CUtlSymbolLarge m_nameAttachment1;
     // CUtlSymbolLarge m_nameAttachment2;
     // CUtlSymbolLarge m_breakSound;
-    char pad_018[56];
+    char pad_016[56];
     float m_forceLimit;
     float m_torqueLimit;
     float m_minTeleportDistance;
@@ -8504,7 +8468,7 @@ public:
 
 class CPhysHingeAlias_phys_hinge_local : public CPhysHinge {
 public:
-    char pad_019[1656];
+    char pad_017[1656];
 };
 
 class CPhysBallSocket : public CPhysConstraint {
@@ -8520,7 +8484,7 @@ public:
 class CPhysSlideConstraint : public CPhysConstraint {
 public:
     // VectorWS m_axisEnd;
-    char pad_019[20];
+    char pad_017[20];
     float m_slideFriction;
     float m_systemLoadScale;
     float m_initialOffset;
@@ -8542,24 +8506,25 @@ public:
     bool m_bEnableAngularConstraint;
     // CUtlSymbolLarge m_sBoneName1;
     // CUtlSymbolLarge m_sBoneName2;
-    char pad_019[22];
+    char pad_017[22];
 };
 
 class CPhysPulley : public CPhysConstraint {
 public:
     // VectorWS m_position2;
-    // Vector[2] m_offset;
-    char pad_019[36];
+    char pad_017[12];
+    Vector m_offset;
+    char pad_018[12];
     float m_addLength;
     float m_gearRatio;
-    char pad_020[4];
+    char pad_019[4];
 };
 
 class CPhysLength : public CPhysConstraint {
 public:
-    // Vector[2] m_offset;
+    Vector m_offset;
     // VectorWS m_vecAttach;
-    char pad_019[36];
+    char pad_017[24];
     float m_addLength;
     float m_minLength;
     float m_totalLength;
@@ -8576,12 +8541,12 @@ public:
     float m_xfriction;
     float m_yfriction;
     float m_zfriction;
-    char pad_019[4];
+    char pad_017[4];
 };
 
 class CGenericConstraint : public CPhysConstraint {
 public:
-    char pad_019[8];
+    char pad_017[8];
     JointMotion_t m_nLinearMotionX;
     JointMotion_t m_nLinearMotionY;
     JointMotion_t m_nLinearMotionZ;
@@ -8634,9 +8599,10 @@ public:
 
 class CSplineConstraint : public CPhysConstraint {
 public:
-    // Vector m_vAnchorOffsetRestore;
+    char pad_017[80];
+    Vector m_vAnchorOffsetRestore;
     // CHandle< CBaseEntity > m_hSplineEntity;
-    char pad_019[104];
+    char pad_018[12];
     bool m_bEnableLateralConstraint;
     bool m_bEnableVerticalConstraint;
     bool m_bEnableAngularConstraint;
@@ -8648,8 +8614,8 @@ public:
     float m_flTransitionTime;
     // VectorWS m_vPreSolveAnchorPos;
     GameTime_t m_StartTransitionTime;
-    // Vector m_vTangentSpaceAnchorAtTransitionStart;
-    char pad_020[16];
+    Vector m_vTangentSpaceAnchorAtTransitionStart;
+    char pad_019[4];
 };
 
 class CPhysWheelConstraint : public CPhysConstraint {
@@ -8666,21 +8632,21 @@ public:
     float m_flSteeringAxisFriction;
     float m_flSpinAxisFriction;
     // CHandle< CBaseEntity > m_hSteeringMimicsEntity;
-    char pad_019[12];
+    char pad_017[12];
 };
 
 class CPhysicsEntitySolver : public CLogicalEntity {
 public:
     // CHandle< CBaseEntity > m_hMovingEntity;
     // CHandle< CBaseEntity > m_hPhysicsBlocker;
-    char pad_018[32];
+    char pad_016[32];
     float m_separationDuration;
     GameTime_t m_cancelTime;
 };
 
 class CPhysicsSpring : public CBaseEntity {
 public:
-    char pad_016[8];
+    char pad_014[8];
     float m_flFrequency;
     float m_flDampingRatio;
     float m_flRestLength;
@@ -8688,9 +8654,9 @@ public:
     // CUtlSymbolLarge m_nameAttachEnd;
     // VectorWS m_start;
     // VectorWS m_end;
-    char pad_017[44];
+    char pad_015[44];
     uint32_t m_teleportTick;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CPointPush : public CPointEntity {
@@ -8702,7 +8668,7 @@ public:
     float m_flConeOfInfluence;
     // CUtlSymbolLarge m_iszFilterName;
     // CHandle< CBaseFilter > m_hFilter;
-    char pad_017[20];
+    char pad_015[20];
 };
 
 class CInfoPlayerStart : public CPointEntity {
@@ -8710,7 +8676,7 @@ public:
     bool m_bDisabled;
     bool m_bIsMaster;
     // CGlobalSymbol m_pPawnSubclass;
-    char pad_017[14];
+    char pad_015[14];
 };
 
 class CPointEntityFinder : public CBaseEntity {
@@ -8720,7 +8686,7 @@ public:
     // CHandle< CBaseFilter > m_hFilter;
     // CUtlSymbolLarge m_iRefName;
     // CHandle< CBaseEntity > m_hReference;
-    char pad_016[36];
+    char pad_014[36];
     EntFinderMethod_t m_FindMethod;
     CEntityIOOutput m_OnFoundEntity;
 };
@@ -8734,7 +8700,7 @@ public:
     // CUtlSymbolLarge m_iszRemapLineEndName;
     // CHandle< CBaseEntity > m_hRemapLineStart;
     // CHandle< CBaseEntity > m_hRemapLineEnd;
-    char pad_016[24];
+    char pad_014[24];
     float m_flMaximumChangePerSecond;
     float m_flDisengageDistance;
     float m_flEngageDistance;
@@ -8745,7 +8711,7 @@ public:
     // CUtlSymbolLarge m_iszOutputEntity3Name;
     // CUtlSymbolLarge m_iszOutputEntity4Name;
     // CNetworkUtlVectorBase< CHandle< CBaseEntity > > m_hOutputEntities;
-    char pad_017[60];
+    char pad_015[60];
     ValueRemapperHapticsType_t m_nHapticsType;
     ValueRemapperMomentumType_t m_nMomentumType;
     float m_flMomentumModifier;
@@ -8758,9 +8724,9 @@ public:
     bool m_bFirstUpdate;
     float m_flPreviousValue;
     GameTime_t m_flPreviousUpdateTickTime;
-    // Vector m_vecPreviousTestPoint;
+    Vector m_vecPreviousTestPoint;
     // CHandle< CBasePlayerPawn > m_hUsingPlayer;
-    char pad_018[16];
+    char pad_016[4];
     float m_flCustomOutputValue;
     // CUtlSymbolLarge m_iszSoundEngage;
     // CUtlSymbolLarge m_iszSoundDisengage;
@@ -8791,7 +8757,7 @@ public:
     float m_flBackgroundBorderHeight;
     float m_flBackgroundWorldToUV;
     // Color m_Color;
-    char pad_021[4];
+    char pad_019[4];
     PointWorldTextJustifyHorizontal_t m_nJustifyHorizontal;
     PointWorldTextJustifyVertical_t m_nJustifyVertical;
     PointWorldTextReorientMode_t m_nReorientMode;
@@ -8803,7 +8769,7 @@ public:
     // CUtlSymbolLarge m_nLookAtName;
     // CHandle< CBaseEntity > m_hTargetEntity;
     // CHandle< CBaseEntity > m_hLookAtEntity;
-    char pad_017[20];
+    char pad_015[20];
     float m_flDuration;
     float m_flDotTolerance;
     GameTime_t m_flFacingTime;
@@ -8812,7 +8778,7 @@ public:
     CEntityIOOutput m_OnNotFacingLookat;
     // CEntityOutputTemplate< Vector, Vector > m_TargetDir;
     // CEntityOutputTemplate< float32, float32 > m_FacingPercentage;
-    char pad_018[72];
+    char pad_016[72];
 };
 
 class CPointProximitySensor : public CPointEntity {
@@ -8820,25 +8786,25 @@ public:
     bool m_bDisabled;
     // CHandle< CBaseEntity > m_hTargetEntity;
     // CEntityOutputTemplate< float32, float32 > m_Distance;
-    char pad_017[39];
+    char pad_015[39];
 };
 
 class CPointAngularVelocitySensor : public CPointEntity {
 public:
     // CHandle< CBaseEntity > m_hTargetEntity;
-    char pad_017[4];
+    char pad_015[4];
     float m_flThreshold;
     int32_t m_nLastCompareResult;
     int32_t m_nLastFireResult;
     GameTime_t m_flFireTime;
     float m_flFireInterval;
     float m_flLastAngVelocity;
-    // QAngle m_lastOrientation;
+    QAngle m_lastOrientation;
     // VectorWS m_vecAxis;
-    char pad_018[24];
+    char pad_016[12];
     bool m_bUseHelper;
     // CEntityOutputTemplate< float32, float32 > m_AngularVelocity;
-    char pad_019[5];
+    char pad_017[5];
     CEntityIOOutput m_OnLessThan;
     CEntityIOOutput m_OnLessThanOrEqualTo;
     CEntityIOOutput m_OnGreaterThan;
@@ -8849,13 +8815,13 @@ public:
 class CPointVelocitySensor : public CPointEntity {
 public:
     // CHandle< CBaseEntity > m_hTargetEntity;
-    // Vector m_vecAxis;
-    char pad_017[16];
+    char pad_015[4];
+    Vector m_vecAxis;
     bool m_bEnabled;
     float m_fPrevVelocity;
     float m_flAvgInterval;
     // CEntityOutputTemplate< float32, float32 > m_Velocity;
-    char pad_018[36];
+    char pad_016[36];
 };
 
 class CPointHurt : public CPointEntity {
@@ -8866,27 +8832,26 @@ public:
     float m_flDelay;
     // CUtlSymbolLarge m_strTarget;
     // CHandle< CBaseEntity > m_pActivator;
-    char pad_017[16];
+    char pad_015[16];
 };
 
 class CPointTeleport : public CServerOnlyPointEntity {
 public:
-    // Vector m_vSaveOrigin;
-    // QAngle m_vSaveAngles;
-    char pad_018[24];
+    Vector m_vSaveOrigin;
+    QAngle m_vSaveAngles;
     bool m_bTeleportParentedEntities;
     bool m_bTeleportUseCurrentAngle;
-    char pad_019[6];
+    char pad_016[6];
 };
 
 class CEnableMotionFixup : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CFuncPropRespawnZone : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CRevertSaved : public CModelPointEntity {
@@ -8894,7 +8859,7 @@ public:
     float m_loadTime;
     float m_Duration;
     float m_HoldTime;
-    char pad_021[4];
+    char pad_019[4];
 };
 
 class CSceneListManager : public CLogicalEntity {
@@ -8902,7 +8867,7 @@ public:
     // CUtlVector< CHandle< CSceneListManager > > m_hListManagers;
     // CUtlSymbolLarge[16] m_iszScenes;
     // CHandle< CBaseEntity >[16] m_hScenes;
-    char pad_018[1408];
+    char pad_016[1408];
 };
 
 class CSceneEntity : public CPointEntity {
@@ -8925,7 +8890,7 @@ public:
     // CHandle< CBaseEntity > m_hTarget7;
     // CHandle< CBaseEntity > m_hTarget8;
     // CUtlSymbolLarge m_sTargetAttachment;
-    char pad_017[120];
+    char pad_015[120];
     bool m_bIsPlayingBack;
     bool m_bPaused;
     bool m_bMultiplayer;
@@ -8949,7 +8914,7 @@ public:
     bool m_bSceneFinished;
     // CNetworkUtlVectorBase< CHandle< CBaseFlex > > m_hActorList;
     // CUtlVector< CHandle< CBaseEntity > > m_hRemoveActorList;
-    char pad_018[100];
+    char pad_016[100];
     uint16_t m_nSceneStringIndex;
     CEntityIOOutput m_OnStart;
     CEntityIOOutput m_OnCompletion;
@@ -8957,7 +8922,7 @@ public:
     CEntityIOOutput m_OnPaused;
     CEntityIOOutput m_OnResumed;
     // CHandle< CSceneEntity > m_hInterruptScene;
-    char pad_019[148];
+    char pad_017[148];
     int32_t m_nInterruptCount;
     bool m_bSceneMissing;
     bool m_bInterrupted;
@@ -8970,10 +8935,10 @@ public:
     // CUtlSymbolLarge m_iszSequenceName;
     // CHandle< CBaseFlex > m_hActor;
     // CHandle< CBaseEntity > m_hActivator;
-    char pad_020[72];
+    char pad_018[72];
     int32_t m_BusyActor;
     SceneOnPlayerDeath_t m_iPlayerDeathBehavior;
-    char pad_021[8];
+    char pad_019[8];
 };
 
 class CSoundOpvarSetEntity : public CBaseEntity {
@@ -8981,14 +8946,14 @@ public:
     // CUtlSymbolLarge m_iszStackName;
     // CUtlSymbolLarge m_iszOperatorName;
     // CUtlSymbolLarge m_iszOpvarName;
-    char pad_016[48];
+    char pad_014[48];
     int32_t m_nOpvarType;
     int32_t m_nOpvarIndex;
     float m_flOpvarValue;
     // CUtlSymbolLarge m_OpvarValueString;
-    char pad_017[12];
+    char pad_015[12];
     bool m_bSetOnSpawn;
-    char pad_018[15];
+    char pad_016[15];
 };
 
 class CCitadelSoundOpvarSetOBB : public CBaseEntity {
@@ -8996,49 +8961,48 @@ public:
     // CUtlSymbolLarge m_iszStackName;
     // CUtlSymbolLarge m_iszOperatorName;
     // CUtlSymbolLarge m_iszOpvarName;
-    // Vector m_vDistanceInnerMins;
-    // Vector m_vDistanceInnerMaxs;
-    // Vector m_vDistanceOuterMins;
-    // Vector m_vDistanceOuterMaxs;
-    char pad_016[72];
+    char pad_014[24];
+    Vector m_vDistanceInnerMins;
+    Vector m_vDistanceInnerMaxs;
+    Vector m_vDistanceOuterMins;
+    Vector m_vDistanceOuterMaxs;
     int32_t m_nAABBDirection;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CNullEntity : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CBaseDMStart : public CPointEntity {
 public:
     // CUtlSymbolLarge m_Master;
-    char pad_017[1200];
+    char pad_015[1200];
 };
 
 class CInfoLandmark : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CTankTargetChange : public CPointEntity {
 public:
     // CVariantBase< CVariantDefaultAllocator > m_newTarget;
     // CUtlSymbolLarge m_newTargetName;
-    char pad_017[1216];
+    char pad_015[1216];
 };
 
 class CFuncTrackTrain : public CBaseModelEntity {
 public:
     // CHandle< CPathTrack > m_ppath;
-    char pad_020[4];
+    char pad_018[4];
     float m_length;
-    // Vector m_vPosPrev;
-    // QAngle m_angPrev;
-    // Vector m_controlMins;
-    // Vector m_controlMaxs;
-    // Vector m_lastBlockPos;
-    char pad_021[60];
+    Vector m_vPosPrev;
+    QAngle m_angPrev;
+    Vector m_controlMins;
+    Vector m_controlMaxs;
+    Vector m_lastBlockPos;
     int32_t m_lastBlockTick;
     float m_flVolume;
     float m_flBank;
@@ -9052,7 +9016,7 @@ public:
     // CUtlSymbolLarge m_iszSoundStart;
     // CUtlSymbolLarge m_iszSoundStop;
     // CUtlSymbolLarge m_strPathTarget;
-    char pad_022[44];
+    char pad_019[44];
     float m_flMoveSoundMinDuration;
     float m_flMoveSoundMaxDuration;
     GameTime_t m_flNextMoveSoundTime;
@@ -9070,73 +9034,73 @@ public:
     float m_flDecelSpeed;
     bool m_bAccelToSpeed;
     GameTime_t m_flNextMPSoundTime;
-    char pad_023[4];
+    char pad_020[4];
 };
 
 class CTankTrainAI : public CPointEntity {
 public:
     // CHandle< CFuncTrackTrain > m_hTrain;
     // CHandle< CBaseEntity > m_hTargetEntity;
-    char pad_017[8];
+    char pad_015[8];
     int32_t m_soundPlaying;
     // CUtlSymbolLarge m_startSoundName;
     // CUtlSymbolLarge m_engineSoundName;
     // CUtlSymbolLarge m_movementSoundName;
     // CUtlSymbolLarge m_targetEntityName;
-    char pad_018[52];
+    char pad_016[52];
 };
 
 class CHandleTest : public CBaseEntity {
 public:
     // CHandle< CBaseEntity > m_Handle;
-    char pad_016[4];
+    char pad_014[4];
     bool m_bSendHandle;
-    char pad_017[3];
+    char pad_015[3];
 };
 
 class CHandleDummy : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CBasePlatTrain : public CBaseToggle {
 public:
     // CUtlSymbolLarge m_NoiseMoving;
     // CUtlSymbolLarge m_NoiseArrived;
-    char pad_023[24];
+    char pad_020[24];
     float m_volume;
     float m_flTWidth;
     float m_flTLength;
-    char pad_024[4];
+    char pad_021[4];
 };
 
 class CFuncPlat : public CBasePlatTrain {
 public:
     // CUtlSymbolLarge m_sNoise;
-    char pad_025[2016];
+    char pad_022[2016];
 };
 
 class CPlatTrigger : public CBaseModelEntity {
 public:
     // CHandle< CFuncPlat > m_pPlatform;
-    char pad_020[1848];
+    char pad_018[1848];
 };
 
 class CFuncTrainControls : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CTriggerVolume : public CBaseModelEntity {
 public:
     // CUtlSymbolLarge m_iFilterName;
     // CHandle< CBaseFilter > m_hFilter;
-    char pad_020[1856];
+    char pad_018[1856];
 };
 
 class CInfoTeleportDestination : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CAI_ChangeHintGroup : public CBaseEntity {
@@ -9144,19 +9108,19 @@ public:
     int32_t m_iSearchType;
     // CUtlSymbolLarge m_strSearchName;
     // CUtlSymbolLarge m_strNewHintGroup;
-    char pad_016[20];
+    char pad_014[20];
     float m_flRadius;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CLogicProximity : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CInfoSpawnGroupLandmark : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CInfoSpawnGroupLoadUnload : public CLogicalEntity {
@@ -9169,26 +9133,26 @@ public:
     // CUtlSymbolLarge m_iszSpawnGroupFilterName;
     // CUtlSymbolLarge m_iszLandmarkName;
     // CUtlString m_sFixedSpawnGroupName;
-    char pad_018[32];
+    char pad_016[32];
     float m_flTimeoutInterval;
     bool m_bAutoActivate;
     bool m_bUnloadingStarted;
     bool m_bQueueActiveSpawnGroupChange;
     bool m_bQueueFinishLoading;
-    char pad_019[80];
+    char pad_017[80];
 };
 
 class CPointPulse : public CBaseEntity {
 public:
-    char pad_016[1192];
+    char pad_014[1192];
 };
 
 class CFuncNavObstruction : public CBaseModelEntity {
 public:
-    char pad_020[24];
+    char pad_018[24];
     bool m_bDisabled;
     bool m_bUseAsyncObstacleUpdate;
-    char pad_021[6];
+    char pad_019[6];
 };
 
 class CAmbientGeneric : public CPointEntity {
@@ -9203,7 +9167,7 @@ public:
     // CUtlSymbolLarge m_sSourceEntName;
     // CHandle< CBaseEntity > m_hSoundSource;
     // CEntityIndex m_nSoundSourceEntIndex;
-    char pad_017[54];
+    char pad_015[54];
 };
 
 class RelationshipOverride_t : public Relationship_t {
@@ -9215,8 +9179,7 @@ public:
 
 class CBaseButton : public CBaseToggle {
 public:
-    // QAngle m_angMoveEntitySpace;
-    char pad_023[12];
+    QAngle m_angMoveEntitySpace;
     bool m_fStayPushed;
     bool m_fRotating;
     locksound_t m_ls;
@@ -9224,7 +9187,7 @@ public:
     // CUtlSymbolLarge m_sLockedSound;
     // CUtlSymbolLarge m_sUnlockedSound;
     // CUtlSymbolLarge m_sOverrideAnticipationName;
-    char pad_024[32];
+    char pad_020[32];
     bool m_bLocked;
     bool m_bDisabled;
     GameTime_t m_flUseLockedTime;
@@ -9237,24 +9200,24 @@ public:
     int32_t m_nState;
     // CEntityHandle m_hConstraint;
     // CEntityHandle m_hConstraintParent;
-    char pad_025[8];
+    char pad_021[8];
     bool m_bForceNpcExclude;
     // CUtlSymbolLarge m_sGlowEntity;
     // CHandle< CBaseModelEntity > m_glowEntity;
-    char pad_026[15];
+    char pad_022[15];
     bool m_usable;
     // CUtlSymbolLarge m_szDisplayText;
-    char pad_027[11];
+    char pad_023[11];
 };
 
 class CPhysicalButton : public CBaseButton {
 public:
-    char pad_028[2224];
+    char pad_024[2224];
 };
 
 class CRotButton : public CBaseButton {
 public:
-    char pad_028[2224];
+    char pad_024[2224];
 };
 
 class CMomentaryRotButton : public CRotButton {
@@ -9265,12 +9228,11 @@ public:
     CEntityIOOutput m_OnFullyClosed;
     CEntityIOOutput m_OnReachedPosition;
     int32_t m_lastUsed;
-    // QAngle m_start;
-    // QAngle m_end;
-    char pad_029[24];
+    QAngle m_start;
+    QAngle m_end;
     float m_IdealYaw;
     // CUtlSymbolLarge m_sNoise;
-    char pad_030[8];
+    char pad_025[8];
     bool m_bUpdateTarget;
     int32_t m_direction;
     float m_returnSpeed;
@@ -9283,13 +9245,14 @@ public:
     float m_radius;
     float m_force;
     // VectorWS m_axis;
-    char pad_017[12];
+    char pad_015[12];
 };
 
 class CBaseDoor : public CBaseToggle {
 public:
-    // QAngle m_angMoveEntitySpace;
-    // Vector m_vecMoveDirParentSpace;
+    char pad_020[16];
+    QAngle m_angMoveEntitySpace;
+    Vector m_vecMoveDirParentSpace;
     locksound_t m_ls;
     bool m_bForceClosed;
     bool m_bDoorGroup;
@@ -9313,16 +9276,16 @@ public:
     CEntityIOOutput m_OnOpen;
     CEntityIOOutput m_OnLockedUse;
     bool m_bLoopMoveSound;
-    char pad_023[31];
+    char pad_021[31];
     bool m_bCreateNavObstacle;
     bool m_isChaining;
     bool m_bIsUsable;
-    char pad_024[5];
+    char pad_022[5];
 };
 
 class CEntityBlocker : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CEntityDissolve : public CBaseModelEntity {
@@ -9335,15 +9298,14 @@ public:
     float m_flFadeOutLength;
     GameTime_t m_flStartTime;
     EntityDisolveType_t m_nDissolveType;
-    // Vector m_vDissolverOrigin;
-    char pad_020[12];
+    Vector m_vDissolverOrigin;
     uint32_t m_nMagnitude;
 };
 
 class CEnvDecal : public CBaseModelEntity {
 public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hDecalMaterial;
-    char pad_020[8];
+    char pad_018[8];
     float m_flWidth;
     float m_flHeight;
     float m_flDepth;
@@ -9357,7 +9319,7 @@ public:
 class CMessage : public CPointEntity {
 public:
     // CUtlSymbolLarge m_iszMessage;
-    char pad_017[8];
+    char pad_015[8];
     float m_MessageVolume;
     int32_t m_MessageAttenuation;
     float m_Radius;
@@ -9370,35 +9332,35 @@ public:
     CPropDataComponent m_CPropDataComponent;
     Materials m_Material;
     // CHandle< CBaseEntity > m_hBreaker;
-    char pad_020[4];
+    char pad_018[4];
     Explosions m_Explosion;
     // CUtlSymbolLarge m_iszSpawnObject;
-    char pad_021[12];
+    char pad_019[12];
     float m_flPressureDelay;
     int32_t m_iMinHealthDmg;
     // CUtlSymbolLarge m_iszPropData;
-    char pad_022[8];
+    char pad_020[8];
     float m_impactEnergyScale;
     EOverrideBlockLOS_t m_nOverrideBlockLOS;
     CEntityIOOutput m_OnStartDeath;
     CEntityIOOutput m_OnBreak;
     // CEntityOutputTemplate< float32, float32 > m_OnHealthChanged;
-    char pad_023[32];
+    char pad_021[32];
     PerformanceMode_t m_PerformanceMode;
     // CHandle< CBasePlayerPawn > m_hPhysicsAttacker;
     GameTime_t m_flLastPhysicsInfluenceTime;
-    char pad_024[4];
+    char pad_022[4];
 };
 
 class CFuncMoveLinear : public CBaseToggle {
 public:
     MoveLinearAuthoredPos_t m_authoredPosition;
-    // QAngle m_angMoveEntitySpace;
-    // Vector m_vecMoveDirParentSpace;
+    QAngle m_angMoveEntitySpace;
+    Vector m_vecMoveDirParentSpace;
     // CUtlSymbolLarge m_soundStart;
     // CUtlSymbolLarge m_soundStop;
     // CUtlSymbolLarge m_currentSound;
-    char pad_023[52];
+    char pad_020[28];
     float m_flBlockDamage;
     float m_flStartPosition;
     CEntityIOOutput m_OnFullyOpen;
@@ -9406,7 +9368,7 @@ public:
     bool m_bCreateMovableNavMesh;
     bool m_bAllowMovableNavMeshDockingOnEntireEntity;
     bool m_bCreateNavObstacle;
-    char pad_024[13];
+    char pad_021[13];
 };
 
 class CMoverPathNode : public CPathNode {
@@ -9416,20 +9378,20 @@ public:
     // CEntityOutputTemplate< CUtlString, char* > m_OnPassThrough;
     // CEntityOutputTemplate< CUtlString, char* > m_OnPassThroughForward;
     // CEntityOutputTemplate< CUtlString, char* > m_OnPassThroughReverse;
-    char pad_018[1440];
+    char pad_016[1440];
 };
 
 class CRotatorTarget : public CPointEntity {
 public:
     CEntityIOOutput m_OnArrivedAt;
     RotatorTargetSpace_t m_eSpace;
-    char pad_017[4];
+    char pad_015[4];
 };
 
 class CFuncRotator : public CBaseModelEntity {
 public:
     // CHandle< CBaseEntity > m_hRotatorTarget;
-    char pad_020[4];
+    char pad_018[4];
     bool m_bIsRotating;
     bool m_bIsReversing;
     float m_flTimeToReachMaxSpeed;
@@ -9455,27 +9417,27 @@ public:
     CFuncRotator::Rotate_t m_ePrevRotateType;
     bool m_bHasTargetOverride;
     // Quaternion m_qOrientationOverride;
-    char pad_021[20];
+    char pad_019[20];
     RotatorTargetSpace_t m_eSpaceOverride;
-    // QAngle m_qAngularVelocity;
-    // Vector m_vLookAtForcedUp;
+    QAngle m_qAngularVelocity;
+    Vector m_vLookAtForcedUp;
     // CUtlSymbolLarge m_strRotatorTarget;
-    char pad_022[36];
+    char pad_020[12];
     bool m_bRecordHistory;
     // CUtlVector< RotatorHistoryEntry_t > m_vecRotatorHistory;
-    char pad_023[31];
+    char pad_021[31];
     bool m_bReturningToPreviousOrientation;
     // CUtlVector< RotatorQueueEntry_t > m_vecRotatorQueue;
     // CUtlVector< RotatorHistoryEntry_t > m_vecRotatorQueueHistory;
-    char pad_024[55];
+    char pad_022[55];
     SolidType_t m_eSolidType;
     // CHandle< CFuncMover > m_hSpeedFromMover;
     // CUtlSymbolLarge m_iszSpeedFromMover;
-    char pad_025[12];
+    char pad_023[12];
     float m_flSpeedScale;
     float m_flMinYawRotation;
     float m_flMaxYawRotation;
-    char pad_026[4];
+    char pad_024[4];
 };
 
 class CFuncRotating : public CBaseModelEntity {
@@ -9484,7 +9446,7 @@ public:
     CEntityIOOutput m_OnStarted;
     CEntityIOOutput m_OnReachedStart;
     // RotationVector m_localRotationVector;
-    char pad_020[12];
+    char pad_018[12];
     float m_flFanFriction;
     float m_flAttenuation;
     float m_flVolume;
@@ -9492,16 +9454,16 @@ public:
     float m_flMaxSpeed;
     float m_flBlockDamage;
     // CUtlSymbolLarge m_NoiseRunning;
-    char pad_021[12];
+    char pad_019[12];
     bool m_bReversed;
     bool m_bAccelDecel;
-    // QAngle m_prevLocalAngles;
-    // QAngle m_angStart;
-    char pad_022[46];
+    char pad_020[20];
+    QAngle m_prevLocalAngles;
+    QAngle m_angStart;
     bool m_bStopAtStartPos;
-    // Vector m_vecClientOrigin;
-    // QAngle m_vecClientAngles;
-    char pad_023[31];
+    Vector m_vecClientOrigin;
+    QAngle m_vecClientAngles;
+    char pad_021[4];
 };
 
 class CItem : public CBaseAnimGraph {
@@ -9512,15 +9474,15 @@ public:
     CEntityIOOutput m_OnCacheInteraction;
     CEntityIOOutput m_OnGlovePulled;
     // VectorWS m_vOriginalSpawnOrigin;
-    // QAngle m_vOriginalSpawnAngles;
-    char pad_024[24];
+    char pad_021[12];
+    QAngle m_vOriginalSpawnAngles;
     bool m_bPhysStartAsleep;
-    char pad_025[23];
+    char pad_022[23];
 };
 
 class CItemGeneric : public CItem {
 public:
-    char pad_026[20];
+    char pad_023[20];
     bool m_bHasTriggerRadius;
     bool m_bHasPickupRadius;
     float m_flPickupRadiusSqr;
@@ -9530,7 +9492,7 @@ public:
     bool m_bPlayerInTriggerRadius;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hSpawnParticleEffect;
     // CUtlSymbolLarge m_pAmbientSoundEffect;
-    char pad_027[18];
+    char pad_024[18];
     bool m_bAutoStartAmbientSound;
     // CUtlSymbolLarge m_pSpawnScriptFunction;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_hPickupParticleEffect;
@@ -9547,68 +9509,68 @@ public:
     CEntityIOOutput m_OnTriggerTouch;
     CEntityIOOutput m_OnTriggerEndTouch;
     // CUtlSymbolLarge m_pAllowPickupScriptFunction;
-    char pad_028[8];
+    char pad_025[8];
     float m_flPickupRadius;
     float m_flTriggerRadius;
     // CUtlSymbolLarge m_pTriggerSoundEffect;
-    char pad_029[8];
+    char pad_026[8];
     bool m_bGlowWhenInTrigger;
     // Color m_glowColor;
-    char pad_030[4];
+    char pad_027[4];
     bool m_bUseable;
     // CHandle< CItemGenericTriggerHelper > m_hTriggerHelper;
-    char pad_031[18];
+    char pad_028[18];
 };
 
 class CItemGenericTriggerHelper : public CBaseModelEntity {
 public:
     // CHandle< CItemGeneric > m_hParentItem;
-    char pad_020[1848];
+    char pad_018[1848];
 };
 
 class CRuleEntity : public CBaseModelEntity {
 public:
     // CUtlSymbolLarge m_iszMaster;
-    char pad_020[1848];
+    char pad_018[1848];
 };
 
 class CRulePointEntity : public CRuleEntity {
 public:
     int32_t m_Score;
-    char pad_021[4];
+    char pad_019[4];
 };
 
 class CGamePlayerEquip : public CRulePointEntity {
 public:
-    char pad_022[1880];
+    char pad_020[1880];
 };
 
 class CMarkupVolume : public CBaseModelEntity {
 public:
     bool m_bDisabled;
-    char pad_020[7];
+    char pad_018[7];
 };
 
 class CMarkupVolumeTagged : public CMarkupVolume {
 public:
     // CUtlVector< CGlobalSymbol > m_GroupNames;
     // CUtlVector< CGlobalSymbol > m_Tags;
-    char pad_021[48];
+    char pad_019[48];
     bool m_bIsGroup;
     bool m_bGroupByPrefab;
     bool m_bGroupByVolume;
     bool m_bGroupOtherGroups;
     bool m_bIsInGroup;
-    char pad_022[3];
+    char pad_020[3];
 };
 
 class CMarkupVolumeWithRef : public CMarkupVolumeTagged {
 public:
-    char pad_023[8];
+    char pad_021[8];
     bool m_bUseRef;
-    // Vector m_vRefPosEntitySpace;
+    Vector m_vRefPosEntitySpace;
     // VectorWS m_vRefPosWorldSpace;
-    char pad_024[24];
+    char pad_022[12];
     float m_flRefDot;
 };
 
@@ -9618,10 +9580,10 @@ public:
     int32_t m_iDisabled;
     bool m_bSolidBsp;
     // CUtlSymbolLarge m_iszExcludedClass;
-    char pad_020[15];
+    char pad_018[15];
     bool m_bInvertExclusion;
     bool m_bScriptedMovement;
-    char pad_021[6];
+    char pad_019[6];
 };
 
 class CPathTrack : public CPointEntity {
@@ -9632,7 +9594,7 @@ public:
     float m_flRadius;
     float m_length;
     // CUtlSymbolLarge m_altName;
-    char pad_017[8];
+    char pad_015[8];
     int32_t m_nIterVal;
     TrackOrientationType_t m_eOrientationType;
     CEntityIOOutput m_OnPass;
@@ -9643,9 +9605,8 @@ public:
     int32_t m_damageType;
     int32_t m_damageToEnableMotion;
     float m_flForceToEnableMotion;
-    // Vector m_vHoverPosePosition;
-    // QAngle m_angHoverPoseAngles;
-    char pad_025[24];
+    Vector m_vHoverPosePosition;
+    QAngle m_angHoverPoseAngles;
     bool m_bNotSolidToWorld;
     bool m_bEnableUseOutput;
     HoverPoseFlags_t m_nHoverPoseFlags;
@@ -9656,7 +9617,7 @@ public:
     CEntityIOOutput m_OnPlayerUse;
     CEntityIOOutput m_OnStartTouch;
     // CHandle< CBasePlayerPawn > m_hCarryingPlayer;
-    char pad_026[32];
+    char pad_023[32];
 };
 
 class CPhysExplosion : public CPointEntity {
@@ -9666,7 +9627,7 @@ public:
     float m_flDamage;
     float m_radius;
     // CUtlSymbolLarge m_targetEntityName;
-    char pad_017[8];
+    char pad_015[8];
     float m_flInnerRadius;
     float m_flPushScale;
     bool m_bConvertToDebrisWhenPossible;
@@ -9679,15 +9640,15 @@ public:
     float m_damage;
     float m_distance;
     // CUtlSymbolLarge m_directionEntityName;
-    char pad_017[8];
+    char pad_015[8];
 };
 
 class CRopeKeyframe : public CBaseModelEntity {
 public:
-    char pad_020[8];
+    char pad_018[8];
     uint16_t m_RopeFlags;
     // CUtlSymbolLarge m_iNextLinkName;
-    char pad_021[14];
+    char pad_019[14];
     int16_t m_Slack;
     float m_Width;
     float m_TextureScale;
@@ -9695,7 +9656,7 @@ public:
     bool m_bConstrainBetweenEndpoints;
     // CUtlSymbolLarge m_strRopeMaterialModel;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_iRopeMaterialModelIndex;
-    char pad_022[18];
+    char pad_020[18];
     uint8_t m_Subdiv;
     uint8_t m_nChangeCount;
     int16_t m_RopeLength;
@@ -9708,44 +9669,45 @@ public:
     // CHandle< CBaseEntity > m_hEndPoint;
     AttachmentHandle_t m_iStartAttachment;
     AttachmentHandle_t m_iEndAttachment;
-    char pad_023[6];
+    char pad_021[6];
 };
 
 class CSpotlightEnd : public CBaseModelEntity {
 public:
     float m_flLightScale;
     float m_Radius;
-    // Vector m_vSpotlightDir;
+    Vector m_vSpotlightDir;
     // VectorWS m_vSpotlightOrg;
-    char pad_020[24];
+    char pad_018[12];
 };
 
 class CNavWalkable : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CFuncNavBlocker : public CBaseModelEntity {
 public:
-    char pad_020[8];
+    char pad_018[8];
     bool m_bDisabled;
     int32_t m_nBlockedTeamNumber;
-    char pad_021[8];
+    char pad_019[8];
 };
 
 class CNavSpaceInfo : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CFuncLadder : public CBaseModelEntity {
 public:
-    // Vector m_vecLadderDir;
+    Vector m_vecLadderDir;
     // CUtlVector< CHandle< CInfoLadderDismount > > m_Dismounts;
-    // Vector m_vecLocalTop;
+    char pad_018[28];
+    Vector m_vecLocalTop;
     // VectorWS m_vecPlayerMountPositionTop;
     // VectorWS m_vecPlayerMountPositionBottom;
-    char pad_020[76];
+    char pad_019[24];
     float m_flAutoRideSpeed;
     bool m_bDisabled;
     bool m_bFakeLadder;
@@ -9776,7 +9738,7 @@ public:
     float m_flSpriteFramerate;
     float m_flFrame;
     GameTime_t m_flDieTime;
-    char pad_020[12];
+    char pad_018[12];
     uint32_t m_nBrightness;
     float m_flBrightnessDuration;
     float m_flSpriteScale;
@@ -9794,12 +9756,12 @@ public:
     GameTime_t m_flBrightnessTimeStart;
     int32_t m_nSpriteWidth;
     int32_t m_nSpriteHeight;
-    char pad_021[4];
+    char pad_019[4];
 };
 
 class CSpriteOriented : public CSprite {
 public:
-    char pad_022[1952];
+    char pad_020[1952];
 };
 
 class CBaseClientUIEntity : public CBaseModelEntity {
@@ -9818,15 +9780,15 @@ public:
     // CEntityOutputTemplate< CUtlString, char* > m_CustomOutput7;
     // CEntityOutputTemplate< CUtlString, char* > m_CustomOutput8;
     // CEntityOutputTemplate< CUtlString, char* > m_CustomOutput9;
-    char pad_020[351];
+    char pad_018[351];
 };
 
 class CPointClientUIDialog : public CBaseClientUIEntity {
 public:
     // CHandle< CBaseEntity > m_hActivator;
-    char pad_021[4];
+    char pad_019[4];
     bool m_bStartEnabled;
-    char pad_022[3];
+    char pad_020[3];
 };
 
 class CPointClientUIWorldPanel : public CBaseClientUIEntity {
@@ -9845,7 +9807,7 @@ public:
     uint32_t m_unOrientation;
     bool m_bAllowInteractionFromAllSceneWorlds;
     // CNetworkUtlVectorBase< CUtlSymbolLarge > m_vecCSSClasses;
-    char pad_021[31];
+    char pad_019[31];
     bool m_bOpaque;
     bool m_bNoDepth;
     bool m_bVisibleWhenParentNoDraw;
@@ -9872,12 +9834,12 @@ public:
     // CUtlSymbolLarge m_szLayoutFileName;
     // CUtlSymbolLarge m_RenderAttrName;
     // CNetworkUtlVectorBase< CHandle< CBaseModelEntity > > m_TargetEntities;
-    char pad_017[52];
+    char pad_015[52];
     int32_t m_nTargetChangeCount;
     // CNetworkUtlVectorBase< CUtlSymbolLarge > m_vecCSSClasses;
     // CUtlSymbolLarge m_szTargetsName;
     // CUtlVector< CHandle< CBaseModelEntity > > m_AdditionalTargetEntities;
-    char pad_018[60];
+    char pad_016[60];
 };
 
 class CNmAimCSNode::CDefinition {
@@ -9904,38 +9866,38 @@ public:
 
 class CInfoPlayerTerrorist : public SpawnPoint {
 public:
-    char pad_019[1208];
+    char pad_017[1208];
 };
 
 class CInfoPlayerCounterterrorist : public SpawnPoint {
 public:
-    char pad_019[1208];
+    char pad_017[1208];
 };
 
 class CInfoDeathmatchSpawn : public SpawnPoint {
 public:
-    char pad_019[1208];
+    char pad_017[1208];
 };
 
 class CPointGiveAmmo : public CPointEntity {
 public:
     // CHandle< CBaseEntity > m_pActivator;
-    char pad_017[1200];
+    char pad_015[1200];
 };
 
 class CInfoInstructorHintBombTargetA : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CInfoInstructorHintBombTargetB : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CInfoInstructorHintHostageRescueZone : public CPointEntity {
 public:
-    char pad_017[1192];
+    char pad_015[1192];
 };
 
 class CFuncWater : public CBaseModelEntity {
@@ -9945,12 +9907,12 @@ public:
 
 class CCSSprite : public CSprite {
 public:
-    char pad_022[1952];
+    char pad_020[1952];
 };
 
 class CCSObserverPawn : public CCSPlayerPawnBase {
 public:
-    char pad_033[3744];
+    char pad_030[3744];
 };
 
 class CCSWeaponBaseVData {
@@ -9959,10 +9921,11 @@ public:
     CSWeaponType m_WeaponType;
     CSWeaponCategory m_WeaponCategory;
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeCNmSkeleton > > m_szAnimSkeleton;
-    // Vector m_vecMuzzlePos0;
-    // Vector m_vecMuzzlePos1;
+    char pad_01[224];
+    Vector m_vecMuzzlePos0;
+    Vector m_vecMuzzlePos1;
     // CResourceNameTyped< CWeakHandle< InfoForResourceTypeIParticleSystemDefinition > > m_szTracerParticle;
-    char pad_01[472];
+    char pad_02[224];
     gear_slot_t m_GearSlot;
     int32_t m_GearSlotPosition;
     loadout_slot_t m_DefaultLoadoutSlot;
@@ -9975,7 +9938,7 @@ public:
     bool m_bIsRevolver;
     bool m_bCannotShootUnderwater;
     // CGlobalSymbol m_szName;
-    char pad_02[8];
+    char pad_03[8];
     CSWeaponSilencerType m_eSilencerType;
     int32_t m_nCrosshairMinDistance;
     int32_t m_nCrosshairDeltaDistance;
@@ -10010,7 +9973,7 @@ public:
     float m_flInaccuracyPitchShift;
     float m_flInaccuracyAltSoundThreshold;
     // CUtlString m_szUseRadioSubtitle;
-    char pad_03[8];
+    char pad_04[8];
     bool m_bUnzoomsAfterShot;
     bool m_bHideViewModelWhenZoomed;
     int32_t m_nZoomLevels;
@@ -10039,45 +10002,44 @@ public:
     int32_t m_nRecoveryTransitionStartBullet;
     int32_t m_nRecoveryTransitionEndBullet;
     float m_flThrowVelocity;
-    // Vector m_vSmokeColor;
+    Vector m_vSmokeColor;
     // CGlobalSymbol m_szAnimClass;
-    char pad_04[68];
+    char pad_05[56];
 };
 
 class CPointGamestatsCounter : public CPointEntity {
 public:
     // CUtlSymbolLarge m_strStatisticName;
-    char pad_017[8];
+    char pad_015[8];
     bool m_bDisabled;
-    char pad_018[7];
+    char pad_016[7];
 };
 
 class CEnvHudHint : public CPointEntity {
 public:
     // CUtlSymbolLarge m_iszMessage;
-    char pad_017[1200];
+    char pad_015[1200];
 };
 
 class CFuncConveyor : public CBaseModelEntity {
 public:
     // CUtlSymbolLarge m_szConveyorModels;
-    char pad_020[8];
+    char pad_018[8];
     float m_flTransitionDurationSeconds;
-    // QAngle m_angMoveEntitySpace;
-    // Vector m_vecMoveDirEntitySpace;
-    char pad_021[24];
+    QAngle m_angMoveEntitySpace;
+    Vector m_vecMoveDirEntitySpace;
     float m_flTargetSpeed;
     GameTick_t m_nTransitionStartTick;
     int32_t m_nTransitionDurationTicks;
     float m_flTransitionStartSpeed;
     // CNetworkUtlVectorBase< CHandle< CBaseEntity > > m_hConveyorModels;
-    char pad_022[28];
+    char pad_019[28];
 };
 
 class CCSPlace : public CServerOnlyModelEntity {
 public:
     // CUtlSymbolLarge m_name;
-    char pad_021[1872];
+    char pad_019[1872];
 };
 
 class CGameMoney : public CRulePointEntity {
@@ -10086,7 +10048,7 @@ public:
     CEntityIOOutput m_OnMoneySpentFail;
     int32_t m_nMoney;
     // CUtlString m_strAwardText;
-    char pad_022[12];
+    char pad_020[12];
 };
 
 class CPlayerSprayDecal : public CModelPointEntity {
@@ -10095,11 +10057,10 @@ public:
     uint32_t m_unAccountID;
     uint32_t m_unTraceID;
     uint32_t m_rtGcTime;
-    // Vector m_vecEndPos;
-    // Vector m_vecStart;
-    // Vector m_vecLeft;
-    // Vector m_vecNormal;
-    char pad_021[48];
+    Vector m_vecEndPos;
+    Vector m_vecStart;
+    Vector m_vecLeft;
+    Vector m_vecNormal;
     int32_t m_nPlayer;
     int32_t m_nEntity;
     int32_t m_nHitbox;
@@ -10107,32 +10068,32 @@ public:
     int32_t m_nTintID;
     uint8_t m_nVersion;
     uint8_t m_ubSignature[128];
-    char pad_022[3];
+    char pad_019[3];
 };
 
 class CInferno : public CBaseModelEntity {
 public:
-    // Vector[64] m_firePositions;
-    // Vector[64] m_fireParentPositions;
-    char pad_020[1536];
+    Vector m_firePositions;
+    char pad_018[756];
+    Vector m_fireParentPositions;
+    char pad_019[756];
     bool m_bFireIsBurning[64];
-    // Vector[64] m_BurnNormal;
-    char pad_021[768];
+    Vector m_BurnNormal;
+    char pad_020[756];
     int32_t m_fireCount;
     int32_t m_nInfernoType;
     int32_t m_nFireEffectTickBegin;
     float m_nFireLifetime;
     bool m_bInPostEffectTime;
     bool m_bWasCreatedInSmoke;
-    char pad_022[409];
+    char pad_021[409];
     Extent m_extent;
     CountdownTimer m_damageTimer;
     CountdownTimer m_damageRampTimer;
-    // Vector m_splashVelocity;
-    // Vector m_InitialSplashVelocity;
-    // Vector m_startPos;
-    // Vector m_vecOriginalSpawnLocation;
-    char pad_023[19];
+    Vector m_splashVelocity;
+    Vector m_InitialSplashVelocity;
+    Vector m_startPos;
+    Vector m_vecOriginalSpawnLocation;
     IntervalTimer m_activeTimer;
     int32_t m_fireSpawnOffset;
     int32_t m_nMaxFlames;
@@ -10140,12 +10101,12 @@ public:
     CountdownTimer m_BookkeepingTimer;
     CountdownTimer m_NextSpreadTimer;
     uint16_t m_nSourceItemDefIndex;
-    char pad_024[102];
+    char pad_022[102];
 };
 
 class CFireCrackerBlast : public CInferno {
 public:
-    char pad_025[5048];
+    char pad_023[5048];
 };
 
 class CBarnLight : public CBaseModelEntity {
@@ -10153,7 +10114,7 @@ public:
     bool m_bEnabled;
     int32_t m_nColorMode;
     // Color m_Color;
-    char pad_020[4];
+    char pad_018[4];
     float m_flColorTemperature;
     float m_flBrightness;
     float m_flBrightnessScale;
@@ -10171,20 +10132,17 @@ public:
     // CNetworkUtlVectorBase< CHandle< CBaseModelEntity > > m_LightStyleTargets;
     CEntityIOOutput m_StyleEvent;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hLightCookie;
-    char pad_021[112];
+    char pad_019[112];
     float m_flShape;
     float m_flSoftX;
     float m_flSoftY;
     float m_flSkirt;
     float m_flSkirtNear;
-    // Vector m_vSizeParams;
-    char pad_022[12];
+    Vector m_vSizeParams;
     float m_flRange;
-    // Vector m_vShear;
-    char pad_023[12];
+    Vector m_vShear;
     int32_t m_nBakeSpecularToCubemaps;
-    // Vector m_vBakeSpecularToCubemapsSize;
-    char pad_024[12];
+    Vector m_vBakeSpecularToCubemapsSize;
     int32_t m_nCastShadows;
     int32_t m_nShadowMapSize;
     int32_t m_nShadowPriority;
@@ -10194,8 +10152,7 @@ public:
     float m_flBounceScale;
     bool m_bDynamicBounce;
     float m_flMinRoughness;
-    // Vector m_vAlternateColor;
-    char pad_025[12];
+    Vector m_vAlternateColor;
     float m_fAlternateColorBrightness;
     int32_t m_nFog;
     float m_flFogStrength;
@@ -10207,41 +10164,39 @@ public:
     float m_flShadowFadeSizeStart;
     float m_flShadowFadeSizeEnd;
     bool m_bPrecomputedFieldsValid;
-    // Vector m_vPrecomputedBoundsMins;
-    // Vector m_vPrecomputedBoundsMaxs;
-    // Vector m_vPrecomputedOBBOrigin;
-    // QAngle m_vPrecomputedOBBAngles;
-    // Vector m_vPrecomputedOBBExtent;
-    char pad_026[60];
+    Vector m_vPrecomputedBoundsMins;
+    Vector m_vPrecomputedBoundsMaxs;
+    Vector m_vPrecomputedOBBOrigin;
+    QAngle m_vPrecomputedOBBAngles;
+    Vector m_vPrecomputedOBBExtent;
     int32_t m_nPrecomputedSubFrusta;
-    // Vector m_vPrecomputedOBBOrigin0;
-    // QAngle m_vPrecomputedOBBAngles0;
-    // Vector m_vPrecomputedOBBExtent0;
-    // Vector m_vPrecomputedOBBOrigin1;
-    // QAngle m_vPrecomputedOBBAngles1;
-    // Vector m_vPrecomputedOBBExtent1;
-    // Vector m_vPrecomputedOBBOrigin2;
-    // QAngle m_vPrecomputedOBBAngles2;
-    // Vector m_vPrecomputedOBBExtent2;
-    // Vector m_vPrecomputedOBBOrigin3;
-    // QAngle m_vPrecomputedOBBAngles3;
-    // Vector m_vPrecomputedOBBExtent3;
-    // Vector m_vPrecomputedOBBOrigin4;
-    // QAngle m_vPrecomputedOBBAngles4;
-    // Vector m_vPrecomputedOBBExtent4;
-    // Vector m_vPrecomputedOBBOrigin5;
-    // QAngle m_vPrecomputedOBBAngles5;
-    // Vector m_vPrecomputedOBBExtent5;
-    char pad_027[216];
+    Vector m_vPrecomputedOBBOrigin0;
+    QAngle m_vPrecomputedOBBAngles0;
+    Vector m_vPrecomputedOBBExtent0;
+    Vector m_vPrecomputedOBBOrigin1;
+    QAngle m_vPrecomputedOBBAngles1;
+    Vector m_vPrecomputedOBBExtent1;
+    Vector m_vPrecomputedOBBOrigin2;
+    QAngle m_vPrecomputedOBBAngles2;
+    Vector m_vPrecomputedOBBExtent2;
+    Vector m_vPrecomputedOBBOrigin3;
+    QAngle m_vPrecomputedOBBAngles3;
+    Vector m_vPrecomputedOBBExtent3;
+    Vector m_vPrecomputedOBBOrigin4;
+    QAngle m_vPrecomputedOBBAngles4;
+    Vector m_vPrecomputedOBBExtent4;
+    Vector m_vPrecomputedOBBOrigin5;
+    QAngle m_vPrecomputedOBBAngles5;
+    Vector m_vPrecomputedOBBExtent5;
     bool m_bPvsModifyEntity;
     // CNetworkUtlVectorBase< uint16 > m_VisClusters;
-    char pad_028[39];
+    char pad_020[39];
 };
 
 class CRectLight : public CBarnLight {
 public:
     bool m_bShowLight;
-    char pad_029[7];
+    char pad_021[7];
 };
 
 class COmniLight : public CBarnLight {
@@ -10249,7 +10204,7 @@ public:
     float m_flInnerAngle;
     float m_flOuterAngle;
     bool m_bShowLight;
-    char pad_029[7];
+    char pad_021[7];
 };
 
 class CCSTeam : public CTeam {
@@ -10268,7 +10223,7 @@ public:
     char m_szTeamLogoImage[8];
     float m_flNextResourceTime;
     int32_t m_iLastUpdateSentAt;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CMapInfo : public CPointEntity {
@@ -10351,21 +10306,20 @@ public:
     bool m_isWaitingForHostage;
     CountdownTimer m_inhibitWaitingForHostageTimer;
     CountdownTimer m_waitForHostageTimer;
-    // Vector m_noisePosition;
-    char pad_013[12];
+    Vector m_noisePosition;
     float m_noiseTravelDistance;
     float m_noiseTimestamp;
     CCSPlayerPawn* m_noiseSource;
     CountdownTimer m_noiseBendTimer;
-    // Vector m_bentNoisePosition;
-    char pad_014[12];
+    Vector m_bentNoisePosition;
     bool m_bendNoisePositionValid;
     float m_lookAroundStateTimestamp;
     float m_lookAheadAngle;
     float m_forwardAngle;
     float m_inhibitLookAroundTimestamp;
-    // Vector m_lookAtSpot;
-    char pad_015[20];
+    char pad_013[4];
+    Vector m_lookAtSpot;
+    char pad_014[4];
     float m_lookAtSpotDuration;
     float m_lookAtSpotTimestamp;
     float m_lookAtSpotAngleTolerance;
@@ -10373,36 +10327,35 @@ public:
     bool m_lookAtSpotAttack;
     char* m_lookAtDesc;
     float m_peripheralTimestamp;
-    char pad_016[388];
+    char pad_015[388];
     uint8_t m_approachPointCount;
-    // Vector m_approachPointViewPosition;
+    Vector m_approachPointViewPosition;
     IntervalTimer m_viewSteadyTimer;
     CountdownTimer m_tossGrenadeTimer;
     CountdownTimer m_isAvoidingGrenade;
-    char pad_017[8];
+    char pad_016[8];
     float m_spotCheckTimestamp;
-    char pad_018[1028];
+    char pad_017[1028];
     int32_t m_checkedHidingSpotCount;
     float m_lookPitch;
     float m_lookPitchVel;
     float m_lookYaw;
     float m_lookYawVel;
-    // Vector m_targetSpot;
-    // Vector m_targetSpotVelocity;
-    // Vector m_targetSpotPredicted;
-    // QAngle m_aimError;
-    // QAngle m_aimGoal;
+    Vector m_targetSpot;
+    Vector m_targetSpotVelocity;
+    Vector m_targetSpotPredicted;
+    QAngle m_aimError;
+    QAngle m_aimGoal;
     GameTime_t m_targetSpotTime;
     float m_aimFocus;
     float m_aimFocusInterval;
     GameTime_t m_aimFocusNextUpdate;
     CountdownTimer m_ignoreEnemiesTimer;
     // CHandle< CCSPlayerPawn > m_enemy;
-    char pad_019[4];
+    char pad_018[4];
     bool m_isEnemyVisible;
     uint8_t m_visibleEnemyParts;
-    // Vector m_lastEnemyPosition;
-    char pad_020[12];
+    Vector m_lastEnemyPosition;
     float m_lastSawEnemyTimestamp;
     float m_firstSawEnemyTimestamp;
     float m_currentEnemyAcquireTimestamp;
@@ -10411,13 +10364,13 @@ public:
     bool m_isLastEnemyDead;
     int32_t m_nearbyEnemyCount;
     // CHandle< CCSPlayerPawn > m_bomber;
-    char pad_021[524];
+    char pad_019[524];
     int32_t m_nearbyFriendCount;
     // CHandle< CCSPlayerPawn > m_closestVisibleFriend;
     // CHandle< CCSPlayerPawn > m_closestVisibleHumanFriend;
     IntervalTimer m_attentionInterval;
     // CHandle< CCSPlayerPawn > m_attacker;
-    char pad_022[4];
+    char pad_020[4];
     float m_attackedTimestamp;
     IntervalTimer m_burnedByFlamesTimer;
     int32_t m_lastVictimID;
@@ -10430,30 +10383,30 @@ public:
     bool m_bIsSleeping;
     bool m_isEnemySniperVisible;
     CountdownTimer m_sawEnemySniperTimer;
-    char pad_023[160];
+    char pad_021[160];
     uint8_t m_enemyQueueIndex;
     uint8_t m_enemyQueueCount;
     uint8_t m_enemyQueueAttendIndex;
     bool m_isStuck;
     GameTime_t m_stuckTimestamp;
-    // Vector m_stuckSpot;
+    Vector m_stuckSpot;
     CountdownTimer m_wiggleTimer;
     CountdownTimer m_stuckJumpTimer;
     GameTime_t m_nextCleanupCheckTimestamp;
     float m_avgVel[10];
     int32_t m_avgVelIndex;
     int32_t m_avgVelCount;
-    // Vector m_lastOrigin;
-    char pad_024[16];
+    Vector m_lastOrigin;
+    char pad_022[4];
     float m_lastRadioRecievedTimestamp;
     float m_lastRadioSentTimestamp;
     // CHandle< CCSPlayerPawn > m_radioSubject;
-    // Vector m_radioPosition;
-    char pad_025[16];
+    char pad_023[4];
+    Vector m_radioPosition;
     float m_voiceEndTimestamp;
-    char pad_026[8];
+    char pad_024[8];
     int32_t m_lastValidReactionQueueFrame;
-    char pad_027[4];
+    char pad_025[4];
 };
 
 class CFogVolume : public CServerOnlyModelEntity {
@@ -10461,10 +10414,10 @@ public:
     // CUtlSymbolLarge m_fogName;
     // CUtlSymbolLarge m_postProcessName;
     // CUtlSymbolLarge m_colorCorrectionName;
-    char pad_021[32];
+    char pad_019[32];
     bool m_bDisabled;
     bool m_bInFogVolumesList;
-    char pad_022[6];
+    char pad_020[6];
 };
 
 class CInfoDynamicShadowHint : public CPointEntity {
@@ -10474,25 +10427,24 @@ public:
     int32_t m_nImportance;
     int32_t m_nLightChoice;
     // CHandle< CBaseEntity > m_hLight;
-    char pad_017[8];
+    char pad_015[8];
 };
 
 class CInfoDynamicShadowHintBox : public CInfoDynamicShadowHint {
 public:
-    // Vector m_vBoxMins;
-    // Vector m_vBoxMaxs;
-    char pad_018[1240];
+    Vector m_vBoxMins;
+    Vector m_vBoxMaxs;
 };
 
 class CEnvSky : public CBaseModelEntity {
 public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hSkyMaterial;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_hSkyMaterialLightingOnly;
-    char pad_020[16];
+    char pad_018[16];
     bool m_bStartDisabled;
     // Color m_vTintColor;
     // Color m_vTintColorLightingOnly;
-    char pad_021[8];
+    char pad_019[8];
     float m_flBrightnessScale;
     int32_t m_nFogType;
     float m_flFogMinStart;
@@ -10500,53 +10452,53 @@ public:
     float m_flFogMaxStart;
     float m_flFogMaxEnd;
     bool m_bEnabled;
-    char pad_022[43];
+    char pad_020[43];
 };
 
 class CTonemapController2Alias_env_tonemap_controller2 : public CTonemapController2 {
 public:
-    char pad_017[1216];
+    char pad_015[1216];
 };
 
 class CLightSpotEntity : public CLightEntity {
 public:
-    char pad_020[1848];
+    char pad_018[1848];
 };
 
 class CLightOrthoEntity : public CLightEntity {
 public:
-    char pad_020[1848];
+    char pad_018[1848];
 };
 
 class CLightDirectionalEntity : public CLightEntity {
 public:
-    char pad_020[1848];
+    char pad_018[1848];
 };
 
 class CLightEnvironmentEntity : public CLightDirectionalEntity {
 public:
-    char pad_021[1848];
+    char pad_019[1848];
 };
 
 class CTriggerFan : public CBaseTrigger {
 public:
-    // Vector m_vFanOriginOffset;
-    // Vector m_vDirection;
-    char pad_026[24];
+    Vector m_vFanOriginOffset;
+    Vector m_vDirection;
     bool m_bPushTowardsInfoTarget;
     bool m_bPushAwayFromInfoTarget;
     // Quaternion m_qNoiseDelta;
     // CHandle< CInfoFan > m_hInfoFan;
-    char pad_027[24];
+    char pad_023[24];
     float m_flForce;
     bool m_bFalloff;
     CountdownTimer m_RampTimer;
     // VectorWS m_vFanOriginWS;
-    // Vector m_vFanOriginLS;
-    // Vector m_vFanEndLS;
-    // Vector m_vNoiseDirectionTarget;
+    char pad_024[12];
+    Vector m_vFanOriginLS;
+    Vector m_vFanEndLS;
+    Vector m_vNoiseDirectionTarget;
     // CUtlSymbolLarge m_iszInfoFan;
-    char pad_028[56];
+    char pad_025[8];
     float m_flRopeForceScale;
     float m_flParticleForceScale;
     float m_flPlayerForce;
@@ -10558,22 +10510,22 @@ public:
     bool m_bPushPlayer;
     bool m_bRampDown;
     int32_t m_nManagerFanIdx;
-    char pad_029[8];
+    char pad_026[8];
 };
 
 class CEnvSoundscapeProxyAlias_snd_soundscape_proxy : public CEnvSoundscapeProxy {
 public:
-    char pad_021[1344];
+    char pad_019[1344];
 };
 
 class CEnvSoundscapeAlias_snd_soundscape : public CEnvSoundscape {
 public:
-    char pad_020[1336];
+    char pad_018[1336];
 };
 
 class CEnvSoundscapeTriggerableAlias_snd_soundscape_triggerable : public CEnvSoundscapeTriggerable {
 public:
-    char pad_021[1336];
+    char pad_019[1336];
 };
 
 class CTriggerSoundscape : public CBaseTrigger {
@@ -10581,43 +10533,43 @@ public:
     // CHandle< CEnvSoundscapeTriggerable > m_hSoundscape;
     // CUtlSymbolLarge m_SoundscapeName;
     // CUtlVector< CHandle< CBasePlayerPawn > > m_spectators;
-    char pad_026[2232];
+    char pad_023[2232];
 };
 
 class CFilterName : public CBaseFilter {
 public:
     // CUtlSymbolLarge m_iFilterName;
-    char pad_018[1256];
+    char pad_016[1256];
 };
 
 class CFilterModel : public CBaseFilter {
 public:
     // CUtlSymbolLarge m_iFilterModel;
-    char pad_018[1256];
+    char pad_016[1256];
 };
 
 class CFilterContext : public CBaseFilter {
 public:
     // CUtlSymbolLarge m_iFilterContext;
-    char pad_018[1256];
+    char pad_016[1256];
 };
 
 class CFilterTeam : public CBaseFilter {
 public:
     int32_t m_iFilterTeam;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CFilterMassGreater : public CBaseFilter {
 public:
     float m_fFilterMass;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class FilterDamageType : public CBaseFilter {
 public:
     int32_t m_iDamageType;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class FilterHealth : public CBaseFilter {
@@ -10625,24 +10577,24 @@ public:
     bool m_bAdrenalineActive;
     int32_t m_iHealthMin;
     int32_t m_iHealthMax;
-    char pad_018[4];
+    char pad_016[4];
 };
 
 class CFilterEnemy : public CBaseFilter {
 public:
     // CUtlSymbolLarge m_iszEnemyName;
-    char pad_018[8];
+    char pad_016[8];
     float m_flRadius;
     float m_flOuterRadius;
     int32_t m_nMaxSquadmatesPerEnemy;
     // CUtlSymbolLarge m_iszPlayerName;
-    char pad_019[12];
+    char pad_017[12];
 };
 
 class CFilterAttributeInt : public CBaseFilter {
 public:
     // CUtlSymbolLarge m_sAttributeName;
-    char pad_018[1256];
+    char pad_016[1256];
 };
 
 class CParticleSystem : public CBaseModelEntity {
@@ -10656,24 +10608,23 @@ public:
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_iEffectIndex;
     GameTime_t m_flStartTime;
     float m_flPreSimTime;
-    // Vector[4] m_vServerControlPoints;
-    char pad_020[48];
+    Vector m_vServerControlPoints;
+    char pad_018[36];
     uint8_t m_iServerControlPointAssignments[4];
     // CHandle< CBaseEntity >[64] m_hControlPointEnts;
-    char pad_021[256];
+    char pad_019[256];
     bool m_bNoSave;
     bool m_bNoFreeze;
     bool m_bNoRamp;
     bool m_bStartActive;
     // CUtlSymbolLarge m_iszEffectName;
     // CUtlSymbolLarge[64] m_iszControlPointNames;
-    char pad_022[520];
+    char pad_020[520];
     int32_t m_nDataCP;
-    // Vector m_vecDataCPValue;
-    char pad_023[12];
+    Vector m_vecDataCPValue;
     int32_t m_nTintCP;
     // Color m_clrTint;
-    char pad_024[4];
+    char pad_021[4];
 };
 
 class CTextureBasedAnimatable : public CBaseModelEntity {
@@ -10682,21 +10633,21 @@ public:
     float m_flFPS;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hPositionKeys;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hRotationKeys;
-    // Vector m_vAnimationBoundsMin;
-    // Vector m_vAnimationBoundsMax;
-    char pad_020[40];
+    char pad_018[16];
+    Vector m_vAnimationBoundsMin;
+    Vector m_vAnimationBoundsMax;
     float m_flStartTime;
     float m_flStartFrame;
 };
 
 class CWorld : public CBaseModelEntity {
 public:
-    char pad_020[1840];
+    char pad_018[1840];
 };
 
 class CDynamicProp : public CBreakableProp {
 public:
-    char pad_030[8];
+    char pad_026[8];
     bool m_bCreateNavObstacle;
     bool m_bNavObstacleUpdatesOverridden;
     bool m_bUseHitboxesForRenderBox;
@@ -10707,7 +10658,7 @@ public:
     CEntityIOOutput m_OnAnimReachedStart;
     CEntityIOOutput m_OnAnimReachedEnd;
     // CUtlSymbolLarge m_iszIdleAnim;
-    char pad_031[8];
+    char pad_027[8];
     AnimLoopMode_t m_nIdleAnimLoopMode;
     bool m_bRandomizeCycle;
     bool m_bStartDisabled;
@@ -10719,23 +10670,23 @@ public:
     int32_t m_nGlowRange;
     int32_t m_nGlowRangeMin;
     // Color m_glowColor;
-    char pad_032[4];
+    char pad_028[4];
     int32_t m_nGlowTeam;
 };
 
 class CDynamicPropAlias_dynamic_prop : public CDynamicProp {
 public:
-    char pad_033[3152];
+    char pad_029[3152];
 };
 
 class CDynamicPropAlias_prop_dynamic_override : public CDynamicProp {
 public:
-    char pad_033[3152];
+    char pad_029[3152];
 };
 
 class CDynamicPropAlias_cable_dynamic : public CDynamicProp {
 public:
-    char pad_033[3152];
+    char pad_029[3152];
 };
 
 class CColorCorrectionVolume : public CBaseTrigger {
@@ -10748,28 +10699,28 @@ public:
     GameTime_t m_LastEnterTime;
     float m_LastExitWeight;
     GameTime_t m_LastExitTime;
-    char pad_026[4];
+    char pad_023[4];
 };
 
 class CCommentaryViewPosition : public CSprite {
 public:
-    char pad_022[1952];
+    char pad_020[1952];
 };
 
 class CRotDoor : public CBaseDoor {
 public:
     bool m_bSolidBsp;
-    char pad_025[7];
+    char pad_023[7];
 };
 
 class CItemSoda : public CBaseAnimGraph {
 public:
-    char pad_024[2592];
+    char pad_021[2592];
 };
 
 class CPrecipitation : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CEnvBeam : public CBeam {
@@ -10778,18 +10729,18 @@ public:
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_spriteTexture;
     // CUtlSymbolLarge m_iszStartEntity;
     // CUtlSymbolLarge m_iszEndEntity;
-    char pad_023[28];
+    char pad_021[28];
     float m_life;
     float m_boltWidth;
     float m_noiseAmplitude;
     int32_t m_speed;
     float m_restrike;
     // CUtlSymbolLarge m_iszSpriteName;
-    char pad_024[12];
+    char pad_022[12];
     int32_t m_frameStart;
     // VectorWS m_vEndPointWorld;
-    // Vector m_vEndPointRelative;
-    char pad_025[24];
+    char pad_023[12];
+    Vector m_vEndPointRelative;
     float m_radius;
     Touch_t m_TouchType;
     // CUtlSymbolLarge m_iFilterName;
@@ -10800,33 +10751,33 @@ public:
 
 class CPushable : public CBreakable {
 public:
-    char pad_025[2056];
+    char pad_023[2056];
 };
 
 class CFuncLadderAlias_func_useableladder : public CFuncLadder {
 public:
-    char pad_021[1984];
+    char pad_020[1984];
 };
 
 class CFuncMonitor : public CFuncBrush {
 public:
     // CUtlString m_targetCamera;
-    char pad_022[8];
+    char pad_020[8];
     int32_t m_nResolutionEnum;
     bool m_bRenderShadows;
     bool m_bUseUniqueColorTarget;
     // CUtlString m_brushModelName;
     // CHandle< CBaseEntity > m_hTargetCamera;
-    char pad_023[14];
+    char pad_021[14];
     bool m_bEnabled;
     bool m_bDraw3DSkybox;
     bool m_bStartEnabled;
-    char pad_024[1];
+    char pad_022[1];
 };
 
 class CFuncMoveLinearAlias_momentary_door : public CFuncMoveLinear {
 public:
-    char pad_025[2104];
+    char pad_022[2104];
 };
 
 class CGunTarget : public CBaseToggle {
@@ -10841,24 +10792,24 @@ public:
     // CUtlString m_strStartTouchEventName;
     // CUtlString m_strEndTouchEventName;
     // CUtlString m_strTriggerID;
-    char pad_026[2216];
+    char pad_023[2216];
 };
 
 class CRuleBrushEntity : public CRuleEntity {
 public:
-    char pad_021[1848];
+    char pad_019[1848];
 };
 
 class CGameEnd : public CRulePointEntity {
 public:
-    char pad_022[1856];
+    char pad_020[1856];
 };
 
 class CGameText : public CRulePointEntity {
 public:
     // CUtlSymbolLarge m_iszMessage;
     hudtextparms_t m_textParms;
-    char pad_022[4];
+    char pad_020[4];
 };
 
 class CGamePlayerZone : public CRuleBrushEntity {
@@ -10867,18 +10818,18 @@ public:
     CEntityIOOutput m_OnPlayerOutZone;
     // CEntityOutputTemplate< int32, int32 > m_PlayersInCount;
     // CEntityOutputTemplate< int32, int32 > m_PlayersOutCount;
-    char pad_022[64];
+    char pad_020[64];
 };
 
 class CSimpleMarkupVolumeTagged : public CMarkupVolumeTagged {
 public:
-    char pad_023[1904];
+    char pad_021[1904];
 };
 
 class CMarkupVolumeTagged_Nav : public CMarkupVolumeTagged {
 public:
     NavScopeFlags_t m_nScopes;
-    char pad_023[7];
+    char pad_021[7];
 };
 
 class CMarkupVolumeTagged_NavGame : public CMarkupVolumeWithRef {
@@ -10886,7 +10837,7 @@ public:
     NavScopeFlags_t m_nScopes;
     bool m_bFloodFillAttribute;
     bool m_bSplitNavSpace;
-    char pad_025[5];
+    char pad_023[5];
 };
 
 class CFuncElectrifiedVolume : public CFuncBrush {
@@ -10895,52 +10846,52 @@ public:
     // CUtlSymbolLarge m_EffectInterpenetrateName;
     // CUtlSymbolLarge m_EffectZapName;
     // CUtlSymbolLarge m_iszEffectSource;
-    char pad_022[1928];
+    char pad_020[1928];
 };
 
 class CPathCornerCrash : public CPathCorner {
 public:
-    char pad_017[1224];
+    char pad_015[1224];
 };
 
 class CConstraintAnchor : public CBaseAnimGraph {
 public:
     float m_massScale;
-    char pad_024[12];
+    char pad_021[12];
 };
 
 class COrnamentProp : public CDynamicProp {
 public:
     // CUtlSymbolLarge m_initialOwner;
-    char pad_033[3168];
+    char pad_029[3168];
 };
 
 class CRopeKeyframeAlias_move_rope : public CRopeKeyframe {
 public:
-    char pad_024[1928];
+    char pad_022[1928];
 };
 
 class CSceneEntityAlias_logic_choreographed_scene : public CSceneEntity {
 public:
-    char pad_022[1840];
+    char pad_020[1840];
 };
 
 class CInstancedSceneEntity : public CSceneEntity {
 public:
     // CHandle< CBaseEntity > m_hOwner;
-    char pad_022[4];
+    char pad_020[4];
     bool m_bHadOwner;
     float m_flPostSpeakDelay;
     float m_flPreDelay;
     bool m_bIsBackground;
     bool m_bRemoveOnCompletion;
     // CHandle< CBaseEntity > m_hTarget;
-    char pad_023[6];
+    char pad_021[6];
 };
 
 class CSpriteAlias_env_glow : public CSprite {
 public:
-    char pad_022[1952];
+    char pad_020[1952];
 };
 
 class CFuncTankTrain : public CFuncTrackTrain {
@@ -10950,22 +10901,21 @@ public:
 
 class CFuncPlatRot : public CFuncPlat {
 public:
-    // QAngle m_end;
-    // QAngle m_start;
-    char pad_026[2040];
+    QAngle m_end;
+    QAngle m_start;
 };
 
 class CFuncTrain : public CBasePlatTrain {
 public:
     // CHandle< CBaseEntity > m_hCurrentTarget;
-    char pad_025[4];
+    char pad_022[4];
     bool m_activated;
     // CHandle< CBaseEntity > m_hEnemy;
-    char pad_026[4];
+    char pad_023[4];
     float m_flBlockDamage;
     GameTime_t m_flNextBlockTime;
     // CUtlSymbolLarge m_iszLastTarget;
-    char pad_027[12];
+    char pad_024[12];
 };
 
 class CFuncTrackChange : public CFuncPlatRot {
@@ -10976,16 +10926,16 @@ public:
     // CUtlSymbolLarge m_trackTopName;
     // CUtlSymbolLarge m_trackBottomName;
     // CUtlSymbolLarge m_trainName;
-    char pad_027[24];
+    char pad_023[24];
     TRAIN_CODE m_code;
     int32_t m_targetState;
     int32_t m_use;
-    char pad_028[4];
+    char pad_024[4];
 };
 
 class CFuncTrackAuto : public CFuncTrackChange {
 public:
-    char pad_029[2104];
+    char pad_025[2104];
 };
 
 class CTriggerRemove : public CBaseTrigger {
@@ -10995,27 +10945,26 @@ public:
 
 class CTriggerPush : public CBaseTrigger {
 public:
-    // QAngle m_angPushEntitySpace;
-    // Vector m_vecPushDirEntitySpace;
-    char pad_026[24];
+    QAngle m_angPushEntitySpace;
+    Vector m_vecPushDirEntitySpace;
     bool m_bTriggerOnStartTouch;
     bool m_bUsePathSimple;
     // CUtlSymbolLarge m_iszPathSimpleName;
-    char pad_027[8];
+    char pad_023[8];
     CPathSimple* m_PathSimple;
     uint32_t m_splinePushType;
-    char pad_028[4];
+    char pad_024[4];
 };
 
 class CScriptTriggerPush : public CTriggerPush {
 public:
-    // Vector m_vExtent;
-    char pad_029[2264];
+    Vector m_vExtent;
+    char pad_025[4];
 };
 
 class CTriggerToggleSave : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CTriggerSave : public CBaseTrigger {
@@ -11023,40 +10972,40 @@ public:
     bool m_bForceNewLevelUnit;
     float m_fDangerousTimer;
     int32_t m_minHitPoints;
-    char pad_026[4];
+    char pad_023[4];
 };
 
 class CTriggerGravity : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CTriggerProximity : public CBaseTrigger {
 public:
     // CHandle< CBaseEntity > m_hMeasureTarget;
     // CUtlSymbolLarge m_iszMeasureTarget;
-    char pad_026[16];
+    char pad_023[16];
     float m_fRadius;
     int32_t m_nTouchers;
     // CEntityOutputTemplate< float32, float32 > m_NearestEntityDistance;
-    char pad_027[32];
+    char pad_024[32];
 };
 
 class CServerRagdollTrigger : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CTriggerActiveWeaponDetect : public CBaseTrigger {
 public:
     CEntityIOOutput m_OnTouchedActiveWeapon;
     // CUtlSymbolLarge m_iszWeaponClassName;
-    char pad_026[8];
+    char pad_023[8];
 };
 
 class CTriggerPhysics : public CBaseTrigger {
 public:
-    char pad_026[16];
+    char pad_023[16];
     float m_gravityScale;
     float m_linearLimit;
     float m_linearDamping;
@@ -11065,14 +11014,12 @@ public:
     float m_linearForce;
     float m_flFrequency;
     float m_flDampingRatio;
-    // Vector m_vecLinearForcePointAt;
-    char pad_027[12];
+    Vector m_vecLinearForcePointAt;
     bool m_bCollapseToForcePoint;
-    // Vector m_vecLinearForcePointAtWorld;
-    // Vector m_vecLinearForceDirection;
-    char pad_028[27];
+    Vector m_vecLinearForcePointAtWorld;
+    Vector m_vecLinearForceDirection;
     bool m_bConvertToDebrisWhenPossible;
-    char pad_029[7];
+    char pad_024[7];
 };
 
 class CTriggerDetectBulletFire : public CBaseTrigger {
@@ -11088,25 +11035,25 @@ public:
 
 class CScriptNavBlocker : public CFuncNavBlocker {
 public:
-    // Vector m_vExtent;
-    char pad_022[1880];
+    Vector m_vExtent;
+    char pad_020[4];
 };
 
 class CBasePropDoor : public CDynamicProp {
 public:
-    char pad_033[16];
+    char pad_029[16];
     float m_flAutoReturnDelay;
     // CUtlVector< CHandle< CBasePropDoor > > m_hDoorList;
-    char pad_034[28];
+    char pad_030[28];
     int32_t m_nHardwareType;
     bool m_bNeedsHardware;
     DoorState_t m_eDoorState;
     bool m_bLocked;
     bool m_bNoNPCs;
-    // Vector m_closedPosition;
-    // QAngle m_closedAngles;
+    Vector m_closedPosition;
+    QAngle m_closedAngles;
     // CHandle< CBaseEntity > m_hBlocker;
-    char pad_035[30];
+    char pad_031[4];
     bool m_bFirstBlocked;
     locksound_t m_ls;
     bool m_bForceClosed;
@@ -11121,7 +11068,7 @@ public:
     // CUtlSymbolLarge m_SoundPound;
     // CUtlSymbolLarge m_SoundJiggle;
     // CUtlSymbolLarge m_SoundLockedAnim;
-    char pad_036[108];
+    char pad_032[108];
     int32_t m_numCloseAttempts;
     // CUtlStringToken m_nPhysicsMaterial;
     // CUtlSymbolLarge m_SlaveName;
@@ -11136,17 +11083,17 @@ public:
     CEntityIOOutput m_OnOpen;
     CEntityIOOutput m_OnLockedUse;
     CEntityIOOutput m_OnAjarOpen;
-    char pad_037[8];
+    char pad_033[8];
 };
 
 class CEnvLaser : public CBeam {
 public:
     // CUtlSymbolLarge m_iszLaserTarget;
-    char pad_023[8];
+    char pad_021[8];
     CSprite* m_pSprite;
     // CUtlSymbolLarge m_iszSpriteName;
-    // Vector m_firePosition;
-    char pad_024[20];
+    char pad_022[8];
+    Vector m_firePosition;
     float m_flStartFrame;
 };
 
@@ -11157,7 +11104,7 @@ public:
     // CNetworkUtlVectorBase< bool > m_ragEnabled;
     // CNetworkUtlVectorBase< Vector > m_ragPos;
     // CNetworkUtlVectorBase< QAngle > m_ragAngles;
-    char pad_024[76];
+    char pad_021[76];
     uint32_t m_lastUpdateTickCount;
     bool m_allAsleep;
     bool m_bFirstCollisionAfterLaunch;
@@ -11168,21 +11115,21 @@ public:
     GameTime_t m_flFadeOutStartTime;
     float m_flFadeTime;
     // VectorWS m_vecLastOrigin;
-    char pad_025[7];
+    char pad_022[7];
     GameTime_t m_flAwakeTime;
     GameTime_t m_flLastOriginChangeTime;
     // CUtlSymbolLarge m_strOriginClassName;
     // CUtlSymbolLarge m_strSourceClassName;
-    char pad_026[20];
+    char pad_023[20];
     bool m_bHasBeenPhysgunned;
     bool m_bAllowStretch;
     float m_flBlendWeight;
     float m_flDefaultFadeScale;
     // CUtlVector< Vector > m_ragdollMins;
     // CUtlVector< Vector > m_ragdollMaxs;
-    char pad_027[52];
+    char pad_024[52];
     bool m_bShouldDeleteActivationRecord;
-    char pad_028[23];
+    char pad_025[23];
 };
 
 class CPhysMagnet : public CBaseAnimGraph {
@@ -11193,30 +11140,30 @@ public:
     float m_forceLimit;
     float m_torqueLimit;
     // CUtlVector< magnetted_objects_t > m_MagnettedEntities;
-    char pad_024[28];
+    char pad_021[28];
     bool m_bActive;
     bool m_bHasHitSomething;
     float m_flTotalMass;
     float m_flRadius;
     GameTime_t m_flNextSuckTime;
     int32_t m_iMaxObjectsAttached;
-    char pad_025[4];
+    char pad_022[4];
 };
 
 class CPhysicsPropOverride : public CPhysicsProp {
 public:
-    char pad_034[3296];
+    char pad_030[3296];
 };
 
 class CPhysicsPropRespawnable : public CPhysicsProp {
 public:
     // VectorWS m_vOriginalSpawnOrigin;
-    // QAngle m_vOriginalSpawnAngles;
-    // Vector m_vOriginalMins;
-    // Vector m_vOriginalMaxs;
-    char pad_034[48];
+    char pad_030[12];
+    QAngle m_vOriginalSpawnAngles;
+    Vector m_vOriginalMins;
+    Vector m_vOriginalMaxs;
     float m_flRespawnDuration;
-    char pad_035[12];
+    char pad_031[12];
 };
 
 class CTriggerMultiple : public CBaseTrigger {
@@ -11227,23 +11174,22 @@ public:
 class CTriggerSndSosOpvar : public CBaseTrigger {
 public:
     // CUtlVector< CHandle< CBaseEntity > > m_hTouchingPlayers;
-    // Vector m_flPosition;
-    char pad_026[36];
+    char pad_023[24];
+    Vector m_flPosition;
     float m_flCenterSize;
     float m_flMinVal;
     float m_flMaxVal;
     // CUtlSymbolLarge m_opvarName;
     // CUtlSymbolLarge m_stackName;
     // CUtlSymbolLarge m_operatorName;
-    char pad_027[24];
+    char pad_024[24];
     bool m_bVolIs2D;
     char m_opvarNameChar[256];
     char m_stackNameChar[256];
     char m_operatorNameChar[256];
-    // Vector m_VecNormPos;
-    char pad_028[12];
+    Vector m_VecNormPos;
     float m_flNormCenterSize;
-    char pad_029[4];
+    char pad_025[4];
 };
 
 class CTriggerHurt : public CBaseTrigger {
@@ -11256,19 +11202,18 @@ public:
     DamageTypes_t m_bitsDamageInflict;
     int32_t m_damageModel;
     bool m_bNoDmgForce;
-    // Vector m_vDamageForce;
-    char pad_026[15];
+    Vector m_vDamageForce;
     bool m_thinkAlways;
     float m_hurtThinkPeriod;
     CEntityIOOutput m_OnHurt;
     CEntityIOOutput m_OnHurtPlayer;
     // CUtlVector< CHandle< CBaseEntity > > m_hurtEntities;
-    char pad_027[24];
+    char pad_023[24];
 };
 
 class CTriggerCallback : public CBaseTrigger {
 public:
-    char pad_026[2200];
+    char pad_023[2200];
 };
 
 class CTriggerLerpObject : public CBaseTrigger {
@@ -11284,7 +11229,7 @@ public:
     // CUtlVector< lerpdata_t > m_vecLerpingObjects;
     // CUtlSymbolLarge m_iszLerpEffect;
     // CUtlSymbolLarge m_iszLerpSound;
-    char pad_026[45];
+    char pad_023[45];
     bool m_bAttachTouchingObject;
     // CHandle< CBaseEntity > m_hEntityToWaitForDisconnect;
     CEntityIOOutput m_OnLerpStarted;
@@ -11301,29 +11246,29 @@ public:
     bool m_bNoTouch;
     bool m_bNewChapter;
     bool m_bOnChangeLevelFired;
-    char pad_026[4];
+    char pad_023[4];
 };
 
 class CTriggerTeleport : public CBaseTrigger {
 public:
     // CUtlSymbolLarge m_iLandmark;
-    char pad_026[8];
+    char pad_023[8];
     bool m_bUseLandmarkAngles;
     bool m_bMirrorPlayer;
     bool m_bCheckDestIfClearForPlayer;
-    char pad_027[5];
+    char pad_024[5];
 };
 
 class CWaterBullet : public CBaseAnimGraph {
 public:
-    char pad_024[2592];
+    char pad_021[2592];
 };
 
 class CEconWearable : public CEconEntity {
 public:
     int32_t m_nForceSkin;
     bool m_bAlwaysAllow;
-    char pad_028[11];
+    char pad_025[11];
 };
 
 class CBaseGrenade : public CBaseFlex {
@@ -11342,12 +11287,12 @@ public:
     // CHandle< CCSPlayerPawn > m_hThrower;
     GameTime_t m_flNextAttack;
     // CHandle< CCSPlayerPawn > m_hOriginalThrower;
-    char pad_025[16];
+    char pad_022[16];
 };
 
 class CFuncRetakeBarrier : public CDynamicProp {
 public:
-    char pad_033[3184];
+    char pad_029[3184];
 };
 
 class CBombTarget : public CBaseTrigger {
@@ -11360,42 +11305,42 @@ public:
     bool m_bBombPlantedHere;
     // CUtlSymbolLarge m_szMountTarget;
     // CHandle< CBaseEntity > m_hInstructorHint;
-    char pad_026[16];
+    char pad_023[16];
     int32_t m_nBombSiteDesignation;
 };
 
 class CHostageRescueZoneShim : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CHostageRescueZone : public CHostageRescueZoneShim {
 public:
-    char pad_027[2224];
+    char pad_024[2224];
 };
 
 class CTriggerBuoyancy : public CBaseTrigger {
 public:
     CBuoyancyHelper m_BuoyancyHelper;
     float m_flFluidDensity;
-    char pad_026[4];
+    char pad_023[4];
 };
 
 class CPhysicsPropMultiplayer : public CPhysicsProp {
 public:
-    char pad_034[3296];
+    char pad_030[3296];
 };
 
 class CFootstepControl : public CBaseTrigger {
 public:
     // CUtlSymbolLarge m_source;
     // CUtlSymbolLarge m_destination;
-    char pad_026[2208];
+    char pad_023[2208];
 };
 
 class CPlantedC4 : public CBaseAnimGraph {
 public:
-    char pad_024[8];
+    char pad_021[8];
     bool m_bBombTicking;
     GameTime_t m_flC4Blow;
     int32_t m_nBombSite;
@@ -11414,65 +11359,65 @@ public:
     float m_flTimerLength;
     bool m_bBeingDefused;
     GameTime_t m_fLastDefuseTime;
-    char pad_025[4];
+    char pad_022[4];
     float m_flDefuseLength;
     GameTime_t m_flDefuseCountDown;
     // CHandle< CCSPlayerPawn > m_hBombDefuser;
-    char pad_026[4];
+    char pad_023[4];
     int32_t m_iProgressBarTime;
     bool m_bVoiceAlertFired;
     bool m_bVoiceAlertPlayed[4];
     GameTime_t m_flNextBotBeepTime;
-    // QAngle m_angCatchUpToPlayerEye;
+    char pad_024[4];
+    QAngle m_angCatchUpToPlayerEye;
     GameTime_t m_flLastSpinDetectionTime;
-    char pad_027[4];
+    char pad_025[4];
 };
 
 class CBaseCSGrenadeProjectile : public CBaseGrenade {
 public:
-    // Vector m_vInitialPosition;
-    // Vector m_vInitialVelocity;
-    char pad_026[24];
+    Vector m_vInitialPosition;
+    Vector m_vInitialVelocity;
     int32_t m_nBounces;
     // CStrongHandle< InfoForResourceTypeIParticleSystemDefinition > m_nExplodeEffectIndex;
-    char pad_027[12];
+    char pad_023[12];
     int32_t m_nExplodeEffectTickBegin;
-    // Vector m_vecExplodeEffectOrigin;
+    Vector m_vecExplodeEffectOrigin;
     GameTime_t m_flSpawnTime;
     uint8_t m_unOGSExtraFlags;
     bool m_bDetonationRecorded;
     uint16_t m_nItemIndex;
-    // Vector m_vecOriginalSpawnLocation;
+    Vector m_vecOriginalSpawnLocation;
     GameTime_t m_flLastBounceSoundTime;
     // RotationVector m_vecGrenadeSpin;
-    // Vector m_vecLastHitSurfaceNormal;
-    char pad_028[24];
+    char pad_024[12];
+    Vector m_vecLastHitSurfaceNormal;
     int32_t m_nTicksAtZeroVelocity;
     bool m_bHasEverHitEnemy;
-    char pad_029[3];
+    char pad_025[3];
 };
 
 class CItemDogtags : public CItem {
 public:
     // CHandle< CCSPlayerPawn > m_OwningPlayer;
     // CHandle< CCSPlayerPawn > m_KillingPlayer;
-    char pad_026[2768];
+    char pad_023[2768];
 };
 
 class CBuyZone : public CBaseTrigger {
 public:
     int32_t m_LegacyTeamNum;
-    char pad_026[4];
+    char pad_023[4];
 };
 
 class CTriggerBombReset : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CTriggerHostageReset : public CBaseTrigger {
 public:
-    char pad_026[2192];
+    char pad_023[2192];
 };
 
 class CFlashbangProjectile : public CBaseCSGrenadeProjectile {
@@ -11480,24 +11425,23 @@ public:
     float m_flTimeToDetonate;
     uint8_t m_numOpponentsHit;
     uint8_t m_numTeammatesHit;
-    char pad_030[10];
+    char pad_026[10];
 };
 
 class CHEGrenadeProjectile : public CBaseCSGrenadeProjectile {
 public:
-    char pad_030[2992];
+    char pad_026[2992];
 };
 
 class CChicken : public CDynamicProp {
 public:
     CAttributeContainer m_AttributeManager;
     CountdownTimer m_updateTimer;
-    // Vector m_stuckAnchor;
+    Vector m_stuckAnchor;
     CountdownTimer m_stuckTimer;
     CountdownTimer m_collisionStuckTimer;
     bool m_isOnGround;
-    // Vector m_vFallVelocity;
-    char pad_033[12];
+    Vector m_vFallVelocity;
     ChickenActivity m_desiredActivity;
     ChickenActivity m_currentActivity;
     CountdownTimer m_activityTimer;
@@ -11514,43 +11458,43 @@ public:
     CountdownTimer m_jumpTimer;
     float m_flLastJumpTime;
     bool m_bInJump;
-    char pad_034[8121];
+    char pad_029[8121];
     CountdownTimer m_repathTimer;
-    // Vector m_vecPathGoal;
-    char pad_035[125];
+    char pad_030[128];
+    Vector m_vecPathGoal;
     GameTime_t m_flActiveFollowStartTime;
     CountdownTimer m_followMinuteTimer;
     CountdownTimer m_BlockDirectionTimer;
-    char pad_036[8];
+    char pad_031[8];
 };
 
 class CHostageCarriableProp : public CBaseAnimGraph {
 public:
-    char pad_024[2592];
+    char pad_021[2592];
 };
 
 class CItemAssaultSuit : public CItem {
 public:
-    char pad_026[2752];
+    char pad_023[2752];
 };
 
 class CItemKevlar : public CItem {
 public:
-    char pad_026[2752];
+    char pad_023[2752];
 };
 
 class CItemDefuser : public CItem {
 public:
     EntitySpottedState_t m_entitySpottedState;
     int32_t m_nSpotRules;
-    char pad_026[4];
+    char pad_023[4];
 };
 
 class CTonemapTrigger : public CBaseTrigger {
 public:
     // CUtlSymbolLarge m_tonemapControllerName;
     // CEntityHandle m_hTonemapController;
-    char pad_026[2208];
+    char pad_023[2208];
 };
 
 class CFogTrigger : public CBaseTrigger {
@@ -11565,61 +11509,58 @@ public:
     float m_flSelfIllumScale;
     // Color m_ColorTint;
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_hTextureOverride;
-    char pad_025[12];
+    char pad_022[12];
 };
 
 class CBaseFlexAlias_funCBaseFlex : public CBaseFlex {
 public:
-    char pad_025[2736];
+    char pad_022[2736];
 };
 
 class CScriptItem : public CItem {
 public:
     MoveType_t m_MoveTypeOverride;
-    char pad_026[15];
+    char pad_023[15];
 };
 
 class CRagdollPropAlias_physics_prop_ragdoll : public CRagdollProp {
 public:
-    char pad_029[2928];
+    char pad_026[2928];
 };
 
 class CRagdollPropAttached : public CRagdollProp {
 public:
     uint32_t m_boneIndexAttached;
     uint32_t m_ragdollAttachedObjectIndex;
-    // Vector m_attachmentPointBoneSpace;
-    // Vector m_attachmentPointRagdollSpace;
-    char pad_029[24];
+    Vector m_attachmentPointBoneSpace;
+    Vector m_attachmentPointRagdollSpace;
     bool m_bShouldDetach;
-    char pad_030[15];
+    char pad_026[15];
     bool m_bShouldDeleteAttachedActivationRecord;
-    char pad_031[15];
+    char pad_027[15];
 };
 
 class CPropDoorRotating : public CBasePropDoor {
 public:
-    // Vector m_vecAxis;
-    char pad_038[12];
+    Vector m_vecAxis;
     float m_flDistance;
     PropDoorRotatingSpawnPos_t m_eSpawnPosition;
     PropDoorRotatingOpenDirection_e m_eOpenDirection;
     PropDoorRotatingOpenDirection_e m_eCurrentOpenDirection;
     doorCheck_e m_eDefaultCheckDirection;
     float m_flAjarAngle;
-    // QAngle m_angRotationAjarDeprecated;
-    // QAngle m_angRotationClosed;
-    // QAngle m_angRotationOpenForward;
-    // QAngle m_angRotationOpenBack;
-    // QAngle m_angGoal;
-    // Vector m_vecForwardBoundsMin;
-    // Vector m_vecForwardBoundsMax;
-    // Vector m_vecBackBoundsMin;
-    // Vector m_vecBackBoundsMax;
-    char pad_039[108];
+    QAngle m_angRotationAjarDeprecated;
+    QAngle m_angRotationClosed;
+    QAngle m_angRotationOpenForward;
+    QAngle m_angRotationOpenBack;
+    QAngle m_angGoal;
+    Vector m_vecForwardBoundsMin;
+    Vector m_vecForwardBoundsMax;
+    Vector m_vecBackBoundsMin;
+    Vector m_vecBackBoundsMax;
     bool m_bAjarDoorShouldntAlwaysOpen;
     // CHandle< CEntityBlocker > m_hEntityBlocker;
-    char pad_040[15];
+    char pad_034[15];
 };
 
 class CPropDoorRotatingBreakable : public CPropDoorRotating {
@@ -11628,36 +11569,36 @@ public:
     bool m_isAbleToCloseAreaPortals;
     int32_t m_currentDamageState;
     // CUtlVector< CUtlSymbolLarge > m_damageStates;
-    char pad_041[24];
+    char pad_035[24];
 };
 
 class CScriptTriggerHurt : public CTriggerHurt {
 public:
-    // Vector m_vExtent;
-    char pad_028[2336];
+    Vector m_vExtent;
+    char pad_024[4];
 };
 
 class CScriptTriggerMultiple : public CTriggerMultiple {
 public:
-    // Vector m_vExtent;
-    char pad_026[2232];
+    Vector m_vExtent;
+    char pad_023[4];
 };
 
 class CTriggerOnce : public CTriggerMultiple {
 public:
-    char pad_026[2216];
+    char pad_023[2216];
 };
 
 class CScriptTriggerOnce : public CTriggerOnce {
 public:
-    // Vector m_vExtent;
-    char pad_027[2232];
+    Vector m_vExtent;
+    char pad_024[4];
 };
 
 class CTriggerLook : public CTriggerOnce {
 public:
     // CHandle< CBaseEntity > m_hLookTarget;
-    char pad_027[4];
+    char pad_024[4];
     float m_flFieldOfView;
     float m_flLookTime;
     float m_flLookTimeTotal;
@@ -11680,7 +11621,7 @@ public:
     float m_flNoise;
     float m_flViewkick;
     // CEntityOutputTemplate< Vector, Vector > m_pOutputForce;
-    char pad_026[44];
+    char pad_023[44];
 };
 
 class CDynamicNavConnectionsVolume : public CTriggerMultiple {
@@ -11688,7 +11629,7 @@ public:
     // CUtlSymbolLarge m_iszConnectionTarget;
     // CUtlVector< DynamicVolumeDef_t > m_vecConnections;
     // CGlobalSymbol m_sTransitionType;
-    char pad_026[40];
+    char pad_023[40];
     bool m_bConnectionsEnabled;
     float m_flTargetAreaSearchRadius;
     float m_flUpdateDistance;
@@ -11705,15 +11646,14 @@ public:
     GameTime_t m_flInspectCancelCompleteTime;
     bool m_bInspectPending;
     bool m_bInspectShouldLoop;
-    char pad_029[40];
+    char pad_026[40];
     int32_t m_nLastEmptySoundCmdNum;
-    char pad_030[24];
+    char pad_027[24];
     bool m_bFireOnEmpty;
     CEntityIOOutput m_OnPlayerPickup;
     CSWeaponMode m_weaponMode;
     float m_flTurningInaccuracyDelta;
-    // Vector m_vecTurningInaccuracyEyeDirLast;
-    char pad_031[12];
+    Vector m_vecTurningInaccuracyEyeDirLast;
     float m_flTurningInaccuracy;
     float m_fAccuracyPenalty;
     GameTime_t m_flLastAccuracyUpdateTime;
@@ -11733,7 +11673,7 @@ public:
     int32_t m_iMostRecentTeamNumber;
     bool m_bDroppedNearBuyZone;
     float m_flNextAttackRenderTimeOffset;
-    char pad_032[20];
+    char pad_028[20];
     bool m_bCanBePickedUp;
     bool m_bUseCanOverrideNextOwnerTouchTime;
     GameTime_t m_nextOwnerTouchTime;
@@ -11742,7 +11682,7 @@ public:
     // CHandle< CCSPlayerPawn > m_hPrevOwner;
     GameTick_t m_nDropTick;
     bool m_bWasActiveWeaponWhenDropped;
-    char pad_033[31];
+    char pad_029[31];
     bool m_donated;
     GameTime_t m_fLastShotTime;
     bool m_bWasOwnedByCT;
@@ -11753,14 +11693,14 @@ public:
     GameTime_t m_flLastLOSTraceFailureTime;
     float m_flWatTickOffset;
     GameTime_t m_flLastShakeTime;
-    char pad_034[420];
+    char pad_030[420];
 };
 
 class CCSWeaponBaseGun : public CCSWeaponBase {
 public:
     int32_t m_zoomLevel;
     int32_t m_iBurstShotsRemaining;
-    char pad_035[8];
+    char pad_031[8];
     int32_t m_silencedModelIndex;
     bool m_inPrecache;
     bool m_bNeedsBoltAction;
@@ -11773,14 +11713,14 @@ public:
 
 class CCSWeaponBaseShotgun : public CCSWeaponBase {
 public:
-    char pad_035[4400];
+    char pad_031[4400];
 };
 
 class CC4 : public CCSWeaponBase {
 public:
-    // Vector m_vecLastValidPlayerHeldPosition;
-    // Vector m_vecLastValidDroppedPosition;
-    char pad_035[72];
+    char pad_031[48];
+    Vector m_vecLastValidPlayerHeldPosition;
+    Vector m_vecLastValidDroppedPosition;
     bool m_bDoValidDroppedPositionCheck;
     bool m_bStartedArming;
     GameTime_t m_fArmedTime;
@@ -11790,76 +11730,76 @@ public:
     int32_t m_nSpotRules;
     bool m_bPlayedArmingBeeps[7];
     bool m_bBombPlanted;
-    char pad_036[4];
+    char pad_032[4];
 };
 
 class CWeaponCZ75a : public CCSWeaponBaseGun {
 public:
     bool m_bMagazineRemoved;
-    char pad_036[15];
+    char pad_032[15];
 };
 
 class CDEagle : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponElite : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponTaser : public CCSWeaponBaseGun {
 public:
     GameTime_t m_fFireTime;
     int32_t m_nLastAttackTick;
-    char pad_036[8];
+    char pad_032[8];
 };
 
 class CKnife : public CCSWeaponBase {
 public:
     bool m_bFirstAttack;
-    char pad_035[15];
+    char pad_031[15];
 };
 
 class CMolotovProjectile : public CBaseCSGrenadeProjectile {
 public:
     bool m_bIsIncGrenade;
-    char pad_030[23];
+    char pad_026[23];
     bool m_bDetonated;
     IntervalTimer m_stillTimer;
-    char pad_031[208];
+    char pad_027[208];
 };
 
 class CDecoyProjectile : public CBaseCSGrenadeProjectile {
 public:
-    char pad_030[24];
+    char pad_026[24];
     int32_t m_nDecoyShotTick;
     int32_t m_shotsRemaining;
     GameTime_t m_fExpireTime;
-    char pad_031[12];
+    char pad_027[12];
     uint16_t m_decoyWeaponDefIndex;
-    char pad_032[14];
+    char pad_028[14];
 };
 
 class CSmokeGrenadeProjectile : public CBaseCSGrenadeProjectile {
 public:
-    char pad_030[40];
+    char pad_026[40];
     int32_t m_nSmokeEffectTickBegin;
     bool m_bDidSmokeEffect;
     int32_t m_nRandomSeed;
-    // Vector m_vSmokeColor;
-    // Vector m_vSmokeDetonationPos;
+    Vector m_vSmokeColor;
+    Vector m_vSmokeDetonationPos;
     // CNetworkUtlVectorBase< uint8 > m_VoxelFrameData;
-    char pad_031[52];
+    char pad_027[28];
     int32_t m_nVoxelFrameDataSize;
     int32_t m_nVoxelUpdate;
     GameTime_t m_flLastBounce;
     GameTime_t m_fllastSimulationTime;
-    char pad_032[8832];
+    char pad_028[8832];
     bool m_bExplodeFromInferno;
     bool m_bDidGroundScorch;
-    char pad_033[6];
+    char pad_029[6];
 };
 
 class CBaseCSGrenade : public CCSWeaponBase {
@@ -11877,25 +11817,25 @@ public:
     GameTick_t m_nNextHoldTick;
     float m_flNextHoldFrac;
     // CHandle< CCSWeaponBase > m_hSwitchToWeaponAfterThrow;
-    char pad_035[28];
+    char pad_031[28];
 };
 
 class CWeaponBaseItem : public CCSWeaponBase {
 public:
     bool m_bSequenceInProgress;
     bool m_bRedraw;
-    char pad_035[14];
+    char pad_031[14];
 };
 
 class CItem_Healthshot : public CWeaponBaseItem {
 public:
-    char pad_036[4416];
+    char pad_032[4416];
 };
 
 class CHostageExpresserShim : public CBaseCombatCharacter {
 public:
     CAI_Expresser* m_pExpresser;
-    char pad_027[8];
+    char pad_024[8];
 };
 
 class CHostage : public CHostageExpresserShim {
@@ -11909,8 +11849,7 @@ public:
     uint32_t m_uiHostageSpawnExclusionGroupMask;
     uint32_t m_nHostageSpawnRandomFactor;
     bool m_bRemove;
-    // Vector m_vel;
-    char pad_028[15];
+    Vector m_vel;
     bool m_isRescued;
     bool m_jumpedThisFrame;
     int32_t m_nHostageState;
@@ -11918,227 +11857,226 @@ public:
     // CHandle< CCSPlayerPawnBase > m_lastLeader;
     CountdownTimer m_reuseTimer;
     bool m_hasBeenUsed;
-    // Vector m_accel;
-    char pad_029[15];
+    Vector m_accel;
     bool m_isRunning;
     bool m_isCrouching;
     CountdownTimer m_jumpTimer;
     bool m_isWaitingForLeader;
-    char pad_030[8101];
+    char pad_025[8101];
     CountdownTimer m_repathTimer;
     CountdownTimer m_inhibitDoorTimer;
-    char pad_031[109];
+    char pad_026[109];
     CountdownTimer m_inhibitObstacleAvoidanceTimer;
     CountdownTimer m_wiggleTimer;
-    char pad_032[4];
+    char pad_027[4];
     bool m_isAdjusted;
     bool m_bHandsHaveBeenCut;
     // CHandle< CCSPlayerPawn > m_hHostageGrabber;
     GameTime_t m_fLastGrabTime;
-    // Vector m_vecPositionWhenStartedDroppingToGround;
-    // Vector m_vecGrabbedPos;
+    Vector m_vecPositionWhenStartedDroppingToGround;
+    Vector m_vecGrabbedPos;
     GameTime_t m_flRescueStartTime;
     GameTime_t m_flGrabSuccessTime;
     GameTime_t m_flDropStartTime;
     int32_t m_nApproachRewardPayouts;
     int32_t m_nPickupEventCount;
-    // Vector m_vecSpawnGroundPos;
+    Vector m_vecSpawnGroundPos;
     // VectorWS m_vecHostageResetPosition;
-    char pad_033[76];
+    char pad_028[64];
 };
 
 class CHostageAlias_info_hostage_spawn : public CHostage {
 public:
-    char pad_034[11776];
+    char pad_029[11776];
 };
 
 class CItemDefuserAlias_item_defuser : public CItemDefuser {
 public:
-    char pad_027[2784];
+    char pad_024[2784];
 };
 
 class CAK47 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponAug : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponAWP : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponBizon : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponFamas : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponFiveSeven : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponG3SG1 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponGalilAR : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponGlock : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponHKP2000 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponUSPSilencer : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponM4A1 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponM4A1Silencer : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponMAC10 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponMag7 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponMP5SD : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponMP7 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponMP9 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponNegev : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponP250 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponP90 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponSCAR20 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponSG556 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponSSG08 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponTec9 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponUMP45 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponM249 : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponRevolver : public CCSWeaponBaseGun {
 public:
-    char pad_036[4432];
+    char pad_032[4432];
 };
 
 class CWeaponNOVA : public CCSWeaponBaseShotgun {
 public:
-    char pad_036[4400];
+    char pad_032[4400];
 };
 
 class CWeaponSawedoff : public CCSWeaponBaseShotgun {
 public:
-    char pad_036[4400];
+    char pad_032[4400];
 };
 
 class CWeaponXM1014 : public CCSWeaponBaseShotgun {
 public:
-    char pad_036[4400];
+    char pad_032[4400];
 };
 
 class CMolotovGrenade : public CBaseCSGrenade {
 public:
-    char pad_036[4464];
+    char pad_032[4464];
 };
 
 class CIncendiaryGrenade : public CMolotovGrenade {
 public:
-    char pad_037[4464];
+    char pad_033[4464];
 };
 
 class CDecoyGrenade : public CBaseCSGrenade {
 public:
-    char pad_036[4464];
+    char pad_032[4464];
 };
 
 class CFlashbang : public CBaseCSGrenade {
 public:
-    char pad_036[4464];
+    char pad_032[4464];
 };
 
 class CHEGrenade : public CBaseCSGrenade {
 public:
-    char pad_036[4464];
+    char pad_032[4464];
 };
 
 class CSmokeGrenade : public CBaseCSGrenade {
 public:
-    char pad_036[4480];
+    char pad_032[4480];
 };
 

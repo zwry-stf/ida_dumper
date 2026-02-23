@@ -91,12 +91,13 @@ enum fieldtype_t : uint8_t {
 
 class CSchemaSystemInternalRegistration {
 public:
-    // Vector2D m_Vector2D;
-    // Vector m_Vector;
+    Vector2D m_Vector2D;
+    Vector m_Vector;
     // VectorWS m_VectorWS;
     // VectorAligned m_VectorAligned;
     // Quaternion m_Quaternion;
-    // QAngle m_QAngle;
+    char pad_00[44];
+    QAngle m_QAngle;
     // RotationVector m_RotationVector;
     // RadianEuler m_RadianEuler;
     // DegreeEuler m_DegreeEuler;
@@ -104,7 +105,8 @@ public:
     // matrix3x4_t m_matrix3x4_t;
     // matrix3x4a_t m_matrix3x4a_t;
     // Color m_Color;
-    // Vector4D m_Vector4D;
+    char pad_01[152];
+    Vector4D m_Vector4D;
     // CTransform m_CTransform;
     // KeyValues* m_pKeyValues;
     // CUtlBinaryBlock m_CUtlBinaryBlock;
@@ -114,7 +116,7 @@ public:
     // CUtlStringTokenWithStorage m_stringTokenWithStorage;
     // CResourceArray< CResourcePointer< CResourceString > > m_ResourceTypes;
     // KeyValues3 m_KV3;
-    char pad_00[384];
+    char pad_02[140];
 };
 
 class InfoForResourceTypeCResourceManifestInternal {

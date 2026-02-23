@@ -339,8 +339,8 @@ public:
     // CUtlString itemName;
     // CUtlString itemTypeName;
     // CUtlString itemKVString;
-    // Vector2D itemPos;
-    char pad_00[44];
+    char pad_00[36];
+    Vector2D itemPos;
 };
 
 class SelectedEditItemInfo_t {

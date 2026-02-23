@@ -52,8 +52,8 @@ public:
 
 class MaterialParamVector_t {
 public:
-    // Vector4D m_value;
-    char pad_00[24];
+    char pad_00[8];
+    Vector4D m_value;
 };
 
 class MaterialParamTexture_t {
@@ -129,20 +129,18 @@ public:
     float m_flComputeBloomLensDirtStrength;
     float m_flComputeBloomLensDirtBlackLevel;
     float m_flBlurWeight[5];
-    // Vector[5] m_vBlurTint;
-    char pad_00[60];
+    Vector m_vBlurTint;
+    char pad_00[48];
 };
 
 class PostProcessingVignetteParameters_t {
 public:
     float m_flVignetteStrength;
-    // Vector2D m_vCenter;
-    char pad_00[8];
+    Vector2D m_vCenter;
     float m_flRadius;
     float m_flRoundness;
     float m_flFeather;
-    // Vector m_vColorTint;
-    char pad_01[12];
+    Vector m_vColorTint;
 };
 
 class PostProcessingLocalContrastParameters_t {

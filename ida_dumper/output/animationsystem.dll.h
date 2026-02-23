@@ -1458,8 +1458,8 @@ class CAnimBoneDifference {
 public:
     // CBufferString m_name;
     // CBufferString m_parent;
-    // Vector m_posError;
-    char pad_00[44];
+    char pad_00[32];
+    Vector m_posError;
     bool m_bHasRotation;
     bool m_bHasMovement;
     char pad_01[2];
@@ -1511,9 +1511,8 @@ public:
     float v0;
     float v1;
     float angle;
-    // Vector vector;
-    // Vector position;
-    char pad_00[24];
+    Vector vector;
+    Vector position;
 };
 
 class CAnimLocalHierarchy {
@@ -1595,11 +1594,11 @@ public:
     // CUtlVector< CAnimLocalHierarchy > m_hierarchyArray;
     char pad_01[128];
     float framestalltime;
-    // Vector m_vecRootMin;
-    // Vector m_vecRootMax;
+    Vector m_vecRootMin;
+    Vector m_vecRootMax;
     // CUtlVector< Vector > m_vecBoneWorldMin;
     // CUtlVector< Vector > m_vecBoneWorldMax;
-    char pad_02[76];
+    char pad_02[52];
     CAnimSequenceParams m_sequenceParams;
 };
 
@@ -1629,9 +1628,9 @@ public:
     // CBufferString m_name;
     char pad_00[16];
     int32_t m_parent;
-    // Vector m_pos;
+    Vector m_pos;
     // QuaternionStorage m_quat;
-    char pad_01[28];
+    char pad_01[16];
     float m_scale;
     // QuaternionStorage m_qAlignment;
     char pad_02[16];
@@ -1736,10 +1735,10 @@ public:
     // CBufferString m_sName;
     char pad_00[16];
     bool m_bRootOffset;
-    // Vector m_vRootOffset;
+    Vector m_vRootOffset;
     // CUtlVector< int16 > m_nLocalBoneArray;
     // CUtlVector< float32 > m_flBoneScaleArray;
-    char pad_01[63];
+    char pad_01[48];
 };
 
 class CSeqMultiFetchFlag {
@@ -2644,8 +2643,7 @@ public:
     float m_flNoiseOutputMin;
     float m_flNoiseOutputMax;
     float m_flNoiseScale;
-    // Vector m_vecNoiseOffsetRate;
-    char pad_03[12];
+    Vector m_vecNoiseOffsetRate;
     float m_flNoiseOffset;
     int32_t m_nNoiseOctaves;
     PFNoiseTurbulence_t m_nNoiseTurbulence;
@@ -2655,7 +2653,7 @@ public:
     float m_flNoiseTurbulenceMix;
     float m_flNoiseImgPreviewScale;
     bool m_bNoiseImgPreviewLive;
-    char pad_04[8];
+    char pad_03[8];
     float m_flNoCameraFallback;
     bool m_bUseBoundsCenter;
     ParticleFloatInputMode_t m_nInputMode;
@@ -2672,7 +2670,7 @@ public:
     ParticleFloatBiasType_t m_nBiasType;
     float m_flBiasParameter;
     // CPiecewiseCurve m_Curve;
-    char pad_05[68];
+    char pad_04[68];
 };
 
 class CPerParticleFloatInput {
@@ -2723,32 +2721,30 @@ class CParticleVecInput {
 public:
     char pad_00[16];
     ParticleVecType_t m_nType;
-    // Vector m_vLiteralValue;
+    Vector m_vLiteralValue;
     // Color m_LiteralColor;
     // CParticleNamedValueRef m_NamedValue;
-    char pad_01[84];
+    char pad_01[72];
     bool m_bFollowNamedValue;
     ParticleAttributeIndex_t m_nVectorAttribute;
-    // Vector m_vVectorAttributeScale;
-    char pad_02[12];
+    Vector m_vVectorAttributeScale;
     int32_t m_nControlPoint;
     int32_t m_nDeltaControlPoint;
-    // Vector m_vCPValueScale;
-    // Vector m_vCPRelativePosition;
-    // Vector m_vCPRelativeDir;
-    char pad_03[32];
+    Vector m_vCPValueScale;
+    Vector m_vCPRelativePosition;
+    Vector m_vCPRelativeDir;
     CParticleFloatInput m_FloatComponentX;
     CParticleFloatInput m_FloatComponentY;
     CParticleFloatInput m_FloatComponentZ;
     CParticleFloatInput m_FloatInterp;
     float m_flInterpInput0;
     float m_flInterpInput1;
-    // Vector m_vInterpOutput0;
-    // Vector m_vInterpOutput1;
+    Vector m_vInterpOutput0;
+    Vector m_vInterpOutput1;
     // CColorGradient m_Gradient;
-    // Vector m_vRandomMin;
-    // Vector m_vRandomMax;
-    char pad_04[72];
+    char pad_02[24];
+    Vector m_vRandomMin;
+    Vector m_vRandomMax;
 };
 
 class CPerParticleVecInput {
@@ -2844,8 +2840,8 @@ public:
     // bitfield:1 m_bFreezeTransitionActive;
     // bitfield:1 m_bFreezeTargetState;
     // bitfield:1 m_bCanFreeze;
-    // Vector m_vSortOrigin;
-    char pad_01[28];
+    char pad_01[16];
+    Vector m_vSortOrigin;
     float m_flScale;
     PARTICLE_EHANDLE__* m_hOwner;
     CParticleProperty* m_pOwningParticleProperty;
@@ -2853,13 +2849,14 @@ public:
     float m_flFreezeTransitionStart;
     float m_flFreezeTransitionDuration;
     float m_flFreezeTransitionOverride;
-    // Vector m_LastMin;
-    // Vector m_LastMax;
+    Vector m_LastMin;
+    Vector m_LastMax;
     // CSplitScreenSlot m_nSplitScreenUser;
-    // Vector m_vecAggregationCenter;
-    char pad_03[84];
+    char pad_03[4];
+    Vector m_vecAggregationCenter;
+    char pad_04[44];
     int32_t m_RefCount;
-    char pad_04[4];
+    char pad_05[4];
 };
 
 class IParticleCollection {
@@ -2956,8 +2953,7 @@ public:
     float m_flLinearDrag;
     float m_flAngularDrag;
     bool m_bOverrideMassCenter;
-    // Vector m_vMassCenterOverride;
-    char pad_00[15];
+    Vector m_vMassCenterOverride;
 };
 
 class VPhysXCollisionAttributes_t {
@@ -2988,9 +2984,9 @@ public:
     int8_t m_nTranslateMotion;
     int8_t m_nRotateMotion;
     int8_t m_nFlags;
-    // Vector[2] m_anchor;
+    Vector m_anchor;
     // QuaternionStorage[2] m_axes;
-    char pad_00[56];
+    char pad_00[44];
     float m_maxForce;
     float m_maxTorque;
     float m_linearLimitValue;
@@ -3013,10 +3009,10 @@ public:
     float m_swing2LimitRestitution;
     float m_swing2LimitSpring;
     float m_swing2LimitDamping;
-    // Vector m_goalPosition;
+    Vector m_goalPosition;
     // QuaternionStorage m_goalOrientation;
-    // Vector m_goalAngularVelocity;
-    char pad_01[40];
+    char pad_01[16];
+    Vector m_goalAngularVelocity;
     float m_driveSpringX;
     float m_driveSpringY;
     float m_driveSpringZ;
@@ -3057,16 +3053,14 @@ public:
     bool m_bEnableLinearLimit;
     VPhysXRange_t m_LinearLimit;
     bool m_bEnableLinearMotor;
-    // Vector m_vLinearTargetVelocity;
-    char pad_01[12];
+    Vector m_vLinearTargetVelocity;
     float m_flMaxForce;
     bool m_bEnableSwingLimit;
     VPhysXRange_t m_SwingLimit;
     bool m_bEnableTwistLimit;
     VPhysXRange_t m_TwistLimit;
     bool m_bEnableAngularMotor;
-    // Vector m_vAngularTargetVelocity;
-    char pad_02[12];
+    Vector m_vAngularTargetVelocity;
     float m_flMaxTorque;
     float m_flLinearFrequency;
     float m_flLinearDampingRatio;
@@ -3077,7 +3071,7 @@ public:
     float m_flElasticDamping;
     float m_flPlasticity;
     // CUtlString m_Tag;
-    char pad_03[20];
+    char pad_01[20];
 };
 
 class PhysSoftbodyDesc_t {
@@ -3104,8 +3098,8 @@ public:
 
 class RnSoftbodyCapsule_t {
 public:
-    // Vector[2] m_vCenter;
-    char pad_00[24];
+    Vector m_vCenter;
+    char pad_00[12];
     float m_flRadius;
     uint16_t m_nParticle[2];
 };
@@ -3354,18 +3348,16 @@ public:
 class PermModelInfo_t {
 public:
     uint32_t m_nFlags;
-    // Vector m_vHullMin;
-    // Vector m_vHullMax;
-    // Vector m_vViewMin;
-    // Vector m_vViewMax;
-    char pad_00[48];
+    Vector m_vHullMin;
+    Vector m_vHullMax;
+    Vector m_vViewMin;
+    Vector m_vViewMax;
     float m_flMass;
-    // Vector m_vEyePosition;
-    char pad_01[12];
+    Vector m_vEyePosition;
     float m_flMaxEyeDeflection;
     // CUtlString m_sSurfaceProperty;
     // CUtlString m_keyValueText;
-    char pad_02[16];
+    char pad_00[16];
 };
 
 class PermModelExtPart_t {
@@ -3491,18 +3483,19 @@ public:
     // CUtlString m_InstanceName;
     // CUtlString m_EntityClass;
     // CStrongHandle< InfoForResourceTypeCModel > m_hModel;
-    // Vector m_vOffset;
-    // QAngle m_aAngOffset;
+    char pad_00[96];
+    Vector m_vOffset;
+    QAngle m_aAngOffset;
     // CUtlString m_AttachmentName;
     // CUtlString m_LocalAttachmentOffsetName;
-    char pad_00[136];
+    char pad_01[16];
     ModelConfigAttachmentType_t m_AttachmentType;
     bool m_bBoneMergeFlex;
     bool m_bUserSpecifiedColor;
     bool m_bUserSpecifiedMaterialGroup;
     // CUtlString m_BodygroupOnOtherModels;
     // CUtlString m_MaterialGroupOnOtherModels;
-    char pad_01[89];
+    char pad_02[89];
 };
 
 class CModelConfigElement_UserPick {
@@ -3585,9 +3578,8 @@ public:
 
 class SkeletonBoneBounds_t {
 public:
-    // Vector m_vecCenter;
-    // Vector m_vecSize;
-    char pad_00[24];
+    Vector m_vecCenter;
+    Vector m_vecSize;
 };
 
 class RenderSkeletonBone_t {
@@ -3619,28 +3611,27 @@ public:
 class CMaterialDrawDescriptor {
 public:
     float m_flUvDensity;
-    // Vector m_vTintColor;
-    char pad_00[12];
+    Vector m_vTintColor;
     float m_flAlpha;
-    char pad_01[2];
+    char pad_00[2];
     uint16_t m_nNumMeshlets;
-    char pad_02[4];
+    char pad_01[4];
     uint32_t m_nFirstMeshlet;
     uint32_t m_nAppliedIndexOffset;
     uint8_t m_nDepthVertexBufferIndex;
     uint8_t m_nMeshletPackedIVBIndex;
     // CUtlLeanVector< CMaterialDrawDescriptor::RigidMeshPart_t > m_rigidMeshParts;
-    char pad_03[16];
+    char pad_02[16];
     RenderPrimitiveType_t m_nPrimitiveType;
     int32_t m_nBaseVertex;
     int32_t m_nVertexCount;
     int32_t m_nStartIndex;
     int32_t m_nIndexCount;
-    char pad_04[96];
+    char pad_03[96];
     CRenderBufferBinding m_indexBuffer;
     CRenderBufferBinding m_meshletPackedIVB;
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_material;
-    char pad_05[24];
+    char pad_04[24];
 };
 
 class CMaterialDrawDescriptor::RigidMeshPart_t {
@@ -3664,14 +3655,15 @@ public:
 
 class CSceneObjectData {
 public:
-    // Vector m_vMinBounds;
-    // Vector m_vMaxBounds;
+    Vector m_vMinBounds;
+    Vector m_vMaxBounds;
     // CUtlLeanVector< CMaterialDrawDescriptor > m_drawCalls;
     // CUtlLeanVector< AABB_t > m_drawBounds;
     // CUtlLeanVector< CMeshletDescriptor > m_meshlets;
     // CUtlLeanVector< CSceneObjectData::RTProxyDrawDescriptor_t > m_rtProxyDrawCalls;
-    // Vector4D m_vTintColor;
-    char pad_00[160];
+    char pad_00[64];
+    Vector4D m_vTintColor;
+    char pad_01[56];
 };
 
 class CSceneObjectData::RTProxyDrawDescriptor_t {
@@ -3691,13 +3683,14 @@ public:
     // CUtlString m_name;
     // CUtlString[3] m_influenceNames;
     // Quaternion[3] m_vInfluenceRotations;
-    // Vector[3] m_vInfluenceOffsets;
-    char pad_00[116];
+    char pad_00[80];
+    Vector m_vInfluenceOffsets;
+    char pad_01[24];
     float m_influenceWeights[3];
     bool m_bInfluenceRootTransform[3];
     uint8_t m_nInfluences;
     bool m_bIgnoreRotation;
-    char pad_01[11];
+    char pad_02[11];
 };
 
 class CHitBox {
@@ -3705,9 +3698,9 @@ public:
     // CUtlString m_name;
     // CUtlString m_sSurfaceProperty;
     // CUtlString m_sBoneName;
-    // Vector m_vMinBounds;
-    // Vector m_vMaxBounds;
-    char pad_00[48];
+    char pad_00[24];
+    Vector m_vMinBounds;
+    Vector m_vMaxBounds;
     float m_flShapeRadius;
     uint32_t m_nBoneNameHash;
     int32_t m_nGroupId;
@@ -3794,17 +3787,18 @@ public:
 class CBaseConstraint {
 public:
     // CUtlString m_name;
-    // Vector m_vUpVector;
+    char pad_00[40];
+    Vector m_vUpVector;
     // CUtlLeanVector< CConstraintSlave > m_slaves;
     // CUtlVector< CConstraintTarget > m_targets;
-    char pad_00[96];
+    char pad_01[44];
 };
 
 class CConstraintTarget {
 public:
     // Quaternion m_qOffset;
-    // Vector m_vOffset;
-    char pad_00[60];
+    char pad_00[48];
+    Vector m_vOffset;
     uint32_t m_nBoneHash;
     // CUtlString m_sName;
     char pad_01[8];
@@ -3817,8 +3811,8 @@ public:
 class CConstraintSlave {
 public:
     // Quaternion m_qBaseOrientation;
-    // Vector m_vBasePosition;
-    char pad_00[28];
+    char pad_00[16];
+    Vector m_vBasePosition;
     uint32_t m_nBoneHash;
     float m_flWeight;
     // CUtlString m_sName;
@@ -3893,9 +3887,9 @@ public:
 
 class CBoneConstraintPoseSpaceMorph::Input_t {
 public:
-    // Vector m_inputValue;
+    Vector m_inputValue;
     // CUtlVector< float32 > m_outputWeightList;
-    char pad_00[40];
+    char pad_00[28];
 };
 
 class CBoneConstraintPoseSpaceBone {
@@ -3906,9 +3900,9 @@ public:
 
 class CBoneConstraintPoseSpaceBone::Input_t {
 public:
-    // Vector m_inputValue;
+    Vector m_inputValue;
     // CUtlVector< CTransform > m_outputTransformList;
-    char pad_00[40];
+    char pad_00[28];
 };
 
 class CBoneConstraintDotToMorph {
@@ -3999,9 +3993,9 @@ public:
 class CAnimFoot {
 public:
     // CUtlString m_name;
-    // Vector m_vBallOffset;
-    // Vector m_vHeelOffset;
-    char pad_00[32];
+    char pad_00[8];
+    Vector m_vBallOffset;
+    Vector m_vHeelOffset;
     int32_t m_ankleBoneIndex;
     int32_t m_toeBoneIndex;
 };
@@ -4024,9 +4018,9 @@ public:
     // CUtlString m_name;
     // CUtlString m_ankleBoneName;
     // CUtlString m_toeBoneName;
-    // Vector m_vBallOffset;
-    // Vector m_vHeelOffset;
-    char pad_00[48];
+    char pad_00[24];
+    Vector m_vBallOffset;
+    Vector m_vHeelOffset;
     float m_flFootLength;
     float m_flBindPoseDirectionMS;
     float m_flTraceHeight;
@@ -4050,12 +4044,10 @@ public:
 
 class CFootCycleDefinition {
 public:
-    // Vector m_vStancePositionMS;
-    // Vector m_vMidpointPositionMS;
-    char pad_00[24];
+    Vector m_vStancePositionMS;
+    Vector m_vMidpointPositionMS;
     float m_flStanceDirectionMS;
-    // Vector m_vToStrideStartPos;
-    char pad_01[12];
+    Vector m_vToStrideStartPos;
     CAnimCycle m_stanceCycle;
     CFootCycle m_footLiftCycle;
     CFootCycle m_footOffCycle;
@@ -4065,8 +4057,8 @@ public:
 
 class CFootTrajectory {
 public:
-    // Vector m_vOffset;
-    char pad_00[20];
+    char pad_00[8];
+    Vector m_vOffset;
     float m_flRotationOffset;
     float m_flProgression;
     char pad_01[4];
@@ -4097,12 +4089,11 @@ public:
     NPCPhysicsHullType_t m_eType;
     float m_flCapsuleHeight;
     float m_flCapsuleRadius;
-    // Vector m_vCapsuleCenter1;
-    // Vector m_vCapsuleCenter2;
-    char pad_01[24];
+    Vector m_vCapsuleCenter1;
+    Vector m_vCapsuleCenter2;
     float m_flGroundBoxHeight;
     float m_flGroundBoxWidth;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class SkeletonAnimCapture_t {
@@ -4655,9 +4646,9 @@ class CNmIKEffector {
 public:
     int32_t m_nBodyIndex;
     bool m_bEnabled;
-    // Vector m_vTargetPosition;
+    Vector m_vTargetPosition;
     // Quaternion m_qTargetOrientation;
-    char pad_00[40];
+    char pad_00[28];
     float m_flWeight;
     char pad_01[12];
 };
@@ -4665,9 +4656,8 @@ public:
 class CNmIKBody {
 public:
     float m_flMass;
-    // Vector m_vLocalMassCenter;
-    // Vector m_vRadius;
-    char pad_00[24];
+    Vector m_vLocalMassCenter;
+    Vector m_vRadius;
     float m_flResistance;
 };
 
@@ -4716,25 +4706,23 @@ public:
 
 class CAnimDemoCaptureSettings {
 public:
-    // Vector2D m_vecErrorRangeSplineRotation;
-    // Vector2D m_vecErrorRangeSplineTranslation;
-    // Vector2D m_vecErrorRangeSplineScale;
-    char pad_00[24];
+    Vector2D m_vecErrorRangeSplineRotation;
+    Vector2D m_vecErrorRangeSplineTranslation;
+    Vector2D m_vecErrorRangeSplineScale;
     float m_flIkRotation_MaxSplineError;
     float m_flIkTranslation_MaxSplineError;
-    // Vector2D m_vecErrorRangeQuantizationRotation;
-    // Vector2D m_vecErrorRangeQuantizationTranslation;
-    // Vector2D m_vecErrorRangeQuantizationScale;
-    char pad_01[24];
+    Vector2D m_vecErrorRangeQuantizationRotation;
+    Vector2D m_vecErrorRangeQuantizationTranslation;
+    Vector2D m_vecErrorRangeQuantizationScale;
     float m_flIkRotation_MaxQuantizationError;
     float m_flIkTranslation_MaxQuantizationError;
     // CUtlString m_baseSequence;
-    char pad_02[8];
+    char pad_00[8];
     int32_t m_nBaseSequenceFrame;
     EDemoBoneSelectionMode m_boneSelectionMode;
     // CUtlVector< BoneDemoCaptureSettings_t > m_bones;
     // CUtlVector< IKDemoCaptureSettings_t > m_ikChains;
-    char pad_03[48];
+    char pad_01[48];
 };
 
 class CAnimReplayFrame {
@@ -5676,9 +5664,8 @@ public:
     float m_flSpringStrength;
     float m_flMaxTimeStep;
     float m_flDamping;
-    // Vector m_vBoundsMaxLS;
-    // Vector m_vBoundsMinLS;
-    char pad_00[24];
+    Vector m_vBoundsMaxLS;
+    Vector m_vBoundsMinLS;
     JiggleBoneSimSpace m_eSimSpace;
 };
 
@@ -5802,8 +5789,8 @@ public:
 
 class CVectorAnimParameter {
 public:
-    // Vector m_defaultValue;
-    char pad_00[140];
+    char pad_00[128];
+    Vector m_defaultValue;
     bool m_bInterpolate;
     AnimParamVectorType_t m_vectorType;
     char pad_01[4];
@@ -5912,11 +5899,10 @@ public:
     char pad_00[24];
     CAnimUpdateNodeRef m_pChild;
     HSequence m_hSequence;
-    // Vector2D m_vPos;
-    char pad_01[8];
+    Vector2D m_vPos;
     float m_flDuration;
     bool m_bUseCustomDuration;
-    char pad_02[7];
+    char pad_01[7];
 };
 
 class CBlend2DUpdateNode {
@@ -6021,8 +6007,8 @@ public:
     CAnimInputDamping m_damping;
     AnimVectorSource m_blendSource;
     CAnimParamHandle m_paramIndex;
-    // Vector m_verticalAxis;
-    // Vector m_horizontalAxis;
+    Vector m_verticalAxis;
+    Vector m_horizontalAxis;
     HSequence m_hSequence;
     float m_flMaxValue;
     int32_t m_nSequenceMaxFrame;
@@ -6118,8 +6104,7 @@ public:
 
 class StanceInfo_t {
 public:
-    // Vector m_vPosition;
-    char pad_00[12];
+    Vector m_vPosition;
     float m_flDirection;
 };
 
@@ -6339,13 +6324,11 @@ public:
     char pad_00[88];
     int32_t m_nChainEndBoneIdx;
     int32_t m_nNumBonesInChain;
-    // Vector m_chainForwardDir;
-    char pad_01[12];
+    Vector m_chainForwardDir;
     float m_flBlendWeight;
     float m_flHorizontalAngleLimitDegrees;
     float m_flVerticalAngleLimitDegrees;
-    // Vector m_lookatTarget;
-    char pad_02[12];
+    Vector m_lookatTarget;
     bool m_bIsTargetInWorldSpace;
     bool m_bIsRunningFromDeserializedData;
     float m_flHorizontalAngleDegrees;
@@ -6590,8 +6573,9 @@ public:
 
 class CNmConstVectorNode::CDefinition {
 public:
-    // Vector m_value;
-    char pad_00[32];
+    char pad_00[16];
+    Vector m_value;
+    char pad_01[4];
 };
 
 class CNmConstTargetNode::CDefinition {
@@ -7139,8 +7123,9 @@ public:
     int16_t m_nInputValueNodeIdx;
     bool m_bIsBoneSpaceOffset;
     // Quaternion m_rotationOffset;
-    // Vector m_translationOffset;
-    char pad_01[45];
+    char pad_01[28];
+    Vector m_translationOffset;
+    char pad_02[4];
 };
 
 class CNmTargetSelectorNode::CDefinition {
@@ -7457,15 +7442,14 @@ class CJumpHelperUpdateNode {
 public:
     char pad_00[176];
     CAnimParamHandle m_hTargetParam;
-    // Vector m_flOriginalJumpMovement;
-    char pad_01[12];
+    Vector m_flOriginalJumpMovement;
     float m_flOriginalJumpDuration;
     float m_flJumpStartCycle;
     float m_flJumpEndCycle;
     JumpCorrectionMethod m_eCorrectionMethod;
     bool m_bTranslationAxis[3];
     bool m_bScaleSpeed;
-    char pad_02[4];
+    char pad_01[4];
 };
 
 class CLookAtUpdateNode {
@@ -7638,8 +7622,7 @@ public:
     float m_flBlendTimeSeconds;
     uint8_t m_nChainLength;
     bool m_bIsTargetInWorldSpace;
-    // Vector m_chainForwardDir;
-    char pad_01[14];
+    Vector m_chainForwardDir;
 };
 
 class CNmFollowBoneNode::CDefinition {

@@ -52,11 +52,11 @@ public:
 
 class CSteamAudioProbeLineSegment {
 public:
-    // Vector m_vStart;
-    // Vector m_vEnd;
+    Vector m_vStart;
+    Vector m_vEnd;
     // CUtlVector< float32 > m_vecIntervals;
     // CUtlVector< int32 > m_vecProbeIndices;
-    char pad_00[72];
+    char pad_00[48];
 };
 
 class CSteamAudioProbeGrid {

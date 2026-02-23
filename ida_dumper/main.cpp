@@ -80,6 +80,10 @@ constexpr field_type_t k_types[] = {
     _define_int_type(int64),
     _define_int_type(uint64),
     _define_constant_type(bool),
+    _define_constant_type(float),
+    _define_constant_type(double),
+    _define_constant_type(int),
+    _define_constant_type(short),
     _define_constant_type(char),
     _define_constant_type(wchar_t),
     { "float32", "float", sizeof(float), alignof(float) },
@@ -831,6 +835,37 @@ bool parse_type_scope(HANDLE handle, const CSchemaSystemTypeScope* type_scope, l
     return true;
 }
 
+
+void add_default_classes(loaded_scope_t& scope) {
+    auto& vector = scope.classes.emplace_back("Vector");
+    vector.alignment = alignof(float);
+    vector.size = sizeof(float) * 3;
+    vector.fields.emplace_back("x", "float", 0 * (std::uint32_t)sizeof(float));
+    vector.fields.emplace_back("y", "float", 1 * (std::uint32_t)sizeof(float));
+    vector.fields.emplace_back("z", "float", 2 * (std::uint32_t)sizeof(float));
+
+    auto& vector4d = scope.classes.emplace_back("Vector4D");
+    vector4d.alignment = alignof(float);
+    vector4d.size = sizeof(float) * 4;
+    vector4d.fields.emplace_back("x", "float", 0 * (std::uint32_t)sizeof(float));
+    vector4d.fields.emplace_back("y", "float", 1 * (std::uint32_t)sizeof(float));
+    vector4d.fields.emplace_back("z", "float", 2 * (std::uint32_t)sizeof(float));
+    vector4d.fields.emplace_back("w", "float", 3 * (std::uint32_t)sizeof(float));
+
+    auto& vector2d = scope.classes.emplace_back("Vector2D");
+    vector2d.alignment = alignof(float);
+    vector2d.size = sizeof(float) * 2;
+    vector2d.fields.emplace_back("x", "float", 0 * (std::uint32_t)sizeof(float));
+    vector2d.fields.emplace_back("y", "float", 1 * (std::uint32_t)sizeof(float));
+
+    auto& qangle = scope.classes.emplace_back("QAngle");
+    qangle.alignment = alignof(float);
+    qangle.size = sizeof(float) * 3;
+    qangle.fields.emplace_back("pitch", "float", 0 * (std::uint32_t)sizeof(float));
+    qangle.fields.emplace_back("yaw",   "float", 1 * (std::uint32_t)sizeof(float));
+    qangle.fields.emplace_back("roll",  "float", 2 * (std::uint32_t)sizeof(float));
+}
+
 int main() {
     const auto pid = get_pid_from_name("cs2.exe");
     if (pid == 0) {
@@ -945,6 +980,8 @@ int main() {
                 std::println(stderr, "failed to parse global types");
                 return 1;
             }
+
+            add_default_classes(loaded_global_scope);
         }
 
         assert(

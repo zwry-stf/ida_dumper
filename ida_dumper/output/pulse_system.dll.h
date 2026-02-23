@@ -664,8 +664,8 @@ public:
 class CPulseTurtleGraphicsCursor {
 public:
     // Color m_Color;
-    // Vector2D m_vPos;
-    char pad_00[220];
+    char pad_00[212];
+    Vector2D m_vPos;
     float m_flHeadingDeg;
     bool m_bPenUp;
     char pad_01[7];
