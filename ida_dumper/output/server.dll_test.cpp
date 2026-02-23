@@ -1111,7 +1111,7 @@ static_assert(alignof(CAnimGraphNetworkedVariables) == 4);
 static_assert(sizeof(CFootstepTableHandle0) == 8);
 static_assert(alignof(CFootstepTableHandle0) == 1);
 // ResponseFollowup
-static_assert(sizeof(ResponseFollowup0) == 49);
+static_assert(sizeof(ResponseFollowup0) == 56);
 static_assert(alignof(ResponseFollowup0) == 8);
 // ResponseParams
 static_assert(sizeof(ResponseParams0) == 32);

@@ -3993,12 +3993,15 @@ public:
     char* followup_concept; // 0x0
     char* followup_contexts; // 0x8
     float followup_delay; // 0x10
-    char* followup_target; // 0x14
-    char* followup_entityiotarget; // 0x1c
-    char* followup_entityioinput; // 0x24
+    /* !!Invalid padding!! */ // char* followup_target; // 0x14
+    char pad_00[8];
+    /* !!Invalid padding!! */ // char* followup_entityiotarget; // 0x1c
+    char pad_01[8];
+    /* !!Invalid padding!! */ // char* followup_entityioinput; // 0x24
+    char pad_02[8];
     float followup_entityiodelay; // 0x2c
     bool bFired; // 0x30
-}; // size: 0x31
+}; // size: 0x38
 
 /// ResponseParams
 class __declspec(align(8)) ResponseParams0 {
@@ -4032,7 +4035,6 @@ public:
     char* m_szWorldContext; // 0x190
     ResponseFollowup m_Followup; // 0x198
     // CUtlSymbol m_recipientFilter;
-    char pad_01[7];
 }; // size: 0x1d0
 
 /// CAI_Expresser

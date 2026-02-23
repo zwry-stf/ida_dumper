@@ -149,11 +149,44 @@
   <ItemGroup>
     <ClCompile Include="dumper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="output\animationsystem.dll_test.cpp" />
     <ClCompile Include="output\client.dll_test.cpp" />
+    <ClCompile Include="output\engine2.dll_test.cpp" />
+    <ClCompile Include="output\global_types_test.cpp" />
+    <ClCompile Include="output\host.dll_test.cpp" />
+    <ClCompile Include="output\materialsystem2.dll_test.cpp" />
+    <ClCompile Include="output\particles.dll_test.cpp" />
+    <ClCompile Include="output\pulse_system.dll_test.cpp" />
+    <ClCompile Include="output\rendersystemdx11.dll_test.cpp" />
+    <ClCompile Include="output\resourcesystem.dll_test.cpp" />
+    <ClCompile Include="output\scenesystem.dll_test.cpp" />
+    <ClCompile Include="output\schemasystem.dll_test.cpp" />
+    <ClCompile Include="output\server.dll_test.cpp" />
+    <ClCompile Include="output\soundsystem.dll_test.cpp" />
+    <ClCompile Include="output\steamaudio.dll_test.cpp" />
+    <ClCompile Include="output\vphysics2.dll_test.cpp" />
+    <ClCompile Include="output\worldrenderer.dll_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dumper.h" />
     <ClInclude Include="mem.h" />
+    <ClInclude Include="output\animationsystem.dll.h" />
+    <ClInclude Include="output\client.dll.h" />
+    <ClInclude Include="output\engine2.dll.h" />
+    <ClInclude Include="output\global_types.h" />
+    <ClInclude Include="output\host.dll.h" />
+    <ClInclude Include="output\materialsystem2.dll.h" />
+    <ClInclude Include="output\particles.dll.h" />
+    <ClInclude Include="output\pulse_system.dll.h" />
+    <ClInclude Include="output\rendersystemdx11.dll.h" />
+    <ClInclude Include="output\resourcesystem.dll.h" />
+    <ClInclude Include="output\scenesystem.dll.h" />
+    <ClInclude Include="output\schemasystem.dll.h" />
+    <ClInclude Include="output\server.dll.h" />
+    <ClInclude Include="output\soundsystem.dll.h" />
+    <ClInclude Include="output\steamaudio.dll.h" />
+    <ClInclude Include="output\vphysics2.dll.h" />
+    <ClInclude Include="output\worldrenderer.dll.h" />
     <ClInclude Include="sdk.h" />
     <ClInclude Include="str_util.h" />
   </ItemGroup>

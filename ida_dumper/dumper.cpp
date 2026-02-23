@@ -401,6 +401,17 @@ bool dumper::parse_class(const CSchemaClassData& cls, loaded_class_t& out) {
     out.size = cls.class_size;
     out.alignment = (std::max)(static_cast<std::int32_t>(cls.alignment), 1);
 
+    if ((out.size % static_cast<std::uint32_t>(out.alignment)) != 0) {
+        std::println(
+            stderr,
+            "class '{}' was removed due to invalid alignment '{} with size '{}",
+            out.name,
+            out.alignment,
+            out.size
+        );
+        return false;
+    }
+
     // get parent class
     if (cls.base_class_count > 0 &&
         cls.derrived_classes != nullptr) {
@@ -766,6 +777,7 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         std::string translated_type_name;
         std::uint32_t last_pos_with_alignment;
         std::size_t format_delimiter;
+        const auto last_pos = byte_pos;
         if (
             !get_field_type(
                 f,
@@ -814,6 +826,10 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         // add type
         source += "    ";
 
+        if (last_pos_with_alignment > f.offset) {
+            source += "/* !!Invalid padding!! */ // ";
+        }
+
         if (format_delimiter == std::string::npos) {
             source += translated_type_name;
         }
@@ -830,6 +846,15 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
 
         source += std::format("; // {:#x}\n", f.offset);
 
+        if (last_pos_with_alignment > f.offset) {
+            if (last_pos < byte_pos) {
+                const auto padding_size = byte_pos - last_pos;
+                source += "    char pad_0" + std::to_string(cls.pad_idx);
+                source += "[" + std::to_string(padding_size) + "];\n";
+                cls.pad_idx++;
+            }
+        }
+
         is_first_field = false;
     }
 
@@ -841,6 +866,10 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
     }
     else {
         cls.size = byte_pos;
+        const auto aligned = cls.size % static_cast<std::uint32_t>(cls.alignment);
+        if (aligned != 0) {
+            cls.size += static_cast<std::uint32_t>(cls.alignment) - aligned;
+        }
     }
 
     source += std::format("}}; // size: {:#x}\n\n", cls.size);

@@ -5902,7 +5902,7 @@ static_assert(alignof(CNetworkTransmitComponent) == 1);
 static_assert(sizeof(AmmoTypeInfo_t) == 56);
 static_assert(alignof(AmmoTypeInfo_t) == 8);
 // ResponseFollowup
-static_assert(sizeof(ResponseFollowup) == 49);
+static_assert(sizeof(ResponseFollowup) == 56);
 static_assert(alignof(ResponseFollowup) == 8);
 // CCommentarySystem
 static_assert(sizeof(CCommentarySystem) == 96);
