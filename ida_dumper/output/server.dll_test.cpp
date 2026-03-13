@@ -2602,7 +2602,7 @@ static_assert(alignof(CCSTeam) == 8);
 static_assert(sizeof(CMapInfo) == 1240);
 static_assert(alignof(CMapInfo) == 8);
 // CCSBot
-static_assert(sizeof(CCSBot) == 28152);
+static_assert(sizeof(CCSBot) == 28200);
 static_assert(alignof(CCSBot) == 8);
 // CFogVolume
 static_assert(sizeof(CFogVolume) == 1880);

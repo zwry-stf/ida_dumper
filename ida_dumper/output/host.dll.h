@@ -25,7 +25,9 @@ public:
 class __declspec(align(1)) EmptyTestScript0 {
 public:
     // CAnimScriptParam< float32 > m_hTest;
-    char pad_00[32];
+    char pad_00[16];
+    char m_hTest[1]; // 0x10
+    char pad_01[15];
 }; // size: 0x20
 
 #ifdef __cplusplus

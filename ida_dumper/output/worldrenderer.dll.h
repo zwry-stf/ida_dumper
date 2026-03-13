@@ -57,40 +57,60 @@ public:
 class __declspec(align(1)) CScriptComponent : public CEntityComponent {
 public:
     // CUtlSymbolLarge m_scriptClassName;
-    char pad_01[48];
+    char pad_01[40];
+    char m_scriptClassName[1]; // 0x30
+    char pad_02[7];
 }; // size: 0x38
 
 /// EntityIOConnectionData_t
 class __declspec(align(8)) EntityIOConnectionData_t0 {
 public:
     // CUtlString m_outputName;
-    char pad_00[8];
+    char m_outputName[1]; // 0x0
+    char pad_00[4];
     uint32_t m_targetType; // 0x8
     // CUtlString m_targetName;
+    char pad_01[4];
+    char m_targetName[1]; // 0x10
     // CUtlString m_inputName;
+    char pad_02[7];
+    char m_inputName[1]; // 0x18
     // CUtlString m_overrideParam;
-    char pad_01[28];
+    char pad_03[7];
+    char m_overrideParam[1]; // 0x20
+    char pad_04[4];
     float m_flDelay; // 0x28
     int32_t m_nTimesToFire; // 0x2c
     // KeyValues3 m_paramMap;
-    char pad_02[16];
+    char m_paramMap[1]; // 0x30
+    char pad_05[15];
 }; // size: 0x40
 
 /// EntityKeyValueData_t
 class __declspec(align(8)) EntityKeyValueData_t0 {
 public:
     // CUtlVector< EntityIOConnectionData_t > m_connections;
+    char pad_00[8];
+    char m_connections[1]; // 0x8
     // CUtlBinaryBlock m_keyValuesData;
-    char pad_00[56];
+    char pad_01[23];
+    char m_keyValuesData[1]; // 0x20
+    char pad_02[23];
 }; // size: 0x38
 
 /// PermEntityLumpData_t
 class __declspec(align(8)) PermEntityLumpData_t0 {
 public:
     // CUtlString m_name;
+    char pad_00[8];
+    char m_name[1]; // 0x8
     // CUtlVector< CStrongHandleCopyable< InfoForResourceTypeCEntityLump > > m_childLumps;
+    char pad_01[7];
+    char m_childLumps[1]; // 0x10
     // CUtlLeanVector< EntityKeyValueData_t > m_entityKeyValues;
-    char pad_00[56];
+    char pad_02[23];
+    char m_entityKeyValues[1]; // 0x28
+    char pad_03[15];
 }; // size: 0x38
 
 /// SceneObject_t
@@ -103,7 +123,9 @@ public:
     float m_flFadeEndDistance; // 0x38
     Vector4D m_vTintColor; // 0x3c
     // CUtlString m_skin;
-    char pad_01[12];
+    char pad_01[4];
+    char m_skin[1]; // 0x50
+    char pad_02[4];
     ObjectTypeFlags_t m_nObjectTypeFlags; // 0x58
     Vector m_vLightingOrigin; // 0x5c
     int16_t m_nOverlayRenderOrder; // 0x68
@@ -111,8 +133,12 @@ public:
     int32_t m_nCubeMapPrecomputedHandshake; // 0x6c
     int32_t m_nLightProbeVolumePrecomputedHandshake; // 0x70
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
+    char pad_03[4];
+    char m_renderableModel[1]; // 0x78
     // CStrongHandle< InfoForResourceTypeCRenderMesh > m_renderable;
-    char pad_02[20];
+    char pad_04[7];
+    char m_renderable[1]; // 0x80
+    char pad_05[7];
 }; // size: 0x88
 
 /// BaseSceneObjectOverride_t
@@ -138,9 +164,11 @@ public:
     uint32_t m_nSubSceneObject; // 0x4
     uint32_t m_nDrawCallIndex; // 0x8
     // CStrongHandle< InfoForResourceTypeIMaterial2 > m_pMaterial;
-    char pad_01[12];
-    Vector m_vLinearTintColor; // 0x18
+    char pad_01[4];
+    char m_pMaterial[1]; // 0x10
     char pad_02[4];
+    Vector m_vLinearTintColor; // 0x18
+    char pad_03[4];
 }; // size: 0x28
 
 /// BakedLightingInfo_t
@@ -156,8 +184,12 @@ public:
     uint8_t m_nChartPackIterations; // 0x14
     uint8_t m_nVradQuality; // 0x15
     // CUtlVector< CStrongHandle< InfoForResourceTypeCTextureBase > > m_lightMaps;
+    char pad_00[2];
+    char m_lightMaps[1]; // 0x18
     // CUtlVector< BakedLightingInfo_t::BakedShadowAssignment_t > m_bakedShadows;
-    char pad_00[50];
+    char pad_01[23];
+    char m_bakedShadows[1]; // 0x30
+    char pad_02[23];
 }; // size: 0x48
 
 /// BakedLightingInfo_t::BakedShadowAssignment_t
@@ -175,8 +207,11 @@ public:
     int32_t m_nElementCount; // 0x0
     int32_t m_nElementSizeInBytes; // 0x4
     // CUtlVector< RenderInputLayoutField_t > m_inputLayoutFields;
+    char m_inputLayoutFields[1]; // 0x8
     // CUtlVector< uint8 > m_pData;
-    char pad_00[48];
+    char pad_00[23];
+    char m_pData[1]; // 0x20
+    char pad_01[23];
 }; // size: 0x38
 
 /// AggregateInstanceStreamOnDiskData_t
@@ -184,14 +219,17 @@ class __declspec(align(8)) AggregateInstanceStreamOnDiskData_t0 {
 public:
     uint32_t m_DecodedSize; // 0x0
     // CUtlBinaryBlock m_BufferData;
-    char pad_00[20];
+    char pad_00[4];
+    char m_BufferData[1]; // 0x8
+    char pad_01[15];
 }; // size: 0x18
 
 /// AggregateVertexAlbedoStreamOnDiskData_t
 class __declspec(align(8)) AggregateVertexAlbedoStreamOnDiskData_t0 {
 public:
     // CUtlBinaryBlock m_BufferData;
-    char pad_00[16];
+    char m_BufferData[1]; // 0x0
+    char pad_00[15];
 }; // size: 0x10
 
 /// AggregateMeshInfo_t
@@ -204,13 +242,13 @@ public:
     int16_t m_nDrawCallIndex; // 0x8
     int16_t m_nLODSetupIndex; // 0xa
     // Color m_vTintColor;
-    char pad_00[4];
+    char m_vTintColor[1]; // 0xc
     ObjectTypeFlags_t m_objectFlags; // 0x10
     int32_t m_nLightProbeVolumePrecomputedHandshake; // 0x14
     uint32_t m_nInstanceStreamOffset; // 0x18
     uint32_t m_nVertexAlbedoStreamOffset; // 0x1c
     AggregateInstanceStream_t m_instanceStreams; // 0x20
-    char pad_01[3];
+    char pad_00[3];
 }; // size: 0x24
 
 /// AggregateLODSetup_t
@@ -219,7 +257,8 @@ public:
     Vector m_vLODOrigin; // 0x0
     float m_fMaxObjectScale; // 0xc
     // CUtlVector< float32 > m_fSwitchDistances;
-    char pad_00[24];
+    char m_fSwitchDistances[1]; // 0x10
+    char pad_00[23];
 }; // size: 0x28
 
 /// AggregateSceneObject_t
@@ -231,11 +270,21 @@ public:
     int16_t m_instanceStream; // 0xa
     int16_t m_vertexAlbedoStream; // 0xc
     // CUtlVector< AggregateMeshInfo_t > m_aggregateMeshes;
+    char pad_00[2];
+    char m_aggregateMeshes[1]; // 0x10
     // CUtlVector< AggregateLODSetup_t > m_lodSetups;
+    char pad_01[23];
+    char m_lodSetups[1]; // 0x28
     // CUtlVector< uint16 > m_visClusterMembership;
+    char pad_02[23];
+    char m_visClusterMembership[1]; // 0x40
     // CUtlVector< matrix3x4_t > m_fragmentTransforms;
+    char pad_03[23];
+    char m_fragmentTransforms[1]; // 0x58
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
-    char pad_00[106];
+    char pad_04[23];
+    char m_renderableModel[1]; // 0x70
+    char pad_05[7];
 }; // size: 0x78
 
 /// RTProxyBLAS_t
@@ -262,7 +311,8 @@ public:
     uint32_t m_nBLASIndex; // 0x4
     uint32_t m_nVertexAlbedoByteOffset; // 0x8
     // matrix3x4_t m_mWorldFromLocal;
-    char pad_00[48];
+    char m_mWorldFromLocal[1]; // 0xc
+    char pad_00[47];
 }; // size: 0x3c
 
 /// AggregateRTProxySceneObject_t
@@ -270,11 +320,21 @@ class __declspec(align(8)) AggregateRTProxySceneObject_t0 {
 public:
     int16_t m_nLayer; // 0x0
     // CUtlVector< RTProxyBLAS_t > m_BLASes;
+    char pad_00[6];
+    char m_BLASes[1]; // 0x8
     // CUtlVector< RTProxyInstanceInfo_t > m_Instances;
+    char pad_01[23];
+    char m_Instances[1]; // 0x20
     // CUtlBinaryBlock m_VBData;
+    char pad_02[23];
+    char m_VBData[1]; // 0x38
     // CUtlBinaryBlock m_IBData;
+    char pad_03[15];
+    char m_IBData[1]; // 0x48
     // CUtlBinaryBlock m_InstanceAlbedoData;
-    char pad_00[102];
+    char pad_04[15];
+    char m_InstanceAlbedoData[1]; // 0x58
+    char pad_05[15];
 }; // size: 0x68
 
 /// ClutterTile_t
@@ -292,37 +352,72 @@ public:
     ObjectTypeFlags_t m_flags; // 0x18
     int16_t m_nLayer; // 0x1c
     // CUtlVector< Vector > m_instancePositions;
+    char pad_00[2];
+    char m_instancePositions[1]; // 0x20
     // CUtlVector< float32 > m_instanceScales;
+    char pad_01[47];
+    char m_instanceScales[1]; // 0x50
     // CUtlVector< Color > m_instanceTintSrgb;
+    char pad_02[23];
+    char m_instanceTintSrgb[1]; // 0x68
     // CUtlVector< ClutterTile_t > m_tiles;
+    char pad_03[23];
+    char m_tiles[1]; // 0x80
     // CStrongHandle< InfoForResourceTypeCModel > m_renderableModel;
+    char pad_04[23];
+    char m_renderableModel[1]; // 0x98
     // CUtlStringToken m_materialGroup;
-    char pad_00[132];
+    char pad_05[7];
+    char m_materialGroup[1]; // 0xa0
     float m_flBeginCullSize; // 0xa4
     float m_flEndCullSize; // 0xa8
-    char pad_01[4];
+    char pad_06[4];
 }; // size: 0xb0
 
 /// WorldNode_t
 class __declspec(align(8)) WorldNode_t0 {
 public:
     // CUtlVector< SceneObject_t > m_sceneObjects;
+    char m_sceneObjects[1]; // 0x0
     // CUtlVector< uint16 > m_visClusterMembership;
+    char pad_00[23];
+    char m_visClusterMembership[1]; // 0x18
     // CUtlVector< AggregateSceneObject_t > m_aggregateSceneObjects;
+    char pad_01[23];
+    char m_aggregateSceneObjects[1]; // 0x30
     // CUtlVector< ClutterSceneObject_t > m_clutterSceneObjects;
+    char pad_02[23];
+    char m_clutterSceneObjects[1]; // 0x48
     // CUtlVector< AggregateRTProxySceneObject_t > m_rtProxies;
+    char pad_03[23];
+    char m_rtProxies[1]; // 0x60
     // CUtlVector< ExtraVertexStreamOverride_t > m_extraVertexStreamOverrides;
+    char pad_04[23];
+    char m_extraVertexStreamOverrides[1]; // 0x78
     // CUtlVector< MaterialOverride_t > m_materialOverrides;
+    char pad_05[23];
+    char m_materialOverrides[1]; // 0x90
     // CUtlVector< WorldNodeOnDiskBufferData_t > m_extraVertexStreams;
+    char pad_06[23];
+    char m_extraVertexStreams[1]; // 0xa8
     // CUtlVector< AggregateInstanceStreamOnDiskData_t > m_aggregateInstanceStreams;
+    char pad_07[23];
+    char m_aggregateInstanceStreams[1]; // 0xc0
     // CUtlVector< AggregateVertexAlbedoStreamOnDiskData_t > m_vertexAlbedoStreams;
+    char pad_08[23];
+    char m_vertexAlbedoStreams[1]; // 0xd8
     // CUtlVector< CUtlString > m_layerNames;
+    char pad_09[23];
+    char m_layerNames[1]; // 0xf0
     // CUtlVector< uint8 > m_sceneObjectLayerIndices;
+    char pad_10[23];
+    char m_sceneObjectLayerIndices[1]; // 0x108
     // CUtlString m_grassFileName;
-    char pad_00[296];
+    char pad_11[23];
+    char m_grassFileName[1]; // 0x120
     BakedLightingInfo_t m_nodeLightingInfo; // 0x128
     bool m_bHasBakedGeometryFlag; // 0x170
-    char pad_01[7];
+    char pad_012[7];
 }; // size: 0x178
 
 /// WorldBuilderParams_t
@@ -345,8 +440,12 @@ public:
     Vector m_vMaxBounds; // 0x1c
     float m_flMinimumDistance; // 0x28
     // CUtlVector< int32 > m_ChildNodeIndices;
+    char pad_00[4];
+    char m_ChildNodeIndices[1]; // 0x30
     // CUtlString m_worldNodePrefix;
-    char pad_00[36];
+    char pad_01[23];
+    char m_worldNodePrefix[1]; // 0x48
+    char pad_02[7];
 }; // size: 0x50
 
 /// World_t
@@ -354,10 +453,12 @@ class __declspec(align(8)) World_t0 {
 public:
     WorldBuilderParams_t m_builderParams; // 0x0
     // CUtlVector< NodeData_t > m_worldNodes;
-    char pad_00[24];
+    char m_worldNodes[1]; // 0x60
+    char pad_00[16];
     BakedLightingInfo_t m_worldLightingInfo; // 0x78
     // CUtlVector< CStrongHandleCopyable< InfoForResourceTypeCEntityLump > > m_entityLumps;
-    char pad_01[24];
+    char m_entityLumps[1]; // 0xc0
+    char pad_01[23];
 }; // size: 0xd8
 
 /// VoxelVisBlockOffset_t
@@ -404,11 +505,15 @@ public:
     char pad_00[20];
     int32_t m_nameStringableIndex; // 0x14
     // CUtlSymbolLarge m_name;
+    char m_name[1]; // 0x18
     // CUtlSymbolLarge m_designerName;
-    char pad_01[24];
+    char pad_01[7];
+    char m_designerName[1]; // 0x20
+    char pad_02[12];
     uint32_t m_flags; // 0x30
     // WorldGroupId_t m_worldGroupId;
-    char pad_02[8];
+    char pad_03[4];
+    char m_worldGroupId[1]; // 0x38
     uint32_t m_fDataObjectTypes; // 0x3c
     ChangeAccessorFieldPathIndex_t m_PathIndex; // 0x40
     CEntityAttributeTable* m_pAttributes; // 0x48
@@ -421,7 +526,8 @@ public:
 class __declspec(align(8)) CEntityInstance {
 public:
     // CUtlSymbolLarge m_iszPrivateVScripts;
-    char pad_00[16];
+    char pad_00[8];
+    char m_iszPrivateVScripts[1]; // 0x8
     CEntityIdentity* m_pEntity; // 0x10
     char pad_01[24];
     CScriptComponent* m_CScriptComponent; // 0x30

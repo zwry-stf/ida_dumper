@@ -49,7 +49,9 @@ public:
 class __declspec(align(1)) CScriptComponent : public CEntityComponent {
 public:
     // CUtlSymbolLarge m_scriptClassName;
-    char pad_01[48];
+    char pad_01[40];
+    char m_scriptClassName[1]; // 0x30
+    char pad_02[7];
 }; // size: 0x38
 
 /// ChangeAccessorFieldPathIndex_t
@@ -74,7 +76,8 @@ public:
 class __declspec(align(1)) EventProfileStorageAvailable_t0 {
 public:
     // CSplitScreenSlot m_nSplitScreenSlot;
-    char pad_00[4];
+    char m_nSplitScreenSlot[1]; // 0x0
+    char pad_00[3];
 }; // size: 0x4
 
 /// EventSplitScreenStateChanged_t
@@ -89,12 +92,24 @@ public:
     EngineLoopState_t m_LoopState; // 0x0
     int32_t m_nClientOutputFrames; // 0x28
     // float64 m_flRealTime;
+    char pad_00[4];
+    char m_flRealTime[1]; // 0x30
     // float64 m_flRenderTime;
+    char pad_01[7];
+    char m_flRenderTime[1]; // 0x38
     // float64 m_flRenderFrameTime;
+    char pad_02[7];
+    char m_flRenderFrameTime[1]; // 0x40
     // float64 m_flRenderFrameTimeUnbounded;
+    char pad_03[7];
+    char m_flRenderFrameTimeUnbounded[1]; // 0x48
     // float64 m_flRenderFrameTimeUnscaled;
+    char pad_04[7];
+    char m_flRenderFrameTimeUnscaled[1]; // 0x50
     // float64 m_flTickRemainder;
-    char pad_00[52];
+    char pad_05[7];
+    char m_flTickRemainder[1]; // 0x58
+    char pad_06[7];
 }; // size: 0x60
 
 /// EventClientPollInput_t
@@ -112,7 +127,8 @@ public:
     float m_flRealTime; // 0x28
     float m_flTickInterval; // 0x2c
     // float64 m_flTickStartTime;
-    char pad_00[8];
+    char m_flTickStartTime[1]; // 0x30
+    char pad_00[7];
 }; // size: 0x38
 
 /// EventClientProcessGameInput_t
@@ -128,12 +144,17 @@ class __declspec(align(4)) EventClientPreOutput_t0 {
 public:
     EngineLoopState_t m_LoopState; // 0x0
     // float64 m_flRenderTime;
+    char m_flRenderTime[1]; // 0x28
     // float64 m_flRenderFrameTime;
+    char pad_00[7];
+    char m_flRenderFrameTime[1]; // 0x30
     // float64 m_flRenderFrameTimeUnbounded;
-    char pad_00[24];
+    char pad_01[7];
+    char m_flRenderFrameTimeUnbounded[1]; // 0x38
+    char pad_02[4];
     float m_flRealTime; // 0x40
     bool m_bRenderOnly; // 0x44
-    char pad_01[3];
+    char pad_03[3];
 }; // size: 0x48
 
 /// EventClientPreOutputParallelWithServer_t
@@ -164,7 +185,8 @@ class __declspec(align(4)) EventClientPostOutput_t0 {
 public:
     EngineLoopState_t m_LoopState; // 0x0
     // float64 m_flRenderTime;
-    char pad_00[8];
+    char m_flRenderTime[1]; // 0x28
+    char pad_00[4];
     float m_flRenderFrameTime; // 0x30
     float m_flRenderFrameTimeUnbounded; // 0x34
     bool m_bRenderOnly; // 0x38
@@ -362,8 +384,11 @@ public:
 class __declspec(align(1)) CEntityAttributeTable0 {
 public:
     // CUtlOrderedMap< CUtlStringToken, Attribute_t > m_Attributes;
+    char m_Attributes[1]; // 0x0
     // CUtlOrderedMap< CUtlStringToken, CUtlString > m_Names;
-    char pad_00[80];
+    char pad_00[39];
+    char m_Names[1]; // 0x28
+    char pad_01[39];
 }; // size: 0x50
 
 /// CVariantDefaultAllocator
@@ -412,11 +437,15 @@ public:
     char pad_00[20];
     int32_t m_nameStringableIndex; // 0x14
     // CUtlSymbolLarge m_name;
+    char m_name[1]; // 0x18
     // CUtlSymbolLarge m_designerName;
-    char pad_01[24];
+    char pad_01[7];
+    char m_designerName[1]; // 0x20
+    char pad_02[12];
     uint32_t m_flags; // 0x30
     // WorldGroupId_t m_worldGroupId;
-    char pad_02[8];
+    char pad_03[4];
+    char m_worldGroupId[1]; // 0x38
     uint32_t m_fDataObjectTypes; // 0x3c
     ChangeAccessorFieldPathIndex_t m_PathIndex; // 0x40
     CEntityAttributeTable* m_pAttributes; // 0x48
@@ -435,7 +464,8 @@ public:
 class __declspec(align(8)) CEntityInstance {
 public:
     // CUtlSymbolLarge m_iszPrivateVScripts;
-    char pad_00[16];
+    char pad_00[8];
+    char m_iszPrivateVScripts[1]; // 0x8
     CEntityIdentity* m_pEntity; // 0x10
     char pad_01[24];
     CScriptComponent* m_CScriptComponent; // 0x30

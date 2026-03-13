@@ -95,18 +95,24 @@ public:
 class __declspec(align(8)) CPulse_BlackboardReference {
 public:
     // CStrongHandle< InfoForResourceTypeIPulseGraphDef > m_hBlackboardResource;
+    char m_hBlackboardResource[1]; // 0x0
     // PulseSymbol_t m_BlackboardResource;
-    char pad_00[24];
+    char pad_00[7];
+    char m_BlackboardResource[1]; // 0x8
+    char pad_01[12];
     PulseDocNodeID_t m_nNodeID; // 0x18
     // CGlobalSymbol m_NodeName;
-    char pad_01[12];
+    char pad_02[4];
+    char m_NodeName[1]; // 0x20
+    char pad_03[7];
 }; // size: 0x28
 
 class __declspec(align(8)) CPulse_InvokeBinding {
 public:
     PulseRegisterMap_t m_RegisterMap; // 0x0
     // PulseSymbol_t m_FuncName;
-    char pad_00[16];
+    char m_FuncName[1]; // 0x30
+    char pad_00[12];
     PulseRuntimeCellIndex_t m_nCellIndex; // 0x40
     PulseRuntimeChunkIndex_t m_nSrcChunk; // 0x44
     int32_t m_nSrcInstruction; // 0x48
@@ -116,7 +122,8 @@ public:
 class __declspec(align(8)) CPulse_CallInfo {
 public:
     // PulseSymbol_t m_PortName;
-    char pad_00[16];
+    char m_PortName[1]; // 0x0
+    char pad_00[12];
     PulseDocNodeID_t m_nEditorNodeID; // 0x10
     char pad_01[4];
     PulseRegisterMap_t m_RegisterMap; // 0x18
@@ -136,20 +143,48 @@ public:
 class __declspec(align(8)) CPulseGraphDef {
 public:
     // PulseSymbol_t m_DomainIdentifier;
+    char pad_00[8];
+    char m_DomainIdentifier[1]; // 0x8
     // CPulseValueFullType m_DomainSubType;
+    char pad_01[15];
+    char m_DomainSubType[1]; // 0x18
     // PulseSymbol_t m_ParentMapName;
+    char pad_02[23];
+    char m_ParentMapName[1]; // 0x30
     // PulseSymbol_t m_ParentXmlName;
+    char pad_03[15];
+    char m_ParentXmlName[1]; // 0x40
     // CUtlVector< CPulse_Chunk* > m_Chunks;
+    char pad_04[15];
+    char m_Chunks[1]; // 0x50
     // CUtlVector< CPulseCell_Base* > m_Cells;
+    char pad_05[23];
+    char m_Cells[1]; // 0x68
     // CUtlVector< CPulse_Variable > m_Vars;
+    char pad_06[23];
+    char m_Vars[1]; // 0x80
     // CUtlVector< CPulse_PublicOutput > m_PublicOutputs;
+    char pad_07[23];
+    char m_PublicOutputs[1]; // 0x98
     // CUtlVector< CPulse_InvokeBinding* > m_InvokeBindings;
+    char pad_08[23];
+    char m_InvokeBindings[1]; // 0xb0
     // CUtlVector< CPulse_CallInfo* > m_CallInfos;
+    char pad_09[23];
+    char m_CallInfos[1]; // 0xc8
     // CUtlVector< CPulse_Constant > m_Constants;
+    char pad_10[23];
+    char m_Constants[1]; // 0xe0
     // CUtlVector< CPulse_DomainValue > m_DomainValues;
+    char pad_11[23];
+    char m_DomainValues[1]; // 0xf8
     // CUtlVector< CPulse_BlackboardReference > m_BlackboardReferences;
+    char pad_12[23];
+    char m_BlackboardReferences[1]; // 0x110
     // CUtlVector< CPulse_OutputConnection* > m_OutputConnections;
-    char pad_00[408];
+    char pad_13[23];
+    char m_OutputConnections[1]; // 0x128
+    char pad_014[111];
 }; // size: 0x198
 
 class __declspec(align(1)) CBasePulseGraphInstance {
@@ -175,7 +210,8 @@ public:
 class __declspec(align(4)) CPulse_OutflowConnection {
 public:
     // PulseSymbol_t m_SourceOutflowName;
-    char pad_00[16];
+    char m_SourceOutflowName[1]; // 0x0
+    char pad_00[12];
     PulseRuntimeChunkIndex_t m_nDestChunk; // 0x10
     int32_t m_nInstruction; // 0x14
     PulseRegisterMap_t m_OutflowRegisterMap; // 0x18
@@ -200,14 +236,16 @@ public:
 class __declspec(align(8)) PulseNodeDynamicOutflows_t__DynamicOutflow_t {
 public:
     // CGlobalSymbol m_OutflowID;
-    char pad_00[8];
+    char m_OutflowID[1]; // 0x0
+    char pad_00[4];
     CPulse_OutflowConnection m_Connection; // 0x8
 }; // size: 0x50
 
 class __declspec(align(8)) PulseNodeDynamicOutflows_t {
 public:
     // CUtlVector< PulseNodeDynamicOutflows_t::DynamicOutflow_t > m_Outflows;
-    char pad_00[24];
+    char m_Outflows[1]; // 0x0
+    char pad_00[23];
 }; // size: 0x18
 
 class __declspec(align(8)) CPulseCell_BaseFlow {
@@ -231,32 +269,50 @@ public:
 class __declspec(align(8)) CPulseCell_Inflow_Method {
 public:
     // PulseSymbol_t m_MethodName;
+    char pad_00[128];
+    char m_MethodName[1]; // 0x80
     // CUtlString m_Description;
-    char pad_00[152];
+    char pad_01[15];
+    char m_Description[1]; // 0x90
+    char pad_02[7];
     bool m_bIsPublic; // 0x98
     // CPulseValueFullType m_ReturnType;
+    char pad_03[7];
+    char m_ReturnType[1]; // 0xa0
     // CUtlLeanVector< CPulseRuntimeMethodArg > m_Args;
-    char pad_01[47];
+    char pad_04[23];
+    char m_Args[1]; // 0xb8
+    char pad_05[15];
 }; // size: 0xc8
 
 class __declspec(align(8)) CPulseCell_Inflow_EventHandler {
 public:
     // PulseSymbol_t m_EventName;
-    char pad_00[144];
+    char pad_00[128];
+    char m_EventName[1]; // 0x80
+    char pad_01[15];
 }; // size: 0x90
 
 class __declspec(align(8)) CPulseCell_Inflow_GraphHook {
 public:
     // PulseSymbol_t m_HookName;
-    char pad_00[144];
+    char pad_00[128];
+    char m_HookName[1]; // 0x80
+    char pad_01[15];
 }; // size: 0x90
 
 class __declspec(align(8)) CPulseCell_Inflow_EntOutputHandler {
 public:
     // PulseSymbol_t m_SourceEntity;
+    char pad_00[128];
+    char m_SourceEntity[1]; // 0x80
     // PulseSymbol_t m_SourceOutput;
+    char pad_01[15];
+    char m_SourceOutput[1]; // 0x90
     // CPulseValueFullType m_ExpectedParamType;
-    char pad_00[184];
+    char pad_02[15];
+    char m_ExpectedParamType[1]; // 0xa0
+    char pad_03[23];
 }; // size: 0xb8
 
 class __declspec(align(8)) CPulseCell_Inflow_ObservableVariableListener {
@@ -312,7 +368,9 @@ public:
 class __declspec(align(8)) CPulseCell_Outflow_CycleOrdered {
 public:
     // CUtlVector< CPulse_OutflowConnection > m_Outputs;
-    char pad_00[96];
+    char pad_00[72];
+    char m_Outputs[1]; // 0x48
+    char pad_01[23];
 }; // size: 0x60
 
 /// CPulseCell_Outflow_CycleOrdered::InstanceState_t
@@ -324,20 +382,25 @@ public:
 class __declspec(align(8)) CPulseCell_Outflow_CycleRandom {
 public:
     // CUtlVector< CPulse_OutflowConnection > m_Outputs;
-    char pad_00[96];
+    char pad_00[72];
+    char m_Outputs[1]; // 0x48
+    char pad_01[23];
 }; // size: 0x60
 
 class __declspec(align(8)) CPulseCell_Outflow_CycleShuffled {
 public:
     // CUtlVector< CPulse_OutflowConnection > m_Outputs;
-    char pad_00[96];
+    char pad_00[72];
+    char m_Outputs[1]; // 0x48
+    char pad_01[23];
 }; // size: 0x60
 
 /// CPulseCell_Outflow_CycleShuffled::InstanceState_t
 class __declspec(align(8)) CPulseCell_Outflow_CycleShuffled__InstanceState_t {
 public:
     // CUtlVectorFixedGrowable< uint8, 8 > m_Shuffle;
-    char pad_00[32];
+    char m_Shuffle[1]; // 0x0
+    char pad_00[28];
     int32_t m_nNextShuffle; // 0x20
     char pad_01[4];
 }; // size: 0x28
@@ -360,32 +423,44 @@ public:
 class __declspec(align(8)) CPulseCell_Step_CallExternalMethod {
 public:
     // PulseSymbol_t m_MethodName;
+    char pad_00[72];
+    char m_MethodName[1]; // 0x48
     // PulseSymbol_t m_GameBlackboard;
+    char pad_01[15];
+    char m_GameBlackboard[1]; // 0x58
     // CUtlLeanVector< CPulseRuntimeMethodArg > m_ExpectedArgs;
-    char pad_00[120];
+    char pad_02[15];
+    char m_ExpectedArgs[1]; // 0x68
+    char pad_03[12];
     PulseMethodCallMode_t m_nAsyncCallMode; // 0x78
-    char pad_01[4];
+    char pad_04[4];
     CPulse_ResumePoint m_OnFinished; // 0x80
 }; // size: 0xc8
 
 class __declspec(align(8)) CPulseCell_Unknown {
 public:
     // KeyValues3 m_UnknownKeys;
-    char pad_00[88];
+    char pad_00[72];
+    char m_UnknownKeys[1]; // 0x48
+    char pad_01[15];
 }; // size: 0x58
 
 class __declspec(align(8)) CPulseCell_Value_Curve {
 public:
     // CPiecewiseCurve m_Curve;
-    char pad_00[136];
+    char pad_00[72];
+    char m_Curve[1]; // 0x48
+    char pad_01[63];
 }; // size: 0x88
 
 class __declspec(align(8)) CPulseCell_FireCursors {
 public:
     // CUtlVector< CPulse_OutflowConnection > m_Outflows;
-    char pad_00[96];
+    char pad_00[72];
+    char m_Outflows[1]; // 0x48
+    char pad_01[23];
     bool m_bWaitForChildOutflows; // 0x60
-    char pad_01[7];
+    char pad_02[7];
     CPulse_ResumePoint m_OnFinished; // 0x68
     CPulse_ResumePoint m_OnCanceled; // 0xb0
 }; // size: 0xf8
@@ -393,7 +468,9 @@ public:
 class __declspec(align(8)) CPulseCell_Value_Gradient {
 public:
     // CColorGradient m_Gradient;
-    char pad_00[96];
+    char pad_00[72];
+    char m_Gradient[1]; // 0x48
+    char pad_01[23];
 }; // size: 0x60
 
 class __declspec(align(8)) CPulseCell_IntervalTimer {
@@ -419,14 +496,19 @@ public:
     CPulse_OutflowConnection m_Connection; // 0x0
     PulseDocNodeID_t m_DestinationFlowNodeID; // 0x48
     // CUtlVector< PulseDocNodeID_t > m_RequirementNodeIDs;
+    char pad_00[4];
+    char m_RequirementNodeIDs[1]; // 0x50
     // CUtlVector< int32 > m_nCursorStateBlockIndex;
-    char pad_00[52];
+    char pad_01[23];
+    char m_nCursorStateBlockIndex[1]; // 0x68
+    char pad_02[23];
 }; // size: 0x80
 
 class __declspec(align(8)) PulseSelectorOutflowList_t {
 public:
     // CUtlVector< OutflowWithRequirements_t > m_Outflows;
-    char pad_00[24];
+    char m_Outflows[1]; // 0x0
+    char pad_00[23];
 }; // size: 0x18
 
 class __declspec(align(8)) CPulseCell_LimitCount {
@@ -486,9 +568,11 @@ public:
 class __declspec(align(8)) CPulseCell_Timeline {
 public:
     // CUtlVector< CPulseCell_Timeline::TimelineEvent_t > m_TimelineEvents;
-    char pad_00[96];
+    char pad_00[72];
+    char m_TimelineEvents[1]; // 0x48
+    char pad_01[23];
     bool m_bWaitForChildOutflows; // 0x60
-    char pad_01[7];
+    char pad_02[7];
     CPulse_ResumePoint m_OnFinished; // 0x68
     CPulse_ResumePoint m_OnCanceled; // 0xb0
 }; // size: 0xf8
@@ -497,8 +581,11 @@ class __declspec(align(8)) PulseObservableBoolExpression_t {
 public:
     CPulse_OutflowConnection m_EvaluateConnection; // 0x0
     // CUtlVector< PulseRuntimeVarIndex_t > m_DependentObservableVars;
+    char m_DependentObservableVars[1]; // 0x48
     // CUtlVector< PulseRuntimeBlackboardReferenceIndex_t > m_DependentObservableBlackboardReferences;
-    char pad_00[48];
+    char pad_00[23];
+    char m_DependentObservableBlackboardReferences[1]; // 0x60
+    char pad_01[23];
 }; // size: 0x78
 
 class __declspec(align(8)) CPulseCell_WaitForObservable {
@@ -539,7 +626,8 @@ public:
 class __declspec(align(1)) CPulseCell_WaitForCursorsWithTagBase__CursorState_t {
 public:
     // PulseSymbol_t m_TagName;
-    char pad_00[48];
+    char m_TagName[1]; // 0x0
+    char pad_00[47];
 }; // size: 0x30
 
 class __declspec(align(8)) CPulseCell_WaitForCursorsWithTag {
@@ -583,7 +671,8 @@ public:
     int32_t m_nCursorsTerminatedDueToMaxInstructions; // 0x138
     int32_t m_nNextValidateIndex; // 0x13c
     // CUtlVector< CUtlString > m_Tracepoints;
-    char pad_01[24];
+    char m_Tracepoints[1]; // 0x140
+    char pad_01[23];
     bool m_bTestYesOrNoPath; // 0x158
     char pad_02[7];
 }; // size: 0x160
@@ -606,7 +695,9 @@ public:
 class __declspec(align(8)) CPulseCell_Step_TestDomainEntFire {
 public:
     // CUtlString m_Input;
-    char pad_00[80];
+    char pad_00[72];
+    char m_Input[1]; // 0x48
+    char pad_01[7];
 }; // size: 0x50
 
 class __declspec(align(8)) CPulseCell_Val_TestDomainGetEntityName {
@@ -700,7 +791,8 @@ public:
 class __declspec(align(4)) CPulseTurtleGraphicsCursor {
 public:
     // Color m_Color;
-    char pad_00[212];
+    char pad_00[208];
+    char m_Color[1]; // 0xd0
     Vector2D m_vPos; // 0xd4
     float m_flHeadingDeg; // 0xdc
     bool m_bPenUp; // 0xe0

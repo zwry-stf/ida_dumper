@@ -115,8 +115,11 @@ public:
 class __declspec(align(16)) CFeNamedJiggleBone0 {
 public:
     // CUtlString m_strParentBone;
+    char m_strParentBone[1]; // 0x0
     // CTransform m_transform;
-    char pad_00[48];
+    char pad_00[15];
+    char m_transform[1]; // 0x10
+    char pad_01[28];
     uint32_t m_nJiggleParent; // 0x30
     CFeJiggleBone m_jiggleBone; // 0x34
 }; // size: 0xd0
@@ -139,7 +142,8 @@ public:
     uint16_t nNodeY0; // 0xc
     uint16_t nNodeY1; // 0xe
     // QuaternionStorage qAdjust;
-    char pad_00[16];
+    char qAdjust[1]; // 0x10
+    char pad_00[15];
 }; // size: 0x20
 
 /// FeSimdNodeBase_t
@@ -168,9 +172,15 @@ class __declspec(align(16)) FeSimdQuad_t0 {
 public:
     uint16_t nNode[4]; // 0x0
     // fltx4 f4Slack;
+    char pad_00[24];
+    char f4Slack[1]; // 0x20
     // FourVectors[4] vShape;
+    char pad_01[15];
+    char vShape[1]; // 0x30
     // fltx4[4] f4Weights;
-    char pad_00[296];
+    char pad_02[191];
+    char f4Weights[1]; // 0xf0
+    char pad_03[63];
 }; // size: 0x130
 
 /// FeSimdTri_t
@@ -178,9 +188,14 @@ class __declspec(align(16)) FeSimdTri_t0 {
 public:
     uint32_t nNode[4]; // 0x0
     // fltx4 w1;
+    char pad_00[32];
+    char w1[1]; // 0x30
     // fltx4 w2;
+    char pad_01[15];
+    char w2[1]; // 0x40
     // fltx4 v1x;
-    char pad_00[80];
+    char pad_02[15];
+    char v1x[1]; // 0x50
     FourVectors2D v2; // 0x60
 }; // size: 0x80
 
@@ -189,10 +204,18 @@ class __declspec(align(16)) FeSimdRodConstraint_t0 {
 public:
     uint16_t nNode[4]; // 0x0
     // fltx4 f4MaxDist;
+    char pad_00[8];
+    char f4MaxDist[1]; // 0x10
     // fltx4 f4MinDist;
+    char pad_01[15];
+    char f4MinDist[1]; // 0x20
     // fltx4 f4Weight0;
+    char pad_02[15];
+    char f4Weight0[1]; // 0x30
     // fltx4 f4RelaxationFactor;
-    char pad_00[72];
+    char pad_03[15];
+    char f4RelaxationFactor[1]; // 0x40
+    char pad_04[15];
 }; // size: 0x50
 
 /// FeSimdRodConstraintAnim_t
@@ -200,8 +223,12 @@ class __declspec(align(16)) FeSimdRodConstraintAnim_t0 {
 public:
     uint16_t nNode[4]; // 0x0
     // fltx4 f4Weight0;
+    char pad_00[8];
+    char f4Weight0[1]; // 0x10
     // fltx4 f4RelaxationFactor;
-    char pad_00[40];
+    char pad_01[15];
+    char f4RelaxationFactor[1]; // 0x20
+    char pad_02[15];
 }; // size: 0x30
 
 /// FeRodConstraint_t
@@ -329,10 +356,18 @@ class __declspec(align(16)) FeSimdSpringIntegrator_t0 {
 public:
     uint16_t nNode[4]; // 0x0
     // fltx4 flSpringRestLength;
+    char pad_00[8];
+    char flSpringRestLength[1]; // 0x10
     // fltx4 flSpringConstant;
+    char pad_01[15];
+    char flSpringConstant[1]; // 0x20
     // fltx4 flSpringDamping;
+    char pad_02[15];
+    char flSpringDamping[1]; // 0x30
     // fltx4 flNodeWeight0;
-    char pad_00[72];
+    char pad_03[15];
+    char flNodeWeight0[1]; // 0x40
+    char pad_04[15];
 }; // size: 0x50
 
 /// FeWorldCollisionParams_t
@@ -357,7 +392,8 @@ public:
 class __declspec(align(16)) FeTaperedCapsuleRigid_t0 {
 public:
     // fltx4[2] vSphere;
-    char pad_00[32];
+    char vSphere[1]; // 0x0
+    char pad_00[30];
     uint16_t nNode; // 0x20
     uint16_t nCollisionMask; // 0x22
     uint16_t nVertexMapIndex; // 0x24
@@ -369,7 +405,8 @@ public:
 class __declspec(align(16)) FeSphereRigid_t0 {
 public:
     // fltx4 vSphere;
-    char pad_00[16];
+    char vSphere[1]; // 0x0
+    char pad_00[14];
     uint16_t nNode; // 0x10
     uint16_t nCollisionMask; // 0x12
     uint16_t nVertexMapIndex; // 0x14
@@ -387,7 +424,8 @@ public:
 class __declspec(align(16)) FeFitMatrix_t0 {
 public:
     // CTransform bone;
-    char pad_00[32];
+    char bone[1]; // 0x0
+    char pad_00[28];
     Vector vCenter; // 0x20
     uint16_t nEnd; // 0x2c
     uint16_t nNode; // 0x2e
@@ -424,8 +462,12 @@ class __declspec(align(16)) FeSimdAnimStrayRadius_t0 {
 public:
     uint16_t nNode[4]; // 0x0
     // fltx4 flMaxDist;
+    char pad_00[8];
+    char flMaxDist[1]; // 0x10
     // fltx4 flRelaxationFactor;
-    char pad_00[40];
+    char pad_01[15];
+    char flRelaxationFactor[1]; // 0x20
+    char pad_02[15];
 }; // size: 0x30
 
 /// FeKelagerBend2_t
@@ -467,18 +509,21 @@ public:
     uint16_t nVertexMapIndex; // 0x20
     uint16_t nFlags; // 0x22
     // CUtlVector< float32 > m_Distances;
-    char pad_00[28];
+    char pad_00[4];
+    char m_Distances[1]; // 0x28
+    char pad_01[20];
     int32_t m_nWidth; // 0x40
     int32_t m_nHeight; // 0x44
     int32_t m_nDepth; // 0x48
-    char pad_01[4];
+    char pad_02[4];
 }; // size: 0x50
 
 /// FeBoxRigid_t
 class __declspec(align(16)) FeBoxRigid_t0 {
 public:
     // CTransform tmFrame2;
-    char pad_00[32];
+    char tmFrame2[1]; // 0x0
+    char pad_00[30];
     uint16_t nNode; // 0x20
     uint16_t nCollisionMask; // 0x22
     Vector vSize; // 0x24
@@ -501,23 +546,35 @@ public:
 class __declspec(align(8)) FeMorphLayerDepr_t0 {
 public:
     // CUtlString m_Name;
-    char pad_00[8];
+    char m_Name[1]; // 0x0
+    char pad_00[4];
     uint32_t m_nNameHash; // 0x8
     // CUtlVector< uint16 > m_Nodes;
+    char pad_01[4];
+    char m_Nodes[1]; // 0x10
     // CUtlVector< Vector > m_InitPos;
+    char pad_02[23];
+    char m_InitPos[1]; // 0x28
     // CUtlVector< float32 > m_Gravity;
+    char pad_03[23];
+    char m_Gravity[1]; // 0x40
     // CUtlVector< float32 > m_GoalStrength;
+    char pad_04[23];
+    char m_GoalStrength[1]; // 0x58
     // CUtlVector< float32 > m_GoalDamping;
-    char pad_01[124];
+    char pad_05[23];
+    char m_GoalDamping[1]; // 0x70
+    char pad_06[20];
     uint32_t m_nFlags; // 0x88
-    char pad_02[4];
+    char pad_07[4];
 }; // size: 0x90
 
 /// FeVertexMapDesc_t
 class __declspec(align(8)) FeVertexMapDesc_t0 {
 public:
     // CUtlString sName;
-    char pad_00[8];
+    char sName[1]; // 0x0
+    char pad_00[4];
     uint32_t nNameHash; // 0x8
     uint32_t nColor; // 0xc
     uint32_t nFlags; // 0x10
@@ -536,11 +593,13 @@ public:
 class __declspec(align(8)) FeEffectDesc_t0 {
 public:
     // CUtlString sName;
-    char pad_00[8];
+    char sName[1]; // 0x0
+    char pad_00[4];
     uint32_t nNameHash; // 0x8
     int32_t nType; // 0xc
     // KeyValues3 m_Params;
-    char pad_01[16];
+    char m_Params[1]; // 0x10
+    char pad_01[15];
 }; // size: 0x20
 
 /// FeNodeWindBase_t
@@ -556,8 +615,11 @@ public:
 class __declspec(align(8)) FeModelSelfCollisionLayer_t0 {
 public:
     // CUtlString m_Name;
+    char m_Name[1]; // 0x0
     // CUtlVector< uint16 > m_Nodes;
-    char pad_00[32];
+    char pad_00[7];
+    char m_Nodes[1]; // 0x8
+    char pad_01[20];
     float m_flParentReaction; // 0x20
     uint32_t m_nFlags; // 0x24
     uint32_t m_nEndIdx[4]; // 0x28
@@ -567,8 +629,11 @@ public:
 class __declspec(align(16)) FourVectors2D0 {
 public:
     // fltx4 x;
+    char x[1]; // 0x0
     // fltx4 y;
-    char pad_00[32];
+    char pad_00[15];
+    char y[1]; // 0x10
+    char pad_01[15];
 }; // size: 0x20
 
 /// FeEdgeDesc_t
@@ -641,7 +706,9 @@ public:
     uint32_t nFlags; // 0x10
     uint16_t nProbeNode; // 0x14
     // CUtlVector< uint16 > targetNodes;
-    char pad_00[26];
+    char pad_00[2];
+    char targetNodes[1]; // 0x18
+    char pad_01[23];
 }; // size: 0x30
 
 /// FeAntiTunnelGroupBuild_t
@@ -678,10 +745,17 @@ public:
 class __declspec(align(16)) FourCovMatrices30 {
 public:
     // FourVectors m_vDiag;
+    char m_vDiag[1]; // 0x0
     // fltx4 m_flXY;
+    char pad_00[47];
+    char m_flXY[1]; // 0x30
     // fltx4 m_flXZ;
+    char pad_01[15];
+    char m_flXZ[1]; // 0x40
     // fltx4 m_flYZ;
-    char pad_00[96];
+    char pad_02[15];
+    char m_flYZ[1]; // 0x50
+    char pad_03[15];
 }; // size: 0x60
 
 /// FeFitInfluence_t
@@ -742,28 +816,32 @@ public:
 class __declspec(align(8)) FeVertexMapBuild_t0 {
 public:
     // CUtlString m_VertexMapName;
-    char pad_00[8];
+    char m_VertexMapName[1]; // 0x0
+    char pad_00[4];
     uint32_t m_nNameHash; // 0x8
     // Color m_Color;
-    char pad_01[4];
+    char m_Color[1]; // 0xc
     float m_flVolumetricSolveStrength; // 0x10
     int32_t m_nScaleSourceNode; // 0x14
     // CUtlVector< float32 > m_Weights;
-    char pad_02[24];
+    char m_Weights[1]; // 0x18
+    char pad_01[23];
 }; // size: 0x30
 
 /// CFeVertexMapBuildArray
 class __declspec(align(8)) CFeVertexMapBuildArray0 {
 public:
     // CUtlVector< FeVertexMapBuild_t* > m_Array;
-    char pad_00[24];
+    char m_Array[1]; // 0x0
+    char pad_00[23];
 }; // size: 0x18
 
 /// FeProxyVertexMap_t
 class __declspec(align(8)) FeProxyVertexMap_t0 {
 public:
     // CUtlString m_Name;
-    char pad_00[8];
+    char m_Name[1]; // 0x0
+    char pad_00[4];
     float m_flWeight; // 0x8
     char pad_01[4];
 }; // size: 0x10
@@ -772,14 +850,25 @@ public:
 class __declspec(align(8)) CFeMorphLayer0 {
 public:
     // CUtlString m_Name;
-    char pad_00[8];
+    char m_Name[1]; // 0x0
+    char pad_00[4];
     uint32_t m_nNameHash; // 0x8
     // CUtlVector< uint16 > m_Nodes;
+    char pad_01[4];
+    char m_Nodes[1]; // 0x10
     // CUtlVector< Vector > m_InitPos;
+    char pad_02[23];
+    char m_InitPos[1]; // 0x28
     // CUtlVector< float32 > m_Gravity;
+    char pad_03[23];
+    char m_Gravity[1]; // 0x40
     // CUtlVector< float32 > m_GoalStrength;
+    char pad_04[23];
+    char m_GoalStrength[1]; // 0x58
     // CUtlVector< float32 > m_GoalDamping;
-    char pad_01[124];
+    char pad_05[23];
+    char m_GoalDamping[1]; // 0x70
+    char pad_06[23];
 }; // size: 0x88
 
 /// PhysicsParticleId_t
@@ -827,8 +916,11 @@ public:
 class __declspec(align(8)) CRegionSVM0 {
 public:
     // CUtlVector< RnPlane_t > m_Planes;
+    char m_Planes[1]; // 0x0
     // CUtlVector< uint32 > m_Nodes;
-    char pad_00[48];
+    char pad_00[23];
+    char m_Nodes[1]; // 0x18
+    char pad_01[23];
 }; // size: 0x30
 
 /// RnHull_t
@@ -839,15 +931,26 @@ public:
     AABB_t m_Bounds; // 0x10
     Vector m_vOrthographicAreas; // 0x28
     // matrix3x4_t m_MassProperties;
-    char pad_00[48];
+    char m_MassProperties[1]; // 0x34
+    char pad_00[44];
     float m_flVolume; // 0x64
     float m_flSurfaceArea; // 0x68
     // CUtlVector< RnVertex_t > m_Vertices;
+    char pad_01[4];
+    char m_Vertices[1]; // 0x70
     // CUtlVector< Vector > m_VertexPositions;
+    char pad_02[23];
+    char m_VertexPositions[1]; // 0x88
     // CUtlVector< RnHalfEdge_t > m_Edges;
+    char pad_03[23];
+    char m_Edges[1]; // 0xa0
     // CUtlVector< RnFace_t > m_Faces;
+    char pad_04[23];
+    char m_Faces[1]; // 0xb8
     // CUtlVector< RnPlane_t > m_FacePlanes;
-    char pad_01[124];
+    char pad_05[23];
+    char m_FacePlanes[1]; // 0xd0
+    char pad_06[20];
     uint32_t m_nFlags; // 0xe8
     CRegionSVM* m_pRegionSVM; // 0xf0
 }; // size: 0xf8
@@ -879,16 +982,27 @@ public:
     Vector m_vMin; // 0x0
     Vector m_vMax; // 0xc
     // CUtlVector< RnNode_t > m_Nodes;
+    char m_Nodes[1]; // 0x18
     // CUtlVectorSIMDPaddedVector m_Vertices;
+    char pad_00[23];
+    char m_Vertices[1]; // 0x30
     // CUtlVector< RnTriangle_t > m_Triangles;
+    char pad_01[23];
+    char m_Triangles[1]; // 0x48
     // CUtlVector< RnWing_t > m_Wings;
+    char pad_02[23];
+    char m_Wings[1]; // 0x60
     // CUtlVector< uint8 > m_TriangleEdgeFlags;
+    char pad_03[23];
+    char m_TriangleEdgeFlags[1]; // 0x78
     // CUtlVector< uint8 > m_Materials;
-    char pad_00[144];
+    char pad_04[23];
+    char m_Materials[1]; // 0x90
+    char pad_05[20];
     Vector m_vOrthographicAreas; // 0xa8
     uint32_t m_nFlags; // 0xb4
     uint32_t m_nDebugFlags; // 0xb8
-    char pad_01[4];
+    char pad_06[4];
 }; // size: 0xc0
 
 /// RnShapeDesc_t
@@ -897,7 +1011,8 @@ public:
     uint32_t m_nCollisionAttributeIndex; // 0x0
     uint32_t m_nSurfacePropertyIndex; // 0x4
     // CUtlString m_UserFriendlyName;
-    char pad_00[8];
+    char m_UserFriendlyName[1]; // 0x8
+    char pad_00[7];
     bool m_bUserFriendlyNameSealed; // 0x10
     bool m_bUserFriendlyNameLong; // 0x11
     uint32_t m_nToolMaterialHash; // 0x14
@@ -931,10 +1046,12 @@ public:
 class __declspec(align(8)) RnBodyDesc_t0 {
 public:
     // CUtlString m_sDebugName;
-    char pad_00[8];
+    char m_sDebugName[1]; // 0x0
+    char pad_00[4];
     Vector m_vPosition; // 0x8
     // QuaternionStorage m_qOrientation;
-    char pad_01[16];
+    char m_qOrientation[1]; // 0x14
+    char pad_01[12];
     Vector m_vLinearVelocity; // 0x24
     Vector m_vAngularVelocity; // 0x30
     Vector m_vLocalMassCenter; // 0x3c
@@ -976,22 +1093,32 @@ public:
 class __declspec(align(8)) CollisionDetailLayerInfo_t0 {
 public:
     // CUtlString m_sDescription;
+    char m_sDescription[1]; // 0x0
     // CUtlString m_sFriendlyName;
-    char pad_00[16];
+    char pad_00[7];
+    char m_sFriendlyName[1]; // 0x8
+    char pad_01[7];
     bool m_bIsQueryOnly; // 0x10
     // CUtlString m_sParentDetailLayer;
-    // CUtlVector< CollisionDetailLayerInfo_t::Name_t > m_vecSubtreeDetailLayers;
-    char pad_01[39];
-    bool m_bNotPickable; // 0x38
     char pad_02[7];
+    char m_sParentDetailLayer[1]; // 0x18
+    // CUtlVector< CollisionDetailLayerInfo_t::Name_t > m_vecSubtreeDetailLayers;
+    char pad_03[7];
+    char m_vecSubtreeDetailLayers[1]; // 0x20
+    char pad_04[23];
+    bool m_bNotPickable; // 0x38
+    char pad_05[7];
 }; // size: 0x40
 
 /// CollisionDetailLayerInfo_t::Name_t
 class __declspec(align(8)) CollisionDetailLayerInfo_t__Name_t0 {
 public:
     // CUtlStringToken m_nNameToken;
+    char m_nNameToken[1]; // 0x0
     // CUtlString m_sNameString;
-    char pad_00[16];
+    char pad_00[7];
+    char m_sNameString[1]; // 0x8
+    char pad_01[7];
 }; // size: 0x10
 
 /// VertexPositionNormal_t

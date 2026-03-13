@@ -54,8 +54,11 @@ public:
 class __declspec(align(8)) ManifestTestResource_t0 {
 public:
     // CUtlString m_name;
+    char m_name[1]; // 0x0
     // CStrongHandle< InfoForResourceTypeManifestTestResource_t > m_child;
-    char pad_00[16];
+    char pad_00[7];
+    char m_child[1]; // 0x8
+    char pad_01[7];
 }; // size: 0x10
 
 /// InfoForResourceTypeCVDataResource
@@ -340,10 +343,17 @@ public:
 class __declspec(align(1)) FourQuaternions0 {
 public:
     // fltx4 x;
+    char x[1]; // 0x0
     // fltx4 y;
+    char pad_00[15];
+    char y[1]; // 0x10
     // fltx4 z;
+    char pad_01[15];
+    char z[1]; // 0x20
     // fltx4 w;
-    char pad_00[64];
+    char pad_02[15];
+    char w[1]; // 0x30
+    char pad_03[15];
 }; // size: 0x40
 
 /// FuseVariableIndex_t
@@ -362,8 +372,10 @@ public:
 class __declspec(align(8)) ConstantInfo_t0 {
 public:
     // CUtlString m_name;
+    char m_name[1]; // 0x0
     // CUtlStringToken m_nameToken;
-    char pad_00[12];
+    char pad_00[7];
+    char m_nameToken[1]; // 0x8
     float m_flValue; // 0xc
 }; // size: 0x10
 
@@ -371,48 +383,70 @@ public:
 class __declspec(align(8)) VariableInfo_t0 {
 public:
     // CUtlString m_name;
+    char m_name[1]; // 0x0
     // CUtlStringToken m_nameToken;
-    char pad_00[12];
+    char pad_00[7];
+    char m_nameToken[1]; // 0x8
+    char pad_01[2];
     FuseVariableIndex_t m_nIndex; // 0xc
     uint8_t m_nNumComponents; // 0xe
     FuseVariableType_t m_eVarType; // 0xf
     FuseVariableAccess_t m_eAccess; // 0x10
-    char pad_01[7];
+    char pad_02[7];
 }; // size: 0x18
 
 /// FunctionInfo_t
 class __declspec(align(8)) FunctionInfo_t0 {
 public:
     // CUtlString m_name;
+    char pad_00[8];
+    char m_name[1]; // 0x8
     // CUtlStringToken m_nameToken;
-    char pad_00[20];
+    char pad_01[7];
+    char m_nameToken[1]; // 0x10
     int32_t m_nParamCount; // 0x14
     FuseFunctionIndex_t m_nIndex; // 0x18
     bool m_bIsPure; // 0x1a
-    char pad_01[5];
+    char pad_02[5];
 }; // size: 0x20
 
 /// CFuseProgram
 class __declspec(align(8)) CFuseProgram0 {
 public:
     // CUtlVector< uint8 > m_programBuffer;
+    char m_programBuffer[1]; // 0x0
     // CUtlVector< FuseVariableIndex_t > m_variablesRead;
+    char pad_00[23];
+    char m_variablesRead[1]; // 0x18
     // CUtlVector< FuseVariableIndex_t > m_variablesWritten;
-    char pad_00[72];
+    char pad_01[23];
+    char m_variablesWritten[1]; // 0x30
+    char pad_02[20];
     int32_t m_nMaxTempVarsUsed; // 0x48
-    char pad_01[4];
+    char pad_03[4];
 }; // size: 0x50
 
 /// CFuseSymbolTable
 class __declspec(align(8)) CFuseSymbolTable0 {
 public:
     // CUtlVector< ConstantInfo_t > m_constants;
+    char m_constants[1]; // 0x0
     // CUtlVector< VariableInfo_t > m_variables;
+    char pad_00[23];
+    char m_variables[1]; // 0x18
     // CUtlVector< FunctionInfo_t > m_functions;
+    char pad_01[23];
+    char m_functions[1]; // 0x30
     // CUtlHashtable< CUtlStringToken, int32 > m_constantMap;
+    char pad_02[23];
+    char m_constantMap[1]; // 0x48
     // CUtlHashtable< CUtlStringToken, int32 > m_variableMap;
+    char pad_03[31];
+    char m_variableMap[1]; // 0x68
     // CUtlHashtable< CUtlStringToken, int32 > m_functionMap;
-    char pad_00[176];
+    char pad_04[31];
+    char m_functionMap[1]; // 0x88
+    char pad_05[39];
 }; // size: 0xb0
 
 #ifdef __cplusplus

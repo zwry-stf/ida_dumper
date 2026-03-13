@@ -188,8 +188,11 @@ public:
 class __declspec(align(1)) VsInputSignature_t0 {
 public:
     // CUtlVector< VsInputSignatureElement_t > m_elems;
+    char m_elems[1]; // 0x0
     // CUtlVector< VsInputSignatureElement_t > m_depth_elems;
-    char pad_00[48];
+    char pad_00[23];
+    char m_depth_elems[1]; // 0x18
+    char pad_01[23];
 }; // size: 0x30
 
 #ifdef __cplusplus

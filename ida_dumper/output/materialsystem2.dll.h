@@ -54,7 +54,8 @@ _enum ViewFadeMode_t0 : uint32_t {
 class __declspec(align(8)) MaterialParam_t0 {
 public:
     // CUtlString m_name;
-    char pad_00[8];
+    char m_name[1]; // 0x0
+    char pad_00[7];
 }; // size: 0x8
 
 /// MaterialParamInt_t
@@ -84,41 +85,74 @@ public:
 class __declspec(align(8)) MaterialParamTexture_t0 {
 public:
     // CStrongHandle< InfoForResourceTypeCTextureBase > m_pValue;
-    char pad_00[16];
+    char pad_00[8];
+    char m_pValue[1]; // 0x8
+    char pad_01[7];
 }; // size: 0x10
 
 /// MaterialParamString_t
 class __declspec(align(8)) MaterialParamString_t0 {
 public:
     // CUtlString m_value;
-    char pad_00[16];
+    char pad_00[8];
+    char m_value[1]; // 0x8
+    char pad_01[7];
 }; // size: 0x10
 
 /// MaterialParamBuffer_t
 class __declspec(align(8)) MaterialParamBuffer_t0 {
 public:
     // CUtlBinaryBlock m_value;
-    char pad_00[24];
+    char pad_00[8];
+    char m_value[1]; // 0x8
+    char pad_01[15];
 }; // size: 0x18
 
 /// MaterialResourceData_t
 class __declspec(align(8)) MaterialResourceData_t0 {
 public:
     // CUtlString m_materialName;
+    char m_materialName[1]; // 0x0
     // CUtlString m_shaderName;
+    char pad_00[7];
+    char m_shaderName[1]; // 0x8
     // CUtlVector< MaterialParamInt_t > m_intParams;
+    char pad_01[7];
+    char m_intParams[1]; // 0x10
     // CUtlVector< MaterialParamFloat_t > m_floatParams;
+    char pad_02[23];
+    char m_floatParams[1]; // 0x28
     // CUtlVector< MaterialParamVector_t > m_vectorParams;
+    char pad_03[23];
+    char m_vectorParams[1]; // 0x40
     // CUtlVector< MaterialParamTexture_t > m_textureParams;
+    char pad_04[23];
+    char m_textureParams[1]; // 0x58
     // CUtlVector< MaterialParamBuffer_t > m_dynamicParams;
+    char pad_05[23];
+    char m_dynamicParams[1]; // 0x70
     // CUtlVector< MaterialParamBuffer_t > m_dynamicTextureParams;
+    char pad_06[23];
+    char m_dynamicTextureParams[1]; // 0x88
     // CUtlVector< MaterialParamInt_t > m_intAttributes;
+    char pad_07[23];
+    char m_intAttributes[1]; // 0xa0
     // CUtlVector< MaterialParamFloat_t > m_floatAttributes;
+    char pad_08[23];
+    char m_floatAttributes[1]; // 0xb8
     // CUtlVector< MaterialParamVector_t > m_vectorAttributes;
+    char pad_09[23];
+    char m_vectorAttributes[1]; // 0xd0
     // CUtlVector< MaterialParamTexture_t > m_textureAttributes;
+    char pad_10[23];
+    char m_textureAttributes[1]; // 0xe8
     // CUtlVector< MaterialParamString_t > m_stringAttributes;
+    char pad_11[23];
+    char m_stringAttributes[1]; // 0x100
     // CUtlVector< CUtlString > m_renderAttributesUsed;
-    char pad_00[304];
+    char pad_12[23];
+    char m_renderAttributesUsed[1]; // 0x118
+    char pad_013[23];
 }; // size: 0x130
 
 /// PostProcessingTonemapParameters_t
@@ -207,7 +241,8 @@ public:
     PostProcessingLocalContrastParameters_t m_localConstrastParams; // 0xf8
     int32_t m_nColorCorrectionVolumeDim; // 0x10c
     // CUtlBinaryBlock m_colorCorrectionVolumeData;
-    char pad_00[16];
+    char m_colorCorrectionVolumeData[1]; // 0x110
+    char pad_00[15];
     bool m_bHasColorCorrection; // 0x120
     bool m_bHasFogScatteringParams; // 0x121
     PostProcessingFogScatteringParameters_t m_fogScatteringParams; // 0x124

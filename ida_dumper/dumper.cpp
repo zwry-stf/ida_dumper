@@ -580,11 +580,17 @@ bool dumper::parse_type_scope(const CSchemaSystemTypeScope* type_scope, loaded_s
 
 /// formatting
 
-bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::uint32_t& out_pos, 
-                            std::uint32_t& last_pos_with_alignment, std::size_t& special_format_delimiter, 
-                            const std::vector<const loaded_scope_t*>& includes) {
+enum class field_type_return : std::uint8_t {
+    invalid,
+    valid,
+    use_pad
+};
+
+field_type_return dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::uint32_t& out_pos,
+                                         std::uint32_t& last_pos_with_alignment, std::size_t& special_format_delimiter, 
+                                         const std::vector<const loaded_scope_t*>& includes) {
     if (field.type_name.empty())
-        return false;
+        return field_type_return::invalid;
 
     special_format_delimiter = std::string::npos;
     last_pos_with_alignment = out_pos;
@@ -592,7 +598,7 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
     std::string type_name = field.type_name;
     constexpr auto bitfield_name = std::string_view("bitfield");
     if (type_name.find(bitfield_name) != std::string::npos) {
-        return false;
+        return field_type_return::invalid;
     }
 
     bool is_array = false;
@@ -649,7 +655,7 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
             out_pos = field.offset + size;
             field.size = size;
             field.alignment = alignment;
-            return true;
+            return field_type_return::valid;
         }
     }
 
@@ -658,7 +664,7 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
             if (c.name == type_name) {
                 if (!c.formatted) {
                     if (!is_pointer)
-                        return false;
+                        break;
                     assert(is_pointer);
                     add_forward_declared_classs(c.name);
                 }
@@ -689,7 +695,7 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
                 out_pos = field.offset + size;
                 field.size = size;
                 field.alignment = alignment;
-                return true;
+                return field_type_return::valid;
             }
         }
 
@@ -721,12 +727,15 @@ bool dumper::get_field_type(loaded_field_t& field, std::string& out_name, std::u
                 out_pos = field.offset + size;
                 field.size = size;
                 field.alignment = alignment;
-                return true;
+                return field_type_return::valid;
             }
         }
     }
 
-    return false;
+    // use padding
+    out_name = field.name;
+
+    return field_type_return::use_pad;
 }
 
 void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_scope_t*>& includes, std::string& source) {
@@ -778,21 +787,30 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         std::uint32_t last_pos_with_alignment;
         std::size_t format_delimiter;
         const auto last_pos = byte_pos;
-        if (
-            !get_field_type(
-                f,
-                translated_type_name,
-                byte_pos,
-                last_pos_with_alignment,
-                format_delimiter,
-                includes
-            )) {
+        const auto field_res = get_field_type(
+            f,
+            translated_type_name,
+            byte_pos,
+            last_pos_with_alignment,
+            format_delimiter,
+            includes
+        );
+
+        if (field_res != field_type_return::valid) {
             source += "    // ";
             source += f.type_name;
             source += " ";
             source += f.name;
             source += ";\n";
+        }
+
+        if (field_res == field_type_return::invalid)
             continue;
+
+        if (field_res == field_type_return::use_pad) {
+            f.size = 1;
+            f.alignment = 1;
+            byte_pos = f.offset + f.size;
         }
 
         cls.alignment = (std::max)(cls.alignment, f.alignment);
@@ -818,8 +836,7 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         // would like to assert here, but some structs can ignore alignment
         if (last_pos_with_alignment < f.offset) {
             const auto padding_size = f.offset - last_pos_with_alignment;
-            source += "    char pad_0" + std::to_string(cls.pad_idx);
-            source += "[" + std::to_string(padding_size) + "];\n";
+            source += std::format("    char pad_{:0>2}[{}];\n", cls.pad_idx, padding_size);
             cls.pad_idx++;
         }
 
@@ -828,9 +845,16 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
 
         if (last_pos_with_alignment > f.offset) {
             source += "/* !!Invalid padding!! */ // ";
+
+            if (field_res == field_type_return::use_pad) {
+                byte_pos = last_pos;
+            }
         }
 
-        if (format_delimiter == std::string::npos) {
+        if (field_res == field_type_return::use_pad) {
+            source += "char";
+        }
+        else if (format_delimiter == std::string::npos) {
             source += translated_type_name;
         }
         else {
@@ -840,7 +864,10 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         source += " ";
         source += f.name;
 
-        if (format_delimiter != std::string::npos) {
+        if (field_res == field_type_return::use_pad) {
+            source += std::format("[{}]", f.size);
+        }
+        else if (format_delimiter != std::string::npos) {
             source += translated_type_name.substr(format_delimiter);
         }
 
@@ -849,8 +876,7 @@ void dumper::format_class(loaded_class_t& cls, const std::vector<const loaded_sc
         if (last_pos_with_alignment > f.offset) {
             if (last_pos < byte_pos) {
                 const auto padding_size = byte_pos - last_pos;
-                source += "    char pad_0" + std::to_string(cls.pad_idx);
-                source += "[" + std::to_string(padding_size) + "];\n";
+                source += std::format("    char pad_{:0>2}[{}];\n", cls.pad_idx, padding_size);
                 cls.pad_idx++;
             }
         }

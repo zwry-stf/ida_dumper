@@ -112,29 +112,64 @@ public:
     Vector2D m_Vector2D; // 0x0
     Vector m_Vector; // 0x8
     // VectorWS m_VectorWS;
+    char m_VectorWS[1]; // 0x14
     // VectorAligned m_VectorAligned;
+    char pad_00[11];
+    char m_VectorAligned[1]; // 0x20
     // Quaternion m_Quaternion;
-    char pad_00[44];
+    char pad_01[15];
+    char m_Quaternion[1]; // 0x30
+    char pad_02[12];
     QAngle m_QAngle; // 0x40
     // RotationVector m_RotationVector;
+    char m_RotationVector[1]; // 0x4c
     // RadianEuler m_RadianEuler;
+    char pad_03[11];
+    char m_RadianEuler[1]; // 0x58
     // DegreeEuler m_DegreeEuler;
+    char pad_04[11];
+    char m_DegreeEuler[1]; // 0x64
     // QuaternionStorage m_QuaternionStorage;
+    char pad_05[11];
+    char m_QuaternionStorage[1]; // 0x70
     // matrix3x4_t m_matrix3x4_t;
+    char pad_06[15];
+    char m_matrix3x4_t[1]; // 0x80
     // matrix3x4a_t m_matrix3x4a_t;
+    char pad_07[47];
+    char m_matrix3x4a_t[1]; // 0xb0
     // Color m_Color;
-    char pad_01[152];
+    char pad_08[47];
+    char m_Color[1]; // 0xe0
     Vector4D m_Vector4D; // 0xe4
     // CTransform m_CTransform;
+    char pad_09[12];
+    char m_CTransform[1]; // 0x100
     // KeyValues* m_pKeyValues;
+    char pad_10[31];
+    char m_pKeyValues[1]; // 0x120
     // CUtlBinaryBlock m_CUtlBinaryBlock;
+    char pad_11[7];
+    char m_CUtlBinaryBlock[1]; // 0x128
     // CUtlString m_CUtlString;
+    char pad_12[15];
+    char m_CUtlString[1]; // 0x138
     // CUtlSymbol m_CUtlSymbol;
+    char pad_13[7];
+    char m_CUtlSymbol[1]; // 0x140
     // CUtlStringToken m_stringToken;
+    char pad_14[3];
+    char m_stringToken[1]; // 0x144
     // CUtlStringTokenWithStorage m_stringTokenWithStorage;
+    char pad_15[3];
+    char m_stringTokenWithStorage[1]; // 0x148
     // CResourceArray< CResourcePointer< CResourceString > > m_ResourceTypes;
+    char pad_16[23];
+    char m_ResourceTypes[1]; // 0x160
     // KeyValues3 m_KV3;
-    char pad_02[140];
+    char pad_17[7];
+    char m_KV3[1]; // 0x168
+    char pad_018[23];
 }; // size: 0x180
 
 /// InfoForResourceTypeCResourceManifestInternal

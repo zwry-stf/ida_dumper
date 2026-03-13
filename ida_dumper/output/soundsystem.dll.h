@@ -282,9 +282,11 @@ public:
     float m_flMinValue; // 0xc
     float m_flMaxValue; // 0x10
     // CUtlString m_opvarName;
-    char pad_01[12];
-    SosActionSetParamSortType_t m_nSortType; // 0x20
+    char pad_01[4];
+    char m_opvarName[1]; // 0x18
     char pad_02[4];
+    SosActionSetParamSortType_t m_nSortType; // 0x20
+    char pad_03[4];
 }; // size: 0x28
 
 /// CSosGroupActionSoundeventClusterSchema
@@ -294,21 +296,38 @@ public:
     int32_t m_nMinNearby; // 0x8
     float m_flClusterEpsilon; // 0xc
     // CUtlString m_shouldPlayOpvar;
+    char m_shouldPlayOpvar[1]; // 0x10
     // CUtlString m_shouldPlayClusterChild;
+    char pad_01[7];
+    char m_shouldPlayClusterChild[1]; // 0x18
     // CUtlString m_clusterSizeOpvar;
+    char pad_02[7];
+    char m_clusterSizeOpvar[1]; // 0x20
     // CUtlString m_groupBoundingBoxMinsOpvar;
+    char pad_03[7];
+    char m_groupBoundingBoxMinsOpvar[1]; // 0x28
     // CUtlString m_groupBoundingBoxMaxsOpvar;
-    char pad_01[64];
+    char pad_04[7];
+    char m_groupBoundingBoxMaxsOpvar[1]; // 0x30
+    char pad_05[31];
 }; // size: 0x50
 
 /// CSosGroupActionSoundeventPrioritySchema
 class __declspec(align(8)) CSosGroupActionSoundeventPrioritySchema0 {
 public:
     // CUtlString m_priorityValue;
+    char pad_00[8];
+    char m_priorityValue[1]; // 0x8
     // CUtlString m_priorityVolumeScalar;
+    char pad_01[7];
+    char m_priorityVolumeScalar[1]; // 0x10
     // CUtlString m_priorityContributeButDontRead;
+    char pad_02[7];
+    char m_priorityContributeButDontRead[1]; // 0x18
     // CUtlString m_bPriorityReadButDontContribute;
-    char pad_00[56];
+    char pad_03[7];
+    char m_bPriorityReadButDontContribute[1]; // 0x20
+    char pad_04[23];
 }; // size: 0x38
 
 /// CSosGroupActionMemberCountEnvelopeSchema
@@ -322,7 +341,8 @@ public:
     float m_flAttack; // 0x18
     float m_flDecay; // 0x1c
     // CUtlString m_resultVarName;
-    char pad_01[8];
+    char m_resultVarName[1]; // 0x20
+    char pad_01[7];
     bool m_bSaveToGroup; // 0x28
     char pad_02[7];
 }; // size: 0x30
@@ -333,15 +353,21 @@ public:
     char pad_00[8];
     bool m_bExcludeStoppedSounds; // 0x8
     // CUtlString m_strCountKeyName;
-    char pad_01[15];
+    char pad_01[7];
+    char m_strCountKeyName[1]; // 0x10
+    char pad_02[7];
 }; // size: 0x18
 
 /// CSosGroupActionSoundeventMinMaxValuesSchema
 class __declspec(align(8)) CSosGroupActionSoundeventMinMaxValuesSchema0 {
 public:
     // CUtlString m_strQueryPublicFieldName;
+    char pad_00[8];
+    char m_strQueryPublicFieldName[1]; // 0x8
     // CUtlString m_strDelayPublicFieldName;
-    char pad_00[24];
+    char pad_01[7];
+    char m_strDelayPublicFieldName[1]; // 0x10
+    char pad_02[7];
     bool m_bExcludeStoppedSounds; // 0x18
     bool m_bExcludeDelayedSounds; // 0x19
     bool m_bExcludeSoundsBelowThreshold; // 0x1a
@@ -349,8 +375,11 @@ public:
     bool m_bExcludSoundsAboveThreshold; // 0x20
     float m_flExcludeSoundsMaxThresholdValue; // 0x24
     // CUtlString m_strMinValueName;
+    char m_strMinValueName[1]; // 0x28
     // CUtlString m_strMaxValueName;
-    char pad_01[24];
+    char pad_03[7];
+    char m_strMaxValueName[1]; // 0x30
+    char pad_04[15];
 }; // size: 0x40
 
 /// CSosSoundEventGroupSchema
@@ -364,18 +393,25 @@ public:
     bool m_bInvertMatch; // 0x18
     SosGroupFieldBehavior_t m_Behavior_EventName; // 0x1c
     // CUtlString m_matchSoundEventName;
-    char pad_01[8];
+    char m_matchSoundEventName[1]; // 0x20
+    char pad_01[7];
     bool m_bMatchEventSubString; // 0x28
     // CUtlString m_matchSoundEventSubString;
-    char pad_02[12];
+    char pad_02[7];
+    char m_matchSoundEventSubString[1]; // 0x30
+    char pad_03[4];
     SosGroupFieldBehavior_t m_Behavior_EntIndex; // 0x38
     float m_flEntIndex; // 0x3c
     SosGroupFieldBehavior_t m_Behavior_Opvar; // 0x40
     float m_flOpvar; // 0x44
     SosGroupFieldBehavior_t m_Behavior_String; // 0x48
     // CUtlString m_opvarString;
+    char pad_04[4];
+    char m_opvarString[1]; // 0x50
     // CUtlVector< CSosGroupActionSchema* > m_vActions;
-    char pad_03[36];
+    char pad_05[7];
+    char m_vActions[1]; // 0x58
+    char pad_06[23];
 }; // size: 0x70
 
 /// SosEditItemInfo_t
@@ -383,9 +419,15 @@ class __declspec(align(8)) SosEditItemInfo_t0 {
 public:
     SosEditItemType_t itemType; // 0x0
     // CUtlString itemName;
+    char pad_00[4];
+    char itemName[1]; // 0x8
     // CUtlString itemTypeName;
+    char pad_01[7];
+    char itemTypeName[1]; // 0x10
     // CUtlString itemKVString;
-    char pad_00[36];
+    char pad_02[15];
+    char itemKVString[1]; // 0x20
+    char pad_03[4];
     Vector2D itemPos; // 0x28
 }; // size: 0x30
 
@@ -393,21 +435,24 @@ public:
 class __declspec(align(8)) SelectedEditItemInfo_t0 {
 public:
     // CUtlVector< SosEditItemInfo_t > m_EditItems;
-    char pad_00[24];
+    char m_EditItems[1]; // 0x0
+    char pad_00[23];
 }; // size: 0x18
 
 /// CSoundEventMetaData
 class __declspec(align(8)) CSoundEventMetaData0 {
 public:
     // CStrongHandle< InfoForResourceTypeCVMixListResource > m_soundEventVMix;
-    char pad_00[8];
+    char m_soundEventVMix[1]; // 0x0
+    char pad_00[7];
 }; // size: 0x8
 
 /// CDSPMixgroupModifier
 class __declspec(align(8)) CDSPMixgroupModifier0 {
 public:
     // CUtlString m_mixgroup;
-    char pad_00[8];
+    char m_mixgroup[1]; // 0x0
+    char pad_00[4];
     float m_flModifier; // 0x8
     float m_flModifierMin; // 0xc
     float m_flSourceModifier; // 0x10
@@ -420,15 +465,19 @@ public:
 class __declspec(align(8)) CDspPresetModifierList0 {
 public:
     // CUtlString m_dspName;
+    char m_dspName[1]; // 0x0
     // CUtlVector< CDSPMixgroupModifier > m_modifiers;
-    char pad_00[32];
+    char pad_00[7];
+    char m_modifiers[1]; // 0x8
+    char pad_01[23];
 }; // size: 0x20
 
 /// CDSPPresetMixgroupModifierTable
 class __declspec(align(8)) CDSPPresetMixgroupModifierTable0 {
 public:
     // CUtlVector< CDspPresetModifierList > m_table;
-    char pad_00[24];
+    char m_table[1]; // 0x0
+    char pad_00[23];
 }; // size: 0x18
 
 /// CVoiceContainerAnalysisBase
@@ -437,7 +486,9 @@ public:
     char pad_00[8];
     bool m_bRegenerateCurveOnCompile; // 0x8
     // CPiecewiseCurve m_curve;
-    char pad_01[71];
+    char pad_01[7];
+    char m_curve[1]; // 0x10
+    char pad_02[63];
 }; // size: 0x50
 
 /// CVoiceContainerBase
@@ -458,13 +509,18 @@ public:
     uint32_t m_nSampleCount; // 0x10
     float m_flDuration; // 0x14
     // CUtlVector< CAudioSentence > m_Sentences;
-    char pad_00[24];
+    char m_Sentences[1]; // 0x18
+    char pad_00[20];
     uint32_t m_nStreamingSize; // 0x30
     // CUtlVector< int32 > m_nSeekTable;
-    char pad_01[28];
+    char pad_01[4];
+    char m_nSeekTable[1]; // 0x38
+    char pad_02[20];
     int32_t m_nLoopEnd; // 0x50
     // CUtlBinaryBlock m_encodedHeader;
-    char pad_02[36];
+    char pad_03[4];
+    char m_encodedHeader[1]; // 0x58
+    char pad_04[31];
 }; // size: 0x78
 
 /// CVoiceContainerDefault
@@ -496,7 +552,8 @@ class __declspec(align(8)) CSoundContainerReference0 {
 public:
     bool m_bUseReference; // 0x0
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sound;
-    char pad_00[8];
+    char pad_00[7];
+    char m_sound[1]; // 0x8
     CVoiceContainerBase* m_pSound; // 0x10
 }; // size: 0x18
 
@@ -505,8 +562,12 @@ class __declspec(align(8)) CSoundContainerReferenceArray0 {
 public:
     bool m_bUseReference; // 0x0
     // CUtlVector< CStrongHandle< InfoForResourceTypeCVoiceContainerBase > > m_sounds;
+    char pad_00[7];
+    char m_sounds[1]; // 0x8
     // CUtlVector< CVoiceContainerBase* > m_pSounds;
-    char pad_00[55];
+    char pad_01[23];
+    char m_pSounds[1]; // 0x20
+    char pad_02[23];
 }; // size: 0x38
 
 /// CAudioEmphasisSample
@@ -528,10 +589,17 @@ public:
 class __declspec(align(8)) CAudioMorphData0 {
 public:
     // CUtlVector< float32 > m_times;
+    char m_times[1]; // 0x0
     // CUtlVector< uint32 > m_nameHashCodes;
+    char pad_00[23];
+    char m_nameHashCodes[1]; // 0x18
     // CUtlVector< CUtlString > m_nameStrings;
+    char pad_01[23];
+    char m_nameStrings[1]; // 0x30
     // CUtlVector< CUtlVector< float32 > > m_samples;
-    char pad_00[96];
+    char pad_02[23];
+    char m_samples[1]; // 0x48
+    char pad_03[20];
     float m_flEaseIn; // 0x60
     float m_flEaseOut; // 0x64
 }; // size: 0x68
@@ -541,8 +609,12 @@ class __declspec(align(8)) CAudioSentence0 {
 public:
     bool m_bShouldVoiceDuck; // 0x0
     // CUtlVector< CAudioPhonemeTag > m_RunTimePhonemes;
+    char pad_00[7];
+    char m_RunTimePhonemes[1]; // 0x8
     // CUtlVector< CAudioEmphasisSample > m_EmphasisSamples;
-    char pad_00[48];
+    char pad_01[23];
+    char m_EmphasisSamples[1]; // 0x20
+    char pad_02[16];
     CAudioMorphData m_morphData; // 0x38
 }; // size: 0xa0
 
@@ -566,7 +638,8 @@ public:
 class __declspec(align(8)) CVoiceContainerEnvelope0 {
 public:
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sound;
-    char pad_00[176];
+    char pad_00[168];
+    char m_sound[1]; // 0xa8
     CVoiceContainerAnalysisBase* m_analysisContainer; // 0xb0
 }; // size: 0xb8
 
@@ -577,7 +650,8 @@ public:
     PlayBackMode_t m_mode; // 0xa8
     CSoundContainerReferenceArray m_soundsToPlay; // 0xb0
     // CUtlVector< float32 > m_fProbabilityWeights;
-    char pad_01[56];
+    char m_fProbabilityWeights[1]; // 0xe8
+    char pad_01[55];
 }; // size: 0x120
 
 /// CVoiceContainerBlender
@@ -645,7 +719,9 @@ public:
     float m_flMaxLength; // 0xc4
     int32_t m_nNumDelayVariations; // 0xc8
     // CUtlVector< CStrongHandle< InfoForResourceTypeCVoiceContainerBase > > m_grainResources;
-    char pad_01[276];
+    char pad_01[4];
+    char m_grainResources[1]; // 0xd0
+    char pad_02[271];
 }; // size: 0x1e0
 
 /// CVoiceContainerGranulator
@@ -658,7 +734,9 @@ public:
     float m_flPlaybackJitter; // 0xc4
     bool m_bShouldWraparound; // 0xc8
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sourceAudio;
-    char pad_01[199];
+    char pad_01[7];
+    char m_sourceAudio[1]; // 0xd0
+    char pad_02[191];
 }; // size: 0x190
 
 /// CVoiceContainerTapePlayer
@@ -667,27 +745,34 @@ public:
     char pad_00[184];
     bool m_bShouldWraparound; // 0xb8
     // CStrongHandle< InfoForResourceTypeCVoiceContainerBase > m_sourceAudio;
-    char pad_01[12];
+    char pad_01[7];
+    char m_sourceAudio[1]; // 0xc0
+    char pad_02[4];
     float m_flTapeSpeedAttackTime; // 0xc8
     float m_flTapeSpeedReleaseTime; // 0xcc
-    char pad_02[40];
+    char pad_03[40];
 }; // size: 0xf8
 
 /// CVoiceContainerStaticAdditiveSynth
 class __declspec(align(8)) CVoiceContainerStaticAdditiveSynth0 {
 public:
     // CUtlVector< CVoiceContainerStaticAdditiveSynth::CTone > m_tones;
-    char pad_00[232];
+    char pad_00[184];
+    char m_tones[1]; // 0xb8
+    char pad_01[47];
 }; // size: 0xe8
 
 /// CVoiceContainerStaticAdditiveSynth::CTone
 class __declspec(align(8)) CVoiceContainerStaticAdditiveSynth__CTone0 {
 public:
     // CUtlVector< CVoiceContainerStaticAdditiveSynth::CHarmonic > m_harmonics;
+    char m_harmonics[1]; // 0x0
     // CPiecewiseCurve m_curve;
-    char pad_00[88];
+    char pad_00[23];
+    char m_curve[1]; // 0x18
+    char pad_01[63];
     bool m_bSyncInstances; // 0x58
-    char pad_01[7];
+    char pad_02[7];
 }; // size: 0x60
 
 /// CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance
@@ -708,8 +793,11 @@ public:
     float m_flCents; // 0x8
     float m_flPhase; // 0xc
     // CPiecewiseCurve m_curve;
+    char m_curve[1]; // 0x10
     // CVoiceContainerStaticAdditiveSynth::CGainScalePerInstance m_volumeScaling;
-    char pad_00[88];
+    char pad_00[63];
+    char m_volumeScaling[1]; // 0x50
+    char pad_01[23];
 }; // size: 0x68
 
 /// CVoiceContainerShapedNoise
@@ -719,22 +807,27 @@ public:
     bool m_bUseCurveForFrequency; // 0xa8
     float m_flFrequency; // 0xac
     // CPiecewiseCurve m_frequencySweep;
-    char pad_01[64];
+    char m_frequencySweep[1]; // 0xb0
+    char pad_01[63];
     bool m_bUseCurveForResonance; // 0xf0
     float m_flResonance; // 0xf4
     // CPiecewiseCurve m_resonanceSweep;
-    char pad_02[64];
+    char m_resonanceSweep[1]; // 0xf8
+    char pad_02[63];
     bool m_bUseCurveForAmplitude; // 0x138
     float m_flGainInDecibels; // 0x13c
     // CPiecewiseCurve m_gainSweep;
-    char pad_03[64];
+    char m_gainSweep[1]; // 0x140
+    char pad_03[63];
 }; // size: 0x180
 
 /// CVoiceContainerSwitch
 class __declspec(align(8)) CVoiceContainerSwitch0 {
 public:
     // CUtlVector< CSoundContainerReference > m_soundsToPlay;
-    char pad_00[192];
+    char pad_00[168];
+    char m_soundsToPlay[1]; // 0xa8
+    char pad_01[23];
 }; // size: 0xc0
 
 /// CVoiceContainerSetElement
@@ -749,7 +842,9 @@ public:
 class __declspec(align(8)) CVoiceContainerSet0 {
 public:
     // CUtlVector< CVoiceContainerSetElement > m_soundsToPlay;
-    char pad_00[192];
+    char pad_00[168];
+    char m_soundsToPlay[1]; // 0xa8
+    char pad_01[23];
 }; // size: 0xc0
 
 /// CVoiceContainerDecayingSineWave
@@ -786,22 +881,32 @@ public:
     CSoundContainerReference m_secondSound; // 0xc0
     bool m_bEnableOcclusionBlend; // 0xd8
     // CPiecewiseCurve m_curve1;
+    char pad_01[7];
+    char m_curve1[1]; // 0xe0
     // CPiecewiseCurve m_curve2;
-    char pad_01[135];
+    char pad_02[63];
+    char m_curve2[1]; // 0x120
+    char pad_03[63];
     bool m_bEnableDistanceBlend; // 0x160
     // CPiecewiseCurve m_curve3;
+    char pad_04[7];
+    char m_curve3[1]; // 0x168
     // CPiecewiseCurve m_curve4;
-    char pad_02[135];
+    char pad_05[63];
+    char m_curve4[1]; // 0x1a8
+    char pad_06[63];
 }; // size: 0x1e8
 
 /// CVMixBaseProcessorDesc
 class __declspec(align(4)) CVMixBaseProcessorDesc0 {
 public:
     // CUtlString m_name;
-    char pad_00[20];
+    char pad_00[8];
+    char m_name[1]; // 0x8
+    char pad_01[8];
     int32_t m_nChannels; // 0x14
     float m_flxfade; // 0x18
-    char pad_01[4];
+    char pad_02[4];
 }; // size: 0x20
 
 /// VMixFilterDesc_t
@@ -840,7 +945,8 @@ public:
 class __declspec(align(8)) VMixPresetDSPDesc_t0 {
 public:
     // CUtlString m_effectName;
-    char pad_00[16];
+    char m_effectName[1]; // 0x0
+    char pad_00[15];
 }; // size: 0x10
 
 /// CVMixPresetDSPProcessorDesc
@@ -1273,7 +1379,8 @@ public:
 class __declspec(align(8)) VMixEffectChainDesc_t0 {
 public:
     // CUtlString m_effectName;
-    char pad_00[8];
+    char m_effectName[1]; // 0x0
+    char pad_00[7];
 }; // size: 0x8
 
 /// CVMixEffectChainProcessorDesc
@@ -1317,13 +1424,18 @@ public:
 class __declspec(align(8)) VMixSubgraphSwitchDesc_t0 {
 public:
     // CUtlString m_name;
+    char m_name[1]; // 0x0
     // CUtlString m_effectName;
+    char pad_00[7];
+    char m_effectName[1]; // 0x8
     // CUtlVector< CUtlString > m_subgraphs;
-    char pad_00[40];
+    char pad_01[7];
+    char m_subgraphs[1]; // 0x10
+    char pad_02[20];
     VMixSubgraphSwitchInterpolationType_t m_interpolationMode; // 0x28
     bool m_bOnlyTailsOnFadeOut; // 0x2c
     float m_flInterpolationTime; // 0x30
-    char pad_01[4];
+    char pad_03[4];
 }; // size: 0x38
 
 /// CVMixSubgraphSwitchProcessorDesc
@@ -1337,7 +1449,8 @@ public:
 class __declspec(align(8)) CVMixInputBase0 {
 public:
     // CUtlString m_name;
-    char pad_00[16];
+    char m_name[1]; // 0x0
+    char pad_00[15];
 }; // size: 0x10
 
 /// CVMixControlInput
@@ -1374,16 +1487,20 @@ public:
 class __declspec(align(8)) CVMixNameInput0 {
 public:
     // CUtlString m_defaultValue;
-    char pad_00[32];
+    char pad_00[16];
+    char m_defaultValue[1]; // 0x10
+    char pad_01[15];
 }; // size: 0x20
 
 /// CVMixVsndInput
 class __declspec(align(8)) CVMixVsndInput0 {
 public:
     // CUtlString m_defaultValue;
-    char pad_00[24];
-    int32_t m_nProcessor; // 0x18
+    char pad_00[16];
+    char m_defaultValue[1]; // 0x10
     char pad_01[4];
+    int32_t m_nProcessor; // 0x18
+    char pad_02[4];
 }; // size: 0x20
 
 /// CVMixCommand
@@ -1403,8 +1520,11 @@ public:
 class __declspec(align(8)) CVMixAudioMeter0 {
 public:
     // CUtlString m_name;
+    char m_name[1]; // 0x0
     // CUtlString m_displayName;
-    char pad_00[24];
+    char pad_00[7];
+    char m_displayName[1]; // 0x8
+    char pad_01[15];
 }; // size: 0x18
 
 /// CVMixControlMeter
@@ -1427,14 +1547,16 @@ public:
 class __declspec(align(8)) CVMixAdditionalOutput0 {
 public:
     // CUtlString m_name;
-    char pad_00[16];
+    char m_name[1]; // 0x0
+    char pad_00[15];
 }; // size: 0x10
 
 /// CVMixAutomaticControlInput
 class __declspec(align(8)) CVMixAutomaticControlInput0 {
 public:
     // CUtlString m_name;
-    char pad_00[8];
+    char m_name[1]; // 0x0
+    char pad_00[4];
     int32_t m_nControlInputIndex; // 0x8
     bool m_bIsTrackSend; // 0xc
     bool m_bIsStackVar; // 0xd
@@ -1452,7 +1574,8 @@ public:
 class __declspec(align(8)) CVMixGraphDescData0 {
 public:
     // CUtlString m_name;
-    char pad_00[8];
+    char m_name[1]; // 0x0
+    char pad_00[4];
     int32_t m_nGraphOutputChannels; // 0x8
     bool m_bIsMainGraph; // 0xc
     char pad_01[3];

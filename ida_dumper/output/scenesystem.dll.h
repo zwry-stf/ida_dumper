@@ -54,14 +54,16 @@ class __declspec(align(8)) CSSDSEndFrameViewInfo0 {
 public:
     uint64_t m_nViewId; // 0x0
     // CUtlString m_ViewName;
-    char pad_00[8];
+    char m_ViewName[1]; // 0x8
+    char pad_00[7];
 }; // size: 0x10
 
 /// CSSDSMsg_EndFrame
 class __declspec(align(8)) CSSDSMsg_EndFrame0 {
 public:
     // CUtlVector< CSSDSEndFrameViewInfo > m_Views;
-    char pad_00[24];
+    char m_Views[1]; // 0x0
+    char pad_00[23];
 }; // size: 0x18
 
 /// SceneViewId_t
@@ -76,7 +78,8 @@ class __declspec(align(8)) CSSDSMsg_ViewRender0 {
 public:
     SceneViewId_t m_viewId; // 0x0
     // CUtlString m_ViewName;
-    char pad_00[8];
+    char m_ViewName[1]; // 0x10
+    char pad_00[7];
 }; // size: 0x18
 
 /// CSSDSMsg_LayerBase
@@ -84,18 +87,21 @@ class __declspec(align(8)) CSSDSMsg_LayerBase0 {
 public:
     SceneViewId_t m_viewId; // 0x0
     // CUtlString m_ViewName;
-    char pad_00[8];
+    char m_ViewName[1]; // 0x10
     uint64_t m_nLayerId; // 0x18
     // CUtlString m_LayerName;
+    char m_LayerName[1]; // 0x20
     // CUtlString m_displayText;
-    char pad_01[16];
+    char pad_00[7];
+    char m_displayText[1]; // 0x28
+    char pad_01[7];
 }; // size: 0x30
 
 /// CSSDSMsg_ViewTarget
 class __declspec(align(8)) CSSDSMsg_ViewTarget0 {
 public:
     // CUtlString m_Name;
-    char pad_00[8];
+    char m_Name[1]; // 0x0
     uint64_t m_TextureId; // 0x8
     int32_t m_nWidth; // 0x10
     int32_t m_nHeight; // 0x14
@@ -112,8 +118,11 @@ class __declspec(align(8)) CSSDSMsg_ViewTargetList0 {
 public:
     SceneViewId_t m_viewId; // 0x0
     // CUtlString m_ViewName;
+    char m_ViewName[1]; // 0x10
     // CUtlVector< CSSDSMsg_ViewTarget > m_Targets;
-    char pad_00[32];
+    char pad_00[7];
+    char m_Targets[1]; // 0x18
+    char pad_01[23];
 }; // size: 0x30
 
 /// CSSDSMsg_PreLayer

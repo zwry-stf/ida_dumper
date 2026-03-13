@@ -22,6 +22,8 @@ struct loaded_field_t;
 struct loaded_enum_t;
 struct loaded_enum_value_t;
 
+enum class field_type_return : std::uint8_t;
+
 struct module_t {
     std::uintptr_t base{};
     std::size_t size{};
@@ -82,9 +84,9 @@ private:
     bool parse_enum(const CSchemaEnumData& en, loaded_enum_t& out);
     bool parse_enum_value(const CSchemaEnumValueData& data, std::uint32_t size, loaded_enum_value_t& out);
 
-    bool get_field_type(loaded_field_t& field, std::string& out_name, std::uint32_t& out_pos,
-                        std::uint32_t& last_pos_with_alignment, std::size_t& special_format_delimiter,
-                        const std::vector<const loaded_scope_t*>& includes);
+    field_type_return get_field_type(loaded_field_t& field, std::string& out_name, std::uint32_t& out_pos,
+                                     std::uint32_t& last_pos_with_alignment, std::size_t& special_format_delimiter,
+                                     const std::vector<const loaded_scope_t*>& includes);
     void format_class(loaded_class_t& cls, const std::vector<const loaded_scope_t*>& includes, std::string& source);
     void format_enum(loaded_enum_t& en, std::string& source);
     void format_scope(loaded_scope_t& scope, const std::vector<const loaded_scope_t*>& includes, 
